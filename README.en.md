@@ -4,7 +4,7 @@
 This project provides a set of resources for the [technical implementation of DCAT-AP-ES](https://datos.gob.es/es/documentacion/etiquetas/normativas-3836), an application profile of the Data Catalog Vocabulary ([DCAT-AP](https://datos.gob.es/es/documentacion/dcat-ap-perfil-de-aplicacion-de-dcat-para-portales-open-data-europeos)) for Spain.
 
 > [!TIP]
-> The documentation available at [DCAT-AP-ES Online] (https://datosgobes.github.io/DCAT-AP-ES/) is intended as a reference for both data publishers and users of open data. It details the principles and guidelines for structuring and describing datasets according to the DCAT-AP-ES Application Profile, facilitating their interoperability and reuse. It also includes metadata schemas, practical examples, and implementation guidelines to help ensure proper adoption of the profile.
+> The documentation available at [DCAT-AP-ES Online](https://datosgobes.github.io/DCAT-AP-ES/) is intended as a reference for both data publishers and users of open data. It details the principles and guidelines for structuring and describing datasets according to the DCAT-AP-ES Application Profile, facilitating their interoperability and reuse. It also includes metadata schemas, practical examples, and implementation guidelines to help ensure proper adoption of the profile.
 
 ## Project Structure
 
@@ -23,7 +23,12 @@ The project is organized as follows:
 If you want to contribute to this project, for example by extending `DCAT-AP-ES`, please follow these steps:
 
 1. Fork the [`datosgobes/DCAT-AP-ES`](https://github.com/datosgobes/DCAT-AP-ES) repository.
-2. Create a new branch:
+
+    ```sh
+    git clone https://github.com/datosgobes/DCAT-AP-ES.git
+    ```
+
+2. Create a new branch with your extension
 
     ```sh
     git checkout -b extension/dcat-ap-es-health

@@ -23,7 +23,12 @@ El proyecto está organizado de la siguiente manera:
 Si deseas contribuir a este proyecto, por ejemplo extendiendo `DCAT-AP-ES`, por favor sigue estos pasos:
 
 1. Bifurca el repositorio [`datosgobes/DCAT-AP-ES`](https://github.com/datosgobes/DCAT-AP-ES).
-2. Crea una nueva rama 
+
+    ```sh
+    git clone https://github.com/datosgobes/DCAT-AP-ES.git
+    ```
+
+2. Crea una nueva rama con tu extensión
 
     ```sh
     git checkout -b extension/dcat-ap-es-health
