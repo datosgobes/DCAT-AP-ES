@@ -20,7 +20,7 @@ The project is organized as follows:
 
 ## Contribution
 
-If you want to contribute to this project, for example by extending `DCAT-AP-ES`, please follow these steps:
+If you want to contribute to this project, for example by fixing a [SHACL validation file](https://datos.gob.es/en/blog/shacl-un-lenguaje-para-validar-grafos-rdf) of `DCAT-AP-ES`, please follow these steps:
 
 1. Fork the [`datosgobes/DCAT-AP-ES`](https://github.com/datosgobes/DCAT-AP-ES) repository.
 
@@ -28,25 +28,25 @@ If you want to contribute to this project, for example by extending `DCAT-AP-ES`
     git clone https://github.com/datosgobes/DCAT-AP-ES.git
     ```
 
-2. Create a new branch with your extension
+2. Create a new branch with your fix
 
     ```sh
-    git checkout -b extension/dcat-ap-es-health
+    git checkout -b fix/shacl-property-x
     ```
 
 3. Make your changes and commit them:
 
     ```sh
-    git commit -am 'Add new functionality'
+    git commit -am 'Fixed range of property x'
     ```
 
 4. Push your changes:
 
     ```sh
-    git push origin extension/dcat-ap-es-health
+    git push origin fix/shacl-property-x
     ```
 
-5. Open a [](https://github.com/datosgobes/DCAT-AP-ES/pulls).
+5. To commit the change to the main branch, open a Pull Request(https://github.com/datosgobes/DCAT-AP-ES/pulls).
 
 ## License
 
