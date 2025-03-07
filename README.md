@@ -13,7 +13,7 @@ El proyecto está organizado de la siguiente manera:
 - `.devcontainer`: Configuración para [Dev Containers](https://containers.dev/implementors/spec/), una funcionalidad que permite desarrollar en un entorno preconfigurado dentro de un contenedor [Docker](https://docs.docker.com/).
 - `.github/workflows/`: Contiene los flujos de trabajo de [GitHub Actions](https://docs.github.com/es/actions) para la generación de la documentación online.
 - `docs/`: Documentación principal del proyecto en formato [`Markdown`](https://daringfireball.net/projects/markdown/syntax) para [MKDocs](https://www.mkdocs.org/getting-started/).
-- `overrides`: Plantillas personalizadas para la documentación online.
+- `overrides`: [Plantillas personalizadas](https://squidfunk.github.io/mkdocs-material/customization/) para la documentación online.
 - `examples/`: Ejemplos de uso de `DCAT-AP-ES`.
 - `refs/`: Referencias adicionales y documentación relacionada.
 - `tools/`: Herramientas y software útil para la gestión del proyecto.
