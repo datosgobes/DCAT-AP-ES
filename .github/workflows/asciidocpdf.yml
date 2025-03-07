@@ -1,0 +1,61 @@
+name: Generate PDFs from AsciiDoc files
+
+on:
+  push:
+    paths:
+      - 'docs/adoc/**'
+  workflow_dispatch:
+    inputs:
+      convert_md:
+        description: 'Convert Markdown to AsciiDoc'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  generate_pdfs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Docker Compose
+        run: |
+          echo "APP_DIR=/srv/app" > .env
+          echo "DOC_DIR=/srv/app/documents" >> .env
+          echo "OUTPUT_DIR=/srv/app/documents/output" >> .env
+          echo "PDF_PREFIX=dcat-ap-es" >> .env
+          echo "DEFAULT_THEME=datosgobes-theme" >> .env
+          echo "DEBUG=true" >> .env
+
+      - name: Create directories
+        run: |
+          mkdir -p output
+          mkdir -p refs/dcat-ap-es/pdf
+
+      - name: Build and run with Docker Compose
+        env:
+          CONVERT_MD: ${{ github.event.inputs.convert_md || 'false' }}
+        run: |
+          if [ "$CONVERT_MD" = "true" ]; then
+            docker compose --profile md2adoc up --build
+          else
+            docker compose up --build
+          fi
+
+      - name: Move PDFs to final location
+        run: |
+          mv output/*.pdf refs/dcat-ap-es/pdf/
+          echo "=== Generated PDFs ==="
+          ls -la refs/dcat-ap-es/pdf/
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add -f refs/dcat-ap-es/pdf/*.pdf
+          git commit -m "Update PDF documents [skip ci]" || echo "No changes to commit"
+          git push origin main || echo "No changes to push"
