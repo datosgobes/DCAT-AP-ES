@@ -1,0 +1,286 @@
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "¿Qué es el repositorio DCAT-AP-ES?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Repositorio de código y seguimiento sobre la implementación de la NTI de acuerdo con el perfil de aplicación DCAT-AP-ES.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the DCAT-AP-ES repository?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Code repository and tracking for the implementation of the NTI according to the DCAT-AP-ES application profile.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué encontrar en el repositorio DCAT-AP-ES?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La evolución de la especificación DCAT-AP-ES con documentación técnica, guías, ejemplos y la retroalimentación de los usuarios.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What to find in the DCAT-AP-ES repository?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The evolution of the DCAT-AP-ES specification with technical documentation, guides, examples and user feedback.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cuándo entra en vigor DCAT-AP-ES?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "DCAT-AP-ES está previsto que entre en vigor en 2025, tras la aprobación de la nueva NTI-RISP, el día siguiente a su publicación en el BOE.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "When does DCAT-AP-ES come into force?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "DCAT-AP-ES is expected to come into force in 2025, following the approval of the new NTI-RISP, the day after its publication in the Official State Gazette (BOE).",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué plazo hay para migrar a DCAT-AP-ES?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Los publicadores disponen de un periodo de adaptación de seis meses desde la entrada en vigor de la NTI-RISP.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the deadline for migration to DCAT-AP-ES?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Publishers have an adaptation period of six months from the entry into force of the NTI-RISP.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué es un conjunto de datos (dataset)?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Un conjunto de datos (dataset, clase dcat:Dataset) es una colección de información relacionada sobre un tema, organizada para facilitar su acceso, uso y distribución por una organización.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is a dataset?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A dataset (dcat:Dataset class) is a collection of related information on a topic, organized to facilitate its access, use and distribution by an organization.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué es una distribución?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Una distribución (dcat:Distribution) es una representación específica de un conjunto de datos, como un archivo en un formato particular (ej: CSV, JSON).",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is a distribution?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A distribution (dcat:Distribution) is a specific representation of a dataset, such as a file in a particular format (e.g., CSV, JSON).",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Diferencias entre recurso y distribución?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Un recurso (dcat:Resource) es una clase abstracta que representa elementos de un catálogo, como conjuntos, servicios u otros catálogos. Sirve de base para estos tipos, pero no se usa directamente. En cambio, una distribución es una forma específica de acceder a ese recurso, como un archivo CSV descargable.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are the differences between resource and distribution?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A resource (dcat:Resource) is an abstract class that represents elements of a catalog, such as datasets, services or other catalogs. It serves as the foundation for these types but is not used directly. In contrast, a distribution is a specific way to access that resource, such as a downloadable CSV file.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué es un registro de un catálogo?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Un registro de catálogo (dcat:CatalogRecord) es un recurso que contiene los metadatos sobre entradas individuales de un dataset o servicio en un catálogo, no la descripción del recurso en sí. Representa información administrativa como la fecha de incorporación al catálogo, estado de publicación o información de procedencia.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is a catalog record?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A catalog record (dcat:CatalogRecord) is a resource that contains metadata about individual entries of a dataset or service in a catalog, not the description of the resource itself. It represents administrative information such as the date of incorporation into the catalog, publication status, or provenance information.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cómo se relacionan los elementos del modelo?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El modelo DCAT-AP-ES funciona como una red donde los elementos se conectan entre sí: Un catálogo (dcat:Catalog) funciona como un contenedor principal que aloja conjuntos de datos y servicios; Los servicios de datos (dcat:DataService) proporcionan acceso a los conjuntos de datos; Cada conjunto de datos (dcat:Dataset) puede tener múltiples distribuciones (formatos); Las distribuciones (dcat:Distribution) pueden accederse a través de servicios específicos.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do the model elements relate to each other?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The DCAT-AP-ES model functions as a network where elements connect to each other: A catalog (dcat:Catalog) serves as the main container hosting datasets and services; Data services (dcat:DataService) provide access to datasets; Each dataset (dcat:Dataset) can have multiple distributions (formats); Distributions (dcat:Distribution) can be accessed through specific services.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué formato de archivo debe tener el catálogo DCAT-AP-ES?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El fichero de catálogo que va a federarse debe describirse conforme a la sintaxis XML para RDF denominada RDF/XML.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What file format should the DCAT-AP-ES catalog have?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The catalog file to be federated must be described according to the XML syntax for RDF called RDF/XML.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Dónde puedo encontrar ejemplos de DCAT-AP-ES?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Disponibles en la guía online y en el directorio examples/ del repositorio, organizados por entidades y casos de uso específicos.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Where can I find examples of DCAT-AP-ES?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Available in the online guide and in the examples/ directory of the repository, organized by entities and specific use cases.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué relación tiene DCAT-AP-ES con otros estándares?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "DCAT-AP-ES implementa DCAT-AP y su extensión HVD, garantizando la compatibilidad con el ecosistema europeo de datos abiertos.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How DCAT-AP-ES relates to other standards?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "DCAT-AP-ES implements DCAT-AP and its HVD extension, ensuring compatibility with the European open data ecosystem.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Principales novedades de DCAT-AP-ES?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": " Se alinea con el perfil europeo DCAT-AP, incorpora servicios de datos (dcat:DataService), el modelado de conjuntos de alto valor (HVD) y mejoras en la descripción de la calidad de metadatos.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's new in DCAT-AP-ES?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": " It conforms to the European DCAT-AP profile, includes data services (dcat:DataService), high value set (HVD) modeling, and metadata quality description enhancements.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué licencia tiene DCAT-AP-ES?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": " Todo el material esta licenciado con la licencia abierta *Creative Commons Attribution 4.0 International*. Puedes copiar, modificar, distribuir y utilizar el material, incluso con fines comerciales, siempre que se reconozca la autoría.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What license does DCAT-AP-ES have?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": " All material is licensed under the open license *Creative Commons Attribution 4.0 International*. You may copy, modify, distribute and use the material, even for commercial purposes, as long as the authorship is acknowledged.",
+                "inLanguage": "en"
+            }
+        }
+    ]
+}

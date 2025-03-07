@@ -1,0 +1,17 @@
+<!-- Passing config.dcatapes (mkdocs.yml) to JavaScript -->
+
+<!-- jQuery -->
+<script src="{{ config.site_url }}/assets/js/vendor/jquery-3.7.1.min.js"></script>
+
+<!-- Vars depends from template -->
+<script>
+    if (typeof dcatapesConfig === 'undefined') {
+        window.dcatapesConfig = {{ config.dcatapes|tojson }};
+    }
+    if (typeof lang === 'undefined') {
+        window.lang = "{{ config.theme.language }}";
+    }
+</script>
+
+<!-- Codeblock enhancement module -->
+<script src="{{ config.site_url }}/assets/js/modules/codeblock-enhancement.js"></script>

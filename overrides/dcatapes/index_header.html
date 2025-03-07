@@ -1,0 +1,93 @@
+{% set lang = config.theme.language if config.theme.language in config.dcatapes else config.dcatapes.keys()|list|first %}
+<div class="head" id="index_header">
+    {% if config.dcatapes[lang].draft %}
+        <div class="draft-label">{{ config.dcatapes[lang].buttons.draft_label.label }}</div>
+    {% endif %}
+    <div class="download-button-container">
+        {% if config.dcatapes[lang].download_pdf %}
+        <a class="md-content__button md-icon" href="{{ config.dcatapes[lang].buttons.download_pdf.href.index }}" title="{{ config.dcatapes[lang].buttons.download_pdf.title }}" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 20.41 4.12 20.8 4.34 21.12C4.41 21.23 4.5 21.33 4.59 21.41C4.95 21.78 5.45 22 6 22H13.53C13 21.42 12.61 20.75 12.35 20H6V4H13V9H18V12C18.7 12 19.37 12.12 20 12.34V8L14 2M18 23L23 18.5L20 15.8L18 14V17H14V20H18V23Z" />
+            </svg>
+        </a>
+        {% endif %}
+    </div>
+    <div class="title-container">
+        <span id="title" class="title">{{ config.dcatapes[lang].title }}</span>
+    </div>
+    <p class="logos">
+        </p><div class="dge-entidades">
+            <ul>
+                {% for logo in config.dcatapes[lang].logos %}
+                    <li><a href="{{ logo.href }}" data-insuit-uuid=""><img alt="{{ logo.alt }}" src="{{ logo.src }}"></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    <p></p>
+    <center><span id="subtitle" class="subtitle">{{ config.dcatapes[lang].document_title }}</span></center>
+    <p id="w3c-state">
+        <time class="dt-published" datetime="{{ config.dcatapes[lang].published_date }}">{{ config.dcatapes[lang].published_date }}</time>
+    </p>
+    <details open="">
+        <summary>{{ config.dcatapes[lang].details_summary }}</summary>
+        <dl>
+            <dt>{{ config.dcatapes[lang].categories.latest_published_version }}:</dt>
+            <dd><a href="{{ config.dcatapes[lang].latest_published_version }}">{{ config.dcatapes[lang].latest_published_version }}</a></dd>
+            <dt>{{ config.dcatapes[lang].categories.latest_editors_draft }}:</dt>
+            <dd><a href="{{ config.dcatapes[lang].latest_editors_draft }}">{{ config.dcatapes[lang].latest_editors_draft }}</a></dd>
+            <dt>{{ config.dcatapes[lang].categories.history }}:</dt>
+            {% for item in config.dcatapes[lang].history %}
+                <dd><a href="{{ item.link }}">{{ item.name }}</a></dd>
+            {% endfor %}
+            <dt>{{ config.dcatapes[lang].categories.editors }}:</dt>
+            {% for editor in config.dcatapes[lang].editors %}
+                <dd class="editor p-author h-card vcard">
+                    {% if editor.email %}
+                        <a class="u-email email" href="mailto:{{ editor.email }}">{{ editor.name }}</a>
+                    {% else %}
+                        <span class="p-name fn">{{ editor.name }}</span>
+                    {% endif %}
+                    {% if editor.org %}
+                        (<span class="p-org org h-org">{{ editor.org }}</span>)
+                    {% endif %}
+                </dd>
+            {% endfor %}
+            <dt>{{ config.dcatapes[lang].categories.author }}:</dt>
+            <dd class="editor p-author h-card vcard">
+                <a class="ed_mailto u-email email p-name" href="mailto:{{ config.dcatapes[lang].author.email }}">{{ config.dcatapes[lang].author.name }}</a>
+                {% if config.dcatapes[lang].author.org %}
+                    (<span class="p-org org h-org">{{ config.dcatapes[lang].author.org }}</span>)
+                {% endif %}
+            </dd>
+            <dt>{{ config.dcatapes[lang].categories.feedback }}:</dt>
+            <dd>
+                <a href="{{ config.repo_url }}">{{ config.dcatapes[lang].feedback.title }}</a>
+                <ul style="padding-left: 20px; margin: 0; margin-top: 5px;">
+                    {% for link in config.dcatapes[lang].feedback_links %}
+                        <li><a href="{{ link.link }}">{{ link.text }}</a></li>
+                    {% endfor %}
+                </ul>
+            </dd>
+            <dt>{{ config.dcatapes[lang].categories.owners }}:</dt>
+            {% for owner in config.dcatapes[lang].owners %}
+                <dd>
+                    {% if owner.link %}
+                        <a href="{{ owner.link }}">{{ owner.name }}</a>
+                    {% else %}
+                        {{ owner.name }}
+                    {% endif %}
+                    {% if owner.org %}
+                        ({{ owner.org }})
+                    {% endif %}
+                </dd>
+            {% endfor %}
+        </dl>
+    </details>
+    <p class="copyright">
+        {% set icon = config.dcatapes[lang].copyright.icon or "fontawesome/regular/copyright" %}
+        {% include ".icons/" ~ icon ~ ".svg" %}
+        <a href="{{ config.dcatapes[lang].copyright.link }}" target="_blank" rel="noopener">
+            {{ config.dcatapes[lang].copyright.name }}
+        </a>
+    </p>
+</div>

@@ -1,0 +1,20 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# ✅ Uso recomendado general con HTTP
+<http://datos.gob.es/catalogo/dataset/001>
+    a dcat:Dataset ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/EA0000000> ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/TECH> .
+
+# ✅ Excepción para ELIs del BOE
+<http://datos.gob.es/catalogo/dataset/002>
+    a dcat:Dataset ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/EA0000000> ;
+    dcatap:applicableLegislation <https://www.boe.es/eli/es/rdlg/2001/07/20/1> .
+
+# ❌ Uso no recomendado con HTTPS
+<https://datos.gob.es/catalogo/dataset/001>
+    a dcat:Dataset ;
+    dct:publisher <https://datos.gob.es/recurso/sector-publico/org/Organismo/EA0000000> ;
+    dcat:theme <https://publications.europa.eu/resource/authority/data-theme/TECH> .

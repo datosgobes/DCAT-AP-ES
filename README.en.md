@@ -1,5 +1,5 @@
 # Guide for DCAT-AP-ES
-[![ES](https://img.shields.io/badge/lang-ES-yellow.svg)](README.md)
+[![EN](https://img.shields.io/badge/lang-EN-blue.svg)](README.en.md) [![ES](https://img.shields.io/badge/lang-ES-yellow.svg)](README.md)
 
 This project provides a set of resources for the [technical implementation of DCAT-AP-ES](https://datos.gob.es/es/documentacion/etiquetas/normativas-3836), an application profile of the Data Catalog Vocabulary ([DCAT-AP](https://datos.gob.es/es/documentacion/dcat-ap-perfil-de-aplicacion-de-dcat-para-portales-open-data-europeos)) for Spain.
 
@@ -14,7 +14,7 @@ The project is organized as follows:
 - `.github/workflows/`: Contains [GitHub Actions](https://docs.github.com/en/actions) workflows for generating the online documentation.
 - `docs/`: Main project documentation in [`Markdown`](https://daringfireball.net/projects/markdown/syntax) format for [MKDocs](https://www.mkdocs.org/getting-started/).
 - `overrides`: Custom templates for the online documentation.
-- `samples/`: Usage examples of `DCAT-AP-ES`.
+- `examples/`: Usage examples of `DCAT-AP-ES`.
 - `refs/`: Additional references and related documentation.
 - `tools/`: Tools and useful software for project management.
 
@@ -47,6 +47,31 @@ If you want to contribute to this project, for example by fixing a [SHACL valida
     ```
 
 5. To commit the change to the main branch, open a Pull Request(https://github.com/datosgobes/DCAT-AP-ES/pulls).
+
+## Development  
+
+To preview the documentation with MkDocs and launch it in debug mode, check the following documentation: [Information about MkDocs](./refs/dev/mkdocs.md).  
+
+### Translation  
+
+This documentation uses [`mkdocs-static-i18n`](https://ultrabug.github.io/mkdocs-static-i18n/) to support multiple languages. To achieve this, the suffix structure is adopted:  
+
+```bash
+├── assets
+│   ├── css
+│   └── js
+├── img
+├── conventions.en.md
+├── conventions.md
+├── examples.en.md
+├── examples.md
+├── index.md
+└── robots.txt
+```
+
+> [!NOTE]  
+> When using the suffix structure for documentation files (default), you must add the suffix `.<language>.<extension>` to your files (e.g., `index.en.md`).  
+> More information at: [MkDocs static i18n plugin documentation](https://ultrabug.github.io/mkdocs-static-i18n/getting-started/quick-start/)
 
 ## License
 

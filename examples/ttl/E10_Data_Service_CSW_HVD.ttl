@@ -1,0 +1,53 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix vcard: <http://www.w3.org/206/vcard/ns#> .
+
+<http://dcat-ap-es.ejemplo.org/catalogo>
+  a dcat:Catalog ;
+  dct:title "Catálogo de servicios de Datos CSW Abiertos"@es ;
+  dct:description "Catálogo de servicios de Datos CSW Abiertos que sirve de ejemplo en DCAT-AP-ES."@es ;
+  foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+  dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ;
+  dct:issued "2025-01-01T09:00:00+01:00"^^xsd:dateTime ;
+  dct:modified "2025-01-02T12:00:00+01:00"^^xsd:dateTime ;
+  dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
+  dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+  dcat:record <http://dcat-ap-es.ejemplo.org/registro-001> ;
+  dcat:service <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-CSW-ejemplo-1> .
+
+<http://dcat-ap-es.ejemplo.org/registro-001>
+  a dcat:CatalogRecord ;
+  foaf:primaryTopic <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-CSW-ejemplo-1> ;
+  dct:modified "2025-01-02T09:00:00+01:00"^^xsd:dateTime .
+
+<http://dcat-ap-es.ejemplo.org/dataservice/dataservice-CSW-ejemplo-1>
+  a dcat:DataService ;
+  dct:title "Servicio de catálogo de datos CSW"@es ;
+  dct:description "Catálogo público de conjuntos de datos espaciales."@es ;
+  dct:type <http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory/infoCatalogueService>, <http://inspire.ec.europa.eu/metadata-codelist/ResourceType/service>, <http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/discovery> ;
+  dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+  dct:conformsTo <http://www.opengis.net/def/serviceType/ogc/csw> ;
+  dct:identifier "ejemplo-catalogo-ide-public" ;
+  dct:issued "2025-01-01T09:00:00+01:00"^^xsd:dateTime ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+  dct:spatial [
+    a dct:Location ;
+    dcat:bbox "POLYGON((-180 90,180 90,180 -90,-180 -90,-180 90))"^^geo:wktLiteral
+  ] ;
+  dcat:endpointURL <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-CSW-ejemplo-1/srv/csw> ;
+  dcat:endpointDescription <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-CSW-ejemplo-1/srv/csw?service=CSW&amp;request=GetCapabilities> ;
+  foaf:page <https://dcat-ap-es.ejemplo.org/api/sla.html> ;
+  dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj>, <http://data.europa.eu/eli/dir/2007/2/2019-06-26> ;
+  dcatap:hvdCategory <http://data.europa.eu/bna/c_b7f6a4f3> ;
+  dcat:contactPoint [
+    a vcard:Kind ;
+    vcard:fn "Centro de soporte de Organismo"@es ;
+    vcard:hasEmail <mailto:info-contacto@dcat-ap-es.ejemplo.org> ;
+    vcard:hasURL <https://dcat-ap-es.ejemplo.org/formulario-soporte>
+  ] .

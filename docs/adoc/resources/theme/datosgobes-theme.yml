@@ -1,0 +1,137 @@
+extends: default
+font:
+  catalog:
+    merge: true
+    Poppins:
+      normal: Poppins-Regular.ttf
+      bold: Poppins-Bold.ttf
+      italic: Poppins-Italic.ttf
+      bold_italic: Poppins-BoldItalic.ttf
+    SourceCodePro:
+      normal: SourceCodePro-Regular.ttf
+base:
+  font_family: Poppins
+  font_size: 12
+  font_color: "#333333"
+  line_height: 1.5
+heading:
+  font_family: Poppins
+  font_color: "#0E3062"
+  font_size: 14
+  font_style: bold
+page:
+  size: A4
+  layout: portrait
+  margin: [0.75in, 1in, 0.75in, 1in]
+footer:
+  height: 0.75in
+  recto:
+    right:
+      content: 'DCAT-AP-ES | datos.gob.es | {page-number} de {page-count}'
+code:
+  font_family: SourceCodePro
+table:
+  border_color: "#00A99D"  # --primary-color
+table-head:
+    background_color: "#0f3062"  # --header-bg-color
+    font_color: "#FFFFFF"  # --header-text-color
+    font_style: bold
+    align: center
+table-body:
+    alternate_background_color: "#C1E2DF"  # --alternate-bg-color
+    font_color: "#333333"
+    font_style: normal
+    border_right_color: "#00A99D"
+    border_bottom_color: "#00A99D"
+admonition:
+  # all admonitions will have a width of 0 because
+  # we want to disable drawing them altogether
+  background-color: "#e4f0ef"
+  border-color: "#0E3062"
+  border-radius: 4
+  border-style: solid
+  border-width: 1
+  # Configuración del título del admonition
+  caption:
+    font_style: bold
+    font_size: 14
+    font_color: "#1e2021"
+
+  # Custom admonition types
+  caution: # MUST (Mandatory)
+    background-color: "#fbede9"
+    border-color: "#eba58f" 
+    caption:
+      font_color: "#665240"
+    badge:
+      text: "Obligatoria"
+      background_color: "#eba58f"
+      font_color: "#FFFFFF"
+      font_size: 8
+
+  warning: # SHOULD (Recommended)
+    background-color: "#fbf2e9" 
+    border-color: "#ebbb8f"
+    caption:
+      font_color: "#63453b"
+    badge:
+      text: "Recomendada"
+      background_color: "#ebbb8f"
+      font_color: "#FFFFFF"
+      font_size: 8
+
+  tip: # MAY (Optional)
+    background-color: "#e8f5e5" 
+    border-color: "#8ecf7b"
+    caption:
+      font_color: "#3a5a31"
+    badge:
+      text: "Opcional"
+      background_color: "#8ecf7b"
+      font_color: "#FFFFFF"
+      font_size: 8
+
+  # Normal admonitions
+  note: # Implementation notes, usage, etc.
+    background-color: "#e5f8fb"
+    border-color: "#00b8d4"
+    caption:
+      font_color: "#1e2021"
+      font_size: 12
+  
+  important: # Important notes
+    background-color: "#fff4e5"
+    border-color: "#ff9100"
+    caption:
+      font_color: "#1e2021"
+      font_size: 12
+
+  icon:
+    # icon name specified as:
+    # <icon set>-<icon name>
+    # all prawn icon sets are supported, see: https://github.com/jessedoyle/prawn-icon/tree/master
+    # for Font Awesome 5, use the fas- prefix
+    caution: # Mandatory
+      # we are disabling fonts, hence it is 0
+      # otherwise, use $base-font-size
+      size: 20
+      name: fas-exclamation-circle
+      stroke-color: "#eba58f"
+      # or, instead of an icon you can provide an image:
+      # image: bulb.png
+    warning: #Recommended
+      size: 20
+      name: fas-check-circle
+      stroke-color: "#ebbb8f"
+    tip: # Optional
+      size: 20
+      name: fas-plus-circle
+      stroke-color: "#8ecf7b"
+    important:
+      size: 20
+      name: fas-exclamation-triangle
+      stroke-color: "#ff9100"
+    note:
+      size: 20
+      name: fas-info-circle
+      stroke-color: "#00b8d4"

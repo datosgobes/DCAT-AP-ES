@@ -1,0 +1,54 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/206/vcard/ns#> .
+
+# ✅ Ejemplo para metadatos usando DataService (recomendado)
+<http://example.org/dataset/1> a dcat:Dataset ;
+    dct:title "Dataset de ejemplo"@es ;
+    dct:description "Descripción del dataset de ejemplo"@es ;
+    dct:identifier "dataset-1" ;
+    dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/EA0000000> ;
+    dcat:accessService [ 
+        a dcat:DataService ;
+        dct:title "Servicio WMS de ejemplo"@es ;
+        dct:description "Servicio WMS para acceder a los datos"@es ;
+        dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
+        dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/EA0000000> ;
+        dcat:endpointURL <http://example.org/geoserver/wms> ;
+        dcat:endpointDescription <http://example.org/geoserver/wms?request=GetCapabilities> ;
+        dct:conformsTo <http://www.opengis.net/def/serviceType/ogc/wms> ;
+        dcat:contactPoint [
+            a vcard:Kind ;
+            vcard:fn "Centro de soporte de Organismo"@es ;
+            vcard:hasEmail <mailto:info-contacto@dcat-ap-es.ejemplo.org> ;
+            vcard:hasURL <https://dcat-ap-es.ejemplo.org/formulario-soporte>
+        ] ;
+        dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+        dcatap:hvdCategory <http://data.europa.eu/bna/c_dd313021> ;
+        foaf:page <http://example.org/services> ;
+        dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+        dcat:servesDataset <http://example.org/dataset/1> 
+    ] .
+
+# ⚠️ Ejemplo para metadatos usando Distribution (no recomendado)
+<http://example.org/dataset/2> a dcat:Dataset ;
+    dct:title "Dataset de ejemplo 2"@es ;
+    dct:description "Descripción del dataset de ejemplo 2"@es ;
+    dct:identifier "dataset-2" ;
+    dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/EA0000000> ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dct:title "Distribución WMS de ejemplo"@es ;
+        dct:description "Distribución WMS para acceder a los datos"@es ;
+        dct:conformsTo <http://www.opengeospatial.org/standards/wms> ;
+        dcat:accessURL <http://example.org/wms?request=GetCapabilities&service=WMS> ;
+        dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+        dcat:spatialResolutionInMeters 5.0 ;
+        dct:format <http://publications.europa.eu/resource/authority/file-type/WMS_SRVC> ;
+        dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+        dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> 
+    ] .

@@ -1,0 +1,12 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix vcard: <http://www.w3.org/206/vcard/ns#> .
+
+<http://datos.example.org/dataset/123>
+    dcat:contactPoint [
+        a vcard:Kind ;
+        vcard:fn "Oficina de Datos Abiertos"@es ;
+        vcard:hasUid "EA0000000" ;
+        vcard:hasEmail <mailto:datos@example.org> ;
+        vcard:hasTelephone <tel:+34-912345678> ;
+        vcard:hasURL <https://example.org/contacto> 
+    ] .

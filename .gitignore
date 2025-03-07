@@ -1,0 +1,134 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+node_modules/
+parts/
+sdist/
+var/
+package*.json
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+
+# Translations
+*.mo
+
+# Scrapy stuff:
+.scrapy
+
+# PyBuilder
+target/
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# virtualenv
+.venv/
+venv/
+.env/
+.python-version
+
+# poetry
+poetry.toml
+.python-version
+
+# mkdocs documentation
+site
+docs/tools/output
+docs/tools/venv
+.ropeproject
+node_modules
+**/node_modules/
+bower_components
+.vscode
+.idea
+*.log
+
+
+# AsciiDoc
+# Output directories
+tools/asciidoctor/doc/output/*
+output
+
+# Asciidoctor configuration files
+.asciidoctor
+
+# environment files
+.env
+.env.*
+!.env.example
+
+# log files
+*.log
+
+# Docker-generated files
+docker-compose.override.yml
+docker-compose.override.yaml
+docker-compose.override-*.yml
+docker-compose.override-*.yaml
+
+# Temporary and backup files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# PDF files
+*.pdf
+!dcat-ap-es_implementation_guide.*.pdf
+!dcat-ap-es-conventions.*.pdf
+
+# PDM
+.pdm-python
+.pdm.toml
+
+# Tools
+config.yml
+config.yaml
+
+# Refs
+refs/dcat-ap-es/docx/~*.docx
+docs/img/shacl_overview_validation.svg
+tools/.temp
+refs/github_issue_*.md

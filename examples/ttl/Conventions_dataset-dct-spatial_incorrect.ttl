@@ -1,0 +1,9 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# ❌ Redundancia territorial
+dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Comunidad-Madrid> ;
+dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Madrid> .
+
+# ❌ Uso innecesario del ámbito nacional
+dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Andalucia> .

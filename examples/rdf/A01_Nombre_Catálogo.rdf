@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dct="http://purl.org/dc/terms/">
+<!-- Comentario simple -->
+    <dcat:Catalog rdf:about="http://dcat-ap-es.ejemplo.org/catalogo">
+        <dct:title xml:lang="es">Catálogo de Datos Abiertos</dct:title>
+        <dct:title xml:lang="en">Open Data Catalog</dct:title>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+		<dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG"/>
+    </dcat:Catalog>
+</rdf:RDF>

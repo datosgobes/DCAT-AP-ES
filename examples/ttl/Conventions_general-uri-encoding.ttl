@@ -1,0 +1,9 @@
+ @prefix dcat: <http://www.w3.org/ns/dcat#> .
+    
+# ✅ URI correctamente codificada
+<https%3A%2F%2Fwww.ine.es%2Fdyngs%2FINEbase%2Foperacion.htm%3Fc%3DEstadistica_C%26menu%3Dresultados> 
+    a dcat:Dataset .
+
+# ❌ URI sin codificar (incorrecto)
+<https://www.ine.es/dyngs/INEbase/operacion.htm?c=Estadistica_C&menu=resultados> 
+    a dcat:Dataset .

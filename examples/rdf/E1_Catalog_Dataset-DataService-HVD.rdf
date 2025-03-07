@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dcat="http://www.w3.org/ns/dcat#"
+         xmlns:dcatap="http://data.europa.eu/r5r/#"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:odrs="http://schema.theodi.org/odrs#"
+         xmlns:vcard="http://www.w3.org/206/vcard/ns#">
+
+  <!--Descrición general del Catálogo-->
+  <dcat:Catalog rdf:about="http://dcat-ap-es.ejemplo.org/catalogo">
+    <dct:title xml:lang="es">Catálogo de Datos Abiertos</dct:title>
+    <dct:title xml:lang="en">Open Data Catalog</dct:title>
+    <dct:description xml:lang="es">Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES.</dct:description>
+    <dct:description xml:lang="en">Open Data Catalogue that serves as an example in DCAT-AP-ES.</dct:description>
+    <foaf:homepage rdf:resource="http://dcat-ap-es.ejemplo.org"/>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo"/>
+    <dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector"/>
+    <dcat:themeTaxonomy rdf:resource="http://publications.europa.eu/resource/authority/data-theme"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T09:00:00+01:00</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dct:modified>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG"/>
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+  
+    <!--Entidad responsable de producir o generar el Catálogo-->
+    <dct:creator>
+      <foaf:Organization>
+        <foaf:name>Nombre del departamento del organismo</foaf:name>
+        <dct:type>Identificador_Organismo</dct:type>
+        <dct:type rdf:resource="http://purl.org/adms/publishertype/NationalAuthority"/>
+      </foaf:Organization>
+    </dct:creator>
+
+    <!--Declaración de derechos del Catálogo-->
+    <dct:rights>
+      <rdf:Description rdf:about="http://dcat-ap-es.ejemplo.org/catalogo/derechos-de-acceso">
+        <rdf:type rdf:resource="http://schema.theodi.org/odrs#RightsStatement"/>
+        <rdfs:label>Derechos relativos a la reutilización del Catálogo de Datos Abiertos</rdfs:label>
+        <odrs:dataLicense rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+        <odrs:attributionText>Atribución de autoría al Organismo</odrs:attributionText>
+        <odrs:attributionURL rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo"/>
+      </rdf:Description>
+    </dct:rights>
+
+    <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+
+    <!--Ejemplo de un conjunto de Datos de Alto Valor (HVD)-->
+		<dcat:dataset>
+			<dcat:Dataset rdf:about="http://dcat-ap-es.ejemplo.org/dataset/dataset-HVD-ejemplo-1">
+				<dct:title xml:lang="es">Dataset HVD de ejemplo</dct:title>
+				<dct:title xml:lang="en">Example HVD Dataset</dct:title>
+				<dct:description xml:lang="es">Descripción de un dataset HVD de ejemplo.</dct:description>
+				<dct:description xml:lang="en">Example HVD dataset description.</dct:description>
+				<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
+				<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/dir/2007/2/2019-06-26"/>
+				<dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
+				<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo"/>
+				<dct:identifier>identificador-dataset-HVD-ejemplo-1</dct:identifier>
+				<dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/economia"/>
+				<dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ECON"/>
+
+        <!--Ejemplo de una distribución del conjunto de datos (HVD), ejemplo, fichero de descarga CSV-->
+				<dcat:distribution>
+					<dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/distribucion/dataset-HVD-ejemplo-1-CSV">
+						<dcat:accessURL rdf:resource="https://orgea.exampleMS.gov/files/1T2p3o4B.ttl"/>
+						<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
+						<dct:description xml:lang="es">Descripción de una Distribución HVD de ejemplo.</dct:description>
+						<dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>  
+						<dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+						<dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
+					</dcat:Distribution>
+				</dcat:distribution>
+
+			</dcat:Dataset>
+		</dcat:dataset>
+
+    <!--Ejemplo de un servicio de datos de Alto Valor (HVD)-->
+    <dcat:DataService rdf:about="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1">
+      <dct:title xml:lang="es">Servicio de datos vía API</dct:title>
+      <dct:description xml:lang="es">Servicio de datos vía API que permite el acceso a datos en tiempo real</dct:description>
+      <dcat:endpointURL rdf:resource="https://dcat-ap-es.ejemplo.org/api/v2/"/>
+      <dcat:endpointDescription rdf:resource="https://dcat-ap-es.ejemplo.org/openAPI/index.html"/>
+      <foaf:page rdf:resource="https://dcat-ap-es.ejemplo.org/api/sla.html"/>
+      <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
+      <dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
+      <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo"/>
+      <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/economia"/>
+      <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ECON"/>	
+
+      <!--Punto de contacto del Servicio HVD-->
+      <dcat:contactPoint>
+        <vcard:Organization>
+          <vcard:fn xml:lang="es">Centro de soporte de Organismo</vcard:fn>
+          <vcard:hasEmail rdf:resource="mailto:info-contacto@dcat-ap-es.ejemplo.org"/>
+          <vcard:hasURL rdf:resource="https://dcat-ap-es.ejemplo.org/formulario-soporte"/>
+        </vcard:Organization>
+      </dcat:contactPoint>
+
+      <!--Ejemplo de conjuntos de datos servidos desde el Servicio HVD-->
+      <dcat:servesDataset rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-HVD-ejemplo-1"/>
+      <dcat:servesDataset rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
+    </dcat:DataService>
+
+  </dcat:Catalog>
+</rdf:RDF>

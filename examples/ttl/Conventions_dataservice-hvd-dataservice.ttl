@@ -1,0 +1,41 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/206/vcard/ns#> .
+@prefix cnt: <http://www.w3.org/2011/content#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/catalogo/dataset/43bc8990-f9f1-5527-8134-459b1a1cce92/resource/37cfdf38-91cd-4107-a63c-72c739dd41cd> a dcat:Distribution ;
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    dct:issued "2024-12-17T00:00:00"^^xsd:dateTime ;
+    dct:license <https://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:modified "2024-12-17"^^xsd:date ;
+    dct:title "Sample CSV" ;
+    cnt:characterEncoding "UTF-8" ;
+    dcat:accessService [ a dcat:DataService ;
+        dct:title "Example Server" ;
+        dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
+        dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/EA0000000> ;
+        dcat:endpointURL <https://example.org/endpoint> ;
+        dcat:endpointDescription <https://example.org/endpoint/description> ;
+        dcat:contactPoint [
+            a vcard:Kind ;
+            vcard:fn "Oficina de Datos Abiertos"@es ;
+            vcard:hasUid "EA0000000" ;
+            vcard:hasEmail <mailto:datos@example.org> ;
+            vcard:hasTelephone <tel:+34-912345678> ;
+            vcard:hasURL <https://example.org/contacto> 
+        ] ;
+        dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+        dcatap:hvdCategory <http://data.europa.eu/bna/c_dd313021> ;
+        foaf:page <https://dcat-ap-es.ejemplo.org/api/sla.html> ;
+        dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+        dcat:servesDataset <https://example.org/catalogo/dataset/43bc8990-f9f1-5527-8134-459b1a1cce92>,
+            <https://example.org/catalogo/dataset/43bc8990-g3jd-5527-8134-459b1a1jdk88>
+    ];
+    dcat:accessURL <https://example.org/catalogo/es/dataset/43bc8990-f9f1-5527-8134-459b1a1cce92/resource/37cfdf38-91cd-4107-a63c-72c739dd41cd> ;
+    dcat:downloadURL <https://example.org/catalogo/es/dataset/43bc8990-f9f1-5527-8134-459b1a1cce92/resource/37cfdf38-91cd-4107-a63c-72c739dd41cd/download> ;
+    dcat:mediaType <http://www.iana.org/assignments/media-types/text/csv> .

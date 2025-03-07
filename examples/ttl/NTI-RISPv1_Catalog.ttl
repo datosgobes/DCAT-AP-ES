@@ -1,0 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<http://datos.gob.es/catalogo>
+  a dcat:Catalog ;
+  dct:title "datos.gob.es"@es ;
+  dct:description """Catálogo de Información Pública de la Administración General del 
+Estado"""@es ;
+  dct:identifier "http://datos.gob.es/catalogo" ;
+  dct:extent [
+    a dct:SizeOrDuration ;
+    rdf:value "850"^^xsd:nonNegativeInteger ;
+    rdfs:label "850 documentos o recursos de información"@es
+  ] ;
+  dct:issued "2011-11-27"^^xsd:date ;
+  dct:modified "2013-01-10"^^xsd:date ;
+  dct:language "es" ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E00004401> ;
+  dct:license <http://datos.gob.es/datos/?q=aviso-legal> ;
+  dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+  dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ;
+  foaf:homepage <http://datos.gob.es/datos/> ;
+  dcat:dataset <http://datos.gob.es/catalogo/2332> .

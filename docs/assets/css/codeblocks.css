@@ -1,0 +1,75 @@
+:root {
+    --primary-color: #00a99d;
+    --hover-bg-color: #c9e2df;
+    --validate-font-color: #0f3062;
+    --validate-icon-color: #c9e2df;
+    --validate-icon-hover-color: #388E3C;
+    --code-block-bg-color: #f5f5f5;
+    --code-block-border-color: #ddd;
+}
+
+/* Validation */
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  .convert-button {
+    background: none;
+    border: 1px solid var(--code-block-border-color);
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color:var(--hover-bg-color);
+        color: var(--validate-font-color);
+        border: 1px solid var(--primary-color);
+    }
+  }
+
+  .validate-icon {
+    font-size: 24px;
+    color: var(--validate-icon-color);
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--validate-icon-hover-color);
+    }
+  }
+}
+
+.code-block {
+  background-color: var(--code-block-bg-color);
+  border: 1px solid var(--code-block-border-color);
+  border-radius: 4px;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.icon-button svg {
+  height: 24px; 
+  width: 24px;
+  vertical-align: middle; 
+}
