@@ -1,0 +1,29 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dcat-ap-es.ejemplo.org/catalogo>
+  a dcat:Catalog ;
+  dct:title "Catálogo de Datos Abiertos"@es, "Open Data Catalog"@en ;
+  dct:description "Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES."@en ;
+  foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+  dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ;
+  dct:issued "2025-01-01T09:00:00+01:00"^^xsd:dateTime ;
+  dct:modified "2025-01-02T12:00:00+01:00"^^xsd:dateTime ;
+  dct:language <http://publications.europa.eu/resource/authority/language/SPA>, <http://publications.europa.eu/resource/authority/language/ENG> ;
+  dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+  dcat:record <http://dcat-ap-es.ejemplo.org/registro-001> ;
+  dcat:dataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> .
+
+<http://dcat-ap-es.ejemplo.org/registro-001>
+  a dcat:CatalogRecord ;
+  foaf:primaryTopic <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> ;
+  dct:modified "2025-01-02T09:00:00+01:00"^^xsd:dateTime .
+
+<http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1>
+  a dcat:Dataset ;
+  dct:title "Dataset de ejemplo"@es, "Example Dataset"@en ;
+  dct:description "Descripción de un dataset de ejemplo."@es, "Example dataset description."@en .

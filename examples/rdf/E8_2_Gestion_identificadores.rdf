@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dcat="http://www.w3.org/ns/dcat#"
+         xmlns:dct="http://purl.org/dc/terms/"
+		 xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:dcatap="http://data.europa.eu/r5r/"
+		 xmlns:adms="http://www.w3.org/ns/adms#"
+		 xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+   <dcat:Catalog rdf:about="http://dcat-ap-es.catalogo-agregador-ejemplo.org/catalogo">
+
+        <dct:title xml:lang="es">Catálogo de Datos Abiertos agregador de ámbito nacional</dct:title>
+        <dct:description xml:lang="es">Catálogo de Datos Abiertos agregador de ámbito nacional que sirve de ejemplo en DCAT-AP-ES.</dct:description>
+        <foaf:homepage rdf:resource="http://dcat-ap-es.catalogo-agregador-ejemplo.org"/>
+	
+		<dct:publisher>
+			<foaf:Organization>
+				<dct:identifier>http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Agregador</dct:identifier>
+				<foaf:name>Nombre del organismo agregador nacional</foaf:name>
+				<dct:type rdf:resource="http://purl.org/adms/publishertype/NationalAuthority"/>
+			</foaf:Organization>
+		</dct:publisher>
+
+		<dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector"/>
+		<dcat:themeTaxonomy rdf:resource="http://publications.europa.eu/resource/authority/data-theme"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T09:00:00+01:00</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dct:modified>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+		<dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+
+		<dcat:dataset>
+			<dcat:Dataset rdf:about="http://dcat-ap-es.catalogo-regional-ejemplo.org/dataset/dataset-HVD-ejemplo-1">
+				<dct:title xml:lang="es">Dataset HVD de ejemplo</dct:title>
+				<dct:description xml:lang="es">Descripción de un dataset HVD de ejemplo publicado en un catálogo regional.</dct:description>
+				<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
+				<dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
+				<dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
+				<dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ENVI"/>
+				<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Regional"/>
+				<dct:identifier rdf:resource="hhttp://dcat-ap-es.catalogo-regional-ejemplo.org/dataset/identificador-dataset-HVD-ejemplo-1"/>
+				
+				<adms:identifier>
+					<rdf:Description>
+						<dct:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Regional"/>
+						<skos:notation>http://dcat-ap-es.catalogo-regional-ejemplo.org/dataset/identificador-dataset-HVD-ejemplo-1</skos:notation>
+					</rdf:Description>
+				</adms:identifier>
+
+				<adms:identifier>
+					<rdf:Description>
+						<dct:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Agregador"/>
+						<skos:notation>http://dcat-ap-es.portal-agregador.org/dataset/identificador-dataset-HVD-ejemplo-1</skos:notation>
+					</rdf:Description>
+				</adms:identifier>
+			</dcat:Dataset>
+		</dcat:dataset>
+
+	</dcat:Catalog>
+</rdf:RDF>

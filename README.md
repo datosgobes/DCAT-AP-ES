@@ -1,5 +1,5 @@
 # Guía para DCAT-AP-ES
-[![EN](https://img.shields.io/badge/lang-EN-blue.svg)](README.en.md)
+[![ES](https://img.shields.io/badge/lang-ES-yellow.svg)](README.md) [![EN](https://img.shields.io/badge/lang-EN-blue.svg)](README.en.md)
 
 Este proyecto proporciona una serie de recursos para la [implementación técnica de DCAT-AP-ES](https://datos.gob.es/es/documentacion/etiquetas/normativas-3836), un perfil de aplicación del vocabulario de catálogo de datos ([DCAT-AP](https://datos.gob.es/es/documentacion/dcat-ap-perfil-de-aplicacion-de-dcat-para-portales-open-data-europeos)) para España.
 
@@ -13,8 +13,8 @@ El proyecto está organizado de la siguiente manera:
 - `.devcontainer`: Configuración para [Dev Containers](https://containers.dev/implementors/spec/), una funcionalidad que permite desarrollar en un entorno preconfigurado dentro de un contenedor [Docker](https://docs.docker.com/).
 - `.github/workflows/`: Contiene los flujos de trabajo de [GitHub Actions](https://docs.github.com/es/actions) para la generación de la documentación online.
 - `docs/`: Documentación principal del proyecto en formato [`Markdown`](https://daringfireball.net/projects/markdown/syntax) para [MKDocs](https://www.mkdocs.org/getting-started/).
-- `overrides`: Plantillas personalizadas para la documentación online.
-- `samples/`: Ejemplos de uso de `DCAT-AP-ES`.
+- `overrides`: [Plantillas personalizadas](https://squidfunk.github.io/mkdocs-material/customization/) para la documentación online.
+- `examples/`: Ejemplos de uso de `DCAT-AP-ES`.
 - `refs/`: Referencias adicionales y documentación relacionada.
 - `tools/`: Herramientas y software útil para la gestión del proyecto.
 
@@ -48,6 +48,30 @@ Si deseas contribuir a este proyecto, por ejemplo arreglando algún [fichero de 
 
 5. Abre una [Solicitud de extracción (*Pull Request*)](https://github.com/datosgobes/DCAT-AP-ES/pulls) para confirmar el cambio en la rama principal.
 
+## Desarrollo
+
+Para previsualizar la documentación con MkDocs y lanzarlo en modo depuración, revisa la siguiente documentación: [información sobre MKDocs](./refs/dev/mkdocs.md) 
+
+### Traducción de la documentación
+
+Esta documentación usa [`mkdocs-static-i18n`](https://ultrabug.github.io/mkdocs-static-i18n/) para ser multilingüe, con ese objetivo se adopta la estructura de sufijos: 
+
+```bash
+├── assets
+│   ├── css
+│   └── js
+├── img
+├── conventions.en.md
+├── conventions.md
+├── examples.en.md
+├── examples.md
+├── index.md
+└── robots.txt
+```
+
+> [!NOTE] 
+> Usando la estructura de sufijo en los archivos de documentación (por defecto), debes agregar el sufijo `.<idioma>.<extensión>` a tus archivos (por ejemplo, `index.en.md`).  
+> Más información en: [Documentación del plugin MkDocs static i18n](https://ultrabug.github.io/mkdocs-static-i18n/getting-started/quick-start/)
 
 ## Licencia
 

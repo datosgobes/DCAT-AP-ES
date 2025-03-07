@@ -1,0 +1,78 @@
+name: Deploy MkDocs to Github Pages 
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  REPO: ${{ github.event.repository.name }}
+
+jobs:
+  build_mkdocs:
+    runs-on: ubuntu-22.04
+ 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install requirements
+        run: pip install \
+            mkdocs \
+            mkdocs-material \
+            mkdocs-ivory \
+            pymdown-extensions \
+            mkdocs-enumerate-headings-plugin \
+            mike \
+            mkdocs-drawio \
+            mkdocstrings-python \
+            mkdocs-git-revision-date-localized-plugin \
+            mkdocs-minify-plugin \
+            mkdocs-redirects \
+            mkdocs-git-committers-plugin-2 \
+            mdx_truly_sane_lists \
+            mkdocs-material[imaging] \
+            mkdocs-macros-plugin \
+            mkdocs-autorefs \
+            mkdocs-meta-descriptions-plugin \
+            mkdocs-static-i18n
+
+      - name: Deploy MkDocs
+        run: mkdocs gh-deploy --config-file mkdocs.yml --force
+ 
+  deploy_mkdocs:
+    needs: build_mkdocs
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+  
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

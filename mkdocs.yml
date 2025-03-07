@@ -1,0 +1,480 @@
+site_name: DCAT-AP-ES
+site_url: https://mjanez.github.io/demo-dcatapes/   # Local: mkdocs serve -a 127.0.0.1:8088
+site_description: >-
+  Guía para la implementación de DCAT-AP-ES en portales de datos abiertos.
+repo_name: datosgobes/DCAT-AP-ES
+repo_url: https://github.com/datosgobes/DCAT-AP-ES
+edit_uri: edit/main/docs/
+site_dir: dist
+
+validation:
+  absolute_links: ignore
+  unrecognized_links: ignore
+  anchors: ignore
+
+nav:
+  - Guía técnica de implementación de DCAT-AP-ES: index.md
+  - Convenciones datos.gob.es: conventions.md
+  - FAQ: faq.md
+  - Ejemplos de implementación: examples.md
+  #- Validación: validation.md
+
+theme:
+  language: es
+  name: material
+  custom_dir: overrides
+  palette:
+    primary: 'white'
+    accent: 'deep-orange'
+  font:
+    text: Poppins
+    code: Roboto Mono
+  icon:
+      repo: fontawesome/brands/github
+      logo: material/file-document-arrow-right
+  logo: img/dge_logo.svg
+  favicon: img/favicon.ico
+  features:
+    - content.action.edit
+    - content.action.view
+    - announce.dismiss
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.prune
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+    - toc.follow
+    - content.code.copy
+    - content.footnote.tooltips
+    - content.tooltips
+    - navigation.tracking
+    - content.code.select
+    - content.code.annotate
+
+markdown_extensions:
+  - toc:
+      permalink: "#"
+      toc_depth: 3 
+      baselevel: 2
+      separator: "_"
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+  - mdx_truly_sane_lists:
+      truly_sane: true
+      nested_indent: 2
+  - pymdownx.details
+  - codehilite
+  - footnotes
+  - abbr
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      auto_append:
+        - refs/docs/abbreviations.md
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+
+extra_css: 
+  - assets/css/vendor/jquery-ui-1.14.1.min.css
+  - assets/css/style.css
+  - assets/css/codeblocks.css
+  - assets/css/header.css
+
+extra_javascript:
+  - https://viewer.diagrams.net/js/viewer-static.min.js
+  - assets/js/modules/drawio-reload.js
+  - assets/js/vendor/jquery-ui-1.14.1.min.js
+  - assets/js/modules/codeblock-enhancement.js
+  - assets/js/modules/conventions.js
+  # Unnecessary for now
+  # - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  # - assets/js/modules/tablesort.js
+
+extra:
+  social:
+    - name: GitHub
+      icon: fontawesome/brands/github
+      link: https://github.com/datosgobes
+    - name: LinkedIn
+      icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/company/datos-gob-es
+    - name: X
+      icon: fontawesome/brands/x-twitter
+      link: https://x.com/datosgob
+  # consent:
+  #     title: Información importante sobre Cookies
+  #     description: >- 
+  #       En esta página web usamos cookies propias y de terceros con fines técnicos y de personalización para el funcionamiento del sitio web o la prestación de servicios expresamente solicitados por el usuario. No recaba ni cede datos de carácter personal de los usuarios sin su conocimiento. Sin embargo, puede contener enlaces a sitios web de terceros con políticas de privacidad ajenas a la de Datos.gob.es que usted podrá decidir si acepta o no cuando acceda a ellos. Encontrará más información sobre las cookies utilizadas en nuestra <a href="https://datos.gob.es/es/politica-de-cookies">Política de Cookies</a>
+  mkdocs_hooks:
+    pdf_source: refs/dcat-ap-es/pdf
+    pdf_dest: download/pdf
+  extra:
+    version:
+      provider: mike
+
+plugins:
+  - privacy
+  - search:
+      lang: es
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: es
+          default: true
+          name: Español
+          build: true
+        - locale: en
+          name: English
+          build: true
+          nav:
+          - Technical Guide for DCAT-AP-ES implementation: index.md
+          - datos.gob.es conventions: conventions.en.md
+          - FAQ: faq.en.md
+          - Implementation examples: examples.en.md
+          #- DCAT-AP-ES validation: validation.en.md
+  - mkdocstrings:
+      handlers:
+        python:
+          import:
+            - https://docs.python.org/3/objects.inv
+            - https://installer.readthedocs.io/en/stable/objects.inv
+          options:
+            show_bases: false
+            show_source: true
+            show_labels: false
+            show_root_heading: true
+  - git-revision-date-localized:
+      enable_creation_date: false
+  - redirects:
+      redirect_maps:
+        'old.md': 'index.md'
+  - minify:
+      minify_html: true
+  - social:
+      cards_layout_options:
+        background_color: '#0f3062'
+  - git-committers:
+      repository: datosgobes/DCAT-AP-ES
+      branch: main
+  # - enumerate-headings:
+  #     toc_depth: 1
+  #     strict: true
+  #     increment_across_pages: false
+  #     include:
+  #       - "*"        
+  #     exclude:
+  #       - examples.md
+  #       - changelog.md
+  - drawio:
+      viewer_js: "https://viewer.diagrams.net/js/viewer-static.min.js"
+      toolbar: true 
+      tooltips: true
+      edit: true
+      border: 0
+  - meta-descriptions
+watch:
+- refs/docs
+
+exclude_docs: |
+    !/refs/*
+    !/README.md
+
+hooks:
+  - tools/mkdocs-hooks/dcat_ap_es.py
+
+dcatapes:
+  # Spanish
+  es:
+    draft: true
+    download_pdf: false
+    title: Guía técnica de implementación de DCAT-AP-ES
+    base_url: 'https://github.com/datosgobes/DCAT-AP-ES'
+    logos:
+      - href: 'https://digital.gob.es/ministerio/organigrama_organos/SEDIA.html'
+        alt: 'Secretaría de Estado de Digitalización e Inteligencia Artificial'
+        src: '/demo-dcatapes/img/sedia-red-es.jpg'
+      - href: 'https://datos.gob.es'
+        alt: 'datos.gob.es'
+        src: 'https://datos.gob.es/sites/default/files/logo_0.svg'
+      - href: 'https://datos.gob.es/acerca-de-la-iniciativa-aporta'
+        alt: 'Iniciativa Aporta'
+        src: 'https://datos.gob.es/sites/all/themes/dge_theme/images/logo_iniciativa-aporta.svg'
+    document_title: DCAT-AP-ES 1.0.0
+    published_date: '2025-01-21'
+    details_summary: Más detalles sobre este documento
+    latest_published_version: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/1.0.0'
+    history: 
+      - name: Histórico de cambios
+        link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
+    editors:
+      - name: Equipo Asesoramiento
+        org: Iniciativa Aporta
+        email: soporte@datos.gob.es
+    author:
+      - name: Equipo Asesoramiento
+        org: Iniciativa Aporta
+        email: soporte@datos.gob.es
+    feedback: 
+      title: GitHub DCAT-AP-ES
+    feedback_links:
+      - link: /pulls
+        text: Solicitudes de extracción (PR)
+      - link: /issues/new/choose
+        text: Nueva incidencia (Issue)
+      - link: /issues
+        text: Incidencias (Issues)
+    owners:
+      - name: Iniciativa de datos abiertos del Gobierno de España
+        link: 'https://datos.gob.es/'
+    categories:
+      latest_published_version: Última versión publicada
+      latest_editors_draft: Último borrador del editor
+      history: Historial
+      editors: Editores
+      author: Autor
+      feedback: Comentarios
+      owners: Propietarios
+    copyright:
+      name: CC BY 4.0
+      link: https://creativecommons.org/licenses/by/4.0/
+      # Icons: https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
+      icon: fontawesome/brands/creative-commons
+    validator:
+      enabled: true
+      # https://github.com/ISAITB/validator-resources-dcat-ap/blob/master/resources/config.properties
+      base_url: https://www.itb.ec.europa.eu/shacl
+      api_action: api/validate
+      model: dcat-ap
+      version: v2.0Base0
+    converter:
+      base_url: https://www.easyrdf.org/converter
+      uri: http://njh.me/
+      output_formats: 
+        turtle: Turtle
+        jsonld: JSON-LD
+        rdfxml: RDF/XML
+        ntriples: N-Triples
+    codeblock_messages:
+      validate: Validar
+      click_to_validate: Haga clic para validar el bloque de código
+      not_connected: No conectado. Verifique la red.
+      page_not_found: 'Página solicitada no encontrada. [404]'
+      internal_server_error: 'Error interno del servidor [500].'
+      json_parse_failed: Error al analizar JSON solicitado.
+      timeout_error: Error de tiempo de espera.
+      ajax_aborted: Solicitud Ajax abortada.
+      uncaught_error: |
+        Error no detectado.
+      validation_result: Resultado de la validación DCAT-AP 2.1.1 Base
+      convert_to: Convertir a
+    conventions:
+      draft: true
+      download_pdf: true
+      title: Convenciones técnicas, semánticas y organizativas de la aplicación de DCAT-AP-ES en el catálogo de datos.gob.es
+      document_title: DCAT-AP-ES Convenciones-datos.gob.es 1.0.0
+      published_date: '2025-01-21'
+      details_summary: Más detalles sobre este documento
+      latest_published_version: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/1.0.0'
+      history: 
+        - name: Histórico de cambios
+          link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
+      editors:
+        - name: Equipo Asesoramiento
+          org: Iniciativa Aporta
+          email: soporte@datos.gob.es
+    buttons:
+      draft_label: 
+        label: Borrador
+      download_pdf:
+        enabled: true
+        title: Descargar como PDF
+        href: 
+          index: https://mjanez.github.io/demo-dcatapes/download/pdf/dcat-ap-es_implementation_guide.es.pdf
+          conventions: https://mjanez.github.io/demo-dcatapes/download/pdf/dcat-ap-es-conventions.es.pdf
+      badges:
+        must:
+          name: Obligatoria
+          title: Esta palabra, o los términos «REQUIERE» o «DEBE», significan que la convención es un requisito absoluto.
+        should: 
+          name: Recomendada
+          title: Esta palabra, o el término «DEBERÍA», significa que puede haber razones válidas en determinadas circunstancias para ignorar un punto concreto, pero deben comprenderse todas las implicaciones y sopesarse cuidadosamente antes de elegir un camino diferente.
+        may:
+          name: Opcional
+          title: Esta palabra, o el término «PUEDE», significan que un artículo es realmente opcional
+        technical: 
+          name: Técnica
+          title: Estas convenciones definen aspectos técnicos de implementación, incluyendo codificación, identificación de recursos y modelado de entidades. Son esenciales para garantizar la interoperabilidad técnica y la correcta interpretación de los metadatos.
+        organisational: 
+          name: Organizativa
+          title: Estas convenciones establecen reglas para la gestión y organización de catálogos, la federación de datos y la identificación de organismos. Proporcionan el marco de gobernanza necesario para una gestión efectiva de los metadatos.
+        semantic:
+          name: Semántica
+          title: Estas convenciones aseguran la coherencia en la descripción de los recursos, garantizan que los metadatos sean semánticamente precisos y consistentes.
+  # English
+  en:
+    draft: true
+    download_pdf: false
+    title: Technical Guide for DCAT-AP-ES implementation
+    base_url: 'https://github.com/datosgobes/DCAT-AP-ES'
+    logos:
+      - href: 'https://avancedigital.mineco.gob.es/en-us/Pages/index.aspx'
+        alt: Ministry for Digital Transformation and Public Administration
+        src: 'https://datos.gob.es/sites/default/files/logo_ministerio_cabecera.svg'
+      - href: 'https://www.red.es'
+        alt: Red.es
+        src: 'https://datos.gob.es/sites/default/files/datosgobes/logo_red-es.png'
+      - href: 'https://datos.gob.es/about-aporta-initiative'
+        alt: Aporta Initiative
+        src: 'https://datos.gob.es/sites/all/themes/dge_theme/images/logo_iniciativa-aporta.svg'
+      - href: 'https://datos.gob.es'
+        alt: datos.gob.es
+        src: 'https://datos.gob.es/sites/default/files/logo_0.svg'
+    document_title: DCAT-AP-ES 1.0.0
+    published_date: '2025-01-21'
+    details_summary: More details about this document
+    latest_published_version: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/1.0.0'
+    history: 
+      - name: Change History
+        link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
+    editors:
+      - name: Advisory team
+        org: Aporta Initiative
+        email: soporte@datos.gob.es
+    author:
+      - name: Advisory team
+        org: Aporta Initiative
+        email: soporte@datos.gob.es
+    feedback: 
+      title: GitHub DCAT-AP-ES
+    feedback_links:
+      - link: /pulls
+        text: Pull Requests (PR)
+      - link: /issues/new/choose
+        text: New Issue
+      - link: /issues
+        text: Issues
+    owners:
+      - name: Spanish Government Open Data Initiative
+        link: 'https://datos.gob.es/'
+    categories:
+      latest_published_version: Latest Published Version
+      latest_editors_draft: Latest Editor's Draft
+      history: History
+      editors: Editors
+      author: Author
+      feedback: Comments
+      owners: Owners
+    copyright:
+      name: CC BY 4.0
+      link: https://creativecommons.org/licenses/by/4.0/
+      # Icons: https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
+      icon: fontawesome/brands/creative-commons
+    validator:
+      enabled: true
+      # https://github.com/ISAITB/validator-resources-dcat-ap/blob/master/resources/config.properties
+      base_url: https://www.itb.ec.europa.eu/shacl
+      api_action: api/validate
+      model: dcat-ap
+      version: v2.0Base0
+    converter:
+      base_url: https://www.easyrdf.org/converter
+      uri: http://njh.me/
+      output_formats: 
+        turtle: Turtle
+        jsonld: JSON-LD
+        rdfxml: RDF/XML
+        ntriples: N-Triples
+    codeblock_messages:
+      validate: Validate
+      click_to_validate: Click to validate the code block
+      not_connected: Not connected. Check the network.
+      page_not_found: 'Requested page not found. [404]'
+      internal_server_error: 'Internal Server Error [500].'
+      json_parse_failed: Failed to parse requested JSON.
+      timeout_error: Timeout error.
+      ajax_aborted: Ajax request aborted.
+      uncaught_error: |
+        Uncaught error.
+      validation_result: Validation result DCAT-AP 2.1.1 Basis
+      convert_to: Convert to
+    conventions:
+      draft: true
+      download_pdf: true
+      title: Technical, semantic, and organizational conventions for the application of DCAT-AP-ES in the datos.gob.es catalog
+      document_title: DCAT-AP-ES Conventions-datos.gob.es 1.0.0
+      published_date: '2025-01-21'
+      details_summary: More details about this document
+      latest_published_version: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/1.0.0'
+      history: 
+        - name: Change History
+          link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
+      editors:
+        - name: Equipo Asesoramiento
+          org: Iniciativa Aporta
+          email: soporte@datos.gob.es
+    buttons:
+      draft_label: 
+        label: Draft
+      download_pdf:
+        enabled: true
+        title: Download as PDF
+        href: 
+          index: https://mjanez.github.io/demo-dcatapes/download/pdf/dcat-ap-es_implementation_guide.en.pdf
+          conventions: https://mjanez.github.io/demo-dcatapes/download/pdf/dcat-ap-es-conventions.en.pdf
+      badges:
+        must:
+          name: Mandatory
+          title: This word, or the terms "REQUIRED" or "SHALL", mean that the convention is an absolute requirement.
+        should: 
+          name: Recommended
+          title: This word, or the term "SHOULD", mean that there may exist valid reasons in particular circumstances to ignore a particular item, but the full implications must be understood and  carefully weighed before choosing a different course.
+        may:
+          name: Optional
+          title: This word, or the term "MAY", mean that an item is truly optional.
+        technical: 
+          name: Technical
+          title: These conventions define technical aspects of implementation, including encoding, resource identification, and entity modeling. They are essential for ensuring technical interoperability and correct interpretation of metadata.
+        organisational: 
+          name: Organisational
+          title: These conventions establish rules for the management and organization of catalogs, data federation, and the identification of organizations. They provide the necessary governance framework for effective metadata management.
+        semantic:
+          name: Semantic
+          title: These conventions ensure consistency in the description of resources, guaranteeing that metadata is semantically accurate and consistent.
+  # Add more languages here
+    

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dcat="http://www.w3.org/ns/dcat#"
+         xmlns:dct="http://purl.org/dc/terms/"
+		 xmlns:dcatap="http://data.europa.eu/r5r/"
+		 xmlns:foaf="http://xmlns.com/foaf/0.1/"
+		 xmlns:vcard="http://www.w3.org/206/vcard/ns#">
+
+    <dcat:Catalog rdf:about="http://dcat-ap-es.ejemplo.org/catalogo">
+        <dct:title xml:lang="es">Catálogo de servicios de Datos CSW Abiertos</dct:title>
+        <dct:description xml:lang="es">Catálogo de servicios de Datos CSW Abiertos que sirve de ejemplo en DCAT-AP-ES.</dct:description>
+        <foaf:homepage rdf:resource="http://dcat-ap-es.ejemplo.org"/>
+        <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo"/>
+        <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+		<dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector"/>
+		<dcat:themeTaxonomy rdf:resource="http://publications.europa.eu/resource/authority/data-theme"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T09:00:00+01:00</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dct:modified>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+		<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+		
+		<dcat:record>
+			<dcat:CatalogRecord rdf:about="http://dcat-ap-es.ejemplo.org/registro-001">
+				<foaf:primaryTopic rdf:resource="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-CSW-ejemplo-1"/>
+				<dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T09:00:00+01:00</dct:modified>
+			</dcat:CatalogRecord>
+		</dcat:record>
+		
+		<dcat:service rdf:resource="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-CSW-ejemplo-1"/>
+		
+    </dcat:Catalog>
+	
+	<dcat:DataService rdf:about="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-CSW-ejemplo-1">
+		<dct:title xml:lang="es">Servicio de catálogo de datos CSW</dct:title>
+		<dct:description xml:lang="es">Catálogo público de conjuntos de datos espaciales.</dct:description>
+		<dct:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory/infoCatalogueService"/>
+		<dct:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResourceType/service"/>
+		<dct:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/discovery"/>
+		<dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC"/>
+		<dct:conformsTo rdf:resource="http://www.opengis.net/def/serviceType/ogc/csw"/>
+		<dct:identifier>ejemplo-catalogo-ide-public</dct:identifier>
+		<dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T09:00:00+01:00</dct:issued>
+		<dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+		<dct:spatial>
+			<dct:Location>
+				<dcat:bbox rdf:datatype="http://www.opengis.net/ont/geosparql#wktLiteral">POLYGON((-180 90,180 90,180 -90,-180 -90,-180 90))</dcat:bbox>
+			</dct:Location>
+		</dct:spatial>
+		<dcat:endpointURL rdf:resource="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-CSW-ejemplo-1/srv/csw"/>
+		<dcat:endpointDescription rdf:resource="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-CSW-ejemplo-1/srv/csw?service=CSW&amp;request=GetCapabilities"/>
+		<foaf:page rdf:resource="https://dcat-ap-es.ejemplo.org/api/sla.html"/>
+		<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
+		<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/dir/2007/2/2019-06-26"/>
+		<dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
+		<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo"/>
+        <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ENVI"/>	
+		<dcat:contactPoint>
+			<vcard:Organization>
+				<vcard:fn xml:lang="es">Centro de soporte de Organismo</vcard:fn>
+				<vcard:hasEmail rdf:resource="mailto:info-contacto@dcat-ap-es.ejemplo.org"/>
+				<vcard:hasURL rdf:resource="https://dcat-ap-es.ejemplo.org/formulario-soporte"/>
+			</vcard:Organization>
+		</dcat:contactPoint>
+	</dcat:DataService>		
+		
+</rdf:RDF>

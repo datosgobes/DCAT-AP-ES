@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% set ns = namespace(index_page_title='', conventions_page_title='', faq_page_title='') %}
+{% for item in config.nav %}
+    {% for key, value in item.items() %}
+        {% if 'index.' in value and value.endswith('.md') or value == 'index.md' %}
+            {% set ns.index_page_title = key %}
+        {% elif 'conventions.' in value and value.endswith('.md') or value == 'conventions.md' %}
+            {% set ns.conventions_page_title = key %}
+        {% elif 'faq.' in value and value.endswith('.md') or value == 'faq.md' %}
+            {% set ns.faq_page_title = key %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% block extrahead %}
+    {{ super() }}
+    
+    <meta name="google-site-verification" content="XTek0p43Za9NIgykgkrwm-K3ly0CYC7-Iql5X_fTaCE" />
+
+    {% if page.url == '/faq' or page.title == ns.faq_page_title %}
+        <script type="application/ld+json">
+            {% include "dcatapes/jsonld/faq.json" %}
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block container %}
+  <div class="md-content" data-md-component="content">
+    <article class="md-content__inner md-typeset">
+      <!-- Include the content of index_header.html only if it is index or conventions -->
+      {% if page.url == '/' or page.title == ns.index_page_title %}
+        {% include "dcatapes/index_header.html" %}
+      {% elif page.url == '/conventions' or page.title == ns.conventions_page_title %}
+        {% include "dcatapes/conventions_header.html" %}
+      {% endif %}
+      {% block content %}
+        {{ super() }}
+      {% endblock %}
+
+
+      {% block codeblock_enhancement %}
+        {% include "dcatapes/codeblock_enhancement.html" %}
+      {% endblock %}
+
+
+    </article>
+  </div>
+{% endblock %}

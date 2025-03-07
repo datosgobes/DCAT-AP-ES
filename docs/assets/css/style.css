@@ -1,0 +1,489 @@
+:root {
+    --primary-color: #00a99d;
+    --secondary-color: #c9e2df;
+    --hover-color: #45a049;
+    --button-color: #4CAF50;
+    --link-color: #245E7C;
+    --link-hover-color: #C64A1A;
+    --header-bg-color: #0f3062;
+    --header-text-color: #fff;
+    --warning-bg-color: #ff8822;
+    --alternate-bg-color: #eee;
+    --alternate-table-color--light: rgb(201 226 223 / 50%) !important;
+
+    /* Admonition Icons */
+    --md-admonition-icon--must: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="red" d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm0 120c-17.7 0-32 14.3-32 32v96c0 17.7 14.3 32 32 32s32-14.3 32-32v-96c0-17.7-14.3-32-32-32zm0 240c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"/></svg>');
+    --md-admonition-icon--should: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="green" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM226.1 338.6L348.2 216.4c6.2-6.2 6.2-16.4 0-22.6l-22.6-22.6c-6.2-6.2-16.4-6.2-22.6 0L216 273.4l-35-35c-6.2-6.2-16.4-6.2-22.6 0l-22.6 22.6c-6.2 6.2-6.2 16.4 0 22.6l78.6 78.6c6.2 6.2 16.4 6.2 22.7 0z"/></svg>');
+    --md-admonition-icon--may: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>');
+    
+}
+
+.code {
+    text-align: left;
+}
+
+.md-typeset h1, .md-typeset h2 {
+    font-weight: bold;
+}
+
+.md-typeset h2 {
+    color: var(--header-bg-color);
+}
+
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+    fill: currentcolor;
+    display: block;
+    height: 1.7rem;
+    width: auto;
+}
+
+.md-content__inner {
+    margin: 0 .8rem 1.2rem;
+    padding-top: .6rem;
+    text-align: justify;
+}
+
+td {
+    padding: 0.5em;
+    text-align: left;
+}
+
+td:first-child:not(.code) {
+    border-bottom: 2px solid var(--primary-color);
+    border-left: 2px solid var(--primary-color); /* Add left border */
+    background-color: var(--secondary-color) !important;
+}
+
+td:not(:first-child):not(.code) {
+    border-bottom: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color);
+}
+
+/* Add border to first cell in each row for consistent left border */
+td:first-child {
+    border-left: 2px solid var(--primary-color);
+}
+
+td:nth-child(2n+1) {
+    background-color: var(--alternate-bg-color);
+}
+
+.md-typeset abbr {
+    border-bottom: 0.05rem dotted #00000036;
+    cursor: help;
+    text-decoration: none;
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+    background-color: var(--alternate-table-color--light);
+}
+
+.js .md-typeset .tabbed-labels:before {
+    background: #00a99d;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 4px;
+    border-radius: 10px;
+    left: 0;
+    position: absolute;
+    transform: translateX(var(--md-indicator-x));
+    transition: width 225ms,background-color .25s,transform .25s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    width: var(--md-indicator-width);
+}
+
+.copy-button {
+    background-color: var(--button-color); /* Verde */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    float: right;
+    margin-left: 0.5em;
+}
+
+.copy-button:hover {
+    background-color: var(--hover-color);
+}
+
+.footer-buttons, .repo {
+    display: none;  /* Oculta el botón Previous del final */
+}
+
+.search {
+    display: none;  /* Oculta la zona de búsqueda */
+}
+
+.toctree-l1 {
+    display: none;
+}
+
+.toctree-l1.current {
+    display: block;
+}
+
+.home {
+    background-color: var(--header-text-color);
+}
+
+.site-name::before {
+    content: "";
+}
+
+.site-name img {
+    width: 80%;
+    padding-left: 0.5em;
+}
+
+table.codehilitetable {
+    width: 100%;
+}
+
+.warning p.admonition-title {
+    background: var(--warning-bg-color);
+}
+
+@media screen and (min-width: 768px) {
+    .docs-heading > strong {
+        font-size: 2rem;
+    }
+}
+
+th {
+    background-color: var(--header-bg-color);
+    text-align: center !important;
+    color: var(--header-text-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: .3s;
+}
+
+a:hover, a:focus {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Conventions */
+.md-typeset .must > .admonition-title::after,
+.md-typeset .should > .admonition-title::after,
+.md-typeset .may > .admonition-title::after,
+.md-typeset .note > .admonition-title::after,
+.md-typeset .admonition-title span.secondary-badge {
+    text-transform: uppercase;
+}
+
+/* MUST (Mandatory) */
+.md-typeset .admonition.must,
+.md-typeset details.must {
+    border-color: #eba58f; 
+}
+.md-typeset .must > .admonition-title,
+.md-typeset .must > summary {
+    background-color: #eba58f33; 
+    color: #63453b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.md-typeset .must > .admonition-title::before,
+.md-typeset .must > summary::before {
+    background-color: #eba58f; 
+    -webkit-mask-image: var(--md-admonition-icon--must);
+            mask-image: var(--md-admonition-icon--must);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.md-typeset .must > .admonition-title::after,
+.md-typeset .must > summary::after {
+    content: attr(data-badge);
+    background-color: #eba58f; 
+    color: white;
+    padding: 0.2em 0.5em;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 2em;
+    margin-right: 1.5625em;
+}
+
+/* SHOULD (Recommended) */
+.md-typeset .admonition.should,
+.md-typeset details.should {
+    border-color: #ebbb8f;
+}
+.md-typeset .should > .admonition-title,
+.md-typeset .should > summary {
+    background-color: #ebbc8f33;
+    color: #665240;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.md-typeset .should > .admonition-title::before,
+.md-typeset .should > summary::before {
+    background-color: #ebbb8f;
+    -webkit-mask-image: var(--md-admonition-icon--should);
+            mask-image: var(--md-admonition-icon--should);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.md-typeset .should > .admonition-title::after,
+.md-typeset .should > summary::after {
+    content: attr(data-badge);
+    background-color: #ebbb8f;
+    color: white;
+    padding: 0.2em 0.5em;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 2em;
+    margin-right: 1.5625em;;
+}
+
+/* MAY (Optional) */
+.md-typeset .admonition.may,
+.md-typeset details.may {
+    border-color: #8ecf7b;
+}
+.md-typeset .may > .admonition-title,
+.md-typeset .may > summary {
+    background-color: #8ecf7b33;
+    color: #3a5a31;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.md-typeset .may > .admonition-title::before,
+.md-typeset .may > summary::before {
+    background-color: #8ecf7b;
+    -webkit-mask-image: var(--md-admonition-icon--may);
+            mask-image: var(--md-admonition-icon--may);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.md-typeset .may > .admonition-title::after,
+.md-typeset .may > summary::after {
+    content: attr(data-badge);
+    background-color: #8ecf7b;
+    color: white;
+    padding: 0.2em 0.5em;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 2em;
+    margin-right: 1.5625em;;
+}
+
+/* NOTE (Ussage note) */
+.md-typeset .admonition.usage-note,
+.md-typeset details.usage-note {
+    border-color: #4a90e2;
+}
+.md-typeset .usage-note > .admonition-title,
+.md-typeset .usage-note > summary {
+    background-color: rgba(74, 144, 226, 0.2);
+    color: #2c3e50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.md-typeset .usage-note > .admonition-title::before,
+.md-typeset .usage-note > summary::before {
+    background-color: #4a90e2;
+    -webkit-mask-image: var(--md-admonition-icon--usage-note);
+            mask-image: var(--md-admonition-icon--usage-note);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.md-typeset .usage-note > .admonition-title::after,
+.md-typeset .usage-note > summary::after {
+    content: attr(data-badge);
+    background-color: #4a90e2;
+    color: white;
+    padding: 0.2em 0.5em;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 2em;
+    margin-right: 1.5625em;;
+}
+
+.md-typeset__table {
+    width: 100%;
+  }
+  
+  .md-typeset__table table:not([class]) {
+    display: table
+  }
+
+/* Contenedor flex para los badges */
+.md-typeset .admonition-title {
+    display: flex !important;
+    align-items: center;
+    padding-right: 0 !important; /* Eliminar padding derecho */
+}
+
+/* Contenedor para el título y anchor */
+.md-typeset .admonition-title .title-container {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Empuja los badges a la derecha */
+}
+
+/* Icono del admonition */
+.md-typeset .admonition > .admonition-title::before {
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+/* Badge secundario (técnico/semántico/organizativo) */
+.md-typeset .admonition-title span.secondary-badge {
+    background-color: inherit;
+    color: white;
+    padding: 0.2em 0.5em;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 2em;
+    margin-left: 15px; /* Espacio después del título */
+    order: 1; /* Orden en el flex container */
+}
+
+/* Badge principal (must/should/may) */
+.md-typeset .must > .admonition-title::after,
+.md-typeset .should > .admonition-title::after,
+.md-typeset .may > .admonition-title::after,
+.md-typeset .note > .admonition-title::after {
+    order: 2; /* Asegura que aparezca último */
+    margin-left: 5px;
+}
+
+/* Enlace ancla */
+.md-typeset .admonition-title .headerlink {
+    margin-left: 5px;
+    order: 0;
+}
+
+/* Copyright container */
+.copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+}
+
+.copyright a {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-left: 0.5em;
+}
+
+.copyright svg {
+    height: 1.3em;
+    width: 1.3em;
+}
+
+/* Tooltip hover cursor */
+.md-typeset .admonition-title[title],
+.md-typeset .headerlink[title],
+.md-typeset .secondary-badge[title] {
+    cursor: help;
+}
+
+/* For clickable badges that might link somewhere */
+.md-typeset .admonition-title[title][href],
+.md-typeset .headerlink[title][href],
+.md-typeset .secondary-badge[title][href] {
+    cursor: pointer;
+}
+
+/* FAQ */
+.grid-2col {
+    grid-template-columns: none !important;
+}
+
+/* Cards con borde completo normal y borde izquierdo especial */
+.md-typeset .grid.cards>ol>li, 
+.md-typeset .grid.cards>ul>li, 
+.md-typeset .grid>.card {
+    border: .05rem solid var(--md-default-fg-color--lightest); /* Borde completo estándar incluido el izquierdo */
+    position: relative; /* Para posicionar el pseudoelemento */
+    transition: box-shadow 0.2s, background-color 0.2s;
+    overflow: hidden; /* Para evitar problemas de apilamiento */
+}
+
+/* Pseudoelemento para el borde izquierdo de color */
+.md-typeset .grid.cards>ol>li::before, 
+.md-typeset .grid.cards>ul>li::before, 
+.md-typeset .grid>.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 10px;
+    background-color: transparent;
+    transition: background-color 0.2s;
+    z-index: 1;
+}
+
+/* Al hacer hover, solo cambiamos el color del borde izquierdo */
+.md-typeset .grid.cards>ol>li:focus-within::before, 
+.md-typeset .grid.cards>ol>li:hover::before, 
+.md-typeset .grid.cards>ul>li:focus-within::before, 
+.md-typeset .grid.cards>ul>li:hover::before, 
+.md-typeset .grid>.card:focus-within::before, 
+.md-typeset .grid>.card:hover::before {
+    background-color: var(--primary-color);
+}
+
+.md-typeset .grid.cards>ol>li:focus-within, 
+.md-typeset .grid.cards>ol>li:hover, 
+.md-typeset .grid.cards>ul>li:focus-within, 
+.md-typeset .grid.cards>ul>li:hover, 
+.md-typeset .grid>.card:focus-within, 
+.md-typeset .grid>.card:hover {
+    box-shadow: var(--md-shadow-z2);
+    background-color: var(--alternate-table-color--light);
+}
+
+.faq-h {
+    color: var(--header-bg-color);
+    font-size: 1.75em !important;
+}
+.grid-title {
+    color: var(--header-bg-color);
+  }
+
+.grid-emoji {
+    color: var(--header-bg-color);
+  }

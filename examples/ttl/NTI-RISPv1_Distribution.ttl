@@ -1,0 +1,22 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://datos.gob.es/catalogo/2332/SHP>
+  a dcat:Distribution ;
+  dct:identifier "http://datos.gob.es/catalogo/2332/SHP" ;
+  dct:title "Shapefile" ;
+  dct:format [
+    a dct:IMT ;
+    rdf:value "application/octet-stream" ;
+    rdfs:label "Shapefile"
+  ] ;
+  dct:relation [
+    rdfs:label "AYUDA DESCARGA DE CARTOGRAFÍA VECTORIAL, formato Shapefile"@es ;
+    foaf:page <http://www.catastro.minhap.es/ayuda/lang/castellano/ayuda_descarga_shape.htm>
+  ] ;
+  dcat:accessURL "https://www.sedecatastro.gob.es/CYCTitular/OVCAccTit.aspx?Dest=19"^^xsd:anyURI ;
+  dcat:byteSize 31457280 .

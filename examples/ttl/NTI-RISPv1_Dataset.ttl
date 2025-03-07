@@ -1,0 +1,43 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+
+<http://datos.gob.es/catalogo/2332>
+  a dcat:Dataset ;
+  dct:title "Información catastral gráfica"@es ;
+  dct:description """La Dirección General del Catastro le ofrece, de forma totalmente 
+gratuita, a través del Servicio de descarga de cartografía vectorial (formato Shapefile), la cartografía 
+catastral en formato vectorial. Reúne información de las características de los inmuebles, tanto rústicos 
+como urbanos, localizados en el ámbito territorial dónde ejerce sus competencias."""@es ;
+  dcat:theme <http://datos.gob.es/kos/sector-publico/sector/vivienda> ;
+  dcat:keyword "catastro", "mapas", "cartografía", "inmuebles" ;
+  dct:accrualPeriodicity [
+    a dct:Frequency ;
+    rdf:value "P0Y3M0DT0H0M0S"^^xsd:timePeriod ;
+    rdfs:label "Cada trimestre"
+  ] ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E00004401> ;
+  dct:identifier "http://datos.gob.es/catalogo/2332" ;
+  dct:issued "2012-12-26"^^xsd:date ;
+  dct:modified "2012-12-26"^^xsd:date ;
+  dct:language "es", "ga", "en", "ca" ;
+  dct:license <http://www.minhap.gob.es/Documentacion/Publico/NormativaDoctrina/Catastro/Acceso%20a%20la%20i nformacion%20catastral/res_230311.pdf> ;
+  dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+  dct:references <http://www1.sedecatastro.gob.es> ;
+  dct:temporal [
+    a dct:PeriodOfTime, time:Interval ;
+    time:hasBeginning [
+      a time:Instant ;
+      time:inXSDDateTime "2012-12-26"^^xsd:date
+    ] ;
+    time:hasEnd [
+      a time:Instant ;
+      time:inXSDDateTime "2013-03-26"^^xsd:date
+    ]
+  ] ;
+  dct:valid "2013-03-26"^^xsd:date ;
+  dct:conformsTo <http://www.catastro.meh.es/documentos/res_241108.pdf>, "" ;
+  dcat:distribution <http://datos.gob.es/catalogo/2332/SHP>, <http://datos.gob.es/catalogo/2332/ZIP> .

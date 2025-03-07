@@ -1,0 +1,33 @@
+{
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "remoteUser": "nonroot",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python"
+            ],
+            "settings": {
+                "python.testing.pytestArgs": [
+                    "."
+                ],
+                "python.testing.unittestEnabled": false,
+                "python.testing.pytestEnabled": true,
+                "python.formatting.provider": "black",
+                "python.linting.mypyEnabled": true,
+                "python.linting.enabled": true
+            }
+        }
+    },
+    "portsAttributes": {
+        "8088": {
+            "label": "MkDocs",
+            "onAutoForward": "notify"
+        }
+    },
+    "forwardPorts": [
+        8088
+    ]
+}

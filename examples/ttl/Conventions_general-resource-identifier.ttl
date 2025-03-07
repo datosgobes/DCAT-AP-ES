@@ -1,0 +1,14 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# Dataset en el catálogo de datos abiertos 
+<http://datos.comunidad.es/dataset/medioambiente/calidad-aire-2024>
+    a dcat:Dataset ;
+    dct:identifier "MA-AIRE-2024" ;
+    dct:title "Calidad del aire 2024"@es .
+
+# El mismo dataset en el catálogo CSW (conforme a GeoDCAT-AP)
+<https://ide.comunidad.es/catalogo/dataset/calidad-aire-2024> 
+    a dcat:Dataset ;
+    dct:identifier "MA-AIRE-2024" ;
+    dct:title "Calidad del aire 2024"@es .

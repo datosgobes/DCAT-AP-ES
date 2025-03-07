@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dcat="http://www.w3.org/ns/dcat#"
+         xmlns:dct="http://purl.org/dc/terms/"
+		 xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:dcatap="http://data.europa.eu/r5r/">
+
+   <dcat:Catalog rdf:about="http://dcat-ap-es.catalogo-regional-ejemplo.org/catalogo">
+
+        <dct:title xml:lang="es">Catálogo de Datos Abiertos de ámbito regional</dct:title>
+        <dct:description xml:lang="es">Catálogo de Datos Abiertos de ámbito regional que sirve de ejemplo en DCAT-AP-ES.</dct:description>
+        <foaf:homepage rdf:resource="http://dcat-ap-es.catalogo-regional-ejemplo.org"/>	
+		
+		<dct:publisher>
+			<foaf:Organization>
+				<dct:identifier>http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Regional</dct:identifier>
+				<foaf:name>Nombre del organismo regional</foaf:name>
+				<dct:type rdf:resource="http://purl.org/adms/publishertype/RegionalAuthority"/>
+			</foaf:Organization>
+		</dct:publisher>
+
+        <dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector/"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T09:00:00+01:00</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dct:modified>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+		<dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+
+		<dcat:dataset>
+			<dcat:Dataset rdf:about="http://dcat-ap-es.catalogo-regional-ejemplo.org/dataset/dataset-HVD-ejemplo-1">
+				<dct:title xml:lang="es">Dataset HVD de ejemplo</dct:title>
+				<dct:description xml:lang="es">Descripción de un dataset HVD de ejemplo publicado en un catálogo regional.</dct:description>
+				<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
+				<dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
+				<dct:publisher>
+					<foaf:Organization>
+						<dct:identifier>http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Regional</dct:identifier>
+						<foaf:name>Nombre del organismo de ámbito regional</foaf:name>
+						<dct:type rdf:resource="http://purl.org/adms/publishertype/RegionalAuthority"/>
+					</foaf:Organization>
+				</dct:publisher>
+				<dct:identifier rdf:resource="http://dcat-ap-es.catalogo-regional-ejemplo.org/dataset/identificador-dataset-HVD-ejemplo-1"/>
+			</dcat:Dataset>
+		</dcat:dataset>
+
+	</dcat:Catalog>
+</rdf:RDF>

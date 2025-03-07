@@ -1,0 +1,10 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# Ejemplo de catálogo con múltiples taxonomías
+<http://dcat-ap-es.ejemplo.org/catalogo>
+    a dcat:Catalog ;
+    dct:title "Catálogo de datos abiertos"@es ;
+    dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector>, # Taxonomía obligatoria
+        <http://inspire.ec.europa.eu/theme>,                            # Taxonomía adicional: Temas INSPIRE
+        <http://publications.europa.eu/resource/authority/data-theme> ; # Taxonomía adicional: Temáticas de datos (DCAT-AP)

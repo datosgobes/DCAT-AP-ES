@@ -1,0 +1,14 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# ✅ Dataset de ámbito nacional
+dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> .
+
+# ✅ Dataset de ámbito autonómico
+dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Andalucia> .
+
+# ✅ Dataset de ámbito provincial
+dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Valladolid> .
+
+# ✅ Dataset con múltiples ámbitos no redundantes
+dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Aragon> ;
+dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Cataluna> .

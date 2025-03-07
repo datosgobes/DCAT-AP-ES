@@ -1,0 +1,23 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# Catálogo único por organismo
+<http://datos.gob.es/catalogo/org/EA0000000>
+    a dcat:Catalog ;
+    dct:title "Catálogo de datos abiertos"@es ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/EA0000000> ;
+    dcat:dataset <http://datos.gob.es/catalogo/dataset/001> ;
+    dcat:service <http://datos.gob.es/catalogo/dataset/001/service/1> .
+
+# Dataset con múltiples relaciones
+<http://datos.gob.es/catalogo/dataset/001>
+    a dcat:Dataset ;
+    dct:title "Dataset principal"@es ;
+    # Distribución del dataset
+    dcat:distribution <http://datos.gob.es/catalogo/dataset/001/distribution/1> ;
+    # Nueva versión del dataset
+    dct:hasVersion <http://datos.gob.es/catalogo/dataset/001/v2> ;
+    # Dataset relacionado (semántica específica)
+    dct:isPartOf <http://datos.gob.es/catalogo/dataset/000> ;
+    # Recurso relacionado (semántica general)
+    dct:relation <http://datos.gob.es/recurso/relacionado/xyz> .

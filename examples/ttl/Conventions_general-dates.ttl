@@ -1,0 +1,15 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Ejemplo de gestión correcta de fechas
+<http://example.org/dataset/1> a dcat:Dataset ;
+    dct:title "Dataset ejemplo"@es ;
+    dct:created "2025-01-01"^^xsd:date ;
+    dct:modified "2025-01-30"^^xsd:date .
+
+# Ejemplo con precisión horaria
+<http://example.org/dataset/2> a dcat:Dataset ;
+    dct:title "Dataset con hora"@es ;
+    dct:created "2025-01-01T10:00:00Z"^^xsd:dateTime ;
+    dct:modified "2025-01-30T15:30:00Z"^^xsd:dateTime .
