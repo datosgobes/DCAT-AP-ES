@@ -1,0 +1,186 @@
+:root {
+    --background-color: #f9f9f9;
+    --border-color: #ddd;
+    --title-font-size: 1.7em;
+    --title-margin: 5px 0;
+    --title-color: #205c7c;
+    --subtitle-font-size: 1em;
+    --subtitle-margin: 0px 0;
+    --subtitle-color: #205c7c;
+    --state-font-size: 1em;
+    --state-margin: 10px 0;
+    --details-margin: 20px 0;
+    --summary-font-weight: bold;
+    --summary-background-color: #e0e0e0;
+    --summary-padding: 10px;
+    --summary-border-radius: 5px;
+    --summary-margin: 10px 0;
+    --dd-margin: 0 0 10px 0;
+    --copyright-font-size: 0.9em;
+    --copyright-margin: 20px 0;
+    --hr-border-top: 1px solid #ddd;
+    --hr-margin: 20px 0;
+    --dge-padding: 10px 0;
+    --img-max-height: 60px;
+}
+
+.md-header {
+    color: var(--title-color);
+}
+
+.head {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+
+    .logos {
+        text-align: center;
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .title-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .title {
+        text-align: center;
+        font-size: var(--title-font-size);
+        margin: var(--title-margin);
+        white-space: normal; /* Permitir múltiples líneas */
+        overflow: hidden; 
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Mostrar hasta dos líneas */
+        -webkit-box-orient: vertical;
+        line-height: 1.2em; /* Ajustar la altura de línea según sea necesario */
+        min-height: 2.4em; /* Altura mínima para dos líneas */
+        max-height: 2.4em; /* Ajustar la altura máxima para dos líneas */
+        font-weight: 600;
+        color: var(--title-color);
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: var(--subtitle-font-size);
+        margin: var(--subtitle-margin);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1; 
+        font-weight: 600;
+        color: var(--subtitle-color);
+    }
+
+    #w3c-state {
+        text-align: center;
+        font-size: var(--state-font-size);
+        margin: var(--state-margin);
+    }
+
+    details {
+        margin: var(--details-margin);
+
+        dl {
+            margin: 0;
+            padding: 0;
+
+            dt {
+                font-weight: var(--summary-font-weight);
+            }
+
+            dd {
+                margin: var(--dd-margin);
+            }
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        font-size: var(--copyright-font-size);
+        margin: var(--copyright-margin);
+    }
+
+    hr {
+        border: none;
+        border-top: var(--hr-border-top);
+        margin: var(--hr-margin);
+    }
+}
+
+.dge-entidades {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: var(--dge-padding);
+
+    ul {
+        display: flex !important; /* Sobrescribe la regla de flow-root */
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+
+        li {
+            margin: 0;
+            flex: 1;
+            text-align: center;
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+
+                img {
+                    max-width: 100%;
+                    max-height: var(--img-max-height); /* Ajusta la altura máxima según sea necesario */
+                    height: auto;
+                    width: auto;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.md-typeset summary:not(.focus-visible) {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    color: var(--title-color);
+}
+
+.md-typeset .admonition, .md-typeset details {
+    border: .075rem solid var(--title-color);
+}
+
+.md-typeset .admonition-title:before, .md-typeset summary:before {
+    background-color: var(--title-color);
+}
+
+.draft-label {
+    position: absolute;
+    background-color: #d72447;
+    color: white;
+    padding: 3px 40px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.download-button-container {
+    height: 24px; /* Altura del SVG */
+    min-width: 24px; /* Ancho mínimo igual al SVG */
+    margin: 0.6rem;
+    display: flex;
+    justify-content: flex-end;
+}
