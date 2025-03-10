@@ -226,17 +226,16 @@ La propiedad `dct:temporal` en DCAT-AP-ES se usa para describir el periodo de ti
 
 Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rangos suficientemente flexibles](#nota-dct_periodoftime-dcat_startdate), se opta por adoptar este enfoque por motivos organizativos.
 
-!!! must organisational "Convención 22"
 
-   Los periodos temporales **DEBEN** ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`.
+!!! must organisational "Convención 22"
+    Los periodos temporales **DEBEN** ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`.
 
 !!! info "Ejemplo de uso correcto de un período temporal"
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_general-temporal.ttl"
-     ```
+    ```
 
 !!! info "Nota sobre implementación"
-
    Se recomienda revisar los metadatos, sí son heredados de la versión inicial de NTI-RISP, para actualizar `schema:startDate`, `schema:endDate` (propiedades anteriores a [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/#changes)) en los nuevos registros conforme al vocabulario DCAT.
 
 # Convenciones para `dcat:Catalog` {#catalog}
