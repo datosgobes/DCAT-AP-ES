@@ -46,6 +46,8 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 19**](#convencion-19): El punto de contacto *DEBERÍA* incluir también: 1. Denominación del área o persona (`vcard:fn`) 2. Número de teléfono (`vcard:hasTelephone`) 3. Identificador del organismo (`vcard:hasUid`)
 - [**Convención 20**](#convencion-20): Los puntos de contacto recogidos en la taxonomía del portal *DEBEN* describirse como un `vcard:Kind` y no directamente con la URI del organismo.
 - [**Convención 21**](#convencion-21): En las distribuciones de servicios OGC, las URLs de acceso *DEBEN* modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
+- [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`.
+
 
 # Convenciones generales {#general}
 
@@ -218,6 +220,23 @@ Para garantizar la trazabilidad temporal de los recursos y su correcto seguimien
     1. Verificar que la fecha de modificación sea posterior a la de creación
     2. Comprobar que las fechas estén en los formatos definidos por el modelo, se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
+## Especificación de períodos temporales {#general-temporal}
+
+La propiedad `dct:temporal` en DCAT-AP-ES se usa para describir el periodo de tiempo al que se refiere un conjunto de datos. En la actualidad, existen múltiples formas de describir esta información, incluyendo el uso de `dcat:startDate`, `dcat:endDate`, `time:hasBeginning`, `time:hasEnd` y `schema:startDate`, `schema:endDate`. Sin embargo, esta flexibilidad puede generar inconsistencias en la representación de los periodos temporales.
+
+Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rangos suficientemente flexibles](#nota-dct_periodoftime-dcat_startdate), se opta por adoptar este enfoque por motivos organizativos.
+
+
+!!! must organisational "Convención 22"
+    Los periodos temporales **DEBEN** ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`.
+
+!!! info "Ejemplo de uso correcto de un período temporal"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_general-temporal.ttl"
+    ```
+
+!!! info "Nota sobre implementación"
+    Se recomienda revisar los metadatos, sí son heredados de la versión inicial de NTI-RISP, para actualizar `schema:startDate`, `schema:endDate` (propiedades anteriores a [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/#changes)) en los nuevos registros conforme al vocabulario DCAT.
 
 # Convenciones para `dcat:Catalog` {#catalog}
 

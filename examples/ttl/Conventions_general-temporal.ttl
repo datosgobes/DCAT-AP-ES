@@ -1,0 +1,11 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<http://datos.comunidad.es/dataset/medioambiente/calidad-aire-2024>
+    a dcat:Dataset ;
+    dct:title "Calidad del aire 2024"@es ;
+    dct:temporal [
+        a dct:PeriodOfTime ;
+        dcat:startDate "2024-01-01T00:00:00Z"^^xsd:dateTime ;
+        dcat:endDate "2024-12-31T23:59:59Z"^^xsd:dateTime
+    ] .

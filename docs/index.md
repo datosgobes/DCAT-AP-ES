@@ -10,6 +10,9 @@ Un catálogo de datos abiertos puede estar constituido únicamente por conjuntos
 
 En este documento, se detallan las clases principales del perfil de aplicación: Catálogo, Dataset, Distribución y Servicio de datos, así como otras clases relevantes para una completa información descriptiva de los elementos reutilizables catalogados de acuerdo con el modelo DCAT-AP-ES. Se especifica, además, el conjunto de vocabularios controlados que deben ser utilizados para ajustar las propiedades que describen los elementos catalogados.
 
+!!! warning "Convenciones adicionales"
+    En la pestaña [**Convenciones datos.gob.es**](./conventions) se establecen **convenciones específicas** donde se definen **reglas adicionales** para abordar necesidades prácticas, semánticas o técnicas de la aplicación de DCAT-AP-ES que complementan esta especificación formal.
+
 # Conjuntos de datos de alto valor (High Value Datasets)
 
 En respuesta a la creciente importancia de los datos en la sociedad y la economía, la Comisión Europea adoptó el [**Reglamento de ejecución (UE) 2023/138 de la Comisión Europea**](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138) (*High Value Datasets Implementing Regulation, HVD IR*) el 21 de diciembre de 2022. Este reglamento establece pautas claras para los organismos públicos en la disponibilidad de conjuntos de datos de alto valor y tiene como objetivo mejorar la calidad, accesibilidad y uso de un conjunto especifico de datos clave dentro del sector público. Para lograrlo, el reglamento HVD establece requisitos específicos para los metadatos asociados a los conjuntos de datos publicados.
