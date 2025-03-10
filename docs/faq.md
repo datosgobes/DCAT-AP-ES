@@ -140,6 +140,14 @@ Secciones:
     
     [:octicons-arrow-right-24: Clases](/#clases_del_perfil_de_aplicacion_dcat-ap-es)
 
+-   :fontawesome-solid-building-columns:{ .lg .middle .grid-emoji } **¿Más información sobre la NTI-RISP?**{ .grid-title #novedades }
+
+    ---
+
+    Se puede obtener más información y apoyo documental de las Normas Técnicas de Interoperabilidad (NTI) publicadas en el BOE a través del Portal de la Administración electrónica (PAe).
+    
+    [:octicons-arrow-right-24: PAe](https://administracionelectronica.gob.es/pae_Home/pae_Biblioteca/pae_PublicacionesPropias/Monografias-administracion-electronica/Guias-de-aplicacion-NTI.html)
+
 </div>
 
 ## **Modelo de datos** { .faq-h #model}

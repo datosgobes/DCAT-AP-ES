@@ -15,6 +15,7 @@ v1: DCAT-AP-ES Convenciones
 :icons: font
 :imagesdir: .
 :front-cover-image: image::img/cover-dcat-ap-es-conventions.es.png[]
+:back-cover-image: image::img/back-dcat-ap-es-conventions.es.png[]
 :pdf-theme: datosgobes-theme.yml
 
 

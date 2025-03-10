@@ -248,7 +248,7 @@
             "inLanguage": "es",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": " Se alinea con el perfil europeo DCAT-AP, incorpora servicios de datos (dcat:DataService), el modelado de conjuntos de alto valor (HVD) y mejoras en la descripción de la calidad de metadatos.",
+                "text": "Se alinea con el perfil europeo DCAT-AP, incorpora servicios de datos (dcat:DataService), el modelado de conjuntos de alto valor (HVD) y mejoras en la descripción de la calidad de metadatos.",
                 "inLanguage": "es"
             }
         },
@@ -258,7 +258,7 @@
             "inLanguage": "en",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": " It conforms to the European DCAT-AP profile, includes data services (dcat:DataService), high value set (HVD) modeling, and metadata quality description enhancements.",
+                "text": "It conforms to the European DCAT-AP profile, includes data services (dcat:DataService), high value set (HVD) modeling, and metadata quality description enhancements.",
                 "inLanguage": "en"
             }
         },
@@ -268,7 +268,7 @@
             "inLanguage": "es",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": " Todo el material esta licenciado con la licencia abierta *Creative Commons Attribution 4.0 International*. Puedes copiar, modificar, distribuir y utilizar el material, incluso con fines comerciales, siempre que se reconozca la autoría.",
+                "text": "Todo el material esta licenciado con la licencia abierta *Creative Commons Attribution 4.0 International*. Puedes copiar, modificar, distribuir y utilizar el material, incluso con fines comerciales, siempre que se reconozca la autoría.",
                 "inLanguage": "es"
             }
         },
@@ -278,7 +278,27 @@
             "inLanguage": "en",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": " All material is licensed under the open license *Creative Commons Attribution 4.0 International*. You may copy, modify, distribute and use the material, even for commercial purposes, as long as the authorship is acknowledged.",
+                "text": "All material is licensed under the open license *Creative Commons Attribution 4.0 International*. You may copy, modify, distribute and use the material, even for commercial purposes, as long as the authorship is acknowledged.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Más información sobre la NTI-RISP?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Se puede obtener más información y apoyo documental de las Normas Técnicas de Interoperabilidad (NTI) publicadas en el BOE a través del Portal de la Administración electrónica (PAe).",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "More information about the NTI-RISP?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The e-Government Portal (PAe) provides more information and documentation support for the Technical Interoperability Standards (TSI) published in the BOE.",
                 "inLanguage": "en"
             }
         }

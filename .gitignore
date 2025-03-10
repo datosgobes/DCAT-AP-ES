@@ -128,7 +128,7 @@ config.yml
 config.yaml
 
 # Refs
-refs/dcat-ap-es/docx/~*.docx
+refs/dcat-ap-es/*.docx
 docs/img/shacl_overview_validation.svg
 tools/.temp
 refs/github_issue_*.md
