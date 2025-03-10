@@ -10,6 +10,9 @@ An open data catalog can consist solely of datasets or of data services, though 
 
 This document describes the main classes of the application profile: Catalog, Dataset, Distribution, and Data Service, as well as other relevant classes that provide a complete descriptive framework for the reusable elements cataloged according to the DCAT-AP-ES model. In addition, it specifies the set of controlled vocabularies that must be used for the properties describing the cataloged elements.
 
+!!! warning "Additional Conventions"
+    The [**datos.gob.es Conventions**](./conventions) tab establishes **specific conventions** that define **additional rules** to address practical, semantic, or technical needs of the DCAT-AP-ES application that complement this formal specification.
+
 # High-Value Datasets
 
 Reflecting the growing importance of data in society and the economy, the European Commission adopted [**Commission Implementing Regulation (EU) 2023/138**](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138) (High-Value Datasets Implementing Regulation, HVD IR) on December 21, 2022. This regulation establishes clear guidelines for public bodies regarding the availability of high-value datasets and aims to improve the quality, accessibility, and use of specific key datasets within the public sector. To achieve this goal, the HVD regulation sets specific requirements for the metadata associated with published datasets.
