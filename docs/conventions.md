@@ -236,7 +236,7 @@ Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rang
     ```
 
 !!! info "Nota sobre implementación"
-   Se recomienda revisar los metadatos, sí son heredados de la versión inicial de NTI-RISP, para actualizar `schema:startDate`, `schema:endDate` (propiedades anteriores a [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/#changes)) en los nuevos registros conforme al vocabulario DCAT.
+    Se recomienda revisar los metadatos, sí son heredados de la versión inicial de NTI-RISP, para actualizar `schema:startDate`, `schema:endDate` (propiedades anteriores a [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/#changes)) en los nuevos registros conforme al vocabulario DCAT.
 
 # Convenciones para `dcat:Catalog` {#catalog}
 
