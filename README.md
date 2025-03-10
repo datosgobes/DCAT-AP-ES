@@ -16,7 +16,7 @@ El proyecto está organizado de la siguiente manera:
 - `overrides`: [Plantillas personalizadas](https://squidfunk.github.io/mkdocs-material/customization/) para la documentación online.
 - `examples/`: Ejemplos de uso de `DCAT-AP-ES`.
 - `refs/`: Referencias adicionales y documentación relacionada.
-- `tools/`: Herramientas y software útil para la gestión del proyecto.
+- `tools/`: Herramientas y software útil para la gestión del proyecto. [Más información](#herramientas-adicionales-del-repositorio)
 
 ## Contribución
 
@@ -72,6 +72,24 @@ Esta documentación usa [`mkdocs-static-i18n`](https://ultrabug.github.io/mkdocs
 > [!NOTE] 
 > Usando la estructura de sufijo en los archivos de documentación (por defecto), debes agregar el sufijo `.<idioma>.<extensión>` a tus archivos (por ejemplo, `index.en.md`).  
 > Más información en: [Documentación del plugin MkDocs static i18n](https://ultrabug.github.io/mkdocs-static-i18n/getting-started/quick-start/)
+
+### Herramientas adicionales del repositorio
+1. **Python hook ([`dcat_ap_es.py`](./tools/mkdocs-hooks/dcat_ap_es.py))**: 
+   - Es un [*hook* para MkDocs](https://www.mkdocs.org/user-guide/configuration/#hooks) que se ejecuta después de la construcción del sitio
+   - Se encarga de copiar archivos `PDF` desde un directorio de origen a un directorio de destino en el sitio generado
+
+2. **Imagen personalizada para Asciidoctor** ([`Dockerfile`](./tools/asciidoctor/Dockerfile)):
+   - Basado en la imagen [`asciidoctor/docker-asciidoctor`](https://github.com/asciidoctor/docker-asciidoctor)
+   - Se utiliza para generar documentos `PDF` maquetados a partir de archivos `AsciiDoc`
+
+3. **Imagen personalizada para md2adoc** ([`Dockerfile`](./tools/md2adoc/Dockerfile)):
+   - Basado en la imagen [`ruby`](https://github.com/docker-library/ruby)
+   - Se utiliza para convertir documentos Markdown a formato `AsciiDoc`
+
+Estos tres componentes forman parte de un pipeline de documentación que:
+1. Convierte archivos Markdown a AsciiDoc (usando el contenedor md2adoc)
+2. Genera `PDF` a partir de los archivos AsciiDoc (usando el contenedor asciidoctor)
+3. Copia los `PDF` generados al sitio web final durante la construcción de MkDocs (usando el hook de Python)
 
 ## Licencia
 
