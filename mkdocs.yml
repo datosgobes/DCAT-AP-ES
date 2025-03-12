@@ -140,9 +140,8 @@ extra:
   mkdocs_hooks:
     pdf_source: refs/dcat-ap-es/pdf
     pdf_dest: download/pdf
-  extra:
-    version:
-      provider: mike
+  version:
+    provider: mike
 
 plugins:
   - privacy
@@ -180,6 +179,10 @@ plugins:
   - redirects:
       redirect_maps:
         'old.md': 'index.md'
+        'dcat-ap-es.md': 'index.md'
+        'convenciones.md': 'conventions.md'
+        'ejemplos.md': 'examples.md'
+        'preguntas-frecuentes.md': 'faq.md'
   - minify:
       minify_html: true
   - social:
