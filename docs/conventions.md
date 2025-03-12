@@ -322,7 +322,7 @@ Para mejorar la interoperabilidad y descripción de servicios OGC (`WMS`, `WFS`,
     3. Servicios CSW (Catalog Service for the Web)
     4. Otros servicios OGC estándar
 
-!!! info "Ejemplo de modelado de servicio WMS"
+!!! info "Ejemplo de modelado de servicio cartográfico"
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_dataservice-ogc-services.ttl"
     ```
