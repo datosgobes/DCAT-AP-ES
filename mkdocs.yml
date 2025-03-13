@@ -246,10 +246,6 @@ dcatapes:
       - name: Equipo Asesoramiento
         org: Iniciativa Aporta
         email: soporte@datos.gob.es
-    author:
-      - name: Equipo Asesoramiento
-        org: Iniciativa Aporta
-        email: soporte@datos.gob.es
     feedback: 
       title: GitHub DCAT-AP-ES
     feedback_links:
@@ -268,7 +264,7 @@ dcatapes:
       history: Historial
       editors: Editores
       author: Autor
-      feedback: Comentarios
+      feedback: Retroalimentación
       owners: Propietarios
     copyright:
       name: CC BY 4.0
@@ -304,7 +300,7 @@ dcatapes:
       validation_result: Resultado de la validación DCAT-AP 2.1.1 Base
       convert_to: Convertir a
     conventions:
-      draft: true
+      draft: false
       download_pdf: true
       title: Convenciones técnicas, semánticas y organizativas de la aplicación de DCAT-AP-ES en el catálogo de datos.gob.es
       document_title: DCAT-AP-ES Convenciones-datos.gob.es 1.0.0
@@ -318,7 +314,15 @@ dcatapes:
       editors:
         - name: Equipo Asesoramiento
           org: Iniciativa Aporta
+          link: https://datos.gob.es/acerca-de-la-iniciativa-aporta
           email: soporte@datos.gob.es
+      author:
+        name: Equipo Asesoramiento
+        org: Iniciativa Aporta
+        email: soporte@datos.gob.es
+      also_available:
+        enabled: true 
+        text: "Disponible también en formato"
     buttons:
       draft_label: 
         label: Borrador
@@ -377,10 +381,7 @@ dcatapes:
     editors:
       - name: Advisory team
         org: Aporta Initiative
-        email: soporte@datos.gob.es
-    author:
-      - name: Advisory team
-        org: Aporta Initiative
+        link: https://datos.gob.es/acerca-de-la-iniciativa-aporta
         email: soporte@datos.gob.es
     feedback: 
       title: GitHub DCAT-AP-ES
@@ -400,7 +401,7 @@ dcatapes:
       history: History
       editors: Editors
       author: Author
-      feedback: Comments
+      feedback: Feedback
       owners: Owners
     copyright:
       name: CC BY 4.0
@@ -450,7 +451,15 @@ dcatapes:
       editors:
         - name: Equipo Asesoramiento
           org: Iniciativa Aporta
+          link: https://datos.gob.es/acerca-de-la-iniciativa-aporta
           email: soporte@datos.gob.es
+      author:
+        name: Advisory team
+        org: Aporta Initiative
+        email: soporte@datos.gob.es
+      also_available:
+        enabled: true 
+        text: "Also available in"
     buttons:
       draft_label: 
         label: Draft

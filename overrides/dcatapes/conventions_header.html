@@ -6,24 +6,22 @@
     <div class="download-button-container">
         {% if config.dcatapes[lang].conventions.download_pdf %}
         <a class="md-content__button md-icon" href="{{ config.dcatapes[lang].buttons.download_pdf.href.conventions }}" title="{{ config.dcatapes[lang].buttons.download_pdf.title }}" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 20.41 4.12 20.8 4.34 21.12C4.41 21.23 4.5 21.33 4.59 21.41C4.95 21.78 5.45 22 6 22H13.53C13 21.42 12.61 20.75 12.35 20H6V4H13V9H18V12C18.7 12 19.37 12.12 20 12.34V8L14 2M18 23L23 18.5L20 15.8L18 14V17H14V20H18V23Z" />
-            </svg>
+            {% include ".icons/fontawesome/regular/file-pdf.svg" %}
         </a>
         {% endif %}
     </div>
     <div class="title-container">
         <span id="title" class="title">{{ config.dcatapes[lang].conventions.title }}</span>
     </div>
-    <p class="logos">
-        </p><div class="dge-entidades">
-            <ul>
+    <div class="logos-section">
+        <div class="dge-entidades">
+            <ul class="logo-list">
                 {% for logo in config.dcatapes[lang].logos %}
                     <li><a href="{{ logo.href }}" data-insuit-uuid=""><img alt="{{ logo.alt }}" src="{{ logo.src }}"></a></li>
                 {% endfor %}
             </ul>
         </div>
-    <p></p>
+    </div>
     <center><span id="subtitle" class="subtitle">{{ config.dcatapes[lang].conventions.document_title }}</span></center>
     <p id="w3c-state">
         <time class="dt-published" datetime="{{ config.dcatapes[lang].published_date }}">{{ config.dcatapes[lang].conventions.published_date }}</time>
@@ -39,30 +37,31 @@
             {% for item in config.dcatapes[lang].conventions.history %}
                 <dd><a href="{{ item.link }}">{{ item.name }}</a></dd>
             {% endfor %}
+            <!-- Editors -->
             <dt>{{ config.dcatapes[lang].categories.editors }}:</dt>
             {% for editor in config.dcatapes[lang].conventions.editors %}
                 <dd class="editor p-author h-card vcard">
-                    {% if editor.email %}
-                        <a class="u-email email" href="mailto:{{ editor.email }}">{{ editor.name }}</a>
-                    {% else %}
-                        <span class="p-name fn">{{ editor.name }}</span>
-                    {% endif %}
+                    <span class="p-name fn">{{ editor.name }}</span>
                     {% if editor.org %}
-                        (<span class="p-org org h-org">{{ editor.org }}</span>)
+                        ({% set org_url = editor.email if editor.email else editor.link %}{% if org_url %}{% set href_prefix = 'mailto:' if editor.email else '' %}<a class="p-org org h-org" href="{{ href_prefix }}{{ org_url }}">{{ editor.org }}</a>{% else %}<span class="p-org org h-org">{{ editor.org }}</span>{% endif %})
                     {% endif %}
                 </dd>
             {% endfor %}
-            <dt>{{ config.dcatapes[lang].categories.author }}:</dt>
-            <dd class="editor p-author h-card vcard">
-                <a class="ed_mailto u-email email p-name" href="mailto:{{ config.dcatapes[lang].author.email }}">{{ config.dcatapes[lang].author.name }}</a>
-                {% if config.dcatapes[lang].author.org %}
-                    (<span class="p-org org h-org">{{ config.dcatapes[lang].author.org }}</span>)
-                {% endif %}
-            </dd>
+            
+            <!-- Author (if exists) -->
+            {% if config.dcatapes[lang].conventions.author and config.dcatapes[lang].conventions.author.name %}
+                <dt>{{ config.dcatapes[lang].categories.author }}:</dt>
+                <dd class="editor p-author h-card vcard">
+                    <span class="p-name fn">{{ config.dcatapes[lang].conventions.author.name }}</span>
+                    {% if config.dcatapes[lang].conventions.author.org %}
+                        ({% set org_url = config.dcatapes[lang].conventions.author.email if config.dcatapes[lang].conventions.author.email else config.dcatapes[lang].conventions.author.link %}{% if org_url %}{% set href_prefix = 'mailto:' if config.dcatapes[lang].conventions.author.email else '' %}<a class="p-org org h-org" href="{{ href_prefix }}{{ org_url }}">{{ config.dcatapes[lang].conventions.author.org }}</a>{% else %}<span class="p-org org h-org">{{ config.dcatapes[lang].conventions.author.org }}</span>{% endif %})
+                    {% endif %}
+                </dd>
+            {% endif %}
             <dt>{{ config.dcatapes[lang].categories.feedback }}:</dt>
             <dd>
                 <a href="{{ config.repo_url }}">{{ config.dcatapes[lang].feedback.title }}</a>
-                <ul style="padding-left: 20px; margin: 0; margin-top: 5px;">
+                <ul>
                     {% for link in config.dcatapes[lang].feedback_links %}
                         <li><a href="{{ link.link }}">{{ link.text }}</a></li>
                     {% endfor %}
@@ -82,6 +81,24 @@
                 </dd>
             {% endfor %}
         </dl>
+        {% if config.dcatapes[lang].conventions.also_available and config.dcatapes[lang].conventions.also_available.enabled %}
+            <div class="also-available-container">
+                </dl>
+                    <dt class="dt-normal">{{ config.dcatapes[lang].conventions.also_available.text }}:
+                        {% if config.dcatapes[lang].conventions.download_pdf %}
+                            <a href="{{ config.dcatapes[lang].buttons.download_pdf.href.conventions }}" class="icon-link" title="PDF">
+                                {% include ".icons/fontawesome/regular/file-pdf.svg" %}
+                            </a>
+                        {% else %}
+                            <span class="icon-container">
+                                {% include ".icons/fontawesome/regular/file-pdf.svg" %}
+                            </span>
+                        {% endif %}
+                    </dt>
+                    <dd></dd>
+                </dl>
+            </div>
+        {% endif %}
     </details>
     <p class="copyright">
         {% set icon = config.dcatapes[lang].copyright.icon or "fontawesome/regular/copyright" %}

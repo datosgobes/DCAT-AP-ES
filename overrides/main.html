@@ -23,6 +23,14 @@
             {% include "dcatapes/jsonld/faq.json" %}
         </script>
     {% endif %}
+    
+    {% if page.url == '/' or page.title == ns.index_page_title or page.url == '/conventions' or page.title == ns.conventions_page_title %}
+      <style>
+        .md-content__inner > h1:first-of-type {
+          display: none;
+        }
+      </style>
+    {% endif %}
 {% endblock %}
 
 {% block container %}
@@ -34,16 +42,14 @@
       {% elif page.url == '/conventions' or page.title == ns.conventions_page_title %}
         {% include "dcatapes/conventions_header.html" %}
       {% endif %}
+
       {% block content %}
         {{ super() }}
       {% endblock %}
 
-
       {% block codeblock_enhancement %}
         {% include "dcatapes/codeblock_enhancement.html" %}
       {% endblock %}
-
-
     </article>
   </div>
 {% endblock %}
