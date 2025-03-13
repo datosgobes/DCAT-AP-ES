@@ -10,7 +10,7 @@ Un catálogo de datos abiertos puede estar constituido únicamente por conjuntos
 
 En este documento, se detallan las clases principales del perfil de aplicación: Catálogo, Dataset, Distribución y Servicio de datos, así como otras clases relevantes para una completa información descriptiva de los elementos reutilizables catalogados de acuerdo con el modelo DCAT-AP-ES. Se especifica, además, el conjunto de vocabularios controlados que deben ser utilizados para ajustar las propiedades que describen los elementos catalogados.
 
-!!! warning "Convenciones adicionales"
+!!! warning "Guía de convenciones "
     En la pestaña [**Convenciones datos.gob.es**](./conventions) se establecen **convenciones específicas** donde se definen **reglas adicionales** para abordar necesidades prácticas, semánticas o técnicas de la aplicación de DCAT-AP-ES que complementan esta especificación formal.
 
 # Conjuntos de datos de alto valor (High Value Datasets)
