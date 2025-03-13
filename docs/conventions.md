@@ -1,9 +1,9 @@
 # Introducción
-En España, el intercambio de datos abiertos entre el portal de la Iniciativa de datos abiertos del Gobierno de España ([datos.gob.es](https://datos.gob.es)) y los distintos proveedores de datos, como catálogos autonómicos, de Entidades Locales y otros organismos, se plantea bajo un marco que asegure la interoperabilidad y homogeneidad de los metadatos. Para ello, se adapta el perfil de aplicación europeo  [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) junto a los elementos descritos en la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) para incorporar el modelado de los [Conjuntos de datos de alto valor](https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir) (*High Value Datasets*) a las necesidades nacionales, dando lugar al estándar **DCAT-AP-ES**, que se establece como referencia para el intercambio de metadatos sobre información pública a nivel nacional.  
+En España, el intercambio de datos abiertos entre el portal de la Iniciativa de datos abiertos del Gobierno de España ([datos.gob.es](https://datos.gob.es)) y los distintos proveedores de datos, como catálogos de la Administración General del Estado, autonómicos, de Entidades Locales y otros organismos, se plantea bajo un marco que asegure la interoperabilidad y homogeneidad de los metadatos. Para ello, se adapta el perfil de aplicación europeo  [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) junto a los elementos descritos en la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) para incorporar el modelado de los [Conjuntos de datos de alto valor](https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir) (*High Value Datasets*) a las necesidades nacionales, dando lugar al estándar **DCAT-AP-ES**, que se establece como referencia para el intercambio de metadatos sobre información pública a nivel nacional.  
 
 Desde la entrada en vigor del estándar, [datos.gob.es](https://datos.gob.es) aceptará metadatos en formato **DCAT-AP-ES**. Para aquellos proveedores que entreguen datos directamente al portal, se establecerá un período transitorio tras la publicación de nuevas versiones, durante el cual podrán ajustar sus sistemas al estándar actualizado desde el perfil anterior de la Norma Técnica de Interoperabilidad de Recursos de Información del Sector Público ([**NTI-RISP**](https://datos.gob.es/es/doc-tags/nti-risp))
 
-El manual de convenciones no solo detalla las modificaciones específicas introducidas en el estándar español respecto a la versión europea, sino que también define reglas adicionales para abordar necesidades prácticas. Estas pueden incluir particularidades del contexto español de datos abiertos, donde la implementación podría ajustarse a requerimientos técnicos distintos. Además, se prevé que algunas de estas reglas puedan evolucionar más rápidamente que la especificación principal, permitiendo mayor flexibilidad y adaptación a los cambios tecnológicos.  
+La guía de convenciones no solo detalla las modificaciones específicas introducidas en el estándar español respecto a la versión europea, sino que también define reglas adicionales para abordar necesidades prácticas. Estas pueden incluir particularidades del contexto español de datos abiertos, donde la implementación podría ajustarse a requerimientos técnicos distintos. Además, se prevé que algunas de estas reglas puedan evolucionar más rápidamente que la especificación principal, permitiendo mayor flexibilidad y adaptación a los cambios tecnológicos.  
 
 Este documento tiene como **público objetivo** a los ^^responsables de desarrollo y mantenimiento de los portales de datos abiertos^^, así como a los ^^proveedores de datos que colaboren con el catálogo nacional^^. Su propósito es proporcionar directrices claras y herramientas prácticas para implementar el estándar de manera eficiente. Sin embargo, para usos en contextos específicos, se deja abierta la posibilidad de establecer convenciones adicionales que complementen las normativas generales.  
 
@@ -180,7 +180,7 @@ Para garantizar una referencia unívoca y persistente a documentos legales, se d
     2. Para legislación nacional: `https://www.boe.es/eli/...`
     3. Para documentos derivados usar la URI ELI del documento principal
 
-!!! info "Ejemplo de uso de identificadores ELI"
+!!! info "Ejemplo de uso de identificadores legales"
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_general-eli.ttl"
     ```
@@ -299,7 +299,7 @@ Los [conjuntos de datos de alto valor (HVD) deben proporcionar acceso programát
     7. *Datasets* servidos (`dcat:servesDataset`)
 
 
-!!! info "Ejemplo de propiedad `dcat:accessService` en Dataset"
+!!! info "Ejemplo de propiedad de acceso al servicio en una distribución"
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_dataservice-hvd-dataservice.ttl"
     ```
@@ -446,7 +446,7 @@ Para asegurar un acceso correcto a los servicios OGC y cumplir con los requisito
 !!! must technical "Convención 21"
     En las distribuciones de servicios OGC, las URLs de acceso **DEBEN** modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
 
-!!! info "Ejemplo de modelado de URLs OGC"
+!!! info "Ejemplo de descrición del acceso a servicios cartográficos"
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_distribution-ogc-urls.ttl"
     ```
