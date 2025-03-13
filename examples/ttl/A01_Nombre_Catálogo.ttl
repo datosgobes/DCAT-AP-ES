@@ -3,5 +3,5 @@
 
 <http://dcat-ap-es.ejemplo.org/catalogo>
   a dcat:Catalog ;
-  dc:title "Catálogo de Datos Abiertos"@es, "Open Data Catalog"@en ;
+  dct:title "Catálogo de Datos Abiertos"@es, "Open Data Catalog"@en ;
   dct:language <http://publications.europa.eu/resource/authority/language/SPA>, <http://publications.europa.eu/resource/authority/language/ENG> .

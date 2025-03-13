@@ -8,28 +8,28 @@
 
 <http://dcat-ap-es.ejemplo.org/catalogo>
   a dcat:Catalog ;
-  dc:title "Catálogo de Datos Abiertos"@es, "Open Data Catalog"@en ;
-  dc:description "Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES."@en ;
+  dct:title "Catálogo de Datos Abiertos"@es, "Open Data Catalog"@en ;
+  dct:description "Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES."@en ;
   foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
-  dc:publisher [
+  dct:publisher [
     a foaf:Organization ;
-    dc:identifier "http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo" ;
+    dct:identifier "http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo" ;
     foaf:name "Nombre del organismo" ;
     foaf:mbox <mailto:example@ejemplo.org> ;
-    dc:type <http://purl.org/adms/publishertype/NationalAuthority>
+    dct:type <http://purl.org/adms/publishertype/NationalAuthority>
   ] ;
   dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector/> ;
-  dc:issued "2025-01-01T09:00:00+01:00"^^xsd:dateTime ;
-  dc:modified "2025-01-02T12:00:00+01:00"^^xsd:dateTime ;
+  dct:issued "2025-01-01T09:00:00+01:00"^^xsd:dateTime ;
+  dct:modified "2025-01-02T12:00:00+01:00"^^xsd:dateTime ;
   dct:language <http://publications.europa.eu/resource/authority/language/SPA>, <http://publications.europa.eu/resource/authority/language/ENG> ;
-  dc:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
-  dc:creator [
+  dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+  dct:creator [
     a foaf:Organization ;
     foaf:name "Nombre del departamento del organismo"
   ] ;
-  dc:rights <http://dcat-ap-es.ejemplo.org/catalogo/derechos-de-acceso> ;
-  dc:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
-  dc:hasPart <http://dcat-ap-es.ejemplo.org/catalogo-vinculado> ;
+  dct:rights <http://dcat-ap-es.ejemplo.org/catalogo/derechos-de-acceso> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+  dct:hasPart <http://dcat-ap-es.ejemplo.org/catalogo-vinculado> ;
   dcat:dataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-HVD-ejemplo-1>, <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> .
 
 <http://dcat-ap-es.ejemplo.org/catalogo/derechos-de-acceso>
@@ -48,16 +48,16 @@
 
 <http://dcat-ap-es.ejemplo.org/dataset/dataset-HVD-ejemplo-1>
   a dcat:Dataset ;
-  dc:title "Dataset HVD de ejemplo"@es, "Example HVD Dataset"@en ;
-  dc:description "Descripción de un dataset HVD de ejemplo."@es, "Example HVD dataset description."@en ;
+  dct:title "Dataset HVD de ejemplo"@es, "Example HVD Dataset"@en ;
+  dct:description "Descripción de un dataset HVD de ejemplo."@es, "Example HVD dataset description."@en ;
   dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj>, <http://data.europa.eu/eli/dir/2007/2/2019-06-26> ;
   dcatap:hvdCategory <http://data.europa.eu/bna/c_b7f6a4f3> ;
-  dc:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo> ;
-  dc:identifier "identificador-dataset-HVD-ejemplo-1" ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo> ;
+  dct:identifier "identificador-dataset-HVD-ejemplo-1" ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> .
 
 <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1>
   a dcat:Dataset ;
-  dc:title "Dataset de ejemplo"@es, "Example Dataset"@en ;
-  dc:description "Descripción de un dataset de ejemplo."@es, "Example dataset description."@en ;
+  dct:title "Dataset de ejemplo"@es, "Example Dataset"@en ;
+  dct:description "Descripción de un dataset de ejemplo."@es, "Example dataset description."@en ;
   dcatap:applicableLegislation <http://data.europa.eu/eli/dir/2007/2/2019-06-26> .
