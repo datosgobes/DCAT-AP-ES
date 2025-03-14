@@ -1,5 +1,5 @@
 site_name: DCAT-AP-ES
-site_url: https://mjanez.github.io/demo-dcatapes/   # Local: mkdocs serve -a 127.0.0.1:8088
+site_url: https://datosgobes.github.io/DCAT-AP-ES/   # Local: mkdocs serve -a 127.0.0.1:8088
 site_description: >-
   Guía para la implementación de DCAT-AP-ES en portales de datos abiertos.
 repo_name: datosgobes/DCAT-AP-ES
@@ -227,7 +227,7 @@ dcatapes:
     logos:
       - href: 'https://digital.gob.es/ministerio/organigrama_organos/SEDIA.html'
         alt: 'Secretaría de Estado de Digitalización e Inteligencia Artificial'
-        src: '/demo-dcatapes/img/sedia-red-es.jpg'
+        src: '/DCAT-AP-ES/img/sedia-red-es.jpg'
       - href: 'https://datos.gob.es'
         alt: 'datos.gob.es'
         src: 'https://datos.gob.es/sites/default/files/logo_0.svg'
@@ -235,10 +235,10 @@ dcatapes:
         alt: 'Iniciativa Aporta'
         src: 'https://datos.gob.es/sites/all/themes/dge_theme/images/logo_iniciativa-aporta.svg'
     document_title: DCAT-AP-ES 1.0.0
-    published_date: '2025-01-21'
+    published_date: '2025-03-01'
     details_summary: Más detalles sobre este documento
-    latest_published_version: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
-    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/1.0.0'
+    latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
+    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
     history: 
       - name: Histórico de cambios
         link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
@@ -303,11 +303,11 @@ dcatapes:
       draft: false
       download_pdf: true
       title: Convenciones técnicas, semánticas y organizativas de la aplicación de DCAT-AP-ES en el catálogo de datos.gob.es
-      document_title: DCAT-AP-ES Convenciones-datos.gob.es 1.0.0
-      published_date: '2025-01-21'
+      document_title: DCAT-AP-ES convenciones datos.gob.es 1.0.0
+      published_date: '2025-03-01'
       details_summary: Más detalles sobre este documento
-      latest_published_version: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
-      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/1.0.0'
+      latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
+      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
       history: 
         - name: Histórico de cambios
           link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
@@ -330,8 +330,8 @@ dcatapes:
         enabled: true
         title: Descargar como PDF
         href: 
-          index: https://mjanez.github.io/demo-dcatapes/download/pdf/dcat-ap-es_implementation_guide.es.pdf
-          conventions: https://mjanez.github.io/demo-dcatapes/download/pdf/dcat-ap-es-conventions.es.pdf
+          index: https://datosgobes.github.io/DCAT-AP-ES/download/pdf/dcat-ap-es_implementation_guide.es.pdf
+          conventions: https://datosgobes.github.io/DCAT-AP-ES/download/pdf/dcat-ap-es-conventions.es.pdf
       badges:
         must:
           name: Obligatoria
@@ -371,10 +371,10 @@ dcatapes:
         alt: datos.gob.es
         src: 'https://datos.gob.es/sites/default/files/logo_0.svg'
     document_title: DCAT-AP-ES 1.0.0
-    published_date: '2025-01-21'
+    published_date: '2025-03-01'
     details_summary: More details about this document
-    latest_published_version: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
-    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/1.0.0'
+    latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
+    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
     history: 
       - name: Change History
         link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
@@ -440,11 +440,11 @@ dcatapes:
       draft: true
       download_pdf: true
       title: Technical, semantic, and organizational conventions for the application of DCAT-AP-ES in the datos.gob.es catalog
-      document_title: DCAT-AP-ES Conventions-datos.gob.es 1.0.0
-      published_date: '2025-01-21'
+      document_title: DCAT-AP-ES conventions datos.gob.es 1.0.0
+      published_date: '2025-03-01'
       details_summary: More details about this document
-      latest_published_version: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
-      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/1.0.0'
+      latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
+      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
       history: 
         - name: Change History
           link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
@@ -467,8 +467,8 @@ dcatapes:
         enabled: true
         title: Download as PDF
         href: 
-          index: https://mjanez.github.io/demo-dcatapes/download/pdf/dcat-ap-es_implementation_guide.en.pdf
-          conventions: https://mjanez.github.io/demo-dcatapes/download/pdf/dcat-ap-es-conventions.en.pdf
+          index: https://datosgobes.github.io/DCAT-AP-ES/download/pdf/dcat-ap-es_implementation_guide.en.pdf
+          conventions: https://datosgobes.github.io/DCAT-AP-ES/download/pdf/dcat-ap-es-conventions.en.pdf
       badges:
         must:
           name: Mandatory
