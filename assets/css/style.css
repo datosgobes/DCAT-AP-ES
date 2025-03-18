@@ -4,7 +4,7 @@
     --hover-color: #45a049;
     --button-color: #4CAF50;
     --link-color: #245E7C;
-    --link-hover-color: #C64A1A;
+    --link-hover-color: #e05318;
     --header-bg-color: #0f3062;
     --header-text-color: #fff;
     --warning-bg-color: #ff8822;
@@ -30,10 +30,17 @@
     color: var(--header-bg-color);
 }
 
+.md-typeset h1 {
+    color: var(--title-color);
+    font-size: var(--title-font-size);
+    line-height: 1.3;
+    margin: 0 0 1.25em;
+}
+
 .md-header__button.md-logo img, .md-header__button.md-logo svg {
     fill: currentcolor;
     display: block;
-    height: 1.7rem;
+    height: 2.3rem;
     width: auto;
 }
 
@@ -50,13 +57,40 @@ td {
 
 td:first-child:not(.code) {
     border-bottom: 2px solid var(--primary-color);
-    border-left: 2px solid var(--primary-color); /* Add left border */
+    border-left: 2px solid var(--primary-color);
     background-color: var(--secondary-color) !important;
 }
 
-td:not(:first-child):not(.code) {
+td:not(:first-child):not(.code):not(.linenos) {
     border-bottom: 2px solid var(--primary-color);
     border-right: 2px solid var(--primary-color);
+}
+
+/* Reglas base para celdas */
+td:first-child:not(.code):not(.linenos) {
+    border-bottom: 2px solid var(--primary-color);
+    border-left: 2px solid var(--primary-color);
+    background-color: var(--secondary-color) !important;
+}
+
+td:not(:first-child):not(.code):not(.linenos) {
+    border-bottom: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color);
+}
+
+/* Mantener el borde izquierdo para todas las primeras celdas */
+td:first-child {
+    border-left: 2px solid var(--primary-color);
+}
+
+/* Sin borde inferior para celdas de código y números de línea */
+td.code, td.linenos {
+    border-bottom: none !important;
+}
+
+/* Mantén el borde izquierdo para la primera celda */
+td:first-child {
+    border-left: 2px solid var(--primary-color);
 }
 
 /* Add border to first cell in each row for consistent left border */
@@ -341,18 +375,118 @@ a:hover, a:focus {
     display: table
   }
 
+/* Admonition styles */
+/* Estilos SOLO para admonitions de convención */
+/* Estilo base */
+.md-typeset .admonition.must,
+.md-typeset .admonition.should,
+.md-typeset .admonition.may,
+.md-typeset .admonition.usage-note,
+.md-typeset details.must,
+.md-typeset details.should,
+.md-typeset details.may,
+.md-typeset details.usage-note {
+    position: relative;
+    overflow: hidden;
+    border-left-width: 0 !important; 
+    padding-left: 0.8rem !important; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Efecto hover */
+.md-typeset .admonition.must:hover,
+.md-typeset .admonition.should:hover,
+.md-typeset .admonition.may:hover,
+.md-typeset .admonition.usage-note:hover,
+.md-typeset details.must:hover,
+.md-typeset details.should:hover,
+.md-typeset details.may:hover,
+.md-typeset details.usage-note:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Borde izquierdo personalizado */
+.md-typeset .admonition.must::before,
+.md-typeset .admonition.should::before,
+.md-typeset .admonition.may::before,
+.md-typeset .admonition.usage-note::before,
+.md-typeset details.must::before,
+.md-typeset details.should::before,
+.md-typeset details.may::before,
+.md-typeset details.usage-note::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 6px; 
+    z-index: 1;
+}
+
+/* Colorear el borde según el tipo de admonition */
+.md-typeset .admonition.must::before,
+.md-typeset details.must::before {
+    background-color: #eba58f; /* Color para MUST */
+}
+
+.md-typeset .admonition.should::before,
+.md-typeset details.should::before {
+    background-color: #ebbb8f; /* Color para SHOULD */
+}
+
+.md-typeset .admonition.may::before,
+.md-typeset details.may::before {
+    background-color: #8ecf7b; /* Color para MAY */
+}
+
+.md-typeset .admonition.usage-note::before,
+.md-typeset details.usage-note::before {
+    background-color: #4a90e2; /* Color para USAGE-NOTE */
+}
+
+/* Para otros tipos de admonition estándar - estas líneas permanecen comentadas */
+/* .md-typeset .admonition.note::before,
+.md-typeset details.note::before {
+    background-color: #448aff; 
+} */
+
+/* Color para INFO */
+/* .md-typeset .admonition.info::before,
+.md-typeset details.info::before {
+    background-color: #00b8d4; 
+} */
+
+/* Color para TIP */
+/* .md-typeset .admonition.tip::before,
+.md-typeset details.tip::before {
+    background-color: #00bfa5; 
+} */
+
+/* Color para WARNING */
+/* .md-typeset .admonition.warning::before,
+.md-typeset details.warning::before {
+    background-color: #ff9100; 
+} */
+
+/* Color para DANGER */
+/* .md-typeset .admonition.danger::before,
+.md-typeset details.danger::before {
+    background-color: #ff5252; 
+} */
+
 /* Contenedor flex para los badges */
 .md-typeset .admonition-title {
     display: flex !important;
     align-items: center;
-    padding-right: 0 !important; /* Eliminar padding derecho */
+    padding-right: 0 !important;
 }
 
 /* Contenedor para el título y anchor */
 .md-typeset .admonition-title .title-container {
     display: flex;
     align-items: center;
-    margin-right: auto; /* Empuja los badges a la derecha */
+    margin-right: auto; 
 }
 
 /* Icono del admonition */
@@ -431,17 +565,15 @@ a:hover, a:focus {
     grid-template-columns: none !important;
 }
 
-/* Cards con borde completo normal y borde izquierdo especial */
 .md-typeset .grid.cards>ol>li, 
 .md-typeset .grid.cards>ul>li, 
 .md-typeset .grid>.card {
-    border: .05rem solid var(--md-default-fg-color--lightest); /* Borde completo estándar incluido el izquierdo */
-    position: relative; /* Para posicionar el pseudoelemento */
+    border: .05rem solid var(--md-default-fg-color--lightest); 
+    position: relative;
     transition: box-shadow 0.2s, background-color 0.2s;
-    overflow: hidden; /* Para evitar problemas de apilamiento */
+    overflow: hidden; 
 }
 
-/* Pseudoelemento para el borde izquierdo de color */
 .md-typeset .grid.cards>ol>li::before, 
 .md-typeset .grid.cards>ul>li::before, 
 .md-typeset .grid>.card::before {
@@ -456,7 +588,6 @@ a:hover, a:focus {
     z-index: 1;
 }
 
-/* Al hacer hover, solo cambiamos el color del borde izquierdo */
 .md-typeset .grid.cards>ol>li:focus-within::before, 
 .md-typeset .grid.cards>ol>li:hover::before, 
 .md-typeset .grid.cards>ul>li:focus-within::before, 
@@ -487,3 +618,104 @@ a:hover, a:focus {
 .grid-emoji {
     color: var(--header-bg-color);
   }
+
+/* Header Tabs */
+.md-tabs__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+}
+
+.md-tabs__item {
+    height: 2.4rem;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.25s, background-color 0.25s;
+    position: relative;
+    margin: 0 2px;
+}
+
+.md-tabs__link {
+    margin-top: 0.625em;
+    color: var(--title-color);
+    font-size: 0.7rem;
+    opacity: 0.5;
+    transition: opacity 0.25s, transform 0.3s ease;
+    text-decoration: none !important;
+}
+
+.md-tabs__link:hover {
+    color: var(--title-color);
+    opacity: 1;
+    transform: translateY(-2px); 
+    text-decoration: none !important;
+}
+
+.md-tabs__item--active {
+    position: relative;
+    color: var(--title-color);
+    border-radius: 4px 4px 0 0;
+}
+
+.md-tabs__item--active .md-tabs__link {
+    margin-top: 0.625em;
+    opacity: 1;
+}
+
+.md-tabs__item--active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 50%;
+    border-radius: 3px;
+    background-color: var(--title-color);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.md-tabs__item--active:hover::after {
+    width: 85%;
+    height: 3px;
+}
+
+.md-tabs__item:not(.md-tabs__item--active):hover {
+    border-radius: 4px 4px 0 0;
+}
+
+.md-tabs::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(32, 92, 124, 0.1);
+}
+
+.md-tabs__item--nested .md-tabs__link {
+    padding-right: 1.2em;
+}
+
+.md-tabs__item--nested .md-tabs__link::after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: -0.1em;
+    margin-left: 0.4em;
+    border-right: 0.4em solid transparent;
+    border-left: 0.4em solid transparent;
+    border-top: 0.4em solid var(--title-color);
+    opacity: 0.7;
+    transition: opacity 0.25s;
+}
+
+.md-tabs__item--nested:hover .md-tabs__link::after {
+    opacity: 1;
+}

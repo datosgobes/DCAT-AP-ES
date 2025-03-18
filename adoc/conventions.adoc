@@ -5,7 +5,7 @@ v1: DCAT-AP-ES Convenciones
 :description: "Este documento establece las convenciones para la implementación del perfil DCAT-AP-ES en el catálogo nacional datos.gob.es, adaptando el estándar europeo DCAT-AP 2.1.1 y la extensión HVD 2.2.0 a las necesidades españolas. Define reglas técnicas, semánticas y organizativas para asegurar la interoperabilidad entre los distintos proveedores de datos abiertos, incluyendo administraciones autonómicas y locales. El documento está dirigido a desarrolladores y mantenedores de portales de datos abiertos, estableciendo directrices obligatorias y recomendadas según la terminología RFC2119."
 :keywords: dcat-ap-es, dcat-ap, hvd, open-data, interoperability, metadata, standards, rdf, linked-data, semantic-web, data-gob-es, spain
 :sectanchors: 
-:url-repo: https://github.com/mjanez/demo-dcatapes
+:url-repo: https://github.com/datosgobes/DCAT-AP-ES
 :sectnums:
 :toc:
 :toc-title: Índice
@@ -23,9 +23,9 @@ v1: DCAT-AP-ES Convenciones
 [#_introducción]
 == Introducción
 
-En España, el intercambio de datos abiertos entre el portal de la Iniciativa de datos abiertos del Gobierno de España (https://datos.gob.es[datos.gob.es]) y los distintos proveedores de datos, como catálogos autonómicos, de Entidades Locales y otros organismos, se plantea bajo un marco que asegure la interoperabilidad y homogeneidad de los metadatos. Para ello, se adapta el perfil de aplicación europeo  https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211[DCAT-AP 2.1.1] junto a los elementos descritos en la extensión https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/[DCAT-AP HVD 2.2.0] para incorporar el modelado de los https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir[Conjuntos de datos de alto valor] (_High Value Datasets_) a las necesidades nacionales, dando lugar al estándar *DCAT-AP-ES*, que se establece como referencia para el intercambio de metadatos sobre información pública a nivel nacional.
+En España, el intercambio de datos abiertos entre el portal de la Iniciativa de datos abiertos del Gobierno de España (https://datos.gob.es[datos.gob.es]) y los distintos proveedores de datos, como catálogos de la Administración General del Estado, autonómicos, de Entidades Locales y otros organismos, se plantea bajo un marco que asegure la interoperabilidad y homogeneidad de los metadatos. Para ello, se adapta el perfil de aplicación europeo  https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211[DCAT-AP 2.1.1] junto a los elementos descritos en la extensión https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/[DCAT-AP HVD 2.2.0] para incorporar el modelado de los https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir[Conjuntos de datos de alto valor] (_High Value Datasets_) a las necesidades nacionales, dando lugar al estándar *DCAT-AP-ES*, que se establece como referencia para el intercambio de metadatos sobre información pública a nivel nacional.
 
-Desde la entrada en vigor del estándar, (https://datos.gob.es[datos.gob.es]) aceptará metadatos en formato *DCAT-AP-ES*. Para aquellos proveedores que entreguen datos directamente al portal, se establecerá un período transitorio tras la publicación de nuevas versiones, durante el cual podrán ajustar sus sistemas al estándar actualizado desde el perfil anterior de la Norma Técnica de Interoperabilidad de Recursos de Información del Sector Público (https://datos.gob.es/es/doc-tags/nti-risp[*NTI-RISP*])
+Desde la entrada en vigor del estándar, (https://datos.gob.es[datos.gob.es]) acepta metadatos en formato *DCAT-AP-ES*, así como el perfil de aplicación referido en la Norma Técnica. Para aquellos proveedores que federen directamente al portal se establecerá un período transitorio tras la publicación de nuevas versiones, durante el cual podrán ajustar sus sistemas al estándar actualizado desde el perfil anterior de la Norma Técnica de Interoperabilidad de Recursos de Información del Sector Público (https://datos.gob.es/es/doc-tags/nti-risp[*NTI-RISP*])
 
 El manual de convenciones no solo detalla las modificaciones específicas introducidas en el estándar español respecto a la versión europea, sino que también define reglas adicionales para abordar necesidades prácticas. Estas pueden incluir particularidades del contexto español de datos abiertos, donde la implementación podría ajustarse a requerimientos técnicos distintos. Además, se prevé que algunas de estas reglas puedan evolucionar más rápidamente que la especificación principal, permitiendo mayor flexibilidad y adaptación a los cambios tecnológicos.
 
@@ -105,7 +105,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 Para garantizar la trazabilidad de los organismos publicadores, éstos deben estar mailto:soporte@datos.gob.es?subject=Solicitud%20de%20alta%20de%20Organismo%20y%20usuario%20en%20datos.gob.es[dados de alta y disponibles en la taxonomía de datos.gob.es], ya sea como https://administracionelectronica.gob.es/ctt/dir3[DIR3 de organismo público] u organismo privado cuyo identificador es la letra P seguida de su NIF cómo código ficticio (<<#_anexo_3_mapeo_de_identificadores_organizativos,ver Anexo 3. Mapeo de identificadores organizativos>> ).
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-01[Convención 01]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-01[Convención 01]
 ====
 El identificador del publicador **DEBE** estar mailto:soporte@datos.gob.es?subject=Solicitud%20de%20alta%20de%20Organismo%20y%20usuario%20en%20datos.gob.es[dado de alta y disponible en la taxonomía de datos.gob.es]
 ====
@@ -116,7 +116,7 @@ El identificador del publicador **DEBE** estar mailto:soporte@datos.gob.es?subje
 Los campos de literales de etiquetas multilingüe `xml:lang` deben estar al menos en idioma español (`es`).
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-02[Convención 02]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02[Convención 02]
 ====
 Sí están definidas, las etiquetas de idioma, de `dct:title`, `dct:description`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` **DEBEN** al menos estar en idioma español `es` y no pueden ser literales vacíos.
 ====
@@ -128,7 +128,7 @@ Sí están definidas, las etiquetas de idioma, de `dct:title`, `dct:description`
 Para mantener la compatibilidad y evitar problemas de interoperabilidad con sistemas que no soporten TLS/SSL, se recomienda usar URIs HTTP en lugar de HTTPS en los identificadores y referencias. Las URIs HTTP son igualmente derreferenciables que HTTPS mediante redirección.
 
 [WARNING]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-03[Convención 03]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-03[Convención 03]
 ====
 Los identificadores y referencias URI **DEBERÍAN** utilizar el esquema `http://` en lugar de `https://` como norma general. Esto aplica a:
 
@@ -161,7 +161,7 @@ include::examples/ttl/Conventions_general-http-uris.ttl[]
 Para garantizar la consistencia y calidad de los metadatos, así como simplificar el proceso de federación, se establece el uso exclusivo de federación automática mediante RDF (DCAT-AP-ES) como único método de ingesta de datos en el portal.
 
 [WARNING]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-04[Convención 04]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-04[Convención 04]
 ====
 Los organismos **DEBERÍAN** implementar la federación automática mediante RDF como único método de publicación de metadatos en formato DCAT-AP-ES, evitando la coexistencia de federación manual y automática para un mismo organismo.
 ====
@@ -191,7 +191,7 @@ Para garantizar la validez del RDF y evitar problemas de procesamiento, todas la
 
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-05[Convención 05]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-05[Convención 05]
 ====
 Las URIs **DEBEN** estar correctamente codificadas en su origen, especialmente cuando contengan:
 
@@ -233,7 +233,7 @@ Para codificar URIs se pueden utilizar funciones estándar como:
 Para garantizar la correcta identificación y trazabilidad de los recursos a lo largo del tiempo, así como evitar duplicidades durante la federación desde múltiples fuentes, es necesario establecer un sistema de identificadores únicos y persistentes dado que el identificador (`dct:identifier`) es la propiedad que permite la identificación única e inequívoca del conjunto de datos.
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-06[Convención 06]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-06[Convención 06]
 ====
 Los recursos *DEBEN* tener un identificador único y persistente que cumpla los siguientes requisitos:
 
@@ -273,7 +273,7 @@ Para evitar duplicados durante la federación:
 Para garantizar una referencia unívoca y persistente a documentos legales, se debe utilizar el https://eur-lex.europa.eu/eli-register/about.html[Identificador Europeo de Legislación (ELI)] como URI estándar.
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-07[Convención 07]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-07[Convención 07]
 ====
 Las referencias a documentos legales *DEBEN* utilizar identificadores ELI cuando estén disponibles:
 
@@ -310,7 +310,7 @@ include::examples/ttl/Conventions_general-eli.ttl[]
 Para garantizar la trazabilidad temporal de los recursos y su correcto seguimiento, es importante gestionar adecuadamente las fechas de creación y modificación.
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-08[Convención 08]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08[Convención 08]
 ====
 Las fechas de creación y modificación de recursos *DEBEN* cumplir los siguientes requisitos:
 
@@ -349,7 +349,7 @@ Para validar las fechas:
 Para mantener la simplicidad y evitar problemas de ambigüedad en la federación de catálogos, se recomienda utilizar un único catálogo por organismo y expresar las relaciones entre recursos mediante las subpropiedades específicas de https://www.w3.org/TR/vocab-dcat-2/#Property:resource_relation[`dcterms:relation`].
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-09[Convención 09]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-09[Convención 09]
 ====
 Se *DEBE* utilizar un único catálogo por organismo publicador, evitando el uso de subcatálogos mediante `dct:hasPart`. Las relaciones entre recursos *DEBEN* modelarse usando las siguientes propiedades según corresponda:
 
@@ -380,13 +380,13 @@ include::examples/ttl/Conventions_catalog-dct-haspart.ttl[]
 Los catálogos deben incluir al menos la taxonomía de sectores primarios para clasificar sus _datasets_. Se pueden incluir alguna de las dos taxonomías adicionales para enriquecer la clasificación, se incluye información sobre mapeos entre <<#_anexo_1_tabla_de_mapeo_de_sectores_primarios_a_temáticas_de_datos_dcat_ap,Sectores NTI-RISP y Temáticas DCAT-AP (Anexo 1)>>, así como entre <<#_anexo_2_tabla_de_mapeo_entre_temas_inspire_y_temáticas_dcat_ap,Temáticas DCAT-AP y Temas INSPIRE (Anexo 2)>>
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-10[Convención 10]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-10[Convención 10]
 ====
 El catálogo **DEBE** incluir como mínimo la https://datos.gob.es/kos/sector-publico/sector[taxonomía de sectores primarios] en la propiedad `dcat:themeTaxonomy`.
 ====
 
 [TIP]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-11[Convención 11]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11[Convención 11]
 ====
 Se **PUEDEN** incluir taxonomías adicionales para mejorar la clasificación de los _datasets_: `http://publications.europa.eu/resource/authority/data-theme` o `http://inspire.ec.europa.eu/theme`
 ====
@@ -406,7 +406,7 @@ include::examples/ttl/Conventions_catalog-dcat-themetaxonomy.ttl[]
 Los https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138[conjuntos de datos de alto valor (HVD) deben proporcionar acceso programático a sus datos mediante APIs]. La especificación de servicios de datos se realiza mediante la clase `dcat:DataService` asociada a las distribuciones del dataset a través de `dcat:accessService`.
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-12[Convención 12]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12[Convención 12]
 ====
 Los _datasets_ catalogados como HVD *DEBEN* incluir al menos un servicio de datos (`dcat:DataService`) con las siguientes propiedades obligatorias:
 
@@ -439,7 +439,7 @@ include::examples/ttl/Conventions_dataservice-dataservice.ttl[]
 Para mejorar la interoperabilidad y descripción de servicios OGC (`WMS`, `WFS`, `WMTS`, `CSW`, etc.), estos deben modelarse usando `dcat:DataService` en lugar de `dcat:Distribution`.
 
 [WARNING]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-13[Convención 13]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-13[Convención 13]
 ====
 Los servicios OGC *DEBERÍAN* modelarse como `dcat:DataService` en lugar de `dcat:Distribution`. Esto aplica a:
 
@@ -485,7 +485,7 @@ Al modelar servicios OGC como `dcat:DataService`:
 La trazabilidad del publicador debería venir determinada por el identificador de organismos del sector público disponible en el https://datos.gob.es/es/catalogo/e05188501-directorio-comun-de-unidades-organicas-y-oficinas-dir3[Directorio Común de unidades orgánicas y oficinas (DIR3)] siempre y cuando este disponible.
 
 [WARNING]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-14[Convención 14]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-14[Convención 14]
 ====
 La información de publicador **DEBERÍA** contener un https://datos.gob.es/es/recurso/sector-publico/org/Organismo[código identificador DIR3] en la propiedad identificador (`dct:identifier`), por ejemplo: `EA0000000`
 ====
@@ -496,7 +496,7 @@ La información de publicador **DEBERÍA** contener un https://datos.gob.es/es/r
 La trazabilidad del creador debería venir determinada por el identificador de organismos del sector público disponible en el https://datos.gob.es/es/catalogo/e05188501-directorio-comun-de-unidades-organicas-y-oficinas-dir3[Directorio Común de unidades orgánicas y oficinas (DIR3)] siempre y cuando este disponible.
 
 [WARNING]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-15[Convención 15]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-15[Convención 15]
 ====
 La información de creador **DEBERÍA** contener un https://datos.gob.es/es/recurso/sector-publico/org/Organismo[código identificador DIR3] en la propiedad identificador (`dct:identifier`), por ejemplo: `EA0000000`
 ====
@@ -508,7 +508,7 @@ La información de creador **DEBERÍA** contener un https://datos.gob.es/es/recu
 La cobertura geográfica de un conjunto de datos debe describirse de la manera más precisa posible utilizando los identificadores correspondientes a los recursos geográficos del territorio español descritos en el Anexo V de la link:https://www.boe.es/eli/es/res/2013/02/19/(4)[NTI-RISP].
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-16[Convención 16]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-16[Convención 16]
 ====
 La cobertura geográfica *DEBE* declararse utilizando las URIs del https://datos.gob.es/es/recurso/sector-publico/territorio[Anexo V de la NTI-RISP para recursos geográficos del territorio español], siguiendo estas reglas:
 
@@ -537,7 +537,7 @@ include::examples/ttl/Conventions_dataset-dct-spatial_incorrect.ttl[]
 Para describir la cobertura geométrica de los _datasets_ de forma interoperable se pueden utilizar diferentes propiedades y formatos estándar, en particular se recomienda utilizar `WKT` (link:https://www.ogc.org/es/publications/standard/sfa/[_Well-Known Text_]) para describir la cobertura geométrica.
 
 [WARNING]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-17[Convención 17]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-17[Convención 17]
 ====
 Cuando se especifique la cobertura geométrica, se **DEBERÍA** usar `WKT` (según http://www.opengeospatial.org/standards/geosparql[GeoSPARQL]).
 ====
@@ -563,7 +563,7 @@ include::examples/ttl/Conventions_dataset-dct-spatial-geometry.ttl[]
 Para facilitar la comunicación con los responsables de los _datasets_, se debe proporcionar información de contacto estructurada utilizando la https://www.w3.org/TR/vcard-rdf/[ontología vCard] para la descripción de personas y organizaciones.
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-18[Convención 18]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-18[Convención 18]
 ====
 Los _datasets_ **DEBEN** incluir al menos un punto de contacto (`dcat:contactPoint`) con las siguientes propiedades obligatorias:
 
@@ -571,7 +571,7 @@ Los _datasets_ **DEBEN** incluir al menos un punto de contacto (`dcat:contactPoi
 ====
 
 [WARNING]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-19[Convención 19]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19[Convención 19]
 ====
 El punto de contacto **DEBERÍA** incluir también:
 
@@ -581,7 +581,7 @@ El punto de contacto **DEBERÍA** incluir también:
 ====
 
 [CAUTION]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-20[Convención 20]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-20[Convención 20]
 ====
 Los puntos de contacto recogidos en la taxonomía del portal **DEBEN** describirse como un `vcard:Kind` y no directamente con la URI del organismo.
 ====
@@ -614,7 +614,7 @@ Todos los valores proporcionados se recomienda que sean de carácter público y 
 Para asegurar un acceso correcto a los servicios OGC y cumplir con los requisitos de INSPIRE, es importante modelar adecuadamente las URLs de acceso a los servicios, tanto si se modelan como `dcat:Distribution` (desaconsejado) como <<dataservice-ogc-services,si se modelan como `dcat:DataService` (recomendado)>>.
 
 [WARNING]
-.https://mjanez.github.io/demo-dcatapes/conventions/#convencion-21[Convención 21]
+.https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-21[Convención 21]
 ====
 En las distribuciones de servicios OGC, las URLs de acceso *DEBEN* modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `+http://example.org/wms?request=GetCapabilities&service=WMS+`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `+http://www.opengeospatial.org/standards/wms+`
 ====

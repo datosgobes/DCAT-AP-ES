@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>https://mjanez.github.io/demo-dcatapes/</loc>
-        <lastmod>2025-03-10</lastmod>
+        <loc>https://datosgobes.github.io/DCAT-AP-ES/</loc>
+        <lastmod>2025-03-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://mjanez.github.io/demo-dcatapes/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mjanez.github.io/demo-dcatapes/en/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/"/>
     </url>
     <url>
-        <loc>https://mjanez.github.io/demo-dcatapes/conventions/</loc>
-        <lastmod>2025-03-10</lastmod>
+        <loc>https://datosgobes.github.io/DCAT-AP-ES/conventions/</loc>
+        <lastmod>2025-03-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://mjanez.github.io/demo-dcatapes/conventions/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mjanez.github.io/demo-dcatapes/en/conventions/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/conventions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/conventions/"/>
     </url>
     <url>
-        <loc>https://mjanez.github.io/demo-dcatapes/examples/</loc>
-        <lastmod>2025-03-10</lastmod>
+        <loc>https://datosgobes.github.io/DCAT-AP-ES/examples/</loc>
+        <lastmod>2025-03-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://mjanez.github.io/demo-dcatapes/examples/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mjanez.github.io/demo-dcatapes/en/examples/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/examples/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/examples/"/>
     </url>
     <url>
-        <loc>https://mjanez.github.io/demo-dcatapes/faq/</loc>
-        <lastmod>2025-03-10</lastmod>
+        <loc>https://datosgobes.github.io/DCAT-AP-ES/faq/</loc>
+        <lastmod>2025-03-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://mjanez.github.io/demo-dcatapes/faq/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mjanez.github.io/demo-dcatapes/en/faq/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/faq/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/faq/"/>
     </url>
     <url>
-        <loc>https://mjanez.github.io/demo-dcatapes/adoc/</loc>
-        <lastmod>2025-03-10</lastmod>
+        <loc>https://datosgobes.github.io/DCAT-AP-ES/adoc/</loc>
+        <lastmod>2025-03-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://mjanez.github.io/demo-dcatapes/adoc/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mjanez.github.io/demo-dcatapes/en/adoc/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/adoc/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/adoc/"/>
     </url>
     <url>
-        <loc>https://mjanez.github.io/demo-dcatapes/en/</loc>
-        <lastmod>2025-03-10</lastmod>
+        <loc>https://datosgobes.github.io/DCAT-AP-ES/en/</loc>
+        <lastmod>2025-03-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mjanez.github.io/demo-dcatapes/en/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://mjanez.github.io/demo-dcatapes/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/"/>
     </url>
     <url>
-        <loc>https://mjanez.github.io/demo-dcatapes/en/conventions/</loc>
-        <lastmod>2025-03-10</lastmod>
+        <loc>https://datosgobes.github.io/DCAT-AP-ES/en/conventions/</loc>
+        <lastmod>2025-03-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mjanez.github.io/demo-dcatapes/en/conventions/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://mjanez.github.io/demo-dcatapes/conventions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/conventions/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/conventions/"/>
     </url>
     <url>
-        <loc>https://mjanez.github.io/demo-dcatapes/en/examples/</loc>
-        <lastmod>2025-03-10</lastmod>
+        <loc>https://datosgobes.github.io/DCAT-AP-ES/en/examples/</loc>
+        <lastmod>2025-03-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mjanez.github.io/demo-dcatapes/en/examples/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://mjanez.github.io/demo-dcatapes/examples/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/examples/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/examples/"/>
     </url>
     <url>
-        <loc>https://mjanez.github.io/demo-dcatapes/en/faq/</loc>
-        <lastmod>2025-03-10</lastmod>
+        <loc>https://datosgobes.github.io/DCAT-AP-ES/en/faq/</loc>
+        <lastmod>2025-03-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mjanez.github.io/demo-dcatapes/en/faq/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://mjanez.github.io/demo-dcatapes/faq/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/faq/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/faq/"/>
     </url>
     <url>
-        <loc>https://mjanez.github.io/demo-dcatapes/en/adoc/</loc>
-        <lastmod>2025-03-10</lastmod>
+        <loc>https://datosgobes.github.io/DCAT-AP-ES/en/adoc/</loc>
+        <lastmod>2025-03-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mjanez.github.io/demo-dcatapes/en/adoc/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://mjanez.github.io/demo-dcatapes/adoc/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/adoc/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/adoc/"/>
     </url>
 </urlset>
