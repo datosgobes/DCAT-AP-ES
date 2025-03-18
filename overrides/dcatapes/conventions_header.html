@@ -13,24 +13,31 @@
     <div class="title-container">
         <span id="title" class="title">{{ config.dcatapes[lang].conventions.title }}</span>
     </div>
+    <div class="subtitle-container">
+        <span id="subtitle" class="subtitle">{{ config.dcatapes[lang].conventions.document_title }}</span>
+        <p id="w3c-state">
+            <time class="dt-published" datetime="{{ config.dcatapes[lang].conventions.published_date }}">
+                {{ config.dcatapes[lang].conventions.published_date_human }}
+            </time>
+        </p>
+    </div>
     <div class="logos-section">
         <div class="dge-entidades">
-            <ul class="logo-list">
-                {% for logo in config.dcatapes[lang].logos %}
+            <div class="logo-list-container">
+                <ul class="logo-list primary-logos">
+                    {% set first_three = config.dcatapes[lang].logos[:3] %}
+                    {% for logo in first_three %}
                     <li><a href="{{ logo.href }}" data-insuit-uuid=""><img alt="{{ logo.alt }}" src="{{ logo.src }}"></a></li>
                 {% endfor %}
             </ul>
         </div>
     </div>
-    <center><span id="subtitle" class="subtitle">{{ config.dcatapes[lang].conventions.document_title }}</span></center>
-    <p id="w3c-state">
-        <time class="dt-published" datetime="{{ config.dcatapes[lang].published_date }}">{{ config.dcatapes[lang].conventions.published_date }}</time>
-    </p>
+    </div>
     <details open="">
         <summary>{{ config.dcatapes[lang].conventions.details_summary }}</summary>
-        <dl>
+        <dl class="header-summary">
             <dt>{{ config.dcatapes[lang].categories.latest_published_version }}:</dt>
-            <dd><a href="{{ config.dcatapes[lang].conventions.latest_published_version }}">{{ config.dcatapes[lang].latest_published_version }}</a></dd>
+            <dd><a href="{{ config.dcatapes[lang].conventions.latest_published_version }}">{{ config.dcatapes[lang].conventions.latest_published_version }}</a></dd>
             <dt>{{ config.dcatapes[lang].categories.latest_editors_draft }}:</dt>
             <dd><a href="{{ config.dcatapes[lang].conventions.latest_editors_draft }}">{{ config.dcatapes[lang].conventions.latest_editors_draft }}</a></dd>
             <dt>{{ config.dcatapes[lang].categories.history }}:</dt>

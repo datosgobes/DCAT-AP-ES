@@ -1,7 +1,7 @@
 site_name: DCAT-AP-ES
 site_url: https://datosgobes.github.io/DCAT-AP-ES/   # Local: mkdocs serve -a 127.0.0.1:8088
 site_description: >-
-  Guía para la implementación de DCAT-AP-ES en portales de datos abiertos.
+  Portal para la implementación de la NTI-RISP de acuerdo con el perfil de aplicación DCAT-AP-ES.
 repo_name: datosgobes/DCAT-AP-ES
 repo_url: https://github.com/datosgobes/DCAT-AP-ES
 edit_uri: edit/main/docs/
@@ -142,6 +142,8 @@ extra:
     pdf_dest: download/pdf
   version:
     provider: mike
+  custom_homepage: 'https://datos.gob.es'
+  custom_homepage_name: 'datos.gob.es'
 
 plugins:
   - privacy
@@ -220,22 +222,24 @@ hooks:
 dcatapes:
   # Spanish
   es:
-    draft: true
+    draft: false
     download_pdf: false
-    title: Guía técnica de implementación de DCAT-AP-ES
+    title: Guía técnica de implementación del perfil de aplicación DCAT-AP-ES de acuerdo a la NTI-RISP
     base_url: 'https://github.com/datosgobes/DCAT-AP-ES'
     logos:
+      # Only 3 logos
       - href: 'https://digital.gob.es/ministerio/organigrama_organos/SEDIA.html'
         alt: 'Secretaría de Estado de Digitalización e Inteligencia Artificial'
         src: '/DCAT-AP-ES/img/sedia-red-es.jpg'
       - href: 'https://datos.gob.es'
         alt: 'datos.gob.es'
-        src: 'https://datos.gob.es/sites/default/files/logo_0.svg'
+        src: '/DCAT-AP-ES/img/dge_logo.svg'
       - href: 'https://datos.gob.es/acerca-de-la-iniciativa-aporta'
         alt: 'Iniciativa Aporta'
-        src: 'https://datos.gob.es/sites/all/themes/dge_theme/images/logo_iniciativa-aporta.svg'
+        src: '/DCAT-AP-ES/img/iniciativa_aporta.svg'
     document_title: DCAT-AP-ES 1.0.0
     published_date: '2025-03-01'
+    published_date_human: '1 de marzo de 2025'
     details_summary: Más detalles sobre este documento
     latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
     latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
@@ -243,7 +247,7 @@ dcatapes:
       - name: Histórico de cambios
         link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
     editors:
-      - name: Equipo Asesoramiento
+      - name: Equipo gestor de la plataforma datos.gob.es
         org: Iniciativa Aporta
         email: soporte@datos.gob.es
     feedback: 
@@ -271,6 +275,7 @@ dcatapes:
       link: https://creativecommons.org/licenses/by/4.0/
       # Icons: https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
       icon: fontawesome/brands/creative-commons
+    
     validator:
       enabled: true
       # https://github.com/ISAITB/validator-resources-dcat-ap/blob/master/resources/config.properties
@@ -305,6 +310,7 @@ dcatapes:
       title: Convenciones técnicas, semánticas y organizativas de la aplicación de DCAT-AP-ES en el catálogo de datos.gob.es
       document_title: DCAT-AP-ES convenciones datos.gob.es 1.0.0
       published_date: '2025-03-01'
+      published_date_human: '1 de marzo de 2025'
       details_summary: Más detalles sobre este documento
       latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
       latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
@@ -312,12 +318,12 @@ dcatapes:
         - name: Histórico de cambios
           link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
       editors:
-        - name: Equipo Asesoramiento
+        - name: Equipo gestor de la plataforma datos.gob.es
           org: Iniciativa Aporta
           link: https://datos.gob.es/acerca-de-la-iniciativa-aporta
           email: soporte@datos.gob.es
       author:
-        name: Equipo Asesoramiento
+        name: Equipo gestor de la plataforma datos.gob.es
         org: Iniciativa Aporta
         email: soporte@datos.gob.es
       also_available:
@@ -355,23 +361,22 @@ dcatapes:
   en:
     draft: true
     download_pdf: false
-    title: Technical Guide for DCAT-AP-ES implementation
+    title: Technical guidance for DCAT-AP-ES Application Profile implementation
     base_url: 'https://github.com/datosgobes/DCAT-AP-ES'
     logos:
-      - href: 'https://avancedigital.mineco.gob.es/en-us/Pages/index.aspx'
-        alt: Ministry for Digital Transformation and Public Administration
-        src: 'https://datos.gob.es/sites/default/files/logo_ministerio_cabecera.svg'
-      - href: 'https://www.red.es'
-        alt: Red.es
-        src: 'https://datos.gob.es/sites/default/files/datosgobes/logo_red-es.png'
-      - href: 'https://datos.gob.es/about-aporta-initiative'
-        alt: Aporta Initiative
-        src: 'https://datos.gob.es/sites/all/themes/dge_theme/images/logo_iniciativa-aporta.svg'
+      # Only 3 logos
+      - href: 'https://digital.gob.es/ministerio/organigrama_organos/SEDIA.html'
+        alt: 'State secretariat for Digitization and Artificial intelligence'
+        src: '/DCAT-AP-ES/img/sedia-red-es.jpg'
       - href: 'https://datos.gob.es'
-        alt: datos.gob.es
-        src: 'https://datos.gob.es/sites/default/files/logo_0.svg'
+        alt: 'datos.gob.es'
+        src: '/DCAT-AP-ES/img/dge_logo.svg'
+      - href: 'https://datos.gob.es/acerca-de-la-iniciativa-aporta'
+        alt: 'Aporta Initiative'
+        src: '/DCAT-AP-ES/img/iniciativa_aporta.svg'
     document_title: DCAT-AP-ES 1.0.0
     published_date: '2025-03-01'
+    published_date_human: 'March 1, 2025'
     details_summary: More details about this document
     latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
     latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
@@ -379,7 +384,7 @@ dcatapes:
       - name: Change History
         link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
     editors:
-      - name: Advisory team
+      - name: datos.gob.es platform Management Team
         org: Aporta Initiative
         link: https://datos.gob.es/acerca-de-la-iniciativa-aporta
         email: soporte@datos.gob.es
@@ -442,6 +447,7 @@ dcatapes:
       title: Technical, semantic, and organizational conventions for the application of DCAT-AP-ES in the datos.gob.es catalog
       document_title: DCAT-AP-ES conventions datos.gob.es 1.0.0
       published_date: '2025-03-01'
+      published_date_human: 'March 1, 2025'
       details_summary: More details about this document
       latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
       latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
@@ -449,12 +455,12 @@ dcatapes:
         - name: Change History
           link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
       editors:
-        - name: Equipo Asesoramiento
+        - name: Equipo gestor de la plataforma datos.gob.es
           org: Iniciativa Aporta
           link: https://datos.gob.es/acerca-de-la-iniciativa-aporta
           email: soporte@datos.gob.es
       author:
-        name: Advisory team
+        name: datos.gob.es platform Management Team
         org: Aporta Initiative
         email: soporte@datos.gob.es
       also_available:

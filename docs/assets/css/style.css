@@ -4,7 +4,7 @@
     --hover-color: #45a049;
     --button-color: #4CAF50;
     --link-color: #245E7C;
-    --link-hover-color: #C64A1A;
+    --link-hover-color: #e05318;
     --header-bg-color: #0f3062;
     --header-text-color: #fff;
     --warning-bg-color: #ff8822;
@@ -40,7 +40,7 @@
 .md-header__button.md-logo img, .md-header__button.md-logo svg {
     fill: currentcolor;
     display: block;
-    height: 1.7rem;
+    height: 2.3rem;
     width: auto;
 }
 
@@ -618,3 +618,104 @@ a:hover, a:focus {
 .grid-emoji {
     color: var(--header-bg-color);
   }
+
+/* Header Tabs */
+.md-tabs__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+}
+
+.md-tabs__item {
+    height: 2.4rem;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.25s, background-color 0.25s;
+    position: relative;
+    margin: 0 2px;
+}
+
+.md-tabs__link {
+    margin-top: 0.625em;
+    color: var(--title-color);
+    font-size: 0.7rem;
+    opacity: 0.5;
+    transition: opacity 0.25s, transform 0.3s ease;
+    text-decoration: none !important;
+}
+
+.md-tabs__link:hover {
+    color: var(--title-color);
+    opacity: 1;
+    transform: translateY(-2px); 
+    text-decoration: none !important;
+}
+
+.md-tabs__item--active {
+    position: relative;
+    color: var(--title-color);
+    border-radius: 4px 4px 0 0;
+}
+
+.md-tabs__item--active .md-tabs__link {
+    margin-top: 0.625em;
+    opacity: 1;
+}
+
+.md-tabs__item--active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 50%;
+    border-radius: 3px;
+    background-color: var(--title-color);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.md-tabs__item--active:hover::after {
+    width: 85%;
+    height: 3px;
+}
+
+.md-tabs__item:not(.md-tabs__item--active):hover {
+    border-radius: 4px 4px 0 0;
+}
+
+.md-tabs::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(32, 92, 124, 0.1);
+}
+
+.md-tabs__item--nested .md-tabs__link {
+    padding-right: 1.2em;
+}
+
+.md-tabs__item--nested .md-tabs__link::after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: -0.1em;
+    margin-left: 0.4em;
+    border-right: 0.4em solid transparent;
+    border-left: 0.4em solid transparent;
+    border-top: 0.4em solid var(--title-color);
+    opacity: 0.7;
+    transition: opacity 0.25s;
+}
+
+.md-tabs__item--nested:hover .md-tabs__link::after {
+    opacity: 1;
+}
