@@ -242,7 +242,7 @@ dcatapes:
     published_date_human: '1 de marzo de 2025'
     details_summary: Más detalles sobre este documento
     latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
-    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
     history: 
       - name: Histórico de cambios
         link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
@@ -313,7 +313,7 @@ dcatapes:
       published_date_human: '1 de marzo de 2025'
       details_summary: Más detalles sobre este documento
       latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
-      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
       history: 
         - name: Histórico de cambios
           link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
@@ -379,7 +379,7 @@ dcatapes:
     published_date_human: 'March 1, 2025'
     details_summary: More details about this document
     latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
-    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
     history: 
       - name: Change History
         link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
@@ -450,7 +450,7 @@ dcatapes:
       published_date_human: 'March 1, 2025'
       details_summary: More details about this document
       latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
-      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
       history: 
         - name: Change History
           link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
