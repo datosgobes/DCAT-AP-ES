@@ -15,6 +15,9 @@ on:
 jobs:
   generate_pdfs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -51,11 +54,58 @@ jobs:
           echo "=== Generated PDFs ==="
           ls -la refs/dcat-ap-es/pdf/
 
-      - name: Commit and push changes
+      - name: Check for PDF changes
+        id: check_changes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
           git add -f refs/dcat-ap-es/pdf/*.pdf
-          git commit -m "Update PDF documents [skip ci]" || echo "No changes to commit"
-          git push origin main || echo "No changes to push"
+          if git diff --staged --quiet; then
+            echo "No changes detected in PDF files"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in PDF files"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+          git reset
+  
+      - name: Create branch with changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        id: create_branch
+        run: |
+          BRANCH_NAME="pdf-update-$(date +%Y%m%d-%H%M%S)"
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "current_date=$(date +'%d-%m-%Y %H:%M:%S')" >> $GITHUB_OUTPUT
+          
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git checkout -b $BRANCH_NAME
+          git add -f refs/dcat-ap-es/pdf/*.pdf
+          git commit -m "Update PDF documents [skip ci]"
+          git push origin $BRANCH_NAME
+
+      - name: Create Pull Request
+        if: steps.check_changes.outputs.has_changes == 'true'
+        id: create-pr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.create_branch.outputs.branch_name }}
+          base: main
+          delete-branch: true
+          sign-commits: true
+          title: "Actualización automática de documentos PDF"
+          body: |
+            ## Actualización de documentos PDF
+            
+            Este Pull Request actualiza automáticamente [los documentos PDF](https://github.com/datosgobes/DCAT-AP-ES/tree/main/refs/dcat-ap-es/pdf) generados a partir de archivos [AsciiDoc](https://docs.asciidoctor.org/asciidoc/latest/).
+            
+            * 🤖 Generado por: GitHub Actions
+            * 📅 Fecha: ${{ steps.create_branch.outputs.current_date }}
+            
+            @datosgobes/dcat-ap-es Por favor, revisen y aprueben este PR para actualizar los documentos.
+          labels: |
+            automated-pr
+            documentation
+            pdf-update
+          team-reviewers: |
+            datosgobes/dcat-ap-es
