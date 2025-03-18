@@ -307,8 +307,8 @@ dcatapes:
     conventions:
       draft: false
       download_pdf: true
-      title: Convenciones técnicas, semánticas y organizativas de la aplicación de DCAT-AP-ES en el catálogo de datos.gob.es
-      document_title: DCAT-AP-ES convenciones datos.gob.es 1.0.0
+      title: Convenciones técnicas, semánticas y organizativas para la aplicación de DCAT-AP-ES
+      document_title: DCAT-AP-ES 1.0.0 – Convenciones
       published_date: '2025-03-01'
       published_date_human: '1 de marzo de 2025'
       details_summary: Más detalles sobre este documento
@@ -444,8 +444,8 @@ dcatapes:
     conventions:
       draft: true
       download_pdf: true
-      title: Technical, semantic, and organizational conventions for the application of DCAT-AP-ES in the datos.gob.es catalog
-      document_title: DCAT-AP-ES conventions datos.gob.es 1.0.0
+      title: Technical, semantic, and organizational conventions for the application of DCAT-AP-ES
+      document_title: DCAT-AP-ES 1.0.0 - Conventions
       published_date: '2025-03-01'
       published_date_human: 'March 1, 2025'
       details_summary: More details about this document
