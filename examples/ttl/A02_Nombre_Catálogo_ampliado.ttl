@@ -5,13 +5,13 @@
 
 <http://dcat-ap-es.ejemplo.org/catalogo>
   a dcat:Catalog ;
-  dc:title "Catálogo de Datos Abiertos"@es, "Open Data Catalog"@en ;
-  dc:description "Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES."@en ;
+  dct:title "Catálogo de Datos Abiertos"@es, "Open Data Catalog"@en ;
+  dct:description "Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES."@en ;
   foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
-  dc:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo> ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo> ;
   dcat:dataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> ;
-  dc:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
   dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ;
-  dc:issued "2025-01-01T09:00:00+01:00"^^xsd:date ;
-  dc:modified "2025-01-02T12:00:00+01:00"^^xsd:date ;
+  dct:issued "2025-01-01T09:00:00+01:00"^^xsd:date ;
+  dct:modified "2025-01-02T12:00:00+01:00"^^xsd:date ;
   dct:language <http://publications.europa.eu/resource/authority/language/SPA>, <http://publications.europa.eu/resource/authority/language/ENG> .

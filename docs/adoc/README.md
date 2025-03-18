@@ -14,7 +14,7 @@ v1: DCAT-AP-ES Convenciones
 :description: "Este documento establece las convenciones para la implementación del perfil DCAT-AP-ES en el catálogo nacional datos.gob.es, adaptando el estándar europeo DCAT-AP 2.1.1 y la extensión HVD 2.2.0 a las necesidades españolas. Define reglas técnicas, semánticas y organizativas para asegurar la interoperabilidad entre los distintos proveedores de datos abiertos, incluyendo administraciones autonómicas y locales. El documento está dirigido a desarrolladores y mantenedores de portales de datos abiertos, estableciendo directrices obligatorias y recomendadas según la terminología RFC2119."
 :keywords: dcat-ap-es, dcat-ap, hvd, open-data, interoperability, metadata, standards, rdf, linked-data, semantic-web, data-gob-es, spain
 :sectanchors:
-:url-repo: https://github.com/mjanez/demo-dcatapes
+:url-repo: https://github.com/datosgobes/DCAT-AP-ES
 :sectnums:
 :toc:
 :toc-title: Índice

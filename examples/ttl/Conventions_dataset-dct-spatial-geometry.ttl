@@ -3,8 +3,8 @@
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 
-<http://datos.example.org/dataset/123> dc:spatial [
-    a dc:Location ;
+<http://datos.example.org/dataset/123> dct:spatial [
+    a dct:Location ;
     locn:geometry """POLYGON((2.937889 39.608571, 4.592285 39.608571, 
             4.592285 40.573115, 2.937889 40.573115, 2.937889 39.608571))"""^^geo:wktLiteral ;
     dcat:bbox """POLYGON((2.937889 39.608571, 4.592285 39.608571, 

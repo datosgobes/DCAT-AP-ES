@@ -1,5 +1,5 @@
 [project]
-name = "demo-dcatapes"
+name = "DCAT-AP-ES"
 version = "1.0.0"
 keywords = ["open-data", "spain", "dcat", "dcat-ap", "dcat-ap-es", "application-profile", "data-portals", "data-specification"]
 description = "Guía técnica de implementación del DCAT-AP-ES"
@@ -15,7 +15,8 @@ classifiers = [
 ]
 
 authors = [
-    {name = "Admindatosgobes", email = "contacto@datos.gob.es"},
+    {name = "mjanez", email = "96422458+mjanez@users.noreply.github.com."},
+    {name = "Admindatosgobes", email = "contacto@datos.gob.es"}
 ]
 
 dependencies = [

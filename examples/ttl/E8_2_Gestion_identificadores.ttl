@@ -8,39 +8,39 @@
 
 <http://dcat-ap-es.catalogo-agregador-ejemplo.org/catalogo>
   a dcat:Catalog ;
-  dc:title "Catálogo de Datos Abiertos agregador de ámbito nacional"@es ;
-  dc:description "Catálogo de Datos Abiertos agregador de ámbito nacional que sirve de ejemplo en DCAT-AP-ES."@es ;
+  dct:title "Catálogo de Datos Abiertos agregador de ámbito nacional"@es ;
+  dct:description "Catálogo de Datos Abiertos agregador de ámbito nacional que sirve de ejemplo en DCAT-AP-ES."@es ;
   foaf:homepage <http://dcat-ap-es.catalogo-agregador-ejemplo.org> ;
-  dc:publisher [
+  dct:publisher [
     a foaf:Organization ;
-    dc:identifier "http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Agregador" ;
+    dct:identifier "http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Agregador" ;
     foaf:name "Nombre del organismo agregador nacional" ;
-    dc:type <http://purl.org/adms/publishertype/NationalAuthority>
+    dct:type <http://purl.org/adms/publishertype/NationalAuthority>
   ] ;
   dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector/> ;
-  dc:issued "2025-01-01T09:00:00+01:00"^^xsd:dateTime ;
-  dc:modified "2025-01-02T12:00:00+01:00"^^xsd:dateTime ;
+  dct:issued "2025-01-01T09:00:00+01:00"^^xsd:dateTime ;
+  dct:modified "2025-01-02T12:00:00+01:00"^^xsd:dateTime ;
   dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
-  dc:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
   dcat:dataset <http://dcat-ap-es.catalogo-regional-ejemplo.org/dataset/dataset-HVD-ejemplo-1> .
 
 <http://dcat-ap-es.catalogo-regional-ejemplo.org/dataset/dataset-HVD-ejemplo-1>
   a dcat:Dataset ;
-  dc:title "Dataset HVD de ejemplo"@es ;
-  dc:description "Descripción de un dataset HVD de ejemplo publicado en un catálogo regional."@es ;
+  dct:title "Dataset HVD de ejemplo"@es ;
+  dct:description "Descripción de un dataset HVD de ejemplo publicado en un catálogo regional."@es ;
   dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
   dcatap:hvdCategory <http://data.europa.eu/bna/c_b7f6a4f3> ;
-  dc:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Regional>, [
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Regional>, [
     a foaf:Organization ;
-    dc:identifier "http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Regional" ;
+    dct:identifier "http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Regional" ;
     foaf:name "Nombre del organismo regional" ;
-    dc:type <http://purl.org/adms/publishertype/RegionalAuthority>
+    dct:type <http://purl.org/adms/publishertype/RegionalAuthority>
   ] ;
-  dc:identifier <hhttp://dcat-ap-es.catalogo-regional-ejemplo.org/dataset/identificador-dataset-HVD-ejemplo-1> ;
+  dct:identifier <hhttp://dcat-ap-es.catalogo-regional-ejemplo.org/dataset/identificador-dataset-HVD-ejemplo-1> ;
   adms:identifier [
-    dc:creator <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Regional> ;
+    dct:creator <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Regional> ;
     skos:notation "http://dcat-ap-es.catalogo-regional-ejemplo.org/dataset/identificador-dataset-HVD-ejemplo-1"
   ], [
-    dc:creator <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Agregador> ;
+    dct:creator <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo-Agregador> ;
     skos:notation "http://dcat-ap-es.portal-agregador.org/dataset/identificador-dataset-HVD-ejemplo-1"
   ] .

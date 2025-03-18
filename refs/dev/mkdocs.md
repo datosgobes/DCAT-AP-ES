@@ -155,7 +155,7 @@ Los archivos generados se ubicarán en la carpeta `site/`.
 Para depurar MkDocs, sigue estos pasos:
 
 ```sh
-cd demo-dcatapes
+cd DCAT-AP-ES
 mkdocs serve -a 127.0.0.1:8088
 ```
 
