@@ -68,14 +68,14 @@ Se enumerarán a continuación vocabularios genéricos que configuran el espacio
 | Location Core Vocabulary | `locn:` | `http://www.w3.org/ns/locn#` |
 | Web Ontology Document | `owl:` | `http://www.w3.org/2002/07/owl#` |
 | Open Digital Rights Language | `odrl:` | `http://www.w3.org/ns/odrl/2/` |
-| Prov Family of Documents | `prov:` | `http://www.w3.org/ns/prov` |
+| Prov Family of Documents | `prov:` | `http://www.w3.org/ns/prov#` |
 | Resource Description Framework | `rdf:` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` |
 | Resource Description Framework Schema | `rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` |
-| XML Schema | `xsd:` | `http://www.w3.org/2001/XMLSchema#` |
 | Simple Knowledge Organization System (SKOS) | `skos:` | `http://www.w3.org/2004/02/skos/core#` |
 | Software Package Data Exchange | `spdx:` | `http://spdx.org/rdf/terms#` |
 | W3C Time Ontology | `time:` | `http://www.w3.org/2006/time#` |
 | vCard Ontology | `vcard:` | `http://www.w3.org/2006/vcard/ns#` |
+| XML Schema | `xsd:` | `http://www.w3.org/2001/XMLSchema#` |
 
 ## Vocabularios controlados utilizados en el modelo {#dcat-ap-es-vocabularies}
 
