@@ -1688,7 +1688,7 @@ Esta entidad se considera clave para entender cómo se puede obtener y utilizar 
 
 !!! note "Nota de uso"
 
-    Este metadato ayuda a los usuarios a estimar la capacidad necesaria para las necesidades de almacenamiento y tiempo de descarga.  Es posible incluir un valor aproximado (siempre como número no negativo) e incluso es posible utilizar literales descriptivos como “1.5MB”
+    Este metadato ayuda a los usuarios a estimar la capacidad necesaria para las necesidades de almacenamiento y tiempo de descarga.  Es posible incluir un valor aproximado (siempre como número no negativo), por ejemplo: `843636`
 
 
 | dcat:Distribution | dcat:spatialResolutionInMeters |
