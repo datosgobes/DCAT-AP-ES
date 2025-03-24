@@ -117,6 +117,7 @@ extra_css:
 extra_javascript:
   - https://viewer.diagrams.net/js/viewer-static.min.js
   - assets/js/modules/drawio-reload.js
+  - assets/js/vendor/mermaid.min.js
   - assets/js/vendor/jquery-ui-1.14.1.min.js
   - assets/js/modules/codeblock-enhancement.js
   - assets/js/modules/conventions.js
