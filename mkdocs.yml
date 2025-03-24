@@ -136,6 +136,9 @@ extra:
     - name: X
       icon: fontawesome/brands/x-twitter
       link: https://x.com/datosgob
+    - name: datos.gob.es
+      icon: fontawesome/solid/globe
+      link: https://datos.gob.es
   # consent:
   #     title: Información importante sobre Cookies
   #     description: >- 
@@ -256,12 +259,14 @@ dcatapes:
     feedback: 
       title: GitHub DCAT-AP-ES
     feedback_links:
-      - link: /pulls
+      - link: https://github.com/datosgobes/DCAT-AP-ES/pulls
         text: Solicitudes de extracción (PR)
-      - link: /issues/new/choose
+      - link: https://github.com/datosgobes/DCAT-AP-ES/issues/new/choose
         text: Nueva incidencia (Issue)
-      - link: /issues
+      - link: https://github.com/datosgobes/DCAT-AP-ES/issues
         text: Incidencias (Issues)
+      - link: https://github.com/datosgobes/DCAT-AP-ES/discussions
+        text: Discusión
     owners:
       - name: Iniciativa de datos abiertos del Gobierno de España
         link: 'https://datos.gob.es/'
@@ -394,12 +399,14 @@ dcatapes:
     feedback: 
       title: GitHub DCAT-AP-ES
     feedback_links:
-      - link: /pulls
+      - link: https://github.com/datosgobes/DCAT-AP-ES/pulls
         text: Pull Requests (PR)
-      - link: /issues/new/choose
+      - link: https://github.com/datosgobes/DCAT-AP-ES/issues/new/choose
         text: New Issue
-      - link: /issues
+      - link: https://github.com/datosgobes/DCAT-AP-ES/issues
         text: Issues
+      - link: https://github.com/datosgobes/DCAT-AP-ES/discussions
+        text: Discussion
     owners:
       - name: Spanish Government Open Data Initiative
         link: 'https://datos.gob.es/'
