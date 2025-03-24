@@ -4,7 +4,7 @@ En este documento se presenta una especificación detallada de los metadatos que
 
 Los metadatos se describen sobre la base del paradigma de la Web Semántica, que implementa la descripción de recursos utilizando el modelo estándar para el intercambio de datos sobre la Web, RDF (Resource Description Framework). Este enfoque permite que diferentes sistemas de catalogación de datos puedan interactuar e intercambiar información de manera efectiva y coherente, logrando interoperabilidad semántica para facilitar la búsqueda y encontrabilidad de recursos de datos, mejorando considerablemente su valor para la reutilización.
 
-El perfil de aplicació, en adelante, DCAT-AP-ES, es el modelo de metadatos que se recoge en la nueva versión de la Norma Técnica de Interoperabilidad de Recursos de Información del Sector Público (NTI-RISP), que está en proceso de tramitación administrativa. DCAT-AP-ES adopta las directrices del esquema europeo de intercambio de metadatos DCAT-AP con algunas restricciones y ajustes adicionales. DCAT-AP, a su vez, se basa en la especificación DCAT, que viene siendo desarrollada por el [Grupo de trabajo de intercambio de conjuntos de datos](https://www.w3.org/2017/dxwg/) desde que fue publicada como recomendación por W3C en 2014. DCAT es un vocabulario RDF creado con el objetivo de mejorar la interoperabilidad entre catálogos de datos en línea. La versión de DCAT-AP que se toma como referencia para la elaboración de DCAT-AP-ES es [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) junto a los elementos descritos en la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) para incorporar el modelado de los [Conjuntos de datos de alto valor](https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir) (*High Value Datasets*).
+El perfil de aplicación, en adelante, DCAT-AP-ES, es el modelo de metadatos que se recoge en la nueva versión de la Norma Técnica de Interoperabilidad de Recursos de Información del Sector Público (NTI-RISP), que está en proceso de tramitación administrativa. El modelo adopta las directrices del esquema europeo de intercambio de metadatos DCAT-AP con algunas restricciones y ajustes adicionales, perfil de aplicación que a su vez, se basa en la especificación DCAT, un vocabulario RDF creado con el objetivo de mejorar la interoperabilidad entre catálogos de datos en línea que viene siendo desarrollada por el [Grupo de trabajo de intercambio de conjuntos de datos](https://www.w3.org/2017/dxwg/) desde que fue publicada como recomendación por W3C en 2014. La versión del perfil europeo que se toma como referencia para la elaboración de DCAT-AP-ES es [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) junto a los elementos descritos en la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) para incorporar el modelado de los [Conjuntos de datos de alto valor](https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir) (*High Value Datasets*).
 
 Como es sabido, un catálogo de datos abiertos puede estar constituido únicamente por conjuntos de datos o por servicios de datos, aunque lo habitual será que cuente tanto conjuntos de datos como servicios y se representa mediante instancias de las clases y propiedades que se especifican en este modelo.
 
@@ -100,13 +100,23 @@ A continuación, se detalla la serie de propiedades que deben ajustarse utilizan
 
 # Relación de metadatos del modelo DCAT-AP-ES {#dcat-ap-es-model-relations}
 
-En las tablas siguiente, se especifica de forma resumida la relación de clases y sus propiedades vinculadas del modelo DCAT-AP-ES. Se especifica el nombre del metadato, una breve descripción, la propiedad o atributo, la cardinalidad o posibles valores que puede adoptar y el rango y tipo de datos de ajuste. Más adelante, en este documento, se detallan las notas de uso asociadas a cada metadato. En la columna identificada con la letra T, se indica el grado de requisito de cada metadato, pudiendo ser este **Ob (obligatorio)**, **R (recomendado)** y **Op (opcional)**. Dicho requerimiento está determinado por los siguientes criterios:
+En las tablas de metadatos del modelo DCAT-AP-ES se especifica la siguiente información:
 
-1. **Ob (obligatorio)**: El publicador debe aportar la información de esta propiedad, y el consumidor debe ser capaz de procesarla.
-2. **R (recomendado)**: El publicador debe proporcionar esta información si dispone de ella, el consumidor ha de ser capaz de procesarla.
-3. **Op (opcional)**: El publicador puede proporcionar esta información, el consumidor ha de ser capaz de procesarla.
+- **Metadato**: Nombre descriptivo del elemento de metadatos
+- **Descripción**: Breve explicación de la función y propósito del metadato
+- **Propiedad**: Identificador formal del metadato en forma de URI (por ejemplo, `dct:title`)
+- **T**: Tipo de requisito del metadato, que puede ser:
+  - **Ob** (Obligatorio): El publicador debe aportar la información de esta propiedad, y el consumidor debe ser capaz de procesarla.
+  - **R** (Recomendado): El publicador debe proporcionar esta información si dispone de ella, el consumidor ha de ser capaz de procesarla.
+  - **Op** (Opcional): El publicador puede proporcionar esta información, el consumidor ha de ser capaz de procesarla.
+- **C**: Cardinalidad, que indica el número mínimo y máximo de ocurrencias permitidas (por ejemplo, 1..n significa al menos una, potencialmente muchas).
+- **Rango**: Tipo de datos o clase que puede tomar el valor del metadato, incluyendo:
+  - **Tipo principal**: Por ejemplo, `rdfs:Literal`, `foaf:Agent` o `dcat:Dataset`
+  - **Descripción adicional**: Información sobre el formato o estructura esperada para el valor.
 
-Igualmente, se indica para cada elemento del modelo -catálogo, registro, servicio de datos, dataset, etc.- el requisito de aplicación.
+Esta estructura uniforme facilita la implementación y comprensión del perfil de aplicación DCAT-AP-ES.
+
+Igualmente, se indica para cada entidad del modelo -catálogo, registro, servicio de datos, dataset, etc.- el requisito de aplicación.
 
 
 ## Catálogo - Clase: dcat:Catalog - Obligatorio
@@ -356,7 +366,7 @@ Se describe mediante las siguientes propiedades:
 
 !!! note "Nota de uso"
 
-    Se debe expresar al menos una clasificación taxonómica. Se utilizará obligatoriamente la taxonomía de sectores primaros definida en el vocabulario `http://datos.gob.es/kos/sector-publico/sector` y de manera opcional, el vocabulario de Temas de datos (DCAT-AP): `http://publications.europa.eu/resource/authority/data-theme` o el registro de temas INSPIRE `http://inspire.ec.europa.eu/theme/`
+    Se debe expresar al menos una clasificación taxonómica. Para ello se utilizará obligatoriamente la taxonomía de sectores primaros definida en el vocabulario `http://datos.gob.es/kos/sector-publico/sector` y de manera opcional, el vocabulario de Temas de datos (DCAT-AP): `http://publications.europa.eu/resource/authority/data-theme` o el registro de temas INSPIRE `http://inspire.ec.europa.eu/theme/`
 
 
 | dcat:Catalog | dct:issued |
@@ -398,7 +408,12 @@ Se describe mediante las siguientes propiedades:
 
 !!! note "Nota de uso"
 
-    Esta propiedad expresa el o los idiomas utilizados en los literales que describen títulos, descripciones, palabras clave, etc. de los recursos de datos incluidos en el Catálogo. Esta propiedad se puede repetir si los metadatos se proporcionan en varios idiomas. Uno de los idiomas debe ser español.  Se debe usar el vocabulario normalizado de idiomas:  `http://publications.europa.eu/resource/authority/language`  Complementariamente, es recomendable el uso del atributo xml:lang ajustado con el valor correspondiente para expresar literales en cada idioma especificado en la propiedad. Para ello, se recomienda usar los códigos de idioma normalizados definidos en el [RFC-5646](https://www.rfc-editor.org/rfc/rfc5646.html) (por ejemplo, `es` para español, `en` para inglés, `ca` para catalán, `eu` para vasco, `gl` para gallego, etc.).
+    Esta propiedad expresa el, o los idiomas, utilizados en los literales que describen títulos, descripciones, palabras clave, etc. de los recursos de datos incluidos en el Catálogo.
+    
+    * Se puede repetir si los metadatos se proporcionan en varios idiomas, ^pero al menos uno de los idiomas debe ser español^.  
+    * Se debe usar el vocabulario normalizado de idiomas:  `http://publications.europa.eu/resource/authority/language`  
+    
+    Complementariamente, es recomendable el uso del atributo `xml:lang` ajustado con el valor correspondiente para expresar literales en cada idioma especificado en la propiedad. Para ello, se recomienda usar los códigos de idioma normalizados definidos en el [RFC-5646](https://www.rfc-editor.org/rfc/rfc5646.html) (por ejemplo, `es` para español, `en` para inglés, `ca` para catalán, `eu` para vasco, `gl` para gallego, etc.).
 
 
 | dcat:Catalog | dct:license |
@@ -1201,7 +1216,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 
 !!! note "Nota de uso"
 
-    Esta propiedad se puede repetir si los metadatos se proporcionan en varios idiomas, pero _uno de los idiomas utilizado para los metadatos textuales debe ser español_.  Se ha actualizado respecto de la propiedad `dc:language` que se usaba en NTI-RISP.  Se debe usar el vocabulario normalizado de idiomas:  `http://publications.europa.eu/resource/authority/language`  Complementariamente, es recomendable el uso del atributo xml:lang ajustado con el valor correspondiente para expresar literales en cada idioma especificado en la propiedad. Para ello, se recomienda usar los códigos de idioma normalizados definidos en el [RFC-5646](https://www.rfc-editor.org/rfc/rfc5646.html) (por ejemplo, `es` para español, `en` para inglés, `ca` para catalán, `eu` para vasco, `gl` para gallego, etc.).  Los valores ajustados en esta propiedad de dataset anulan los valores proporcionados para el catálogo si entran en conflicto.
+    Esta propiedad se puede repetir si los metadatos se proporcionan en varios idiomas, pero _uno de los idiomas utilizado para los metadatos textuales debe ser español_.  Se ha actualizado respecto de la propiedad `dc:language` [que se usaba en NTI-RISP](https://datosgobes.github.io/NTI-RISP/#catalogo_-_clase_dcatcatalog_-_obligatorio).  Se debe usar el vocabulario normalizado de idiomas:  `http://publications.europa.eu/resource/authority/language`  Complementariamente, es recomendable el uso del atributo xml:lang ajustado con el valor correspondiente para expresar literales en cada idioma especificado en la propiedad. Para ello, se recomienda usar los códigos de idioma normalizados definidos en el [RFC-5646](https://www.rfc-editor.org/rfc/rfc5646.html) (por ejemplo, `es` para español, `en` para inglés, `ca` para catalán, `eu` para vasco, `gl` para gallego, etc.).  Los valores ajustados en esta propiedad de dataset anulan los valores proporcionados para el catálogo si entran en conflicto.
     
     Por otro lado, se prevé un segundo uso de esta propiedad: si las distribuciones de un conjunto de datos están disponibles para cada idioma por separado, se debe definir una instancia de `dcat:Distribution` para cada idioma y describir el idioma específico de cada distribución usando `dct:language`. Es decir, el conjunto de datos tendrá múltiples valores de `dct:language` y cada distribución tendrá solo un valor de la propiedad `dct:language`. En el caso de distribuciones multilingües, éstas tendrán múltiples valores `dct:language`.
 
@@ -2012,13 +2027,12 @@ Se utilizan dos propiedades (`dct:relation` y `dcat:hadRole`) que se declaran ob
     Se debe especificar la referencia a un recurso de datos ([`dcat:Dataset`](#conjunto-de-datos---clase-dcatdataset---obligatorio) o [`dcat:DataService`](#servicio-de-datos---clase-dcatdataservice---opcional)).
 
 
-# Anexo 1. Cambios en el modelo DCAT-AP-ES respecto a la NTI-RISP (v.2013) {#annex-1-nti-risp-to-dcat-ap-es}
+# Anexo 1. Cambios del modelo DCAT-AP-ES respecto a NTI-RISP (v.2013) {#annex-1-nti-risp-to-dcat-ap-es}
 
-A continuación, se detalla la relación de cambios y actualizaciones en los metadatos del modelo DCAT-AP-ES respecto a la NTI-RISP (v. 2013). Por otro lado, se incluye la relación de metadatos deprecados en DCAT-AP-ES respecto a la NTI-RISP (v. 2013).
+A continuación, se detalla la relación de cambios y actualizaciones en los metadatos del modelo DCAT-AP-ES respecto al [modelo de metadatos NTI-RISP (v. 2013)](https://datosgobes.github.io/NTI-RISP), así como la relación de metadatos que han sido deprecados.
 
 ## Metadatos incorporados al modelo DCAT-AP-ES
-
-A continuación, se detalla la lista de metadatos que se incorporan al modelo DCAT-AP-ES respecto a la NTI-RISP (V. 2013). Entre paréntesis se indica si el metadato estaba definido en la NTI-RISP o se ha incorporado de la especificación DCAT-AP:
+Entre paréntesis se indica si el metadato estaba definido en la NTI-RISP o se ha incorporado de la especificación DCAT-AP-ES:
 
 | Clase | URI de la clase | Obligatorias | Recomendadas | Opcionales |
 | --- | --- | --- | --- | --- |
@@ -2059,7 +2073,7 @@ A continuación se indican los nombres de los metadatos y las propiedades descri
 
 **[3]** En DCAT-AP-ES la propiedad de formato se divide en varias, más especificamente se añade la propiedad "Formato" (`dct:format`) y se distingue del "Formato tipo MIME" (`dcat:mediaType`, qué era "Formato" en el anterior modelo). Está última en [DCAT 2](https://www.w3.org/TR/vocab-dcat-3/#Property:distribution_media_type) tiene como rango la clase más específica `dct:MediaType`, en lugar de la más general `dct:MediaTypeOrExtent` (qué se usa en `dct:format`). Esto significa que la propiedad "Formato tipo MIME" (`dcat:mediaType`) se restringe para usarse únicamente con valores que sean instancias de `dct:MediaType` ([tipos de media de IANA](http://www.iana.org/assignments/media-types/media-types.xhtml)), excluyendo otros tipos de nodos que podrían haberse permitido con `dct:MediaTypeOrExtent`.
 
-# Anexo 2. Guía de referencia rápida de clases y propiedades DCAT-AP-ES {#annex-1-quickguide-dcat-ap-es}
+# Anexo 2. Guía de referencia rápida de DCAT-AP-ES {#annex-1-quickguide-dcat-ap-es}
 
 En la siguiente relación, se incluye junto al acrónimo HVD, las propiedades que con carácter obligatorio, recomendado u opcional son relevantes para la publicación de datos de alto valor.
 

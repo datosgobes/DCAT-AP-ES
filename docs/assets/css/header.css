@@ -3,10 +3,10 @@
     --border-color: #ddd;
     --title-font-size: 1.7em;
     --title-margin: 5px 0 5px 0;
-    --title-color: #205c7c;
+    --title-color: #154481;
     --subtitle-font-size: 1em;
     --subtitle-margin: 0px 0;
-    --subtitle-color: #205c7c;
+    --subtitle-color: #154481;
     --state-font-size: 0.9em;
     --state-margin: 0px 0;
     --details-margin: 20px 0;
@@ -249,25 +249,53 @@
 
 /* Ajustes para los logos principales */
 .primary-logos {
-    max-width: 90%;
+    max-width: 100%;
     display: flex !important;
     justify-content: center;
     align-items: center;
-    gap: 30px; 
+    gap: 30px;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto; /* Permite scroll en pantallas pequeñas */
+    white-space: nowrap; /* Evita que los logos pasen a otra línea */
+    flex-wrap: nowrap; /* Se mantienen en una sola línea */
 }
 
+/* Cada elemento de la lista */
 .primary-logos li {
-    flex: 0 0 auto;
+    flex: 0 0 auto; /* Mantiene el tamaño del logo sin estirarse */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Imágenes responsivas */
 .primary-logos img {
-    max-height: 60px; 
+    max-height: 60px; /* Tamaño base */
     width: auto; 
-    max-width: 500px; 
+    max-width: 100%; /* Para evitar desbordamientos */
     object-fit: contain;
     display: block;
     margin: 0 auto;
+}
+
+/* 🔹 Media Queries para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .primary-logos {
+        gap: 15px; /* Reduce el espacio entre logos */
+    }
+
+    .primary-logos img {
+        max-height: 50px; /* Ajusta el tamaño en pantallas más pequeñas */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .primary-logos {
+        gap: 10px; /* Espacio más reducido entre logos */
+    }
+
+    .primary-logos img {
+        max-height: 40px; /* Reduce más el tamaño */
+    }
 }

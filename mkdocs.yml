@@ -25,14 +25,14 @@ theme:
   custom_dir: overrides
   palette:
     primary: 'white'
-    accent: 'deep-orange'
+    accent: 'red'
   font:
     text: Poppins
     code: Roboto Mono
   icon:
       repo: fontawesome/brands/github
       logo: material/file-document-arrow-right
-  logo: img/dge_logo.svg
+  logo: img/dge_logo_2025.svg
   favicon: img/favicon.ico
   features:
     - content.action.edit
@@ -105,6 +105,8 @@ markdown_extensions:
       options:
         custom_icons:
           - overrides/.icons
+  - pymdownx.tasklist:
+        custom_checkbox: true
 
 extra_css: 
   - assets/css/vendor/jquery-ui-1.14.1.min.css
@@ -189,7 +191,7 @@ plugins:
       minify_html: true
   - social:
       cards_layout_options:
-        background_color: '#0f3062'
+        background_color: '#154481'
   - git-committers:
       repository: datosgobes/DCAT-AP-ES
       branch: main
@@ -233,7 +235,7 @@ dcatapes:
         src: '/DCAT-AP-ES/img/sedia-red-es.jpg'
       - href: 'https://datos.gob.es'
         alt: 'datos.gob.es'
-        src: '/DCAT-AP-ES/img/dge_logo.svg'
+        src: '/DCAT-AP-ES/img/dge_logo_2025.svg'
       - href: 'https://datos.gob.es/acerca-de-la-iniciativa-aporta'
         alt: 'Iniciativa Aporta'
         src: '/DCAT-AP-ES/img/iniciativa_aporta.svg'
@@ -370,7 +372,7 @@ dcatapes:
         src: '/DCAT-AP-ES/img/sedia-red-es.jpg'
       - href: 'https://datos.gob.es'
         alt: 'datos.gob.es'
-        src: '/DCAT-AP-ES/img/dge_logo.svg'
+        src: '/DCAT-AP-ES/img/dge_logo_2025.svg'
       - href: 'https://datos.gob.es/acerca-de-la-iniciativa-aporta'
         alt: 'Aporta Initiative'
         src: '/DCAT-AP-ES/img/iniciativa_aporta.svg'

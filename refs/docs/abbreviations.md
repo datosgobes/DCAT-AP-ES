@@ -1,5 +1,6 @@
 *[API]: Application Programming Interface
 *[BOE]: Boletín Oficial del Estado
+*[C]: Cardinalidad
 *[DCAT]: Data Catalog Vocabulary
 *[DCAT-AP]: DCAT Application Profile for Data Portals in Europe
 *[DCAT-AP-ES]: Perfil de Aplicación DCAT-AP para catálogos de datos en España
@@ -15,10 +16,14 @@
 *[ISO]: International Organization for Standardization
 *[JSON-LD]: JSON for Linking Data
 *[NTI-RISP]: Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público
+*[Ob]: Obligatorio
+*[Op]: Opcional
 *[OGC]: Open Geospatial Consortium
+*[R]: Recomendado
 *[RDF]: Resource Description Framework
 *[SHACL]: Shapes Constraint Language
 *[SPARQL]: SPARQL Protocol and RDF Query Language
+*[T]: Tipo de requisito del metadato,
 *[UE]: Unión Europea
 *[UML]: Unified Modeling Language
 *[URI]: Uniform Resource Identifier
