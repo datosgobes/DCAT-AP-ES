@@ -33,7 +33,7 @@ code:
 table:
   border_color: "#00A99D"  # --primary-color
 table-head:
-    background_color: "#0f3062"  # --header-bg-color
+    background_color: "#154481"  # --header-bg-color
     font_color: "#FFFFFF"  # --header-text-color
     font_style: bold
     align: center

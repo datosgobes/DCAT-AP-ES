@@ -1,8 +1,8 @@
 !!! tip "Ejemplos prácticos de implementación"
 
-    Aquí encontrarás prototipos listos para usar que demuestran cómo implementar el [modelo de metadatos DCAT-AP-ES](index.md) en diferentes formatos: [`RDF/XML`](https://www.w3.org/TR/rdf-syntax-grammar/) y [Turtle `(TTL)`](https://www.w3.org/TR/turtle/). 
+    Aquí encontrarás prototipos listos para usar que demuestran cómo implementar el [modelo de metadatos DCAT-AP-ES](/#dcat-ap-es-model) en diferentes formatos: [`RDF/XML`](https://www.w3.org/TR/rdf-syntax-grammar/) y [Turtle `(TTL)`](https://www.w3.org/TR/turtle/). 
     
-    Estos ejemplos te guiarán en el uso de [propiedades obligatorias, recomendadas y opcionales](index.md/#relacion_de_metadatos_del_modelo_dcat-ap-es) para describir las entidades principales del modelo.
+    Estos ejemplos te guiarán en el uso de [propiedades obligatorias, recomendadas y opcionales](/#relacion_de_metadatos_del_modelo_dcat-ap-es) para describir las entidades principales del modelo.
 
 !!! example "Convenciones para la especificación de ejemplos"
 
@@ -16,7 +16,7 @@
     * URI organismo: `http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo`
 
 
-# Catálogo - Clase: [`dcat:Catalog`](index.md#catalogo_-_clase_dcatcatalog_-_obligatorio)
+# Catálogo - Clase: [`dcat:Catalog`](/#catalogo_-_clase_dcatcatalog_-_obligatorio)
 ## Catálogo - Propiedades obligatorias
 
 Este ejemplo muestra cómo declarar un catálogo de datos utilizando **únicamente las propiedades obligatorias** según el perfil DCAT-AP-ES. Incluye metadatos esenciales como: Título, Descripción, Página web, Publicador, Licencia, Taxonomía de temas, Fecha de creación, Fecha de actualización e Idioma.
@@ -78,7 +78,7 @@ Este ejemplo muestra cómo **detallar la información del publicador de un catá
     --8<-- "examples/ttl/E4_Catalogo_publisher_organizacion.ttl"
     ```
 
-# Servicio de datos - Clase: [`dcat:DataService`](index.md#servicio_de_datos_-_clase_dcatdataservice_-_opcional)
+# Servicio de datos - Clase: [`dcat:DataService`](/#servicio_de_datos_-_clase_dcatdataservice_-_opcional)
 ## Servicio de datos - Especificación de servicios de acceso a datos
 
 El ejemplo describe **un catálogo que contiene el registro de un único servicio de datos que proporciona el acceso a un servicio CSW** sin especificar qué datasets sirve. El servicio de datos CSW cumple con el IR HVD e INSPIRE, está descrito como un servicio de descubrimiento, está disponible bajo derechos de acceso público, es compatible con el estándar CSW de OGC, cuenta con una licencia de reutilización CC-BY 4.0, el ámbito territorial cubierto por el dataset está delimitado por un rectangular para la que se especifican sus coordenadas y detalla un punto de contacto para trasladar cuestiones relativas al servicio mediante un formulario web o un correo electrónico.
@@ -120,7 +120,7 @@ Para simplificar la presentación del ejemplo, se obvia la especificación de la
     --8<-- "examples/ttl/E9_Data_Service_HVD.ttl"
     ```
 
-# Conjunto de datos - Clase: [`dcat:Dataset`](index.md#conjunto_de_datos_-_clase_dcatdataset_-_obligatorio)
+# Conjunto de datos - Clase: [`dcat:Dataset`](/#conjunto_de_datos_-_clase_dcatdataset_-_obligatorio)
 ## Conjunto de datos - *Datasets* HVD y no HVD
 
 Este ejemplo describe **un catálogo que contiene dos conjuntos de datos HVD y no HVD:**:

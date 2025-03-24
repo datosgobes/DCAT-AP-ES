@@ -128,7 +128,7 @@ Secciones:
 
     ---
 
-    Existen guías de aplicación e implementación técnica, convenciones, modelos de datis, vocabularios, ejemplos, ficheros de validación SHACL, etc.
+    Existen guías de aplicación e implementación técnica, convenciones, modelos de datos, vocabularios, ejemplos, ficheros de validación SHACL, etc.
     
     [:octicons-arrow-right-24: Guía](/)
 
@@ -225,10 +225,10 @@ Secciones:
         
         %% Estilos con bordes redondeados
         classDef main fill:#B8C2CC,stroke:none,font-size:24px,color:#00a99d,font-weight:bold;
-        classDef entity fill:#e6f3ff,stroke:none,font-size:20px,color:#0f3062 !important,rx:10,ry:10,font-weight:bold;
+        classDef entity fill:#e6f3ff,stroke:none,font-size:20px,color:#154481 !important,rx:10,ry:10,font-weight:bold;
         
         %% Estilos de línea
-        linkStyle default stroke:#0f3062,stroke-width:1px,stroke-dasharray:3;
+        linkStyle default stroke:#154481,stroke-width:1px,stroke-dasharray:3;
     ```
     
     [:octicons-arrow-right-24: Relaciones](/#dcat-ap-es-model-relations)

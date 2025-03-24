@@ -25,14 +25,14 @@ theme:
   custom_dir: overrides
   palette:
     primary: 'white'
-    accent: 'deep-orange'
+    accent: 'red'
   font:
     text: Poppins
     code: Roboto Mono
   icon:
       repo: fontawesome/brands/github
       logo: material/file-document-arrow-right
-  logo: img/dge_logo.svg
+  logo: img/dge_logo_2025.svg
   favicon: img/favicon.ico
   features:
     - content.action.edit
@@ -105,6 +105,8 @@ markdown_extensions:
       options:
         custom_icons:
           - overrides/.icons
+  - pymdownx.tasklist:
+        custom_checkbox: true
 
 extra_css: 
   - assets/css/vendor/jquery-ui-1.14.1.min.css
@@ -115,6 +117,7 @@ extra_css:
 extra_javascript:
   - https://viewer.diagrams.net/js/viewer-static.min.js
   - assets/js/modules/drawio-reload.js
+  - assets/js/vendor/mermaid.min.js
   - assets/js/vendor/jquery-ui-1.14.1.min.js
   - assets/js/modules/codeblock-enhancement.js
   - assets/js/modules/conventions.js
@@ -189,7 +192,7 @@ plugins:
       minify_html: true
   - social:
       cards_layout_options:
-        background_color: '#0f3062'
+        background_color: '#154481'
   - git-committers:
       repository: datosgobes/DCAT-AP-ES
       branch: main
@@ -233,7 +236,7 @@ dcatapes:
         src: '/DCAT-AP-ES/img/sedia-red-es.jpg'
       - href: 'https://datos.gob.es'
         alt: 'datos.gob.es'
-        src: '/DCAT-AP-ES/img/dge_logo.svg'
+        src: '/DCAT-AP-ES/img/dge_logo_2025.svg'
       - href: 'https://datos.gob.es/acerca-de-la-iniciativa-aporta'
         alt: 'Iniciativa Aporta'
         src: '/DCAT-AP-ES/img/iniciativa_aporta.svg'
@@ -242,7 +245,7 @@ dcatapes:
     published_date_human: '1 de marzo de 2025'
     details_summary: Más detalles sobre este documento
     latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
-    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
     history: 
       - name: Histórico de cambios
         link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
@@ -313,7 +316,7 @@ dcatapes:
       published_date_human: '1 de marzo de 2025'
       details_summary: Más detalles sobre este documento
       latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
-      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
       history: 
         - name: Histórico de cambios
           link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
@@ -370,7 +373,7 @@ dcatapes:
         src: '/DCAT-AP-ES/img/sedia-red-es.jpg'
       - href: 'https://datos.gob.es'
         alt: 'datos.gob.es'
-        src: '/DCAT-AP-ES/img/dge_logo.svg'
+        src: '/DCAT-AP-ES/img/dge_logo_2025.svg'
       - href: 'https://datos.gob.es/acerca-de-la-iniciativa-aporta'
         alt: 'Aporta Initiative'
         src: '/DCAT-AP-ES/img/iniciativa_aporta.svg'
@@ -379,7 +382,7 @@ dcatapes:
     published_date_human: 'March 1, 2025'
     details_summary: More details about this document
     latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
-    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+    latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
     history: 
       - name: Change History
         link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
@@ -450,7 +453,7 @@ dcatapes:
       published_date_human: 'March 1, 2025'
       details_summary: More details about this document
       latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
-      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/tree/master/releases/1.0.0'
+      latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
       history: 
         - name: Change History
           link: 'https://github.com/datosgobes/DCAT-AP-ES/commits/'
