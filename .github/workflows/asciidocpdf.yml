@@ -65,8 +65,7 @@ jobs:
           # Generar un hash de los PDFs actuales en main
           find refs/dcat-ap-es/pdf/ -type f -name "*.pdf" -exec sha256sum {} \; | sort > /tmp/main_pdf_hashes
           
-          # Mover los nuevos PDFs
-          mv output/*.pdf refs/dcat-ap-es/pdf/
+          # Los PDFs ya están en la ubicación final, no necesitamos moverlos de nuevo
           
           # Generar un hash de los nuevos PDFs
           find refs/dcat-ap-es/pdf/ -type f -name "*.pdf" -exec sha256sum {} \; | sort > /tmp/new_pdf_hashes
