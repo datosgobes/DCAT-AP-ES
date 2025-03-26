@@ -13,10 +13,10 @@ validation:
   anchors: ignore
 
 nav:
-  - Guía técnica de implementación de DCAT-AP-ES: index.md
+  - Guía técnica DCAT-AP-ES: index.md
   - Convenciones datos.gob.es: conventions.md
   - FAQ: faq.md
-  - Ejemplos de implementación: examples.md
+  - Ejemplos: examples.md
   #- Validación: validation.md
 
 theme:
@@ -166,10 +166,10 @@ plugins:
           name: English
           build: true
           nav:
-          - Technical Guide for DCAT-AP-ES implementation: index.md
+          - DCAT-AP-ES technical guide: index.md
           - datos.gob.es conventions: conventions.en.md
           - FAQ: faq.en.md
-          - Implementation examples: examples.en.md
+          - Examples: examples.en.md
           #- DCAT-AP-ES validation: validation.en.md
   - mkdocstrings:
       handlers:
@@ -188,6 +188,7 @@ plugins:
       redirect_maps:
         'old.md': 'index.md'
         'dcat-ap-es.md': 'index.md'
+        'dcatapes.md': 'index.md'
         'convenciones.md': 'conventions.md'
         'ejemplos.md': 'examples.md'
         'preguntas-frecuentes.md': 'faq.md'
