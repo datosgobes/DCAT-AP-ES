@@ -8,7 +8,7 @@
          xmlns:odrs="http://schema.theodi.org/odrs#"
          xmlns:vcard="http://www.w3.org/206/vcard/ns#">
 
-  <!--Descrición general del Catálogo-->
+  <!--Descripción general del Catálogo-->
   <dcat:Catalog rdf:about="http://dcat-ap-es.ejemplo.org/catalogo">
     <dct:title xml:lang="es">Catálogo de Datos Abiertos</dct:title>
     <dct:title xml:lang="en">Open Data Catalog</dct:title>

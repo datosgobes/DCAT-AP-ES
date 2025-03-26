@@ -446,7 +446,7 @@ Para asegurar un acceso correcto a los servicios OGC y cumplir con los requisito
 !!! must technical "Convención 21"
     En las distribuciones de servicios OGC, las URLs de acceso **DEBEN** modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
 
-!!! info "Ejemplo de descrición del acceso a servicios cartográficos"
+!!! info "Ejemplo de descripción del acceso a servicios cartográficos"
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_distribution-ogc-urls.ttl"
     ```
