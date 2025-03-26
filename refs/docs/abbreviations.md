@@ -23,7 +23,7 @@
 *[RDF]: Resource Description Framework
 *[SHACL]: Shapes Constraint Language
 *[SPARQL]: SPARQL Protocol and RDF Query Language
-*[T]: Tipo de requisito del metadato,
+*[T]: Tipo de requisito del metadato
 *[UE]: Unión Europea
 *[UML]: Unified Modeling Language
 *[URI]: Uniform Resource Identifier
