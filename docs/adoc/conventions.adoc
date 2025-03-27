@@ -63,7 +63,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 == Lista de convenciones
 
 * <<convencion-01,*Convención 01*>>: El identificador del publicador _DEBE_ debe estar mailto:soporte@datos.gob.es?subject=Solicitud%20de%20alta%20de%20Organismo%20y%20usuario%20en%20datos.gob.es[dado de alta y disponible en la taxonomía de datos.gob.es]
-* <<convencion-02,*Convención 02*>>: Sí están definidas, las etiquetas de idioma, de `dct:title`, `dct:description`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` _DEBEN_ al menos estar en idioma español `es` y no pueden ser literales vacíos.
+* <<convencion-02,*Convención 02*>>: Los literales `dct:title`, `dct:description`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` _DEBEN_ estar definidos con las etiquetas de idioma, al menos estar en idioma español `es` y no pueden ser literales vacíos.
 * <<convencion-03,*Convención 03*>>: Los identificadores y referencias URI _DEBERÍAN_ utilizar el esquema `http://` en lugar de `https://` como norma general.
 * <<convencion-04,*Convención 04*>>: Los organismos _DEBERÍAN_ implementar la federación automática mediante RDF como único método de publicación de metadatos en formato DCAT-AP-ES, evitando la coexistencia de federación manual y automática para un mismo organismo.
 * <<convencion-05,*Convención 05*>>: Las URIs _DEBEN_ estar correctamente codificadas en su origen, especialmente cuando contengan: 1. Caracteres reservados (`?`, `&`, `=`, `#`, etc.) 2. Espacios 3. Caracteres no ASCII (acentos, `ñ`, etc.) 4. Caracteres especiales (`<`, `>`, `"`, `{`, `}`, `|`, `\`, `^`, `~`, `[`, `]`, ```)
@@ -118,7 +118,7 @@ Los campos de literales de etiquetas multilingüe `xml:lang` deben estar al meno
 [CAUTION]
 .https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02[Convención 02]
 ====
-Sí están definidas, las etiquetas de idioma, de `dct:title`, `dct:description`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` **DEBEN** al menos estar en idioma español `es` y no pueden ser literales vacíos.
+Los literales `dct:title`, `dct:description`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` **DEBEN** estar definidos con las etiquetas de idioma, al menos estar en idioma español `es` y no pueden ser literales vacíos.
 ====
 
 <<<
