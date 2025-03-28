@@ -5,7 +5,7 @@
 @prefix vcard: <http://www.w3.org/206/vcard/ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix odrs: <http://schema.theodi.org/odrs#> .
-@prefix dcatap: <http://data.europa.eu/r5r/#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
 
 <http://dcat-ap-es.ejemplo.org/catalogo>
   a dcat:Catalog ;
@@ -26,7 +26,7 @@
   dct:rights <http://dcat-ap-es.ejemplo.org/catalogo/derechos-de-acceso> ;
   dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
   dcat:dataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-HVD-ejemplo-1> ;
-  dcat:DataService [ a dct:title ], [ a dct:description ], [ a dcat:endpointURL ], [ a dcat:endpointDescription ], [ a foaf:page ], [ a <http://data.europa.eu/r5r/#applicableLegislation> ], [ a <http://data.europa.eu/r5r/#hvdCategory> ], [ a dct:publisher ], [ a dcat:theme ], [ a dcat:theme ], [
+  dcat:DataService [ a dct:title ], [ a dct:description ], [ a dcat:endpointURL ], [ a dcat:endpointDescription ], [ a foaf:page ], [ a <http://data.europa.eu/r5r/applicableLegislation> ], [ a <http://data.europa.eu/r5r/hvdCategory> ], [ a dct:publisher ], [ a dcat:theme ], [ a dcat:theme ], [
     a dcat:contactPoint ;
     vcard:Organization [ a vcard:fn ], [ a vcard:hasEmail ], [ a vcard:hasURL ]
   ], [ a dcat:servesDataset ], [ a dcat:servesDataset ] .
