@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:dcat="http://www.w3.org/ns/dcat#"
-         xmlns:dcatap="http://data.europa.eu/r5r/#"
+         xmlns:dcatap="http://data.europa.eu/r5r/"
          xmlns:dct="http://purl.org/dc/terms/"
          xmlns:foaf="http://xmlns.com/foaf/0.1/"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -13,7 +13,7 @@
     <dct:description xml:lang="es">Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES.</dct:description>
     <dct:description xml:lang="en">Open Data Catalogue that serves as an example in DCAT-AP-ES.</dct:description>
     <foaf:homepage rdf:resource="http://dcat-ap-es.ejemplo.org"/>
-    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo"/>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector"/>
     <dcat:themeTaxonomy rdf:resource="http://publications.europa.eu/resource/authority/data-theme"/>
     <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T09:00:00+01:00</dct:issued>
@@ -25,7 +25,7 @@
     <dct:creator>
       <foaf:Organization>
         <foaf:name>Nombre del departamento del organismo</foaf:name>
-        <dct:type>Identificador_Organismo</dct:type>
+        <dct:type>E0DAT0001</dct:type>
         <dct:type rdf:resource="http://purl.org/adms/publishertype/NationalAuthority"/>
       </foaf:Organization>
     </dct:creator>
@@ -36,7 +36,7 @@
         <rdfs:label>Derechos relativos a la reutilización del Catálogo de Datos Abiertos</rdfs:label>
         <odrs:dataLicense rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
         <odrs:attributionText>Atribución de autoría al Organismo</odrs:attributionText>
-        <odrs:attributionURL rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo"/>
+        <odrs:attributionURL rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
       </rdf:Description>
     </dct:rights>
 
@@ -56,6 +56,9 @@
         <dct:title xml:lang="en">Example Dataset</dct:title>
         <dct:description xml:lang="es">Descripción de un dataset de ejemplo.</dct:description>
         <dct:description xml:lang="en">Example dataset description.</dct:description>
+        <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ENVI"/>
 
         <dcat:distribution>
           <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/distribucion/dataset-HVD-ejemplo-1-RDF">
@@ -77,6 +80,9 @@
         <dct:title xml:lang="en">Example Data Service</dct:title>
         <dct:description xml:lang="es">Descripción de un dataset de ejemplo.</dct:description>
         <dct:description xml:lang="en">Example Data Service description.</dct:description>
+        <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ENVI"/>
         <dcat:endpointURL rdf:resource="http://api.dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1"/>
         <dcat:servesDataset rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
       </dcat:DataService>
