@@ -141,7 +141,6 @@ $(document).ready(() => {
 
     // Función para validar el contenido
     function validateContent(baseUrl, model, apiAction, version, content, format, $element, msg, retry = true) {
-        console.log(`validateContent called with format: ${format}, retry: ${retry}`);
         
         const request = {
             contentToValidate: content,
@@ -151,8 +150,6 @@ $(document).ready(() => {
             reportSyntax: "text/turtle"
         }; 
         const itbapi = `${baseUrl}/${model}/${apiAction}`;
-        console.log(`Sending request to: ${itbapi}`);
-        console.log(`Request payload:`, request);
 
         $.ajax({
             type: "POST",
@@ -166,7 +163,6 @@ $(document).ready(() => {
             },
             error: (jqXHR, exception) => {
                 let msgText = '';
-                console.log(`Request failed with status: ${jqXHR.status}, exception: ${exception}`);
                 if (jqXHR.status === 0) {
                     msgText = msg.not_connected;
                 } else if (jqXHR.status == 404) {
@@ -174,7 +170,6 @@ $(document).ready(() => {
                 } else if (jqXHR.status == 500) {
                     msgText = msg.internal_server_error;
                     if (retry) {
-                        console.log(`Retrying with format: text/turtle`);
                         // Retry with format = "text/turtle"
                         validateContent(baseUrl, model, apiAction, version, content, "text/turtle", $element, msg, false);
                         return;
