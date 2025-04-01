@@ -109,7 +109,7 @@ En las tablas de metadatos del modelo DCAT-AP-ES se especifica la siguiente info
   - **Ob** (Obligatorio): El publicador debe aportar la información de esta propiedad, y el consumidor debe ser capaz de procesarla.
   - **R** (Recomendado): El publicador debe proporcionar esta información si dispone de ella, el consumidor ha de ser capaz de procesarla.
   - **Op** (Opcional): El publicador puede proporcionar esta información, el consumidor ha de ser capaz de procesarla.
-- **C**: Cardinalidad, que indica el número mínimo y máximo de ocurrencias permitidas (por ejemplo, 1..n significa al menos una, potencialmente muchas).
+- **C** (Cardinalidad): Indica el número mínimo y máximo de ocurrencias permitidas (por ejemplo, `1..n` significa al menos una, potencialmente muchas).
 - **Rango**: Tipo de datos o clase que puede tomar el valor del metadato, incluyendo:
   - **Tipo principal**: Por ejemplo, `rdfs:Literal`, `foaf:Agent` o `dcat:Dataset`
   - **Descripción adicional**: Información sobre el formato o estructura esperada para el valor.
