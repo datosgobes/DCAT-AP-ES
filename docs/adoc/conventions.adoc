@@ -421,7 +421,7 @@ Los _datasets_ catalogados como HVD *DEBEN* incluir al menos un servicio de dato
 
 [source,turtle]
 ----
-include::examples/ttl/Conventions_dataservice-dataservice.ttl[]
+include::examples/ttl/Conventions_dataservice-hvd-dataservice.ttl[]
 ----
 
 [NOTE]
