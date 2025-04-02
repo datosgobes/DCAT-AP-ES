@@ -1,7 +1,7 @@
 # Introduction
 In Spain, the exchange of open data between the Open Data Initiative of the Government of Spain ([datos.gob.es](https://datos.gob.es)) and various data providers, such as regional catalogs, Local Entities, and other organizations, is framed to ensure interoperability and homogeneity of metadata. To achieve this, the European application profile [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) will be adapted together with the elements described in the extension [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) to incorporate the modeling of the [High Value Datasets](https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir) (*High Value Datasets*) to national needs, resulting in the standard **DCAT-AP-ES**, which will be established as a reference for the exchange of metadata on public information at national level.  
 
-Since the implementation of the standard, the central portal will only accept metadata in **DCAT-AP-ES** format. For those providers delivering data directly to the portal, a transitional period will be established following the publication of new versions, allowing systems to adapt to the updated standard using the previous profile of the Technical Standard for Interoperability of Public Sector Information Resources ([**NTI-RISP**](https://datos.gob.es/es/doc-tags/nti-risp)).
+Since the implementation of the standard, the central portal will only accept metadata in **DCAT-AP-ES** format. For those providers delivering data directly to the portal, a transitional period will be established following the publication of new versions, allowing systems to adapt to the updated standard using the previous profile of the Technical Standard for Interoperability of Public Sector Information Resources ([**NTI-RISP**](https://datos.gob.es/en/doc-tags/nti-risp)).
 
 The conventions guide not only details the specific modifications introduced in the Spanish standard compared to the European version but also defines additional rules to address practical needs. These may include particularities of the Spanish open data context, where implementation might align with distinct technical requirements. Moreover, some of these rules are expected to evolve faster than the main specification, providing greater flexibility and adaptability to technological changes.
 
@@ -23,7 +23,7 @@ These conventions ensure consistency in the description of resources, guaranteei
 
 ## List of Conventions
 - [**Convention 01**](#convention-01): The publisher's identifier *MUST* be registered in the [Identification of Public Organizations (DIR3)](https://datos.gob.es/es/recurso/sector-publico/org/Organismo) taxonomy.
-- [**Convention 02**](#convention-02): The language tags of `dct:title`, `dct:description`, `foaf:name` and `dcat:keyword` *MUST* be at least in Spanish `es`.
+- [**Convention 02**](#convention-02): The literals `dct:title`, `dct:description`, `vcard:organization_name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` *MUST* be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
 - [**Convention 03**](#convention-03): Identifiers and URI references *SHOULD* use the `http://` scheme instead of `https://`.
 - [**Convention 04**](#convention-04): Organizations *SHOULD* implement automatic federation through RDF as the sole method of publishing metadata in DCAT-AP-ES format, avoiding the coexistence of manual and automatic federation for the same organization.
 - [**Convention 05**](#convention-05): URIs *MUST* be correctly encoded at their source, especially when they contain:
@@ -93,7 +93,7 @@ Literal fields with multilingual `xml:lang` tags must be at least in Spanish (`e
 
 !!! must technical "Convention 02" 
 
-    The language tags of `dct:title`, `dct:description`, `foaf:name` and `dcat:keyword` **MUST** be at least in Spanish `es`.
+    The literals `dct:title`, `dct:description`, `vcard:organization_name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` **MUST** be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
 
 ## Using HTTP URIs {#general-http-uris}
 

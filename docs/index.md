@@ -4,7 +4,7 @@ En este documento se presenta una especificación detallada de los metadatos que
 
 Los metadatos se describen sobre la base del paradigma de la Web Semántica, que implementa la descripción de recursos utilizando el modelo estándar para el intercambio de datos sobre la Web, RDF (Resource Description Framework). Este enfoque permite que diferentes sistemas de catalogación de datos puedan interactuar e intercambiar información de manera efectiva y coherente, logrando interoperabilidad semántica para facilitar la búsqueda y encontrabilidad de recursos de datos, mejorando considerablemente su valor para la reutilización.
 
-El perfil de aplicación, en adelante, DCAT-AP-ES, es el modelo de metadatos que se recoge en la nueva versión de la Norma Técnica de Interoperabilidad de Recursos de Información del Sector Público (NTI-RISP), que está en proceso de tramitación administrativa. El modelo adopta las directrices del esquema europeo de intercambio de metadatos DCAT-AP con algunas restricciones y ajustes adicionales, perfil de aplicación que a su vez, se basa en la especificación DCAT, un vocabulario RDF creado con el objetivo de mejorar la interoperabilidad entre catálogos de datos en línea que viene siendo desarrollada por el [Grupo de trabajo de intercambio de conjuntos de datos](https://www.w3.org/2017/dxwg/) desde que fue publicada como recomendación por W3C en 2014. La versión del perfil europeo que se toma como referencia para la elaboración de DCAT-AP-ES es [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) junto a los elementos descritos en la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) para incorporar el modelado de los [Conjuntos de datos de alto valor](https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir) (*High Value Datasets*).
+El perfil de aplicación, en adelante, DCAT-AP-ES, es el modelo de metadatos que se recoge en la nueva versión de la Norma Técnica de Interoperabilidad de Recursos de Información del Sector Público ([NTI-RISP](https://datos.gob.es/es/doc-tags/nti-risp)), que está en proceso de tramitación administrativa. El modelo adopta las directrices del esquema europeo de intercambio de metadatos DCAT-AP con algunas restricciones y ajustes adicionales, perfil de aplicación que a su vez, se basa en la especificación DCAT, un vocabulario RDF creado con el objetivo de mejorar la interoperabilidad entre catálogos de datos en línea que viene siendo desarrollada por el [Grupo de trabajo de intercambio de conjuntos de datos](https://www.w3.org/2017/dxwg/) desde que fue publicada como recomendación por W3C en 2014. La versión del perfil europeo que se toma como referencia para la elaboración de DCAT-AP-ES es [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) junto a los elementos descritos en la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) para incorporar el modelado de los [Conjuntos de datos de alto valor](https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir) (*High Value Datasets*).
 
 Como es sabido, un catálogo de datos abiertos puede estar constituido únicamente por conjuntos de datos o por servicios de datos, aunque lo habitual será que cuente tanto conjuntos de datos como servicios y se representa mediante instancias de las clases y propiedades que se especifican en este modelo.
 
@@ -109,7 +109,7 @@ En las tablas de metadatos del modelo DCAT-AP-ES se especifica la siguiente info
   - **Ob** (Obligatorio): El publicador debe aportar la información de esta propiedad, y el consumidor debe ser capaz de procesarla.
   - **R** (Recomendado): El publicador debe proporcionar esta información si dispone de ella, el consumidor ha de ser capaz de procesarla.
   - **Op** (Opcional): El publicador puede proporcionar esta información, el consumidor ha de ser capaz de procesarla.
-- **C**: Cardinalidad, que indica el número mínimo y máximo de ocurrencias permitidas (por ejemplo, 1..n significa al menos una, potencialmente muchas).
+- **C** (Cardinalidad): Indica el número mínimo y máximo de ocurrencias permitidas (por ejemplo, `1..n` significa al menos una, potencialmente muchas).
 - **Rango**: Tipo de datos o clase que puede tomar el valor del metadato, incluyendo:
   - **Tipo principal**: Por ejemplo, `rdfs:Literal`, `foaf:Agent` o `dcat:Dataset`
   - **Descripción adicional**: Información sobre el formato o estructura esperada para el valor.
@@ -121,7 +121,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 
 ## Catálogo - Clase: dcat:Catalog - Obligatorio
 
-| Metadato | Descripción | propiedad | T | C | RANGO |
+| Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | Nombre | Breve título o nombre dado al catálogo de datos | dct:title | Ob | 1..n | **rdfs:Literal** |
 | Descripción | Resumen descriptivo del catálogo de datos | dct:description | Ob | 1..n | **rdfs:Literal** |
@@ -145,7 +145,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 
 ## Registro del catálogo - Clase: dcat:CatalogRecord - Opcional
 
-| Metadato | Descripción | propiedad | T | C | RANGO |
+| Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | Contenido principal del registro | Tipo de contenido principal del registro del catálogo | foaf:primaryTopic | Ob | 1..1 | **dcat:Dataset, dcat:DataService** |
 | Fecha de última actualización | Última fecha conocida en la que se modificó o actualizó el registro del catálogo. | dct:modified | Ob | 1..1 | **rdfs:Literal** |
@@ -156,7 +156,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 
 ## Servicio de datos - Clase: dcat:DataService - Opcional
 
-| Metadato | Descripción | propiedad | T | C | RANGO |
+| Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | Nombre | Nombre del servicio de datos | dct:title | Ob | 1..n | **rdfs:Literal** |
 | URL de acceso | URL en la que se publica el servicio. | dcat:endpointURL | Ob | 1..n | **rdfs:Resource** |
@@ -175,7 +175,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 
 ## Conjunto de datos - clase: dcat:Dataset - Obligatorio
 
-| Metadato | Descripción | propiedad | T | C | RANGO |
+| Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | Nombre | Nombre o título del conjunto de datos. | dct:title | Ob | 1..n | **rdfs:Literal** |
 | Descripción | Descripción detallada del conjunto de datos. | dct:description | Ob | 1..n | **rdfs:Literal** |
@@ -219,7 +219,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 
 ## Distribución - Clase: dcat:Distribution - Recomendado
 
-| Metadato | Descripción | propiedad | T | C | RANGO |
+| Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | URL de acceso | URL que permite el acceso a la distribución | dcat:accessURL | Ob | 1..n | **rdfs:Resource** |
 | Legislación aplicable | URI de la legislación que es aplicable al recurso  | dcatap:applicableLegislation | R | 0..n | **eli:LegalResource** |
@@ -249,7 +249,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 
 ## Agente - Clase: foaf:Agent - Obligatorio
 
-| Metadato | Descripción | propiedad | T | C | RANGO |
+| Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | Nombre | Nombre del agente | foaf:name | Ob | 1..n | **rdfs:Literal** |
 | Identificador | Identificador del agente | dct:identifier | R | 0..1 | **rdfs:Literal** |
@@ -258,7 +258,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 
 ## Localización - Clase: dct:Location - Opcional
 
-| Metadato | Descripción | propiedad | T | C | RANGO |
+| Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | Ámbito geográfico (delimitación) | Delimitación geográfica de un recurso (área rectangular) | dcat:bbox | R | 0..1 | **rdfs:Literal** |
 | Ámbito geográfico (centroide) | Centro geográfico de un recurso (punto) | dcat:centroid | R | 0..1 | **rdfs:Literal** |
@@ -267,7 +267,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 
 ## Vigencia - Clase: dct:PeriodOfTime - Opcional
 
-| Metadato | Descripción | propiedad | T | C | RANGO |
+| Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | Fecha de inicio | Fecha de inicio de un intervalo temporal | dcat:startDate | R | 0..1 | **rdfs:Literal** |
 | Fecha de finalización | Fecha de finalización de un intervalo temporal | dcat:endDate | R | 0..1 | **rdfs:Literal** |
@@ -276,14 +276,14 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 
 ## Control y verificación - Clase: spdx:Checksum - Opcional
 
-| Metadato | Descripción | propiedad | T | C | RANGO |
+| Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | Algoritmo | Algoritmo utilizado para verificar la integridad | spdx:algorithm | Ob | 1..1 | **spdx:ChecksumAlgorithm\_sha1** |
 | Valor | Resultado generado por el algoritmo utilizado para la verificación de integridad | spdx:checksumValue | Ob | 1..1 | **rdfs:Literal** escrito como  **xsd:hexBinary** |
 
 ## Relación entre recursos - Clase: dcat:Relationship - Opcional
 
-| Metadato | Descripción | propiedad | T | C | RANGO |
+| Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | Función | Función que una entidad o agente ejerce respecto a otra entidad o recurso | dcat:hadRole | Ob | 1..n | **dcat:Role** |
 | Relación | Recurso sobre el que se describe la relación | dct:relation | Ob | 1..n | **rdfs:Resource** |
@@ -1302,7 +1302,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 
 !!! note "Nota de uso"
 
-    Se utiliza para especificar vínculos entre recursos donde se conoce la naturaleza de la relación pero no coincide con una de las propiedades estándar contempladas en el vocabulario dcterms (como [dcterms:hasPart](http://purl.org/dc/terms/hasPart), [dcterms:isPartOf](http://purl.org/dc/terms/isPartOf), [dcterms:conformsTo](http://purl.org/dc/terms/conformsTo),[dcterms:isVersionOf](http://purl.org/dc/terms/isVersionOf), [dcterms:hasVersion](http://purl.org/dc/terms/hasVersion), [dcterms:replaces](http://purl.org/dc/terms/replaces), [dcterms:isReplacedBy](http://purl.org/dc/terms/isReplacedBy), [dcterms:references](http://purl.org/dc/terms/references), [dcterms:isReferencedBy](http://purl.org/dc/terms/isReferencedBy), [dcterms:requires](http://purl.org/dc/terms/requires), [dcterms:isRequiredBy](http://purl.org/dc/terms/isRequiredBy), entre otras) o las propiedades del vocabulario para especificar procedencia [PROV-O](https://www.w3.org/TR/vocab-dcat/#bib-prov-o) (como [prov:wasDerivedFrom](https://www.w3.org/TR/prov-o/#wasDerivedFrom), [prov:wasInfluencedBy](https://www.w3.org/TR/prov-o/#wasInfluencedBy), [prov:wasQuotedFrom](https://www.w3.org/TR/prov-o/#wasQuotedFrom), [prov:wasRevisionOf](https://www.w3.org/TR/prov-o/#wasRevisionOf), [prov:hadPrimarySource](https://www.w3.org/TR/prov-o/#hadPrimarySource), [prov:alternateOf](https://www.w3.org/TR/prov-o/#alternateOf), [prov:specializationOf](https://www.w3.org/TR/prov-o/#specializationOf)).  Una forma de especificar relaciones alternativas entre recursos es utilizando la especificación: <https://www.iana.org/assignments/link-relations/>
+    Se utiliza para especificar vínculos entre recursos donde se conoce la naturaleza de la relación pero no coincide con una de las propiedades estándar contempladas en el vocabulario [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) (como [dct:hasPart](http://purl.org/dc/terms/hasPart), [dct:isPartOf](http://purl.org/dc/terms/isPartOf), [dct:conformsTo](http://purl.org/dc/terms/conformsTo),[dct:isVersionOf](http://purl.org/dc/terms/isVersionOf), [dct:hasVersion](http://purl.org/dc/terms/hasVersion), [dct:replaces](http://purl.org/dc/terms/replaces), [dct:isReplacedBy](http://purl.org/dc/terms/isReplacedBy), [dct:references](http://purl.org/dc/terms/references), [dct:isReferencedBy](http://purl.org/dc/terms/isReferencedBy), [dct:requires](http://purl.org/dc/terms/requires), [dct:isRequiredBy](http://purl.org/dc/terms/isRequiredBy), entre otras) o las propiedades del vocabulario para especificar procedencia [PROV-O](https://www.w3.org/TR/vocab-dcat/#bib-prov-o) (como [prov:wasDerivedFrom](https://www.w3.org/TR/prov-o/#wasDerivedFrom), [prov:wasInfluencedBy](https://www.w3.org/TR/prov-o/#wasInfluencedBy), [prov:wasQuotedFrom](https://www.w3.org/TR/prov-o/#wasQuotedFrom), [prov:wasRevisionOf](https://www.w3.org/TR/prov-o/#wasRevisionOf), [prov:hadPrimarySource](https://www.w3.org/TR/prov-o/#hadPrimarySource), [prov:alternateOf](https://www.w3.org/TR/prov-o/#alternateOf), [prov:specializationOf](https://www.w3.org/TR/prov-o/#specializationOf)).  Una forma de especificar relaciones alternativas entre recursos es utilizando la especificación: <https://www.iana.org/assignments/link-relations/>
 
 
 | dcat:Dataset | dcat:spatialResolutionInMeters |

@@ -1,5 +1,6 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -10,17 +11,16 @@
   dct:title "Catálogo de Datos Abiertos"@es, "Open Data Catalog"@en ;
   dct:description "Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES."@en ;
   foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
-  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo> ;
-  dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector>,
-      <http://inspire.ec.europa.eu/theme>,
-      <http://publications.europa.eu/resource/authority/data-theme> ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+  dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> ;
   dct:issued "2025-01-01T09:00:00+01:00"^^xsd:dateTime ;
   dct:modified "2025-01-02T12:00:00+01:00"^^xsd:dateTime ;
   dct:language <http://publications.europa.eu/resource/authority/language/SPA>, <http://publications.europa.eu/resource/authority/language/ENG> ;
   dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
   dct:creator [
     a foaf:Organization ;
-    foaf:name "Nombre del departamento del organismo"
+    foaf:name "Nombre del departamento del organismo" ;
+    dct:type "E0DAT0001", <http://purl.org/adms/publishertype/NationalAuthority>
   ] ;
   dct:rights <http://dcat-ap-es.ejemplo.org/catalogo/derechos-de-acceso> ;
   dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
@@ -33,22 +33,36 @@
   rdfs:label "Derechos relativos a la reutilización del Catálogo de Datos Abiertos" ;
   odrs:dataLicense <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
   odrs:attributionText "Atribución de autoría al Organismo" ;
-  odrs:attributionURL <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo> .
+  odrs:attributionURL <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> .
 
 <http://dcat-ap-es.ejemplo.org/catalogo-vinculado>
   a dcat:Catalog ;
   dct:title "Catálogo vinculado"@es ;
   dct:description "Catálogo asociado que sirve de ejemplo en DCAT-AP-ES."@es, "Associated Open Data Catalogue serving as an example in DCAT-AP-ES."@en ;
-  foaf:homepage <http://dcat-ap-es.ejemplo.org/catalogo-2> ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador_Organismo> .
 
 <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1>
   a dcat:Dataset ;
   dct:title "Dataset de ejemplo"@es, "Example Dataset"@en ;
-  dct:description "Descripción de un dataset de ejemplo."@es, "Example dataset description."@en .
+  dct:description "Descripción de un dataset de ejemplo."@es, "Example dataset description."@en ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+  dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente>, <http://publications.europa.eu/resource/authority/data-theme/ENVI> ;
+  dcat:distribution <http://dcat-ap-es.ejemplo.org/distribucion/dataset-HVD-ejemplo-1-RDF> .
+
+<http://dcat-ap-es.ejemplo.org/distribucion/dataset-HVD-ejemplo-1-RDF>
+  a dcat:Distribution ;
+  dcat:accessURL <https://orgea.exampleMS.gov/files/1T2p3o4B.ttl> ;
+  dct:conformsTo <http://dcat-ap-es.ejemplo.org/dataset/dataset-HVD-ejemplo-1/schema/SHACL> ;
+  dcat:spatialResolutionInMeters 5.0 ;
+  dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+  dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> .
 
 <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1>
   a dcat:DataService ;
   dct:title "Data Service de ejemplo"@es, "Example Data Service"@en ;
   dct:description "Descripción de un dataset de ejemplo."@es, "Example Data Service description."@en ;
-  dcat:endpointURL <http://api.dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1> .
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+  dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente>, <http://publications.europa.eu/resource/authority/data-theme/ENVI> ;
+  dcat:endpointURL <http://api.dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1> ;
+  dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> .
