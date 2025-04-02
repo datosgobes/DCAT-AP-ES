@@ -16,8 +16,8 @@ nav:
   - Guía técnica DCAT-AP-ES: index.md
   - Convenciones datos.gob.es: conventions.md
   - FAQ: faq.md
+  - Validación: validation.md
   - Ejemplos: examples.md
-  #- Validación: validation.md
 
 theme:
   language: es
@@ -169,8 +169,8 @@ plugins:
           - DCAT-AP-ES technical guide: index.md
           - datos.gob.es conventions: conventions.en.md
           - FAQ: faq.en.md
+          - Validation: validation.en.md
           - Examples: examples.en.md
-          #- DCAT-AP-ES validation: validation.en.md
   - mkdocstrings:
       handlers:
         python:
@@ -192,6 +192,9 @@ plugins:
         'convenciones.md': 'conventions.md'
         'ejemplos.md': 'examples.md'
         'preguntas-frecuentes.md': 'faq.md'
+        'validacion.md': 'validation.md'
+        'validación.md': 'validation.md'
+        'mqa.md': 'validation.md'
   - minify:
       minify_html: true
   - social:
@@ -214,7 +217,7 @@ plugins:
       toolbar: true 
       tooltips: true
       edit: true
-      border: 0
+      border: 1
   - meta-descriptions
 watch:
 - refs/docs
