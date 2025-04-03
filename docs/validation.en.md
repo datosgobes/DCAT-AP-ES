@@ -7,9 +7,10 @@ SHACL shapes allow checking whether a catalog expressed in an RDF serialization 
 By using these templates, it is possible to identify and correct possible deviations from the specification, thereby improving the quality of the metadata produced. In addition, interactive tools such as the [SHACL playground](https://shacl-playground.zazuko.com/) [^1] or the [European Commission Interoperability Testbed](https://www.itb.ec.europa.eu/shacl/any/upload) [^2], which provides an online service where it is possible to upload and validate RDF files against DCAT-AP-ES SHACL forms, facilitate the validation of DCAT-AP files using SHACL.
 
 !!! info "More info" 
-  - **✅ How to use SHACL validators in different technology stacks**: [github.com/datosgobes/DCAT-AP-EN/.../shacl/README.md](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataservice_hvd_shape.ttl) 
 
-  - More information about validation and SHACL forms in [SHACL, a language for validating RDF graphs](https://datos.gob.es/es/blog/shacl-un-lenguaje-para-validar-grafos-rdf).
+    - **✅ How to use SHACL validators in different technology stacks**: [github.com/datosgobes/DCAT-AP-EN/.../shacl/README.md](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataservice_hvd_shape.ttl) 
+
+    - More information about validation and SHACL forms in [SHACL, a language for validating RDF graphs](https://datos.gob.es/es/blog/shacl-un-lenguaje-para-validar-grafos-rdf).
 
 # DCAT-AP-ES SHACL constraint definitions
 DCAT-AP-ES SHACL shapes for all versions can be found in the source code repository [`shacl/{version}/`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/): 
