@@ -6,13 +6,35 @@ Las formas SHACL permiten comprobar si un catálogo expresado en una serializaci
 
 Al utilizar estas plantillas es posible identificar y corregir posibles desviaciones respecto a la especificación, mejorando la calidad de los metadatos producidos. Además, existen herramientas interactivas, como [SHACL playground](https://shacl-playground.zazuko.com/) [^1] o el [Banco de Pruebas de Interoperabilidad de la Comisión Europea](https://www.itb.ec.europa.eu/shacl/any/upload) [^2], que ofrece un servicio en línea donde es posible cargar y validar archivos RDF contra las formas SHACL de DCAT-AP-ES., que facilitan la validación de archivos DCAT-AP utilizando SHACL. ​
 
-!!! info "Información"
+!!! info "Más información"
+
+    - **✅ Cómo usar los validadores SHACL en diferentes stacks tecnológicos**: [github.com/datosgobes/DCAT-AP-ES/.../shacl/README.md](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataservice_hvd_shape.ttl)
 
     - Más información sobre la validación y las formas SHACL en [SHACL, un lenguaje para validar grafos RDF](https://datos.gob.es/es/blog/shacl-un-lenguaje-para-validar-grafos-rdf).
 
-    - Todas las versiones de los ficheros de formas de DCAT-AP-ES se encuentran en el repositorio de código: [github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0)
     
 # Formas SHACL de DCAT-AP-ES
+Todas las versiones de los ficheros de formas de DCAT-AP-ES se encuentran en el repositorio de código [`shacl/{version}/`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/): 
+
+- `shacl_common_shapes.ttl`: Restricciones comunes para todas las entidades
+- `shacl_catalog_shape.ttl:` Restricciones para catálogos
+- `shacl_dataservice_shape.ttl`: Restricciones para servicios de datos
+- `shacl_dataset_shape.ttl`: Restricciones para conjuntos de datos
+- `shacl_distribution_shape.ttl`: Restricciones para distribuciones
+- `shacl_dataservice_shape.ttl`: Restricciones para servicios de datos
+- `shacl_mdr-vocabularies.shape.ttl`: Vocabularios controlados y sus restricciones
+- `shacl_imports.ttl`: Definiciones de importación para ontologías externas
+- `shacl_mdr_imports.ttl`: Definiciones de importación para vocabularios MDR
+
+`hvd/`: Subdirectorio con restricciones adicionales para conjuntos de datos de alto valor (HVD):
+
+- `shacl_common_hvd_shapes.ttl`: Restricciones comunes para todas las entidades
+- `shacl_catalog_shape.ttl:` Restricciones para catálogos
+- `shacl_dataservice_hvd_shape.ttl`: Restricciones para servicios de datos
+- `shacl_dataset_hvd_shape.ttl`: Restricciones para conjuntos de datos
+- `shacl_distribution_hvd_shape.ttl`: Restricciones para distribuciones
+
+# Casos de Uso
 *Sección no normativa*
 
 Los diferentes casos de validación para DCAT-AP-ES se basan en el nivel de completitud de las comprobaciones y en la incorporación de conocimiento de fondo (vocabularios). Cada caso está diseñado para un escenario específico de intercambio de datos.
@@ -33,10 +55,10 @@ Incluye todas las restricciones necesarias para la coherencia técnica de las di
 
 - *Estándar*
   - [`shacl_common_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_common_shapes.ttl)
-  - [`shacl_catalog_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_catalog_shapes.ttl)
-  - [`shacl_dataservice_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataservice_shapes.ttl)
-  - [`shacl_dataset_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataset_shapes.ttl)
-  - [`shacl_distribution_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_distribution_shapes.ttl)
+  - [`shacl_catalog_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_catalog_shape.ttl)
+  - [`shacl_dataservice_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataservice_shape.ttl)
+  - [`shacl_dataset_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataset_shape.ttl)
+  - [`shacl_distribution_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_distribution_shape.ttl)
   - [`shacl_mdr-vocabularies.shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_mdr-vocabularies.shape.ttl)
 
 ## **Caso 2: DCAT-AP-ES completo (HVD)** {#case_2_dcat_ap_es_full_hvd}
@@ -46,17 +68,17 @@ Incluye todas las restricciones anteriormente mencionadas, además de aquellas q
 
 - *Estándar: Entidades principales y vocabularios controlados*
   - [`shacl_common_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_common_shapes.ttl)
-  - [`shacl_catalog_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_catalog_shapes.ttl)
-  - [`shacl_dataservice_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataservice_shapes.ttl)
-  - [`shacl_dataset_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataset_shapes.ttl)
-  - [`shacl_distribution_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_distribution_shapes.ttl)
+  - [`shacl_catalog_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_catalog_shape.ttl)
+  - [`shacl_dataservice_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataservice_shape.ttl)
+  - [`shacl_dataset_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataset_shape.ttl)
+  - [`shacl_distribution_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_distribution_shape.ttl)
   - [`shacl_mdr-vocabularies.shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_mdr-vocabularies.shape.ttl)
 
 - *HVD: Restricciones específicas de conjuntos de alto valor*
   - [`shacl_common_hvd_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_common_hvd_shapes.ttl)
-  - [`shacl_dataservice_hvd_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataservice_hvd_shapes.ttl)
-  - [`shacl_dataset_hvd_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataset_hvd_shapes.ttl)
-  - [`shacl_distribution_hvd_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_distribution_hvd_shapes.ttl)
+  - [`shacl_dataservice_hvd_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataservice_hvd_shape.ttl)
+  - [`shacl_dataset_hvd_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataset_hvd_shape.ttl)
+  - [`shacl_distribution_hvd_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_distribution_hvd_shape.ttl)
 
 ## **Caso 3: DCAT-AP-ES completo (con conocimiento de fondo)** {#case_3_dcat_ap_es_full_imports}
 Extiende el [Caso 1](validation/#case_1_dcat_ap_es_full) con conocimiento de fondo, añadiendo conformidad con estándares externos.
@@ -65,10 +87,10 @@ Extiende el [Caso 1](validation/#case_1_dcat_ap_es_full) con conocimiento de fon
 
 - *Estándar: Entidades principales y vocabularios controlados*
   - [`shacl_common_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_common_shapes.ttl)
-  - [`shacl_catalog_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_catalog_shapes.ttl)
-  - [`shacl_dataservice_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataservice_shapes.ttl)
-  - [`shacl_dataset_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataset_shapes.ttl)
-  - [`shacl_distribution_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_distribution_shapes.ttl)
+  - [`shacl_catalog_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_catalog_shape.ttl)
+  - [`shacl_dataservice_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataservice_shape.ttl)
+  - [`shacl_dataset_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataset_shape.ttl)
+  - [`shacl_distribution_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_distribution_shape.ttl)
   - [`shacl_mdr-vocabularies.shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_mdr-vocabularies.shape.ttl)
 
 - *Importaciones*
@@ -82,17 +104,17 @@ Extiende el [Caso 1](validation/#case_1_dcat_ap_es_full) con conocimiento de fon
 
 - *Estándar: Entidades principales y vocabularios controlados*
   - [`shacl_common_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_common_shapes.ttl)
-  - [`shacl_catalog_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_catalog_shapes.ttl)
-  - [`shacl_dataservice_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataservice_shapes.ttl)
-  - [`shacl_dataset_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataset_shapes.ttl)
-  - [`shacl_distribution_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_distribution_shapes.ttl)
+  - [`shacl_catalog_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_catalog_shape.ttl)
+  - [`shacl_dataservice_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataservice_shape.ttl)
+  - [`shacl_dataset_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_dataset_shape.ttl)
+  - [`shacl_distribution_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_distribution_shape.ttl)
   - [`shacl_mdr-vocabularies.shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_mdr-vocabularies.shape.ttl)
 
 - *HVD: Restricciones específicas de conjuntos de alto valor*
   - [`shacl_common_hvd_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_common_hvd_shapes.ttl)
-  - [`shacl_dataservice_hvd_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataservice_hvd_shapes.ttl)
-  - [`shacl_dataset_hvd_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataset_hvd_shapes.ttl)
-  - [`shacl_distribution_hvd_shapes.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_distribution_hvd_shapes.ttl)
+  - [`shacl_dataservice_hvd_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataservice_hvd_shape.ttl)
+  - [`shacl_dataset_hvd_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_dataset_hvd_shape.ttl)
+  - [`shacl_distribution_hvd_shape.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/hvd/shacl_distribution_hvd_shape.ttl)
 
 - *Importaciones*
   - [`shacl_imports.ttl`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/1.0.0/shacl_imports.ttl)
