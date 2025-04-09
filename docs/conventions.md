@@ -191,7 +191,7 @@ Para garantizar una referencia unívoca y persistente a documentos legales, se d
     - Mantener registro de equivalencias entre diferentes identificadores
 
 !!! info "Nota sobre implementación"
-    - Consultar el [registro ELI](https://eur-lex.europa.eu/eli-register/about.html) para obtener los identificadores
+    - Consultar la [documentación ELI](https://eur-lex.europa.eu/eli-register/about.html) para obtener más información sobre los identificadores
     - Usar herramientas de validación ELI para verificar la corrección de los identificadores
     - Documentar las equivalencias entre diferentes versiones de documentos legales
 
