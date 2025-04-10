@@ -6,43 +6,82 @@ font:
       normal: Poppins-Regular.ttf
       bold: Poppins-Bold.ttf
       italic: Poppins-Italic.ttf
-      bold_italic: Poppins-BoldItalic.ttf
+      bold-italic: Poppins-BoldItalic.ttf
     SourceCodePro:
       normal: SourceCodePro-Regular.ttf
 base:
-  font_family: Poppins
-  font_size: 12
-  font_color: "#333333"
-  line_height: 1.5
+  font-family: Poppins
+  font-size: 12
+  font-color: "#333333"
+  line-height: 1.5
 heading:
-  font_family: Poppins
-  font_color: "#0E3062"
-  font_size: 14
-  font_style: bold
+  font-family: Poppins
+  font-color: "#0E3062"
+  font-size: 14
+  font-style: bold
 page:
   size: A4
   layout: portrait
   margin: [0.75in, 1in, 0.75in, 1in]
+header:
+  height: 0.75in
+  border-width: 0
+  border-color: transparent
+  border-style: none
+  recto: &shared_header
+    left:
+      content: '{document-title}'
+      font-color: "#777777"
+      font-size: 7
+    right:
+      content: '{page-number}'
+      font-color: "#0e3062"
+  verso: *shared_header
 footer:
   height: 0.75in
-  recto:
+  border-width: 0
+  border-color: transparent
+  border-style: none
+  recto: &shared_footer
+    left:
+      content: ''
+    center:
+      content: image:../../img/footer_logo.png[]
     right:
-      content: 'DCAT-AP-ES | datos.gob.es | {page-number} de {page-count}'
+      content: ''
+  verso: *shared_footer
 code:
-  font_family: SourceCodePro
+  font-family: SourceCodePro
 table:
-  border_color: "#00A99D"  # --primary-color
+  border-color: "#00A99D"  # --primary-color
+  border-width: 1
+  cell:
+    border-width: 1
+    border-color: "#00A99D"
 table-head:
-    background_color: "#154481"  # --header-bg-color
-    font_color: "#FFFFFF"  # --header-text-color
-    font_style: bold
+    background-color: "#154481"
+    font-color: "#FFFFFF"
+    font-style: bold
     align: center
+    # Config to disable the border
+    border-width: 0
+    border-color: "#154481"
+    border-style: none
+    border-top-width: 0
+    border-right-width: 0
+    border-bottom-width: 0
+    border-left-width: 0
+    cell:
+      border-width: 0
+      border-style: none
+      border-color: transparent
 table-body:
-    alternate_background_color: "#C1E2DF"  # --alternate-bg-color
-    font_color: "#333333"
-    font_style: normal
-    border_right_color: "#00A99D"
-    border_bottom_color: "#00A99D"
+    alternate-background-color: "#C1E2DF"
+    font-color: "#333333"  
+    font-style: normal
+    border-width: 2 
+    border-right-color: "#00A99D"
+    border-bottom-color: "#00A99D"
 admonition:
   # all admonitions will have a width of 0 because
   # we want to disable drawing them altogether
@@ -53,58 +92,58 @@ admonition:
   border-width: 1
   # Configuración del título del admonition
   caption:
-    font_style: bold
-    font_size: 14
-    font_color: "#1e2021"
+    font-style: bold
+    font-size: 14
+    font-color: "#1e2021"
 
   # Custom admonition types
   caution: # MUST (Mandatory)
     background-color: "#fbede9"
     border-color: "#eba58f" 
     caption:
-      font_color: "#665240"
+      font-color: "#665240"
     badge:
       text: "Obligatoria"
-      background_color: "#eba58f"
-      font_color: "#FFFFFF"
-      font_size: 8
+      background-color: "#eba58f"
+      font-color: "#FFFFFF"
+      font-size: 8
 
   warning: # SHOULD (Recommended)
     background-color: "#fbf2e9" 
     border-color: "#ebbb8f"
     caption:
-      font_color: "#63453b"
+      font-color: "#63453b"
     badge:
       text: "Recomendada"
-      background_color: "#ebbb8f"
-      font_color: "#FFFFFF"
-      font_size: 8
+      background-color: "#ebbb8f"
+      font-color: "#FFFFFF"
+      font-size: 8
 
   tip: # MAY (Optional)
     background-color: "#e8f5e5" 
     border-color: "#8ecf7b"
     caption:
-      font_color: "#3a5a31"
+      font-color: "#3a5a31"
     badge:
       text: "Opcional"
-      background_color: "#8ecf7b"
-      font_color: "#FFFFFF"
-      font_size: 8
+      background-color: "#8ecf7b"
+      font-color: "#FFFFFF"
+      font-size: 8
 
   # Normal admonitions
   note: # Implementation notes, usage, etc.
     background-color: "#e5f8fb"
     border-color: "#00b8d4"
     caption:
-      font_color: "#1e2021"
-      font_size: 12
+      font-color: "#1e2021"
+      font-size: 12
   
   important: # Important notes
     background-color: "#fff4e5"
     border-color: "#ff9100"
     caption:
-      font_color: "#1e2021"
-      font_size: 12
+      font-color: "#1e2021"
+      font-size: 12
 
   icon:
     # icon name specified as:
