@@ -4,7 +4,7 @@ Para verificar si el intercambio de metadatos cumple técnicamente con [DCAT-AP-
 
 Las formas SHACL permiten comprobar si un catálogo expresado en una serialización RDF es válido. Dado que debería ser posible transformar el intercambio de datos en RDF para la conformidad con DCAT-AP-ES, estas formas SHACL pueden utilizarse en cualquier contexto de intercambio de datos. Sin embargo las formas SHACL proporcionadas son solo un punto de partida para los implementadores.
 
-Al utilizar estas plantillas es posible identificar y corregir posibles desviaciones respecto a la especificación, mejorando la calidad de los metadatos producidos. Además, existen herramientas interactivas, como [SHACL playground](https://shacl-playground.zazuko.com/) [^1] o el [Banco de Pruebas de Interoperabilidad de la Comisión Europea](https://www.itb.ec.europa.eu/shacl/any/upload) [^2], que ofrece un servicio en línea donde es posible cargar y validar archivos RDF contra las formas SHACL de DCAT-AP-ES., que facilitan la validación de archivos DCAT-AP utilizando SHACL. ​
+Al utilizar estas plantillas es posible identificar y corregir posibles desviaciones respecto a la especificación, mejorando la calidad de los metadatos producidos. Además, existen herramientas interactivas, como el [Banco de Pruebas de Interoperabilidad de la Comisión Europea](https://www.itb.ec.europa.eu/shacl/any/upload) [^1] o [SHACL playground](https://shacl-playground.zazuko.com/) [^2], que ofrece un servicio en línea donde es posible cargar y validar archivos RDF contra las formas SHACL de DCAT-AP-ES., que facilitan la validación de archivos DCAT-AP utilizando SHACL. ​
 
 !!! info "Más información"
 
@@ -120,5 +120,5 @@ Extiende el [Caso 1](validation/#case_1_dcat_ap_es_full) con conocimiento de fon
   - [`shacl_imports.ttl`](https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_imports.ttl)
   - [`shacl_mdr_imports.ttl`](https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_mdr_imports.ttl)
 
-[^1]: Zazuko SHACL Playground: [github.com/zazuko/shacl-playground](https://github.com/zazuko/shacl-playground). Zazuko GmbH.
-[^2]: SHACL validator: [github.com/ISAITB/shacl-validator](https://github.com/ISAITB/shacl-validator). Interoperability Test Bed, Interoperable Europe Unit, DIGIT, European Commission.
+[^1]: SHACL validator: [github.com/ISAITB/shacl-validator](https://github.com/ISAITB/shacl-validator). Interoperability Test Bed, Interoperable Europe Unit, DIGIT, European Commission.
+[^2]: Zazuko SHACL Playground: [github.com/zazuko/shacl-playground](https://github.com/zazuko/shacl-playground). Zazuko GmbH.
