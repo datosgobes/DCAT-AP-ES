@@ -1,0 +1,405 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://datos.gob.es/dcat-ap-es#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+
+<https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_dataservice_shape.ttl>
+    rdf:type owl:Ontology ;
+    rdfs:label "Restricciones para los servicios de datos DCAT-AP-ES"@es ;
+    rdfs:label "Data service restrictions for DCAT-AP-ES"@en ;
+    dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_dataservice_shape.ttl> ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+    dct:conformsTo <https://www.w3.org/TR/shacl> ;
+    dct:description "Este archivo incluye las restricciones SHACL para las propiedades y clases relacionadas con servicios de datos en el perfil de aplicación DCAT-AP-ES."@es ;
+    dct:description "This file includes SHACL restrictions for properties and classes related to data services in the DCAT-AP-ES application profile."@en ;
+    owl:versionInfo "1.0.0" ;
+    dct:modified "2024-04-08"^^xsd:date ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    cc:attributionURL <https://datos.gob.es/> ;
+    dcatap:availability <http://data.europa.eu/r5r/stable> ;
+    foaf:homepage <https://datosgobes.github.io/DCAT-AP-ES/> ;
+    rdfs:seeAlso <https://datosgobes.github.io/DCAT-AP-ES/#dcat-dataservice> ;
+    rdfs:comment """
+        Este archivo requiere importar las siguientes dependencias adicionales para funcionar correctamente:
+        - shacl_common_shapes.ttl
+        - shacl_mdr-vocabularies.shape.ttl
+        Asegúrese de que estén disponibles e importadas para una validación completa.
+    """@es ;
+    rdfs:comment """
+        This file requires importing the following additional dependencies to work properly:
+        - shacl_common_shapes.ttl
+        - shacl_mdr-vocabularies.shape.ttl
+        Make sure they are available and imported for full validation.
+    """@en .
+
+
+#--------------------------
+# dcat:DataService restrictions
+#--------------------------
+:DataService_Shape
+    a sh:NodeShape ;
+    sh:name "Servicio de Datos"@en ;
+    sh:name "Data Service"@en ;
+    rdfs:comment "Forma que define las restricciones para la clase dcat:DataService."@es ;
+    rdfs:comment "Shape defining restrictions for the dcat:DataService class."@en ;
+    rdfs:label "Restricciones de servicio de datos"@es ;
+    rdfs:label "Data service restrictions"@en ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-dataservice> ;
+    sh:property 
+    [
+    # dct:title
+        sh:path dct:title ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_title> ;
+        sh:message "El servicio de datos debe contener al menos un dct:title."@es ;
+        sh:message "The data service must contain at least one dct:title."@en ;
+    ], 
+    [
+        sh:path dct:title ;
+        sh:node :LiteralMultilingualConvention ; 
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:title ;
+        sh:node :NonEmptyLiteralConvention ; 
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:title ;
+        sh:node :UniqueLangLiteralRestriction ;
+        sh:severity sh:Violation ;
+    ],
+
+    # dcat:endpointURL
+    [
+        sh:path dcat:endpointURL ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointurl> ;
+        sh:message "El valor de dcat:endpointURL debe ser un IRI válido."@es ;
+        sh:message "The value of dcat:endpointURL must be a valid IRI."@en ;
+    ],
+    [
+        sh:path dcat:endpointURL ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointurl> ;
+        sh:message "El servicio de datos debe contener al menos un dcat:endpointURL."@es ;
+        sh:message "The data service must contain at least one dcat:endpointURL."@en ;
+    ], 
+
+    # dcatap:hvdCategory
+    [
+        sh:path dcatap:hvdCategory;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_hvdcategory> ;
+        sh:message "El valor de dcatap:hvdCategory debe ser un IRI válido."@es ;
+        sh:message "The value of dcatap:hvdCategory must be a valid IRI."@en ;
+    ],
+    [
+        sh:path dcatap:hvdCategory;
+        sh:node :HVDCategoryRestriction ;
+        sh:severity sh:Violation ;
+    ],
+
+    # dcat:contactPoint
+    [
+        sh:path dcat:contactPoint ;
+        sh:not :DIR3OrganismRestriction ;
+        sh:severity sh:Violation
+    ],
+    [
+        sh:path dcat:contactPoint ;
+        sh:node :VcardKindMinimalConvention ;
+        sh:severity sh:Violation
+    ],
+    [
+        sh:path dcat:contactPoint ;
+        sh:node :VcardKindRestriction2 ;
+        sh:severity sh:Violation
+    ],
+    [
+        sh:path dcat:contactPoint ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_contactpoint> ;
+        sh:message "El servicio de datos debería contener al menos un dcat:contactPoint."@es ;
+        sh:message "The data service should contain at least one dcat:contactPoint."@en ;
+    ], 
+
+    # foaf:page
+    [
+        sh:path foaf:page ;
+        sh:nodeKind sh:IRI;
+        #sh:class foaf:Document ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-foaf_page> ;
+        sh:message "El valor de foaf:page debe ser un IRI válido."@es ;
+        sh:message "The value of foaf:page must be a valid IRI."@en ;
+    ], 
+    [
+        sh:path foaf:page ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-foaf_page> ;
+        sh:message "El servicio de datos debería contener al menos un foaf:page."@es ;
+        sh:message "The data service should contain at least one foaf:page."@en ;
+    ], 
+
+    # dcat:theme
+    [
+        sh:path dcat:theme ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_theme> ;
+        sh:message "El servicio de datos debe contener al menos un dcat:theme."@es ;
+        sh:message "The data service must contain at least one dcat:theme."@en ;
+    ], 
+    [
+		sh:path dcat:theme ;
+	    sh:qualifiedValueShape [
+			sh:node :PublicSectorRestriction ;
+		];	
+        sh:qualifiedMinCount 1;
+        sh:severity sh:Violation
+    ],
+    [
+        sh:path dcat:theme ;
+        sh:nodeKind sh:IRI ;
+        sh:or(
+            [   
+                sh:node :PublicSectorRestriction ;
+            ]
+            [   
+                sh:node :EuropeanDataThemeRestriction ;
+            ]
+            [
+                sh:node :InspireDataThemeRestriction ;
+            ]
+        );
+        sh:severity sh:Violation
+    ],
+
+    # dct:publisher
+    [
+        sh:path dct:publisher ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_publisher> ;
+        sh:message "El servicio de datos debe contener al menos un dct:publisher."@es ;
+        sh:message "The data service must contain at least one dct:publisher."@en ;
+    ], 
+    [
+        sh:path dct:publisher ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_publisher> ;
+        sh:message "La propiedad dct:publisher no puede tener más de un valor."@es ;
+        sh:message "The dct:publisher property cannot have more than one value."@en ;
+    ],
+    [
+        sh:path dct:publisher ;
+        sh:node :DIR3OrganismRestriction;
+        sh:or(
+            [
+                sh:nodeKind sh:IRI; 
+                sh:closed true ;
+            ]
+            [
+                sh:nodeKind sh:BlankNodeOrIRI;
+                sh:node :Agent_Shape;
+                sh:node :PublisherAgentRestriction;
+            ]
+        );
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_publisher> ;
+        sh:message "El valor de dct:publisher debe ser un IRI o un nodo en blanco que cumpla con las restricciones de la forma de agente."@es ;
+        sh:message "The value of dct:publisher must be an IRI or a blank node that meets the agent shape restrictions."@en ;
+    ],
+    [
+        sh:path dct:publisher ;
+        sh:or(
+            [ 
+                sh:nodeKind sh:IRI;
+                sh:closed true
+            ]
+            [
+                sh:nodeKind sh:BlankNodeOrIRI;
+                sh:node :Agent_ShapeRecommended
+            ]
+        );
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_publisher> ;
+        sh:message "El valor de dct:publisher debe ser un IRI o un nodo en blanco que cumpla con las restricciones de la forma de agente."@es ;
+        sh:message "The value of dct:publisher must be an IRI or a blank node that meets the agent shape restrictions."@en ;
+    ],
+
+    # dcat:endpointDescription
+    [
+        sh:path dcat:endpointDescription ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointdescription> ;
+        sh:message "El valor de dcat:endpointDescription debe ser un IRI válido."@es ;
+        sh:message "The value of dcat:endpointDescription must be a valid IRI."@en ;
+    ],
+    [
+        sh:path dcat:endpointDescription ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointdescription> ;
+        sh:message "El servicio de datos debería contener al menos un dcat:endpointDescription."@es ;
+        sh:message "The data service should contain at least one dcat:endpointDescription."@en ;
+    ], 
+
+    # dcat:servesDataset
+    [
+        sh:path dcat:servesDataset ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_servesdataset> ;
+        sh:message "El valor de dcat:servesDataset debe ser un IRI válido."@es ;
+        sh:message "The value of dcat:servesDataset must be a valid IRI."@en ;
+    ],
+    [
+        sh:path dcat:servesDataset ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_servesdataset> ;
+        sh:message "El servicio de datos debería contener al menos un dcat:servesDataset."@es ;
+        sh:message "The data service should contain at least one dcat:servesDataset."@en ;
+    ], 
+
+    # dcatap:applicableLegislation
+    [ 
+        sh:path dcatap:applicableLegislation ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_applicablelegislation> ;
+        sh:message "El valor de dcatap:applicableLegislation debe ser un IRI válido."@es ;
+        sh:message "The value of dcatap:applicableLegislation must be a valid IRI."@en ;
+    ],
+    [
+        sh:path dcatap:applicableLegislation ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_applicablelegislation> ;
+        sh:message "El servicio de datos debería contener al menos un dcatap:applicableLegislation."@es ;
+        sh:message "The data service should contain at least one dcatap:applicableLegislation."@en ;
+    ], 
+    [
+        sh:path dcatap:applicableLegislation ;
+        sh:node :ELIIdentifierRestriction ;
+        sh:severity sh:Violation ;
+    ],
+
+    # dct:description
+    [
+        sh:path dct:description ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_description> ;
+        sh:message "El valor de dct:description debe ser un Literal."@es ;
+        sh:message "The value of dct:description must be a Literal."@en ;
+    ],
+    [
+        sh:path dct:description ;
+        sh:node :LiteralMultilingualConvention ; 
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:description ;
+        sh:node :NonEmptyLiteralConvention ; 
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:description ;
+        sh:node :UniqueLangLiteralRestriction ;
+        sh:severity sh:Violation ;
+    ],
+
+    # dct:accessRights
+    [
+        sh:path dct:accessRights ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_accessrights> ;
+        sh:message "La propiedad dct:publisher no puede tener más de un valor."@es ;
+        sh:message "The dct:publisher property cannot have more than one value."@en ;
+    ],
+    [
+        sh:path dct:accessRights ;
+		sh:node :AccessRightRestriction ;
+        sh:severity sh:Violation
+	],
+
+    # dct:license
+    [
+        sh:path dct:license ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_license> ;
+        sh:message "La propiedad dct:license no puede tener más de un valor."@es ;
+        sh:message "The dct:license property cannot have more than one value."@en ;
+    ],
+    [
+        sh:path dct:license ;
+        sh:or (
+            [ sh:node :LicenceDocumentRestriction ;]
+            [ sh:node :LicenceRestriction ;]
+            [ sh:nodeKind sh:IRI ;]
+        );
+        sh:severity sh:Violation ;
+    ],
+
+    # dcat:keyword
+    [
+        sh:path dcat:keyword ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_keyword> ;
+        sh:message "El valor de dcat:keyword ser un Literal."@es ;
+        sh:message "The value of dcat:keyword must be a Literal."@en ;
+    ],
+    [
+        sh:path dcat:keyword ;
+        sh:node :LiteralMultilingualConvention ; 
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dcat:keyword ;
+        sh:node :NonEmptyLiteralConvention ; 
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dcat:keyword ;
+        sh:node :UniqueLangLiteralRestriction ;
+        sh:severity sh:Violation ;
+    ];
+    sh:targetClass dcat:DataService .
+
+# Convencion 02
+:DataServiceSPALanguageRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que un servicio de datos cumpla con las convenciones de idioma y contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
+    rdfs:comment "Restriction to validate that a data service complies with Spanish language and content conventions, including title, description, and other key elements."@en ;
+    rdfs:label "Restricción de servicio de datos: idioma y contenido en español"@es ;
+    rdfs:label "Data service restriction: Spanish language and content"@en ;
+    sh:name "Data service Spanish Language and Content Restriction"@en ;
+    sh:name "Restricción de servicio de datos: idioma y contenido en español"@es ;
+    sh:node :SpanishLanguageRestriction ;
+    sh:node :SpanishTitleRestriction ;
+    sh:node :SpanishDescriptionRestriction ;
+    sh:severity sh:Violation ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+    sh:targetClass dcat:DataService .

@@ -1,0 +1,35 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+
+<https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_mdr_imports.ttl>
+  rdf:type owl:Ontology ;
+  rdfs:label "Restricciones de vocabularios para DCAT-AP-ES"@es ;
+  rdfs:label "Vocabulary restrictions for DCAT-AP-ES"@en ;
+  dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_mdr_imports.ttl> ;
+  dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+  dct:conformsTo <https://www.w3.org/TR/shacl> ;
+  dct:description "Este archivo incluye las importaciones necesarias para las listas de códigos utilizadas en el perfil de aplicación DCAT-AP-ES."@es ;
+  dct:description "This file includes the necessary imports for the code lists used in the DCAT-AP-ES application profile."@en ;
+  owl:versionInfo "1.0.0" ;
+  dct:modified "2024-04-08"^^xsd:date ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+  cc:attributionURL <https://datos.gob.es/> ;
+  dcatap:availability <http://data.europa.eu/r5r/stable> ;
+  foaf:homepage <https://datosgobes.github.io/DCAT-AP-ES/> ;
+  rdfs:comment "Este archivo proporciona las importaciones de las listas de códigos recomendadas por el perfil de aplicación DCAT-AP-ES."@es ;
+  rdfs:comment "This file provides imports for the code lists recommended by the DCAT-AP-ES application profile."@en ;
+
+#--------------------------
+# Vocabulary imports
+#--------------------------
+  owl:imports <https://github.com/SEMICeu/DCAT-AP/raw/master/releases/2.1.1/dcat-ap_2.1.1.rdf> ;
+  owl:imports <https://github.com/SEMICeu/ADMS-AP/raw/master/purl.org/ADMS_SKOS_v1.00.rdf>
+.

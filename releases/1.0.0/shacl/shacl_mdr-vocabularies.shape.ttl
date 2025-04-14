@@ -1,0 +1,264 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_mdr-vocabularies.shape.ttl>
+    rdfs:label "Restricciones de vocabularios para DCAT-AP-ES"@es ;
+    rdfs:label "Vocabulary restrictions for DCAT-AP-ES"@en ;
+    dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_mdr-vocabularies.shape.ttl> ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+    dct:conformsTo <https://www.w3.org/TR/shacl> ;
+    dct:description "Este documento especifica las restricciones en propiedades y clases expresadas por el modelo de metadatos DCAT-AP-ES en SHACL para los vocabularios controlados utilizados."@es ;
+    dct:description "This document specifies the constraints on properties and classes expressed by the DCAT-AP-ES application profile in SHACL for the controlled vocabularies used."@en ;
+    owl:versionInfo "1.0.0" ;
+    dct:modified "2024-04-08"^^xsd:date ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    cc:attributionURL <https://datos.gob.es/> ;
+    dcatap:availability <http://data.europa.eu/r5r/stable> ;
+    foaf:homepage <https://datosgobes.github.io/DCAT-AP-ES/> ;
+    rdfs:seeAlso <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    rdfs:comment "Este archivo combina las restricciones SHACL con definiciones de las taxonomías y vocabularios controlados de DCAT-AP-ES."@es ;
+    rdfs:comment "This file combines SHACL constraints with definitions of taxonomies and controlled vocabularies of DCAT-AP-ES."@en .
+
+#--------------------------
+# Vocabulary restrictions
+#--------------------------
+:AtuRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de unidad territorial administrativa"@es ;
+    rdfs:comment "Administrative territorial unit restriction"@en ;
+    rdfs:label "Restricción de unidad territorial administrativa"@es ;
+    rdfs:label "Administrative territorial unit restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://publications\\.europa\\.eu/resource/authority/atu/.+$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor debe ser un IRI del vocabulario europeo de Tipo de unidad territorial administrativa http://publications.europa.eu/resource/authority/atu"@es ;
+    sh:message "The value must be an IRI from the european Administrative territorial unit type vocabulary http://publications.europa.eu/resource/authority/atu"@en ;
+    sh:severity sh:Violation .
+
+:ContinentRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de continente"@es ;
+    rdfs:comment "Continent restriction"@en ;
+    rdfs:label "Restricción de continente"@es ;
+    rdfs:label "Continent restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://publications\\.europa\\.eu/resource/authority/continent/.+$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor debe ser un IRI del vocabulario de continentes europeo http://publications.europa.eu/resource/authority/continent"@es ;
+    sh:message "The value must be an IRI from the European continent vocabulary http://publications.europa.eu/resource/authority/continent"@en ;
+    sh:severity sh:Violation .
+
+:CountryRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de país"@es ;
+    rdfs:comment "Country restriction"@en ;
+    rdfs:label "Restricción de país"@es ;
+    rdfs:label "Country restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://publications\\.europa\\.eu/resource/authority/country/.+$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor debe ser un IRI del vocabulario de países europeo http://publications.europa.eu/resource/authority/country"@es ;
+    sh:message "The value must be an IRI from the European country vocabulary http://publications.europa.eu/resource/authority/country"@en ;
+    sh:severity sh:Violation .
+
+:AccessRightRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de derechos de acceso"@es ;
+    rdfs:comment "Access Rights Restriction"@en ;
+    rdfs:label "Restricción de derechos de acceso"@es ;
+    rdfs:label "Access Rights Restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://publications\\.europa\\.eu/resource/authority/access-right/.+$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor debe ser un IRI del vocabulario de derechos de acceso europeo http://publications.europa.eu/resource/authority/access-right"@es ;
+    sh:message "The value must be an IRI from the European access right vocabulary http://publications.europa.eu/resource/authority/access-right"@en ;
+    sh:severity sh:Violation .
+
+:GeoNamesRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de nombres geográficos"@es ;
+    rdfs:comment "Geo names restriction"@en ;
+    rdfs:label "Restricción de nombres geográficos"@es ;
+    rdfs:label "Geo names restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^https?://sws\\.geonames\\.org/[0-9]+/$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor debe ser un IRI del vocabulario de nombres geográficos http://sws.geonames.org"@es ;
+    sh:message "The value must be an IRI from the geonames http://sws.geonames.org"@en ;
+    sh:severity sh:Violation .
+
+:LanguageRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de idioma"@es ;
+    rdfs:comment "Language Restriction"@en ;
+    rdfs:label "Restricción de idioma"@es ;
+    rdfs:label "Language Restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://publications\\.europa\\.eu/resource/authority/language/.+$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor de dct:language debe ser un IRI del vocabulario de idiomas europeo http://publications.europa.eu/resource/authority/language"@es ;
+    sh:message "The value of dct:language must be an IRI from the European language vocabulary http://publications.europa.eu/resource/authority/language"@en ;
+    sh:severity sh:Violation .
+
+:LicenceRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de licencia"@es ;
+    rdfs:comment "Licence restriction"@en ;
+    rdfs:label "Restricción de licencia"@es ;
+    rdfs:label "Licence restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://publications.europa.eu/resource/authority/licence/.+$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor de dct:license debe ser un IRI del vocabulario de licencias europeo http://publications.europa.eu/resource/authority/licence"@es ;
+    sh:message "The value of dct:license must be an IRI from the European language vocabulary http://publications.europa.eu/resource/authority/licence"@en ;
+    sh:severity sh:Violation .
+
+:LicenceTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de tipo de licencia"@es ;
+    rdfs:comment "Licence type restriction"@en ;
+    rdfs:label "Restricción de tipo de licencia"@es ;
+    rdfs:label "Licence type restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://purl\\.org/adms/licencetype/[A-Z][A-Za-z0-9_-]{3,}$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor debe ser un IRI del vocabulario de tipos de licencia http://purl.org/adms/licencetype/1.0/"@es ;
+    sh:message "The value must be an IRI from the licence type vocabulary http://purl.org/adms/licencetype/1.0/"@en ;
+    sh:severity sh:Violation .
+
+:TerritoryRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de territorio"@es ;
+    rdfs:comment "Territory restriction"@en ;
+    rdfs:label "Restricción de territorio"@es ;
+    rdfs:label "Territory restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:in (
+			<http://datos.gob.es/recurso/sector-publico/territorio/Pais/España>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Andalucia>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Almeria>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Cadiz>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Cordoba>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Granada>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Huelva>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Jaen>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Malaga>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Sevilla>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Aragon>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Huesca>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Teruel>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Zaragoza>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Principado-Asturias>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Asturias>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Illes-Balears>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Illes-Balears>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Canarias>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Las-Palmas>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Santa-Cruz-Tenerife>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Cantabria>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Cantabria>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Castilla-Leon>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Avila>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Burgos>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Leon>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Palencia>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Salamanca>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Segovia>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Soria>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Valladolid>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Zamora>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Castilla-La-Mancha>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Albacete>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Ciudad-Real>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Cuenca>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Guadalajara>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Toledo>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Cataluna>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Barcelona>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Girona>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Lleida>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Tarragona>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Comunitat-Valenciana>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Alicante>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Castellon>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Valencia>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Extremadura>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Badajoz>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Caceres>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Galicia>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/A-Coruna>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Lugo>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Ourense>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Pontevedra>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Comunidad-Madrid>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Madrid>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Region-Murcia>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Murcia>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Comunidad-Foral-Navarra>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Navarra>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Pais-Vasco>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Alava>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Guipuzcoa>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Vizcaya>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/La-Rioja>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/La-Rioja>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Ceuta>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Ceuta>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Melilla>
+			<http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Melilla>
+        ) ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor debe ser un IRI del vocabulario de territorios NTI-RISP http://datos.gob.es/recurso/sector-publico/territorio"@es ;
+    sh:message "The value must be an IRI from the NTI-RISP territory vocabulary http://datos.gob.es/recurso/sector-publico/territorio"@en ;
+    sh:severity sh:Violation .
+
+:PlaceRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de lugar"@es ;
+    rdfs:comment "Place restriction"@en ;
+    rdfs:label "Restricción de lugar"@es ;
+    rdfs:label "Place restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://publications\\.europa\\.eu/resource/authority/place/.+$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor debe ser un IRI del vocabulario europeo de lugares http://publications.europa.eu/resource/authority/place"@es ;
+    sh:message "The value must be an IRI from the European place vocabulary http://publications.europa.eu/resource/authority/place"@en ;
+    sh:severity sh:Violation .
+
+# Convencion 01
+:DIR3OrganismRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de organismo del sector público"@es ;
+    rdfs:comment "Public Sector Organism Restriction"@en ;
+    rdfs:label "Restricción de organismo del sector público"@es ;
+    rdfs:label "Public Sector Organism Restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://datos\\.gob\\.es/recurso/sector-publico/org/Organismo/[A-Z][A-Z0-9]{8}$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-01> ;
+    sh:message "El valor debe ser un IRI del vocabulario de organismos del sector público http://datos.gob.es/recurso/sector-publico/org/Organismo"@es ;
+    sh:message "The value must be an IRI from the public sector organism vocabulary http://datos.gob.es/recurso/sector-publico/org/Organismo"@en ;
+    sh:severity sh:Violation .
+
+:PublisherTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción de tipo de editor"@es ;
+    rdfs:comment "Publisher type restriction"@en ;
+    rdfs:label "Restricción de tipo de editor"@es ;
+    rdfs:label "Publisher type restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://purl\\.org/adms/publishertype/[A-Z][A-Za-z0-9_()-]{5,}$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    sh:message "El valor debe ser un IRI del vocabulario de tipos de editor http://purl.org/adms/publishertype/1.0"@es ;
+    sh:message "The value must be an IRI from the publisher type vocabulary http://purl.org/adms/publishertype/1.0"@en ;
+    sh:severity sh:Violation .

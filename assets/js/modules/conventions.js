@@ -274,21 +274,182 @@ function updateForLanguageChange() {
     addAnchors();
 }
 
+/**
+ * Scroll handling for anchor links
+ * @param {string} id - The ID of the element to scroll to
+ */
+function scrollToElement(id) {
+    const element = document.getElementById(id);
+    if (!element) return;
+    
+    // Verificar si es un ID de tipo nota o convención
+    const isNoteOrConvention = id.startsWith('nota-') || id.startsWith('convencion-');
+    
+    // Esperar un momento para asegurarse de que todos los elementos se han renderizado
+    setTimeout(() => {
+        // Obtener la altura del encabezado fijo (si existe)
+        const header = document.querySelector('.md-header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const tabs = document.querySelector('.md-tabs');
+        const tabsHeight = tabs ? tabs.offsetHeight : 0;
+        
+        // Calcular el offset total
+        const offset = headerHeight + tabsHeight + 20; // 20px de margen adicional
+        
+        // Obtener la posición del elemento
+        const elementRect = element.getBoundingClientRect();
+        const elementTop = elementRect.top + window.pageYOffset;
+        
+        // Calcular la posición para centrar el elemento
+        const windowHeight = window.innerHeight;
+        const elementHeight = elementRect.height;
+        const centerPosition = elementTop - (windowHeight / 2) + (elementHeight / 2);
+        
+        // Desplazar a la posición centrada, pero respetando el offset
+        window.scrollTo({
+            top: Math.max(centerPosition, offset),
+            behavior: 'smooth'
+        });
+        
+        // Añadir efecto de resaltado SOLO para notas y convenciones
+        if (isNoteOrConvention) {
+            highlightElement(element);
+        }
+    }, 200);
+}
+
+/**
+ * Handle anchor links in the page
+ */
+function handleAnchorLinks() {
+    // Comprobar si la URL tiene un ancla
+    if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        // Verificar si es un ID de tipo nota o convención antes de aplicar efectos especiales
+        if (id.startsWith('nota-') || id.startsWith('convencion-')) {
+            scrollToElement(id);
+        }
+        // Para otros anchors, dejamos que Material for MkDocs haga su trabajo
+    }
+    
+    // Añadir oyentes de eventos a todos los enlaces con ancla
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            const href = anchor.getAttribute('href');
+            if (href.length > 1) { // Ignorar enlaces vacíos (#)
+                const id = href.substring(1);
+                
+                // Solo aplicar nuestro manejo especial a notas y convenciones
+                if (id.startsWith('nota-') || id.startsWith('convencion-')) {
+                    e.preventDefault(); // Prevenir el comportamiento predeterminado
+                    scrollToElement(id);
+                    // Actualizar la URL sin recargar la página
+                    history.pushState(null, '', href);
+                }
+                // Para otros enlaces, dejamos que Material for MkDocs haga su trabajo por defecto
+            }
+        });
+    });
+}
+
+/**
+ * Resalta visualmente un elemento para que sea fácilmente identificable
+ * @param {HTMLElement} element - El elemento a resaltar
+ */
+function highlightElement(element) {
+    // Eliminar clases de resaltado previas que puedan existir
+    document.querySelectorAll('.anchor-highlight, .admonition-highlight').forEach(el => {
+        el.classList.remove('anchor-highlight');
+        el.classList.remove('anchor-highlight-pulse');
+        el.classList.remove('admonition-highlight');
+        el.classList.remove('admonition-highlight-pulse');
+    });
+    
+    // Determinar si es un admonition (note, must, should, may)
+    const isAdmonition = element.classList.contains('admonition');
+    
+    if (isAdmonition) {
+        // Para admonitions, usamos una clase específica con un efecto de borde
+        element.classList.add('admonition-highlight');
+        
+        // Añadir efecto de pulso después de un breve retardo
+        setTimeout(() => {
+            element.classList.add('admonition-highlight-pulse');
+            
+            // También resaltamos el título para mayor visibilidad
+            const title = element.querySelector('.admonition-title');
+            if (title) {
+                title.classList.add('title-highlight');
+            }
+        }, 10);
+        
+        // Eliminar el resaltado después de 3 segundos
+        setTimeout(() => {
+            element.classList.remove('admonition-highlight-pulse');
+            
+            const title = element.querySelector('.admonition-title');
+            if (title) {
+                title.classList.remove('title-highlight');
+            }
+            
+            setTimeout(() => {
+                element.classList.remove('admonition-highlight');
+            }, 500); // Tiempo para la transición de desvanecimiento
+        }, 3000);
+    } 
+    
+    // Resaltar también el enlace permanente si existe
+    const headerlink = element.querySelector('.headerlink');
+    if (headerlink) {
+        headerlink.classList.add('headerlink-highlight');
+        setTimeout(() => {
+            headerlink.classList.remove('headerlink-highlight');
+        }, 3500);
+    }
+}
+
 
 /**
  * Inicia la función al cargar el contenido de la página y observa cambios en el DOM.
  */
 document.addEventListener("DOMContentLoaded", function() {
     addAnchors();
+    handleAnchorLinks();
 
     // Configura un observador para detectar cambios en el DOM
-    const observer = new MutationObserver(function() {
-        addAnchors();
+    const observer = new MutationObserver(function(mutations) {
+        let shouldReprocessLinks = false;
+        
+        // Comprobar si se han añadido nuevos enlaces o elementos con ID
+        for (const mutation of mutations) {
+            if (mutation.type === 'childList' && mutation.addedNodes.length) {
+                shouldReprocessLinks = true;
+                break;
+            }
+        }
+        
+        // Si hay nuevos elementos, reprocesar
+        if (shouldReprocessLinks) {
+            addAnchors();
+            handleAnchorLinks();
+        }
     });
 
     // Opciones de observación
     observer.observe(document.body, {
         childList: true,
         subtree: true,
+    });
+    
+    // Manejar la navegación por historial (botones atrás/adelante)
+    window.addEventListener('popstate', () => {
+        if (window.location.hash) {
+            const id = window.location.hash.substring(1);
+            // Solo aplicar nuestro manejo especial a notas y convenciones
+            if (id.startsWith('nota-') || id.startsWith('convencion-')) {
+                scrollToElement(id);
+            }
+            // Para otros anchors, dejamos que Material for MkDocs haga su trabajo
+        }
     });
 });

@@ -719,3 +719,83 @@ a:hover, a:focus {
 .md-tabs__item--nested:hover .md-tabs__link::after {
     opacity: 1;
 }
+
+/* Anchor admonition effect con doble pulso */
+.admonition-highlight {
+    box-shadow: 0 0 0 8px transparent;
+    transition: box-shadow 2s ease-out;
+}
+
+.admonition-highlight-pulse {
+    box-shadow: 0 0 0 8px rgba(21, 68, 129, 0.2);
+    animation: double-pulse-admonition 6s ease-in-out 2;
+}
+
+.title-highlight {
+    background-color: rgba(201, 226, 223, 1) !important;
+    color: var(--header-bg-color) !important;
+    animation: double-pulse-title 6s ease-in-out 2;
+}
+
+.headerlink-highlight {
+    visibility: visible !important;
+    color: rgba(0, 0, 0, 0.8) !important;
+    animation: double-pulse-link 6s ease-in-out 2;
+}
+
+@keyframes pulse-highlight {
+    0% {
+        background-color: rgba(201, 226, 223, 0.3);
+    }
+    100% {
+        background-color: rgba(201, 226, 223, 0.6);
+    }
+}
+
+/* Nueva animación con doble pulso para el borde del admonition */
+@keyframes double-pulse-admonition {
+    0%, 100% {
+        box-shadow: 0 0 0 8px rgba(21, 68, 129, 0.1);
+    }
+    25% {
+        box-shadow: 0 0 0 8px rgba(21, 68, 129, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(21, 68, 129, 0.1);
+    }
+    75% {
+        box-shadow: 0 0 0 8px rgba(21, 68, 129, 0.4);
+    }
+}
+
+/* Nueva animación con doble pulso para el título */
+@keyframes double-pulse-title {
+    0%, 100% {
+        background-color: rgba(201, 226, 223, 0.6) !important;
+    }
+    25% {
+        background-color: rgba(201, 226, 223, 1) !important;
+    }
+    50% {
+        background-color: rgba(201, 226, 223, 0.6) !important;
+    }
+    75% {
+        background-color: rgba(201, 226, 223, 1) !important;
+    }
+}
+
+/* Nueva animación con doble pulso para el enlace */
+@keyframes double-pulse-link {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.2);
+    }
+}
