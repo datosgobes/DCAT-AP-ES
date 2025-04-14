@@ -1,4 +1,4 @@
-# Guía de Validación SHACL para NTI-RISP
+# Guía de Validación SHACL para DCAT-AP-ES
 
 Este directorio contiene los archivos de validación SHACL ([Shapes Constraint Language](https://www.w3.org/TR/shacl/)) para [comprobar la conformidad](https://datos.gob.es/es/blog/shacl-un-lenguaje-para-validar-grafos-rdf) con el perfil de aplicación [DCAT-AP-ES](https://github.com/datosgobes/DCAT-AP-ES).
 
