@@ -146,10 +146,13 @@ extra:
   mkdocs_hooks:
     pdf_source: refs/dcat-ap-es/pdf
     pdf_dest: download/pdf
+    shacl_source: shacl/{application_profile_version}
+    shacl_dest: releases/{application_profile_version}/shacl
   version:
     provider: mike
   custom_homepage: 'https://datos.gob.es'
   custom_homepage_name: 'datos.gob.es'
+  application_profile_version: 1.0.0
 
 plugins:
   - privacy
@@ -223,8 +226,9 @@ watch:
 - refs/docs
 
 exclude_docs: |
-    !/refs/*
-    !/README.md
+    /refs/*
+    /README.md
+    /**/README.md
 
 hooks:
   - tools/mkdocs-hooks/dcat_ap_es.py

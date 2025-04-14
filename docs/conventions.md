@@ -191,7 +191,7 @@ Para garantizar una referencia unívoca y persistente a documentos legales, se d
     - Mantener registro de equivalencias entre diferentes identificadores
 
 !!! info "Nota sobre implementación"
-    - Consultar el [registro ELI](https://eur-lex.europa.eu/eli-register/about.html) para obtener los identificadores
+    - Consultar la [documentación ELI](https://eur-lex.europa.eu/eli-register/about.html) para obtener más información sobre los identificadores
     - Usar herramientas de validación ELI para verificar la corrección de los identificadores
     - Documentar las equivalencias entre diferentes versiones de documentos legales
 
@@ -584,6 +584,7 @@ Los prefijos listados son los más comúnmente utilizados, aunque técnicamente 
 | `prov` | `http://www.w3.org/ns/prov#` | Provenance Ontology | Trazabilidad y procedencia de datos |
 | `rdf` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` | RDF Schema | Vocabulario básico para definir recursos RDF |
 | `rdfs` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema | Extensión de RDF para definir clases y propiedades |
+| `schema` | `http://schema.org/` | Schema.org | Vocabulario para estructurar datos en la web |
 | `skos` | `http://www.w3.org/2004/02/skos/core#` | SKOS | Sistema de organización del conocimiento |
 | `spdx` | `http://spdx.org/rdf/terms#` | Software Package Data Exchange | Licencias y paquetes de software |
 | `time` | `http://www.w3.org/2006/time#` | Time Ontology | Conceptos temporales y duraciones |

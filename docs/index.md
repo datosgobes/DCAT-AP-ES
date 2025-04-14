@@ -105,11 +105,11 @@ En las tablas de metadatos del modelo DCAT-AP-ES se especifica la siguiente info
 - **Metadato**: Nombre descriptivo del elemento de metadatos
 - **Descripción**: Breve explicación de la función y propósito del metadato
 - **Propiedad**: Identificador formal del metadato en forma de URI (por ejemplo, `dct:title`)
-- **T**: Tipo de requisito del metadato, que puede ser:
+- **T** (Aplicabilidad): Tipo de requisito del metadato, sí es distinto para conjuntos de alto valor (HVD) se indica. Los tipos pueden ser:
   - **Ob** (Obligatorio): El publicador debe aportar la información de esta propiedad, y el consumidor debe ser capaz de procesarla.
   - **R** (Recomendado): El publicador debe proporcionar esta información si dispone de ella, el consumidor ha de ser capaz de procesarla.
   - **Op** (Opcional): El publicador puede proporcionar esta información, el consumidor ha de ser capaz de procesarla.
-- **C** (Cardinalidad): Indica el número mínimo y máximo de ocurrencias permitidas (por ejemplo, `1..n` significa al menos una, potencialmente muchas).
+- **C** (Cardinalidad): Indica el número mínimo y máximo de ocurrencias permitidas, sí es distinto para conjuntos de alto valor (HVD) se indica. Por ejemplo, `1..n` significa al menos una, potencialmente muchas.
 - **Rango**: Tipo de datos o clase que puede tomar el valor del metadato, incluyendo:
   - **Tipo principal**: Por ejemplo, `rdfs:Literal`, `foaf:Agent` o `dcat:Dataset`
   - **Descripción adicional**: Información sobre el formato o estructura esperada para el valor.
@@ -132,7 +132,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Temáticas | Taxonomía de categorías de datasets incluidas en el catálogo. | dcat:themeTaxonomy | Ob | 1..3 | **skos:ConceptScheme** |
 | Idioma(s) | Idioma(s) en el(los) que se encuentran metadatos de los elementos incluidos en el catálogo | dct:language | Ob | 1..n | **dct:****LinguisticSystem** |
 | Términos de uso | Referencia a los términos de uso generales del catálogo | dct:license | Ob | 1..1 | **dct:LicenseDocument** |
-| Dataset | Cada uno de los datasets incluidos en el catálogo | dcat:dataset | R | 1..n | **dcat:Dataset** |
+| Dataset | Cada uno de los datasets incluidos en el catálogo | dcat:dataset | R | 0..n | **dcat:Dataset** |
 | Servicio de datos | Cada uno de los servicios de datos incluidos en el catálogo | dcat:service | R | 0..n | **dcat:DataService** |
 | Cobertura geográfica | Ámbito geográfico cubierto por el catálogo | dct:spatial | R | 0..n | **rdfs:Resource** |
 | Catálogo | Catálogo relacionado | dcat:catalog | Op | 0..n | **dcat:Catalog** |
@@ -160,14 +160,14 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | --- | --- | --- | --- | --- | --- |
 | Nombre | Nombre del servicio de datos | dct:title | Ob | 1..n | **rdfs:Literal** |
 | URL de acceso | URL en la que se publica el servicio. | dcat:endpointURL | Ob | 1..n | **rdfs:Resource** |
-| Categoría de HVD | Categoría de dato de alto valor | dcatap:hvdCategory | Ob | 1..n | **skos:Concept** |
-| Punto de contacto | Información de contacto sobre el servicio de datos HVD | dcat:contactPoint | Ob | 1..n | **vcard:Kind** |
-| Documentación | Documento relevante sobre el servicio de datos HVD | foaf:page | Ob | 1..n | **foaf:Document** |
+| Categoría de HVD | Categoría de dato de alto valor | dcatap:hvdCategory | Op[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **skos:Concept** |
+| Punto de contacto | Información de contacto sobre el servicio de datos HVD | dcat:contactPoint | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **vcard:Kind** |
+| Documentación | Documento relevante sobre el servicio de datos HVD | foaf:page | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **foaf:Document** |
 | Temática(s) | Temática o categoría principal del servicio de datos. | dcat:theme | Ob | 1..n | **skos:Concept** |
 | Publicador | Organización que publica el servicio. | dct:publisher | Ob | 1 | **foaf:Agent** |
 | Descripción del punto de acceso | Descripción de las características del punto de acceso | dcat:endpointDescription | R | 0..n | **rdfs:Resource** |
-| Conjuntos de datos | Conjuntos de datos disponibles a través del servicio. | dcat:servesDataset | R | 0..n | **dcat:Dataset** |
-| Legislación aplicable | URI de la legislación que es aplicable al recurso | dcatap:applicableLegislation | R | 0..n | **eli:LegalResource** |
+| Conjuntos de datos | Conjuntos de datos disponibles a través del servicio. | dcat:servesDataset | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **dcat:Dataset** |
+| Legislación aplicable | URI de la legislación que es aplicable al recurso | dcatap:applicableLegislation | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **eli:LegalResource** |
 | Descripción | Descripción resumida del servicio de datos | dct:description | Op | 0..n | **rdfs:Literal** |
 | Derechos de acceso | Declaración acerca de las posibles restricciones de acceso | dct:accessRights | Op | 0..1 | **RightsStatement** |
 | Licencia | Licencia del Servicio de datos | dct:license | Op | 0..1 | **dct:LicenseDocument** |
@@ -181,13 +181,13 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Descripción | Descripción detallada del conjunto de datos. | dct:description | Ob | 1..n | **rdfs:Literal** |
 | Publicador | Organización que publica el conjunto de datos. | dct:publisher | Ob | 1..1 | **foaf:Agent** |
 | Temática(s) | Temática o categoría principal del conjunto de datos. | dcat:theme | Ob | 1..n | **skos:Concept** |
-| Distribución(es) | Recursos del conjunto de datos en sus posibles formatos. | dcat:distribution | Ob[^1] | 1..n | **dcat:Distribution** |
-| Categoría de HVD | Categoría de dato de alto valor | dcatap:hvdCategory | Ob | 1..n | **skos:Concept** |
+| Distribución(es) | Recursos del conjunto de datos en sus posibles formatos. | dcat:distribution | R[^1]<br>Ob (HVD) | 1..n | **dcat:Distribution** |
+| Categoría de HVD | Categoría de dato de alto valor | dcatap:hvdCategory | Op[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **skos:Concept** |
 | Etiqueta(s) | Etiqueta(s) textual(es) para categorizar libremente el conjunto de datos. | dcat:keyword | R | 0..n | **rdfs:Literal** |
 | Punto de contacto | Información de contacto sobre el conjunto de datos | dcat:contactPoint | R | 0..n | **vcard:Kind** |
 | Cobertura temporal | Fecha inicial y final del período cubierto por el conjunto de datos. | dct:temporal | R | 0..n | **dct:PeriodOfTime** |
 | Cobertura geográfica | Ámbito geográfico cubierto por el conjunto de datos. | dct:spatial | R | 0..n | **rdfs:Resource** |
-| Legislación aplicable | URI de la legislación que es aplicable al recurso | dcatap:applicableLegislation | R | 0..n | **eli:LegalResource** |
+| Legislación aplicable | URI de la legislación que es aplicable al recurso | dcatap:applicableLegislation | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **eli:LegalResource** |
 | Identificador principal | URI principal que identifica al conjunto de datos | dct:identifier | Op | 0..n | **rdfs:Literal** |
 | Otro identificador | Identificador secundario del conjunto de datos | adms:identifier | Op | 0..n | **adms:Identifier** |
 | Autor | Organización responsable de generar el conjunto de datos. | dct:creator | Op | 0..n | **foaf:Agent** |
@@ -222,12 +222,12 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
 | URL de acceso | URL que permite el acceso a la distribución | dcat:accessURL | Ob | 1..n | **rdfs:Resource** |
-| Legislación aplicable | URI de la legislación que es aplicable al recurso  | dcatap:applicableLegislation | R | 0..n | **eli:LegalResource** |
+| Legislación aplicable | URI de la legislación que es aplicable al recurso  | dcatap:applicableLegislation | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **eli:LegalResource** |
 | Descripción | Descripción de la distribución | dct:description | R | 0..n | **rdfs:Literal** |
 | Disponibilidad | Disponibilidad planificada de la distribución | dcatpa:availability | R | 0..1 | **skos:Concept** |
 | Formato | Formato en que se encuentra representado el conjunto de datos | dct:format | R | 0..1 | **dct:MediaTypeOrExtent** |
 | Licencia | Licencia bajo la que se publica la distribución | dct:license | R | 0..1 | **dct:LicenseDocument** |
-| Formato tipo MIME | Tipo MIME de la distribución | dcat:mediaType | R | 0..1 | **dct:MediaType** |
+| Formato tipo MIME | Tipo MIME de la distribución | dcat:mediaType | Op | 0..1 | **dct:MediaType** |
 | Servicio de acceso | Servicio de datos que proporciona acceso a la distribución | dcat:accessService | Op | 0..n | **dcat:DataService** |
 | Nombre | Breve título o nombre dado a la distribución. | dct:title | Op | 0..n | **rdfs:Literal** |
 | Documentación | Referencia a un documento que describe la distribución | foaf:page | Op | 0..n | **foaf:Document** |
@@ -688,7 +688,7 @@ Utilizando esta clase, un dataset se puede distribuir en diferentes representaci
 | **Metadato** | **Legislación aplicable** |
 | **Descripción** | Referencia a la legislación aplicable, sí contiene datos de alto valor, entonces debe indicarse al menos el [Reglamento de Implementación 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj) |
 | **Propiedad** | **dcatap:applicableLegislation** |
-| **Aplicabilidad** | **Recomendado** - Sí es HVD: Obligatorio |
+| **Aplicabilidad** | **Recomendado - Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - Sí es HVD: 1..n |
 | **Rango** | **eli:LegalResource** |
 
@@ -1090,7 +1090,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 
 !!! note "Nota de uso"
 
-    Se debe expresar mediante un literal de tipo URI de uno de los patrones posibles del [esquema de identificadores de recursos Datacite](http://purl.org/spar/datacite/ResourceIdentifierScheme). Entre otros, [DOI](http://purl.org/spar/datacite/doi), [URI](http://purl.org/spar/datacite/uri), [URN](http://purl.org/spar/datacite/urn) o [ISBN](http://purl.org/spar/datacite/isbn).
+    Se recomienda expresar mediante un literal de tipo URI de uno de los patrones posibles del [esquema de identificadores de recursos Datacite](http://purl.org/spar/datacite/ResourceIdentifierScheme). Entre otros, [DOI](http://purl.org/spar/datacite/doi), [URI](http://purl.org/spar/datacite/uri), [URN](http://purl.org/spar/datacite/urn) o [ISBN](http://purl.org/spar/datacite/isbn).
 
 
 | dcat:Dataset | dct:creator |
@@ -1142,7 +1142,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 | **Propiedad** | **adms:sample** |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **foaf:Distribution** |
+| **Rango** | **dcat:Distribution** |
 
 !!! note "Nota de uso"
 
@@ -1459,7 +1459,7 @@ Esta entidad se considera clave para entender cómo se puede obtener y utilizar 
 | **Metadato** | **Legislación aplicable** |
 | **Descripción** | Referencia a la legislación aplicable, sí distribuye datos de alto valor, entonces debe indicarse al menos el [Reglamento de Implementación 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj) |
 | **Propiedad** | **dcatap:applicableLegislation** |
-| **Aplicabilidad** | **Recomendado** - Sí es HVD: Obligatorio |
+| **Aplicabilidad** | **Recomendado - Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - Sí es HVD: 1..n |
 | **Rango** | **eli:LegalResource** |
 
