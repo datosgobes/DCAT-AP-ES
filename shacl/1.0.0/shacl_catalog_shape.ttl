@@ -1,0 +1,495 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+
+<https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_catalog_shape.ttl>
+    rdf:type owl:Ontology ;
+    rdfs:label "Restricciones para los catálogos de datos DCAT-AP-ES"@es ;
+    rdfs:label "Data catalogue restrictions for DCAT-AP-ES"@en ;
+    dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_distribution_shape.ttl> ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+    dct:conformsTo <https://www.w3.org/TR/shacl> ;
+    dct:description "Este archivo incluye las restricciones SHACL para las propiedades y clases relacionadas con catálogos de datos en el perfil de aplicación DCAT-AP-ES."@es ;
+    dct:description "This file includes SHACL restrictions for properties and classes related to data catalogues in the DCAT-AP-ES application profile."@en ;
+    owl:versionInfo "1.0.0" ;
+    dct:modified "2024-04-08"^^xsd:date ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    cc:attributionURL <https://datos.gob.es/> ;
+    dcatap:availability <http://data.europa.eu/r5r/stable> ;
+    foaf:homepage <https://datosgobes.github.io/DCAT-AP-ES/> ;
+    rdfs:seeAlso <https://datosgobes.github.io/DCAT-AP-ES/#dcat-catalog> ;
+    rdfs:comment """
+        Este archivo requiere importar las siguientes dependencias adicionales para funcionar correctamente:
+        - shacl_common_shapes.ttl
+        - shacl_mdr-vocabularies.shape.ttl
+        Asegúrese de que estén disponibles e importadas para una validación completa.
+    """@es ;
+    rdfs:comment """
+        This file requires importing the following additional dependencies to work properly:
+        - shacl_common_shapes.ttl
+        - shacl_mdr-vocabularies.shape.ttl
+        Make sure they are available and imported for full validation.
+    """@en .
+
+
+#--------------------------
+# dcat:Catalog restrictions
+#--------------------------
+:Catalog_Shape
+    a sh:NodeShape ;
+    sh:name "Catálogo"@en ;
+    sh:name "Catalog"@en ;
+    rdfs:comment "Forma que define las restricciones para la clase dcat:Catalog."@es ;
+    rdfs:comment "Shape defining restrictions for the dcat:Catalog class."@en ;
+    rdfs:label "Restricciones de catálogo de datos"@es ;
+    rdfs:label "Catalog restrictions"@en ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-catalog> ;
+    sh:property 
+    [
+    # dct:title
+        sh:path dct:title ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_title> ;
+        sh:message "El catálogo debe contener al menos un dct:title."@es ;
+        sh:message "The catalog must contain at least one dct:title."@en ;
+    ], 
+    [
+        sh:path dct:title ;
+        sh:node :LiteralMultilingualConvention ; 
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:title ;
+        sh:node :NonEmptyLiteralConvention ; 
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:title ;
+        sh:node :UniqueLangLiteralRestriction ;
+        sh:severity sh:Violation ;
+    ],
+
+    # dct:description
+    [
+        sh:path dct:description ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_description> ;
+        sh:message "El catálogo debe contener al menos un dct:description."@es ;
+        sh:message "The catalog must contain at least one dct:description."@en ;
+    ], 
+    [
+        sh:path dct:description ;
+        sh:node :LiteralMultilingualConvention ; 
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:description ;
+        sh:node :NonEmptyLiteralConvention ; 
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:description ;
+        sh:node :UniqueLangLiteralRestriction ;
+        sh:severity sh:Violation ;
+    ],
+
+    # dct:publisher
+    [
+        sh:path dct:publisher ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_publisher> ;
+        sh:message "El catálogo debe contener al menos un dct:publisher."@es ;
+        sh:message "The catalog must contain at least one dct:publisher."@en ;
+    ], 
+    [
+        sh:path dct:publisher ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_publisher> ;
+        sh:message "La propiedad dct:publisher no puede tener más de un valor."@es ;
+        sh:message "The dct:publisher property cannot have more than one value."@en ;
+    ],
+    [
+        sh:path dct:publisher ;
+        sh:node :DIR3OrganismRestriction;
+        sh:or(
+            [
+                sh:nodeKind sh:IRI; 
+                sh:closed true ;
+            ]
+            [
+                sh:nodeKind sh:BlankNodeOrIRI;
+                sh:node :Agent_Shape;
+                sh:node :PublisherAgentRestriction;
+            ]
+        );
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_publisher> ;
+        sh:message "El valor de dct:publisher debe ser un IRI o un nodo en blanco que cumpla con las restricciones de la forma de agente."@es ;
+        sh:message "The value of dct:publisher must be an IRI or a blank node that meets the agent shape restrictions."@en ;
+    ],
+    [
+        sh:path dct:publisher ;
+        sh:or(
+            [ 
+                sh:nodeKind sh:IRI;
+                sh:closed true
+            ]
+            [
+                sh:nodeKind sh:BlankNodeOrIRI;
+                sh:node :Agent_ShapeRecommended
+            ]
+        );
+        sh:severity sh:Warning;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_publisher> ;
+        sh:message "El valor de dct:publisher debe ser un IRI o un nodo en blanco que cumpla con las restricciones de la forma de agente."@es ;
+        sh:message "The value of dct:publisher must be an IRI or a blank node that meets the agent shape restrictions."@en ;
+    ],
+
+    # foaf:homepage
+    [
+        sh:path foaf:homepage ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-foaf_homepage> ;
+        sh:message "La propiedad foaf:homepage no puede tener más de un valor."@es ;
+        sh:message "The foaf:homepage property cannot have more than one value."@en ;
+    ], 
+    [
+        sh:path foaf:homepage ;
+        sh:nodeKind sh:IRI; 
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-foaf_homepage> ;
+        sh:message "El valor de foaf:homepage debe ser un IRI válido."@es ;
+        sh:message "The value of foaf:homepage must be a valid IRI."@en ;
+    ], 
+    [
+        sh:path foaf:homepage ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-foaf_homepage> ;
+        sh:message "El catálogo debe contener al menos un foaf:homepage."@es ;
+        sh:message "The catalog must contain at least one foaf:homepage."@en ;
+    ], 
+
+    # dcat:themeTaxonomy
+    [
+        sh:path dcat:themeTaxonomy ;
+        sh:nodeKind sh:IRI; 
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dcat_themetaxonomy> ;
+        sh:message "El valor de dcat:themeTaxonomy debe ser un IRI válido."@es ;
+        sh:message "The value of dcat:themeTaxonomy must be a valid IRI."@en ;
+    ], 
+    [
+        # Convencion 10
+        sh:path dcat:themeTaxonomy ;
+        sh:hasValue <http://datos.gob.es/kos/sector-publico/sector> ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-10> ;
+        sh:message "Se pueden utilizar varios temas, pero al menos <http://datos.gob.es/kos/sector-publico/sector> debe estar presente. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-10"@es ;
+        sh:message "Multiple themes can be used but at least <http://datos.gob.es/kos/sector-publico/sector> must be present. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-10"@en ;
+    ],    
+    [
+        # Convencion 11
+        sh:path dcat:themeTaxonomy ;
+        sh:in (
+            <http://datos.gob.es/kos/sector-publico/sector> 
+            <http://publications.europa.eu/resource/authority/data-theme>
+            <http://inspire.ec.europa.eu/theme>
+            );
+        sh:description "Only the themes <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> and <http://inspire.ec.europa.eu/theme> can be present"@en ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11> ;
+        sh:message "Sólo pueden estar presentes las taxonomías <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> y <http://inspire.ec.europa.eu/theme>. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@es ;
+        sh:message "Only the them taxonomies <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> and <http://inspire.ec.europa.eu/theme> can be present. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@en ;
+    ],    
+    [
+        # Convencion 11
+        sh:path dcat:themeTaxonomy ;
+        sh:minCount 1 ;
+        sh:maxCount 3 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11> ;
+        sh:message "El catálogo debe tener entre 1 y 3 valores para dcat:themeTaxonomy. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@es ;
+        sh:message "The catalog must have between 1 and 3 values for dcat:themeTaxonomy. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@en ;
+    ] ,
+
+    #dct:issued
+    [
+        sh:path dct:issued ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:issued ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_issued> ;
+        sh:message "El catálogo debe contener al menos un dct:issued."@es ;
+        sh:message "The catalog must contain at least one dct:issued."@en ;
+    ], 
+
+    #dct:modified
+    [
+        sh:path dct:modified ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:modified ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_modified> ;
+        sh:message "El catálogo debe contener al menos un dct:modified."@es ;
+        sh:message "The catalog must contain at least one dct:modified."@en ;
+    ], 
+
+    # dct:language
+    [
+        sh:path dct:language ;
+        sh:node :LanguageRestriction ;
+        sh:severity sh:Violation ;
+    ], 
+    [
+        sh:path dct:language ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_language> ;
+        sh:message "El catálogo debe contener al menos un dct:language."@es ;
+        sh:message "The catalog must contain at least one dct:language."@en ;
+    ], 
+
+    # dct:license
+    [
+        sh:path dct:license ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_license> ;
+        sh:message "La propiedad dct:license no puede tener más de un valor."@es ;
+        sh:message "The dct:license property cannot have more than one value."@en ;
+    ], 
+    [
+        sh:path dct:license ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_license> ;
+        sh:message "El catálogo debe contener al menos un dct:license."@es ;
+        sh:message "The catalog must contain at least one dct:license."@en ;
+    ],  
+    [
+        sh:path dct:license ;
+        sh:or (
+            [ sh:node :LicenceDocumentRestriction ;]
+            [ sh:node :LicenceRestriction ;]
+            [ sh:nodeKind sh:IRI ;]
+        );
+        sh:severity sh:Violation ;
+    ], 
+
+    # dcat:dataset
+    [
+        sh:path dcat:dataset ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dcat_dataset> ;
+        sh:message "El valor de dcat:dataset debe ser un IRI válido."@es ;
+        sh:message "The value of dcat:dataset must be a valid IRI."@en ;
+    ],
+
+    # dcat:service
+    [
+        sh:path dcat:service ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dcat_service> ;
+        sh:message "El valor de dcat:service debe ser un IRI válido."@es ;
+        sh:message "The value of dcat:service must be a valid IRI."@en ;
+    ],
+
+    # dct:spatial
+    [
+        sh:path dct:spatial ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dcat_spatial> ;
+        sh:message "El catálogo debe contener al menos un valor para dct:spatial."@es ;
+        sh:message "The catalog must contain at least one value for dct:spatial."@en ;
+    ],
+    [
+        sh:path dct:spatial ;
+        sh:or (
+            [ 
+                sh:class dct:Location ;
+                # WKT restriction
+                sh:node :SpatialGeometryConvention ; 
+            ]
+            [ 
+                sh:node :Spatial_Shape ;
+                sh:nodeKind sh:IRI ;
+                sh:severity sh:Violation;
+            ]
+        );
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dcat_spatial> ;            
+        sh:message "El valor de dct:spatial debe ser un IRI de los vocabularios permitidos o un nodo de tipo Location."@es ;
+        sh:message "The value of dct:spatial must be an IRI from the allowed vocabularies or a Location node."@en ;
+    ],
+
+    # dcat:catalog
+    [
+        sh:path dcat:catalog ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dcat_catalog> ;
+        sh:message "El valor de dcat:catalog debe ser un IRI válido."@es ;
+        sh:message "The value of dcat:catalog must be a valid IRI."@en ;
+    ],
+
+    # dcat:record    
+    [  
+        sh:path dcat:record ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dcat_record> ;
+        sh:message "El valor de dcat:record debe ser un IRI válido."@es ;
+        sh:message "The value of dcat:record must be a valid IRI."@en ;
+    ],
+
+    #dct:creator  
+    [
+        sh:path dct:creator ;
+        sh:or(
+            [
+                sh:nodeKind sh:IRI; 
+                sh:closed true ;
+            ]
+            [
+                sh:nodeKind sh:BlankNodeOrIRI;
+                sh:node :Agent_Shape;
+                sh:node :CreatorAgentRestriction;
+            ]
+        );
+        sh:severity sh:Violation ;
+    ],
+    [
+        sh:path dct:creator ;
+        sh:or(
+            [ 
+                sh:nodeKind sh:IRI;
+                sh:closed true
+            ]
+            [
+                sh:nodeKind sh:BlankNodeOrIRI;
+                sh:node :Agent_ShapeRecommended
+            ]
+        );
+        sh:severity sh:Warning ;
+    ],
+
+    #dct:hasPart
+    [
+        sh:path dct:hasPart ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_haspart> ;
+        sh:message "El valor de dct:hasPart debe ser un IRI válido."@es ;
+        sh:message "The value of dct:hasPart must be a valid IRI."@en ;
+    ],
+
+    #dct:isPartOf 
+    [
+        sh:path dct:isPartOf ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_ispart> ;
+        sh:message "La propiedad dct:isPartOf no puede tener más de un valor."@es ;
+        sh:message "The dct:isPartOf property cannot have more than one value."@en ;
+    ], 
+    [
+        sh:path dct:isPartOf ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_ispart> ;
+        sh:message "El valor de dct:isPartOf debe ser un IRI válido."@es ;
+        sh:message "The value of dct:isPartOf must be a valid IRI."@en ;
+    ],
+
+    #dct:rights
+    [
+        sh:path dct:rights ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_rights> ;
+        sh:message "La propiedad dct:rights no puede tener más de un valor."@es ;
+        sh:message "The dct:rights property cannot have more than one value."@en ;
+    ], 
+    [
+        sh:path dct:rights ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_rights> ;
+        sh:message "El valor de dct:rights debe ser un IRI válido."@es ;
+        sh:message "The value of dct:rights must be a valid IRI."@en ;
+    ];  
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-catalog> ;
+    sh:targetClass dcat:Catalog .
+
+:CatalogDatasetOrServiceRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que un catálogo tenga al menos un conjunto de datos (dcat:dataset) o un servicio de datos (dcat:service)."@es ;
+    rdfs:comment "Restriction to validate that a catalog has at least one dataset (dcat:dataset) or one data service (dcat:service)."@en ;
+    rdfs:label "Restricción de catálogo: conjuntos de datos o servicios"@es ;
+    rdfs:label "Catalog restriction: datasets or services"@en ;
+    sh:name "Catalog Dataset or Service Restriction"@en ;
+    sh:or (
+        [
+            sh:path dcat:dataset ;
+            sh:minCount 1 ;
+            sh:severity sh:Violation ;
+            sh:message "El catálogo debe contener al menos un conjunto de datos (dcat:dataset)."@es ;
+            sh:message "The catalog must contain at least one dataset (dcat:dataset)."@en ;
+        ]
+        [
+            sh:path dcat:service ;
+            sh:minCount 1 ;
+            sh:severity sh:Violation ;
+            sh:message "El catálogo debe contener al menos un servicio de datos (dcat:service)."@es ;
+            sh:message "The catalog must contain at least one data service (dcat:service)."@en ;
+        ]
+    ) ;
+    sh:severity sh:Warning ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-catalog> ;
+    sh:targetClass dcat:Catalog .
+
+# Convencion 02
+:CatalogSPALanguageRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que un catálogo cumpla con las convenciones de idioma y contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
+    rdfs:comment "Restriction to validate that a catalog complies with Spanish language and content conventions, including title, description, and other key elements."@en ;
+    rdfs:label "Restricción de catálogo: idioma y contenido en español"@es ;
+    rdfs:label "Catalog restriction: Spanish language and content"@en ;
+    sh:name "Catalog Spanish Language and Content Restriction"@en ;
+    sh:name "Restricción de catálogo para idioma y contenido en español"@en ;
+    sh:node :SpanishLanguageRestriction ;
+    sh:node :SpanishTitleRestriction ;
+    sh:node :SpanishDescriptionRestriction ;
+    sh:severity sh:Violation ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+    sh:targetClass dcat:Catalog .

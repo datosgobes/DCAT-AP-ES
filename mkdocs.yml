@@ -226,8 +226,9 @@ watch:
 - refs/docs
 
 exclude_docs: |
-    !/refs/*
-    !/README.md
+    /refs/*
+    /README.md
+    /**/README.md
 
 hooks:
   - tools/mkdocs-hooks/dcat_ap_es.py

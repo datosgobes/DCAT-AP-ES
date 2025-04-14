@@ -16,23 +16,23 @@ Al utilizar estas plantillas es posible identificar y corregir posibles desviaci
 # Formas SHACL de DCAT-AP-ES
 Todas las versiones de los ficheros de formas de DCAT-AP-ES se encuentran en el repositorio de código [`shacl/{version}/`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/): 
 
-- `shacl_common_shapes.ttl`: Restricciones comunes para todas las entidades
-- `shacl_catalog_shape.ttl:` Restricciones para catálogos
-- `shacl_dataservice_shape.ttl`: Restricciones para servicios de datos
-- `shacl_dataset_shape.ttl`: Restricciones para conjuntos de datos
-- `shacl_distribution_shape.ttl`: Restricciones para distribuciones
-- `shacl_dataservice_shape.ttl`: Restricciones para servicios de datos
-- `shacl_mdr-vocabularies.shape.ttl`: Vocabularios controlados y sus restricciones
-- `shacl_imports.ttl`: Definiciones de importación para ontologías externas
-- `shacl_mdr_imports.ttl`: Definiciones de importación para vocabularios MDR
+- `shacl_common_shapes.ttl`: Restricciones comunes para todas las entidades.
+- `shacl_catalog_shape.ttl:` Restricciones para catálogos.
+- `shacl_dataservice_shape.ttl`: Restricciones para servicios de datos.
+- `shacl_dataset_shape.ttl`: Restricciones para conjuntos de datos.
+- `shacl_distribution_shape.ttl`: Restricciones para distribuciones.
+- `shacl_dataservice_shape.ttl`: Restricciones para servicios de datos.
+- `shacl_mdr-vocabularies.shape.ttl`: Vocabularios controlados y sus restricciones.
+- `shacl_imports.ttl`: Definiciones de importación para ontologías externas.
+- `shacl_mdr_imports.ttl`: Definiciones de importación para vocabularios MDR.
 
-`hvd/`: Subdirectorio con restricciones adicionales para conjuntos de datos de alto valor (HVD):
+**`hvd/`**: Subdirectorio con restricciones adicionales para conjuntos de datos de alto valor (HVD):
 
-- `shacl_common_hvd_shapes.ttl`: Restricciones comunes para todas las entidades
-- `shacl_catalog_shape.ttl:` Restricciones para catálogos
-- `shacl_dataservice_hvd_shape.ttl`: Restricciones para servicios de datos
-- `shacl_dataset_hvd_shape.ttl`: Restricciones para conjuntos de datos
-- `shacl_distribution_hvd_shape.ttl`: Restricciones para distribuciones
+- `shacl_common_hvd_shapes.ttl`: Restricciones comunes para todas las entidades HVD.
+- `shacl_catalog_shape.ttl:` Restricciones para catálogos HVD.
+- `shacl_dataservice_hvd_shape.ttl`: Restricciones para servicios de datos HVD.
+- `shacl_dataset_hvd_shape.ttl`: Restricciones para conjuntos de datos HVD.
+- `shacl_distribution_hvd_shape.ttl`: Restricciones para distribuciones HVD.
 
 # Casos de Uso
 *Sección no normativa*
@@ -96,6 +96,17 @@ Extiende el [Caso 1](validation/#case_1_dcat_ap_es_full) con conocimiento de fon
 - *Importaciones*
   - [`shacl_imports.ttl`](https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_imports.ttl)
   - [`shacl_mdr_imports.ttl`](https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_mdr_imports.ttl)
+
+!!! info "¿Qué es el conocimiento de fondo?"
+    El conocimiento de fondo (*background knowledge*) consiste en la importación de ontologías y vocabularios externos que complementan la validación. Estos archivos de importación (`shacl_imports.ttl` y `shacl_mdr_imports.ttl`) contienen definiciones de clases, propiedades y relaciones jerárquicas de los estándares utilizados en DCAT-AP-ES.
+    
+    Utilizar este conocimiento de fondo permite:
+    
+    1. *Validaciones semánticamente más ricas*: Al conocer la estructura completa de las ontologías.
+    2. *Inferencia de tipos*: Permite detectar inconsistencias en la jerarquía de clases.
+    3. *Validación de propiedades derivadas*: Comprueba relaciones que podrían no estar explícitas en los datos.
+    
+    Sin embargo, incluir este conocimiento de fondo puede hacer que la validación sea más lenta y consuma más recursos.
 
 ## **Caso 4: DCAT-AP-ES completo (HVD con conocimiento de fondo)** {#case_4_dcat_ap_es_full_hvd_imports}
 Extiende el [Caso 1](validation/#case_1_dcat_ap_es_full) con conocimiento de fondo conformidad con estándares externos. También incluye las formas que permiten describir adecuadamente los conjuntos de datos de alto valor ([HVD](#conjuntos_de_datos_de_alto_valor_high_value_datasets)).

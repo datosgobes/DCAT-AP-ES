@@ -1,0 +1,43 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+
+<https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_imports.ttl>
+  rdf:type owl:Ontology ;
+  rdfs:label "Importaciones para DCAT-AP-ES"@es ;
+  rdfs:label "Imports for DCAT-AP-ES"@en ;
+  dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_mdr-vocabularies.shape.ttl> ;
+  dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+  dct:conformsTo <https://www.w3.org/TR/shacl> ;
+  dct:description "Este archivo incluye las importaciones de las ontologías necesarias para el perfil de aplicación DCAT-AP-ES, apuntando a las serializaciones RDF requeridas por el validador del banco de pruebas ISA."@es ;
+  dct:description "This file includes the necessary ontology imports for the DCAT-AP-ES application profile, pointing to the RDF serializations required by the ISA testbed validator."@en ;
+  owl:versionInfo "1.0.0" ;
+  dct:modified "2024-04-08"^^xsd:date ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+  cc:attributionURL <https://datos.gob.es/> ;
+  dcatap:availability <http://data.europa.eu/r5r/stable> ;
+  foaf:homepage <https://datosgobes.github.io/DCAT-AP-ES/> ;
+  rdfs:comment "Este archivo proporciona las importaciones necesarias para las ontologías reutilizadas en el perfil de aplicación DCAT-AP-ES."@es ;
+  rdfs:comment "This file provides the necessary imports for the ontologies reused in the DCAT-AP-ES application profile."@en ;
+
+#--------------------------
+# Ontology imports
+#--------------------------
+  owl:imports <https://www.w3.org/ns/dcat2.ttl> ;
+  owl:imports <http://dublincore.org/2020/01/20/dublin_core_terms.ttl> ;
+  owl:imports <http://xmlns.com/foaf/spec/index.rdf> ;
+  owl:imports <https://www.w3.org/ns/locn.ttl> ;
+  owl:imports <https://spdx.org/rdf/terms/spdx-ontology.owl.xml> ;
+  owl:imports <https://schema.org/version/latest/schema.ttl> ;
+  owl:imports <http://www.w3.org/ns/prov-o.ttl> ;
+  owl:imports <http://www.w3.org/2006/time.ttl> ;
+  owl:imports <http://www.w3.org/2006/vcard/ns.ttl> ;
+  owl:imports <http://www.w3.org/ns/adms.ttl> 
+.

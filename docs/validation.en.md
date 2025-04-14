@@ -25,12 +25,12 @@ DCAT-AP-ES SHACL shapes for all versions can be found in the source code reposit
 - `shacl_imports.ttl`: Import definitions for external ontologies
 - `shacl_mdr_imports.ttl`: Import definitions for MDR vocabularies
 
-`hvd/`: Subdirectory with additional constraints for High Value Datasets (HVD): - `shacl_common_hvd_shapes.ttl`: Common constraints for all entities.
+**`hvd/`**: Subdirectory with additional constraints for High Value Datasets (HVD): - `shacl_common_hvd_shapes.ttl`: Common constraints for all entities.
 
-- `shacl_catalog_shape.ttl`: Constraints for catalogs
-- `shacl_dataservice_hvd_shape.ttl`: Constraints for Data Services
-- `shacl_dataset_hvd_shape.ttl`: Constraints for datasets
-- `shacl_distribution_hvd_shape.ttl`: Constraints for distributions
+- `shacl_catalog_shape.ttl`: Constraints for HVD catalogues.
+- `shacl_dataservice_hvd_shape.ttl`: Constraints for HVD Data Services.
+- `shacl_dataset_hvd_shape.ttl`: Constraints for HVD datasets.
+- `shacl_distribution_hvd_shape.ttl`: Constraints for HVD distributions.
 
 # Use Cases
 *Non-normative section*
@@ -95,6 +95,17 @@ Extends [Case 1](validation/#case_1_dcat_ap_en_full) with background knowledge a
 - *Imports*
   - [`shacl_imports.ttl`](https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/1.0.0/shacl_imports.ttl)
   - [`shacl_mdr_imports.ttl`](https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/1.0.0/shacl_mdr_imports.ttl)
+
+!!! info "What is background knowledge?"
+    Background knowledge consists of importing external ontologies and vocabularies that complement the validation. These import files (`shacl_imports.ttl` and `shacl_mdr_imports.ttl`) contain definitions of classes, properties, and hierarchical relationships from the standards used in DCAT-AP-ES.
+    
+    Using this background knowledge allows:
+    
+    1. *Semantically richer validations*: By knowing the complete structure of the ontologies.
+    2. *Type inference*: Enables detection of inconsistencies in the class hierarchy.
+    3. *Derived property validation*: Checks relationships that might not be explicit in the data.
+    
+    However, including this background knowledge can make validation slower and more resource-intensive.
 
 ## **Caso 4: Full DCAT-AP-ES (HVD with background knowlegdge)** {#case_4_dcat_ap_es_full_hvd_imports}
 Extends [Case 1](validation/#case_1_dcat_ap_en_full) with background knowledge about conformance to external standards. It also includes the forms that allow to properly describe high value datasets ([HVD](#high_value_datasets_high_value_datasets)).

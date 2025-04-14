@@ -1,0 +1,47 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://datos.gob.es/dcat-ap-es#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+
+<https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/hvd/shacl_common_hvd_shapes.ttl>
+    rdf:type owl:Ontology ;
+    rdfs:label "Restricciones comunes para HVD en DCAT-AP-ES"@es ;
+    rdfs:label "Common restrictions for HVD in DCAT-AP-ES"@en ;
+    dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/hvd/shacl_common_hvd_shapes.ttl> ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+    dct:conformsTo <https://www.w3.org/TR/shacl> ;
+    dct:description "Este archivo incluye restricciones SHACL comunes específicas para datos de alto valor (HVD) utilizadas en el perfil de aplicación DCAT-AP-ES."@es ;
+    dct:description "This file includes common SHACL restrictions specific to High-Value Datasets (HVD) used in the DCAT-AP-ES application profile."@en ;
+    owl:versionInfo "1.0.0" ;
+    dct:modified "2025-04-10"^^xsd:date ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    cc:attributionURL <https://datos.gob.es/> ;
+    dcatap:availability <http://data.europa.eu/r5r/stable> ;
+    foaf:homepage <https://datosgobes.github.io/DCAT-AP-ES/> ;
+    rdfs:comment """
+        Este archivo incluye restricciones SHACL comunes específicas para validar propiedades y clases relacionadas con datos de alto valor (Reglamento de ejecución (UE) 2023/138 de la Comisión Europea (High Value Datasets Implementing Regulation, HVD IR)) en el perfil DCAT-AP-ES. 
+        Actualmente, este archivo sirve como base para futuras extensiones y puede ser importado junto con otros archivos dependientes.
+    """@es ;
+    rdfs:comment """
+        This file includes common SHACL restrictions specific to validating properties and classes related to High-Value Datasets (High Value Datasets Implementing Regulation, HVD IR 2023/138) in the DCAT-AP-ES profile. 
+        Currently, this file serves as a foundation for future extensions and can be imported along with other dependent files.
+    """@en .
+
+
+#--------------------------
+# Common for HVD restrictions
+#--------------------------
+:HVDCategory_HVDRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Shape reservado para futuras restricciones específicas de categorías HVD."@es ;
+    rdfs:comment "Shape reserved for future specific restrictions on HVD categories."@en ;
+    rdfs:label "Restricción para categoría HVD (vacía)"@es ;
+    rdfs:label "HVD Category Restriction (empty)"@en .
