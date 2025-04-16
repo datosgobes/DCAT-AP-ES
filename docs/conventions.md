@@ -46,7 +46,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 19**](#convencion-19): El punto de contacto *DEBERÍA* incluir también: 1. Denominación del área o persona (`vcard:fn`) 2. Número de teléfono (`vcard:hasTelephone`) 3. Identificador del organismo (`vcard:hasUid`)
 - [**Convención 20**](#convencion-20): Los puntos de contacto recogidos en la taxonomía del portal *DEBEN* describirse como un `vcard:Kind` y no directamente con la URI del organismo.
 - [**Convención 21**](#convencion-21): En las distribuciones de servicios OGC, las URLs de acceso *DEBEN* modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
-- [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`.
+- [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
 
 
 # Convenciones generales {#general}
@@ -228,7 +228,7 @@ Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rang
 
 
 !!! must organisational "Convención 22"
-    Los periodos temporales **DEBEN** ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`.
+    Los periodos temporales **DEBEN** ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
 
 !!! info "Ejemplo de uso correcto de un período temporal"
     ```turtle linenums="1"
