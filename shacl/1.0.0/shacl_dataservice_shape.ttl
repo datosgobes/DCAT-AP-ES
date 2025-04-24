@@ -1,5 +1,4 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <http://datos.gob.es/dcat-ap-es#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -44,7 +43,7 @@
 #--------------------------
 # dcat:DataService restrictions
 #--------------------------
-:DataService_Shape
+dcatapes:DataService_Shape
     a sh:NodeShape ;
     sh:name "Servicio de Datos"@en ;
     sh:name "Data Service"@en ;
@@ -65,18 +64,21 @@
     ], 
     [
         sh:path dct:title ;
-        sh:node :LiteralMultilingualConvention ; 
+        sh:node dcatapes:LiteralMultilingualConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:title ;
-        sh:node :NonEmptyLiteralConvention ; 
+        sh:node dcatapes:NonEmptyLiteralConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:title ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dcat:endpointURL
@@ -108,24 +110,24 @@
     ],
     [
         sh:path dcatap:hvdCategory;
-        sh:node :HVDCategoryRestriction ;
+        sh:node dcatapes:HVDCategoryRestriction ;
         sh:severity sh:Violation ;
     ],
 
     # dcat:contactPoint
     [
         sh:path dcat:contactPoint ;
-        sh:not :DIR3OrganismRestriction ;
+        sh:not dcatapes:DIR3OrganismRestriction ;
         sh:severity sh:Violation
     ],
     [
         sh:path dcat:contactPoint ;
-        sh:node :VcardKindMinimalConvention ;
-        sh:severity sh:Violation
+        sh:node dcatapes:VcardKindMinimalConvention ;
+        sh:severity sh:Warning ;
     ],
     [
         sh:path dcat:contactPoint ;
-        sh:node :VcardKindRestriction2 ;
+        sh:node dcatapes:VcardKindRestriction2 ;
         sh:severity sh:Violation
     ],
     [
@@ -168,7 +170,7 @@
     [
 		sh:path dcat:theme ;
 	    sh:qualifiedValueShape [
-			sh:node :PublicSectorRestriction ;
+			sh:node dcatapes:PublicSectorRestriction ;
 		];	
         sh:qualifiedMinCount 1;
         sh:severity sh:Violation
@@ -178,13 +180,13 @@
         sh:nodeKind sh:IRI ;
         sh:or(
             [   
-                sh:node :PublicSectorRestriction ;
+                sh:node dcatapes:PublicSectorRestriction ;
             ]
             [   
-                sh:node :EuropeanDataThemeRestriction ;
+                sh:node dcatapes:EuropeanDataThemeRestriction ;
             ]
             [
-                sh:node :InspireDataThemeRestriction ;
+                sh:node dcatapes:InspireDataThemeRestriction ;
             ]
         );
         sh:severity sh:Violation
@@ -209,7 +211,7 @@
     ],
     [
         sh:path dct:publisher ;
-        sh:node :DIR3OrganismRestriction;
+        sh:node dcatapes:DIR3OrganismRestriction;
         sh:or(
             [
                 sh:nodeKind sh:IRI; 
@@ -217,8 +219,8 @@
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node :Agent_Shape;
-                sh:node :PublisherAgentRestriction;
+                sh:node dcatapes:Agent_Shape;
+                sh:node dcatapes:PublisherAgentRestriction;
             ]
         );
         sh:severity sh:Violation ;
@@ -235,7 +237,7 @@
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node :Agent_ShapeRecommended
+                sh:node dcatapes:Agent_ShapeRecommended
             ]
         );
         sh:severity sh:Warning ;
@@ -299,7 +301,7 @@
     ], 
     [
         sh:path dcatap:applicableLegislation ;
-        sh:node :ELIIdentifierRestriction ;
+        sh:node dcatapes:ELIIdentifierRestriction ;
         sh:severity sh:Violation ;
     ],
 
@@ -314,18 +316,21 @@
     ],
     [
         sh:path dct:description ;
-        sh:node :LiteralMultilingualConvention ; 
+        sh:node dcatapes:LiteralMultilingualConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:description ;
-        sh:node :NonEmptyLiteralConvention ; 
+        sh:node dcatapes:NonEmptyLiteralConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:description ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dct:accessRights
@@ -339,7 +344,7 @@
     ],
     [
         sh:path dct:accessRights ;
-		sh:node :AccessRightRestriction ;
+		sh:node dcatapes:AccessRightRestriction ;
         sh:severity sh:Violation
 	],
 
@@ -355,8 +360,8 @@
     [
         sh:path dct:license ;
         sh:or (
-            [ sh:node :LicenceDocumentRestriction ;]
-            [ sh:node :LicenceRestriction ;]
+            [ sh:node dcatapes:LicenceDocumentRestriction ;]
+            [ sh:node dcatapes:LicenceRestriction ;]
             [ sh:nodeKind sh:IRI ;]
         );
         sh:severity sh:Violation ;
@@ -373,23 +378,26 @@
     ],
     [
         sh:path dcat:keyword ;
-        sh:node :LiteralMultilingualConvention ; 
+        sh:node dcatapes:LiteralMultilingualConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dcat:keyword ;
-        sh:node :NonEmptyLiteralConvention ; 
+        sh:node dcatapes:NonEmptyLiteralConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dcat:keyword ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ];
     sh:targetClass dcat:DataService .
 
 # Convencion 02
-:DataServiceSPALanguageRestriction
+dcatapes:DataServiceSPALanguageRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un servicio de datos cumpla con las convenciones de idioma y contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
     rdfs:comment "Restriction to validate that a data service complies with Spanish language and content conventions, including title, description, and other key elements."@en ;
@@ -397,9 +405,9 @@
     rdfs:label "Data service restriction: Spanish language and content"@en ;
     sh:name "Data service Spanish Language and Content Restriction"@en ;
     sh:name "Restricción de servicio de datos: idioma y contenido en español"@es ;
-    sh:node :SpanishLanguageRestriction ;
-    sh:node :SpanishTitleRestriction ;
-    sh:node :SpanishDescriptionRestriction ;
+    sh:node dcatapes:SpanishLanguageRestriction ;
+    sh:node dcatapes:SpanishTitleRestriction ;
+    sh:node dcatapes:SpanishDescriptionRestriction ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
     sh:targetClass dcat:DataService .

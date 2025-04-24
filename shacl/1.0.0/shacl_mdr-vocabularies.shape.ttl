@@ -1,5 +1,4 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <https://datosgobes.github.io/DCAT-AP-ES/> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -33,7 +32,7 @@
 #--------------------------
 # Vocabulary restrictions
 #--------------------------
-:AtuRestriction
+dcatapes:AtuRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de unidad territorial administrativa"@es ;
     rdfs:comment "Administrative territorial unit restriction"@en ;
@@ -46,7 +45,7 @@
     sh:message "The value must be an IRI from the european Administrative territorial unit type vocabulary http://publications.europa.eu/resource/authority/atu"@en ;
     sh:severity sh:Violation .
 
-:ContinentRestriction
+dcatapes:ContinentRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de continente"@es ;
     rdfs:comment "Continent restriction"@en ;
@@ -59,7 +58,7 @@
     sh:message "The value must be an IRI from the European continent vocabulary http://publications.europa.eu/resource/authority/continent"@en ;
     sh:severity sh:Violation .
 
-:CountryRestriction
+dcatapes:CountryRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de país"@es ;
     rdfs:comment "Country restriction"@en ;
@@ -72,7 +71,7 @@
     sh:message "The value must be an IRI from the European country vocabulary http://publications.europa.eu/resource/authority/country"@en ;
     sh:severity sh:Violation .
 
-:AccessRightRestriction
+dcatapes:AccessRightRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de derechos de acceso"@es ;
     rdfs:comment "Access Rights Restriction"@en ;
@@ -85,7 +84,7 @@
     sh:message "The value must be an IRI from the European access right vocabulary http://publications.europa.eu/resource/authority/access-right"@en ;
     sh:severity sh:Violation .
 
-:GeoNamesRestriction
+dcatapes:GeoNamesRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de nombres geográficos"@es ;
     rdfs:comment "Geo names restriction"@en ;
@@ -98,7 +97,7 @@
     sh:message "The value must be an IRI from the geonames http://sws.geonames.org"@en ;
     sh:severity sh:Violation .
 
-:LanguageRestriction
+dcatapes:LanguageRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de idioma"@es ;
     rdfs:comment "Language Restriction"@en ;
@@ -111,7 +110,7 @@
     sh:message "The value of dct:language must be an IRI from the European language vocabulary http://publications.europa.eu/resource/authority/language"@en ;
     sh:severity sh:Violation .
 
-:LicenceRestriction
+dcatapes:LicenceRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de licencia"@es ;
     rdfs:comment "Licence restriction"@en ;
@@ -124,7 +123,7 @@
     sh:message "The value of dct:license must be an IRI from the European language vocabulary http://publications.europa.eu/resource/authority/licence"@en ;
     sh:severity sh:Violation .
 
-:LicenceTypeRestriction
+dcatapes:LicenceTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de tipo de licencia"@es ;
     rdfs:comment "Licence type restriction"@en ;
@@ -137,7 +136,7 @@
     sh:message "The value must be an IRI from the licence type vocabulary http://purl.org/adms/licencetype/1.0/"@en ;
     sh:severity sh:Violation .
 
-:TerritoryRestriction
+dcatapes:TerritoryRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de territorio"@es ;
     rdfs:comment "Territory restriction"@en ;
@@ -223,7 +222,7 @@
     sh:message "The value must be an IRI from the NTI-RISP territory vocabulary http://datos.gob.es/recurso/sector-publico/territorio"@en ;
     sh:severity sh:Violation .
 
-:PlaceRestriction
+dcatapes:PlaceRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de lugar"@es ;
     rdfs:comment "Place restriction"@en ;
@@ -237,7 +236,7 @@
     sh:severity sh:Violation .
 
 # Convencion 01
-:DIR3OrganismRestriction
+dcatapes:DIR3OrganismRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de organismo del sector público"@es ;
     rdfs:comment "Public Sector Organism Restriction"@en ;
@@ -250,7 +249,7 @@
     sh:message "The value must be an IRI from the public sector organism vocabulary http://datos.gob.es/recurso/sector-publico/org/Organismo"@en ;
     sh:severity sh:Violation .
 
-:PublisherTypeRestriction
+dcatapes:PublisherTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de tipo de editor"@es ;
     rdfs:comment "Publisher type restriction"@en ;

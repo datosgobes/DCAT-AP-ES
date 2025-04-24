@@ -1,5 +1,4 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <http://datos.gob.es/dcat-ap-es#> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -52,7 +51,7 @@
 #--------------------------
 # dcat:Dataset restrictions
 #--------------------------
-:Dataset_Shape
+dcatapes:Dataset_Shape
     a sh:NodeShape ;
     sh:name "Conjunto de datos"@en ;
     sh:name "Dataset"@en ;
@@ -73,18 +72,21 @@
     ], 
     [
         sh:path dct:title ;
-        sh:node :LiteralMultilingualConvention ; 
+        sh:node dcatapes:LiteralMultilingualConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:title ;
-        sh:node :NonEmptyLiteralConvention ; 
+        sh:node dcatapes:NonEmptyLiteralConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:title ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dct:description
@@ -106,18 +108,21 @@
     ], 
     [
         sh:path dct:description ;
-        sh:node :LiteralMultilingualConvention ;
+        sh:node dcatapes:LiteralMultilingualConvention ;
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:description ;
-        sh:node :NonEmptyLiteralConvention ;
+        sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation ; 
     ],
     [
         sh:path dct:description ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dct:publisher
@@ -139,7 +144,7 @@
     ],
     [
         sh:path dct:publisher ;
-        sh:node :DIR3OrganismRestriction;
+        sh:node dcatapes:DIR3OrganismRestriction;
         sh:or(
             [
                 sh:nodeKind sh:IRI; 
@@ -147,8 +152,8 @@
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node :Agent_Shape;
-                sh:node :PublisherAgentRestriction;
+                sh:node dcatapes:Agent_Shape;
+                sh:node dcatapes:PublisherAgentRestriction;
             ]
         );
         sh:severity sh:Violation ;
@@ -165,7 +170,7 @@
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node :Agent_ShapeRecommended
+                sh:node dcatapes:Agent_ShapeRecommended
             ]
         );
         sh:severity sh:Warning ;
@@ -186,7 +191,7 @@
     [
 		sh:path dcat:theme ;
 	    sh:qualifiedValueShape [
-			sh:node :PublicSectorRestriction ;
+			sh:node dcatapes:PublicSectorRestriction ;
 		];	
         sh:qualifiedMinCount 1;
         sh:severity sh:Violation
@@ -196,13 +201,13 @@
         sh:nodeKind sh:IRI ;
         sh:or(
             [   
-                sh:node :PublicSectorRestriction ;
+                sh:node dcatapes:PublicSectorRestriction ;
             ]
             [   
-                sh:node :EuropeanDataThemeRestriction ;
+                sh:node dcatapes:EuropeanDataThemeRestriction ;
             ]
             [
-                sh:node :InspireDataThemeRestriction ;
+                sh:node dcatapes:InspireDataThemeRestriction ;
             ]
         );
         sh:severity sh:Violation
@@ -211,11 +216,11 @@
     # dcat:Distribution
     [
         sh:path dcat:distribution ;
-        sh:nodeKind sh:Literal ;
+        sh:class dcat:Distribution ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_distribution> ;
-        sh:message "El valor de dcat:distribution debe ser un Literal."@es ;
-        sh:message "The value of dcat:distribution must be a Literal."@en ;
+        sh:message "El valor de dcat:distribution debe ser un dcat:Distribution."@es ;
+        sh:message "The value of dcat:distribution must be a dcat:Distribution."@en ;
     ], 
 
     # dcat:keyword
@@ -229,34 +234,37 @@
     ],
     [
         sh:path dcat:keyword ;
-        sh:node :LiteralMultilingualConvention ; 
+        sh:node dcatapes:LiteralMultilingualConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dcat:keyword ;
-        sh:node :NonEmptyLiteralConvention ; 
+        sh:node dcatapes:NonEmptyLiteralConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dcat:keyword ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dcat:contactPoint
     [
         sh:path dcat:contactPoint ;
-        sh:not :DIR3OrganismRestriction ;
+        sh:not dcatapes:DIR3OrganismRestriction ;
         sh:severity sh:Violation
     ],
     [
         sh:path dcat:contactPoint ;
-        sh:node :VcardKindMinimalConvention ;
-        sh:severity sh:Violation
+        sh:node dcatapes:VcardKindMinimalConvention ;
+        sh:severity sh:Warning ;
     ],
     [
         sh:path dcat:contactPoint ;
-        sh:node :VcardKindRestriction2 ;
+        sh:node dcatapes:VcardKindRestriction2 ;
         sh:severity sh:Violation
     ],
     [
@@ -278,8 +286,8 @@
         sh:message "The dataset should contain at least one dct:temporal."@en ;
     ], 
     [
-        sh:path dcatap:applicableLegislation ;
-        sh:node :TemporalPeriodConvention ;
+        sh:path dct:temporal ;
+        sh:node dcatapes:TemporalPeriodConvention ;
         sh:severity sh:Violation ;
     ],
 
@@ -299,10 +307,10 @@
             [ 
                 sh:class dct:Location ;
                 # WKT restriction
-                sh:node :SpatialGeometryConvention ; 
+                sh:node dcatapes:SpatialGeometryConvention ; 
             ]
             [ 
-                sh:node :Spatial_Shape ;
+                sh:node dcatapes:Spatial_Shape ;
                 sh:nodeKind sh:IRI ;
                 sh:severity sh:Violation;
             ]
@@ -317,12 +325,12 @@
     [
         sh:path dct:identifier ;
         sh:nodeKind sh:Literal ;
-        sh:node :NonLiteralMultilingualConvention ;
+        sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation
     ],
     [
         sh:path dct:identifier ;
-        sh:node :NonEmptyLiteralConvention;
+        sh:node dcatapes:NonEmptyLiteralConvention;
         sh:severity sh:Violation
     ],
 
@@ -346,8 +354,8 @@
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node :Agent_Shape;
-                sh:node :CreatorAgentRestriction;
+                sh:node dcatapes:Agent_Shape;
+                sh:node dcatapes:CreatorAgentRestriction;
             ]
         );
         sh:severity sh:Violation ;
@@ -361,7 +369,7 @@
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node :Agent_ShapeRecommended
+                sh:node dcatapes:Agent_ShapeRecommended
             ]
         );
         sh:severity sh:Warning ;
@@ -413,7 +421,7 @@
         sh:path dct:issued ;
         sh:maxCount 1 ;
         sh:nodeKind sh:Literal ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
     ],
 
@@ -422,7 +430,7 @@
         sh:path dct:modified ;
         sh:maxCount 1 ;
         sh:nodeKind sh:Literal ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
     ], 
 
@@ -433,10 +441,10 @@
         sh:nodeKind sh:IRI ;
         sh:or(
             [
-                sh:node :DatasetTypeRestriction
+                sh:node dcatapes:DatasetTypeRestriction
             ]
             [
-                sh:node :INSPIREDatasetTypeRestriction
+                sh:node dcatapes:INSPIREDatasetTypeRestriction
             ]
         );
         sh:severity sh:Warning ;
@@ -448,7 +456,7 @@
     # dct:language
     [
         sh:path dct:language ;
-        sh:node :LanguageRestriction ;
+        sh:node dcatapes:LanguageRestriction ;
         sh:severity sh:Violation ;
     ], 
 
@@ -459,7 +467,7 @@
             [ 
                 # IRI from european vocabulary
                 sh:nodeKind sh:IRI ;
-                sh:node :FrequencyRestriction ;
+                sh:node dcatapes:FrequencyRestriction ;
             ]
             [ 
                 # Frequency node
@@ -469,7 +477,7 @@
                 # Literal of xsd:duration type (NTI legacy)
                 sh:nodeKind sh:Literal ;
                 sh:datatype xsd:duration ;
-                sh:node :DurationRestriction;
+                sh:node dcatapes:DurationRestriction;
             ]
         );
         sh:severity sh:Violation;
@@ -482,12 +490,12 @@
     [
         sh:path dcat:version ;
         sh:nodeKind sh:Literal ;
-        sh:node :NonLiteralMultilingualConvention ;
+        sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation
     ],
     [
         sh:path dcat:version ;
-        sh:node :NonEmptyLiteralConvention ;
+        sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation
     ],
     [
@@ -510,18 +518,21 @@
     ], 
     [
         sh:path adms:versionNotes ;
-        sh:node :LiteralMultilingualConvention ; 
+        sh:node dcatapes:LiteralMultilingualConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path adms:versionNotes ;
-        sh:node :NonEmptyLiteralConvention ; 
+        sh:node dcatapes:NonEmptyLiteralConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path adms:versionNotes ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dcat:hasVersion
@@ -590,7 +601,7 @@
         sh:path dcat:temporalResolution ;
         sh:nodeKind sh:Literal ;
         sh:datatype xsd:duration ;
-        sh:node :DurationRestriction;
+        sh:node dcatapes:DurationRestriction;
         sh:severity sh:Violation ;
     ],
 
@@ -679,13 +690,13 @@
     [
         sh:path dct:accessRights ;
         sh:nodeKind sh:IRI ;
-		sh:node :AccessRightRestriction ;
+		sh:node dcatapes:AccessRightRestriction ;
         sh:severity sh:Violation ;
 	];
     sh:targetClass dcat:Dataset .
 
 # Convencion 02
-:DatasetSPALanguageConvention
+dcatapes:DatasetSPALanguageConvention
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un conjunto de datos cumpla con las convenciones de idioma y contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
     rdfs:comment "Restriction to validate that a dataset complies with Spanish language and content conventions, including title, description, and other key elements."@en ;
@@ -693,15 +704,15 @@
     rdfs:label "Dataset restriction: Spanish language and content"@en ;
     sh:name "Dataset Spanish Language and Content Restriction"@en ;
     sh:name "Restricción de conjunto de datos: idioma y contenido en español"@es ;
-    sh:node :SpanishLanguageRestriction ;
-    sh:node :SpanishTitleRestriction ;
-    sh:node :SpanishDescriptionRestriction ;
+    sh:node dcatapes:SpanishLanguageRestriction ;
+    sh:node dcatapes:SpanishTitleRestriction ;
+    sh:node dcatapes:SpanishDescriptionRestriction ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
     sh:targetClass dcat:Dataset .
 
 # Convencion 23
-:DistributionMandatoryConvention
+dcatapes:DistributionMandatoryConvention
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los conjuntos de datos contengan al menos una distribución (dcat:distribution), cumpliendo con la Convención 23 de DCAT-AP-ES."@es ;
     rdfs:comment "Restriction to validate that datasets include at least one distribution (dcat:distribution), complying with DCAT-AP-ES Convention 23."@en ;
@@ -725,7 +736,7 @@
 # Other shapes restrictions
 #---------------------------
 
-:Activity_Shape
+dcatapes:Activity_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los nodos de tipo prov:Activity tengan propiedades temporales correctamente definidas."@es ;
     rdfs:comment "Restriction to validate that nodes of type prov:Activity have properly defined temporal properties."@en ;
@@ -745,7 +756,7 @@
     [
         sh:path prov:startedAtTime ;
         sh:nodeKind sh:Literal ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
         sh:message "El valor de prov:startedAtTime debe ser un literal de tipo fecha o fecha-hora."@es ;
         sh:message "The value of prov:startedAtTime must be a literal of type date or date-time."@en ;
@@ -761,14 +772,14 @@
     [
         sh:path prov:endedAtTime ;
         sh:nodeKind sh:Literal ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
         sh:message "El valor de prov:endedAtTime debe ser un literal de tipo fecha o fecha-hora."@es ;
         sh:message "The value of prov:endedAtTime must be a literal of type date or date-time."@en ;
     ] ;
     sh:targetClass prov:Activity .
 
-:Attribution_Shape
+dcatapes:Attribution_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los nodos de tipo prov:Attribution tengan un agente y, opcionalmente, un rol definido."@es ;
     rdfs:comment "Restriction to validate that nodes of type prov:Attribution have an agent and, optionally, a defined role."@en ;
@@ -809,7 +820,7 @@
     ];
     sh:targetClass prov:Attribution .
 
-:DurationDescription_Shape
+dcatapes:DurationDescription_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los nodos de tipo time:DurationDescription contengan exactamente una propiedad de medida temporal."@es ;
     rdfs:comment "Restriction to validate that time:DurationDescription nodes contain exactly one temporal measurement property."@en ;
@@ -819,20 +830,20 @@
     sh:name "Time Duration Description"@en ;
     sh:targetClass time:DurationDescription ;
     sh:xone (
-        :TimeYearsRestriction
-        :TimeMonthsRestriction
-        :TimeWeeksRestriction
-        :TimeDaysRestriction
-        :TimeHoursRestriction
-        :TimeMinutesRestriction
-        :TimeSecondsRestriction
+        dcatapes:TimeYearsRestriction
+        dcatapes:TimeMonthsRestriction
+        dcatapes:TimeWeeksRestriction
+        dcatapes:TimeDaysRestriction
+        dcatapes:TimeHoursRestriction
+        dcatapes:TimeMinutesRestriction
+        dcatapes:TimeSecondsRestriction
     );
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-time_durationdescription> ;
     sh:message "Un time:DurationDescription debe tener exactamente una de las propiedades: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, o time:seconds."@es ;
     sh:message "A time:DurationDescription must have exactly one of the properties: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, or time:seconds."@en .
 
-:Frequency_Shape
+dcatapes:Frequency_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los nodos de tipo dct:Frequency contengan exactamente un valor de duración correctamente definido."@es ;
     rdfs:comment "Restriction to validate that nodes of type dct:Frequency contain exactly one properly defined duration value."@en ;
@@ -852,7 +863,7 @@
                 # Literal Duration
                 sh:nodeKind sh:Literal ;
                 sh:datatype xsd:duration ;
-                sh:node :DurationRestriction ;
+                sh:node dcatapes:DurationRestriction ;
             ]
         ) ;
         sh:severity sh:Violation ;
@@ -878,7 +889,7 @@
     sh:message "El valor de dct:frequency debe ser un dct:Frequency."@es ;
     sh:message "The value of dct:frequency must be a dct:Frequency."@en .
 
-:ADMSIdentifier_Shape
+dcatapes:ADMSIdentifier_Shape
     # https://www.w3.org/TR/vocab-adms/#identifier
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los identificadores ADMS contengan exactamente un valor de notación no vacío."@es ;
@@ -893,14 +904,14 @@
     [
         sh:path skos:notation ;
         sh:nodeKind sh:Literal ;
-        sh:node :NonLiteralMultilingualConvention ;
+        sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
         sh:message "El valor de skos:notation debe ser un literal sin etiqueta de idioma."@es ;
         sh:message "The value of skos:notation must be a literal without a language tag."@en ;
     ],
     [
         sh:path skos:notation ;
-        sh:node :NonEmptyLiteralConvention;
+        sh:node dcatapes:NonEmptyLiteralConvention;
         sh:severity sh:Violation ;
         sh:message "El valor de skos:notation no puede estar vacío."@es ;
         sh:message "The value of skos:notation cannot be empty."@en ;
@@ -925,7 +936,7 @@
     sh:message "The value of adms:identifier must be a adms:Identifier."@en .
     
 
-:Relationship_Shape
+dcatapes:Relationship_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los nodos de tipo dcat:Relationship contengan las propiedades obligatorias correctamente definidas."@es ;
     rdfs:comment "Restriction to validate that nodes of type dcat:Relationship contain properly defined mandatory properties."@en ;
@@ -970,71 +981,71 @@
     sh:message "El valor de dcat:qualifiedRelation debe ser un dcat:Relationship."@es ;
     sh:message "The value of dcat:qualifiedRelation must be a dcat:Relationship."@en .
 
-:TimeDaysRestriction
+dcatapes:TimeDaysRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:days ;
-        sh:node :NonNegativeIntegerRestriction ;
+        sh:node dcatapes:NonNegativeIntegerRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
 
-:TimeHoursRestriction
+dcatapes:TimeHoursRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:hours ;
-        sh:node :NonNegativeIntegerRestriction ;
+        sh:node dcatapes:NonNegativeIntegerRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
 
-:TimeMinutesRestriction
+dcatapes:TimeMinutesRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:minutes ;
-        sh:node :NonNegativeIntegerRestriction ;
+        sh:node dcatapes:NonNegativeIntegerRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
 
-:TimeMonthsRestriction
+dcatapes:TimeMonthsRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:months ;
-        sh:node :NonNegativeIntegerRestriction ;
+        sh:node dcatapes:NonNegativeIntegerRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
 
-:TimeSecondsRestriction
+dcatapes:TimeSecondsRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:seconds ;
-        sh:node :NonNegativeIntegerRestriction ;
+        sh:node dcatapes:NonNegativeIntegerRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
 
-:TimeWeeksRestriction
+dcatapes:TimeWeeksRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:weeks ;
-        sh:node :NonNegativeIntegerRestriction ;
+        sh:node dcatapes:NonNegativeIntegerRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
 
-:TimeYearsRestriction
+dcatapes:TimeYearsRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:years ;
-        #sh:node :NonNegativeIntegerRestriction ;
+        #sh:node dcatapes:NonNegativeIntegerRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
 
 # Convencion 17
-:SpatialGeometryConvention
+dcatapes:SpatialGeometryConvention
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que las referencias espaciales geométricas usen WKT (Well-Known Text) según GeoSPARQL, cumpliendo con la Convención 17 de DCAT-AP-ES."@es ;
     rdfs:comment "Restriction to validate that spatial geometric references use WKT (Well-Known Text) according to GeoSPARQL, complying with DCAT-AP-ES Convention 17."@en ;
@@ -1073,7 +1084,7 @@
 #--------------------------
 # Vocabulary restrictions
 #--------------------------
-:FrequencyRestriction
+dcatapes:FrequencyRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los valores de dct:accrualPeriodicity sean IRIs válidos del vocabulario europeo de frecuencias."@es ;
     rdfs:comment "Restriction to validate that dct:accrualPeriodicity values are valid IRIs from the European frequency vocabulary."@en ;
@@ -1088,7 +1099,7 @@
     sh:message "El valor debe ser un IRI del vocabulario europeo de frecuencias http://publications.europa.eu/resource/authority/frequency."@es ;
     sh:message "The value must be an IRI from the European frequency vocabulary http://publications.europa.eu/resource/authority/frequency."@en .
 
-:DatasetTypeRestriction
+dcatapes:DatasetTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los valores de dct:type sean IRIs válidos del vocabulario europeo de tipos de conjuntos de datos."@es ;
     rdfs:comment "Restriction to validate that dct:type values are valid IRIs from the European dataset type vocabulary."@en ;
@@ -1103,7 +1114,7 @@
     sh:message "El valor debe ser un IRI del vocabulario europeo de tipos de conjunto de datos http://publications.europa.eu/resource/authority/dataset-type."@es ;
     sh:message "The value must be an IRI from the European dataset type vocabulary http://publications.europa.eu/resource/authority/dataset-type."@en .
 
-:INSPIREDatasetTypeRestriction
+dcatapes:INSPIREDatasetTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los valores de dct:type para conjuntos de datos INSPIRE utilicen el IRI oficial especificado."@es ;
     rdfs:comment "Restriction to validate that dct:type values for INSPIRE datasets use the official specified IRI."@en ;

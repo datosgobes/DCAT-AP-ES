@@ -1,5 +1,4 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <http://datos.gob.es/dcat-ap-es#> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -45,7 +44,7 @@
 #--------------------------
 # Common restrictions
 #--------------------------
-:Agent_Shape
+dcatapes:Agent_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un agente tenga un nombre, un identificador y un tipo válidos, cumpliendo con las reglas de DCAT-AP-ES."@es ;
     rdfs:comment "Restriction to validate that an agent has a valid name, identifier, and type, complying with DCAT-AP-ES rules."@en ;
@@ -63,7 +62,7 @@
     ],
     [
         sh:path foaf:name ;
-        sh:node :LiteralMultilingualConvention ;
+        sh:node dcatapes:LiteralMultilingualConvention ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-foaf_name> ;
         sh:message "El nombre del agente debe ser multilingüe."@es ;
@@ -71,7 +70,7 @@
     ],
     [
         sh:path foaf:name ;
-        sh:node :NonEmptyLiteralConvention ;
+        sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-foaf_name> ;
         sh:message "El nombre del agente no puede estar vacío."@es ;
@@ -125,7 +124,7 @@
     ],
     [
         sh:path dct:identifier ;
-        sh:node :NonEmptyLiteralConvention ;
+        sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-dct_identifier> ;
         sh:message "El identificador del agente no puede estar vacío."@es ;
@@ -153,13 +152,13 @@
     [
         sh:path dct:type ;
         sh:nodeKind sh:IRI ;
-        sh:node :PublisherTypeRestriction ;
+        sh:node dcatapes:PublisherTypeRestriction ;
         sh:description "Se utiliza un concepto no gestionado por la UE para indicar el tipo del agente. Si no se encuentra uno correspondiente, informe al mantenedor de la lista de códigos adms:publishertype."@es ;
         sh:description "A non-EU managed concept is used to indicate the type of the agent. If no corresponding one can be found, inform the maintainer of the adms:publishertype codelist."@en ;
         sh:severity sh:Violation ;
     ] .
 
-:Agent_ShapeRecommended
+dcatapes:Agent_ShapeRecommended
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un agente tenga al menos un identificador y un tipo, cumpliendo con las reglas de DCAT-AP-ES."@es ;
     rdfs:comment "Restriction to validate that an agent has at least one identifier and one type, complying with DCAT-AP-ES rules."@en ;
@@ -191,7 +190,7 @@
     sh:message "Se recomienda que el agente tenga al menos un identificador y un tipo."@es ;
     sh:message "It is recommended that the agent has at least one identifier and one type."@en .
 
-:PublisherAgentRestriction
+dcatapes:PublisherAgentRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que el tipo del nodo sea foaf:Agent o foaf:Organization."@es ;
     rdfs:comment "Restriction to validate that the node type is foaf:Agent or foaf:Organization."@en ;
@@ -206,7 +205,7 @@
     sh:message "El tipo del nodo debe ser un foaf:Agent o foaf:Organization."@es ;
     sh:message "The node type must be foaf:Agent or foaf:Organization."@en .
 
-:CreatorAgentRestriction
+dcatapes:CreatorAgentRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que el creador de un recurso sea un agente válido, ya sea una persona, una organización o un agente genérico, cumpliendo con las reglas de DCAT-AP-ES."@es ;
     rdfs:comment "Restriction to validate that the creator of a resource is a valid agent, either a person, an organization, or a generic agent, complying with DCAT-AP-ES rules."@en ;
@@ -230,7 +229,7 @@
     sh:message "El tipo del nodo debe ser foaf:Agent, foaf:Organization o foaf:Person."@es ;
     sh:message "The node type must be foaf:Agent, foaf:Organization, or foaf:Person."@en .
 
-:SingleIRIRestriction
+dcatapes:SingleIRIRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción genérica para validar que una propiedad tenga un IRI válido."@es ;
     rdfs:comment "Generic restriction to validate that a property has a valid IRI."@en ;
@@ -242,7 +241,7 @@
     sh:message "The property must be a valid IRI."@en .
 
 # Convencion 08
-:DateOrDateTimeDataTypetConvention
+dcatapes:DateOrDateTimeDataTypetConvention
     a sh:NodeShape ;
     rdfs:comment "Convención para validar que un valor temporal sea de tipo xsd:dateTime, xsd:date, xsd:gYearMonth o xsd:gYear, siguiendo el formato ISO-8601."@es ;
     rdfs:comment "Convention to validate that a temporal value is of type xsd:dateTime, xsd:date, xsd:gYearMonth, or xsd:gYear, following the ISO-8601 format."@en ;
@@ -281,7 +280,7 @@
     ) ;
     sh:severity sh:Violation .
 
-:DurationRestriction
+dcatapes:DurationRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un valor de duración siga el formato ISO 8601 para xsd:duration (por ejemplo, P3Y6M4DT12H30M5S)."@es ;
     rdfs:comment "Restriction to validate that a duration value follows the ISO 8601 format for xsd:duration (e.g., P3Y6M4DT12H30M5S)."@en ;
@@ -297,7 +296,7 @@
     sh:message "The duration value must follow the ISO 8601 format for xsd:duration (e.g., P3Y6M4DT12H30M5S)."@en ;
     sh:severity sh:Violation .
 
-:EuropeanDataThemeRestriction
+dcatapes:EuropeanDataThemeRestriction
     a sh:NodeShape ;
     rdfs:comment "European Data Theme Restriction"@en ;
     rdfs:label "European Data Theme Restriction"@en ;
@@ -308,7 +307,7 @@
     sh:message "The value must be an IRI from the European inspire vocabulary http://publications.europa.eu/resource/authority/data-theme."@en ;
     sh:severity sh:Violation.
 
-:InspireDataThemeRestriction
+dcatapes:InspireDataThemeRestriction
     a sh:NodeShape ;
     rdfs:comment "Inspire Data Theme Restriction"@en ;
     rdfs:label "Inspire Data Theme Restriction"@en ;
@@ -320,7 +319,7 @@
     sh:severity sh:Violation.
 
 # Convencion 19
-:VcardKindMinimalConvention
+dcatapes:VcardKindMinimalConvention
     a sh:NodeShape ;
     rdfs:comment "Convención para recomendar que un nodo conectado mediante dcat:contactPoint utilice vcard:fn, vcard:hasTelephone y vcard:hasUID, cumpliendo con las reglas de DCAT-AP-ES."@es ;
     rdfs:comment "Convention to recommend that a node connected via dcat:contactPoint uses vcard:fn, vcard:hasTelephone, and vcard:hasUID, complying with DCAT-AP-ES rules."@en ;
@@ -356,7 +355,7 @@
     sh:message "It is recommended that the contact point uses vcard:fn, vcard:hasTelephone, and vcard:hasUID. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19"@en ;
     sh:severity sh:Warning .
 
-:VcardKindRestriction
+dcatapes:VcardKindRestriction
     rdfs:comment "Restricción para validar que un nodo conectado mediante dcat:contactPoint sea de tipo vcard:Kind o una de sus subclases, cumpliendo con las reglas de DCAT-AP-ES."@es ;
     rdfs:comment "Restriction to validate that a node connected via dcat:contactPoint is of type vcard:Kind or one of its subclasses, complying with DCAT-AP-ES rules."@en ;
     rdfs:label "Restricción para vcard:Kind y subclases"@es ;
@@ -381,12 +380,12 @@
     ],
     [
         sh:path vcard:organization-name ;
-        sh:node :NonEmptyLiteralConvention;
+        sh:node dcatapes:NonEmptyLiteralConvention;
         sh:severity sh:Violation ;
     ],
     [
         sh:path vcard:organization-name ;
-        sh:node :LiteralMultilingualConvention;
+        sh:node dcatapes:LiteralMultilingualConvention;
         sh:severity sh:Violation ;
     ],
     [
@@ -398,8 +397,11 @@
     ],
     [
         sh:path vcard:organization-name ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
     [
         sh:path vcard:organization-name ;        
@@ -432,18 +434,21 @@
     ], 
     [
         sh:path vcard:fn ;
-        sh:node :LiteralMultilingualConvention ;
+        sh:node dcatapes:LiteralMultilingualConvention ;
         sh:severity sh:Violation ;
     ],
     [
         sh:path vcard:fn ;
-        sh:node :NonEmptyLiteralConvention ;
+        sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation ;
     ],
     [
         sh:path vcard:fn ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
     [
         sh:path vcard:fn ;
@@ -556,7 +561,7 @@
     ].
     #sh:targetClass vcard:Kind .
 
-:VcardKindRestriction2
+dcatapes:VcardKindRestriction2
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un nodo conectado mediante dcat:contactPoint sea de tipo vcard:Kind o una de sus subclases, y que contenga al menos un vcard:hasEmail o un vcard:hasURL, cumpliendo con las reglas de DCAT-AP-ES."@es ;
     rdfs:comment "Restriction to validate that a node connected via dcat:contactPoint is of type vcard:Kind or one of its subclasses, and contains at least one vcard:hasEmail or vcard:hasURL, complying with DCAT-AP-ES rules."@en ;
@@ -593,7 +598,7 @@
     sh:message "At least one of vcard:hasEmail or vcard:hasURL must be provided."@en ;
     sh:severity sh:Violation .
 
-:LicenceDocumentRestriction
+dcatapes:LicenceDocumentRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un documento de licencia tenga un tipo definido y que este sea un IRI válido del vocabulario de tipos de licencia."@es ;
     rdfs:comment "Restriction to validate that a license document has a defined type and that it is a valid IRI from the license type vocabulary."@en ;
@@ -612,7 +617,7 @@
     ],
     [
         sh:path dct:type ;
-        sh:node :LicenceTypeRestriction ;
+        sh:node dcatapes:LicenceTypeRestriction ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dct_license> ;
@@ -622,7 +627,7 @@
     sh:targetClass dct:LicenseDocument .
 
 # Convencion 01:
-:LiteralMultilingualConvention
+dcatapes:LiteralMultilingualConvention
     a sh:NodeShape;
     rdfs:comment "Restricción para validar que un literal sea multilingüe, es decir, que tenga una etiqueta de idioma."@es ;
     rdfs:comment "Restriction to validate that a literal is multilingual, meaning it must have a language tag."@en ;
@@ -635,7 +640,7 @@
     sh:message "The literal must be multilingual. It must have a language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-01"@en ;
     sh:severity sh:Violation .
 
-:Location_Shape
+dcatapes:Location_Shape
     a sh:NodeShape ;
     sh:name "Location"@en ;
     # At least one or properties have to be
@@ -682,7 +687,7 @@
     sh:targetClass dct:Location .
 
 # Convencion 02
-:NonEmptyLiteralConvention
+dcatapes:NonEmptyLiteralConvention
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un literal no esté vacío ni contenga solo caracteres en blanco, tabulaciones o saltos de línea."@es ;
     rdfs:comment "Restriction to validate that a literal is not empty or does not contain only whitespace characters, tabs, or line breaks."@en ;
@@ -699,21 +704,7 @@
     sh:severity sh:Violation .
 
 # Convención 02
-:UniqueLangLiteralRestriction
-    a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que los valores de un literal no compartan la misma etiqueta de idioma."@es ;
-    rdfs:comment "Restriction to validate that the values of a literal do not share the same language tag."@en ;
-    rdfs:label "Restricción para literales con etiquetas de idioma únicas"@es ;
-    rdfs:label "Unique Language Tag Literal Restriction"@en ;
-    sh:name "Unique Language Tag Literal"@en ;
-    sh:uniqueLang true ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
-    sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
-    sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
-    sh:severity sh:Violation .
-
-# Convención 02
-:NonLiteralMultilingualConvention
+dcatapes:NonLiteralMultilingualConvention
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un literal no sea multilingüe, es decir, que no tenga una etiqueta de idioma."@es ;
     rdfs:comment "Restriction to validate that a literal is not multilingual, meaning it must not have a language tag."@en ;
@@ -728,7 +719,7 @@
     sh:message "The literal cannot be multilingual. It must not have a language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-04"@en ;
     sh:severity sh:Violation .
 
-:NonNegativeIntegerRestriction
+dcatapes:NonNegativeIntegerRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un valor sea un número entero no negativo, incluyendo cero."@es ;
     rdfs:comment "Restriction to validate that a value is a non-negative integer, including zero."@en ;
@@ -751,7 +742,7 @@
     sh:message "The value must be a non-negative integer."@en ;
     sh:severity sh:Violation .
 
-:PublicSectorRestriction
+dcatapes:PublicSectorRestriction
     a sh:NodeShape ;
     rdfs:comment "NTI-RISP sector vocabulary restriction."@en ;
     rdfs:comment "Restricción del vocabulario de sectores de la NTI."@es ;
@@ -790,7 +781,7 @@
 
 
 #Generic shape to validate that Spanish description is required
-:SpanishDescriptionRestriction
+dcatapes:SpanishDescriptionRestriction
     a sh:NodeShape ;
     sh:name "SpanishDescriptionRestriction"@en ;
     rdfs:comment "The description in spanish is required"@en ;
@@ -812,7 +803,7 @@
     sh:severity sh:Violation .
 
 #Generic shape to validate that Spanish language is required
-:SpanishLanguageRestriction
+dcatapes:SpanishLanguageRestriction
     a sh:NodeShape ;
     sh:name "SpanishlanguageRestriction"@en ;
     rdfs:comment "The Spanish language is required"@en ;
@@ -832,29 +823,27 @@
         sh:severity sh:Violation ;
     ] .
 
-#Generic shape to validate that Spanish title is required
-:SpanishTitleRestriction
+dcatapes:SpanishTitleRestriction
     a sh:NodeShape ;
-    sh:name "SpanishlanguageRestriction"@en ;
-    rdfs:comment "The title in spanish is required"@en ;
-    rdfs:label "Spanish title Restriction"@en ;
-    sh:sparql [
-            sh:message "The title value must be at least in Spanish."@en ;
-            sh:select """
-                PREFIX dct: <http://purl.org/dc/terms/>
-                SELECT $this
-                WHERE {
-                FILTER EXISTS { $this dct:title ?value }
-                FILTER NOT EXISTS {
-                    $this dct:title ?value .
-                    FILTER(isLiteral(?value) && LANG(?value) = "es")
-                }
-            }
-            """ ;
+    rdfs:comment "Restricción para validar que un recurso tenga el título al menos en español"@es ;
+    rdfs:comment "Restriction to validate that a resource has the title at least in Spanish"@en ;
+    rdfs:label "Restricción de título en español"@es ;
+    rdfs:label "Spanish Title Restriction"@en ;
+    sh:property [
+        sh:path dct:title ;
+        sh:qualifiedValueShape [
+            sh:languageIn ("es") ;
+            sh:nodeKind sh:Literal ;
         ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "El título debe tener al menos un valor en español (etiqueta de idioma 'es')."@es ;
+        sh:message "The title must have at least one value in Spanish (language tag 'es')."@en ;
+        sh:severity sh:Violation ;
+    ] ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
     sh:severity sh:Violation .
 
-:Spatial_Shape
+dcatapes:Spatial_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un valor espacial sea un IRI válido de vocabularios permitidos, como territorios, países, lugares, continentes, unidades administrativas o GeoNames."@es ;
     rdfs:comment "Restriction to validate that a spatial value is a valid IRI from allowed vocabularies, such as territories, countries, places, continents, administrative units, or GeoNames."@en ;
@@ -863,19 +852,19 @@
     sh:name "Spatial coverage value"@en ;
     sh:name "Valor de cobertura geográfica"@es ;
     sh:or (
-        :TerritoryRestriction
-        :CountryRestriction
-        :PlaceRestriction
-        :ContinentRestriction
-        :AtuRestriction
-        :GeoNamesRestriction
+        dcatapes:TerritoryRestriction
+        dcatapes:CountryRestriction
+        dcatapes:PlaceRestriction
+        dcatapes:ContinentRestriction
+        dcatapes:AtuRestriction
+        dcatapes:GeoNamesRestriction
     );
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
     sh:message "El valor de dct:spatial debe ser un IRI de los vocabularios http://datos.gob.es/recurso/sector-publico/territorio, http://publications.europa.eu/resource/authority/country, http://publications.europa.eu/resource/authority/continent, http://publications.europa.eu/resource/authority/place o http://sws.geonames.org."@es ;
     sh:message "The value of dct:spatial must be an IRI from the vocabularies http://datos.gob.es/recurso/sector-publico/territorio, http://publications.europa.eu/resource/authority/country, http://publications.europa.eu/resource/authority/continent, http://publications.europa.eu/resource/authority/place or http://sws.geonames.org."@en .
 
-:HVDCategoryRestriction
+dcatapes:HVDCategoryRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un valor sea un IRI perteneciente al vocabulario de categorías de distribución de la Unión Europea."@es ;
     rdfs:comment "Restriction to validate that a value is an IRI from the European distribution status vocabulary."@en ;
@@ -890,7 +879,7 @@
     sh:severity sh:Violation .
 
 # Convención 07
-:ELIIdentifierRestriction
+dcatapes:ELIIdentifierRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un valor sea un IRI que siga el patrón ELI o que sea de tipo eli:LegalResource."@es ;
     rdfs:comment "Restriction to validate that a value is an IRI following the ELI pattern or is of type eli:LegalResource."@en ;
@@ -919,33 +908,31 @@
     sh:message "The value must be a valid ELI identifier or of type eli:LegalResource. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-07"@en .
 
 # Convencion 22
-:TemporalPeriodConvention
+dcatapes:TemporalPeriodConvention
     a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que los períodos temporales sean descritos exclusivamente mediante las propiedades dcat:startDate y dcat:endDate dentro de dct:temporal, cumpliendo con la Convención 22 de DCAT-AP-ES."@es ;
-    rdfs:comment "Restriction to validate that temporal periods are described exclusively using dcat:startDate and dcat:endDate within dct:temporal, complying with DCAT-AP-ES Convention 22."@en ;
+    rdfs:comment "Restricción para validar que los períodos temporales sean descritos mediante al menos una de las propiedades dcat:startDate o dcat:endDate dentro de dct:temporal, cumpliendo con la Convención 22 de DCAT-AP-ES."@es ;
+    rdfs:comment "Restriction to validate that temporal periods are described using at least one of dcat:startDate or dcat:endDate within dct:temporal, complying with DCAT-AP-ES Convention 22."@en ;
     rdfs:label "Restricción para períodos temporales"@es ;
     rdfs:label "Temporal Period Restriction"@en ;
     sh:name "Temporal Period Restriction"@en ;
     sh:name "Restricción para períodos temporales"@es ;
     sh:targetClass dct:PeriodOfTime ;
-    sh:property [
-        sh:path dcat:startDate ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:Literal ;
-        sh:datatype xsd:dateTime ;
-        sh:message "El período temporal debe incluir al menos un dcat:startDate con un valor de tipo xsd:dateTime. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@es ;
-        sh:message "The temporal period must include at least one dcat:startDate with a value of type xsd:dateTime. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@en ;
-        sh:severity sh:Violation ;
-    ] ;
-    sh:property [
-        sh:path dcat:endDate ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:Literal ;
-        sh:datatype xsd:dateTime ;
-        sh:message "El período temporal debe incluir al menos un dcat:endDate con un valor de tipo xsd:dateTime. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@es ;
-        sh:message "The temporal period must include at least one dcat:endDate with a value of type xsd:dateTime. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@en ;
-        sh:severity sh:Violation ;
-    ] ;
+    sh:or (
+        [
+            sh:property [
+                sh:path dcat:startDate ;
+                sh:minCount 1 ;
+                sh:nodeKind sh:Literal ;
+            ]
+        ]
+        [
+            sh:property [
+                sh:path dcat:endDate ;
+                sh:minCount 1 ;
+                sh:nodeKind sh:Literal ;
+            ]
+        ]
+    ) ;
     sh:property [
         sh:path schema:startDate ;
         sh:severity sh:Warning ;
@@ -959,35 +946,54 @@
         sh:message "Replace schema:endDate with dcat:endDate to comply with Convention 22. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@en ;
     ] ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22> ;
-    sh:message "El período temporal debe ser descrito exclusivamente mediante dcat:startDate y dcat:endDate dentro de dct:temporal. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@es ;
-    sh:message "The temporal period must be described exclusively using dcat:startDate and dcat:endDate within dct:temporal. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@en ;
+    sh:message "El período temporal debe ser descrito mediante al menos una de dcat:startDate o dcat:endDate dentro de dct:temporal. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@es ;
+    sh:message "The temporal period must be described using at least one of dcat:startDate or dcat:endDate within dct:temporal. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@en ;
     sh:severity sh:Violation .
 
-:PeriodOfTimeRestriction
+dcatapes:PeriodOfTimeRestriction
     a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que los nodos de tipo dct:PeriodOfTime tengan sus fechas de inicio y fin correctamente definidas."@es ;
-    rdfs:comment "Restriction to validate that nodes of type dct:PeriodOfTime have their start and end dates properly defined."@en ;
+    rdfs:comment "Restricción para validar que los nodos de tipo dct:PeriodOfTime tengan al menos una fecha de inicio o fin correctamente definida."@es ;
+    rdfs:comment "Restriction to validate that nodes of type dct:PeriodOfTime have at least one start or end date properly defined."@en ;
     rdfs:label "Restricción para periodos de tiempo"@es ;
     rdfs:label "Period of Time Restriction"@en ;
     sh:name "Period of Time"@en ;
     sh:name "Periodo de tiempo"@es ;
+    sh:or (
+        # Al menos debe tener startDate o schema:startDate
+        [
+            sh:property [
+                sh:path [
+                    sh:alternativePath (
+                        dcat:startDate
+                        schema:startDate
+                    )
+                ];
+                sh:nodeKind sh:Literal ;
+                sh:minCount 1 ;
+            ]
+        ]
+        # O debe tener endDate o schema:endDate
+        [
+            sh:property [
+                sh:path [
+                    sh:alternativePath (
+                        dcat:endDate
+                        schema:endDate
+                    )
+                ];
+                sh:nodeKind sh:Literal ;
+                sh:minCount 1 ;
+            ]
+        ]
+    ) ;
     sh:property 
-    # dcat:startDate
     [
         sh:path dcat:startDate ;
         sh:nodeKind sh:Literal ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
-        sh:message "El valor de dcat:startDate debe ser un literal de tipo fecha o fecha-hora."@es ;
-        sh:message "The value of dcat:startDate must be a literal of type date or date-time."@en ;
-    ], 
-    [
-        sh:path dcat:startDate ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning ;
-        sh:message "La propiedad dcat:startDate debería estar presente."@es ;
-        sh:message "The property dcat:startDate should be present."@en ;
+        sh:message "Solo puede haber un valor para dcat:startDate."@es ;
+        sh:message "There can only be one value for dcat:startDate."@en ;
     ],
     [
         sh:path schema:startDate ;
@@ -995,29 +1001,20 @@
         sh:message "Reemplace la propiedad schema:startDate por dcat:startDate."@es ;
         sh:message "Replace property schema:startDate with dcat:startDate."@en ;
     ],
-    # dcat:endDate
     [
         sh:path dcat:endDate ;
         sh:nodeKind sh:Literal ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
-        sh:message "El valor de dcat:endDate debe ser un literal de tipo fecha o fecha-hora."@es ;
-        sh:message "The value of dcat:endDate must be a literal of type date or date-time."@en ;
+        sh:message "Solo puede haber un valor para dcat:endDate."@es ;
+        sh:message "There can only be one value for dcat:endDate."@en ;
     ],
-    [
-        sh:path dcat:endDate ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning ;
-        sh:message "La propiedad dcat:endDate debería estar presente."@es ;
-        sh:message "The property dcat:endDate should be present."@en ;
-    ], 
     [
         sh:path schema:endDate ;
         sh:severity sh:Warning ;
         sh:message "Reemplace la propiedad schema:endDate por dcat:endDate."@es ;
         sh:message "Replace property schema:endDate with dcat:endDate."@en ;
-    ], 
+    ],
     # time:hasBeginning
     [
         sh:path time:hasBeginning ;
