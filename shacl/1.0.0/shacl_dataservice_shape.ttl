@@ -385,14 +385,6 @@ dcatapes:DataService_Shape
         sh:path dcat:keyword ;
         sh:node dcatapes:NonEmptyLiteralConvention ; 
         sh:severity sh:Violation ;
-    ],
-    [
-        sh:path dcat:keyword ;
-        sh:uniqueLang true;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
-        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
-        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ];
     sh:targetClass dcat:DataService .
 
