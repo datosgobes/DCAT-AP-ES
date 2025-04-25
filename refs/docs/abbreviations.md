@@ -8,6 +8,7 @@
 *[DOI]: Digital Object Identifier
 *[ELI]: European Legislation Identifier
 *[FAQ]: Preguntas frecuentes
+*[FOAF]: Friend Of A Friend
 *[HVD]: High Value Datasets
 *[IANA]: Internet Assigned Numbers Authority
 *[INSPIRE]: Infrastructure for Spatial Information in Europe
