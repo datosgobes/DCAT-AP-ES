@@ -1031,7 +1031,7 @@ dcatapes:TimeYearsRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:years ;
-        #sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:NonNegativeIntegerRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
