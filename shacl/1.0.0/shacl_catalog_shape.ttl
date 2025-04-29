@@ -1,5 +1,4 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <https://datosgobes.github.io/DCAT-AP-ES/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -44,7 +43,7 @@
 #--------------------------
 # dcat:Catalog restrictions
 #--------------------------
-:Catalog_Shape
+dcatapes:Catalog_Shape
     a sh:NodeShape ;
     sh:name "Catálogo"@en ;
     sh:name "Catalog"@en ;
@@ -65,18 +64,21 @@
     ], 
     [
         sh:path dct:title ;
-        sh:node :LiteralMultilingualConvention ; 
+        sh:node dcatapes:LiteralMultilingualConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:title ;
-        sh:node :NonEmptyLiteralConvention ; 
+        sh:node dcatapes:NonEmptyLiteralConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:title ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dct:description
@@ -90,18 +92,21 @@
     ], 
     [
         sh:path dct:description ;
-        sh:node :LiteralMultilingualConvention ; 
+        sh:node dcatapes:LiteralMultilingualConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:description ;
-        sh:node :NonEmptyLiteralConvention ; 
+        sh:node dcatapes:NonEmptyLiteralConvention ; 
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:description ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dct:publisher
@@ -123,7 +128,7 @@
     ],
     [
         sh:path dct:publisher ;
-        sh:node :DIR3OrganismRestriction;
+        sh:node dcatapes:DIR3OrganismRestriction;
         sh:or(
             [
                 sh:nodeKind sh:IRI; 
@@ -131,8 +136,8 @@
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node :Agent_Shape;
-                sh:node :PublisherAgentRestriction;
+                sh:node dcatapes:Agent_Shape;
+                sh:node dcatapes:PublisherAgentRestriction;
             ]
         );
         sh:severity sh:Violation ;
@@ -149,7 +154,7 @@
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node :Agent_ShapeRecommended
+                sh:node dcatapes:Agent_ShapeRecommended
             ]
         );
         sh:severity sh:Warning;
@@ -232,7 +237,7 @@
         sh:path dct:issued ;
         sh:maxCount 1 ;
         sh:nodeKind sh:Literal ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
     ],
     [
@@ -249,7 +254,7 @@
         sh:path dct:modified ;
         sh:maxCount 1 ;
         sh:nodeKind sh:Literal ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
     ],
     [
@@ -264,7 +269,7 @@
     # dct:language
     [
         sh:path dct:language ;
-        sh:node :LanguageRestriction ;
+        sh:node dcatapes:LanguageRestriction ;
         sh:severity sh:Violation ;
     ], 
     [
@@ -296,8 +301,8 @@
     [
         sh:path dct:license ;
         sh:or (
-            [ sh:node :LicenceDocumentRestriction ;]
-            [ sh:node :LicenceRestriction ;]
+            [ sh:node dcatapes:LicenceDocumentRestriction ;]
+            [ sh:node dcatapes:LicenceRestriction ;]
             [ sh:nodeKind sh:IRI ;]
         );
         sh:severity sh:Violation ;
@@ -338,10 +343,10 @@
             [ 
                 sh:class dct:Location ;
                 # WKT restriction
-                sh:node :SpatialGeometryConvention ; 
+                sh:node dcatapes:SpatialGeometryConvention ; 
             ]
             [ 
-                sh:node :Spatial_Shape ;
+                sh:node dcatapes:Spatial_Shape ;
                 sh:nodeKind sh:IRI ;
                 sh:severity sh:Violation;
             ]
@@ -382,8 +387,8 @@
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node :Agent_Shape;
-                sh:node :CreatorAgentRestriction;
+                sh:node dcatapes:Agent_Shape;
+                sh:node dcatapes:CreatorAgentRestriction;
             ]
         );
         sh:severity sh:Violation ;
@@ -397,7 +402,7 @@
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node :Agent_ShapeRecommended
+                sh:node dcatapes:Agent_ShapeRecommended
             ]
         );
         sh:severity sh:Warning ;
@@ -451,7 +456,7 @@
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-catalog> ;
     sh:targetClass dcat:Catalog .
 
-:CatalogDatasetOrServiceRestriction
+dcatapes:CatalogDatasetOrServiceRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un catálogo tenga al menos un conjunto de datos (dcat:dataset) o un servicio de datos (dcat:service)."@es ;
     rdfs:comment "Restriction to validate that a catalog has at least one dataset (dcat:dataset) or one data service (dcat:service)."@en ;
@@ -479,7 +484,7 @@
     sh:targetClass dcat:Catalog .
 
 # Convencion 02
-:CatalogSPALanguageRestriction
+dcatapes:CatalogSPALanguageRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un catálogo cumpla con las convenciones de idioma y contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
     rdfs:comment "Restriction to validate that a catalog complies with Spanish language and content conventions, including title, description, and other key elements."@en ;
@@ -487,9 +492,9 @@
     rdfs:label "Catalog restriction: Spanish language and content"@en ;
     sh:name "Catalog Spanish Language and Content Restriction"@en ;
     sh:name "Restricción de catálogo para idioma y contenido en español"@en ;
-    sh:node :SpanishLanguageRestriction ;
-    sh:node :SpanishTitleRestriction ;
-    sh:node :SpanishDescriptionRestriction ;
+    sh:node dcatapes:SpanishLanguageRestriction ;
+    sh:node dcatapes:SpanishTitleRestriction ;
+    sh:node dcatapes:SpanishDescriptionRestriction ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
     sh:targetClass dcat:Catalog .
