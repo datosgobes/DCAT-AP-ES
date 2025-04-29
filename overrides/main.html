@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% set lang_code = config.theme.language if config.theme.language in config.dcatapes else config.dcatapes.keys()|list|first %}
 {% set ns = namespace(index_page_title='', conventions_page_title='', faq_page_title='') %}
 {% for item in config.nav %}
     {% for key, value in item.items() %}
@@ -34,6 +34,13 @@
 {% endblock %}
 
 {% block container %}
+
+  {% if config.dcatapes[lang_code].draft %}
+    <div class="draft-ribbon" title="{{ config.dcatapes[lang_code].buttons.draft_label.tooltip }}">
+      {{ config.dcatapes[lang_code].buttons.draft_label.label }}
+    </div>
+  {% endif %}
+
   <div class="md-content" data-md-component="content">
     <article class="md-content__inner md-typeset">
       <!-- Include the content of index_header.html only if it is index or conventions -->

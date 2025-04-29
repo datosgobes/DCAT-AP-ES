@@ -1,8 +1,5 @@
 {% set lang = config.theme.language if config.theme.language in config.dcatapes else config.dcatapes.keys()|list|first %}
 <div class="head" id="index_header">
-    {% if config.dcatapes[lang].draft %}
-        <div class="draft-label">{{ config.dcatapes[lang].buttons.draft_label.label }}</div>
-    {% endif %}
     <div class="download-button-container">
         {% if config.dcatapes[lang].download_pdf %}
         <a class="md-content__button md-icon" href="{{ config.dcatapes[lang].buttons.download_pdf.href.index }}" title="{{ config.dcatapes[lang].buttons.download_pdf.title }}" target="_blank" rel="noopener noreferrer">

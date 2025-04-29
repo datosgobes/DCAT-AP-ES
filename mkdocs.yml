@@ -236,7 +236,7 @@ hooks:
 dcatapes:
   # Spanish
   es:
-    draft: false
+    draft: true
     download_pdf: false
     title: Guía técnica de implementación del perfil de aplicación DCAT-AP-ES de acuerdo a la NTI-RISP
     base_url: 'https://github.com/datosgobes/DCAT-AP-ES'
@@ -347,7 +347,8 @@ dcatapes:
         text: "Disponible también en formato"
     buttons:
       draft_label: 
-        label: Borrador
+        label: "Pendiente de publicación"
+        tooltip: "Esta versión está pendiente de publicación oficial y puede no ser la versión final"
       download_pdf:
         enabled: true
         title: Descargar como PDF
@@ -486,7 +487,8 @@ dcatapes:
         text: "Also available in"
     buttons:
       draft_label: 
-        label: Draft
+        label: "To be published"
+        tooltip: "This version is pending official publication and may not be the final version"
       download_pdf:
         enabled: true
         title: Download as PDF
