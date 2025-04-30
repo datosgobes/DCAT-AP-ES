@@ -8,7 +8,7 @@ assignees: dportoles, mjanez
 ---
 
 ## Tipo de incidencia
-*Marca con una `[x]` la opción que corresponda*
+> *Marca con una `[x]` la opción que corresponda*
 - [ ] Error en la definición de una propiedad
 - [ ] Inconsistencia en el modelo de datos
 - [ ] Problema de compatibilidad con DCAT-AP
@@ -17,18 +17,18 @@ assignees: dportoles, mjanez
 - [ ] Otro (*especificar*)
 
 ## Elemento afectado
-*Indica la clase, propiedad o componente del modelo DCAT-AP-ES donde se encuentra el problema.*
+> *Indica la clase, propiedad o componente del modelo DCAT-AP-ES donde se encuentra el problema.*
 - ***Clase/Propiedad**: Ej: `dcat:Dataset`, `dct:publisher`, etc.*
 - ***Ubicación en el perfil**:  Referencia a la sección específica del documento, ej: https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dcat_accessurl*
 
 ### Situación actual en DCAT-AP-ES
-*Describe cómo funciona o está definido actualmente el elemento.*
+> *Describe cómo funciona o está definido actualmente el elemento.*
 
 ### Problema detectado
-*Explica el problema o error identificado y por qué constituye una incidencia*
+> *Explica el problema o error identificado y por qué constituye una incidencia*
 
 ## Evidencia
-*Proporciona ejemplos concretos del problema, preferiblemente en RDF (`Turtle`, `RDF/XML`, `JSON-LD`)*
+> *Proporciona ejemplos concretos del problema, preferiblemente en RDF (`Turtle`, `RDF/XML`, `JSON-LD`)*
 
 ```turtle
 # Ejemplo que muestra el problema
@@ -42,11 +42,10 @@ assignees: dportoles, mjanez
 ```
 
 ## Posible Solución
-- *Si tienes una propuesta de solución, descríbela aquí.*
-- *Describe claramente qué cambios deberían hacerse en el modelo.*
+> *Si tienes una propuesta de solución, describe claramente qué cambios deberían hacerse en el modelo.*
 
 ### Ejemplo de Implementación Correcta
-*Proporciona un ejemplo de cómo debería ser la solución.*
+> *Proporciona un ejemplo de cómo debería ser la solución.*
 
 ```turtle
 # Ejemplo de implementación correcta
@@ -60,7 +59,7 @@ assignees: dportoles, mjanez
 ```
 
 ## Información Adicional
-*Cualquier información adicional, enlaces o referencias que ayuden a entender el problema*
+> *Cualquier información adicional, enlaces o referencias que ayuden a entender el problema*
 
 >[!NOTE]
 > Por favor, proporciona toda la información posible para facilitar la evaluación y resolución de la incidencia.
