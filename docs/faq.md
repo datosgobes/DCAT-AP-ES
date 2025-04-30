@@ -112,7 +112,7 @@ Secciones:
 
     ---
 
-    Los publicadores disponen de un periodo de adaptación de seis meses desde la entrada en vigor de la NTI-RISP.
+    Los publicadores disponen de un periodo de adaptación desde la entrada en vigor de la NTI-RISP.
     
     [:octicons-arrow-right-24: Cambios](/#annex-1-nti-risp-to-dcat-ap-es)
 
