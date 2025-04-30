@@ -803,6 +803,55 @@ a:hover, a:focus {
     }
 }
 
+/* Global warning banner */
+.warning-banner {
+  background-color: #fff4e5;
+  color: var(--header-bg-color);
+  text-align: center;
+  padding: 12px 24px;
+  font-size: 16px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  line-height: 1.4;
+  border-bottom: var(--warning-bg-color) 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.warning-banner a {
+  font-weight: bold;
+}
+
+.warning-banner a:hover {
+  text-decoration: none;
+  color: var(--warning-bg-color);
+}
+
+.warning-banner .twemoji {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.warning-banner .twemoji svg {
+  height: 22px;
+  width: 22px;
+  fill: var(--warning-bg-color);
+  vertical-align: middle;
+  margin-top: -2px; /* Ajusta ligeramente para centrar perfectamente */
+}
+
+/* Para pantallas pequeñas ajusta el diseño */
+@media screen and (max-width: 768px) {
+  .warning-banner {
+    flex-direction: column;
+    padding: 8px 16px;
+  }
+}
 /* Draft Ribbon */
 .draft-ribbon {
     position: fixed;
@@ -836,4 +885,47 @@ a:hover, a:focus {
         font-size: 11px;
         padding: 8px 4px;
     }
+}
+
+/* Force visibility for period text */
+.header-summary dd span.period-start,
+.header-summary dd span.period-end {
+    color: #000000 !important; 
+    font-size: 1em !important; 
+    opacity: 1 !important; 
+    visibility: visible !important;
+    text-indent: 0 !important;
+    display: inline !important;
+    background: none !important; 
+    border-bottom: 1px dotted #555 !important; 
+    padding: 0 !important; 
+    margin: 0 !important; 
+}
+
+.header-summary dd {
+    color: #333 !important; 
+    font-size: 1em !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Header title style - Enhanced */
+.md-header__topic .md-ellipsis {
+    font-size: 0.95rem; 
+    font-weight: 400; 
+    color: var(--blue-aporta);
+    letter-spacing: 0.5px; 
+    opacity: 0.75; 
+    text-overflow: ellipsis; 
+    transition: opacity 0.2s; /* Transición suave */
+}
+
+.md-header__topic .md-ellipsis:hover {
+    opacity: 1; 
+}
+
+/* Asegurar alineación vertical si es necesario */
+.md-header__title {
+    display: flex;
+    align-items: center; 
 }
