@@ -84,6 +84,25 @@
                     {% endif %}
                 </dd>
             {% endfor %}
+            <!--Entrada en vigor - Descontinuación -->
+            {% if config.dcatapes[lang].period and (config.dcatapes[lang].period.start.value or config.dcatapes[lang].period.end.value) %}
+              <dt>{{ config.dcatapes[lang].categories.period }}:</dt>
+              <dd>
+                {% if config.dcatapes[lang].period.start.value %}
+                  <span class="period-start tooltip" title="{{ config.dcatapes[lang].period.start.title }}">
+                    {{ config.dcatapes[lang].period.start.value }}
+                  </span>
+                {% endif %}
+                {% if config.dcatapes[lang].period.start.value and period_end_value %}
+                  &nbsp;–&nbsp;
+                {% endif %}
+                {% if period_end_value %}
+                  <span class="period-end tooltip" title="{{ period_end.title }}">
+                    {{ period_end_value }}
+                  </span>
+                {% endif %}
+              </dd>
+            {% endif %}
         </dl>
         {% if config.dcatapes[lang].also_available and config.dcatapes[lang].also_available.enabled %}
             <div class="also-available-container">

@@ -35,6 +35,7 @@
 
 {% block container %}
 
+  <!--Draft ribbon-->
   {% if config.dcatapes[lang_code].draft %}
     <div class="draft-ribbon" title="{{ config.dcatapes[lang_code].buttons.draft_label.tooltip }}">
       {{ config.dcatapes[lang_code].buttons.draft_label.label }}

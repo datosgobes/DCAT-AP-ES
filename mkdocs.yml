@@ -17,7 +17,7 @@ nav:
   - Convenciones datos.gob.es: conventions.md
   - FAQ: faq.md
   - Validación: validation.md
-  - Ejemplos: examples.md
+  - Ejemplos de implementación: examples.md
 
 theme:
   language: es
@@ -45,8 +45,6 @@ theme:
     - navigation.expand
     - navigation.footer
     - navigation.indexes
-    - navigation.instant
-    - navigation.instant.progress
     - navigation.prune
     - search.suggest
     - search.highlight
@@ -169,11 +167,11 @@ plugins:
           name: English
           build: true
           nav:
-          - DCAT-AP-ES technical guide: index.md
-          - datos.gob.es conventions: conventions.en.md
+          - DCAT-AP-ES Technical Guide: index.md
+          - datos.gob.es Conventions: conventions.en.md
           - FAQ: faq.en.md
           - Validation: validation.en.md
-          - Examples: examples.en.md
+          - Implementation Examples: examples.en.md
   - mkdocstrings:
       handlers:
         python:
@@ -278,6 +276,13 @@ dcatapes:
     owners:
       - name: Iniciativa de datos abiertos del Gobierno de España
         link: 'https://datos.gob.es/'
+    period:
+      start:
+        value: "Pendiente de publicación"
+        title: "Fecha de entrada en vigor de DCAT-AP-ES"
+      # end:
+      #   value: "Vigente" 
+      #   title: "Fecha de descontinuación o vigencia"
     categories:
       latest_published_version: Última versión publicada
       latest_editors_draft: Último borrador del editor
@@ -286,6 +291,7 @@ dcatapes:
       author: Autor
       feedback: Retroalimentación
       owners: Propietarios
+      period: "Período de vigencia"
     copyright:
       name: CC BY 4.0
       link: https://creativecommons.org/licenses/by/4.0/
@@ -419,6 +425,13 @@ dcatapes:
     owners:
       - name: Spanish Government Open Data Initiative
         link: 'https://datos.gob.es/'
+    period:
+      start:
+        value: "Pending publication"
+        title: "Effective date of DCAT-AP-ES"
+      # end:
+      #   value: "Valid"
+      #   title: "End of life or effective date"
     categories:
       latest_published_version: Latest Published Version
       latest_editors_draft: Latest Editor's Draft
@@ -427,6 +440,7 @@ dcatapes:
       author: Author
       feedback: Feedback
       owners: Owners
+      period: "Period of validity"
     copyright:
       name: CC BY 4.0
       link: https://creativecommons.org/licenses/by/4.0/
