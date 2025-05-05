@@ -1,5 +1,4 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <http://datos.gob.es/dcat-ap-es#> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -54,7 +53,7 @@
 #--------------------------
 # dcat:Dataset HVD restrictions
 #--------------------------
-:Dataset_HVD_Shape
+dcatapes:Dataset_HVD_Shape
     a sh:NodeShape ;
     sh:name "Conjunto de datos HVD"@en ;
     sh:name "HVD Dataset"@en ;
@@ -111,6 +110,6 @@
     ],
     [
         sh:path dcatap:hvdCategory ;
-        sh:node :HVDCategoryRestriction ;
+        sh:node dcatapes:HVDCategoryRestriction ;
     ];
     sh:targetClass dcat:Dataset .

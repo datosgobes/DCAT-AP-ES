@@ -3,7 +3,7 @@
 Este directorio contiene los archivos de validación SHACL ([Shapes Constraint Language](https://www.w3.org/TR/shacl/)) para [comprobar la conformidad](https://datos.gob.es/es/blog/shacl-un-lenguaje-para-validar-grafos-rdf) con el perfil de aplicación [DCAT-AP-ES](https://github.com/datosgobes/DCAT-AP-ES).
 
 >[!TIP]
-> Más información sobre la validación de [DCAT-AP-ES](https://github.com/datosgobes/DCAT-AP-ES/validacion)  y sus ficheros SHACL.
+> Más información sobre la validación de [DCAT-AP-ES](https://datosgobes.github.io/DCAT-AP-ES/validacion)  y sus ficheros SHACL.
 
 ## Contenido
 
@@ -14,7 +14,6 @@ El repositorio incluye los siguientes archivos SHACL:
 - `shacl_dataservice_shape.ttl`: Restricciones para servicios de datos
 - `shacl_dataset_shape.ttl`: Restricciones para conjuntos de datos
 - `shacl_distribution_shape.ttl`: Restricciones para distribuciones
-- `shacl_dataservice_shape.ttl`: Restricciones para servicios de datos
 - `shacl_mdr-vocabularies.shape.ttl`: Vocabularios controlados y sus restricciones
 - `shacl_imports.ttl`: Definiciones de importación para ontologías externas
 - `shacl_mdr_imports.ttl`: Definiciones de importación para vocabularios MDR

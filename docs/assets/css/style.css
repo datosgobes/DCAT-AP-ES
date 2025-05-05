@@ -10,6 +10,9 @@
     --warning-bg-color: #ff8822;
     --alternate-bg-color: #eee;
     --alternate-table-color--light: rgb(201 226 223 / 50%) !important;
+    --red-aporta: #e5013e;
+    --red-aporta-light: #f5d0d6;
+    --blue-aporta: #154481;
 
     /* Admonition Icons */
     --md-admonition-icon--must: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="red" d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm0 120c-17.7 0-32 14.3-32 32v96c0 17.7 14.3 32 32 32s32-14.3 32-32v-96c0-17.7-14.3-32-32-32zm0 240c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"/></svg>');
@@ -218,7 +221,7 @@ a:hover, a:focus {
 }
 .md-typeset .must > .admonition-title,
 .md-typeset .must > summary {
-    background-color: #eba58f33; 
+    background-color: #eba58f50; 
     color: #63453b;
     display: flex;
     justify-content: space-between;
@@ -798,4 +801,131 @@ a:hover, a:focus {
     75% {
         transform: scale(1.2);
     }
+}
+
+/* Global warning banner */
+.warning-banner {
+  background-color: #fff4e5;
+  color: var(--header-bg-color);
+  text-align: center;
+  padding: 12px 24px;
+  font-size: 16px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  line-height: 1.4;
+  border-bottom: var(--warning-bg-color) 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.warning-banner a {
+  font-weight: bold;
+}
+
+.warning-banner a:hover {
+  text-decoration: none;
+  color: var(--warning-bg-color);
+}
+
+.warning-banner .twemoji {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.warning-banner .twemoji svg {
+  height: 22px;
+  width: 22px;
+  fill: var(--warning-bg-color);
+  vertical-align: middle;
+  margin-top: -2px; /* Ajusta ligeramente para centrar perfectamente */
+}
+
+/* Para pantallas pequeñas ajusta el diseño */
+@media screen and (max-width: 768px) {
+  .warning-banner {
+    flex-direction: column;
+    padding: 8px 16px;
+  }
+}
+/* Draft Ribbon */
+.draft-ribbon {
+    position: fixed;
+    top: 60px;
+    right: -58px;
+    width: 284px;
+    background-color: var(--red-aporta);
+    color: var(--red-aporta-light);
+    text-align: center;
+    transform: rotate(45deg);
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 13px 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    letter-spacing: 0.5px;
+    white-space: normal;
+    word-break: break-word; 
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .draft-ribbon {
+        top: 8px;
+        right: -70px;
+        width: 180px;
+        font-size: 11px;
+        padding: 8px 4px;
+    }
+}
+
+/* Force visibility for period text */
+.header-summary dd span.period-start,
+.header-summary dd span.period-end {
+    color: #000000 !important; 
+    font-size: 1em !important; 
+    opacity: 1 !important; 
+    visibility: visible !important;
+    text-indent: 0 !important;
+    display: inline !important;
+    background: none !important; 
+    border-bottom: 1px dotted #555 !important; 
+    padding: 0 !important; 
+    margin: 0 !important; 
+}
+
+.header-summary dd {
+    color: #333 !important; 
+    font-size: 1em !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Header title style - Enhanced */
+.md-header__topic .md-ellipsis {
+    font-size: 0.95rem; 
+    font-weight: 400; 
+    color: var(--blue-aporta);
+    letter-spacing: 0.5px; 
+    opacity: 0.75; 
+    text-overflow: ellipsis; 
+    transition: opacity 0.2s; /* Transición suave */
+}
+
+.md-header__topic .md-ellipsis:hover {
+    opacity: 1; 
+}
+
+/* Asegurar alineación vertical si es necesario */
+.md-header__title {
+    display: flex;
+    align-items: center; 
 }

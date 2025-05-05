@@ -60,17 +60,17 @@ Below, generic vocabularies that configure the namespaces reused in the implemen
 | **Vocabulary** | **Prefix** | **URI** |
 | --- | --- | --- |
 | Asset Description Metadata Schema | `adms:` | `http://www.w3.org/ns/adms#` |
-| Dataset Catalog (dcat) | `dcat:` | `http://www.w3.org/ns/dcat#` |
+| Data Catalog Vocabulary | `dcat:` | `http://www.w3.org/ns/dcat#` |
 | DCAT Application profile for data portals | `dcatap:` | `http://data.europa.eu/r5r/` |
 | Dublin Core Terms | `dct:` | `http://purl.org/dc/terms/` |
-| Friend Of A Friend (FOAF) | `foaf:` | `http://xmlns.com/foaf/0.1/` |
+| Friend Of A Friend  | `foaf:` | `http://xmlns.com/foaf/0.1/` |
 | Location Core Vocabulary | `locn:` | `http://www.w3.org/ns/locn#` |
 | Web Ontology Document | `owl:` | `http://www.w3.org/2002/07/owl#` |
 | Open Digital Rights Language | `odrl:` | `http://www.w3.org/ns/odrl/2/` |
 | Prov Family of Documents | `prov:` | `http://www.w3.org/ns/prov#` |
 | Resource Description Framework | `rdf:` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` |
 | Resource Description Framework Schema | `rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` |
-| Simple Knowledge Organization System (SKOS) | `skos:` | `http://www.w3.org/2004/02/skos/core#` |
+| Simple Knowledge Organization System | `skos:` | `http://www.w3.org/2004/02/skos/core#` |
 | Software Package Data Exchange | `spdx:` | `http://spdx.org/rdf/terms#` |
 | W3C Time Ontology | `time:` | `http://www.w3.org/2006/time#` |
 | vCard Ontology | `vcard:` | `http://www.w3.org/2006/vcard/ns#` |

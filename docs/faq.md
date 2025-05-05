@@ -112,7 +112,7 @@ Secciones:
 
     ---
 
-    Los publicadores disponen de un periodo de adaptación de seis meses desde la entrada en vigor de la NTI-RISP.
+    Los publicadores disponen de un periodo de adaptación desde la entrada en vigor de la NTI-RISP.
     
     [:octicons-arrow-right-24: Cambios](/#annex-1-nti-risp-to-dcat-ap-es)
 
@@ -147,6 +147,38 @@ Secciones:
     Se puede obtener más información y apoyo documental de las Normas Técnicas de Interoperabilidad (NTI) publicadas en el BOE a través del Portal de la Administración electrónica (PAe).
     
     [:octicons-arrow-right-24: PAe](https://administracionelectronica.gob.es/pae_Home/pae_Biblioteca/pae_PublicacionesPropias/Monografias-administracion-electronica/Guias-de-aplicacion-NTI.html)
+
+-   :material-update:{ .lg .middle .grid-emoji } **¿ Cómo evoluciono desde un catálogo NTI-RISP?**{ .grid-title #migracion-nti }
+
+    ---
+
+    Si ya tienes un catálogo conforme al modelo de metadatos NTI-RISP 2013, para evolucionar a DCAT-AP-ES puedes:
+    
+    1. **Identificar cambios**: Revisar las diferencias entre ambos modelos según el [Anexo 1 - Cambios respecto a la NTI-RISP](/#annex-1-nti-risp-to-dcat-ap-es) e incorporar nuevos metadatos obligatorios.
+    
+    2. **Adaptar vocabularios controlados**: Utilizar los [vocabularios actualizados del modelo](/#dcat-ap-es-vocabularies) en vez de literales.
+    
+    3. **Añadir soporte a servicios**: Incorporar la clase [`dcat:DataService`](/#servicio_de_datos_-_clase_dcatdataservice_-_opcional) si ofreces APIs o servicios.
+    
+    4. **Validar el catálogo**: Comprobar la conformidad utilizando las [herramientas de validación](/validacion/)
+    
+    [:octicons-arrow-right-24: Migración](/#annex-1-nti-risp-to-dcat-ap-es)
+
+-   :material-compare:{ .lg .middle .grid-emoji } **¿ Diferencias entre DCAT-AP-ES y DCAT-AP?**{ .grid-title #diferencias-dcat }
+
+    ---
+
+    DCAT-AP-ES añade varias restricciones y extiende el modelo europeo:
+    
+    - **Obligatoriedad ampliada**: Establece más propiedades obligatorias para garantizar la interoperabilidad.
+    
+    - **Contexto español**: Añade taxonomías y vocabularios controlados propios del sector público español.
+    
+    - **Integración HVD**: Incorpora completamente el modelo de datos de alto valor.
+    
+    - **Cardinalidad adaptada**: Limita algunas cardinalidades para descripciones más precisas.
+    
+    [:octicons-arrow-right-24: Diferencias](/#annex-3-dcat-ap-to-dcat-ap-es)
 
 </div>
 

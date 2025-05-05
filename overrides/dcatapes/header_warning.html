@@ -1,0 +1,15 @@
+{% if config.extra.warning_banner %}
+  <div class="warning-banner">
+    <span class="twemoji warning-icon">
+      {% include ".icons/material/fire.svg" %}
+    </span>
+    
+    {% if config.theme.language and config.theme.language == 'en' and config.extra.warning_banner.en %}
+      {{ config.extra.warning_banner.en | safe }}
+    {% elif config.extra.warning_banner.es %}
+      {{ config.extra.warning_banner.es | safe }}
+    {% else %}
+      {{ config.extra.warning_banner | safe }}
+    {% endif %}
+  </div>
+{% endif %}
