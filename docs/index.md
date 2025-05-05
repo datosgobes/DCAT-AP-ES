@@ -2362,8 +2362,82 @@ Este anexo presenta una visión consolidada de las diferencias principales entre
 - Restringe `dcat:themeTaxonomy` a máximo 3 taxonomías, incluyendo obligatoriamente la española
 
 ### 6. Conformidad con marco legal
-- Implementa requisitos para cumplir con normativa española de datos abiertos (Ley 37/2007, NTI-RISP)
-- Adapta el perfil para cumplir con la Directiva (UE) 2019/1024 relativa a datos abiertos y reutilización
-- Proporciona base técnica para el cumplimiento del Real Decreto 1495/2011 y normativa relacionada
+- Implementa requisitos para cumplir con normativa española de datos abiertos ([Ley 37/2007, de 16 de noviembre, sobre reutilización de la información del sector público](https://www.boe.es/eli/es/l/2007/11/16/37/con), [Resolución de 19 de febrero de 2013, de la Secretaría de Estado de Administraciones Públicas, por la que se aprueba la Norma Técnica de Interoperabilidad de Reutilización de recursos de la información](https://www.boe.es/eli/es/res/2013/02/19/(4)))
+- Adapta el perfil para cumplir con la [Directiva (UE) 2019/1024](http://data.europa.eu/eli/dir/2019/1024/oj) relativa a datos abiertos y reutilización.
+
+# Histórico de cambios
+
+Este apartado proporciona una visión general de los cambios incorporados en DCAT-AP-ES. Una lista completa de las incidencias cerradas con esta versión está accesible en [GitHub](https://github.com/datosgobes/DCAT-AP-ES/issues).
+
+## DCAT-AP-ES 1.0.0
+
+### Cambios principales
+
+- Transformación del documento PDF en representación HTML (estilo [RESPEC](https://respec.org/docs/) usando [MkDocs](https://www.mkdocs.org/) + [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+- Integración de directrices y textos actualizados relacionados con DCAT-AP-ES
+- Actualización y mejora de referencias cruzadas para facilitar la navegación
+- Corrección de numerosas erratas y problemas de conversión
+- Actualización del reconocimiento a los colaboradores
+
+### Adaptaciones a las diferentes secciones
+- **Introducción**: Revisión para reflejar el contexto actual y los fundamentos del perfil
+- **Conformidad**: Actualización para reflejar los requisitos de implementación en el ecosistema español
+- **Terminología**: Lista de prefijos actualizada con los vocabularios más recientes
+- **Modelo de datos**: Estructura reorganizada para mejorar la legibilidad
+- **Vocabularios controlados**: Actualización de referencias a vocabularios autorizados
+- **Conjuntos de datos de alto valor (HVD)**: Integración completa de los requisitos del [Reglamento de Ejecución (UE) 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj)
+- **Anexo de referencia rápida**: Generación automática desde el modelo de datos para mantener sincronización
+
+#### Cambios respecto a NTI-RISP
+
+- Actualización completa de las clases y propiedades conforme a DCAT-AP
+- Eliminación de propiedades obsoletas y reemplazo por alternativas más adecuadas
+- Reestructuración para adaptarse a los nuevos requisitos de la [Directiva (UE) 2019/1024](http://data.europa.eu/eli/dir/2019/1024/oj)
+- Implementación de metadatos específicos para conjuntos de datos de alto valor (HVD)
+- Ampliación de capacidades para describir servicios de datos (APIs y endpoints)
+
+#### Diferencias con DCAT-AP
+
+- Mayor nivel de obligatoriedad en propiedades clave para garantizar calidad de metadatos
+- Adaptación al marco normativo español y sus requisitos específicos
+- Cardinalidades más restrictivas para garantizar uniformidad y precisión
+- Requisitos lingüísticos específicos del contexto multilingüe español
+- Integración con sistemas de identificación de organismos públicos españoles (DIR3)
+
+### Adaptaciones del modelo de datos
+
+La lista siguiente indica los cambios y diferencias respecto a la versión anterior (NTI-RISP). También se incluye el impacto de la alineación con W3C DCAT y DCAT-AP europeo.
+
+- División de los textos descriptivos existentes en definiciones y notas de uso siguiendo las mejores prácticas de SEMIC
+- Alineación con DCAT-AP 2.1.1 y adopción selectiva de elementos de DCAT-AP 3.0.0
+- Organización del perfil en Entidades Principales, Entidades de Soporte y Tipos de Datos
+- Elevación de numerosas propiedades a obligatorias para garantizar interoperabilidad
+- Incorporación de aspectos específicos para datos de alto valor (HVD)
+- Adaptación a requisitos lingüísticos y de clasificación territorial de España
+
+### Requisitos específicos para el contexto español
+
+- **Taxonomías nacionales**: Implementación obligatoria de la taxonomía de sectores primarios española
+- **Requisito lingüístico**: Obligatoriedad del español como uno de los idiomas en propiedades multilingües
+- **Identificadores normalizados**: Adopción del esquema DIR3 para la identificación de organismos públicos
+
+### Alineación con HVD (Datos de Alto Valor)
+
+- Integración completa de los requisitos del Reglamento de Ejecución (UE) 2023/138
+- Definición clara de propiedades obligatorias adicionales para conjuntos de datos HVD
+- Incorporación de metadatos para la trazabilidad y cumplimiento normativo (legislación aplicable, categorías HVD)
+
+### SHACL y validación
+
+- Desarrollo de reglas SHACL para validación automática del perfil
+- Inclusión de identificadores únicos para cada restricción
+- Implementación de pruebas para verificar conformidad con el perfil
+
+### Correcciones de errores
+
+- Alineación de propiedades con su definición en los vocabularios originales
+- Corrección de cardinalidades para reflejar requisitos específicos del contexto español
+- Mejora de las descripciones y notas de uso para facilitar la implementación correcta
+- Ajustes en referencias a vocabularios controlados para asegurar su disponibilidad y persistencia
 
 [^1]: Obligatorio cuando se trata de datos de alto valor, en otro caso, recomendado.
