@@ -2215,5 +2215,155 @@ En la siguiente relación, se incluye junto al acrónimo HVD, las propiedades qu
 | Standard | dct:Standard |  |
 | Status | skos:Concept |  |
 
+# Anexo 3. Diferencias entre DCAT-AP-ES y DCAT-AP {#annex-3-dcat-ap-to-dcat-ap-es}
+
+DCAT-AP-ES se basa en [DCAT-AP 2.1.1](https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) con la incorporación de elementos de la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/). A continuación, se presentan las principales diferencias entre el modelo español y las versiones europeas.
+
+Las diferencias se muestran en las siguientes tablas comparativas, donde la cabecera indica:
+
+- **Entidad**: Clase o elemento del modelo (por ejemplo, `Catalog`, `Dataset`, `Distribution`, etc.).
+- **Metadato**: Nombre del metadato o propiedad.
+- **Propiedad**: Nombre formal de la propiedad (por ejemplo, `dct:title`).
+- **T** (Aplicabilidad): Tipo de obligatoriedad en DCAT-AP-ES (`Obligatorio`, `Recomendado`, `Opcional`).
+- **DCAT-AP T**: Tipo de obligatoriedad en el perfil DCAT-AP.
+- **C** (Cardinalidad): Cardinalidad en DCAT-AP-ES.
+- **DCAT-AP C**: Cardinalidad en el perfil DCAT-AP.
+- **Observaciones**: Comentarios sobre el cambio o diferencia principal.
+
+## DCAT-AP 2.1.1
+
+| Entidad | Metadato | Propiedad | T | DCAT-AP<br>T | C | DCAT-AP<br>C | Observaciones |
+|---|---|---|---|---|---|---|---|
+| Catalog | Nombre | dct:title | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Catalog | Descripción | dct:description | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Catalog | Órgano publicador | dct:publisher | Ob | Ob | 1..1 | 1..1 | Sin cambios significativos |
+| Catalog | Temática(s) | dcat:themeTaxonomy | Ob | R | 1..3 | 0..n | DCAT-AP-ES requiere obligatoriamente la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) y restringe cardinalidad |
+| Catalog | Idioma(s) | dct:language | Ob | R | 1..n | 0..n | DCAT-AP-ES exige que al menos uno de los idiomas sea español |
+| Catalog | Fecha de creación | dct:issued | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| Catalog | Fecha de actualización | dct:modified | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| Catalog | Página web | foaf:homepage | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| Catalog | Términos de uso | dct:license | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| CatalogRecord | Estado editorial | adms:status | R | R | 0..1 | 0..1 | En DCAT-AP 2.1.1 usa vocabulario [ADMS Status 1.0](http://www.w3.org/TR/vocab-adms/#status) |
+| Dataset | Nombre | dct:title | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Dataset | Descripción | dct:description | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Dataset | Publicador | dct:publisher | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria y ajusta cardinalidad (1..1) |
+| Dataset | Temática(s) | dcat:theme | Ob | R | 1..n | 0..n | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| Dataset | Distribución | dcat:distribution | R/Ob (HVD) | R | 0..n/1..n (HVD) | 0..n | DCAT-AP-ES hace obligatoria esta propiedad para conjuntos de datos HVD |
+| Dataset | Categoría HVD | dcatap:hvdCategory | Op/Ob (HVD) | No existe | 0..n/1..n (HVD) | - | Propiedad incorporada en DCAT-AP-ES desde DCAT-AP 3.0.0 |
+| Dataset | Resolución espacial | dcat:spatialResolutionInMeters | Op | R | 0..1 | 0..n | DCAT-AP-ES limita a una única resolución espacial |
+| Dataset | Resolución temporal | dcat:temporalResolution | Op | R | 0..1 | 0..n | DCAT-AP-ES limita a una única resolución temporal |
+| DataService | Nombre | dct:title | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| DataService | URL de acceso | dcat:endpointURL | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| DataService | Temática(s) | dcat:theme | Ob | R | 1..n | 0..n | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| DataService | Publicador | dct:publisher | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| DataService | Descripción del punto de acceso | dcat:endpointDescription | R | R | 0..n | 0..n | Sin cambios significativos |
+| DataService | Categoría HVD | dcatap:hvdCategory | Op/Ob (HVD) | No existe | 0..n/1..n (HVD) | - | Propiedad incorporada en DCAT-AP-ES desde DCAT-AP 3.0.0 |
+| Distribution | URL de acceso | dcat:accessURL | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Distribution | Formato | dct:format | R | R | 0..1 | 0..1 | Sin cambios significativos |
+| Distribution | Licencia | dct:license | R | R | 0..1 | 0..1 | Sin cambios significativos |
+| Distribution | Legislación aplicable | dcatap:applicableLegislation | R/Ob (HVD) | No existe | 0..n/1..n (HVD) | - | Propiedad incorporada en DCAT-AP-ES desde DCAT-AP 3.0.0 |
+| Distribution | Disponibilidad | dcatap:availability | R | No existe | 0..1 | - | Propiedad incorporada en DCAT-AP-ES desde DCAT-AP 3.0.0 |
+| Distribution | Estado | adms:status | Op | R | 0..1 | 0..1 | DCAT-AP-ES rebaja la propiedad a Opcional |
+| Distribution | Resolución espacial | dcat:spatialResolutionInMeters | Op | Op | 0..1 | 0..1 | Sin cambios significativos|
+| Distribution | Resolución temporal | dcat:temporalResolution | Op | R | 0..1 | 0..n | DCAT-AP-ES limita a una única resolución temporal |
+| Agent | Nombre | foaf:name | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Agent | Tipo | dct:type | R | R | 0..1 | 0..1 | Sin cambios significativos |
+| Agent | Identificador | dct:identifier | R | Op | 0..1 | 0..1 | DCAT-AP-ES eleva a Recomendado y establece formato para organismos públicos (DIR3) |
+
+## DCAT-AP 3.0.0
+
+| Entidad | Metadato | Propiedad | T | DCAT-AP<br>T | C | DCAT-AP<br>C | Observaciones |
+|---|---|---|---|---|---|---|---|
+| Catalog | Nombre | dct:title | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Catalog | Descripción | dct:description | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Catalog | Órgano publicador | dct:publisher | Ob | Ob | 1..1 | 1..1 | Sin cambios significativos |
+| Catalog | Temática(s) | dcat:themeTaxonomy | Ob | R | 1..3 | 0..n | DCAT-AP-ES requiere obligatoriamente la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) y restringe cardinalidad |
+| Catalog | Idioma(s) | dct:language | Ob | R | 1..n | 0..n | DCAT-AP-ES exige que al menos uno de los idiomas sea español |
+| Catalog | Fecha de creación | dct:issued | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| Catalog | Fecha de actualización | dct:modified | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| Catalog | Página web | foaf:homepage | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| Catalog | Términos de uso | dct:license | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| Catalog | Legislación aplicable | dcatap:applicableLegislation | No existe | R | - | 0..* | Propiedad de DCAT-AP 3 no incorporada a DCAT-AP-ES |
+| CatalogRecord | Estado editorial | adms:status | R | R | 0..1 | 0..1 | En DCAT-AP 3 usa vocabulario diferente al de DCAT-AP 2.1.1, en `DCAT-AP-ES` se adopta como una recomendación: `http://publications.europa.eu/resource/authority/concept-status`|
+| Dataset | Nombre | dct:title | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Dataset | Descripción | dct:description | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Dataset | Publicador | dct:publisher | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria y ajusta cardinalidad (`1..1`) |
+| Dataset | Temática(s) | dcat:theme | Ob | R | 1..n | 0..* | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| Dataset | Distribución | dcat:distribution | R/Ob (HVD) | R | 0..n/1..n (HVD) | 0..* | DCAT-AP-ES hace obligatoria esta propiedad para conjuntos de datos HVD |
+| Dataset | Categoría HVD | dcatap:hvdCategory | Op/Ob (HVD) | Op | 0..n/1..n (HVD) | 0..n | En DCAT-AP-ES es Obligatorio para conjuntos de datos HVD |
+| Dataset | Calidad | dqv:hasQualityMeasurement | No existe | Op | - | 0..n | Propiedad nueva en DCAT-AP 3.0.0 no incorporada a DCAT-AP-ES |
+| Dataset | Resolución espacial | dcat:spatialResolutionInMeters | Op | Op | 0..1 | 0..1 | DCAT-AP-ES mantiene la misma cardinalidad |
+| Dataset | Resolución temporal | dcat:temporalResolution | Op | Op | 0..1 | 0..n | DCAT-AP-ES limita a una única resolución temporal |
+| DataService | Nombre | dct:title | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| DataService | URL de acceso | dcat:endpointURL | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| DataService | Temática(s) | dcat:theme | Ob | R | 1..n | 0..* | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| DataService | Publicador | dct:publisher | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| DataService | Descripción del punto de acceso | dcat:endpointDescription | R | R | 0..n | 0..* | Sin cambios significativos |
+| DataService | Descripción del punto por tipo | dcat:endpointDescriptionByType | No existe | R | - | 0..n | Propiedad nueva en DCAT-AP 3.0.0 no incorporada a DCAT-AP-ES |
+| DataService | Categoría HVD | dcatap:hvdCategory | Op/Ob (HVD) | Op | 0..n/1..n (HVD) | 0..n | En DCAT-AP-ES es Obligatorio para servicios HVD |
+| Distribution | URL de acceso | dcat:accessURL | Ob | Ob | 1..n | 1..n | Sin cambios significativos |
+| Distribution | Formato | dct:format | R | R | 0..1 | 0..1 | Sin cambios significativos |
+| Distribution | Licencia | dct:license | R | R | 0..1 | 0..1 | Sin cambios significativos |
+| Distribution | Legislación aplicable | dcatap:applicableLegislation | R/Ob (HVD) | Op | 0..n/1..n (HVD) | 0..n | DCAT-AP-ES eleva a Recomendado/Obligatorio para HVD |
+| Distribution | Disponibilidad | dcatap:availability | R | R | 0..1 | 0..1 | Sin cambios significativos |
+| Distribution | Estado | adms:status | Op | Op | 0..1 | 0..1 | Sin cambios significativos  |
+| Distribution | Resolución espacial | dcat:spatialResolutionInMeters | Op | Op | 0..1 | 0..1 | Sin cambios significativos|
+| Distribution | Resolución temporal | dcat:temporalResolution | Op | Op | 0..1 | 0..1 | Sin cambios significativos |
+| Agent | Nombre | foaf:name | Ob | Ob | 1..n | 0..1 | Sin cambios significativos |
+| Agent | Tipo | dct:type | R | Op | 0..1 | 0..1 | DCAT-AP-ES eleva a Recomendado |
+| Agent | Identificador | dct:identifier | R | Op | 0..1 | 0..1 | DCAT-AP-ES eleva a Recomendado y establece formato para organismos públicos (DIR3) |
+
+
+## Extensiones
+La sección de **Extensiones** describe cómo DCAT-AP-ES amplía y adapta el modelo base de DCAT-AP para cubrir necesidades específicas del contexto español y para incorporar requisitos adicionales, como los relativos a los conjuntos de datos de alto valor (HVD). 
+
+### DCAT-AP HVD 2.2.0
+
+| Entidad | Metadato | Propiedad | T | HVD<br>T | C | HVD<br>C | Observaciones |
+|---|---|---|---|---|---|---|---|
+| Dataset | Categoría HVD | dcatap:hvdCategory | Op/Ob (HVD) | Op/Ob (HVD) | 0..n/1..n (HVD) | 0..n/1..n (HVD) | Implementación completa de DCAT-AP HVD en DCAT-AP-ES |
+| Dataset | Legislación aplicable | dcatap:applicableLegislation | R/Ob (HVD) | Op/Ob (HVD) | 0..n/1..n (HVD) | 0..n/1..n (HVD) | Implementación completa de DCAT-AP HVD en DCAT-AP-ES |
+| Dataset | Distribución | dcat:distribution | R/Ob (HVD) | Op/Ob (HVD) | 0..n/1..n (HVD) | 0..n/1..n (HVD) | Implementación completa de DCAT-AP HVD en DCAT-AP-ES |
+| Dataset | Punto de contacto | dcat:contactPoint | R/Ob (HVD) | Op/Ob (HVD) | 0..n/1..n (HVD) | 0..n/1..n (HVD) | Implementación completa de DCAT-AP HVD en DCAT-AP-ES |
+| DataService | Categoría HVD | dcatap:hvdCategory | Op/Ob (HVD) | Op/Ob (HVD) | 0..n/1..n (HVD) | 0..n/1..n (HVD) | Implementación completa de DCAT-AP HVD en DCAT-AP-ES |
+| DataService | Legislación aplicable | dcatap:applicableLegislation | R/Ob (HVD) | Op/Ob (HVD) | 0..n/1..n (HVD) | 0..n/1..n (HVD) | Implementación completa de DCAT-AP HVD en DCAT-AP-ES |
+| DataService | Punto de contacto | dcat:contactPoint | R/Ob (HVD) | Op/Ob (HVD) | 0..n/1..n (HVD) | 0..n/1..n (HVD) | Implementación completa de DCAT-AP HVD en DCAT-AP-ES |
+| DataService | Conjunto de datos servido | dcat:servesDataset | R/Ob (HVD) | Op/Ob (HVD) | 0..n/1..n (HVD) | 0..n/1..n (HVD) | Implementación completa de DCAT-AP HVD en DCAT-AP-ES |
+| Distribution | Legislación aplicable | dcatap:applicableLegislation | R/Ob (HVD) | Op/Ob (HVD) | 0..n/1..n (HVD) | 0..n/1..n (HVD) | Implementación completa de DCAT-AP HVD en DCAT-AP-ES |
+| Distribution | Licencia | dct:license | R/Ob (HVD) | Op/Ob (HVD) | 0..1/1..1 (HVD) | 0..1/1..1 (HVD) | Se mantiene la misma obligatoriedad para licencias en datos HVD |
+
+## Características distintivas de DCAT-AP-ES
+
+Este anexo presenta una visión consolidada de las diferencias principales entre DCAT-AP-ES y los perfiles europeos DCAT-AP (versiones 2.1.1 y 3.0.0), facilitando la comprensión de las particularidades del perfil español y sus requisitos específicos de implementación.
+
+### 1. Adaptación al contexto español
+- **Uso obligatorio de taxonomías nacionales**: DCAT-AP-ES exige el uso de la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) para clasificación temática
+- **Requisito lingüístico**: Al menos uno de los idiomas debe ser español en propiedades multilingües
+- **Normalización de identificadores organizativos**: Define URI normalizadas con formato DIR3 para organismos públicos (`http://datos.gob.es/recurso/sector-publico/org/Organismo/{ID}`)
+
+### 2. Mayor obligatoriedad en metadatos
+- DCAT-AP-ES eleva numerosas propiedades de Recomendadas a Obligatorias, especialmente en `dcat:Catalog`, `dcat:Dataset` y `dcat:DataService`
+- Define obligatoriedad para propiedades clave como `dct:publisher`, `dcat:theme` y fechas de creación/actualización
+- Adopta un enfoque más estricto para garantizar completitud e interoperabilidad de metadatos
+
+### 3. Soporte integral para datos de alto valor (HVD)
+- Integra requisitos específicos para datos de alto valor según el Reglamento de Ejecución (UE) 2023/138
+- Define propiedades obligatorias adicionales para conjuntos de datos HVD (`dcatap:hvdCategory`, `dcat:distribution`)
+- Incorpora `dcatap:applicableLegislation` como obligatoria para distribuciones HVD
+
+### 4. Evolución desde los perfiles europeos
+- Incorpora selectivamente propiedades de DCAT-AP 3.0.0 como `dcatap:availability` y `dcatap:hvdCategory`
+- Omite algunas propiedades de DCAT-AP 3.0.0 como `dqv:hasQualityMeasurement` y `dcat:endpointDescriptionByType` 
+- Actualiza vocabularios controlados (p.ej., para `adms:status` en `dcat:Distribution`)
+
+### 5. Cardinalidades adaptadas
+- Define cardinalidades más restrictivas para mayor precisión (p.ej., `dct:publisher` exige cardinalidad 1..1)
+- Limita resoluciones espaciales y temporales a una única instancia (0..1)
+- Restringe `dcat:themeTaxonomy` a máximo 3 taxonomías, incluyendo obligatoriamente la española
+
+### 6. Conformidad con marco legal
+- Implementa requisitos para cumplir con normativa española de datos abiertos (Ley 37/2007, NTI-RISP)
+- Adapta el perfil para cumplir con la Directiva (UE) 2019/1024 relativa a datos abiertos y reutilización
+- Proporciona base técnica para el cumplimiento del Real Decreto 1495/2011 y normativa relacionada
 
 [^1]: Obligatorio cuando se trata de datos de alto valor, en otro caso, recomendado.
