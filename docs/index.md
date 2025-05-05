@@ -78,25 +78,28 @@ Se enumerarán a continuación vocabularios genéricos que configuran el espacio
 | XML Schema | `xsd:` | `http://www.w3.org/2001/XMLSchema#` |
 
 ## Vocabularios controlados utilizados en el modelo {#dcat-ap-es-vocabularies}
-
-A continuación, se detalla la serie de propiedades que deben ajustarse utilizando obligatoriamente los vocabularios controlados indicados en la tabla siguiente, con el objetivo de garantizar un nivel mínimo de interoperabilidad.
+Para garantizar la coherencia e interoperabilidad entre catálogos de datos, DCAT-AP-ES recomienda el uso de vocabularios controlados para cada propiedad. La siguiente tabla muestra los vocabularios recomendados y sus correspondientes URIs, cuyo uso puede ser obligatorio en algunos casos según las especificaciones del modelo.
 
 | **Propiedad** | **Clase** | **Vocabulario** | **URI del vocabulario** |
 | --- | --- | --- | --- |
+| **adms:status** | CatalogRecord | [Concept status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/authority/concept-status) | `http://publications.europa.eu/resource/authority/concept-status` |
+| **adms:status** | Distribution | [Distribution status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/distribution-status) | `http://publications.europa.eu/resource/authority/distribution-status` |
+| **dcat:compressFormat** | Distribution | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
+| **dcat:mediaType** | Distribution | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
+| **dcat:packageFormat** | Distribution | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
+| **dcat:theme** | Dataset<br>DataService | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul>  | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
+| **dcat:themeTaxonomy** | Catalog | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul> | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
 | **dcatap:availability** | Distribution | [Planned availability](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/planned-availability) | `http://publications.europa.eu/resource/authority/planned-availability` |
+| **dcatap:hvdCategory** | Dataset<br>DataService | [HVD Category](https://op.europa.eu/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/bna/asd487ae75) | `http://data.europa.eu/bna/asd487ae75` |
 | **dct:accessRights** | Dataset<br>DataService | [Access right](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/access-right) | `http://publications.europa.eu/resource/authority/access-right` |
 | **dct:accrualPeriodicity** | Dataset | [Frequency](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/frequency) | `http://publications.europa.eu/resource/authority/frequency` |
 | **dct:format** | Distribution | [File type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/file-type) | `http://publications.europa.eu/resource/authority/file-type` |
-| **dcatap:hvdCategory** | Dataset<br>DataService | [HVD Category](https://op.europa.eu/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/bna/asd487ae75) | `http://data.europa.eu/bna/asd487ae75` |
-| **dct:language** | Catalog<br>Dataset<br>CatalogRecord<br>Distribution | [Language](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/language) | `http://publications.europa.eu/resource/authority/language` |
+| **dct:language** | Catalog<br>Dataset<br>Distribution | [Language](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/language) | `http://publications.europa.eu/resource/authority/language` |
 | **dct:license** | Catalog<br>DataService<br>Distribution | [Licence](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/licence) | `http://publications.europa.eu/resource/authority/licence` |
-| **dcat:mediaType** | Distribution | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
 | **dct:spatial** | Catalog<br>Dataset | <ul><li>[Taxonomía de territorio NTI-RISP](https://datos.gob.es/es/recurso/sector-publico/territorio)</li><li> [Continent](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/continent)</li><li>[Countries and territories](http://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country)</li><li>[Administrative territorial unit](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/atu)</li><li>[Place](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/place)</li><li>[Geonames](http://www.geonames.org/)</li></ul> | <ul><li>`http://datos.gob.es/es/recurso/sector-publico/territorio`</li><li>`http://publications.europa.eu/resource/authority/continent`</li><li>`http://publications.europa.eu/resource/authority/country`</li><li>`http://publications.europa.eu/resource/authority/atu`</li><li>`http://publications.europa.eu/resource/authority/place`</li><li>`http://sws.geonames.org/`</li></ul> |
-| **dcat:theme** | Dataset | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul>  | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
-| **dcat:themeTaxonomy** | Catalog | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul> | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
-| **dct:type** | Agent | [Vocabulario tipo de agente organización](http://purl.org/adms/publishertype/1.0) | `http://purl.org/adms/publishertype/1.0` |
+| **dct:type** | Agent | [ADMS publisher type](http://purl.org/adms/publishertype/1.0) | `http://purl.org/adms/publishertype/1.0` |
 | **dct:type** | Dataset | [Dataset type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/dataset-type) | `http://publications.europa.eu/resource/authority/dataset-type` |
-| **adms:status** | Distribution | [Distribution status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/distribution-status) | `http://publications.europa.eu/resource/authority/distribution-status` |
+| **dct:type** | LicenseDocument | [ADMS licence type](http://purl.org/adms/licencetype/1.0) | `http://purl.org/adms/licencetype/1.0` |
 
 # Relación de metadatos del modelo DCAT-AP-ES {#dcat-ap-es-model-relations}
 
@@ -141,6 +144,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Incluye a | Otro Catálogo que está incluido en el catálogo | dct:hasPart | Op | 0..n | **dcat:Catalog** |
 | Está incluido en | Forma parte de otro catálogo | dct:isPartOf | Op | 0..1 | **dcat:Catalog** |
 | Declaración de derechos | Declaración de los derechos relacionados con el catálogo. | dct:rights | Op | 0..1 | **dct:RightsStatement** |
+| Cobertura temporal | Define el período de tiempo que abarca el catálogo. | dct:temporal | Op | 0..n | **dct:PeriodOfTime** |
 
 
 ## Registro del catálogo - Clase: dcat:CatalogRecord - Opcional
@@ -151,6 +155,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Fecha de última actualización | Última fecha conocida en la que se modificó o actualizó el registro del catálogo. | dct:modified | Ob | 1..1 | **rdfs:Literal** |
 | Perfil de aplicación | Marco normativo relativo al registro del catálogo. | dct:conformsTo | R | 0..1 | **dct:Standard** |
 | Fecha de creación | Fecha inicial en la que se creó el registro. | dct:issued | R | 0..1 | **rdfs:Literal** |
+| Estado | Fase del ciclo de vida en que se encuentra | adms:status | R | 0..1 | **skos:Concept** |
 | Nombre | Nombre o título del Registro del Catálogo | dct:title | Op | 0..n | **rdfs:Literal** |
 | Descripción | Descripción resumida del contenido del registro del catálogo | dct:description | Op | 0..n | **rdfs:Literal** |
 
@@ -164,12 +169,12 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Punto de contacto | Información de contacto sobre el servicio de datos HVD | dcat:contactPoint | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **vcard:Kind** |
 | Documentación | Documento relevante sobre el servicio de datos HVD | foaf:page | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **foaf:Document** |
 | Temática(s) | Temática o categoría principal del servicio de datos. | dcat:theme | Ob | 1..n | **skos:Concept** |
-| Publicador | Organización que publica el servicio. | dct:publisher | Ob | 1 | **foaf:Agent** |
+| Publicador | Organización que publica el servicio. | dct:publisher | Ob | 1..1 | **foaf:Agent** |
 | Descripción del punto de acceso | Descripción de las características del punto de acceso | dcat:endpointDescription | R | 0..n | **rdfs:Resource** |
 | Conjuntos de datos | Conjuntos de datos disponibles a través del servicio. | dcat:servesDataset | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **dcat:Dataset** |
 | Legislación aplicable | URI de la legislación que es aplicable al recurso | dcatap:applicableLegislation | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **eli:LegalResource** |
 | Descripción | Descripción resumida del servicio de datos | dct:description | Op | 0..n | **rdfs:Literal** |
-| Derechos de acceso | Declaración acerca de las posibles restricciones de acceso | dct:accessRights | Op | 0..1 | **RightsStatement** |
+| Derechos de acceso | Declaración acerca de las posibles restricciones de acceso | dct:accessRights | Op | 0..1 | **dct:RightsStatement** |
 | Licencia | Licencia del Servicio de datos | dct:license | Op | 0..1 | **dct:LicenseDocument** |
 | Etiqueta(s) | Etiqueta(s) textual(es) para categorizar libremente el servicio de datos. | dcat:keyword | Op | 0..n | **rdfs:Literal** |
 
@@ -235,7 +240,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Esquema | Esquema o modelo de datos vinculado | dct:conformsTo | Op | 0..n | **dct:Standard** |
 | Fecha de creación de la distribución | Fecha de creación | dct:issued | Op | 0..1 | **rdfs:Literal** |
 | Fecha de última actualización de la distribución | Última fecha conocida en la que se actualizó la distribución | dct:modified | Op | 0..1 | **rdfs:Literal** |
-| Estado | Fase del ciclo de vida en que se encuentra | adms:status | Op | 0..1 | **skos:Concept** |
+| Estado | Estado del registro de catálogo en el contexto del flujo editorial de las descripciones de conjuntos de datos y servicios de datos. | adms:status | Op | 0..1 | **skos:Concept** |
 | Idioma(s) | Idioma(s) empleado en la información contenida en la distribución | dct:language | Op | 0..n | **dct:LinguisticSystem** |
 | Formato comprimido | Formato de compresión en el que se encuentran los datos | dcat:compressFormat | Op | 0..1 | **dct:MediaType** |
 | Formato empaquetado | Formato en el que agrupan archivos para su descarga | dcat:packageFormat | Op | 0..1 | **dct:MediaType** |
@@ -483,14 +488,14 @@ Se describe mediante las siguientes propiedades:
     2.  Como alternativa, es posible delimitar el área geográfica utilizando las propiedades de la clase [Location](#loca) (explicada más adelante en este documento).
 
 
-| dcat:Catalog | dct:catalog |
+| dcat:Catalog | dcat:catalog |
 | --- | --- |
 | **Metadato** | **Catálogo** |
 | **Descripción** | Especifica un catálogo de datos que es relevante o de interés en relación con el catálogo actual. |
-| **Propiedad** | **dct:catalog** |
+| **Propiedad** | **dcat:catalog** |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dct:Catalog** |
+| **Rango** | **dcat:Catalog** |
 
 !!! note "Nota de uso"
 
@@ -504,7 +509,7 @@ Se describe mediante las siguientes propiedades:
 | **Propiedad** | **dcat:record** |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dct:CatalogRecord** |
+| **Rango** | **dcat:CatalogRecord** |
 
 !!! note "Nota de uso"
 
@@ -566,6 +571,18 @@ Se describe mediante las siguientes propiedades:
 
     Mediante esta declaración se especifican los derechos que no están cubiertos por los términos de uso (`dct:licence`) o los derechos de acceso (`dct:accessRights`), por ejemplo, derechos de propiedad intelectual. Para ajustar esta propiedad se pueden utilizar propiedades del vocabulario `http://schema.theodi.org/odrs/`
 
+| dcat:DataseCatalogt | dct:temporal |
+| --- | --- |
+| **Metadato** | **Cobertura temporal** |
+| **Descripción** | Define el período de tiempo que abarca el catálogo. |
+| **Propiedad** | **dct:temporal** |
+| **Aplicabilidad** | **Opcional** |
+| **Cardinalidad** | **0..n** |
+| **Rango** | **dct:PeriodOfTime** |
+
+!!! note "Nota de uso"
+
+    Se ajusta utilizando las propiedades de la clase Período temporal (`dct:PeriodOfTime`). Se recomienda incluir un intervalo de tiempo, definido por inicio y fin como fecha o instante temporal. Si se usa fecha para el inicio, debería usarse fecha como fin (ídem para instante temporal) y siempre emparejados, evitando los intervalos abiertos.
 
 ## Metadatos de la clase Registro del Catálogo {#dcat-catalogrecord}
 
@@ -630,6 +647,18 @@ Si esta función no es necesaria, la clase `dcat:CatalogRecord` se puede ignor
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
+| dcat:CatalogRecord | adms:status |
+| --- | --- |
+| **Metadato** | **Estado editorial del registro** |
+| **Descripción** | Estado del registro de catálogo en el contexto del flujo editorial de las descripciones de conjuntos de datos y servicios de datos. |
+| **Propiedad** | **adms:status** |
+| **Aplicabilidad** | **Recomendado** |
+| **Cardinalidad** | **0..1** |
+| **Rango** | **skos:Concept** |
+
+!!! note "Nota de uso"
+
+    El estado del registro del catálogo puede ser alguno de los valores definidos en el vocabulario:  `http://publications.europa.eu/resource/authority/concept-status` ([Recomendación DCAT 3](https://www.w3.org/TR/vocab-dcat-3/#life-cycle))
 
 | dcat:CatalogRecord | dct:title |
 | --- | --- |
@@ -808,7 +837,7 @@ Utilizando esta clase, un dataset se puede distribuir en diferentes representaci
       * respuesta OGC GetCapabilities ([WFS](http://www.opengeospatial.org/standards/wfs)) o ([WMS](http://www.opengeospatial.org/standards/wms)).
       * descripción del servicio [SPARQL](https://www.w3.org/TR/sparql11-service-description/)
     
-    2. documento [OpenSearch](https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md), [WSDL 2.0](https://www.w3.org/TR/wsdl20/) o descripción de la API [Hydra](https://www.hydra-cg.com/spec/latest/core/)u otras alternativas autodescriptivas legibles por máquina.
+    2. documento [OpenSearch](https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md), [WSDL 2.0](https://www.w3.org/TR/wsdl20/) o descripción de la API [Hydra](https://www.hydra-cg.com/spec/latest/core/) u otras alternativas autodescriptivas legibles por máquina.
     
     3. un recurso web que referencie un documento en formato texto o algún otro modo informal.
 
@@ -848,7 +877,7 @@ Utilizando esta clase, un dataset se puede distribuir en diferentes representaci
 | **Propiedad** | **dct:accessRights** |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **RightsStatement** |
+| **Rango** | **dct:RightsStatement** |
 
 !!! note "Nota de uso"
 
@@ -1257,7 +1286,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
 | **Rango** | **rdfs:Literal** |
-
+****
 !!! note "Nota de uso"
 
     Se recomienda que se detallen las diferencias con la versión inmediatamente anterior. Puede incluirse esta descripción en varios idiomas.
@@ -1368,7 +1397,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 | **Propiedad** | **dct:relation** |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **Rdfs:Resource** |
+| **Rango** | **rdfs:Resource** |
 
 !!! note "Nota de uso"
 
@@ -1386,7 +1415,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 
 !!! note "Nota de uso"
 
-    Se debe utilizar cuando la naturaleza de la relación entre Agente y conjunto de datos es conocida, pero no encaja con ninguno de los roles específicos (dct:creator, dct:publisher). Se recomienda utilizar además la propiedad dcat:hadRole para especificar la responsabilidad del Agente respecto al recurso.
+    Se debe utilizar cuando la naturaleza de la relación entre Agente y conjunto de datos es conocida, pero no encaja con ninguno de los roles específicos (`dct:creator`, `dct:publisher`). Se recomienda utilizar además la propiedad `dcat:hadRole` para especificar la responsabilidad del Agente respecto al recurso.
 
 
 | dcat:Dataset | prov:wasGeneratedBy |
@@ -1647,10 +1676,10 @@ Esta entidad se considera clave para entender cómo se puede obtener y utilizar 
 
 !!! note "Nota de uso"
 
-    El estado de la distribución de un conjunto de datos puede ser alguno de los siguientes: completa, obsoleta, en desarrollo o retirada. Estos valores están definidos en el vocabulario:  `http://publications.europa.eu/resource/authority/distribution-status`
+    El estado de la distribución de un conjunto de datos puede ser alguno de los siguientes: `completa`, `obsoleta`, `en desarrollo` o `retirada`. Estos valores están definidos en el vocabulario:  `http://publications.europa.eu/resource/authority/distribution-status`
 
 
-| dcat:Distribution | adms:language |
+| dcat:Distribution | dct:language |
 | --- | --- |
 | **Metadato** | **Idioma** |
 | **Descripción** | Especifica el idioma en el que se encuentra la información contenida en la distribución del conjunto de datos. |
@@ -1820,7 +1849,7 @@ Como se indica a continuación, todo agente o entidad debe tener un nombre y es 
 | foaf:Agent | dct:type |
 | --- | --- |
 | **Metadato** | **Tipo** |
-| **Descripción** | Permite identificar la categoría de entidad en la que se enmarca el agente |
+| **Descripción** | Permite identificar la categoría de entidad en la que se enmarca el agente. |
 | **Propiedad** | **dct:type** |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
@@ -1860,7 +1889,7 @@ La clase Control y Verificación de recursos de datos (`spdx:Checksum`) se utili
 
 !!! note "Nota de uso"
 
-    El valor del resultado de verificación debe ser único y exactoy se debe expresar codificado en formato hexadecimal.
+    El valor del resultado de verificación debe ser único, exacto y se debe expresar codificado en formato hexadecimal.
 
 
 ## Metadatos de la clase Localización {#dct-location}
@@ -1884,7 +1913,7 @@ Para su implementación, se pueden utilizar las siguientes propiedades recomenda
 
 !!! note "Nota de uso"
 
-    El rango de esta propiedad es genérico (`rdfs:Literal`) para poder expresar la geometría utilizando diferentes codificaciones. Por ejemplo, se puede expresar indicando las coordenadas geográficas (Longitud y Latitud) de las cuatro esquenas que delimitan el rectángulo geográfico.
+    El rango de esta propiedad es genérico (`rdfs:Literal`) para poder expresar la geometría utilizando diferentes codificaciones. Por ejemplo, se puede expresar indicando las coordenadas geográficas (Longitud y Latitud) de las cuatro esquinas que delimitan el rectángulo geográfico.
 
 
 | dct:Location | dcat:centroid |
@@ -1981,7 +2010,7 @@ Respecto al uso de las propiedades fecha de inicio (`dcat:startDate`) y fecha de
 
 !!! note "Nota de uso"
 
-    Se recomienda proporcionar el momento específico de comienzo del período temporal expresando un valor tipificado con alguna de las propiedades que proporciona la [ontología Time](https://www.w3.org/TR/owl-time/#time:Instant) para definir un instante concreto de una línea temporal: 
+    Se recomienda proporcionar el momento específico de finalización del período temporal expresando un valor tipificado con alguna de las propiedades que proporciona la [ontología Time](https://www.w3.org/TR/owl-time/#time:Instant) para definir un instante concreto de una línea temporal: 
     
     * [time:inXSDDate](https://www.w3.org/TR/owl-time/#time:inXSDDate)
     * [time::inXSDDateTimeStamp](https://www.w3.org/TR/owl-time/#time:inXSDDateTimeStamp)
@@ -2026,8 +2055,84 @@ Se utilizan dos propiedades (`dct:relation` y `dcat:hadRole`) que se declaran ob
 
     Se debe especificar la referencia a un recurso de datos ([`dcat:Dataset`](#conjunto-de-datos---clase-dcatdataset---obligatorio) o [`dcat:DataService`](#servicio-de-datos---clase-dcatdataservice---opcional)).
 
+Aquí tienes una actualización para la sección de **Documento de licencia** (`dct:LicenseDocument`) siguiendo la referencia de DCAT-AP 3 (sección 7.11):
 
-# Anexo 1. Cambios del modelo DCAT-AP-ES respecto a NTI-RISP (v.2013) {#annex-1-nti-risp-to-dcat-ap-es}
+## Metadatos de la clase Documento de licencia {#dct-licencedocument}
+
+La clase **Documento de licencia** (`dct:LicenseDocument`) representa un documento legal que otorga permiso oficial para hacer algo con un recurso, como reutilizar, compartir o modificar datos.
+
+Se utiliza para describir las condiciones legales bajo las cuales se puede utilizar un recurso, proporcionando claridad sobre los derechos y obligaciones asociados.
+
+| dct:LicenseDocument | dct:type |
+| --- | --- |
+| **Metadato** | **Tipo** |
+| **Descripción** | Permite identificar el tipo de licencia en el que se enmarca el documento. |
+| **Propiedad** | **dct:type** |
+| **Aplicabilidad** | **Recomendado** |
+| **Cardinalidad** | **0..1** |
+| **Rango** | **skos:Concept** |
+
+!!! note "Nota de uso"
+
+    Se deben utilizar vocabularios controlados o esquemas de clasificación estandarizados para describir el tipo de documento de licencia. Se recomienda el uso del vocabulario `http://purl.org/adms/licencetype/1.0`
+
+# Conformidad
+
+## DCAT-AP
+
+DCAT-AP-ES se basa en DCAT-AP 2.1.1, se alinea con las principales restricciones.
+
+## DCAT-AP-ES
+
+### Requisitos del publicador de datos
+
+Un publicador de datos es conforme con DCAT-AP-ES cuando:
+
+1. **Implementación de clases obligatorias**: Implementa todas las clases y propiedades propiedades obligatorias definidas por el modelo.
+
+2. **Coherencia semántica**: Mantiene la coherencia en las descripciones y relaciones entre entidades, asegurando que los metadatos proporcionan una representación precisa y consistente de los recursos. Esto incluye:
+   - Uso apropiado de las propiedades según su definición semántica
+   - Consistencia entre los valores de las propiedades relacionadas
+   - Evitar contradicciones o redundancias en los metadatos
+   - Asegurar que las referencias entre recursos son válidas y significativas
+
+3. **Vocabularios controlados**: Utiliza los vocabularios controlados especificados en la sección Vocabularios controlados utilizados en el modelo para todas las propiedades que lo requieran, especialmente aquellas marcadas como obligatorias.
+
+4. **Datos de Alto Valor (HVD)**: Para conjuntos de datos clasificados como HVD, implementa las propiedades adicionales obligatorias para HVD marcadas en el documento.
+
+### Requisitos del catálogo de datos
+
+Un catálogo de datos es conforme con DCAT-AP-ES cuando:
+
+1. **Estructura del catálogo**: Se estructura como una instancia de `dcat:Catalog` que contiene o referencia todas las instancias de `dcat:Dataset` y/o `dcat:DataService`.
+
+2. **Propiedades obligatorias del catálogo**: Implementa todas las propiedades obligatorias de la clase `dcat:Catalog`:
+   - `dct:title`: Nombre del catálogo
+   - `dct:description`: Descripción del catálogo 
+   - `dct:publisher`: Entidad responsable de publicar el catálogo
+   - `foaf:homepage`: URL de acceso público al catálogo
+   - `dcat:themeTaxonomy`: Al menos una taxonomía de sectores primarios
+   - `dct:issued`: Fecha de publicación inicial
+   - `dct:modified`: Fecha de última modificación
+   - `dct:language`: Idioma(s) del catálogo (incluyendo español)
+   - `dct:license`: Términos de uso del catálogo
+
+3. **Vocabularios controlados**: Utiliza los vocabularios controlados específicos para propiedades como `dcat:themeTaxonomy` (obligatoriamente la taxonomía de sectores primarios de datos.gob.es), `dct:language` (usando el vocabulario autorizado de la UE), entre otros.
+
+4. **Federación**: Es capaz de compartir sus metadatos con el catálogo nacional datos.gob.es a través de alguno de los mecanismos de federación soportados (SPARQL endpoint, API, volcado RDF, etc.).
+
+5. **Recursos clasificados**: Todos los datasets y servicios dentro del catálogo están correctamente clasificados según las taxonomías de sectores primarios y otros vocabularios controlados.
+
+6. **Consistencia y validación**: Todos los recursos del catálogo cumplen con los requisitos estructurales y semánticos del modelo DCAT-AP-ES, y pueden ser validados mediante herramientas de validación DCAT-AP.
+
+7. **Metadatos de calidad**: Para los conjuntos de datos de alto valor (HVD), el catálogo proporciona todos los metadatos adicionales obligatorios según la normativa HVD, incluyendo la legislación aplicable y la categoría HVD correspondiente.
+
+8. **Recursos accesibles**: Todas las distribuciones referenciadas en el catálogo son accesibles a través de las URLs proporcionadas, o se indica claramente cuando no lo son mediante las propiedades de disponibilidad y estado apropiadas.
+
+La conformidad con estos requisitos asegura la interoperabilidad del catálogo con la Iniciativa Nacional de Datos Abiertos y facilita la federación con datos.gob.es y el Portal Europeo de Datos.
+
+
+# Anexo 1. Cambios del modelo DCAT-AP-ES respecto del modelo NTI-RISP (v.2013) {#annex-1-nti-risp-to-dcat-ap-es}
 
 A continuación, se detalla la relación de cambios y actualizaciones en los metadatos del modelo DCAT-AP-ES respecto al [modelo de metadatos NTI-RISP (v. 2013)](https://datosgobes.github.io/NTI-RISP), así como la relación de metadatos que han sido deprecados.
 
