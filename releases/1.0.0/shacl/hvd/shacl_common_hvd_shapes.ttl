@@ -1,5 +1,4 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <http://datos.gob.es/dcat-ap-es#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -39,7 +38,7 @@
 #--------------------------
 # Common for HVD restrictions
 #--------------------------
-:HVDCategory_HVDRestriction
+dcatapes:HVDCategory_HVDRestriction
     a sh:NodeShape ;
     rdfs:comment "Shape reservado para futuras restricciones específicas de categorías HVD."@es ;
     rdfs:comment "Shape reserved for future specific restrictions on HVD categories."@en ;

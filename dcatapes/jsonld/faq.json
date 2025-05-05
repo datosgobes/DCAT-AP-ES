@@ -68,7 +68,7 @@
             "inLanguage": "es",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Los publicadores disponen de un periodo de adaptación de seis meses desde la entrada en vigor de la NTI-RISP.",
+                "text": "Los publicadores disponen de un periodo de adaptación desde la entrada en vigor de la NTI-RISP.",
                 "inLanguage": "es"
             }
         },
@@ -299,6 +299,46 @@
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "The e-Government Portal (PAe) provides more information and documentation support for the Technical Interoperability Standards (TSI) published in the BOE.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cómo evoluciono desde un catálogo NTI-RISP a DCAT-AP-ES?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Si ya tienes un catálogo conforme al modelo de metadatos NTI-RISP 2013, para evolucionar a DCAT-AP-ES puedes: 1. Identificar cambios y añadir nuevos metadatos obligatorios. 2. Adaptar vocabularios controlados. 3. Añadir soporte a servicios. 4. Validar el catálogo con las herramientas proporcionadas.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I evolve from an NTI-RISP catalog to DCAT-AP-ES?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If you already have a catalog that conforms to the 2013 NTI-RISP metadata model, to evolve to DCAT-AP-ES you can: 1. Identify changes and add new mandatory metadata. 2. Adapt controlled vocabularies. 3. Add support for services. 4. Validate the catalog with the provided tools.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cuáles son las diferencias entre DCAT-AP-ES y DCAT-AP?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "DCAT-AP-ES añade mayor obligatoriedad en ciertas propiedades, incorpora requisitos específicos del contexto español como taxonomías propias, integra completamente el modelo de datos de alto valor (HVD), y limita algunas cardinalidades para descripciones más precisas.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are the differences between DCAT-AP-ES and DCAT-AP?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "DCAT-AP-ES adds greater mandatory requirements for certain properties, incorporates specific requirements of the Spanish context such as specific taxonomies, fully integrates the high-value dataset model (HVD), and limits some cardinalities for more precise descriptions.",
                 "inLanguage": "en"
             }
         }

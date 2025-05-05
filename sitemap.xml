@@ -2,70 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://datosgobes.github.io/DCAT-AP-ES/</loc>
-        <lastmod>2025-04-30</lastmod>
+        <lastmod>2025-05-05</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/"/>
     </url>
     <url>
         <loc>https://datosgobes.github.io/DCAT-AP-ES/conventions/</loc>
-        <lastmod>2025-04-30</lastmod>
+        <lastmod>2025-05-05</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/conventions/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/conventions/"/>
     </url>
     <url>
         <loc>https://datosgobes.github.io/DCAT-AP-ES/examples/</loc>
-        <lastmod>2025-04-30</lastmod>
+        <lastmod>2025-05-05</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/examples/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/examples/"/>
     </url>
     <url>
         <loc>https://datosgobes.github.io/DCAT-AP-ES/faq/</loc>
-        <lastmod>2025-04-30</lastmod>
+        <lastmod>2025-05-05</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/faq/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/faq/"/>
     </url>
     <url>
         <loc>https://datosgobes.github.io/DCAT-AP-ES/validation/</loc>
-        <lastmod>2025-04-30</lastmod>
+        <lastmod>2025-05-05</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/validation/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/validation/"/>
     </url>
     <url>
         <loc>https://datosgobes.github.io/DCAT-AP-ES/en/</loc>
-        <lastmod>2025-04-30</lastmod>
+        <lastmod>2025-05-05</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/"/>
     </url>
     <url>
         <loc>https://datosgobes.github.io/DCAT-AP-ES/en/conventions/</loc>
-        <lastmod>2025-04-30</lastmod>
+        <lastmod>2025-05-05</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/conventions/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/conventions/"/>
     </url>
     <url>
         <loc>https://datosgobes.github.io/DCAT-AP-ES/en/examples/</loc>
-        <lastmod>2025-04-30</lastmod>
+        <lastmod>2025-05-05</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/examples/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/examples/"/>
     </url>
     <url>
         <loc>https://datosgobes.github.io/DCAT-AP-ES/en/faq/</loc>
-        <lastmod>2025-04-30</lastmod>
+        <lastmod>2025-05-05</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/faq/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/faq/"/>
     </url>
     <url>
         <loc>https://datosgobes.github.io/DCAT-AP-ES/en/validation/</loc>
-        <lastmod>2025-04-30</lastmod>
+        <lastmod>2025-05-05</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://datosgobes.github.io/DCAT-AP-ES/en/validation/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://datosgobes.github.io/DCAT-AP-ES/validation/"/>

@@ -1,5 +1,4 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <https://datosgobes.github.io/DCAT-AP-ES/> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -46,7 +45,7 @@
 #--------------------------
 # dcat:Distribution restrictions
 #--------------------------
-:Distribution_Shape
+dcatapes:Distribution_Shape
     a sh:NodeShape ;
     sh:name "Distribución"@en ;
     sh:name "Distribution"@en ;
@@ -93,7 +92,7 @@
     ], 
     [
         sh:path dcatap:applicableLegislation ;
-        sh:node :ELIIdentifierRestriction ;
+        sh:node dcatapes:ELIIdentifierRestriction ;
         sh:severity sh:Violation ;
     ],
 
@@ -116,18 +115,21 @@
     ], 
     [
         sh:path dct:description ;
-        sh:node :LiteralMultilingualConvention ;
+        sh:node dcatapes:LiteralMultilingualConvention ;
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:description ;
-        sh:node :NonEmptyLiteralConvention ;
+        sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation ; 
     ],
     [
         sh:path dct:description ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dcatap:availability
@@ -157,7 +159,7 @@
     ],  
     [
         sh:path dcatap:availability ;
-        sh:node :AvailabilityRestriction ;
+        sh:node dcatapes:AvailabilityRestriction ;
         sh:severity sh:Violation ;
     ],
 
@@ -182,7 +184,7 @@
         sh:path dct:format ;
         sh:or (
             [ 
-                sh:node :FileTypeRestriction ;
+                sh:node dcatapes:FileTypeRestriction ;
                 sh:nodeKind sh:IRI ;
             ]
             #TODO: Review DCAT-AP-ES model
@@ -219,8 +221,8 @@
     [
         sh:path dct:license ;
         sh:or (
-            [ sh:node :LicenceDocumentRestriction ;]
-            [ sh:node :LicenceRestriction ;]
+            [ sh:node dcatapes:LicenceDocumentRestriction ;]
+            [ sh:node dcatapes:LicenceRestriction ;]
             [ sh:nodeKind sh:IRI ;]
         );
         sh:severity sh:Violation ;
@@ -255,18 +257,21 @@
     ], 
     [
         sh:path dct:title ;
-        sh:node :LiteralMultilingualConvention ;
+        sh:node dcatapes:LiteralMultilingualConvention ;
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:title ;
-        sh:node :NonEmptyLiteralConvention ;
+        sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation ;
     ],
     [
         sh:path dct:title ;
-        sh:node :UniqueLangLiteralRestriction ;
+        sh:uniqueLang true;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # foaf:page
@@ -283,8 +288,11 @@
     [
         sh:path dcat:mediaType ;
         sh:nodeKind sh:IRI ;
-        sh:node :IanaFormatRestriction;
+        sh:node dcatapes:IanaFormatRestriction;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dcat_mediatype> ;
+        sh:message "El valor de dcat:mediaType debe ser un IRI válido del formato de tipos de medios de IANA."@es ;
+        sh:message "The value of dcat:mediaType must be a valid IRI from the IANA media types format."@en ;
     ], 
     [
         sh:path dcat:mediaType ;
@@ -320,7 +328,7 @@
         sh:path dct:issued ;
         sh:maxCount 1 ;
         sh:nodeKind sh:Literal ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
     ],
 
@@ -329,7 +337,7 @@
         sh:path dct:modified ;
         sh:maxCount 1 ;
         sh:nodeKind sh:Literal ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
     ], 
 
@@ -344,7 +352,7 @@
     ], 
     [
         sh:path adms:status ;
-        sh:node :StatusRestriction ;
+        sh:node dcatapes:StatusRestriction ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
     ], 
@@ -352,7 +360,7 @@
     # dct:language
     [
         sh:path dct:language ;
-        sh:node :LanguageRestriction ;
+        sh:node dcatapes:LanguageRestriction ;
         sh:severity sh:Violation ;
     ], 
 
@@ -368,7 +376,10 @@
     [
         sh:path dcat:compressFormat ;
         sh:nodeKind sh:IRI ;
-        sh:node :IanaFormatRestriction;
+        sh:node dcatapes:IanaFormatRestriction;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dcat_compressformat> ;
+        sh:message "El valor de dcat:compressFormat debe ser un IRI válido del formato de tipos de medios de IANA."@es ;
+        sh:message "The value of dcat:compressFormat must be a valid IRI from the IANA media types format."@en ;
     ], 
     
     # dcat:packageFormat 
@@ -383,8 +394,10 @@
     [
         sh:path dcat:packageFormat ;
         sh:nodeKind sh:IRI ;
-        sh:node :IanaFormatRestriction;
-        sh:severity sh:Violation ;
+        sh:node dcatapes:IanaFormatRestriction;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dcat_packageformat> ;
+        sh:message "El valor de dcat:packageFormat debe ser un IRI válido del formato de tipos de medios de IANA."@es ;
+        sh:message "The value of dcat:packageFormat must be a valid IRI from the IANA media types format."@en ;
     ], 
 
     # dcat:byteSize
@@ -393,11 +406,11 @@
         sh:nodeKind sh:Literal;
         sh:or(
             [
-                sh:none :NonNegativeIntegerRestriction ;
+                sh:none dcatapes:NonNegativeIntegerRestriction ;
             ]
             [
-                sh:node :NonLiteralMultilingualConvention;
-                sh:node :NonEmptyLiteralConvention
+                sh:node dcatapes:NonLiteralMultilingualConvention;
+                sh:node dcatapes:NonEmptyLiteralConvention
             ]
         );
         sh:severity sh:Violation
@@ -439,7 +452,7 @@
         sh:path dcat:temporalResolution ;
         sh:nodeKind sh:Literal;
         sh:datatype xsd:duration ;
-        sh:node :DurationRestriction;
+        sh:node dcatapes:DurationRestriction;
     ],
     [
         sh:path dcat:temporalResolution ;
@@ -451,14 +464,6 @@
     ], 
 
     # spdx:checksum
-    [
-        sh:path spdx:checksum ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-spdx_checksum> ;
-        sh:message "El valor de spdx:checksum debe ser un IRI válido para spdx:checksum."@es ;
-        sh:message "The value of spdx:checksum must be a valid IRI for spdx:checksum."@en ;
-    ],
     [
         sh:path spdx:checksum ;
         sh:class spdx:Checksum ;
@@ -505,7 +510,7 @@
     sh:targetClass dcat:Distribution .
 
 # Convencion 02
-:DistributionSPALanguageRestriction
+dcatapes:DistributionSPALanguageRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que una distribución cumpla con las convenciones de idioma y contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
     rdfs:comment "Restriction to validate that a distribution complies with Spanish language and content conventions, including title, description, and other key elements."@en ;
@@ -513,15 +518,15 @@
     rdfs:label "Distribution restriction: Spanish language and content"@en ;
     sh:name "Distribution Spanish Language and Content Restriction"@en ;
     sh:name "Restricción de distribución: idioma y contenido en español"@es ;
-    sh:node :SpanishLanguageRestriction ;
-    sh:node :SpanishTitleRestriction ;
-    sh:node :SpanishDescriptionRestriction ;
+    sh:node dcatapes:SpanishLanguageRestriction ;
+    sh:node dcatapes:SpanishTitleRestriction ;
+    sh:node dcatapes:SpanishDescriptionRestriction ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
     sh:targetClass dcat:Distribution .
 
 # Convencion 21
-:OGCServiceAccessURLRestriction
+dcatapes:OGCServiceAccessURLRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que las URLs de acceso a servicios OGC incluyan la operación GetCapabilities."@es ;
     rdfs:comment "Restriction to validate that OGC service access URLs include the GetCapabilities operation."@en ;
@@ -569,7 +574,7 @@
 #---------------------------
 # Other shape restrictions
 #---------------------------
-:Checksum_Shape
+dcatapes:Checksum_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un recurso de tipo spdx:Checksum tenga un algoritmo definido y un valor de checksum válido."@es ;
     rdfs:comment "Restriction to validate that a resource of type spdx:Checksum has a defined algorithm and a valid checksum value."@en ;
@@ -599,7 +604,7 @@
     # spdx:checksumValue 
     [
         sh:path spdx:checksumValue ;
-        sh:node :NonEmptyLiteralConvention ;
+        sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:datatype xsd:hexBinary ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
@@ -611,7 +616,7 @@
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#spdx-checksum> ;
     sh:targetClass spdx:Checksum .
 
-:IMT_Shape
+dcatapes:IMT_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción heredada de NTI-RISP (2013) para validar que los valores de rdf:value y rdfs:label en recursos de tipo dct:IMT sean literales no vacíos y no multilingües."@es ;
     rdfs:comment "Restriction inherited from NTI-RISP (2013) to validate that the values of rdf:value and rdfs:label in resources of type dct:IMT are non-empty, non-multilingual literals."@en ;
@@ -623,12 +628,12 @@
     [
         sh:path rdf:value ;
         sh:nodeKind sh:Literal ;
-        sh:node :NonLiteralMultilingualConvention ;
+        sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
     ],
     [
         sh:path rdf:value ;
-        sh:node :NonEmptyLiteralConvention ;
+        sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation ;
     ],
     [
@@ -649,12 +654,12 @@
     [
         sh:path rdfs:label ;
         sh:nodeKind sh:Literal ;
-        sh:node :NonLiteralMultilingualConvention ;
+        sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
     ],
     [
         sh:path rdfs:label ;
-        sh:node :NonEmptyLiteralConvention ;
+        sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation ;
     ],
     [
@@ -677,7 +682,7 @@
 #--------------------------
 # Vocabulary restrictions
 #--------------------------
-:AvailabilityRestriction
+dcatapes:AvailabilityRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que el valor de dcatap:availability sea un IRI del vocabulario europeo de disponibilidad prevista."@es ;
     rdfs:comment "Restriction to validate that the value of dcatap:availability is an IRI from the European planned availability vocabulary."@en ;
@@ -691,7 +696,7 @@
     sh:message "The value of dcatap:availability must be an IRI from the European planned availability vocabulary: http://publications.europa.eu/resource/authority/planned-availability."@en ;
     sh:severity sh:Violation .
 
-:FileTypeRestriction
+dcatapes:FileTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que el valor sea un IRI del vocabulario europeo de tipos de archivo."@es ;
     rdfs:comment "Restriction to validate that the value is an IRI from the European file type vocabulary."@en ;
@@ -705,7 +710,7 @@
     sh:message "The value of dct:format must be an IRI from the European file type vocabulary: http://publications.europa.eu/resource/authority/file-type."@en ;
     sh:severity sh:Violation .
 
-:IanaFormatRestriction
+dcatapes:IanaFormatRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que el valor sea un IRI válido que siga el formato de los tipos de medios definidos por IANA."@es ;
     rdfs:comment "Restriction to validate that the value is a valid IRI following the format of media types defined by IANA."@en ;
@@ -718,7 +723,7 @@
     sh:message "The value of dcat:mediaType must be a valid IRI from the IANA media types format."@en ;
     sh:severity sh:Violation .
 
-:StatusRestriction
+dcatapes:StatusRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que el valor de adms:status sea un IRI del vocabulario europeo de estados de distribución."@es ;
     rdfs:comment "Restriction to validate that the value of adms:status is an IRI from the European distribution status vocabulary."@en ;
