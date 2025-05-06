@@ -13,7 +13,7 @@ En este documento, se detallan las clases principales del perfil de aplicación:
 !!! warning "Guía de convenciones "
     Como material adicional a esta guía técnica se incluyen las [**Convenciones datos.gob.es**](./conventions) que establecen **convenciones específicas** donde se definen **reglas adicionales** para abordar necesidades prácticas, semánticas o técnicas de la aplicación de DCAT-AP-ES que complementan esta especificación formal.
 
-# Conjuntos de datos de alto valor (High Value Datasets)
+# Conjuntos de datos de alto valor (High Value Datasets) {#dcat-ap-es-hvd}
 
 En respuesta a la creciente importancia de los datos en la sociedad y la economía, la Comisión Europea adoptó el [**Reglamento de ejecución (UE) 2023/138 de la Comisión Europea**](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138) (*High Value Datasets Implementing Regulation, HVD IR*) el 21 de diciembre de 2022. Este reglamento establece pautas claras para los organismos públicos en la disponibilidad de conjuntos de datos de alto valor y tiene como objetivo mejorar la calidad, accesibilidad y uso de un conjunto especifico de datos clave dentro del sector público. Para lograrlo, el reglamento HVD establece requisitos específicos para los metadatos asociados a los conjuntos de datos publicados.
 
@@ -2080,7 +2080,7 @@ Se utiliza para describir las condiciones legales bajo las cuales se puede utili
 
 ## DCAT-AP
 
-DCAT-AP-ES se basa en DCAT-AP 2.1.1, se alinea con las principales restricciones.
+DCAT-AP-ES se basa en DCAT-AP 2.1.1, y se alinea con las principales restricciones.
 
 ## DCAT-AP-ES
 
@@ -2106,31 +2106,17 @@ Un catálogo de datos es conforme con DCAT-AP-ES cuando:
 
 1. **Estructura del catálogo**: Se estructura como una instancia de `dcat:Catalog` que contiene o referencia todas las instancias de `dcat:Dataset` y/o `dcat:DataService`.
 
-2. **Propiedades obligatorias del catálogo**: Implementa todas las propiedades obligatorias de la clase `dcat:Catalog`:
-   - `dct:title`: Nombre del catálogo
-   - `dct:description`: Descripción del catálogo 
-   - `dct:publisher`: Entidad responsable de publicar el catálogo
-   - `foaf:homepage`: URL de acceso público al catálogo
-   - `dcat:themeTaxonomy`: Al menos una taxonomía de sectores primarios
-   - `dct:issued`: Fecha de publicación inicial
-   - `dct:modified`: Fecha de última modificación
-   - `dct:language`: Idioma(s) del catálogo (incluyendo español)
-   - `dct:license`: Términos de uso del catálogo
+2. **Propiedades obligatorias del catálogo**: Implementa todas las propiedades obligatorias de la clase [`dcat:Catalog`](/#catalogo_-_clase_dcatcatalog_-_obligatorio).
 
-3. **Vocabularios controlados**: Utiliza los vocabularios controlados específicos para propiedades como `dcat:themeTaxonomy` (obligatoriamente la taxonomía de sectores primarios de datos.gob.es), `dct:language` (usando el vocabulario autorizado de la UE), entre otros.
+3. **Vocabularios controlados**: Utiliza los [vocabularios controlados recomendados por el modelo](/#dcat-ap-es-vocabularies), y particularmente aquellos que son obligatorios para las propiedades descritas.
 
-4. **Federación**: Es capaz de compartir sus metadatos con el catálogo nacional datos.gob.es a través de alguno de los mecanismos de federación soportados (SPARQL endpoint, API, volcado RDF, etc.).
+4. **Federación**: Es capaz de compartir sus metadatos con el [catálogo nacional](https://datos.gob.es/) a través de alguno de los mecanismos de federación soportados.
 
-5. **Recursos clasificados**: Todos los datasets y servicios dentro del catálogo están correctamente clasificados según las taxonomías de sectores primarios y otros vocabularios controlados.
+5. **Consistencia y validación**: Todos los recursos del catálogo cumplen con los requisitos estructurales y semánticos del [modelo DCAT-AP-ES](/#dcat-ap-es-model), y pueden ser [validados utilizando las formas SHACL previstas](/validación).
 
-6. **Consistencia y validación**: Todos los recursos del catálogo cumplen con los requisitos estructurales y semánticos del modelo DCAT-AP-ES, y pueden ser validados mediante herramientas de validación DCAT-AP.
+6. **Metadatos de alto valor (HVD)**: Para los conjuntos de datos de alto valor (HVD), el catálogo proporciona todos los [metadatos adicionales obligatorios según la normativa HVD](##dcat-ap-es-hvd), incluyendo la legislación aplicable y la categoría HVD correspondiente.
 
-7. **Metadatos de calidad**: Para los conjuntos de datos de alto valor (HVD), el catálogo proporciona todos los metadatos adicionales obligatorios según la normativa HVD, incluyendo la legislación aplicable y la categoría HVD correspondiente.
-
-8. **Recursos accesibles**: Todas las distribuciones referenciadas en el catálogo son accesibles a través de las URLs proporcionadas, o se indica claramente cuando no lo son mediante las propiedades de disponibilidad y estado apropiadas.
-
-La conformidad con estos requisitos asegura la interoperabilidad del catálogo con la Iniciativa Nacional de Datos Abiertos y facilita la federación con datos.gob.es y el Portal Europeo de Datos.
-
+7. **Recursos accesibles**: Todas las distribuciones referenciadas en el catálogo son accesibles a través de las URLs proporcionadas, o se indica claramente cuando no lo son mediante las propiedades de disponibilidad y estado apropiadas.
 
 # Anexo 1. Cambios del modelo DCAT-AP-ES respecto del modelo NTI-RISP (v.2013) {#annex-1-nti-risp-to-dcat-ap-es}
 
@@ -2337,9 +2323,9 @@ La sección de **Extensiones** describe cómo DCAT-AP-ES amplía y adapta el mod
 Este anexo presenta una visión consolidada de las diferencias principales entre DCAT-AP-ES y los perfiles europeos DCAT-AP (versiones 2.1.1 y 3.0.0), facilitando la comprensión de las particularidades del perfil español y sus requisitos específicos de implementación.
 
 ### 1. Adaptación al contexto español
-- **Uso obligatorio de taxonomías nacionales**: DCAT-AP-ES exige el uso de la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) para clasificación temática
-- **Requisito lingüístico**: Al menos uno de los idiomas debe ser español en propiedades multilingües
-- **Normalización de identificadores organizativos**: Define URI normalizadas con formato DIR3 para organismos públicos (`http://datos.gob.es/recurso/sector-publico/org/Organismo/{ID}`)
+- Uso obligatorio de taxonomías nacionales: DCAT-AP-ES exige el uso de la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) para clasificación temática
+- Requisito lingüístico: Al menos uno de los idiomas debe ser español en propiedades multilingües
+- Normalización de identificadores organizativos: Define URI normalizadas con formato DIR3 para organismos públicos (`http://datos.gob.es/recurso/sector-publico/org/Organismo/{ID}`)
 
 ### 2. Mayor obligatoriedad en metadatos
 - DCAT-AP-ES eleva numerosas propiedades de Recomendadas a Obligatorias, especialmente en `dcat:Catalog`, `dcat:Dataset` y `dcat:DataService`
@@ -2347,23 +2333,22 @@ Este anexo presenta una visión consolidada de las diferencias principales entre
 - Adopta un enfoque más estricto para garantizar completitud e interoperabilidad de metadatos
 
 ### 3. Soporte integral para datos de alto valor (HVD)
-- Integra requisitos específicos para datos de alto valor según el Reglamento de Ejecución (UE) 2023/138
+- Integra requisitos específicos para datos de alto valor según el [Reglamento de ejecución (UE) 2023/138 de la Comisión Europea](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138)
 - Define propiedades obligatorias adicionales para conjuntos de datos HVD (`dcatap:hvdCategory`, `dcat:distribution`)
 - Incorpora `dcatap:applicableLegislation` como obligatoria para distribuciones HVD
 
 ### 4. Evolución desde los perfiles europeos
-- Incorpora selectivamente propiedades de DCAT-AP 3.0.0 como `dcatap:availability` y `dcatap:hvdCategory`
-- Omite algunas propiedades de DCAT-AP 3.0.0 como `dqv:hasQualityMeasurement` y `dcat:endpointDescriptionByType` 
-- Actualiza vocabularios controlados (p.ej., para `adms:status` en `dcat:Distribution`)
+- Incorpora selectivamente propiedades de DCAT-AP 3.0.0 como la mencionada `dcatap:applicableLegislation`, `dcatap:availability` y `dcatap:hvdCategory`
+- Actualiza vocabularios controlados (ej., para `adms:status` en `dcat:Distribution`)
 
 ### 5. Cardinalidades adaptadas
-- Define cardinalidades más restrictivas para mayor precisión (p.ej., `dct:publisher` exige cardinalidad 1..1)
-- Limita resoluciones espaciales y temporales a una única instancia (0..1)
+- Define cardinalidades más restrictivas para mayor precisión (ej., `dct:publisher` exige cardinalidad `1..1`)
+- Limita resoluciones espaciales y temporales a una única instancia (`0..1`)
 - Restringe `dcat:themeTaxonomy` a máximo 3 taxonomías, incluyendo obligatoriamente la española
 
 ### 6. Conformidad con marco legal
-- Implementa requisitos para cumplir con normativa española de datos abiertos ([Ley 37/2007, de 16 de noviembre, sobre reutilización de la información del sector público](https://www.boe.es/eli/es/l/2007/11/16/37/con), [Resolución de 19 de febrero de 2013, de la Secretaría de Estado de Administraciones Públicas, por la que se aprueba la Norma Técnica de Interoperabilidad de Reutilización de recursos de la información](https://www.boe.es/eli/es/res/2013/02/19/(4)))
-- Adapta el perfil para cumplir con la [Directiva (UE) 2019/1024](http://data.europa.eu/eli/dir/2019/1024/oj) relativa a datos abiertos y reutilización.
+- Implementa requisitos de acuerdo con la normativa española de datos abiertos ([Ley 37/2007, de 16 de noviembre, sobre reutilización de la información del sector público](https://www.boe.es/eli/es/l/2007/11/16/37/con), [Resolución de 19 de febrero de 2013, de la Secretaría de Estado de Administraciones Públicas, por la que se aprueba la Norma Técnica de Interoperabilidad de Reutilización de recursos de la información](https://www.boe.es/eli/es/res/2013/02/19/(4)))
+- Adapta el perfil para alinearse con la [Directiva (UE) 2019/1024](http://data.europa.eu/eli/dir/2019/1024/oj) relativa a datos abiertos y reutilización.
 
 # Histórico de cambios
 
@@ -2373,20 +2358,19 @@ Este apartado proporciona una visión general de los cambios incorporados en DCA
 
 ### Cambios principales
 
-- Transformación del documento PDF en representación HTML (estilo [RESPEC](https://respec.org/docs/) usando [MkDocs](https://www.mkdocs.org/) + [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+- Transformación de la documentación técnica en representación HTML (estilo [RESPEC](https://respec.org/docs/) usando [MkDocs](https://www.mkdocs.org/) + [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/))
 - Integración de directrices y textos actualizados relacionados con DCAT-AP-ES
 - Actualización y mejora de referencias cruzadas para facilitar la navegación
 - Corrección de numerosas erratas y problemas de conversión
-- Actualización del reconocimiento a los colaboradores
 
 ### Adaptaciones a las diferentes secciones
-- **Introducción**: Revisión para reflejar el contexto actual y los fundamentos del perfil
-- **Conformidad**: Actualización para reflejar los requisitos de implementación en el ecosistema español
-- **Terminología**: Lista de prefijos actualizada con los vocabularios más recientes
-- **Modelo de datos**: Estructura reorganizada para mejorar la legibilidad
-- **Vocabularios controlados**: Actualización de referencias a vocabularios autorizados
-- **Conjuntos de datos de alto valor (HVD)**: Integración completa de los requisitos del [Reglamento de Ejecución (UE) 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj)
-- **Anexo de referencia rápida**: Generación automática desde el modelo de datos para mantener sincronización
+- Introducción: Revisión para reflejar el contexto actual y los fundamentos del perfil
+- Conformidad: Actualización para reflejar los requisitos de implementación en el ecosistema español
+- Terminología: Lista de prefijos actualizada con los vocabularios más recientes
+- Modelo de datos: Estructura reorganizada para mejorar la legibilidad
+- Vocabularios controlados: Actualización de referencias a vocabularios autorizados
+- Conjuntos de datos de alto valor (HVD): Integración completa de los requisitos del [Reglamento de Ejecución (UE) 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj)
+- Anexo de referencia rápida: Generación automática desde el modelo de datos para mantener sincronización
 
 #### Cambios respecto a NTI-RISP
 
@@ -2406,20 +2390,20 @@ Este apartado proporciona una visión general de los cambios incorporados en DCA
 
 ### Adaptaciones del modelo de datos
 
-La lista siguiente indica los cambios y diferencias respecto a la versión anterior (NTI-RISP). También se incluye el impacto de la alineación con W3C DCAT y DCAT-AP europeo.
+La lista siguiente indica los cambios y diferencias respecto a la versión anterior (NTI-RISP). También se incluye el impacto de la alineación con la recomendación del W3C: DCAT y el perfil DCAT-AP europeo.
 
 - División de los textos descriptivos existentes en definiciones y notas de uso siguiendo las mejores prácticas de SEMIC
 - Alineación con DCAT-AP 2.1.1 y adopción selectiva de elementos de DCAT-AP 3.0.0
-- Organización del perfil en Entidades Principales, Entidades de Soporte y Tipos de Datos
+- Organización del perfil en entidades principales, entidades de soporte y tipos de datos
 - Elevación de numerosas propiedades a obligatorias para garantizar interoperabilidad
 - Incorporación de aspectos específicos para datos de alto valor (HVD)
 - Adaptación a requisitos lingüísticos y de clasificación territorial de España
 
 ### Requisitos específicos para el contexto español
 
-- **Taxonomías nacionales**: Implementación obligatoria de la taxonomía de sectores primarios española
-- **Requisito lingüístico**: Obligatoriedad del español como uno de los idiomas en propiedades multilingües
-- **Identificadores normalizados**: Adopción del esquema DIR3 para la identificación de organismos públicos
+- Taxonomías nacionales: Implementación obligatoria de la taxonomía de sectores primarios española
+- Requisito lingüístico: Obligatoriedad del español como uno de los idiomas en propiedades multilingües
+- Identificadores normalizados: Adopción del esquema DIR3 para la identificación de organismos públicos
 
 ### Alineación con HVD (Datos de Alto Valor)
 
