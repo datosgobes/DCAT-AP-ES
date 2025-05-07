@@ -9,13 +9,16 @@ ENV APP_DIR=/srv/app \
 # Set working directory
 WORKDIR ${DOC_DIR}
 
-# Install only required dependencies with pinned versions
+# Install dependencies with hybrid version approach:
+# - Critical packages: version major.minor fixed (allowing patch updates)
+# - Build tools: major version fixed
+# - Utilities: no version fixing
 RUN apk add --no-cache \
-        graphviz=12.2.0-r0 \
-        rsync=3.4.0-r0 \
+        graphviz~=12.2 \
+        rsync~=3.4 \
     && apk add --no-cache --virtual .build-deps \
-        build-base=0.5-r3 \
-        ruby-dev=3.3.6-r0 \
+        build-base~=0.5 \
+        ruby-dev \
     && gem install --no-document rouge -v 4.5.1 \
     && apk del .build-deps
 

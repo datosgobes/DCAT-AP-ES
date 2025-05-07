@@ -1690,7 +1690,7 @@ Esta entidad se considera clave para entender cómo se puede obtener y utilizar 
 
 !!! note "Nota de uso"
 
-    Se ajusta utilizando valores del vocabulario normalizado de idiomas:  <http://publications.europa.eu/resource/authority/language`. En el caso de distribuciones multilingües, esta propiedad puede ser ajustada con múltiples valores y no se requiere ningun valor específico ya que hace referencia al idioma de los datos.
+    Se ajusta utilizando valores del vocabulario normalizado de idiomas: `http://publications.europa.eu/resource/authority/language`. En el caso de distribuciones multilingües, esta propiedad puede ser ajustada con múltiples valores y no se requiere ningun valor específico ya que hace referencia al idioma de los datos.
 
 
 | dcat:Distribution | dcat:compressFormat |
@@ -2346,9 +2346,9 @@ Este anexo presenta una visión consolidada de las diferencias principales entre
 - Limita resoluciones espaciales y temporales a una única instancia (`0..1`)
 - Restringe `dcat:themeTaxonomy` a máximo 3 taxonomías, incluyendo obligatoriamente la española
 
-### 6. Conformidad con marco legal
-- Implementa requisitos de acuerdo con la normativa española de datos abiertos ([Ley 37/2007, de 16 de noviembre, sobre reutilización de la información del sector público](https://www.boe.es/eli/es/l/2007/11/16/37/con), [Resolución de 19 de febrero de 2013, de la Secretaría de Estado de Administraciones Públicas, por la que se aprueba la Norma Técnica de Interoperabilidad de Reutilización de recursos de la información](https://www.boe.es/eli/es/res/2013/02/19/(4)))
-- Adapta el perfil para alinearse con la [Directiva (UE) 2019/1024](http://data.europa.eu/eli/dir/2019/1024/oj) relativa a datos abiertos y reutilización.
+### 6. Alineado con el marco legal de datos
+- DCAT-AP-ES es una evolución del [modelo de metadatos NTI-RISP](https://datosgobes.github.io/NTI-RISP/) y la [Guía de aplicación](https://datosgobes.github.io/NTI-RISP/download/pdf/guia_nti_pdf_reutilizacion_recursos_informacion_2aed.pdf) que lo contiene. Por lo que implementa los requisitos de acuerdo con la normativa española de datos abiertos ([Ley 37/2007, de 16 de noviembre, sobre reutilización de la información del sector público](https://www.boe.es/eli/es/l/2007/11/16/37/con) y [Resolución de 19 de febrero de 2013, de la Secretaría de Estado de Administraciones Públicas, por la que se aprueba la Norma Técnica de Interoperabilidad de Reutilización de recursos de la información](https://www.boe.es/eli/es/res/2013/02/19/(4))). 
+- Se adapta al ecosistema de especificaciones relacionadas e interconectadas (DCAT-AP) en el contexto de las políticas de datos [Directiva (UE) 2019/1024](http://data.europa.eu/eli/dir/2019/1024/oj), interoperabilidad ([SEMIC](https://joinup.ec.europa.eu/)) e infraestructura ([EDP](https://data.europa.eu/)) de la Comisión Europea.
 
 # Histórico de cambios
 
