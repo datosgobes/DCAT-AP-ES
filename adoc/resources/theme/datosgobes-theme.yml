@@ -6,7 +6,7 @@ font:
       normal: Poppins-Regular.ttf
       bold: Poppins-Bold.ttf
       italic: Poppins-Italic.ttf
-      bold-italic: Poppins-BoldItalic.ttf
+      bold_italic: Poppins-BoldItalic.ttf
     SourceCodePro:
       normal: SourceCodePro-Regular.ttf
 base:
