@@ -12,11 +12,6 @@
     </div>
     <div class="subtitle-container">
         <span id="subtitle" class="subtitle">{{ config.dcatapes[lang].document_title }}</span>
-        <p id="w3c-state">
-            <time class="dt-published" datetime="{{ config.dcatapes[lang].published_date }}">
-                {{ config.dcatapes[lang].published_date_human }}
-            </time>
-        </p>
     </div>
     <div class="logos-section">
         <div class="dge-entidades">
@@ -33,6 +28,12 @@
     <details open="">
         <summary>{{ config.dcatapes[lang].details_summary }}</summary>
         <dl class="header-summary">
+            <dt>{{ config.dcatapes[lang].categories.date_published }}:</dt>
+	    <dd>
+            <time class="dt-published" datetime="{{ config.dcatapes[lang].published_date }}">
+                {{ config.dcatapes[lang].published_date_human }}
+            </time>
+	    </dd>
             <dt>{{ config.dcatapes[lang].categories.latest_published_version }}:</dt>
             <dd><a href="{{ config.dcatapes[lang].latest_published_version }}">{{ config.dcatapes[lang].latest_published_version }}</a></dd>
             <dt>{{ config.dcatapes[lang].categories.latest_editors_draft }}:</dt>

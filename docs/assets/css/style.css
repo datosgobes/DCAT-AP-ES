@@ -58,6 +58,14 @@ td {
     text-align: left;
 }
 
+.md-typeset table:not([class]) td {
+    padding: 0.4em;
+}
+.md-typeset table:not([class]) th {
+    padding: 0.4em;
+    min-width: 4rem;
+}
+
 td:first-child:not(.code) {
     border-bottom: 2px solid var(--primary-color);
     border-left: 2px solid var(--primary-color);

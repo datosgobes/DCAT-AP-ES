@@ -13,8 +13,6 @@ En este documento, se detallan las clases principales del perfil de aplicación:
 !!! warning "Guía de convenciones "
     Como material adicional a esta guía técnica se incluyen las [**Convenciones datos.gob.es**](./conventions) que establecen **convenciones específicas** donde se definen **reglas adicionales** para abordar necesidades prácticas, semánticas o técnicas de la aplicación de DCAT-AP-ES que complementan esta especificación formal.
 
-# Conjuntos de datos de alto valor (High Value Datasets) {#dcat-ap-es-hvd}
-
 En respuesta a la creciente importancia de los datos en la sociedad y la economía, la Comisión Europea adoptó el [**Reglamento de ejecución (UE) 2023/138 de la Comisión Europea**](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138) (*High Value Datasets Implementing Regulation, HVD IR*) el 21 de diciembre de 2022. Este reglamento establece pautas claras para los organismos públicos en la disponibilidad de conjuntos de datos de alto valor y tiene como objetivo mejorar la calidad, accesibilidad y uso de un conjunto especifico de datos clave dentro del sector público. Para lograrlo, el reglamento HVD establece requisitos específicos para los metadatos asociados a los conjuntos de datos publicados.
 
 
@@ -2205,6 +2203,7 @@ En la siguiente relación, se incluye junto al acrónimo HVD, las propiedades qu
 
 DCAT-AP-ES se basa en [DCAT-AP 2.1.1](https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) con la incorporación de elementos de la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/). A continuación, se presentan las principales diferencias entre el modelo español y las versiones europeas.
 
+
 Las diferencias se muestran en las siguientes tablas comparativas, donde la cabecera indica:
 
 - **Entidad**: Clase o elemento del modelo (por ejemplo, `Catalog`, `Dataset`, `Distribution`, etc.).
@@ -2217,6 +2216,24 @@ Las diferencias se muestran en las siguientes tablas comparativas, donde la cabe
 - **Observaciones**: Comentarios sobre el cambio o diferencia principal.
 
 ## DCAT-AP 2.1.1
+
+### Resumen de cambios
+
+!!! note "DCAT-AP-ES&nbsp;= DCAT-AP&nbsp;2.1.1 +&nbsp;DCAT-AP-HVD&nbsp;2.2.0 + diferencias"
+
+Las diferencias se enumeran en la siguiente tabla junto con una justificación.
+
+| Diferencias | Justificación |
+|---|---|
+|**1. Declaración obligatoria de las siguientes propiedades opcionales**<br>*Catalog*<ul><li>`dcat:themeTaxonomy`</li><li>`dct:language`</li><li>`dct:issued`</li><li>`dct:modified`</li><li>`dct:license`</li><li>`foaf:homepage`</li></ul>*Dataset*<ul><li>`dcat:theme`</li><li>`dct:publisher`</li></ul>**2. Mantenimiento de estructura de URIs para la cobertura geográfica**| Aprovechar buenas prácticas que venían fijadas por la NTI-RISP v2013  que ya venían siendo aplicadas de esta forma por las AAPP |
+|**3. Ajuste a 3 la cardinalidad máxima de taxonomías de sectores primarios (`dcat:themeTaxonomy`)**| Facilitar la interoperabilidad al utilizar taxonomías de uso común (NTI-RISP v2013, INSPIRE y EDP) |
+|**4. Uso obligatorio de, al menos, la taxonomía de sectores primarios fijada por la NTI-RISP v2013**|Aprovechar buenas prácticas que venían fijadas por la NTI-RISP v2013 y  reforzar el uso que se realiza para otros fines de las AAPP |
+|**5. Obligación de incorporación de, al menos, el idioma castellano en propiedades multilingües.**|Garantizar la interoperabilidad|
+|**6. Uso del DIR3 para la identificación de publicadores (`dct:publisher` y `dct:identifier` de *Agent*)**|Aplicar la forma estándar de identificación única de organismos públicos y reforzar el uso que se realiza para otros fines de las AAPP |
+|**7. Concreción del vocabulario del metadato `adms:status`**<br>**8. Incorporación de `dct:publisher` y `dcat:theme` a *DataService***| Convergencia futura con DCAT-AP 3.0.0 y asegurar interoperabilidad.<br>`adms:status` define el ciclo de vida de una distribución, con las opciones: `OP_DATPRO`, `WITHDRAWN`, `COMPLETED`, `DEPRECATED`, `DEVELOP`|
+|**9. Incorporación del vocabulario ATU para `dct:spatial`**|Permite mayor precisión para divisiones administrativas, garantizando la interoperabilidad. `dct:spatial` es Recomendado |
+
+### Detalle completo de cambios
 
 | Entidad | Metadato | Propiedad | T | DCAT-AP<br>T | C | DCAT-AP<br>C | Observaciones |
 |---|---|---|---|---|---|---|---|
