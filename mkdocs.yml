@@ -15,9 +15,9 @@ validation:
 nav:
   - Guía técnica y modelo DCAT-AP-ES: index.md
   - Convenciones datos.gob.es: conventions.md
-  - FAQ: faq.md
   - Validación: validation.md
   - Ejemplos de implementación: examples.md
+  - FAQ: faq.md
 
 theme:
   language: es
@@ -169,9 +169,9 @@ plugins:
           nav:
           - DCAT-AP-ES Technical guide and model: index.md
           - datos.gob.es Conventions: conventions.en.md
-          - FAQ: faq.en.md
           - Validation: validation.en.md
           - Implementation Examples: examples.en.md
+          - FAQ: faq.en.md
   - mkdocstrings:
       handlers:
         python:
