@@ -23,7 +23,7 @@ These conventions ensure consistency in the description of resources, guaranteei
 
 ## List of Conventions
 - [**Convention 01**](#convention-01): The publisher's identifier *MUST* be registered in the [Identification of Public Organizations (DIR3)](https://datos.gob.es/es/recurso/sector-publico/org/Organismo) taxonomy.
-- [**Convention 02**](#convention-02): The literals `dct:title`, `dct:description`, `vcard:organization_name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` *MUST* be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
+- [**Convention 02**](#convention-02): The literals `dct:title`, `dct:description`, `vcard:organization-name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` *MUST* be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
 - [**Convention 03**](#convention-03): Identifiers and URI references *SHOULD* use the `http://` scheme instead of `https://`.
 - [**Convention 04**](#convention-04): Organizations *SHOULD* implement automatic federation through RDF as the sole method of publishing metadata in DCAT-AP-ES format, avoiding the coexistence of manual and automatic federation for the same organization.
 - [**Convention 05**](#convention-05): URIs *MUST* be correctly encoded at their source, especially when they contain:
@@ -95,7 +95,7 @@ Literal fields with multilingual `xml:lang` tags must be at least in Spanish (`e
 
 !!! must technical "Convention 02" 
 
-    The literals `dct:title`, `dct:description`, `vcard:organization_name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` **MUST** be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
+    The literals `dct:title`, `dct:description`, `vcard:organization-name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` **MUST** be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
 
 ## Using HTTP URIs {#general-http-uris}
 

@@ -26,7 +26,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 
 ## Lista de convenciones
 - [**Convención 01**](#convencion-01): El identificador del publicador *DEBE* estar [dado de alta y disponible en la taxonomía de datos.gob.es](mailto:soporte@datos.gob.es?subject=Solicitud%20de%20alta%20de%20Organismo%20y%20usuario%20en%20datos.gob.es)
-- [**Convención 02**](#convencion-02): Los literales `dct:title`, `dct:description`, `vcard:organization_name `, `vcard:fn`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` *DEBEN* estar definidos con las etiquetas de idioma, al menos estar en idioma español `es` y no pueden ser literales vacíos.
+- [**Convención 02**](#convencion-02): Los literales `dct:title`, `dct:description`, `vcard:organization-name `, `vcard:fn`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` *DEBEN* estar definidos con las etiquetas de idioma, al menos estar en idioma español `es` y no pueden ser literales vacíos.
 - [**Convención 03**](#convencion-03): Los identificadores y referencias URI *DEBERÍAN* utilizar el esquema `http://` en lugar de `https://` como norma general.
 - [**Convención 04**](#convencion-04): Los organismos *DEBERÍAN* implementar la federación automática mediante RDF como único método de publicación de metadatos en formato DCAT-AP-ES, evitando la coexistencia de federación manual y automática para un mismo organismo.
 - [**Convención 05**](#convencion-05): Las URIs *DEBEN* estar correctamente codificadas en su origen, especialmente cuando contengan: 1. Caracteres reservados (`?`, `&`, `=`, `#`, etc.) 2. Espacios 3. Caracteres no ASCII (acentos, `ñ`, etc.) 4. Caracteres especiales (`<`, `>`, `"`, `{`, `}`, `|`, `\`, `^`, `~`, `[`, `]`, `` ` ``)
@@ -63,7 +63,7 @@ Los campos de literales de etiquetas multilingüe `xml:lang` deben estar al meno
 
 !!! must technical "Convención 02" 
 
-    Los literales `dct:title`, `dct:description`, `vcard:organization_name `, `vcard:fn`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` **DEBEN** estar definidos con las etiquetas de idioma, al menos estar en idioma español `es` y no pueden ser literales vacíos.
+    Los literales `dct:title`, `dct:description`, `vcard:organization-name `, `vcard:fn`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` **DEBEN** estar definidos con las etiquetas de idioma, al menos estar en idioma español `es` y no pueden ser literales vacíos.
 
 ## Uso de URIs HTTP {#general-http-uris}
 

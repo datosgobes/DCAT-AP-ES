@@ -753,7 +753,7 @@ Utilizando esta clase, un dataset se puede distribuir en diferentes representaci
 
     | Propiedad     |                   Descripción       |
     | :-------------------- | :----------------------------------------------------- |
-    | `vcard:fn`            | Nombre                                                 |
+    | `vcard:organization-name`            | Nombre                                                 |
     | `vcard:hasUid`        | Identificador del organismo                            |
     | `vcard:fn`            | Denominación de área o persona                         |
     | `vcard:hasEmail`      | Dirección de correo electrónico                         |
