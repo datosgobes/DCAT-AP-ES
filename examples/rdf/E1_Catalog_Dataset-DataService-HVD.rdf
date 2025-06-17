@@ -6,7 +6,7 @@
          xmlns:foaf="http://xmlns.com/foaf/0.1/"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:odrs="http://schema.theodi.org/odrs#"
-         xmlns:vcard="http://www.w3.org/206/vcard/ns#">
+         xmlns:vcard="http://www.w3.org/2006/vcard/ns#">
 
   <!--Descripción general del Catálogo-->
   <dcat:Catalog rdf:about="http://dcat-ap-es.ejemplo.org/catalogo">

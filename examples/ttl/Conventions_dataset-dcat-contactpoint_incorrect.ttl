@@ -1,5 +1,5 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix vcard: <http://www.w3.org/206/vcard/ns#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <http://datos.example.org/dataset/123>
     dcat:contactPoint <http://datos.gob.es/recurso/sector-publico/org/Organismo/EA0000000> .

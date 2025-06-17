@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
-@prefix vcard: <http://www.w3.org/206/vcard/ns#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <http://dcat-ap-es.ejemplo.org/catalogo>
   a dcat:Catalog ;
