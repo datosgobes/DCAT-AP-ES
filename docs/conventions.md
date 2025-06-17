@@ -47,7 +47,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 20**](#convencion-20): Los puntos de contacto recogidos en la taxonomía del portal *DEBEN* describirse como un `vcard:Kind` y no directamente con la URI del organismo.
 - [**Convención 21**](#convencion-21): En las distribuciones de servicios OGC, las URLs de acceso *DEBEN* modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
-
+- [**Convención 23**](#convencion-23): Los *datasets* *DEBEN* incluir al menos una distribución (`dcat:Distribution`).
 
 # Convenciones generales {#general}
 
@@ -436,6 +436,20 @@ Para facilitar la comunicación con los responsables de los *datasets*, se debe 
 !!! warning "Importante"
     
     Todos los valores proporcionados se recomienda que sean de carácter público y persistente, ^^evitando referencias a datos personales^^ o temporalmente inestables, y preferiblemente lo más cercanos al origen del conjuntos de datos.
+
+## Distribución (`dcat:distribution`) {#dataset-dcat-distribution}
+
+Obligatoriedad temporal de distribuciones en los datasets {#dataset-distributions-must}
+
+!!! must semantic "Convención 23"
+
+    Todo recurso de tipo `dcat:Dataset` **DEBE** contener al menos una instancia de `dcat:Distribution`. Esta convención tiene como objetivo asegurar la persistencia de la obligatoriedad del modelo de metadatos de la NTI-RISP 2013 hasta su depreciación conforme al nuevo DCAT-AP-ES en el federador de datos.gob.es
+
+!!! info "Ejemplo mínimo de dataset con distribución"
+
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataset-dcat-distribution.ttl"
+    ```
 
 # Convenciones para `dcat:Distribution` {#distribution}
 

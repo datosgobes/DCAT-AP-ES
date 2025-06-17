@@ -78,6 +78,7 @@ These conventions ensure consistency in the description of resources, guaranteei
 - [**Convention 20**](#convention-20): Contact points listed in the portal's taxonomy *MUST* be described as a `vcard:Kind` and not directly with the organization's URI.
 - [**Convention 21**](#convention-21): In OGC service distributions, access URLs *MUST* be modeled as follows: In `dcat:accessURL`: Complete URL of the service `GetCapabilities` request (e.g., `http://example.org/wms?request=GetCapabilities&service=WMS`) and in `dct:conformsTo`: URL of the corresponding OGC standard, e.g., `http://www.opengeospatial.org/standards/wms`.
 - [**Convention 22**](#convention-22): Time periods *MUST* be described exclusively using the properties `dcat:startDate` and `dcat:endDate` within `dct:temporal`. The interval can also be open - i.e., it can have just a start or just an end.
+- [**Convención 23**](#convention-23): *Datasets* *MUST* include at least a distribution (`dcat:Distribution`).
 
 # General conventions {#general}
 

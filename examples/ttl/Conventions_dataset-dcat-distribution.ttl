@@ -1,0 +1,12 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<http://datos.gob.es/catalogo/dataset/001>
+    a dcat:Dataset ;
+    dct:title "Listado de establecimientos sanitarios"@es ;
+    dcat:distribution <http://datos.gob.es/catalogo/distribution/001-csv> .
+
+<http://datos.gob.es/catalogo/distribution/001-csv>
+    a dcat:Distribution ;
+    dct:format "text/csv" ;
+    dcat:accessURL <https://datos.gob.es/ficheros/001.csv> .
