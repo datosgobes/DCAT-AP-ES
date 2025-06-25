@@ -113,11 +113,15 @@ td:nth-child(2n+1) {
     background-color: var(--alternate-bg-color);
 }
 
+.md-typeset th abbr {
+    border-bottom: 0.07rem dotted #fff;
+}
+
 .md-typeset abbr {
     border-bottom: 0.05rem dotted #00000036;
     cursor: help;
     text-decoration: none;
-}
+}	
 
 .md-typeset table:not([class]) tbody tr:hover {
     background-color: var(--alternate-table-color--light);
