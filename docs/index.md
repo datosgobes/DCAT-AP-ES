@@ -2181,7 +2181,7 @@ En la siguiente relación, se incluye junto al acrónimo HVD, las propiedades qu
 | Relación | dcat:Relationship | dct:relation  dcat:hadRole |  |  |
 
 
-| Otras clases auxiliaries: | URI de la clase | Propiedad |
+| Otras clases auxiliaries | URI de la clase | Propiedad |
 | --- | --- | --- |
 | Categoría | skos:Concept | skos:prefLabel |
 | Esquema de categorías | skos:ConceptScheme | dct:title |
@@ -2199,12 +2199,12 @@ En la siguiente relación, se incluye junto al acrónimo HVD, las propiedades qu
 | Standard | dct:Standard |  |
 | Status | skos:Concept |  |
 
-# Anexo 3. Diferencias entre DCAT-AP-ES y DCAT-AP {#annex-3-dcat-ap-to-dcat-ap-es}
+# Anexo 3. Comparativa entre DCAT-AP-ES y DCAT-AP {#annex-3-dcat-ap-to-dcat-ap-es}
 
-DCAT-AP-ES se basa en [DCAT-AP 2.1.1](https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) con la incorporación de elementos de la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/). A continuación, se presentan las principales diferencias entre el modelo español y las versiones europeas.
+DCAT-AP-ES se basa en [DCAT-AP 2.1.1](https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) con la incorporación de elementos de la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/). A continuación, se presentan las especificaciones adicionales que incluye el modelo español respecto las versiones europeas.
 
 
-Las diferencias se muestran en las siguientes tablas comparativas, donde la cabecera indica:
+Las especificaciones adicionalees se muestran en las siguientes tablas comparativas, donde la cabecera indica:
 
 - **Entidad**: Clase o elemento del modelo (por ejemplo, `Catalog`, `Dataset`, `Distribution`, etc.).
 - **Metadato**: Nombre del metadato o propiedad.
@@ -2217,13 +2217,13 @@ Las diferencias se muestran en las siguientes tablas comparativas, donde la cabe
 
 ## DCAT-AP 2.1.1
 
-### Resumen de cambios
+### Resumen
 
-!!! note "DCAT-AP-ES&nbsp;= DCAT-AP&nbsp;2.1.1 +&nbsp;DCAT-AP-HVD&nbsp;2.2.0 + diferencias"
+!!! note "DCAT-AP-ES&nbsp;=&nbsp;DCAT-AP&nbsp;2.1.1 +&nbsp;DCAT-AP-HVD&nbsp;2.2.0 + especificaciones adicionales"
 
-Las diferencias se enumeran en la siguiente tabla junto con una justificación.
+Las especificaciones adicionales se enumeran en la siguiente tabla junto con una justificación.
 
-| Diferencias | Justificación |
+| Especificidad | Justificación |
 |---|---|
 |**1. Declaración obligatoria de las siguientes propiedades opcionales**<br>*Catalog*<ul><li>`dcat:themeTaxonomy`</li><li>`dct:language`</li><li>`dct:issued`</li><li>`dct:modified`</li><li>`dct:license`</li><li>`foaf:homepage`</li></ul>*Dataset*<ul><li>`dcat:theme`</li><li>`dct:publisher`</li></ul>**2. Mantenimiento de estructura de URIs para la cobertura geográfica**| Aprovechar buenas prácticas que venían fijadas por la NTI-RISP v2013  que ya venían siendo aplicadas de esta forma por las AAPP |
 |**3. Ajuste a 3 la cardinalidad máxima de taxonomías de sectores primarios (`dcat:themeTaxonomy`)**| Facilitar la interoperabilidad al utilizar taxonomías de uso común (NTI-RISP v2013, INSPIRE y EDP) |
@@ -2233,7 +2233,7 @@ Las diferencias se enumeran en la siguiente tabla junto con una justificación.
 |**7. Concreción del vocabulario del metadato `adms:status`**<br>**8. Incorporación de `dct:publisher` y `dcat:theme` a *DataService***| Convergencia futura con DCAT-AP 3.0.0 y asegurar interoperabilidad.<br>`adms:status` define el ciclo de vida de una distribución, con las opciones: `OP_DATPRO`, `WITHDRAWN`, `COMPLETED`, `DEPRECATED`, `DEVELOP`|
 |**9. Incorporación del vocabulario ATU para `dct:spatial`**|Permite mayor precisión para divisiones administrativas, garantizando la interoperabilidad. `dct:spatial` es Recomendado |
 
-### Detalle completo de cambios
+### Detalle completo
 
 | Entidad | Metadato | Propiedad | T | DCAT-AP<br>T | C | DCAT-AP<br>C | Observaciones |
 |---|---|---|---|---|---|---|---|
@@ -2337,7 +2337,7 @@ La sección de **Extensiones** describe cómo DCAT-AP-ES amplía y adapta el mod
 
 ## Características distintivas de DCAT-AP-ES
 
-Este anexo presenta una visión consolidada de las diferencias principales entre DCAT-AP-ES y los perfiles europeos DCAT-AP (versiones 2.1.1 y 3.0.0), facilitando la comprensión de las particularidades del perfil español y sus requisitos específicos de implementación.
+Este anexo presenta una visión consolidada de las espeficifidades adicionales entre DCAT-AP-ES y los perfiles europeos DCAT-AP (versiones 2.1.1 y 3.0.0), facilitando la comprensión de las particularidades del perfil español y sus requisitos específicos de implementación.
 
 ### 1. Adaptación al contexto español
 - Uso obligatorio de taxonomías nacionales: DCAT-AP-ES exige el uso de la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) para clasificación temática
@@ -2397,7 +2397,7 @@ Este apartado proporciona una visión general de los cambios incorporados en DCA
 - Implementación de metadatos específicos para conjuntos de datos de alto valor (HVD)
 - Ampliación de capacidades para describir servicios de datos (APIs y endpoints)
 
-#### Diferencias con DCAT-AP
+#### Especificaciones adicionales con DCAT-AP
 
 - Mayor nivel de obligatoriedad en propiedades clave para garantizar calidad de metadatos
 - Adaptación al marco normativo español y sus requisitos específicos
@@ -2407,7 +2407,7 @@ Este apartado proporciona una visión general de los cambios incorporados en DCA
 
 ### Adaptaciones del modelo de datos
 
-La lista siguiente indica los cambios y diferencias respecto a la versión anterior (NTI-RISP). También se incluye el impacto de la alineación con la recomendación del W3C: DCAT y el perfil DCAT-AP europeo.
+La lista siguiente indica las especificaciones adicionales respecto a la versión anterior (NTI-RISP). También se incluye el impacto de la alineación con la recomendación del W3C: DCAT y el perfil DCAT-AP europeo.
 
 - División de los textos descriptivos existentes en definiciones y notas de uso siguiendo las mejores prácticas de SEMIC
 - Alineación con DCAT-AP 2.1.1 y adopción selectiva de elementos de DCAT-AP 3.0.0
