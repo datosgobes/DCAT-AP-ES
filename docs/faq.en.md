@@ -91,7 +91,7 @@ Sections:
 
     Adaptation of DCAT-AP that incorporates specifications specific to the Spanish context and the HVD extension.
 
-    [:octicons-arrow-right-24: Learn more](/)
+    [:octicons-arrow-right-24: Learn more](/DCAT-AP-ES/en/)
 
 </div>
 
@@ -116,7 +116,7 @@ Sections:
 
     Publishers have an adaptation period of six months from the entry into force of the NTI-RISP.
     
-    [:octicons-arrow-right-24: Changes](/#annex-1-nti-risp-to-dcat-ap-es)
+    [:octicons-arrow-right-24: Changes](/DCAT-AP-ES/#annex-1-nti-risp-to-dcat-ap-es)
 
 -   :material-connection:{ .lg .middle .grid-emoji } **Relationship with other standards?**{ .grid-title #relacion }
 
@@ -124,7 +124,7 @@ Sections:
 
     DCAT-AP-ES implements DCAT-AP and its HVD extension, ensuring compatibility with the European open data ecosystem.
     
-    [:octicons-arrow-right-24: UML](/uml)
+    [:octicons-arrow-right-24: UML](/DCAT-AP-ES/en/#dcat-ap-es-model)
 
 -   :fontawesome-solid-folder-open:{ .lg .middle .grid-emoji } **Are there support materials?**{ .grid-title #materiales }
 
@@ -132,7 +132,7 @@ Sections:
 
     There are application guides and technical implementation documents, conventions, data models, vocabularies, examples, SHACL validation files, etc.
     
-    [:octicons-arrow-right-24: Guide](/)
+    [:octicons-arrow-right-24: Guide](/DCAT-AP-ES/en/)
 
 -   :fontawesome-solid-plus:{ .lg .middle .grid-emoji } **Main new features of DCAT-AP-ES?**{ .grid-title #novedades }
 
@@ -140,7 +140,7 @@ Sections:
 
     It aligns with the European DCAT-AP profile, incorporates data services (`dcat:DataService`), high-value dataset modeling (HVD), and improvements in metadata quality description.
     
-    [:octicons-arrow-right-24: Classes](/#clases_del_perfil_de_aplicacion_dcat-ap-es)
+    [:octicons-arrow-right-24: Classes](/DCAT-AP-ES/en/#dcat-ap-es-entities)
 
 -   :fontawesome-solid-building-columns:{ .lg .middle .grid-emoji } **More information about NTI-RISP?**{ .grid-title #nti-risp }
 
@@ -162,7 +162,7 @@ Sections:
 
     A dataset (class `dcat:Dataset`) is a collection of related information on a topic, organized to facilitate its access, use, and distribution by an organization.
 
-    [:octicons-arrow-right-24: Dataset](/#dcat-dataset)
+    [:octicons-arrow-right-24: Dataset](/DCAT-AP-ES/#dcat-dataset)
 
 -   :fontawesome-solid-file:{ .lg .middle .grid-emoji } **What is a distribution?**{ .grid-title #vocab-dcat-ap }
 
@@ -170,7 +170,7 @@ Sections:
 
     A distribution (`dcat:Distribution`) is a specific representation of a dataset, such as a file in a particular format (e.g., `CSV`, `JSON`).
 
-    [:octicons-arrow-right-24: Distribution](/#dcat-distribution)
+    [:octicons-arrow-right-24: Distribution](/DCAT-AP-ES/#dcat-distribution)
 
 -   :fontawesome-solid-box-open:{ .lg .middle .grid-emoji } **Differences between resource and distribution?**{ .grid-title #vocab-dcat-ap-hvd}
 
@@ -190,7 +190,7 @@ Sections:
     
     It represents administrative information such as the date of incorporation into the catalog, publication status, or provenance information.
 
-    [:octicons-arrow-right-24: Catalog Record](/#dcat-catalogrecord)
+    [:octicons-arrow-right-24: Catalog Record](/DCAT-AP-ES/#dcat-catalogrecord)
 
 
 </div>
@@ -233,7 +233,7 @@ Sections:
         linkStyle default stroke:#154481,stroke-width:1px,stroke-dasharray:3;
     ```
     
-    [:octicons-arrow-right-24: Relationships](/#dcat-ap-es-model-relations)
+    [:octicons-arrow-right-24: Relationships](/DCAT-AP-ES/#dcat-ap-es-model-relations)
 
 </div>
 
@@ -258,7 +258,7 @@ Sections:
 
     Available in the online guide and in the `examples/` directory of the repository, organized by entities and specific use cases.
 
-    [:octicons-arrow-right-24: Examples](/examples)
+    [:octicons-arrow-right-24: Examples](/DCAT-AP-ES/examples)
 
 </div>
 

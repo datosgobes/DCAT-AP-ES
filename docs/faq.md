@@ -114,7 +114,7 @@ Secciones:
 
     Los publicadores disponen de un periodo de adaptación desde la entrada en vigor de la NTI-RISP.
     
-    [:octicons-arrow-right-24: Cambios](/#annex-1-nti-risp-to-dcat-ap-es)
+    [:octicons-arrow-right-24: Cambios](/DCAT-AP-ES/#annex-1-nti-risp-to-dcat-ap-es)
 
 -   :material-connection:{ .lg .middle .grid-emoji } **¿Relación con otros estándares?**{ .grid-title #relacion }
 
@@ -122,7 +122,7 @@ Secciones:
 
     DCAT-AP-ES implementa DCAT-AP y su extensión HVD, garantizando la compatibilidad con el ecosistema europeo de datos abiertos.
     
-    [:octicons-arrow-right-24: UML](/uml)
+    [:octicons-arrow-right-24: UML](/DCAT-AP-ES/#uml)
 
 -   :fontawesome-solid-folder-open:{ .lg .middle .grid-emoji } **¿Hay materiales de apoyo?**{ .grid-title #materiales }
 
@@ -130,7 +130,7 @@ Secciones:
 
     Existen guías de aplicación e implementación técnica, convenciones, modelos de datos, vocabularios, ejemplos, ficheros de validación SHACL, etc.
     
-    [:octicons-arrow-right-24: Guía](/)
+    [:octicons-arrow-right-24: Guía](/DCAT-AP-ES/)
 
 -   :fontawesome-solid-plus:{ .lg .middle .grid-emoji } **¿Principales novedades de DCAT-AP-ES?**{ .grid-title #novedades }
 
@@ -138,7 +138,7 @@ Secciones:
 
     Se alinea con el perfil europeo DCAT-AP, incorpora servicios de datos (`dcat:DataService`), el modelado de conjuntos de alto valor (HVD) y mejoras en la descripción de la calidad de metadatos.
     
-    [:octicons-arrow-right-24: Clases](/#clases_del_perfil_de_aplicacion_dcat-ap-es)
+    [:octicons-arrow-right-24: Clases](/DCAT-AP-ES/#dcat-ap-es-entities)
 
 -   :fontawesome-solid-building-columns:{ .lg .middle .grid-emoji } **¿Más información sobre la NTI-RISP?**{ .grid-title #novedades }
 
@@ -154,15 +154,15 @@ Secciones:
 
     Si ya tienes un catálogo conforme al modelo de metadatos NTI-RISP 2013, para evolucionar a DCAT-AP-ES puedes:
     
-    1. **Identificar cambios**: Revisar las diferencias entre ambos modelos según el [Anexo 1 - Cambios respecto a la NTI-RISP](/#annex-1-nti-risp-to-dcat-ap-es) e incorporar nuevos metadatos obligatorios.
+    1. **Identificar cambios**: Revisar las diferencias entre ambos modelos según el [Anexo 1 - Cambios respecto a la NTI-RISP](/DCAT-AP-ES/#annex-1-nti-risp-to-dcat-ap-es) e incorporar nuevos metadatos obligatorios.
     
-    2. **Adaptar vocabularios controlados**: Utilizar los [vocabularios actualizados del modelo](/#dcat-ap-es-vocabularies) en vez de literales.
+    2. **Adaptar vocabularios controlados**: Utilizar los [vocabularios actualizados del modelo](/DCAT-AP-ES/#dcat-ap-es-vocabularies) en vez de literales.
     
-    3. **Añadir soporte a servicios**: Incorporar la clase [`dcat:DataService`](/#servicio_de_datos_-_clase_dcatdataservice_-_opcional) si ofreces APIs o servicios.
+    3. **Añadir soporte a servicios**: Incorporar la clase [`dcat:DataService`](/DCAT-AP-ES/#servicio_de_datos_-_clase_dcatdataservice_-_opcional) si ofreces APIs o servicios.
     
-    4. **Validar el catálogo**: Comprobar la conformidad utilizando las [herramientas de validación](/validacion/)
+    4. **Validar el catálogo**: Comprobar la conformidad utilizando las [herramientas de validación](/DCAT-AP-ES/validacion/)
     
-    [:octicons-arrow-right-24: Migración](/#annex-1-nti-risp-to-dcat-ap-es)
+    [:octicons-arrow-right-24: Migración](/DCAT-AP-ES/#annex-1-nti-risp-to-dcat-ap-es)
 
 -   :material-compare:{ .lg .middle .grid-emoji } **¿ Diferencias entre DCAT-AP-ES y DCAT-AP?**{ .grid-title #diferencias-dcat }
 
@@ -178,7 +178,7 @@ Secciones:
     
     - **Cardinalidad adaptada**: Limita algunas cardinalidades para descripciones más precisas.
     
-    [:octicons-arrow-right-24: Diferencias](/#annex-3-dcat-ap-to-dcat-ap-es)
+    [:octicons-arrow-right-24: Diferencias](/DCAT-AP-ES/#annex-3-dcat-ap-to-dcat-ap-es)
 
 </div>
 
@@ -192,7 +192,7 @@ Secciones:
 
     Un conjunto de datos (*dataset*, clase `dcat:Dataset`) es una colección de información relacionada sobre un tema, organizada para facilitar su acceso, uso y distribución por una organización.
 
-    [:octicons-arrow-right-24: Conjunto de datos](/#dcat-dataset)
+    [:octicons-arrow-right-24: Conjunto de datos](/DCAT-AP-ES/#dcat-dataset)
 
 -   :fontawesome-solid-file:{ .lg .middle .grid-emoji } **¿Qué es una distribución?**{ .grid-title #vocab-dcat-ap }
 
@@ -200,7 +200,7 @@ Secciones:
 
     Una distribución (`dcat:Distribution`) es una representación específica de un conjunto de datos, como un archivo en un formato particular (ej: `CSV`, `JSON`).
 
-    [:octicons-arrow-right-24: Distribución](/#dcat-distribution)
+    [:octicons-arrow-right-24: Distribución](/DCAT-AP-ES/#dcat-distribution)
 
 -   :fontawesome-solid-box-open:{ .lg .middle .grid-emoji } **¿Diferencias entre recurso y distribución?**{ .grid-title #vocab-dcat-ap-hvd}
 
@@ -220,7 +220,7 @@ Secciones:
     
     Representa información administrativa como la fecha de incorporación al catálogo, estado de publicación o información de procedencia.
 
-    [:octicons-arrow-right-24: Registro de Catálogo](/#dcat-catalogrecord)
+    [:octicons-arrow-right-24: Registro de Catálogo](/DCAT-AP-ES/#dcat-catalogrecord)
 
 
 </div>
@@ -263,7 +263,7 @@ Secciones:
         linkStyle default stroke:#154481,stroke-width:1px,stroke-dasharray:3;
     ```
     
-    [:octicons-arrow-right-24: Relaciones](/#dcat-ap-es-model-relations)
+    [:octicons-arrow-right-24: Relaciones](/DCAT-AP-ES/#dcat-ap-es-model-relations)
 
 </div>
 
@@ -288,7 +288,7 @@ Secciones:
 
     Disponibles en la guía online y en el directorio `examples/` del repositorio, organizados por entidades y casos de uso específicos.
 
-    [:octicons-arrow-right-24: Ejemplos](/examples)
+    [:octicons-arrow-right-24: Ejemplos](/DCAT-AP-ES/examples)
 
 </div>
 
