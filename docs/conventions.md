@@ -42,8 +42,8 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 15**](#convencion-15): La información de creador *DEBERÍA* contener un [código identificador DIR3](https://datos.gob.es/es/recurso/sector-publico/org/Organismo) en la propiedad identificador (`dct:identifier`), por ejemplo: `EA0000000`
 - [**Convención 16**](#convencion-16): La cobertura geográfica *DEBE* declararse utilizando las URIs del [Anexo V de la NTI-RISP para recursos geográficos del territorio español](https://datos.gob.es/es/recurso/sector-publico/territorio), siguiendo estas reglas: 1. Utilizar el nivel territorial más específico que corresponda al ámbito real del dataset. 2. Evitar el uso de `España` por defecto cuando el ámbito sea más reducido. 3. No declarar simultáneamente una Comunidad Autónoma y sus provincias. 4. Para Comunidades Autónomas uniprovinciales, utilizar preferentemente la referencia a la Comunidad Autónoma.
 - [**Convención 17**](#convencion-17): Cuando se especifique la cobertura geométrica, se *DEBERÍA* usar `WKT` (según [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql)).
-- [**Convención 18**](#convencion-18): Los *datasets* *DEBEN* incluir al menos un punto de contacto (`dcat:contactPoint`) con las siguientes propiedades obligatorias: Correo electrónico (`vcard:hasEmail`) o URL del formulario de contacto (`vcard:hasURL`)
-- [**Convención 19**](#convencion-19): El punto de contacto *DEBERÍA* incluir también: 1. Denominación del área o persona (`vcard:fn`) 2. Número de teléfono (`vcard:hasTelephone`) 3. Identificador del organismo (`vcard:hasUid`)
+- [**Convención 18**](#convencion-18): Los *servicios de datos HVD* *DEBEN* incluir al menos un punto de contacto (`dcat:contactPoint`) con alguna de las siguientes propiedades: Correo electrónico (`vcard:hasEmail`) o URL del formulario de contacto (`vcard:hasURL`)
+- [**Convención 19**](#convencion-19): El punto de contacto *DEBERÍA* incluir también: 1. Nombre (`vcard:organization-name`) 2. Número de teléfono (`vcard:hasTelephone`) 3. Identificador del organismo (`vcard:hasUid`) 4. Correo electrónico (`vcard:hasEmail`) 5. URL del formulario de contacto (`vcard:hasURL`)
 - [**Convención 20**](#convencion-20): Los puntos de contacto recogidos en la taxonomía del portal *DEBEN* describirse como un `vcard:Kind` y no directamente con la URI del organismo.
 - [**Convención 21**](#convencion-21): En las distribuciones de servicios OGC, las URLs de acceso *DEBEN* modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
@@ -402,21 +402,23 @@ Para describir la cobertura geométrica de los *datasets* de forma interoperable
 
 ## Punto de contacto (`dcat:contactPoint`) {#dataset-dcat-contactpoint}
 
-Para facilitar la comunicación con los responsables de los *datasets*, se debe proporcionar información de contacto estructurada utilizando la [ontología vCard](https://www.w3.org/TR/vcard-rdf/) para la descripción de personas y organizaciones y no referir directamente a IRIs de la taxonomía como por ejemplo: (`dcat:contactPoint <http://datos.gob.es/recurso/sector-publico/org/Organismo/A00000000>`)
+Para facilitar la comunicación con los responsables de los *datasets* o *servicios de datos*, se debe proporcionar información de contacto estructurada utilizando la [ontología vCard](https://www.w3.org/TR/vcard-rdf/) para la descripción de personas y organizaciones y no referir directamente a IRIs de la taxonomía como por ejemplo: (`dcat:contactPoint <http://datos.gob.es/recurso/sector-publico/org/Organismo/A00000000>`)
 
 !!! must semantic "Convención 18"
     
-    Los *datasets* **DEBEN** incluir al menos un punto de contacto (`dcat:contactPoint`) con las siguientes propiedades obligatorias:
+    Los *servicios de datos HVD* **DEBEN** incluir al menos un punto de contacto (`dcat:contactPoint`) con alguna de las siguientes propiedades:
     
     1. Correo electrónico (`vcard:hasEmail`) o URL del formulario de contacto (`vcard:hasURL`)
 
 !!! should semantic "Convención 19"
     
-    El punto de contacto **DEBERÍA** incluir también:
+    El punto de contacto **DEBERÍA** incluir:
     
-    1. Denominación del área o persona (`vcard:fn`)
+    1. Nombre (`vcard:organization-name`)
     2. Número de teléfono (`vcard:hasTelephone`)
     3. Identificador del organismo (`vcard:hasUid`)
+    4. Correo electrónico (`vcard:hasEmail`)
+    5. URL del formulario de contacto (`vcard:hasURL`)
 
 !!! must organisational "Convención 20"
     
