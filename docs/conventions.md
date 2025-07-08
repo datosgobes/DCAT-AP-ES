@@ -441,7 +441,7 @@ Para facilitar la comunicación con los responsables de los *datasets* o *servic
 
 ## Distribución (`dcat:distribution`) {#dataset-dcat-distribution}
 
-Obligatoriedad temporal de distribuciones en los datasets {#dataset-distributions-must}
+Obligatoriedad temporal de distribuciones en los datasets
 
 !!! must semantic "Convención 23"
 
