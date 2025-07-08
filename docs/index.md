@@ -1429,6 +1429,12 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 
     La actividad asociada a la creación de un dataset, habitualmente parte de alguna iniciativa, proyecto, encuesta, etc. Que da lugar a la generación del conjunto de datos. Pueden incluirse múltiples elementos con diferente nivel de detalle.
 
+    La información de esta actividad se puede expresar utilizando las propiedades de la [ontología PROV-O](https://www.w3.org/TR/prov-o/). Se recomienda especialmente el siguiente subconjunto de propiedades:
+
+    | Propiedad     |                   Descripción       |
+    | :-------------------- | :----------------------------------------------------- |
+    | `prov:startedAtTime`            | La fecha y hora en el que se inicia la actividad.|
+    | `prov:endedAtTime`            | La fecha y hora en el que se finaliza la actividad.|
 
 | dcat:Dataset | dct:source |
 | --- | --- |
@@ -2136,6 +2142,7 @@ Entre paréntesis se indica si el metadato estaba definido en la NTI-RISP o se h
 | Localización | dct:Location |  | dcat:bbox (DCAT-AP)  dcat:centroid (DCAT-AP) | locn:geometry (DCAT-AP) |
 | Período temporal | dct:PeriodOfTime |  | dcat:startDate (DCAT-AP)  dcat:endDate (DCAT-AP) | time:hasBeginning (DCAT-AP)  time:hasEnd (DCAT-AP) |
 | Relación | dcat:Relationship | dct:relation (DCAT-AP)  dcat:hadRole (DCAT-AP) |  |  |
+| Actividad | prov:Activity |  | prov:startedAtTime (DCAT-AP)  prov:endedAtTime (DCAT-AP) |  |
 
 
 ## Elementos de la NTI-RISP (V.2013) obsoletos
