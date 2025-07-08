@@ -400,7 +400,39 @@ Para describir la cobertura geométrica de los *datasets* de forma interoperable
     - `locn:geometry`: Para geometrías más complejas, extensas o precisas, permite expresar un conjunto de coordenadas que denotan los vértices del área geográfica.
 
 
-## Punto de contacto (`dcat:contactPoint`) {#dataset-dcat-contactpoint}
+## Distribución (`dcat:distribution`) {#dataset-dcat-distribution}
+
+Obligatoriedad temporal de distribuciones en los datasets
+
+!!! must semantic "Convención 23"
+
+    Todo recurso de tipo `dcat:Dataset` **DEBE** contener al menos una instancia de `dcat:Distribution`. Esta convención tiene como objetivo asegurar la persistencia de la obligatoriedad del modelo de metadatos de la NTI-RISP 2013 hasta su depreciación conforme al nuevo DCAT-AP-ES en el federador de datos.gob.es
+
+!!! info "Ejemplo mínimo de dataset con distribución"
+
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataset-dcat-distribution.ttl"
+    ```
+
+# Convenciones para `dcat:Distribution` {#distribution}
+
+## Modelado de URLs de acceso en servicios OGC {#distribution-ogc-urls}
+
+Para asegurar un acceso correcto a los servicios OGC y cumplir con los requisitos de INSPIRE, es importante modelar adecuadamente las URLs de acceso a los servicios, tanto si se modelan como `dcat:Distribution` (desaconsejado) como [si se modelan como `dcat:DataService` (recomendado)](#dataservice-ogc-services).
+
+!!! must technical "Convención 21"
+    En las distribuciones de servicios OGC, las URLs de acceso **DEBEN** modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
+
+!!! info "Ejemplo de descripción del acceso a servicios cartográficos"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_distribution-ogc-urls.ttl"
+    ```
+
+!!! warning "Importante"
+    - Se recomienda modelar los servicios OGC como DataService en lugar de Distribution ([ver Convención](#dataservice-ogc-services))
+    - No usar URLs base sin `GetCapabilities` en las `accessURL` de las distribuciones.
+
+# Convenciones para dcat:contactPoint {#dcat-contactpoint}
 
 Para facilitar la comunicación con los responsables de los *datasets* o *servicios de datos*, se debe proporcionar información de contacto estructurada utilizando la [ontología vCard](https://www.w3.org/TR/vcard-rdf/) para la descripción de personas y organizaciones y no referir directamente a IRIs de la taxonomía como por ejemplo: (`dcat:contactPoint <http://datos.gob.es/recurso/sector-publico/org/Organismo/A00000000>`)
 
@@ -438,38 +470,6 @@ Para facilitar la comunicación con los responsables de los *datasets* o *servic
 !!! warning "Importante"
     
     Todos los valores proporcionados se recomienda que sean de carácter público y persistente, ^^evitando referencias a datos personales^^ o temporalmente inestables, y preferiblemente lo más cercanos al origen del conjuntos de datos.
-
-## Distribución (`dcat:distribution`) {#dataset-dcat-distribution}
-
-Obligatoriedad temporal de distribuciones en los datasets
-
-!!! must semantic "Convención 23"
-
-    Todo recurso de tipo `dcat:Dataset` **DEBE** contener al menos una instancia de `dcat:Distribution`. Esta convención tiene como objetivo asegurar la persistencia de la obligatoriedad del modelo de metadatos de la NTI-RISP 2013 hasta su depreciación conforme al nuevo DCAT-AP-ES en el federador de datos.gob.es
-
-!!! info "Ejemplo mínimo de dataset con distribución"
-
-    ```turtle linenums="1"
-    --8<-- "examples/ttl/Conventions_dataset-dcat-distribution.ttl"
-    ```
-
-# Convenciones para `dcat:Distribution` {#distribution}
-
-## Modelado de URLs de acceso en servicios OGC {#distribution-ogc-urls}
-
-Para asegurar un acceso correcto a los servicios OGC y cumplir con los requisitos de INSPIRE, es importante modelar adecuadamente las URLs de acceso a los servicios, tanto si se modelan como `dcat:Distribution` (desaconsejado) como [si se modelan como `dcat:DataService` (recomendado)](#dataservice-ogc-services).
-
-!!! must technical "Convención 21"
-    En las distribuciones de servicios OGC, las URLs de acceso **DEBEN** modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
-
-!!! info "Ejemplo de descripción del acceso a servicios cartográficos"
-    ```turtle linenums="1"
-    --8<-- "examples/ttl/Conventions_distribution-ogc-urls.ttl"
-    ```
-
-!!! warning "Importante"
-    - Se recomienda modelar los servicios OGC como DataService en lugar de Distribution ([ver Convención](#dataservice-ogc-services))
-    - No usar URLs base sin `GetCapabilities` en las `accessURL` de las distribuciones.
 
 
 # Anexo 1. Tabla de mapeo de sectores primarios a Temáticas de datos DCAT-AP {#annex-1-mapping-nti-themes-dcatap-themes}
