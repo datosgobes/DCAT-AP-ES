@@ -13,11 +13,11 @@ validation:
   anchors: ignore
 
 nav:
-  - Guía técnica DCAT-AP-ES: index.md
+  - Guía técnica y modelo DCAT-AP-ES: index.md
   - Convenciones datos.gob.es: conventions.md
-  - FAQ: faq.md
   - Validación: validation.md
   - Ejemplos de implementación: examples.md
+  - FAQ: faq.md
 
 theme:
   language: es
@@ -167,11 +167,11 @@ plugins:
           name: English
           build: true
           nav:
-          - DCAT-AP-ES Technical Guide: index.md
+          - DCAT-AP-ES Technical guide and model: index.md
           - datos.gob.es Conventions: conventions.en.md
-          - FAQ: faq.en.md
           - Validation: validation.en.md
           - Implementation Examples: examples.en.md
+          - FAQ: faq.en.md
   - mkdocstrings:
       handlers:
         python:
@@ -236,7 +236,7 @@ dcatapes:
   es:
     draft: true
     download_pdf: false
-    title: Guía técnica de implementación del perfil de aplicación DCAT-AP-ES de acuerdo a la NTI-RISP
+    title: Guía técnica de implementación y modelo del perfil de aplicación DCAT-AP-ES
     base_url: 'https://github.com/datosgobes/DCAT-AP-ES'
     logos:
       # Only 3 logos
@@ -250,8 +250,8 @@ dcatapes:
         alt: 'Iniciativa Aporta'
         src: '/DCAT-AP-ES/img/iniciativa_aporta.svg'
     document_title: DCAT-AP-ES 1.0.0
-    published_date: '2025-03-01'
-    published_date_human: '1 de marzo de 2025'
+    published_date: '2025'
+    published_date_human: '2025'
     details_summary: Más detalles sobre este documento
     latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
     latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
@@ -287,6 +287,7 @@ dcatapes:
       latest_published_version: Última versión publicada
       latest_editors_draft: Último borrador del editor
       history: Historial
+      date_published: Fecha de referencia
       editors: Editores
       author: Autor
       feedback: Retroalimentación
@@ -331,8 +332,8 @@ dcatapes:
       download_pdf: true
       title: Convenciones técnicas, semánticas y organizativas para la aplicación de DCAT-AP-ES
       document_title: DCAT-AP-ES 1.0.0 – Convenciones
-      published_date: '2025-03-01'
-      published_date_human: '1 de marzo de 2025'
+      published_date: '2025'
+      published_date_human: '2025'
       details_summary: Más detalles sobre este documento
       latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
       latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
@@ -384,7 +385,7 @@ dcatapes:
   en:
     draft: true
     download_pdf: false
-    title: Technical guidance for DCAT-AP-ES Application Profile implementation
+    title: Technical guidance and model for DCAT-AP-ES Application Profile implementation
     base_url: 'https://github.com/datosgobes/DCAT-AP-ES'
     logos:
       # Only 3 logos
@@ -398,8 +399,8 @@ dcatapes:
         alt: 'Aporta Initiative'
         src: '/DCAT-AP-ES/img/iniciativa_aporta.svg'
     document_title: DCAT-AP-ES 1.0.0
-    published_date: '2025-03-01'
-    published_date_human: 'March 1, 2025'
+    published_date: '2025'
+    published_date_human: '2025'
     details_summary: More details about this document
     latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
     latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
@@ -436,6 +437,7 @@ dcatapes:
       latest_published_version: Latest Published Version
       latest_editors_draft: Latest Editor's Draft
       history: History
+      date_published: Reference date
       editors: Editors
       author: Author
       feedback: Feedback
@@ -479,8 +481,8 @@ dcatapes:
       download_pdf: true
       title: Technical, semantic, and organizational conventions for the application of DCAT-AP-ES
       document_title: DCAT-AP-ES 1.0.0 - Conventions
-      published_date: '2025-03-01'
-      published_date_human: 'March 1, 2025'
+      published_date: '2025'
+      published_date_human: '2025'
       details_summary: More details about this document
       latest_published_version: 'https://datosgobes.github.io/DCAT-AP-ES'
       latest_editors_draft: 'https://github.com/datosgobes/DCAT-AP-ES/releases/tag/1.0.0'
@@ -529,4 +531,4 @@ dcatapes:
           name: Semantic
           title: These conventions ensure consistency in the description of resources, guaranteeing that metadata is semantically accurate and consistent.
   # Add more languages here
-    
+

@@ -2,7 +2,7 @@
 name = "DCAT-AP-ES"
 version = "1.0.0"
 keywords = ["open-data", "spain", "dcat", "dcat-ap", "dcat-ap-es", "application-profile", "data-portals", "data-specification"]
-description = "Guía técnica de implementación del DCAT-AP-ES"
+description = "Guía técnica de implementación y modelo del perfil de aplicación DCAT-AP-ES"
 readme = "README.md"
 license = {text = "CC-BY-4.0"}
 classifiers = [

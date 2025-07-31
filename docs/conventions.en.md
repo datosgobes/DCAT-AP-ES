@@ -23,7 +23,7 @@ These conventions ensure consistency in the description of resources, guaranteei
 
 ## List of Conventions
 - [**Convention 01**](#convention-01): The publisher's identifier *MUST* be registered in the [Identification of Public Organizations (DIR3)](https://datos.gob.es/es/recurso/sector-publico/org/Organismo) taxonomy.
-- [**Convention 02**](#convention-02): The literals `dct:title`, `dct:description`, `vcard:organization_name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` *MUST* be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
+- [**Convention 02**](#convention-02): The literals `dct:title`, `dct:description`, `vcard:organization-name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` *MUST* be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
 - [**Convention 03**](#convention-03): Identifiers and URI references *SHOULD* use the `http://` scheme instead of `https://`.
 - [**Convention 04**](#convention-04): Organizations *SHOULD* implement automatic federation through RDF as the sole method of publishing metadata in DCAT-AP-ES format, avoiding the coexistence of manual and automatic federation for the same organization.
 - [**Convention 05**](#convention-05): URIs *MUST* be correctly encoded at their source, especially when they contain:
@@ -65,19 +65,19 @@ These conventions ensure consistency in the description of resources, guaranteei
     1. Using `locn:geometry`.
     2. Using `dcat:bbox` for the geographic bounding box.
     3. Using `dcat:centroid` for the geographic center (centroid).
-- [**Convention 18**](#convention-18): Datasets *MUST* include at least one contact point (`dcat:contactPoint`) with the following mandatory properties:
-    - Email address (`vcard:hasEmail`)
-    - OR Contact URL (`vcard:hasURL`)
+- [**Convention 18**](#convention-18): *Dataservices HVD*  *MUST* include at least one contact point (`dcat:contactPoint`) with one of the following mandatory properties:
+    1. Email address (`vcard:hasEmail`) OR Contact URL (`vcard:hasURL`)
 - [**Convention 19**](#convention-19): The contact point *SHOULD* also include:
-    1. Name of the area or person (`vcard:fn`)
+    1. Name of the area or person (`vcard:organization-name`)
     2. Telephone number (`vcard:hasTelephone`)
-    3. Contact form URL (`vcard:hasURL`)
-- [**Convention 20**](#convention-20): In OGC service distributions, access URLs *MUST* be modeled as follows:
-    - In `dcat:accessURL`: Complete URL of the service `GetCapabilities` request (e.g., `http://example.org/wms?request=GetCapabilities&service=WMS`)
-    - In `dct:conformsTo`: URL of the corresponding OGC standard (e.g., `http://www.opengeospatial.org/standards/wms`)
+    3. Organization identifier (`vcard:hasUid`)
+    4. Email (`vcard:hasEmail`)
+    5. Contact form URL (`vcard:hasURL`)
+
 - [**Convention 20**](#convention-20): Contact points listed in the portal's taxonomy *MUST* be described as a `vcard:Kind` and not directly with the organization's URI.
 - [**Convention 21**](#convention-21): In OGC service distributions, access URLs *MUST* be modeled as follows: In `dcat:accessURL`: Complete URL of the service `GetCapabilities` request (e.g., `http://example.org/wms?request=GetCapabilities&service=WMS`) and in `dct:conformsTo`: URL of the corresponding OGC standard, e.g., `http://www.opengeospatial.org/standards/wms`.
 - [**Convention 22**](#convention-22): Time periods *MUST* be described exclusively using the properties `dcat:startDate` and `dcat:endDate` within `dct:temporal`. The interval can also be open - i.e., it can have just a start or just an end.
+- [**Convención 23**](#convention-23): *Datasets* *MUST* include at least a distribution (`dcat:Distribution`).
 
 # General conventions {#general}
 
@@ -95,7 +95,7 @@ Literal fields with multilingual `xml:lang` tags must be at least in Spanish (`e
 
 !!! must technical "Convention 02" 
 
-    The literals `dct:title`, `dct:description`, `vcard:organization_name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` **MUST** be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
+    The literals `dct:title`, `dct:description`, `vcard:organization-name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` **MUST** be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
 
 ## Using HTTP URIs {#general-http-uris}
 

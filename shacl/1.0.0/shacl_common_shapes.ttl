@@ -527,8 +527,8 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasTelephone ;
         sh:nodeKind sh:IRI;
         sh:severity sh:Violation ;
-        sh:message "El valor de vcard:hasTelephone debe ser un IRI válido que apunte directamente al email."@es ;
-        sh:message "The value of vcard:hasTelephone must be a valid IRI that points directly to the email."@en ;
+        sh:message "El valor de vcard:hasTelephone debe ser un IRI válido que apunte directamente al teléfono."@es ;
+        sh:message "The value of vcard:hasTelephone must be a valid IRI that points directly to the telephone."@en ;
     ], 
     [
         sh:path vcard:hasTelephone ;

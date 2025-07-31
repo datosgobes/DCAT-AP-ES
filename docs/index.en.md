@@ -13,8 +13,6 @@ In this document, the main classes of the application profile are detailed: Cata
 !!! warning "Conventions Guide"
     As additional material to this technical guide, the [**datos.gob.es Conventions**](./conventions) are included. These establish **specific conventions** where **additional rules** are defined to address practical, semantic, or technical needs in the application of DCAT-AP-ES that complement this formal specification.
 
-# High Value Datasets
-
 In response to the growing importance of data in society and the economy, the European Commission adopted the [**European Commission Implementing Regulation (EU) 2023/138**](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138) (*High Value Datasets Implementing Regulation, HVD IR*) on December 21, 2022. This regulation establishes clear guidelines for public bodies regarding the availability of high value datasets and aims to improve the quality, accessibility, and use of a specific set of key data within the public sector. To achieve this, the HVD regulation sets specific requirements for the metadata associated with the published datasets.
 
 !!! note "Relationship between the specification and data-specific regulations"

@@ -58,6 +58,14 @@ td {
     text-align: left;
 }
 
+.md-typeset table:not([class]) td {
+    padding: 0.4em;
+}
+.md-typeset table:not([class]) th {
+    padding: 0.4em;
+    min-width: 4rem;
+}
+
 td:first-child:not(.code) {
     border-bottom: 2px solid var(--primary-color);
     border-left: 2px solid var(--primary-color);
@@ -105,11 +113,15 @@ td:nth-child(2n+1) {
     background-color: var(--alternate-bg-color);
 }
 
+.md-typeset th abbr {
+    border-bottom: 0.07rem dotted #fff;
+}
+
 .md-typeset abbr {
     border-bottom: 0.05rem dotted #00000036;
     cursor: help;
     text-decoration: none;
-}
+}	
 
 .md-typeset table:not([class]) tbody tr:hover {
     background-color: var(--alternate-table-color--light);

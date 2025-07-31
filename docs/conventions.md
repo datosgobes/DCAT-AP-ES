@@ -26,7 +26,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 
 ## Lista de convenciones
 - [**Convención 01**](#convencion-01): El identificador del publicador *DEBE* estar [dado de alta y disponible en la taxonomía de datos.gob.es](mailto:soporte@datos.gob.es?subject=Solicitud%20de%20alta%20de%20Organismo%20y%20usuario%20en%20datos.gob.es)
-- [**Convención 02**](#convencion-02): Los literales `dct:title`, `dct:description`, `vcard:organization_name `, `vcard:fn`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` *DEBEN* estar definidos con las etiquetas de idioma, al menos estar en idioma español `es` y no pueden ser literales vacíos.
+- [**Convención 02**](#convencion-02): Los literales `dct:title`, `dct:description`, `vcard:organization-name `, `vcard:fn`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` *DEBEN* estar definidos con las etiquetas de idioma, al menos estar en idioma español `es` y no pueden ser literales vacíos.
 - [**Convención 03**](#convencion-03): Los identificadores y referencias URI *DEBERÍAN* utilizar el esquema `http://` en lugar de `https://` como norma general.
 - [**Convención 04**](#convencion-04): Los organismos *DEBERÍAN* implementar la federación automática mediante RDF como único método de publicación de metadatos en formato DCAT-AP-ES, evitando la coexistencia de federación manual y automática para un mismo organismo.
 - [**Convención 05**](#convencion-05): Las URIs *DEBEN* estar correctamente codificadas en su origen, especialmente cuando contengan: 1. Caracteres reservados (`?`, `&`, `=`, `#`, etc.) 2. Espacios 3. Caracteres no ASCII (acentos, `ñ`, etc.) 4. Caracteres especiales (`<`, `>`, `"`, `{`, `}`, `|`, `\`, `^`, `~`, `[`, `]`, `` ` ``)
@@ -42,12 +42,12 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 15**](#convencion-15): La información de creador *DEBERÍA* contener un [código identificador DIR3](https://datos.gob.es/es/recurso/sector-publico/org/Organismo) en la propiedad identificador (`dct:identifier`), por ejemplo: `EA0000000`
 - [**Convención 16**](#convencion-16): La cobertura geográfica *DEBE* declararse utilizando las URIs del [Anexo V de la NTI-RISP para recursos geográficos del territorio español](https://datos.gob.es/es/recurso/sector-publico/territorio), siguiendo estas reglas: 1. Utilizar el nivel territorial más específico que corresponda al ámbito real del dataset. 2. Evitar el uso de `España` por defecto cuando el ámbito sea más reducido. 3. No declarar simultáneamente una Comunidad Autónoma y sus provincias. 4. Para Comunidades Autónomas uniprovinciales, utilizar preferentemente la referencia a la Comunidad Autónoma.
 - [**Convención 17**](#convencion-17): Cuando se especifique la cobertura geométrica, se *DEBERÍA* usar `WKT` (según [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql)).
-- [**Convención 18**](#convencion-18): Los *datasets* *DEBEN* incluir al menos un punto de contacto (`dcat:contactPoint`) con las siguientes propiedades obligatorias: Correo electrónico (`vcard:hasEmail`) o URL del formulario de contacto (`vcard:hasURL`)
-- [**Convención 19**](#convencion-19): El punto de contacto *DEBERÍA* incluir también: 1. Denominación del área o persona (`vcard:fn`) 2. Número de teléfono (`vcard:hasTelephone`) 3. Identificador del organismo (`vcard:hasUid`)
+- [**Convención 18**](#convencion-18): Los *servicios de datos HVD* *DEBEN* incluir al menos un punto de contacto (`dcat:contactPoint`) con alguna de las siguientes propiedades: Correo electrónico (`vcard:hasEmail`) o URL del formulario de contacto (`vcard:hasURL`)
+- [**Convención 19**](#convencion-19): El punto de contacto *DEBERÍA* incluir también: 1. Nombre (`vcard:organization-name`) 2. Número de teléfono (`vcard:hasTelephone`) 3. Identificador del organismo (`vcard:hasUid`) 4. Correo electrónico (`vcard:hasEmail`) 5. URL del formulario de contacto (`vcard:hasURL`)
 - [**Convención 20**](#convencion-20): Los puntos de contacto recogidos en la taxonomía del portal *DEBEN* describirse como un `vcard:Kind` y no directamente con la URI del organismo.
 - [**Convención 21**](#convencion-21): En las distribuciones de servicios OGC, las URLs de acceso *DEBEN* modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
-
+- [**Convención 23**](#convencion-23): Los *datasets* *DEBEN* incluir al menos una distribución (`dcat:Distribution`).
 
 # Convenciones generales {#general}
 
@@ -63,7 +63,7 @@ Los campos de literales de etiquetas multilingüe `xml:lang` deben estar al meno
 
 !!! must technical "Convención 02" 
 
-    Los literales `dct:title`, `dct:description`, `vcard:organization_name `, `vcard:fn`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` **DEBEN** estar definidos con las etiquetas de idioma, al menos estar en idioma español `es` y no pueden ser literales vacíos.
+    Los literales `dct:title`, `dct:description`, `vcard:organization-name `, `vcard:fn`, `foaf:name`, `dcat:keyword` y `adms:versionNotes` **DEBEN** estar definidos con las etiquetas de idioma, al menos estar en idioma español `es` y no pueden ser literales vacíos.
 
 ## Uso de URIs HTTP {#general-http-uris}
 
@@ -400,23 +400,57 @@ Para describir la cobertura geométrica de los *datasets* de forma interoperable
     - `locn:geometry`: Para geometrías más complejas, extensas o precisas, permite expresar un conjunto de coordenadas que denotan los vértices del área geográfica.
 
 
-## Punto de contacto (`dcat:contactPoint`) {#dataset-dcat-contactpoint}
+## Distribución (`dcat:distribution`) {#dataset-dcat-distribution}
 
-Para facilitar la comunicación con los responsables de los *datasets*, se debe proporcionar información de contacto estructurada utilizando la [ontología vCard](https://www.w3.org/TR/vcard-rdf/) para la descripción de personas y organizaciones y no referir directamente a IRIs de la taxonomía como por ejemplo: (`dcat:contactPoint <http://datos.gob.es/recurso/sector-publico/org/Organismo/A00000000>`)
+Obligatoriedad temporal de distribuciones en los datasets
+
+!!! must semantic "Convención 23"
+
+    Todo recurso de tipo `dcat:Dataset` **DEBE** contener al menos una instancia de `dcat:Distribution`. Esta convención tiene como objetivo asegurar la persistencia de la obligatoriedad del modelo de metadatos de la NTI-RISP 2013 hasta su depreciación conforme al nuevo DCAT-AP-ES en el federador de datos.gob.es
+
+!!! info "Ejemplo mínimo de dataset con distribución"
+
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataset-dcat-distribution.ttl"
+    ```
+
+# Convenciones para `dcat:Distribution` {#distribution}
+
+## Modelado de URLs de acceso en servicios OGC {#distribution-ogc-urls}
+
+Para asegurar un acceso correcto a los servicios OGC y cumplir con los requisitos de INSPIRE, es importante modelar adecuadamente las URLs de acceso a los servicios, tanto si se modelan como `dcat:Distribution` (desaconsejado) como [si se modelan como `dcat:DataService` (recomendado)](#dataservice-ogc-services).
+
+!!! must technical "Convención 21"
+    En las distribuciones de servicios OGC, las URLs de acceso **DEBEN** modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
+
+!!! info "Ejemplo de descripción del acceso a servicios cartográficos"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_distribution-ogc-urls.ttl"
+    ```
+
+!!! warning "Importante"
+    - Se recomienda modelar los servicios OGC como DataService en lugar de Distribution ([ver Convención](#dataservice-ogc-services))
+    - No usar URLs base sin `GetCapabilities` en las `accessURL` de las distribuciones.
+
+# Convenciones para dcat:contactPoint {#dcat-contactpoint}
+
+Para facilitar la comunicación con los responsables de los *datasets* o *servicios de datos*, se debe proporcionar información de contacto estructurada utilizando la [ontología vCard](https://www.w3.org/TR/vcard-rdf/) para la descripción de personas y organizaciones y no referir directamente a IRIs de la taxonomía como por ejemplo: (`dcat:contactPoint <http://datos.gob.es/recurso/sector-publico/org/Organismo/A00000000>`)
 
 !!! must semantic "Convención 18"
     
-    Los *datasets* **DEBEN** incluir al menos un punto de contacto (`dcat:contactPoint`) con las siguientes propiedades obligatorias:
+    Los *servicios de datos HVD* **DEBEN** incluir al menos un punto de contacto (`dcat:contactPoint`) con alguna de las siguientes propiedades:
     
     1. Correo electrónico (`vcard:hasEmail`) o URL del formulario de contacto (`vcard:hasURL`)
 
 !!! should semantic "Convención 19"
     
-    El punto de contacto **DEBERÍA** incluir también:
+    El punto de contacto **DEBERÍA** incluir:
     
-    1. Denominación del área o persona (`vcard:fn`)
+    1. Nombre (`vcard:organization-name`)
     2. Número de teléfono (`vcard:hasTelephone`)
     3. Identificador del organismo (`vcard:hasUid`)
+    4. Correo electrónico (`vcard:hasEmail`)
+    5. URL del formulario de contacto (`vcard:hasURL`)
 
 !!! must organisational "Convención 20"
     
@@ -436,24 +470,6 @@ Para facilitar la comunicación con los responsables de los *datasets*, se debe 
 !!! warning "Importante"
     
     Todos los valores proporcionados se recomienda que sean de carácter público y persistente, ^^evitando referencias a datos personales^^ o temporalmente inestables, y preferiblemente lo más cercanos al origen del conjuntos de datos.
-
-# Convenciones para `dcat:Distribution` {#distribution}
-
-## Modelado de URLs de acceso en servicios OGC {#distribution-ogc-urls}
-
-Para asegurar un acceso correcto a los servicios OGC y cumplir con los requisitos de INSPIRE, es importante modelar adecuadamente las URLs de acceso a los servicios, tanto si se modelan como `dcat:Distribution` (desaconsejado) como [si se modelan como `dcat:DataService` (recomendado)](#dataservice-ogc-services).
-
-!!! must technical "Convención 21"
-    En las distribuciones de servicios OGC, las URLs de acceso **DEBEN** modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
-
-!!! info "Ejemplo de descripción del acceso a servicios cartográficos"
-    ```turtle linenums="1"
-    --8<-- "examples/ttl/Conventions_distribution-ogc-urls.ttl"
-    ```
-
-!!! warning "Importante"
-    - Se recomienda modelar los servicios OGC como DataService en lugar de Distribution ([ver Convención](#dataservice-ogc-services))
-    - No usar URLs base sin `GetCapabilities` en las `accessURL` de las distribuciones.
 
 
 # Anexo 1. Tabla de mapeo de sectores primarios a Temáticas de datos DCAT-AP {#annex-1-mapping-nti-themes-dcatap-themes}
