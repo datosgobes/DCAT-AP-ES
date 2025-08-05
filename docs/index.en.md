@@ -23,11 +23,17 @@ In response to the growing importance of data in society and the economy, the Eu
 
 The fundamental elements of the model are detailed below, beginning with the UML diagram, the class relationships, the namespace used in the specification, and the set of controlled vocabularies.
 
+!!! info "Priority of the Spanish version over other language versions"
+    If there are multiple versions of the document in different languages, **the Spanish version will prevail** as the main reference for interpretation and application.
+
 ## Model Diagram {#uml}
 
 The DCAT-AP-ES model is presented below as a UML diagram that illustrates the specification described in this document. To facilitate interpretation, details included in the description of each metadata element have been omitted. In essence, the key classes and some relevant supporting ones are included.
 
 ![](img/uml/dcat-ap-es.drawio "Illustration. UML diagram of the DCAT-AP-ES metadata model"){ align=center width="100%"}
+
+!!! info "Priority of the formal specification over the diagram"
+    Although the UML diagram facilitates visual understanding, **the DCAT-AP-ES model described in this document prevails over any graphical interpretation**. In case of discrepancies, the formal definitions and restrictions of the model must be followed.
 
 ## DCAT-AP-ES Application Profile Classes {#dcat-ap-es-entities}
 

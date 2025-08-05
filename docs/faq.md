@@ -25,7 +25,7 @@ Secciones:
 
     Adaptación de DCAT-AP que incorpora especificaciones propias del contexto español y la extensión HVD.
 
-    [:octicons-arrow-right-24: Ver más](/)
+    [:octicons-arrow-right-24: Ver más](/DCAT-AP-ES/)
 
 
 -   :fontawesome-solid-plus:{ .lg .middle .grid-emoji } **¿Principales novedades de DCAT-AP-ES?**{ .grid-title #novedades }

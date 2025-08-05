@@ -4,6 +4,7 @@
 <http://datos.example.org/dataset/123>
     dcat:contactPoint [
         a vcard:Kind ;
+        vcard:organization-name "Organismo"@es ;
         vcard:fn "Oficina de Datos Abiertos"@es ;
         vcard:hasUid "EA0000000" ;
         vcard:hasEmail <mailto:datos@example.org> ;
