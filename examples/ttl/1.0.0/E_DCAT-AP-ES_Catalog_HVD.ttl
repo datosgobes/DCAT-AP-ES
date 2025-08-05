@@ -53,7 +53,7 @@
   dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
   dcat:keyword "estadísticas"@es ;
   dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
-  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/conctactDataset> ;
+  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataset> ;
   dct:temporal [
     a dct:PeriodOfTime ;
     dcat:startDate "2021-01-01T00:00:00Z"^^xsd:dateTime ;
@@ -62,7 +62,7 @@
   dcatap:hvdCategory <http://data.europa.eu/bna/c_b7f6a4f3> ;
   dcat:distribution <http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV-HVD> .
 
-<http://dcat-ap-es.ejemplo.org/conctactDataset>
+<http://dcat-ap-es.ejemplo.org/contactDataset>
   a vcard:Organization ;
   vcard:organization-name "Organismo"@es ;
   vcard:fn "Oficina del dato"@es ;

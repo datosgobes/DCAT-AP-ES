@@ -58,7 +58,7 @@
 		<dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
 		<dcatap:applicableLegislation rdf:resource="https://www.boe.es/eli/es/rd/2023/08/22/729"/>
 		<dcat:contactPoint>
-				<vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/conctactDataset">
+				<vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/contactDataset">
 					<vcard:organization-name xml:lang="es">Organismo</vcard:organization-name>
 					<vcard:fn xml:lang="es">Oficina del dato</vcard:fn>
 					<vcard:hasURL rdf:resource="http://dcat-ap-es.ejemplo.org/"/>

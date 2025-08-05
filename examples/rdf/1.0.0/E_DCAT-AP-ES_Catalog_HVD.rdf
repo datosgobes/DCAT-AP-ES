@@ -61,7 +61,7 @@
 		<dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
 		<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
 		<dcat:contactPoint>
-				<vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/conctactDataset">
+				<vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/contactDataset">
 					<vcard:organization-name xml:lang="es">Organismo</vcard:organization-name>
 					<vcard:fn xml:lang="es">Oficina del dato</vcard:fn>
 					<vcard:hasURL rdf:resource="http://dcat-ap-es.ejemplo.org/"/>
