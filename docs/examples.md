@@ -4,6 +4,12 @@
     
     Estos ejemplos te guiarán en el uso de [propiedades obligatorias, recomendadas y opcionales](/#relacion_de_metadatos_del_modelo_dcat-ap-es) para describir las entidades principales del modelo.
 
+!!! Success "Migrar tu catálogo"
+    Se incluyen ^^ejemplos específicos si ya dispones de un catálogo RDF conforme a NTI-RISP 2013^^ y quieres actualizarlo: 
+
+    - [**Migrar a DCAT-AP-ES**](#catalogo_-_nti_dcatapes) <span style="color:#00bfa5"><b>:material-arrow-up-right:</b></span> 
+    - [**Migrar a DCAT-AP-ES HVD**](#catalogo_-_nti_dcatapes_hvd) <span style="color:#00bfa5"><b>:material-arrow-up-right:</b></span> 
+
 !!! example "Convenciones para la especificación de ejemplos"
 
     Se establece las siguientes convenciones de nombrado para su uso en todos los ejemplos definidos: 
