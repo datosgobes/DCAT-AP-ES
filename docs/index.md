@@ -2232,9 +2232,19 @@ Las especificaciones adicionalees se muestran en las siguientes tablas comparati
 
 ### Resumen
 
-!!! note "DCAT-AP-ES&nbsp;=&nbsp;DCAT-AP&nbsp;2.1.1 +&nbsp;DCAT-AP-HVD&nbsp;2.2.0 + especificaciones adicionales"
+!!! info "Composición"
 
-Las especificaciones adicionales se enumeran en la siguiente tabla junto con una justificación.
+    <div style="font-size: 1em; text-align: center; padding: 0.5em;">
+        <span style="font-weight: bold; color: #e6f3ff; background: #154481; padding: 5px 10px; border-radius: 5px; border: 1px solid #154481;">DCAT-AP-ES</span>
+        <span style="font-weight: bold; font-size: 1.5em; color: #154481; vertical-align: middle; margin: 0 10px;">=</span>
+        <span style="font-weight: bold; color: #154481; background: #e6f3ff; padding: 5px 10px; border-radius: 5px; border: 1px solid #154481;">DCAT-AP 2.1.1</span>
+        <span style="font-weight: bold; font-size: 1.5em; color: #154481; vertical-align: middle; margin: 0 10px;">+</span>
+        <span style="font-weight: bold; color: #154481; background: #e6f3ff; padding: 5px 10px; border-radius: 5px; border: 1px solid #154481;">DCAT-AP HVD 2.2.0</span>
+        <span style="font-weight: bold; font-size: 1.5em; color: #154481; vertical-align: middle; margin: 0 10px;">+</span>
+        <span style="font-weight: bold; color: #154481; background: #e6f3ff; padding: 5px 10px; border-radius: 5px; border: 1px solid #154481;">Especificaciones adicionales</span>
+    </div>
+
+    <span style="color:#154481"><b>:material-layers:</b></span>  DCAT-AP-ES es el resultado de combinar el perfil europeo DCAT-AP 2.1.1, la extensión HVD 2.2.0 y requisitos adicionales adaptados al contexto español que se justifican a continuación.
 
 | Especificidad | Justificación |
 |---|---|
