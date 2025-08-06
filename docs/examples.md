@@ -176,6 +176,22 @@ Se especifican también las condiciones de reutilización mediante una licencia 
 
 # Plantillas
 
+## DCAT-AP-ES - Núcleo mínimo de metadatos {#dcatapes_minimal}
+
+Esta plantilla proporciona una implementación **[del núcleo mínimo de metadatos obligatorios](/#dcat-ap-es-detailed-model)** según el perfil DCAT-AP-ES, alineado con la Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público (NTI-RISP) y las convenciones técnicas de datos.gob.es.
+
+Incluye únicamente las **entidades y propiedades obligatorias** para describir un catálogo de datos abiertos según la especificación formal vigente. Es la referencia básica para la publicación y federación de metadatos interoperables en el catálogo nacional, y puede emplearse como ejemplo o punto de partida para la generación automática de catálogos conformes a DCAT-AP-ES.
+
+=== "RDF/XML"
+    ```xml linenums="1"
+    --8<-- "examples/rdf/1.0.0/E_DCAT-AP-ES_minimal.rdf"
+    ```
+
+=== "TTL"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/1.0.0/E_DCAT-AP-ES_minimal.ttl"
+    ```
+
 ## Catálogo - Migración desde NTI-RISP a DCAT-AP-ES {#catalogo_-_nti_dcatapes}
 
 Este ejemplo muestra cómo migrar un catálogo modelado originalmente según NTI-RISP (2013) al perfil DCAT-AP-ES. Facilitando la interoperabilidad y enriqueciendo los metadatos del catálogo, permitiendo su integración en portales nacionales y europeos. El proceso consiste en mapear las propiedades clave de NTI-RISP a DCAT-AP-ES, añadiendo vocabularios y elementos recomendados por el nuevo perfil.
