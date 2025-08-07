@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+################################################################################
+# Núcleo mínimo de metadatos obligatorios en DCAT-AP-ES (versión 1.0.0)
+# Solo entidades y propiedades obligatorias según especificación formal
+# Referencia: https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-model-relations
+################################################################################
+-->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dcat="http://www.w3.org/ns/dcat#"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/">
+
+  <!--
+  ################################################################################
+  # 1. Catálogo: dcat:Catalog (todos los campos obligatorios)
+  ################################################################################
+  -->
+  <dcat:Catalog rdf:about="http://dcat-ap-es.ejemplo.org/catalogo">
+    <dct:title xml:lang="es">Catálogo de Datos Abiertos</dct:title>
+    <dct:description xml:lang="es">Catálogo nacional de datos abiertos.</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <foaf:homepage rdf:resource="http://dcat-ap-es.ejemplo.org"/>
+    <dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-01</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-02</dct:modified>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+
+    <!--
+    ################################################################################
+    # 2. Dataset: dcat:Dataset (propiedades obligatorias únicamente)
+    ################################################################################
+    -->
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1">
+        <dct:title xml:lang="es">Dataset de ejemplo</dct:title>
+        <dct:description xml:lang="es">Descripción de un dataset de ejemplo.</dct:description>
+        <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
+
+        <!--
+        ################################################################################
+        # 3. Distribution: dcat:Distribution (convención obligatoria: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23)
+        ################################################################################
+        -->
+        <dcat:distribution>
+          <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV">
+            <dcat:accessURL rdf:resource="http://dcat-ap-es.ejemplo.org/files/dataset-ejemplo-1.CSV"/>
+          </dcat:Distribution>
+        </dcat:distribution>
+      </dcat:Dataset>
+    </dcat:dataset>
+  </dcat:Catalog>
+
+  <!--
+  ################################################################################
+  # Notas
+  # - No se incluyen propiedades recomendadas, opcionales ni entidades auxiliares.
+  # - El catálogo debe tener como mínimo la taxonomía de sectores primarios.
+  # - El idioma debe incluir al menos español (SPA).
+  # - Las fechas deben ser coherentes y usar siempre el mismo tipo (e.g., xsd:date).
+  # - La licencia debe ser una URI válida del vocabulario europeo.
+  # - El agente debe estar dado de alta en la taxonomía de datos.gob.es.
+  # - No se incluyen características HVD, servicios ni puntos de contacto, ya que son opcionales.
+  # -  Se debe referenciar el publicador mediante su URI DIR3, sin necesidad de declarar un bloque foaf:Agent específico.
+  ################################################################################
+  -->
+</rdf:RDF>

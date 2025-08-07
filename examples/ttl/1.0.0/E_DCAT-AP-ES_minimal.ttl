@@ -1,0 +1,59 @@
+################################################################################
+# Núcleo mínimo de metadatos obligatorios en DCAT-AP-ES (versión 1.0.0)
+# Solo entidades y propiedades obligatorias según especificación formal
+# Referencia: https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-model-relations
+################################################################################
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+################################################################################
+# 1. Catálogo: dcat:Catalog (todos los campos obligatorios)
+################################################################################
+
+<http://dcat-ap-es.ejemplo.org/catalogo>
+  a dcat:Catalog ;
+  dct:title "Catálogo de Datos Abiertos"@es ;
+  dct:description "Catálogo nacional de datos abiertos."@es ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+  foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
+  dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ;
+  dct:issued "2025-01-01"^^xsd:date ; 
+  dct:modified "2025-01-02"^^xsd:date ;
+  dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+  dcat:dataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> .
+
+################################################################################
+# 2. Dataset: dcat:Dataset (propiedades obligatorias únicamente)
+################################################################################
+
+<http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1>
+  a dcat:Dataset ;
+  dct:title "Dataset de ejemplo"@es ;
+  dct:description "Descripción de un dataset de ejemplo."@es ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+  dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
+  dcat:distribution <http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV> .
+
+################################################################################
+# 3. Distribution: dcat:Distribution (convención obligatoria: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23)
+################################################################################
+
+<http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV>
+  a dcat:Distribution ;
+  dcat:accessURL <http://dcat-ap-es.ejemplo.org/files/dataset-ejemplo-1.CSV> .
+
+################################################################################
+# Notas
+# - No se incluyen propiedades recomendadas, opcionales ni entidades auxiliares.
+# - El catálogo debe tener como mínimo la taxonomía de sectores primarios.
+# - El idioma debe incluir al menos español (SPA).
+# - Las fechas deben ser coherentes y usar siempre el mismo tipo (e.g., xsd:date).
+# - La licencia debe ser una URI válida del vocabulario europeo.
+# - El agente debe estar dado de alta en la taxonomía de datos.gob.es.
+# - No se incluyen características HVD, servicios ni puntos de contacto, ya que son opcionales.
+# -  Se debe referenciar el publicador mediante su URI DIR3, sin necesidad de declarar un bloque foaf:Agent específico.
+################################################################################
