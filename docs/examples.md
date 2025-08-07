@@ -21,6 +21,65 @@
     * URI distribución: `http://dcat-ap-es.ejemplo.org/resource/distribucion-ejemplo-1` 
     * URI organismo: `http://datos.gob.es/recurso/sector-publico/org/Organismo/Identificador-Organismo`
 
+# Plantillas
+
+## Núcleo mínimo de metadatos de DCAT-AP-ES {#dcatapes_minimal}
+
+Esta plantilla proporciona una implementación **[del núcleo mínimo de metadatos obligatorios](/#dcat-ap-es-detailed-model)** según el perfil DCAT-AP-ES, alineado con la Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público (NTI-RISP) y las convenciones técnicas de datos.gob.es.
+
+Incluye únicamente las **entidades y propiedades obligatorias** para describir un catálogo de datos abiertos según la especificación formal vigente. Es la referencia básica para la publicación y federación de metadatos interoperables en el catálogo nacional, y puede emplearse como ejemplo o punto de partida para la generación automática de catálogos conformes a DCAT-AP-ES.
+
+=== "RDF/XML"
+    ```xml linenums="1"
+    --8<-- "examples/rdf/1.0.0/E_DCAT-AP-ES_minimal.rdf"
+    ```
+
+=== "TTL"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/1.0.0/E_DCAT-AP-ES_minimal.ttl"
+    ```
+
+## Migración desde NTI-RISP a DCAT-AP-ES {#catalogo_-_nti_dcatapes}
+
+Este ejemplo muestra cómo migrar un catálogo modelado originalmente según NTI-RISP (2013) al perfil DCAT-AP-ES. Facilitando la interoperabilidad y enriqueciendo los metadatos del catálogo, permitiendo su integración en portales nacionales y europeos. El proceso consiste en mapear las propiedades clave de NTI-RISP a DCAT-AP-ES, añadiendo vocabularios y elementos recomendados por el nuevo perfil.
+
+El catálogo `http://dcat-ap-es.ejemplo.org/catalogo` incluye información esencial como título, descripción, publicador, fechas clave, página web, temáticas, idiomas, términos de uso y referencia a datasets. Además, incorpora elementos recomendados por DCAT-AP-ES, como los temas, el punto de contacto y la legislación aplicable. Como normal general se alinean los vocabularios europeos, así como se incluye la descripción de los nuevos Servicios de Datos (`dcat:DataService`)
+
+!!! tip "Ejemplo original NTI 2013"
+
+    El ejemplo original de catálogo NTI-RISP 2013 está disponible en:
+    [Catálogo NTI-RISP a DCAT-AP-ES](https://datosgobes.github.io/NTI-RISP/examples/#catalogo_-_nti_dcatapes)
+
+=== "RDF/XML"
+    ```xml linenums="1"
+    --8<-- "examples/rdf/1.0.0/E_DCAT-AP-ES_Catalog.rdf"
+    ```
+
+=== "TTL"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/1.0.0/E_DCAT-AP-ES_Catalog.ttl"
+    ```
+
+## Migración desde NTI-RISP a DCAT-AP-ES HVD {#catalogo_-_nti_dcatapes_hvd}
+
+Este ejemplo ilustra cómo adaptar un catálogo NTI-RISP para cumplir con los requisitos HVD. La motivación es asegurar que los datos de alto valor estén disponibles mediante APIs y cumplan con la normativa europea, añadiendo propiedades específicas como la categoría HVD, legislación aplicable y más detalles de los servicios de datos.
+
+El catálogo `http://dcat-ap-es.ejemplo.org/catalogo` se enriquece con información sobre servicios de datos (APIs), datasets HVD, contacto, legislación y disponibilidad, siguiendo el reglamento HVD. Así, se facilita la transición y el cumplimiento normativo para la publicación de datos de alto valor.
+
+!!! tip "Ejemplo original NTI 2013"
+
+    El ejemplo original de catálogo NTI-RISP 2013 está disponible en:
+    [Catálogo NTI-RISP a DCAT-AP-ES](https://datosgobes.github.io/NTI-RISP/examples/#catalogo_-_nti_dcatapes)
+
+=== "RDF/XML"
+    ```xml linenums="1"
+    --8<-- "examples/rdf/1.0.0/E_DCAT-AP-ES_Catalog_HVD.rdf"
+    ```
+
+=== "TTL"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/1.0.0/E_DCAT-AP-ES_Catalog_HVD.ttl"
+    ```
 
 # Catálogo - Clase: [`dcat:Catalog`](/#catalogo_-_clase_dcatcatalog_-_obligatorio)
 ## Catálogo - Propiedades obligatorias
@@ -172,64 +231,4 @@ Se especifican también las condiciones de reutilización mediante una licencia 
 === "TTL"
     ```turtle linenums="1"
     --8<-- "examples/ttl/E7_Distribuciones_HVD.ttl"
-    ```
-
-# Plantillas
-
-## DCAT-AP-ES - Núcleo mínimo de metadatos {#dcatapes_minimal}
-
-Esta plantilla proporciona una implementación **[del núcleo mínimo de metadatos obligatorios](/#dcat-ap-es-detailed-model)** según el perfil DCAT-AP-ES, alineado con la Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público (NTI-RISP) y las convenciones técnicas de datos.gob.es.
-
-Incluye únicamente las **entidades y propiedades obligatorias** para describir un catálogo de datos abiertos según la especificación formal vigente. Es la referencia básica para la publicación y federación de metadatos interoperables en el catálogo nacional, y puede emplearse como ejemplo o punto de partida para la generación automática de catálogos conformes a DCAT-AP-ES.
-
-=== "RDF/XML"
-    ```xml linenums="1"
-    --8<-- "examples/rdf/1.0.0/E_DCAT-AP-ES_minimal.rdf"
-    ```
-
-=== "TTL"
-    ```turtle linenums="1"
-    --8<-- "examples/ttl/1.0.0/E_DCAT-AP-ES_minimal.ttl"
-    ```
-
-## Catálogo - Migración desde NTI-RISP a DCAT-AP-ES {#catalogo_-_nti_dcatapes}
-
-Este ejemplo muestra cómo migrar un catálogo modelado originalmente según NTI-RISP (2013) al perfil DCAT-AP-ES. Facilitando la interoperabilidad y enriqueciendo los metadatos del catálogo, permitiendo su integración en portales nacionales y europeos. El proceso consiste en mapear las propiedades clave de NTI-RISP a DCAT-AP-ES, añadiendo vocabularios y elementos recomendados por el nuevo perfil.
-
-El catálogo `http://dcat-ap-es.ejemplo.org/catalogo` incluye información esencial como título, descripción, publicador, fechas clave, página web, temáticas, idiomas, términos de uso y referencia a datasets. Además, incorpora elementos recomendados por DCAT-AP-ES, como los temas, el punto de contacto y la legislación aplicable. Como normal general se alinean los vocabularios europeos, así como se incluye la descripción de los nuevos Servicios de Datos (`dcat:DataService`)
-
-!!! tip "Ejemplo original NTI 2013"
-
-    El ejemplo original de catálogo NTI-RISP 2013 está disponible en:
-    [Catálogo NTI-RISP a DCAT-AP-ES](https://datosgobes.github.io/NTI-RISP/examples/#ejemplo_de_migracion_catalogo_nti-risp_a_dcat-ap-es)
-
-=== "RDF/XML"
-    ```xml linenums="1"
-    --8<-- "examples/rdf/1.0.0/E_DCAT-AP-ES_Catalog.rdf"
-    ```
-
-=== "TTL"
-    ```turtle linenums="1"
-    --8<-- "examples/ttl/1.0.0/E_DCAT-AP-ES_Catalog.ttl"
-    ```
-
-## Catálogo HVD - Migración desde NTI-RISP a DCAT-AP-ES HVD {#catalogo_-_nti_dcatapes_hvd}
-
-Este ejemplo ilustra cómo adaptar un catálogo NTI-RISP para cumplir con los requisitos HVD. La motivación es asegurar que los datos de alto valor estén disponibles mediante APIs y cumplan con la normativa europea, añadiendo propiedades específicas como la categoría HVD, legislación aplicable y más detalles de los servicios de datos.
-
-El catálogo `http://dcat-ap-es.ejemplo.org/catalogo` se enriquece con información sobre servicios de datos (APIs), datasets HVD, contacto, legislación y disponibilidad, siguiendo el reglamento HVD. Así, se facilita la transición y el cumplimiento normativo para la publicación de datos de alto valor.
-
-!!! tip "Ejemplo original NTI 2013"
-
-    El ejemplo original de catálogo NTI-RISP 2013 está disponible en:
-    [Catálogo NTI-RISP a DCAT-AP-ES](https://datosgobes.github.io/NTI-RISP/examples/#ejemplo_de_migracion_catalogo_nti-risp_a_dcat-ap-es)
-
-=== "RDF/XML"
-    ```xml linenums="1"
-    --8<-- "examples/rdf/1.0.0/E_DCAT-AP-ES_Catalog_HVD.rdf"
-    ```
-
-=== "TTL"
-    ```turtle linenums="1"
-    --8<-- "examples/ttl/1.0.0/E_DCAT-AP-ES_Catalog_HVD.ttl"
     ```
