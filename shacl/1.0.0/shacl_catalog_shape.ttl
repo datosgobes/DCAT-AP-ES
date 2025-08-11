@@ -57,6 +57,7 @@ dcatapes:Catalog_Shape
     # dct:title
         sh:path dct:title ;
         sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_title> ;
         sh:message "El catálogo debe contener al menos un dct:title."@es ;
@@ -85,6 +86,7 @@ dcatapes:Catalog_Shape
     [
         sh:path dct:description ;
         sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_description> ;
         sh:message "El catálogo debe contener al menos un dct:description."@es ;
@@ -150,7 +152,7 @@ dcatapes:Catalog_Shape
         sh:or(
             [ 
                 sh:nodeKind sh:IRI;
-                sh:closed true
+                sh:closed true ;
             ]
             [
                 sh:nodeKind sh:BlankNodeOrIRI;
@@ -215,7 +217,6 @@ dcatapes:Catalog_Shape
             <http://publications.europa.eu/resource/authority/data-theme>
             <http://inspire.ec.europa.eu/theme>
             );
-        sh:description "Only the themes <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> and <http://inspire.ec.europa.eu/theme> can be present"@en ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11> ;
         sh:message "Sólo pueden estar presentes las taxonomías <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> y <http://inspire.ec.europa.eu/theme>. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@es ;
@@ -236,8 +237,8 @@ dcatapes:Catalog_Shape
     [
         sh:path dct:issued ;
         sh:maxCount 1 ;
+        sh:node :DateOrDateTimeDataTypetConvention ;
         sh:nodeKind sh:Literal ;
-        sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
     ],
     [
@@ -306,6 +307,11 @@ dcatapes:Catalog_Shape
             [ sh:nodeKind sh:IRI ;]
         );
         sh:severity sh:Violation ;
+    ], 
+    [
+        sh:path dct:license;
+        sh:minCount 1 ;
+        sh:severity sh:Violation
     ], 
 
     # dcat:dataset
@@ -376,33 +382,41 @@ dcatapes:Catalog_Shape
         sh:message "El valor de dcat:record debe ser un IRI válido."@es ;
         sh:message "The value of dcat:record must be a valid IRI."@en ;
     ],
-
-    #dct:creator  
+    # dct:creator  
     [
         sh:path dct:creator ;
         sh:or(
-            [
-                sh:nodeKind sh:IRI; 
+            [   
+                sh:node dcatapes:DIR3OrganismRestriction ;  
+                sh:nodeKind sh:IRI ;
                 sh:closed true ;
             ]
             [
-                sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node dcatapes:Agent_Shape;
-                sh:node dcatapes:CreatorAgentRestriction;
+                sh:nodeKind sh:BlankNodeOrIRI ;
+                sh:node dcatapes:Agent_Shape ;
+                sh:or(
+                    [
+                        sh:node :DIR3OrganismRestriction ;
+                        sh:node :PublisherAgentRestriction ;
+                    ]
+                    [
+                        sh:not :DIR3OrganismRestriction ;
+                        sh:node :CreatorAgentRestriction ;
+                    ]
+                );
             ]
-        );
-        sh:severity sh:Violation ;
+        ); 
     ],
     [
         sh:path dct:creator ;
         sh:or(
             [ 
-                sh:nodeKind sh:IRI;
-                sh:closed true
+                sh:nodeKind sh:IRI ;
+                sh:closed true ;
             ]
             [
-                sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node dcatapes:Agent_ShapeRecommended
+                sh:nodeKind sh:BlankNodeOrIRI ;
+                sh:node dcatapes:Agent_ShapeRecommended ;
             ]
         );
         sh:severity sh:Warning ;

@@ -56,43 +56,9 @@ dcatapes:DataService_HVD_Shape
     rdfs:label "HVD data service restrictions"@en ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#convencion-12> ;
     sh:closed false ;
-    sh:property
-    [ 
-    # dcatap:hvdCategory
-        sh:path dcatap:hvdCategory;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_hvdcategory> ;
-        sh:message "El valor de dcatap:hvdCategory debe ser un IRI válido."@es ;
-        sh:message "The value of dcatap:hvdCategory must be a valid IRI."@en ;
-    ],
+    sh:property   
     [
-        sh:path dcatap:hvdCategory;
-        sh:node dcatapes:HVDCategoryRestriction ;
-    ],
-
-    # dcat:contactPoint
-    [
-        sh:path dcat:contactPoint ;
-        sh:minCount 1 ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_contactpoint> ;
-        sh:message "El servicio de datos HVD debe contener al menos un dcat:contactPoint."@es ;
-        sh:message "The HVD data service must contain at least one dcat:contactPoint."@en ;
-    ], 
-
-    # dcat:servesDataset
-    [
-        sh:path dcat:servesDataset ;
-        sh:minCount 1 ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_servesdataset> ;
-        sh:message "El servicio de datos HVD debe contener al menos un dcat:servesDataset."@es ;
-        sh:message "The HVD data service must contain at least one dcat:servesDataset."@en ;
-    ],
-    
-    # dcatap:applicableLegislation
-    [
+        # dcatap:applicableLegislation
         sh:path dcatap:applicableLegislation ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
@@ -141,7 +107,15 @@ dcatapes:DataService_HVD_Shape
         sh:node dcatapes:HVDCategoryRestriction ;
         sh:severity sh:Violation ;
     ],
-
+    # dcat:contactPoint
+    [
+        sh:path dcat:contactPoint ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_contactpoint> ;
+        sh:message "El servicio de datos HVD debe contener al menos un dcat:contactPoint."@es ;
+        sh:message "The HVD data service must contain at least one dcat:contactPoint."@en ;
+    ], 
     # foaf:page
     [
         sh:path foaf:page ;
@@ -159,5 +133,38 @@ dcatapes:DataService_HVD_Shape
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-foaf_page> ;
         sh:message "El servicio de datos HVD debe contener al menos un foaf:page."@es ;
         sh:message "The HVD data service must contain at least one foaf:page."@en ;
+    ],
+    # dcat:servesDataset
+    [
+        sh:path dcat:servesDataset ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_servesdataset> ;
+        sh:message "El servicio de datos HVD debe contener al menos un dcat:servesDataset."@es ;
+        sh:message "The HVD data service must contain at least one dcat:servesDataset."@en ;
     ];
+    sh:targetClass dcat:DataService .
+
+dcatapes:DataService_HVD_Shape_legalInformation
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para la información legal de los datos HVD en DCAT-AP-ES"@es ;
+    rdfs:comment "Restriction for legal information of HVD data in DCAT-AP-ES"@en ;
+    rdfs:label "Restricción para la información legal de los datos HVD en DCAT-AP-ES"@es ;
+    rdfs:label "Restriction for legal information of HVD data in DCAT-AP-ES"@en ;
+    sh:name "Legal information for HVD data services"@en ;
+    sh:name "Información legal para servicios de datos HVD"@es ;
+    sh:or (
+		[
+  			sh:path dct:license;
+			sh:minCount 1 ;
+		]
+		[
+  			sh:path dct:accessRights;
+			sh:minCount 1 ;
+		]
+	) ; 
+    sh:severity sh:Violation ;
+    foaf:page <https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/#c3> ;
+    sh:message "It is mandatory to provide legal information (dct:license OR dct:rights)."@en ;
+    sh:message "Es obligatorio aportar información legal (dct:license O dct:rights)."@es ;
     sh:targetClass dcat:DataService .

@@ -462,13 +462,22 @@ dcatapes:Distribution_Shape
         sh:message "La propiedad dcat:temporalResolution no puede tener más de un valor."@es ;
         sh:message "The dcat:temporalResolution property cannot have more than one value."@en ;
     ], 
-
     # spdx:checksum
+    [
+        sh:path spdx:checksum ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-spdx_checksum> ;
+        sh:message "La propiedad spdx:checksum no puede tener más de un valor."@es ;
+        sh:message "The spdx:checksum property cannot have more than one value."@en ;
+    ], 
     [
         sh:path spdx:checksum ;
         sh:class spdx:Checksum ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-spdx_checksum> ;
+        sh:message "La propiedad spdx:checksum debe ser una entidad spdx:Checksum."@es ;
+        sh:message "The spdx:checksum property must be an spdx:Checksum entity."@en ;
     ],
 
     # odrl:hasPolicy

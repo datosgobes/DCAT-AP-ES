@@ -65,6 +65,7 @@ dcatapes:Dataset_Shape
     # dct:title
         sh:path dct:title ;
         sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_title> ;
         sh:message "El conjunto de datos debe contener al menos un dct:title."@es ;
@@ -222,7 +223,15 @@ dcatapes:Dataset_Shape
         sh:message "El valor de dcat:distribution debe ser un dcat:Distribution."@es ;
         sh:message "The value of dcat:distribution must be a dcat:Distribution."@en ;
     ], 
-
+    # Convención 23
+    [
+        sh:path dcat:distribution ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23> ;
+        sh:message "Todo recurso de tipo dcat:Dataset debe contener al menos una instancia de dcat:Distribution. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23"@es ;
+        sh:message "All dcat:Dataset resources must contain at least one instance of dcat:Distribution. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23"@en .
+    ], 
     # dcat:keyword
     [
         sh:path dcat:keyword ;
@@ -232,6 +241,7 @@ dcatapes:Dataset_Shape
         sh:message "El valor de dcat:keyword ser un Literal."@es ;
         sh:message "The value of dcat:keyword must be a Literal."@en ;
     ],
+
     [
         sh:path dcat:keyword ;
         sh:node dcatapes:LiteralMultilingualConvention ; 
@@ -336,32 +346,41 @@ dcatapes:Dataset_Shape
         sh:message "The value of adms:identifier must be a adms:Identifier."@en ;
     ], 
 
-    #dct:creator  
+    # dct:creator  
     [
         sh:path dct:creator ;
         sh:or(
-            [
-                sh:nodeKind sh:IRI; 
+            [   
+                sh:node dcatapes:DIR3OrganismRestriction ;  
+                sh:nodeKind sh:IRI ;
                 sh:closed true ;
             ]
             [
-                sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node dcatapes:Agent_Shape;
-                sh:node dcatapes:CreatorAgentRestriction;
+                sh:nodeKind sh:BlankNodeOrIRI ;
+                sh:node dcatapes:Agent_Shape ;
+                sh:or(
+                    [
+                        sh:node :DIR3OrganismRestriction ;
+                        sh:node :PublisherAgentRestriction ;
+                    ]
+                    [
+                        sh:not :DIR3OrganismRestriction ;
+                        sh:node :CreatorAgentRestriction ;
+                    ]
+                );
             ]
-        );
-        sh:severity sh:Violation ;
+        ); 
     ],
     [
         sh:path dct:creator ;
         sh:or(
             [ 
-                sh:nodeKind sh:IRI;
+                sh:nodeKind sh:IRI ;
                 sh:closed true
             ]
             [
-                sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node dcatapes:Agent_ShapeRecommended
+                sh:nodeKind sh:BlankNodeOrIRI ;
+                sh:node dcatapes:Agent_ShapeRecommended ;
             ]
         );
         sh:severity sh:Warning ;
@@ -477,7 +496,15 @@ dcatapes:Dataset_Shape
         sh:message "El valor de dct:accrualPeriodicity debe ser un IRI de los vocabularios permitidos o un Literal de tipo xsd:duration."@es ;
         sh:message "The value of dct:accrualPeriodicity must be an IRI from the allowed vocabularies or a Literal of type xsd:duration."@en ;
     ],
-
+    [
+        sh:path dct:accrualPeriodicity ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_accrualperiodicity> ;
+        sh:message "La propiedad dct:accrualPeriodicity no puede tener más de un valor."@es ;
+        sh:message "The dct:accrualPeriodicity property cannot have more than one value."@en ;
+    ],
+    ],
     # dcat:version
     [
         sh:path dcat:version ;
@@ -523,12 +550,29 @@ dcatapes:Dataset_Shape
         sh:uniqueLang true;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
-        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
-        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
+        sh:message "Las notas de la versión debe tener al menos un valor en español (etiqueta de idioma 'es'). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "The version notes must have at least one value in Spanish (language tag 'es') See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
+    [
+        sh:path adms:versionNotes ;
+        sh:uniqueLang true;
+        sh:severity sh:Violation ;
+        sh:sparql [
+            sh:message "The version notes value must be at least in Spanish."@en ;
+            sh:select """
+                PREFIX adms: <http://www.w3.org/ns/adms#>
+                SELECT $this
+                WHERE {
+                FILTER EXISTS { $this adms:versionNotes ?value }
+
+                FILTER NOT EXISTS {
+                    $this adms:versionNotes ?value .
+                    FILTER(isLiteral(?value) && LANG(?value) = "es")
+                }
+            }
+            """ ;
+        ] ;
     ],
-
     # dcat:hasVersion
-
     [
         sh:path dct:hasVersion ;
         sh:nodeKind sh:IRI; 
@@ -600,7 +644,7 @@ dcatapes:Dataset_Shape
     # dct:isReferencedBy
     [
         sh:path dct:isReferencedBy ;
-        sh:nodeKind sh:IRI; 
+        sh:nodeKind sh:IRI ; 
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_isreferencedby> ;
         sh:message "El valor de dct:isReferencedBy debe ser un IRI válido."@es ;
@@ -663,7 +707,7 @@ dcatapes:Dataset_Shape
     # dct:source
     [
         sh:path dct:source ;
-        sh:nodeKind sh:IRI; 
+        sh:nodeKind sh:IRI ; 
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_source> ;
         sh:message "El valor de dct:source debe ser un IRI válido."@es ;
