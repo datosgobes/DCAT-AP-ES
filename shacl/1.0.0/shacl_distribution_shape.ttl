@@ -431,6 +431,7 @@ dcatapes:Distribution_Shape
         sh:or (
             [ sh:datatype xsd:decimal ]
             [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
         ) ;
         sh:minInclusive 0;
         sh:severity sh:Violation ;

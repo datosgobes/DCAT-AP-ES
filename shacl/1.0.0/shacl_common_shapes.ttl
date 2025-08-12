@@ -829,16 +829,20 @@ dcatapes:SpanishTitleRestriction
     rdfs:comment "Restriction to validate that a resource has the title at least in Spanish"@en ;
     rdfs:label "Restricción de título en español"@es ;
     rdfs:label "Spanish Title Restriction"@en ;
-    sh:property [
-        sh:path dct:title ;
-        sh:qualifiedValueShape [
-            sh:languageIn ("es") ;
-            sh:nodeKind sh:Literal ;
-        ] ;
-        sh:qualifiedMinCount 1 ;
+    sh:sparql [
         sh:message "El título debe tener al menos un valor en español (etiqueta de idioma 'es')."@es ;
         sh:message "The title must have at least one value in Spanish (language tag 'es')."@en ;
-        sh:severity sh:Violation ;
+            sh:select """
+                PREFIX dct: <http://purl.org/dc/terms/>
+                SELECT $this
+                WHERE {
+                FILTER EXISTS { $this dct:title ?value }
+                FILTER NOT EXISTS {
+                    $this dct:title ?value .
+                    FILTER(isLiteral(?value) && LANG(?value) = "es")
+                }
+            }
+            """ ;
     ] ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
     sh:severity sh:Violation .

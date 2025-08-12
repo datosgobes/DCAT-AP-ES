@@ -69,10 +69,10 @@ dcatapes:Distribution_HVD_Shape
     [
         sh:path dcatap:applicableLegislation ;
         sh:minCount 1 ;
-        sh:severity sh:Warning ;
+        sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dcatap_applicablelegislation> ;
-        sh:message "La distribución HVD debería contener al menos un dcatap:applicableLegislation."@es ;
-        sh:message "The HVD distribution should contain at least one dcatap:applicableLegislation."@en ;
+        sh:message "La distribución HVD debe contener al menos un dcatap:applicableLegislation."@es ;
+        sh:message "The HVD distribution must contain at least one dcatap:applicableLegislation."@en ;
     ], 
     [
         sh:path dcatap:applicableLegislation;

@@ -57,6 +57,7 @@ dcatapes:DataService_Shape
     # dct:title
         sh:path dct:title ;
         sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_title> ;
         sh:message "El servicio de datos debe contener al menos un dct:title."@es ;

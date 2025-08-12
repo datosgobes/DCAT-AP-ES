@@ -40,7 +40,13 @@
 #--------------------------
 dcatapes:HVDCategory_HVDRestriction
     a sh:NodeShape ;
-    rdfs:comment "Shape reservado para futuras restricciones específicas de categorías HVD."@es ;
-    rdfs:comment "Shape reserved for future specific restrictions on HVD categories."@en ;
-    rdfs:label "Restricción para categoría HVD (vacía)"@es ;
-    rdfs:label "HVD Category Restriction (empty)"@en .
+    rdfs:comment "Restricción de categorías HVD."@es ;
+    rdfs:comment "HVD category restriction."@en ;
+    rdfs:label "Restricción de categoría HVD"@es ;
+    rdfs:label "HVD category Restriction"@en ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://data.europa.eu/bna/.+$" ;
+    foaf:page <https://op.europa.eu/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/bna/asd487ae75> ;
+    sh:message "El valor de dcatap:hvdCategory debe ser un IRI del vocabulario europeo de categorías de conjuntos de datos de alto valor: http://data.europa.eu/bna/asd487ae75."@es ;
+    sh:message "The value of dcatap:hvdCategory must be an IRI from the European High-value dataset categories vocabulary: http://data.europa.eu/bna/asd487ae75."@en ;
+    sh:severity sh:Violation .

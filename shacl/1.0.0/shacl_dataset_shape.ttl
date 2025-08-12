@@ -241,7 +241,14 @@ dcatapes:Dataset_Shape
         sh:message "El valor de dcat:keyword ser un Literal."@es ;
         sh:message "The value of dcat:keyword must be a Literal."@en ;
     ],
-
+    [
+        sh:path dcat:keyword ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_keyword> ;
+        sh:message "Todo recurso de tipo dcat:Dataset debería contener al menos una instancia de dcat:keyword."@es ;
+        sh:message "All dcat:Dataset resources must contain at least one instance of dcat:keyword."@en .
+    ], 
     [
         sh:path dcat:keyword ;
         sh:node dcatapes:LiteralMultilingualConvention ; 
@@ -572,6 +579,7 @@ dcatapes:Dataset_Shape
             """ ;
         ] ;
     ],
+
     # dcat:hasVersion
     [
         sh:path dct:hasVersion ;
@@ -609,8 +617,10 @@ dcatapes:Dataset_Shape
         sh:or (
             [ sh:datatype xsd:decimal ]
             [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
         ) ;
         sh:minInclusive 0;
+        sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_spatialresolutioninmeters> ;
         sh:message "El valor de dcat:spatialResolutionInMeters debe ser un Literal de tipo xsd:decimal o xsd:double."@es ;
         sh:message "The value of dcat:spatialResolutionInMeters must be a Literal of type xsd:decimal or xsd:double."@en ;
@@ -1120,21 +1130,6 @@ dcatapes:SpatialGeometryConvention
 #--------------------------
 # Vocabulary restrictions
 #--------------------------
-dcatapes:FrequencyRestriction
-    a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que los valores de dct:accrualPeriodicity sean IRIs válidos del vocabulario europeo de frecuencias."@es ;
-    rdfs:comment "Restriction to validate that dct:accrualPeriodicity values are valid IRIs from the European frequency vocabulary."@en ;
-    rdfs:label "Restricción de frecuencia"@es ;
-    rdfs:label "Frequency Restriction"@en ;
-    sh:name "Frequency Restriction"@en ;
-    sh:name "Restricción de frecuencia"@es ;
-    sh:nodeKind sh:IRI ;
-    sh:pattern "^http://publications\\.europa\\.eu/resource/authority/frequency/.+$" ;
-    sh:severity sh:Violation ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_accrualperiodicity> ;
-    sh:message "El valor debe ser un IRI del vocabulario europeo de frecuencias http://publications.europa.eu/resource/authority/frequency."@es ;
-    sh:message "The value must be an IRI from the European frequency vocabulary http://publications.europa.eu/resource/authority/frequency."@en .
-
 dcatapes:DatasetTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los valores de dct:type sean IRIs válidos del vocabulario europeo de tipos de conjuntos de datos."@es ;
@@ -1149,6 +1144,21 @@ dcatapes:DatasetTypeRestriction
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_type> ;
     sh:message "El valor debe ser un IRI del vocabulario europeo de tipos de conjunto de datos http://publications.europa.eu/resource/authority/dataset-type."@es ;
     sh:message "The value must be an IRI from the European dataset type vocabulary http://publications.europa.eu/resource/authority/dataset-type."@en .
+
+dcatapes:FrequencyRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que los valores de dct:accrualPeriodicity sean IRIs válidos del vocabulario europeo de frecuencias."@es ;
+    rdfs:comment "Restriction to validate that dct:accrualPeriodicity values are valid IRIs from the European frequency vocabulary."@en ;
+    rdfs:label "Restricción de frecuencia"@es ;
+    rdfs:label "Frequency Restriction"@en ;
+    sh:name "Frequency Restriction"@en ;
+    sh:name "Restricción de frecuencia"@es ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://publications\\.europa\\.eu/resource/authority/frequency/.+$" ;
+    sh:severity sh:Violation ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_accrualperiodicity> ;
+    sh:message "El valor debe ser un IRI del vocabulario europeo de frecuencias http://publications.europa.eu/resource/authority/frequency."@es ;
+    sh:message "The value must be an IRI from the European frequency vocabulary http://publications.europa.eu/resource/authority/frequency."@en .
 
 dcatapes:INSPIREDatasetTypeRestriction
     a sh:NodeShape ;
