@@ -455,6 +455,14 @@ dcatapes:Dataset_Shape
     # dct:type
     [
         sh:path dct:type ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_type> ;
+        sh:message "Solo puede haber un tipo para el conjunto de datos."@es ;
+        sh:message "There can only be one type for the dataset."@en ;
+    ],
+    [
+        sh:path dct:type ;
         #sh:class skos:Concept
         sh:nodeKind sh:IRI ;
         sh:or(
