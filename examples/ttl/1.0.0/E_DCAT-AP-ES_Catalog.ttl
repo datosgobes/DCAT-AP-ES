@@ -26,7 +26,7 @@
   dcat:endpointURL <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1> ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
-  dcat:endpointDescription <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1?service=CSW> ;
+  dcat:endpointDescription <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1/v1/api-docs> ;
   dcat:keyword "estadísticas"@es ;
   dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataService> ;
   dcatap:applicableLegislation <https://www.boe.es/eli/es/rd/2023/08/22/729> ;
