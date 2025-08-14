@@ -404,15 +404,7 @@ dcatapes:Distribution_Shape
     [
         sh:path dcat:byteSize ;
         sh:nodeKind sh:Literal;
-        sh:or(
-            [
-                sh:none dcatapes:NonNegativeIntegerRestriction ;
-            ]
-            [
-                sh:node dcatapes:NonLiteralMultilingualConvention;
-                sh:node dcatapes:NonEmptyLiteralConvention
-            ]
-        );
+        sh:none :NonNegativeIntegerRestriction ;
         sh:severity sh:Violation
     ],
     [
@@ -420,8 +412,8 @@ dcatapes:Distribution_Shape
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dcat_bytesize> ;
-        sh:message "La propiedad dcat:byteSize no puede tener más de un valor."@es ;
-        sh:message "The dcat:byteSize property cannot have more than one value."@en ;
+        sh:message "El valor debe ser un número entero no negativo."@es ;
+        sh:message "The value must be a non-negative integer."@en ;
     ], 
 
     # dcat:spatialResolutionInMeters
@@ -454,6 +446,7 @@ dcatapes:Distribution_Shape
         sh:nodeKind sh:Literal;
         sh:datatype xsd:duration ;
         sh:node dcatapes:DurationRestriction;
+        sh:severity sh:Violation ;
     ],
     [
         sh:path dcat:temporalResolution ;
@@ -637,7 +630,6 @@ dcatapes:IMT_Shape
     # rdf:value
     [
         sh:path rdf:value ;
-        sh:nodeKind sh:Literal ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
     ],
@@ -663,7 +655,6 @@ dcatapes:IMT_Shape
     # rdfs:label
     [
         sh:path rdfs:label ;
-        sh:nodeKind sh:Literal ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
     ],

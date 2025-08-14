@@ -333,7 +333,6 @@ dcatapes:Dataset_Shape
     # dct:identifier
     [
         sh:path dct:identifier ;
-        sh:nodeKind sh:Literal ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation
     ],
@@ -523,7 +522,6 @@ dcatapes:Dataset_Shape
     # dcat:version
     [
         sh:path dcat:version ;
-        sh:nodeKind sh:Literal ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation
     ],
@@ -957,7 +955,6 @@ dcatapes:ADMSIdentifier_Shape
     # skos:notation
     [
         sh:path skos:notation ;
-        sh:nodeKind sh:Literal ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
         sh:message "El valor de skos:notation debe ser un literal sin etiqueta de idioma."@es ;
