@@ -237,7 +237,7 @@ dcatapes:Catalog_Shape
     [
         sh:path dct:issued ;
         sh:maxCount 1 ;
-        sh:node :DateOrDateTimeDataTypetConvention ;
+        sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
     ],
@@ -396,12 +396,12 @@ dcatapes:Catalog_Shape
                 sh:node dcatapes:Agent_Shape ;
                 sh:or(
                     [
-                        sh:node :DIR3OrganismRestriction ;
-                        sh:node :PublisherAgentRestriction ;
+                        sh:node dcatapes::DIR3OrganismRestriction ;
+                        sh:node dcatapes::PublisherAgentRestriction ;
                     ]
                     [
-                        sh:not :DIR3OrganismRestriction ;
-                        sh:node :CreatorAgentRestriction ;
+                        sh:not dcatapes:DIR3OrganismRestriction ;
+                        sh:node dcatapes:CreatorAgentRestriction ;
                     ]
                 );
             ]

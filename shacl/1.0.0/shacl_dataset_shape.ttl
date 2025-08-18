@@ -230,7 +230,7 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23> ;
         sh:message "Todo recurso de tipo dcat:Dataset debe contener al menos una instancia de dcat:Distribution. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23"@es ;
-        sh:message "All dcat:Dataset resources must contain at least one instance of dcat:Distribution. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23"@en .
+        sh:message "All dcat:Dataset resources must contain at least one instance of dcat:Distribution. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23"@en ;
     ], 
     # dcat:keyword
     [
@@ -247,7 +247,7 @@ dcatapes:Dataset_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_keyword> ;
         sh:message "Todo recurso de tipo dcat:Dataset debería contener al menos una instancia de dcat:keyword."@es ;
-        sh:message "All dcat:Dataset resources must contain at least one instance of dcat:keyword."@en .
+        sh:message "All dcat:Dataset resources must contain at least one instance of dcat:keyword."@en ;
     ], 
     [
         sh:path dcat:keyword ;
@@ -366,12 +366,12 @@ dcatapes:Dataset_Shape
                 sh:node dcatapes:Agent_Shape ;
                 sh:or(
                     [
-                        sh:node :DIR3OrganismRestriction ;
-                        sh:node :PublisherAgentRestriction ;
+                        sh:node dcatapes:DIR3OrganismRestriction ;
+                        sh:node dcatapes:PublisherAgentRestriction ;
                     ]
                     [
-                        sh:not :DIR3OrganismRestriction ;
-                        sh:node :CreatorAgentRestriction ;
+                        sh:not dcatapes:DIR3OrganismRestriction ;
+                        sh:node dcatapes:CreatorAgentRestriction ;
                     ]
                 );
             ]
@@ -518,7 +518,6 @@ dcatapes:Dataset_Shape
         sh:message "La propiedad dct:accrualPeriodicity no puede tener más de un valor."@es ;
         sh:message "The dct:accrualPeriodicity property cannot have more than one value."@en ;
     ],
-    ],
     # dcat:version
     [
         sh:path dcat:version ;
@@ -565,6 +564,7 @@ dcatapes:Dataset_Shape
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Las notas de la versión debe tener al menos un valor en español (etiqueta de idioma 'es'). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
         sh:message "The version notes must have at least one value in Spanish (language tag 'es') See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
+    ],
     [
         sh:path adms:versionNotes ;
         sh:uniqueLang true;

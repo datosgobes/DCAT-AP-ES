@@ -404,7 +404,15 @@ dcatapes:Distribution_Shape
     [
         sh:path dcat:byteSize ;
         sh:nodeKind sh:Literal;
-        sh:none :NonNegativeIntegerRestriction ;
+        sh:or(
+            [
+                sh:none dcatapes:NonNegativeIntegerRestriction ;
+            ]
+            [
+                sh:node dcatapes:NonLiteralMultilingualConvention;
+                sh:node dcatapes:NonEmptyLiteralConvention
+            ]
+        );
         sh:severity sh:Violation
     ],
     [
@@ -515,13 +523,12 @@ dcatapes:Distribution_Shape
 # Convencion 02
 dcatapes:DistributionSPALanguageRestriction
     a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que una distribución cumpla con las convenciones de idioma y contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
-    rdfs:comment "Restriction to validate that a distribution complies with Spanish language and content conventions, including title, description, and other key elements."@en ;
-    rdfs:label "Restricción de distribución: idioma y contenido en español"@es ;
-    rdfs:label "Distribution restriction: Spanish language and content"@en ;
-    sh:name "Distribution Spanish Language and Content Restriction"@en ;
-    sh:name "Restricción de distribución: idioma y contenido en español"@es ;
-    sh:node dcatapes:SpanishLanguageRestriction ;
+    rdfs:comment "Restricción para validar que una distribución cumpla con las convenciones de contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
+    rdfs:comment "Restriction to validate that a distribution complies with Spanish content conventions, including title, description, and other key elements."@en ;
+    rdfs:label "Restricción de distribución: contenido en español"@es ;
+    rdfs:label "Distribution restriction: Spanish content"@en ;
+    sh:name "Distribution Content Restriction"@en ;
+    sh:name "Restricción de distribución: contenido en español"@es ;
     sh:node dcatapes:SpanishTitleRestriction ;
     sh:node dcatapes:SpanishDescriptionRestriction ;
     sh:severity sh:Violation ;
