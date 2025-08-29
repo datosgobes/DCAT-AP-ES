@@ -517,10 +517,17 @@ dcatapes:VcardKindRestriction
     ],
     [
         sh:path vcard:hasEmail ;
-        sh:pattern "^mailto:.+" ;
-        sh:severity sh:Violation ;
         sh:message "El valor vcard:hasEmail debe ser email válido, ej: <mailto:my.email@example.org>"@es ;
         sh:message "The vcard:hasEmail value must be a valid email, e.g. <mailto:my.email@example.org>"@en ;
+        sh:sparql [
+            sh:select """
+            PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+            SELECT $this ?value WHERE {
+                $this vcard:hasEmail ?value .
+                FILTER (!regex(str(?value), "^mailto:.+"))
+            }
+            """ ;
+        ] ;
     ],
     # vcard:hasTelephone
     [
@@ -953,6 +960,43 @@ dcatapes:TemporalPeriodConvention
     sh:message "El período temporal debe ser descrito mediante al menos una de dcat:startDate o dcat:endDate dentro de dct:temporal. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@es ;
     sh:message "The temporal period must be described using at least one of dcat:startDate or dcat:endDate within dct:temporal. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@en ;
     sh:severity sh:Violation .
+
+# Convencion 17
+dcatapes:SpatialGeometryConvention
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que las referencias espaciales geométricas usen WKT (Well-Known Text) según GeoSPARQL, cumpliendo con la Convención 17 de DCAT-AP-ES."@es ;
+    rdfs:comment "Restriction to validate that spatial geometric references use WKT (Well-Known Text) according to GeoSPARQL, complying with DCAT-AP-ES Convention 17."@en ;
+    rdfs:label "Restricción para geometrías espaciales"@es ;
+    rdfs:label "Spatial Geometry Restriction"@en ;
+    sh:name "Spatial Geometry Restriction"@en ;
+    sh:name "Restricción para geometrías espaciales"@es ;
+    sh:targetClass dct:Location ;
+    sh:property
+    [
+        sh:path locn:geometry ;
+        sh:datatype geo:wktLiteral ;
+        sh:severity sh:Warning ;
+        sh:message "El valor de locn:geometry debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
+        sh:message "The value of locn:geometry should be a literal in WKT format (geo:wktLiteral). See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
+    ] ;
+    sh:property [
+        sh:path dcat:bbox ;
+        sh:datatype geo:wktLiteral ;
+        sh:severity sh:Warning ;
+        sh:message "El valor de dcat:bbox debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
+        sh:message "The value of dcat:bbox should be a literal in WKT format (geo:wktLiteral). See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
+    ] ;
+    sh:property [
+        sh:path dcat:centroid ;
+        sh:datatype geo:wktLiteral ;
+        sh:severity sh:Warning ;
+        sh:message "El valor de dcat:centroid debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
+        sh:message "The value of dcat:centroid should be a literal in WKT format (geo:wktLiteral). See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
+    ] ;
+    sh:severity sh:Warning ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17> ;
+    sh:message "Las referencias espaciales geométricas deberían usar WKT (geo:wktLiteral) según GeoSPARQL. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
+    sh:message "Spatial geometric references should use WKT (geo:wktLiteral) according to GeoSPARQL. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en .
 
 dcatapes:PeriodOfTimeRestriction
     a sh:NodeShape ;

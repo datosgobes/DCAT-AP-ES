@@ -339,7 +339,7 @@ dcatapes:Catalog_Shape
         sh:path dct:spatial ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dcat_spatial> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_spatial> ;
         sh:message "El catálogo debe contener al menos un valor para dct:spatial."@es ;
         sh:message "The catalog must contain at least one value for dct:spatial."@en ;
     ],
@@ -358,7 +358,7 @@ dcatapes:Catalog_Shape
             ]
         );
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dcat_spatial> ;            
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_catalog-dct_spatial> ;            
         sh:message "El valor de dct:spatial debe ser un IRI de los vocabularios permitidos o un nodo de tipo Location."@es ;
         sh:message "The value of dct:spatial must be an IRI from the allowed vocabularies or a Location node."@en ;
     ],

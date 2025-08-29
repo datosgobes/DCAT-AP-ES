@@ -305,7 +305,7 @@ dcatapes:Dataset_Shape
         sh:path dct:spatial ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_spatial> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_spatial> ;
         sh:message "El conjunto de datos debe contener al menos un valor para dct:spatial."@es ;
         sh:message "The dataset must contain at least one value for dct:spatial."@en ;
     ],
@@ -313,22 +313,30 @@ dcatapes:Dataset_Shape
     [
         sh:path dct:spatial ;
         sh:or (
-            [ 
-                sh:class dct:Location ;
-                # WKT restriction
-                sh:node dcatapes:SpatialGeometryConvention ; 
-            ]
-            [ 
-                sh:node dcatapes:Spatial_Shape ;
+            [
                 sh:nodeKind sh:IRI ;
-                sh:severity sh:Violation;
+                sh:node dcatapes:Spatial_Shape ;
+            ]
+            [
+                sh:class dct:Location ;
             ]
         );
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_spatial> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_spatial> ;
         sh:message "El valor de dct:spatial debe ser un IRI de los vocabularios permitidos o un nodo de tipo Location."@es ;
         sh:message "The value of dct:spatial must be an IRI from the allowed vocabularies or a Location node."@en ;
-    ], 
+    ],
+    [
+        sh:path dct:spatial ;
+        sh:node [
+            sh:class dct:Location ;
+            sh:node dcatapes:SpatialGeometryConvention ;
+        ] ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_spatial> ;
+        sh:message "Las referencias espaciales geométricas deberían usar WKT (geo:wktLiteral) según GeoSPARQL. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
+        sh:message "Spatial geometric references should use WKT (geo:wktLiteral) according to GeoSPARQL. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
+    ],
 
     # dct:identifier
     [
@@ -1095,43 +1103,6 @@ dcatapes:TimeYearsRestriction
         sh:minCount 1;
     ] .
 
-# Convencion 17
-dcatapes:SpatialGeometryConvention
-    a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que las referencias espaciales geométricas usen WKT (Well-Known Text) según GeoSPARQL, cumpliendo con la Convención 17 de DCAT-AP-ES."@es ;
-    rdfs:comment "Restriction to validate that spatial geometric references use WKT (Well-Known Text) according to GeoSPARQL, complying with DCAT-AP-ES Convention 17."@en ;
-    rdfs:label "Restricción para geometrías espaciales"@es ;
-    rdfs:label "Spatial Geometry Restriction"@en ;
-    sh:name "Spatial Geometry Restriction"@en ;
-    sh:name "Restricción para geometrías espaciales"@es ;
-    sh:targetClass dct:Location ;
-    sh:property
-    [
-        sh:path locn:geometry ;
-        sh:datatype geo:wktLiteral ;
-        sh:severity sh:Warning ;
-        sh:message "El valor de locn:geometry debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
-        sh:message "The value of locn:geometry should be a literal in WKT format (geo:wktLiteral). See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
-    ] ;
-    sh:property [
-        sh:path dcat:bbox ;
-        sh:datatype geo:wktLiteral ;
-        sh:severity sh:Warning ;
-        sh:message "El valor de dcat:bbox debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
-        sh:message "The value of dcat:bbox should be a literal in WKT format (geo:wktLiteral). See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
-    ] ;
-    sh:property [
-        sh:path dcat:centroid ;
-        sh:datatype geo:wktLiteral ;
-        sh:severity sh:Warning ;
-        sh:message "El valor de dcat:centroid debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
-        sh:message "The value of dcat:centroid should be a literal in WKT format (geo:wktLiteral). See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
-    ] ;
-    sh:severity sh:Warning ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17> ;
-    sh:message "Las referencias espaciales geométricas deberían usar WKT (geo:wktLiteral) según GeoSPARQL. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
-    sh:message "Spatial geometric references should use WKT (geo:wktLiteral) according to GeoSPARQL. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en .
-
 #--------------------------
 # Vocabulary restrictions
 #--------------------------
@@ -1179,4 +1150,3 @@ dcatapes:INSPIREDatasetTypeRestriction
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_type> ;
     sh:message "El valor debe ser exactamente el IRI http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset."@es ;
     sh:message "The value must be exactly the IRI http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset."@en .
-
