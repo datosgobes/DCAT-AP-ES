@@ -65,6 +65,7 @@ dcatapes:Dataset_Shape
     # dct:title
         sh:path dct:title ;
         sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_title> ;
         sh:message "El conjunto de datos debe contener al menos un dct:title."@es ;
@@ -222,7 +223,15 @@ dcatapes:Dataset_Shape
         sh:message "El valor de dcat:distribution debe ser un dcat:Distribution."@es ;
         sh:message "The value of dcat:distribution must be a dcat:Distribution."@en ;
     ], 
-
+    # Convención 23
+    [
+        sh:path dcat:distribution ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23> ;
+        sh:message "Todo recurso de tipo dcat:Dataset debe contener al menos una instancia de dcat:Distribution. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23"@es ;
+        sh:message "All dcat:Dataset resources must contain at least one instance of dcat:Distribution. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23"@en ;
+    ], 
     # dcat:keyword
     [
         sh:path dcat:keyword ;
@@ -232,6 +241,14 @@ dcatapes:Dataset_Shape
         sh:message "El valor de dcat:keyword ser un Literal."@es ;
         sh:message "The value of dcat:keyword must be a Literal."@en ;
     ],
+    [
+        sh:path dcat:keyword ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_keyword> ;
+        sh:message "Todo recurso de tipo dcat:Dataset debería contener al menos una instancia de dcat:keyword."@es ;
+        sh:message "All dcat:Dataset resources must contain at least one instance of dcat:keyword."@en ;
+    ], 
     [
         sh:path dcat:keyword ;
         sh:node dcatapes:LiteralMultilingualConvention ; 
@@ -288,7 +305,7 @@ dcatapes:Dataset_Shape
         sh:path dct:spatial ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_spatial> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_spatial> ;
         sh:message "El conjunto de datos debe contener al menos un valor para dct:spatial."@es ;
         sh:message "The dataset must contain at least one value for dct:spatial."@en ;
     ],
@@ -296,27 +313,34 @@ dcatapes:Dataset_Shape
     [
         sh:path dct:spatial ;
         sh:or (
-            [ 
-                sh:class dct:Location ;
-                # WKT restriction
-                sh:node dcatapes:SpatialGeometryConvention ; 
-            ]
-            [ 
-                sh:node dcatapes:Spatial_Shape ;
+            [
                 sh:nodeKind sh:IRI ;
-                sh:severity sh:Violation;
+                sh:node dcatapes:Spatial_Shape ;
+            ]
+            [
+                sh:class dct:Location ;
             ]
         );
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_spatial> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_spatial> ;
         sh:message "El valor de dct:spatial debe ser un IRI de los vocabularios permitidos o un nodo de tipo Location."@es ;
         sh:message "The value of dct:spatial must be an IRI from the allowed vocabularies or a Location node."@en ;
-    ], 
+    ],
+    [
+        sh:path dct:spatial ;
+        sh:node [
+            sh:class dct:Location ;
+            sh:node dcatapes:SpatialGeometryConvention ;
+        ] ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_spatial> ;
+        sh:message "Las referencias espaciales geométricas deberían usar WKT (geo:wktLiteral) según GeoSPARQL. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
+        sh:message "Spatial geometric references should use WKT (geo:wktLiteral) according to GeoSPARQL. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
+    ],
 
     # dct:identifier
     [
         sh:path dct:identifier ;
-        sh:nodeKind sh:Literal ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation
     ],
@@ -336,32 +360,41 @@ dcatapes:Dataset_Shape
         sh:message "The value of adms:identifier must be a adms:Identifier."@en ;
     ], 
 
-    #dct:creator  
+    # dct:creator  
     [
         sh:path dct:creator ;
         sh:or(
-            [
-                sh:nodeKind sh:IRI; 
+            [   
+                sh:node dcatapes:DIR3OrganismRestriction ;  
+                sh:nodeKind sh:IRI ;
                 sh:closed true ;
             ]
             [
-                sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node dcatapes:Agent_Shape;
-                sh:node dcatapes:CreatorAgentRestriction;
+                sh:nodeKind sh:BlankNodeOrIRI ;
+                sh:node dcatapes:Agent_Shape ;
+                sh:or(
+                    [
+                        sh:node dcatapes:DIR3OrganismRestriction ;
+                        sh:node dcatapes:PublisherAgentRestriction ;
+                    ]
+                    [
+                        sh:not dcatapes:DIR3OrganismRestriction ;
+                        sh:node dcatapes:CreatorAgentRestriction ;
+                    ]
+                );
             ]
-        );
-        sh:severity sh:Violation ;
+        ); 
     ],
     [
         sh:path dct:creator ;
         sh:or(
             [ 
-                sh:nodeKind sh:IRI;
+                sh:nodeKind sh:IRI ;
                 sh:closed true
             ]
             [
-                sh:nodeKind sh:BlankNodeOrIRI;
-                sh:node dcatapes:Agent_ShapeRecommended
+                sh:nodeKind sh:BlankNodeOrIRI ;
+                sh:node dcatapes:Agent_ShapeRecommended ;
             ]
         );
         sh:severity sh:Warning ;
@@ -429,6 +462,14 @@ dcatapes:Dataset_Shape
     # dct:type
     [
         sh:path dct:type ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_type> ;
+        sh:message "Solo puede haber un tipo para el conjunto de datos."@es ;
+        sh:message "There can only be one type for the dataset."@en ;
+    ],
+    [
+        sh:path dct:type ;
         #sh:class skos:Concept
         sh:nodeKind sh:IRI ;
         sh:or(
@@ -477,11 +518,17 @@ dcatapes:Dataset_Shape
         sh:message "El valor de dct:accrualPeriodicity debe ser un IRI de los vocabularios permitidos o un Literal de tipo xsd:duration."@es ;
         sh:message "The value of dct:accrualPeriodicity must be an IRI from the allowed vocabularies or a Literal of type xsd:duration."@en ;
     ],
-
+    [
+        sh:path dct:accrualPeriodicity ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_accrualperiodicity> ;
+        sh:message "La propiedad dct:accrualPeriodicity no puede tener más de un valor."@es ;
+        sh:message "The dct:accrualPeriodicity property cannot have more than one value."@en ;
+    ],
     # dcat:version
     [
         sh:path dcat:version ;
-        sh:nodeKind sh:Literal ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation
     ],
@@ -523,12 +570,31 @@ dcatapes:Dataset_Shape
         sh:uniqueLang true;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
-        sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
-        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
+        sh:message "Las notas de la versión debe tener al menos un valor en español (etiqueta de idioma 'es'). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
+        sh:message "The version notes must have at least one value in Spanish (language tag 'es') See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
+    ],
+    [
+        sh:path adms:versionNotes ;
+        sh:uniqueLang true;
+        sh:severity sh:Violation ;
+        sh:sparql [
+            sh:message "The version notes value must be at least in Spanish."@en ;
+            sh:select """
+                PREFIX adms: <http://www.w3.org/ns/adms#>
+                SELECT $this
+                WHERE {
+                FILTER EXISTS { $this adms:versionNotes ?value }
+
+                FILTER NOT EXISTS {
+                    $this adms:versionNotes ?value .
+                    FILTER(isLiteral(?value) && LANG(?value) = "es")
+                }
+            }
+            """ ;
+        ] ;
     ],
 
     # dcat:hasVersion
-
     [
         sh:path dct:hasVersion ;
         sh:nodeKind sh:IRI; 
@@ -565,8 +631,10 @@ dcatapes:Dataset_Shape
         sh:or (
             [ sh:datatype xsd:decimal ]
             [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
         ) ;
         sh:minInclusive 0;
+        sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_spatialresolutioninmeters> ;
         sh:message "El valor de dcat:spatialResolutionInMeters debe ser un Literal de tipo xsd:decimal o xsd:double."@es ;
         sh:message "The value of dcat:spatialResolutionInMeters must be a Literal of type xsd:decimal or xsd:double."@en ;
@@ -600,7 +668,7 @@ dcatapes:Dataset_Shape
     # dct:isReferencedBy
     [
         sh:path dct:isReferencedBy ;
-        sh:nodeKind sh:IRI; 
+        sh:nodeKind sh:IRI ; 
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_isreferencedby> ;
         sh:message "El valor de dct:isReferencedBy debe ser un IRI válido."@es ;
@@ -663,7 +731,7 @@ dcatapes:Dataset_Shape
     # dct:source
     [
         sh:path dct:source ;
-        sh:nodeKind sh:IRI; 
+        sh:nodeKind sh:IRI ; 
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_source> ;
         sh:message "El valor de dct:source debe ser un IRI válido."@es ;
@@ -895,7 +963,6 @@ dcatapes:ADMSIdentifier_Shape
     # skos:notation
     [
         sh:path skos:notation ;
-        sh:nodeKind sh:Literal ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
         sh:message "El valor de skos:notation debe ser un literal sin etiqueta de idioma."@es ;
@@ -1036,61 +1103,9 @@ dcatapes:TimeYearsRestriction
         sh:minCount 1;
     ] .
 
-# Convencion 17
-dcatapes:SpatialGeometryConvention
-    a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que las referencias espaciales geométricas usen WKT (Well-Known Text) según GeoSPARQL, cumpliendo con la Convención 17 de DCAT-AP-ES."@es ;
-    rdfs:comment "Restriction to validate that spatial geometric references use WKT (Well-Known Text) according to GeoSPARQL, complying with DCAT-AP-ES Convention 17."@en ;
-    rdfs:label "Restricción para geometrías espaciales"@es ;
-    rdfs:label "Spatial Geometry Restriction"@en ;
-    sh:name "Spatial Geometry Restriction"@en ;
-    sh:name "Restricción para geometrías espaciales"@es ;
-    sh:targetClass dct:Location ;
-    sh:property
-    [
-        sh:path locn:geometry ;
-        sh:datatype geo:wktLiteral ;
-        sh:severity sh:Warning ;
-        sh:message "El valor de locn:geometry debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
-        sh:message "The value of locn:geometry should be a literal in WKT format (geo:wktLiteral). See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
-    ] ;
-    sh:property [
-        sh:path dcat:bbox ;
-        sh:datatype geo:wktLiteral ;
-        sh:severity sh:Warning ;
-        sh:message "El valor de dcat:bbox debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
-        sh:message "The value of dcat:bbox should be a literal in WKT format (geo:wktLiteral). See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
-    ] ;
-    sh:property [
-        sh:path dcat:centroid ;
-        sh:datatype geo:wktLiteral ;
-        sh:severity sh:Warning ;
-        sh:message "El valor de dcat:centroid debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
-        sh:message "The value of dcat:centroid should be a literal in WKT format (geo:wktLiteral). See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
-    ] ;
-    sh:severity sh:Warning ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17> ;
-    sh:message "Las referencias espaciales geométricas deberían usar WKT (geo:wktLiteral) según GeoSPARQL. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
-    sh:message "Spatial geometric references should use WKT (geo:wktLiteral) according to GeoSPARQL. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en .
-
 #--------------------------
 # Vocabulary restrictions
 #--------------------------
-dcatapes:FrequencyRestriction
-    a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que los valores de dct:accrualPeriodicity sean IRIs válidos del vocabulario europeo de frecuencias."@es ;
-    rdfs:comment "Restriction to validate that dct:accrualPeriodicity values are valid IRIs from the European frequency vocabulary."@en ;
-    rdfs:label "Restricción de frecuencia"@es ;
-    rdfs:label "Frequency Restriction"@en ;
-    sh:name "Frequency Restriction"@en ;
-    sh:name "Restricción de frecuencia"@es ;
-    sh:nodeKind sh:IRI ;
-    sh:pattern "^http://publications\\.europa\\.eu/resource/authority/frequency/.+$" ;
-    sh:severity sh:Violation ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_accrualperiodicity> ;
-    sh:message "El valor debe ser un IRI del vocabulario europeo de frecuencias http://publications.europa.eu/resource/authority/frequency."@es ;
-    sh:message "The value must be an IRI from the European frequency vocabulary http://publications.europa.eu/resource/authority/frequency."@en .
-
 dcatapes:DatasetTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los valores de dct:type sean IRIs válidos del vocabulario europeo de tipos de conjuntos de datos."@es ;
@@ -1106,6 +1121,21 @@ dcatapes:DatasetTypeRestriction
     sh:message "El valor debe ser un IRI del vocabulario europeo de tipos de conjunto de datos http://publications.europa.eu/resource/authority/dataset-type."@es ;
     sh:message "The value must be an IRI from the European dataset type vocabulary http://publications.europa.eu/resource/authority/dataset-type."@en .
 
+dcatapes:FrequencyRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que los valores de dct:accrualPeriodicity sean IRIs válidos del vocabulario europeo de frecuencias."@es ;
+    rdfs:comment "Restriction to validate that dct:accrualPeriodicity values are valid IRIs from the European frequency vocabulary."@en ;
+    rdfs:label "Restricción de frecuencia"@es ;
+    rdfs:label "Frequency Restriction"@en ;
+    sh:name "Frequency Restriction"@en ;
+    sh:name "Restricción de frecuencia"@es ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://publications\\.europa\\.eu/resource/authority/frequency/.+$" ;
+    sh:severity sh:Violation ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_accrualperiodicity> ;
+    sh:message "El valor debe ser un IRI del vocabulario europeo de frecuencias http://publications.europa.eu/resource/authority/frequency."@es ;
+    sh:message "The value must be an IRI from the European frequency vocabulary http://publications.europa.eu/resource/authority/frequency."@en .
+
 dcatapes:INSPIREDatasetTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los valores de dct:type para conjuntos de datos INSPIRE utilicen el IRI oficial especificado."@es ;
@@ -1120,4 +1150,3 @@ dcatapes:INSPIREDatasetTypeRestriction
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_type> ;
     sh:message "El valor debe ser exactamente el IRI http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset."@es ;
     sh:message "The value must be exactly the IRI http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset."@en .
-

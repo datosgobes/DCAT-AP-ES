@@ -75,10 +75,10 @@ dcatapes:Dataset_HVD_Shape
     [
         sh:path dcatap:applicableLegislation ;
         sh:minCount 1 ;
-        sh:severity sh:Warning ;
+        sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcatap_applicablelegislation> ;
-        sh:message "El servicio de datos debería contener al menos un dcatap:applicableLegislation."@es ;
-        sh:message "The data service should contain at least one dcatap:applicableLegislation."@en ;
+        sh:message "El servicio de datos debe contener al menos un dcatap:applicableLegislation."@es ;
+        sh:message "The data service must contain at least one dcatap:applicableLegislation."@en ;
     ], 
     [
         sh:path dcatap:applicableLegislation;

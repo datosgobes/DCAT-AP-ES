@@ -41,6 +41,7 @@
 					</vcard:Organization>
 			</dcat:contactPoint>
 			<dcatap:applicableLegislation rdf:resource="https://www.boe.es/eli/es/rd/2023/08/22/729"/>
+			<foaf:page rdf:resource="https://dcat-ap-es.ejemplo.org/api/sla.html"/>
 			<dcat:servesDataset rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
 		</dcat:DataService> 
 	</dcat:service>

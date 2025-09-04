@@ -137,10 +137,10 @@ extra:
     - name: datos.gob.es
       icon: fontawesome/solid/globe
       link: https://datos.gob.es
-  # consent:
-  #     title: Información importante sobre Cookies
-  #     description: >- 
-  #       En esta página web usamos cookies propias y de terceros con fines técnicos y de personalización para el funcionamiento del sitio web o la prestación de servicios expresamente solicitados por el usuario. No recaba ni cede datos de carácter personal de los usuarios sin su conocimiento. Sin embargo, puede contener enlaces a sitios web de terceros con políticas de privacidad ajenas a la de Datos.gob.es que usted podrá decidir si acepta o no cuando acceda a ellos. Encontrará más información sobre las cookies utilizadas en nuestra <a href="https://datos.gob.es/es/politica-de-cookies">Política de Cookies</a>
+  consent:
+       title: Información importante sobre Cookies
+       description: >- 
+         En esta página web usamos cookies propias y de terceros con fines técnicos y de personalización para el funcionamiento del sitio web o la prestación de servicios expresamente solicitados por el usuario. No recaba ni cede datos de carácter personal de los usuarios sin su conocimiento. Sin embargo, puede contener enlaces a sitios web de terceros con políticas de privacidad ajenas a la de datos.gob.es que usted podrá decidir si acepta o no cuando acceda a ellos. Encontrará más información sobre las cookies utilizadas en nuestra <a href="https://datos.gob.es/es/politica-de-cookies">Documentación de cookies</a>
   mkdocs_hooks:
     pdf_source: refs/dcat-ap-es/pdf
     pdf_dest: download/pdf
@@ -170,7 +170,7 @@ plugins:
           - DCAT-AP-ES Technical guide and model: index.md
           - datos.gob.es Conventions: conventions.en.md
           - Validation: validation.en.md
-          - Implementation Examples: examples.en.md
+          - Implementation examples: examples.en.md
           - FAQ: faq.en.md
   - mkdocstrings:
       handlers:

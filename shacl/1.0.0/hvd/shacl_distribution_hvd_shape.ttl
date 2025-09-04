@@ -1,5 +1,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix cc: <http://creativecommons.org/ns#> .
+@prefix odrl:   <http://www.w3.org/ns/odrl/2/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -68,10 +69,10 @@ dcatapes:Distribution_HVD_Shape
     [
         sh:path dcatap:applicableLegislation ;
         sh:minCount 1 ;
-        sh:severity sh:Warning ;
+        sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dcatap_applicablelegislation> ;
-        sh:message "La distribución HVD debería contener al menos un dcatap:applicableLegislation."@es ;
-        sh:message "The HVD distribution should contain at least one dcatap:applicableLegislation."@en ;
+        sh:message "La distribución HVD debe contener al menos un dcatap:applicableLegislation."@es ;
+        sh:message "The HVD distribution must contain at least one dcatap:applicableLegislation."@en ;
     ], 
     [
         sh:path dcatap:applicableLegislation;
@@ -84,3 +85,31 @@ dcatapes:Distribution_HVD_Shape
         sh:message "The HVD distribution must contain a dcatap:applicableLegislation whose value is the ELI of the HVD Implementing Regulation: <http://data.europa.eu/eli/reg_impl/2023/138/oj>."@en ;
     ];
     sh:targetClass dcat:Distribution .
+
+dcatapes:Distribution_HVD_Shape_legalInformation
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para la información legal de los datos HVD en DCAT-AP-ES"@es ;
+    rdfs:comment "Restriction for legal information of HVD data in DCAT-AP-ES"@en ;
+    rdfs:label "Restricción para la información legal de los datos HVD en DCAT-AP-ES"@es ;
+    rdfs:label "Restriction for legal information of HVD data in DCAT-AP-ES"@en ;
+    sh:name "Legal information for HVD distributions"@en ;
+    sh:name "Información legal para distribuciones HVD"@es ;
+    sh:or (
+		[
+  			sh:path dct:license;
+			sh:minCount 1 ;
+		]
+		[
+  			sh:path dct:rights;
+			sh:minCount 1 ;
+		]
+		[
+  			sh:path odrl:hasPolicy ;
+			sh:minCount 1 ;
+		]
+	) ; 
+    sh:severity sh:Violation ;
+    foaf:page <https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/#c3> ;
+    sh:message "It is mandatory to provide legal information (dct:license OR dct:rights)."@en ;
+    sh:message "Es obligatorio aportar información legal (dct:license O dct:rights O odrl:hasPolicy)."@es ;
+    sh:targetClass dcat:DataService .

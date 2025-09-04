@@ -26,7 +26,7 @@
   dcat:endpointURL <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD> ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente>, <http://publications.europa.eu/resource/authority/data-theme/ENVI> ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
-  dcat:endpointDescription <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD?service=CSW> ;
+  dcat:endpointDescription <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD/v1/api-docs> ;
   dcat:keyword "estadísticas"@es ;
   dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataService> ;
   dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD> ;

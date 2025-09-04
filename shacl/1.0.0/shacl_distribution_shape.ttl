@@ -420,8 +420,8 @@ dcatapes:Distribution_Shape
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dcat_bytesize> ;
-        sh:message "La propiedad dcat:byteSize no puede tener más de un valor."@es ;
-        sh:message "The dcat:byteSize property cannot have more than one value."@en ;
+        sh:message "El valor debe ser un número entero no negativo."@es ;
+        sh:message "The value must be a non-negative integer."@en ;
     ], 
 
     # dcat:spatialResolutionInMeters
@@ -431,6 +431,7 @@ dcatapes:Distribution_Shape
         sh:or (
             [ sh:datatype xsd:decimal ]
             [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
         ) ;
         sh:minInclusive 0;
         sh:severity sh:Violation ;
@@ -453,6 +454,7 @@ dcatapes:Distribution_Shape
         sh:nodeKind sh:Literal;
         sh:datatype xsd:duration ;
         sh:node dcatapes:DurationRestriction;
+        sh:severity sh:Violation ;
     ],
     [
         sh:path dcat:temporalResolution ;
@@ -462,13 +464,22 @@ dcatapes:Distribution_Shape
         sh:message "La propiedad dcat:temporalResolution no puede tener más de un valor."@es ;
         sh:message "The dcat:temporalResolution property cannot have more than one value."@en ;
     ], 
-
     # spdx:checksum
+    [
+        sh:path spdx:checksum ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-spdx_checksum> ;
+        sh:message "La propiedad spdx:checksum no puede tener más de un valor."@es ;
+        sh:message "The spdx:checksum property cannot have more than one value."@en ;
+    ], 
     [
         sh:path spdx:checksum ;
         sh:class spdx:Checksum ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-spdx_checksum> ;
+        sh:message "La propiedad spdx:checksum debe ser una entidad spdx:Checksum."@es ;
+        sh:message "The spdx:checksum property must be an spdx:Checksum entity."@en ;
     ],
 
     # odrl:hasPolicy
@@ -512,13 +523,12 @@ dcatapes:Distribution_Shape
 # Convencion 02
 dcatapes:DistributionSPALanguageRestriction
     a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que una distribución cumpla con las convenciones de idioma y contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
-    rdfs:comment "Restriction to validate that a distribution complies with Spanish language and content conventions, including title, description, and other key elements."@en ;
-    rdfs:label "Restricción de distribución: idioma y contenido en español"@es ;
-    rdfs:label "Distribution restriction: Spanish language and content"@en ;
-    sh:name "Distribution Spanish Language and Content Restriction"@en ;
-    sh:name "Restricción de distribución: idioma y contenido en español"@es ;
-    sh:node dcatapes:SpanishLanguageRestriction ;
+    rdfs:comment "Restricción para validar que una distribución cumpla con las convenciones de contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
+    rdfs:comment "Restriction to validate that a distribution complies with Spanish content conventions, including title, description, and other key elements."@en ;
+    rdfs:label "Restricción de distribución: contenido en español"@es ;
+    rdfs:label "Distribution restriction: Spanish content"@en ;
+    sh:name "Distribution Content Restriction"@en ;
+    sh:name "Restricción de distribución: contenido en español"@es ;
     sh:node dcatapes:SpanishTitleRestriction ;
     sh:node dcatapes:SpanishDescriptionRestriction ;
     sh:severity sh:Violation ;
@@ -627,7 +637,6 @@ dcatapes:IMT_Shape
     # rdf:value
     [
         sh:path rdf:value ;
-        sh:nodeKind sh:Literal ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
     ],
@@ -653,7 +662,6 @@ dcatapes:IMT_Shape
     # rdfs:label
     [
         sh:path rdfs:label ;
-        sh:nodeKind sh:Literal ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
     ],

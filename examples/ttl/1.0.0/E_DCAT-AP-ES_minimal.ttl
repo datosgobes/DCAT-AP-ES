@@ -55,5 +55,5 @@
 # - La licencia debe ser una URI válida del vocabulario europeo.
 # - El agente debe estar dado de alta en la taxonomía de datos.gob.es.
 # - No se incluyen características HVD, servicios ni puntos de contacto, ya que son opcionales.
-# -  Se debe referenciar el publicador mediante su URI DIR3, sin necesidad de declarar un bloque foaf:Agent específico.
+# - Se debe referenciar el publicador mediante su URI DIR3, sin necesidad de declarar un bloque foaf:Agent específico.
 ################################################################################

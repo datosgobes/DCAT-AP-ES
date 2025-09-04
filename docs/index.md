@@ -2217,7 +2217,7 @@ En la siguiente relación, se incluye junto al acrónimo HVD, las propiedades qu
 DCAT-AP-ES se basa en [DCAT-AP 2.1.1](https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) con la incorporación de elementos de la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/). A continuación, se presentan las especificaciones adicionales que incluye el modelo español respecto las versiones europeas.
 
 
-Las especificaciones adicionalees se muestran en las siguientes tablas comparativas, donde la cabecera indica:
+Las especificaciones adicionales se muestran en las siguientes tablas comparativas, donde la cabecera indica:
 
 - **Entidad**: Clase o elemento del modelo (por ejemplo, `Catalog`, `Dataset`, `Distribution`, etc.).
 - **Metadato**: Nombre del metadato o propiedad.
