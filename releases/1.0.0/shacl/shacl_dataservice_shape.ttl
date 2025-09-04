@@ -57,6 +57,7 @@ dcatapes:DataService_Shape
     # dct:title
         sh:path dct:title ;
         sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_title> ;
         sh:message "El servicio de datos debe contener al menos un dct:title."@es ;
@@ -80,40 +81,6 @@ dcatapes:DataService_Shape
         sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
         sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
-
-    # dcat:endpointURL
-    [
-        sh:path dcat:endpointURL ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointurl> ;
-        sh:message "El valor de dcat:endpointURL debe ser un IRI válido."@es ;
-        sh:message "The value of dcat:endpointURL must be a valid IRI."@en ;
-    ],
-    [
-        sh:path dcat:endpointURL ;
-        sh:minCount 1 ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointurl> ;
-        sh:message "El servicio de datos debe contener al menos un dcat:endpointURL."@es ;
-        sh:message "The data service must contain at least one dcat:endpointURL."@en ;
-    ], 
-
-    # dcatap:hvdCategory
-    [
-        sh:path dcatap:hvdCategory;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_hvdcategory> ;
-        sh:message "El valor de dcatap:hvdCategory debe ser un IRI válido."@es ;
-        sh:message "The value of dcatap:hvdCategory must be a valid IRI."@en ;
-    ],
-    [
-        sh:path dcatap:hvdCategory;
-        sh:node dcatapes:HVDCategoryRestriction ;
-        sh:severity sh:Violation ;
-    ],
-
     # dcat:contactPoint
     [
         sh:path dcat:contactPoint ;
@@ -158,39 +125,7 @@ dcatapes:DataService_Shape
         sh:message "The data service should contain at least one foaf:page."@en ;
     ], 
 
-    # dcat:theme
-    [
-        sh:path dcat:theme ;
-        sh:minCount 1 ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_theme> ;
-        sh:message "El servicio de datos debe contener al menos un dcat:theme."@es ;
-        sh:message "The data service must contain at least one dcat:theme."@en ;
-    ], 
-    [
-		sh:path dcat:theme ;
-	    sh:qualifiedValueShape [
-			sh:node dcatapes:PublicSectorRestriction ;
-		];	
-        sh:qualifiedMinCount 1;
-        sh:severity sh:Violation
-    ],
-    [
-        sh:path dcat:theme ;
-        sh:nodeKind sh:IRI ;
-        sh:or(
-            [   
-                sh:node dcatapes:PublicSectorRestriction ;
-            ]
-            [   
-                sh:node dcatapes:EuropeanDataThemeRestriction ;
-            ]
-            [
-                sh:node dcatapes:InspireDataThemeRestriction ;
-            ]
-        );
-        sh:severity sh:Violation
-    ],
+
 
     # dct:publisher
     [
@@ -245,7 +180,56 @@ dcatapes:DataService_Shape
         sh:message "El valor de dct:publisher debe ser un IRI o un nodo en blanco que cumpla con las restricciones de la forma de agente."@es ;
         sh:message "The value of dct:publisher must be an IRI or a blank node that meets the agent shape restrictions."@en ;
     ],
-
+    # dcat:theme
+    [
+        sh:path dcat:theme ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_theme> ;
+        sh:message "El servicio de datos debe contener al menos un dcat:theme."@es ;
+        sh:message "The data service must contain at least one dcat:theme."@en ;
+    ], 
+    [
+		sh:path dcat:theme ;
+	    sh:qualifiedValueShape [
+			sh:node dcatapes:PublicSectorRestriction ;
+		];	
+        sh:qualifiedMinCount 1;
+        sh:severity sh:Violation
+    ],
+    [
+        sh:path dcat:theme ;
+        sh:nodeKind sh:IRI ;
+        sh:or(
+            [   
+                sh:node dcatapes:PublicSectorRestriction ;
+            ]
+            [   
+                sh:node dcatapes:EuropeanDataThemeRestriction ;
+            ]
+            [
+                sh:node dcatapes:InspireDataThemeRestriction ;
+            ]
+        );
+        sh:severity sh:Violation
+    ],
+    # dcat:endpointURL
+    [
+        sh:path dcat:endpointURL ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointurl> ;
+        sh:message "El valor de dcat:endpointURL debe ser un IRI válido."@es ;
+        sh:message "The value of dcat:endpointURL must be a valid IRI."@en ;
+    ],
+    [
+        sh:path dcat:endpointURL ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointurl> ;
+        sh:message "El servicio de datos debe contener al menos un dcat:endpointURL."@es ;
+        sh:message "The data service must contain at least one dcat:endpointURL."@en ;
+    ],
     # dcat:endpointDescription
     [
         sh:path dcat:endpointDescription ;
@@ -376,6 +360,11 @@ dcatapes:DataService_Shape
         sh:message "El valor de dcat:keyword ser un Literal."@es ;
         sh:message "The value of dcat:keyword must be a Literal."@en ;
     ],
+    [
+        sh:path dcat:keyword ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning
+    ], 
     [
         sh:path dcat:keyword ;
         sh:node dcatapes:LiteralMultilingualConvention ; 
