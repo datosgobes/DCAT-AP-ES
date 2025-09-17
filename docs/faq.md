@@ -158,9 +158,13 @@ Secciones:
 
     ---
 
-    El fichero de catálogo que va a federarse debe describirse conforme a la sintaxis XML para RDF denominada `RDF/XML`
+    El federador es compatible con los siguientes formatos que entiende la biblioteca [RDFLib](https://rdflib.readthedocs.io/), incluyendo:
 
-    [:octicons-arrow-right-24: Sintaxis](https://www.w3.org/TR/rdf-syntax-grammar/)
+    - **RDF/XML**: Formato por defecto (`{ "rdf_format": "xml" }`)<br>
+    - **Turtle**: Sintaxis más legible y compacta, requiere configuración específica: `{ "rdf_format": "ttl" }`<br>
+    - **JSON-LD**: Compatible, requiere configuración específica: `{ "rdf_format": "json-ld" }`
+
+    [:octicons-arrow-right-24: Guía para organismos públicos](https://datos.gob.es/sites/default/files/documentacion/files/datosgob_manual_organismo.pdf)
 
 </div>
 
