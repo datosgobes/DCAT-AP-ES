@@ -3,8 +3,8 @@ name: Convención semántica para DCAT-AP-ES
 about: Plantilla para discutir o proponer nuevas convenciones semánticas para la aplicación
   de DCAT-AP-ES
 title: 'Convención - '
-labels: convention, semantic
-assignees: ''
+labels: convention, DCAT-AP-ES, documentation, semantic, SHACL
+assignees: Admindatosgobes
 
 ---
 
