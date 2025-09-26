@@ -131,7 +131,7 @@ dcatapes:LicenceTypeRestriction
     rdfs:label "Licence type restriction"@en ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://purl\\.org/adms/licencetype/[A-Z][A-Za-z0-9_-]{3,}$" ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-ap-es-vocabularies> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dct_licensedocument-dct_type> ;
     sh:message "El valor debe ser un IRI del vocabulario de tipos de licencia http://purl.org/adms/licencetype/1.0/"@es ;
     sh:message "The value must be an IRI from the licence type vocabulary http://purl.org/adms/licencetype/1.0/"@en ;
     sh:severity sh:Violation .

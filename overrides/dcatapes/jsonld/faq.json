@@ -184,21 +184,21 @@
         },
         {
             "@type": "Question",
-            "name": "¿Qué formato de archivo debe tener el catálogo DCAT-AP-ES?",
+            "name": "¿Qué formato debe tener el catálogo?",
             "inLanguage": "es",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "El fichero de catálogo que va a federarse debe describirse conforme a la sintaxis XML para RDF denominada RDF/XML.",
+                "text": "El federador es compatible con los siguientes formatos que entiende la biblioteca RDFLib, incluyendo: RDF/XML (formato por defecto), Turtle (sintaxis más legible y compacta, requiere configuración específica rdf_format: ttl), y JSON-LD (compatible, requiere configuración específica rdf_format: json-ld).",
                 "inLanguage": "es"
             }
         },
         {
             "@type": "Question",
-            "name": "What file format should the DCAT-AP-ES catalog have?",
+            "name": "What format should the catalog have?",
             "inLanguage": "en",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The catalog file to be federated must be described according to the XML syntax for RDF called RDF/XML.",
+                "text": "The federator is compatible with the following formats understood by the RDFLib library, including: RDF/XML (default format), Turtle (more readable and compact syntax, requires specific configuration rdf_format: ttl), and JSON-LD (compatible, requires specific configuration rdf_format: json-ld).",
                 "inLanguage": "en"
             }
         },
