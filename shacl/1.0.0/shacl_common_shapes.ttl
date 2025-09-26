@@ -619,7 +619,7 @@ dcatapes:LicenceDocumentRestriction
         sh:path dct:type ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dct_license> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dct_licensedocument-dct_type> ;
         sh:message "El documento de licencia debe tener al menos un tipo definido."@es ;
         sh:message "The license document must have at least one defined type."@en ;
     ],
@@ -628,9 +628,9 @@ dcatapes:LicenceDocumentRestriction
         sh:node dcatapes:LicenceTypeRestriction ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dct_license> ;
-        sh:message "El tipo del documento de licencia debe ser un IRI válido del vocabulario de tipos de licencia."@es ;
-        sh:message "The type of the license document must be a valid IRI from the license type vocabulary."@en ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dct_licensedocument-dct_type> ;
+        sh:message "El valor debe ser un IRI del vocabulario de tipos de licencia http://purl.org/adms/licencetype/1.0/"@es ;
+        sh:message "The value must be an IRI from the licence type vocabulary http://purl.org/adms/licencetype/1.0/"@en ;
     ] ;
     sh:targetClass dct:LicenseDocument .
 
