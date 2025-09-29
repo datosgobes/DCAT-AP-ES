@@ -8,7 +8,7 @@
 <http://dcat-ap-es.ejemplo.org/catalogo>
   a dcat:Catalog ;
   dct:title "Catálogo de Datos Abiertos"@es, "Open Data Catalog"@en ;
-  dct:description "Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES."@en ;
+  dct:description "Catálogo de Datos Abiertos que sirve de ejemplo para la migración a DCAT-AP-ES."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES migration"@en ;
   foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ;
@@ -27,7 +27,7 @@
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dcat:endpointDescription <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1/v1/api-docs> ;
-  dcat:keyword "estadísticas"@es ;
+  dcat:keyword "estadísticas"@es, "statistics"@en ;
   dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataService> ;
   foaf:page <https://dcat-ap-es.ejemplo.org/api/sla.html> ;
   dcatap:applicableLegislation <https://www.boe.es/eli/es/rd/2023/08/22/729> ;
@@ -72,9 +72,10 @@
 <http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV>
   a dcat:Distribution ;
   dct:title "Distribución de ejemplo"@es ;
-  dct:description "Descripción de un distribución de ejemplo."@es ;
+  dct:description "Descripción de una distribución de ejemplo."@es ;
   dcat:accessURL <http://dcat-ap-es.ejemplo.org/files/dataset-ejemplo-1.CSV> ;
   dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
   dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
   dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
-  dcatap:applicableLegislation <http://data.europa.eu/eli/dir/2007/2/2019-06-26> .
+  dcatap:applicableLegislation <http://data.europa.eu/eli/dir/2007/2/2019-06-26> ;
+  dcat:byteSize "1024"^^xsd:nonNegativeInteger .

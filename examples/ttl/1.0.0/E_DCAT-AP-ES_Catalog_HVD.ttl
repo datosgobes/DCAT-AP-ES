@@ -8,7 +8,7 @@
 <http://dcat-ap-es.ejemplo.org/catalogo>
   a dcat:Catalog ;
   dct:title "Catálogo de Datos Abiertos HVD"@es, "Open Data Catalog HVD"@en ;
-  dct:description "Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES HVD."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES HVD."@en ;
+  dct:description "Catálogo de Datos Abiertos que sirve de ejemplo para la migración a DCAT-AP-ES HVD."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES HVD migration."@en ;
   foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ;
@@ -27,7 +27,7 @@
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dcat:endpointDescription <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD/v1/api-docs> ;
-  dcat:keyword "estadísticas"@es ;
+  dcat:keyword "estadísticas"@es, "statistics"@en ;
   dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataService> ;
   dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD> ;
   dcatap:hvdCategory <http://data.europa.eu/bna/c_b7f6a4f3> ;
@@ -78,4 +78,5 @@
   dcat:accessURL <http://dcat-ap-es.ejemplo.org/files/dataset-HVD-ejemplo-1-HVD.CSV> ;
   dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
   dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
-  dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> .
+  dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
+  dcat:byteSize "1024"^^xsd:nonNegativeInteger .
