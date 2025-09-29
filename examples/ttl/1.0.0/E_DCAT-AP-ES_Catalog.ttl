@@ -11,7 +11,7 @@
   dct:description "Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES."@es, "Open Data Catalogue that serves as an example in DCAT-AP-ES."@en ;
   foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
-  dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> ;
+  dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ;
   dct:issued "2025-01-01T09:00:00+01:00"^^xsd:dateTime ;
   dct:modified "2025-01-02T12:00:00+01:00"^^xsd:dateTime ;
   dct:language <http://publications.europa.eu/resource/authority/language/SPA>, <http://publications.europa.eu/resource/authority/language/ENG> ;
