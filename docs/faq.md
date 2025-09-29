@@ -109,7 +109,7 @@ Secciones:
 
     ---
 
-    Si ya tienes un catálogo conforme al modelo de metadatos NTI-RISP 2013, para evolucionar a DCAT-AP-ES puedes:
+    Si ya tienes un catálogo conforme al modelo de metadatos NTI-RISP (2013), para evolucionar a DCAT-AP-ES puedes:
 
     1. **Identificar cambios**: Revisar las diferencias entre ambos modelos según el [Anexo 1 - Cambios respecto a la NTI-RISP](/DCAT-AP-ES/#annex-1-nti-risp-to-dcat-ap-es) e incorporar nuevos metadatos obligatorios.
 

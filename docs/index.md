@@ -1290,7 +1290,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
 | **Rango** | **rdfs:Literal** |
-****
+
 !!! note "Nota de uso"
 
     Se recomienda que se detallen las diferencias con la versión inmediatamente anterior. Puede incluirse esta descripción en varios idiomas.
