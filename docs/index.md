@@ -489,7 +489,7 @@ Se describe mediante las siguientes propiedades:
        5. `http://publications.europa.eu/resource/authority/place/`
        6. `http://sws.geonames.org/`
 
-    2.  Como alternativa, es posible delimitar el área geográfica utilizando las propiedades de la clase [Location](#loca) (explicada más adelante en este documento).
+    2.  Como alternativa, es posible delimitar el área geográfica utilizando las propiedades de la clase [`dct:Location`](#localización---clase-dctlocation---opcional).
 
 
 | dcat:Catalog | dcat:catalog |
@@ -2249,7 +2249,7 @@ Las especificaciones adicionales se muestran en las siguientes tablas comparativ
 | Especificidad | Justificación |
 |---|---|
 |**1. Declaración obligatoria de las siguientes propiedades opcionales**<br>*Catalog*<ul><li>`dcat:themeTaxonomy`</li><li>`dct:language`</li><li>`dct:issued`</li><li>`dct:modified`</li><li>`dct:license`</li><li>`foaf:homepage`</li></ul>*Dataset*<ul><li>`dcat:theme`</li><li>`dct:publisher`</li></ul>**2. Mantenimiento de estructura de URIs para la cobertura geográfica**| Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013)  que ya venían siendo aplicadas de esta forma por las AAPP |
-|**3. Ajuste a 3 la cardinalidad máxima de taxonomías de sectores primarios (`dcat:themeTaxonomy`)**| Facilitar la interoperabilidad al utilizar taxonomías de uso común (NTI-RISP (2013), INSPIRE y EDP) |
+|**3. Ajuste a 3 la cardinalidad máxima de taxonomías de temas (`dcat:themeTaxonomy`)**| Facilitar la interoperabilidad al utilizar taxonomías de uso común (NTI-RISP (2013), INSPIRE y EDP) |
 |**4. Uso obligatorio de, al menos, la taxonomía de sectores primarios fijada por la NTI-RISP (2013)**|Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013) y  reforzar el uso que se realiza para otros fines de las AAPP |
 |**5. Obligación de incorporación de, al menos, el idioma castellano en propiedades multilingües.**|Garantizar la interoperabilidad|
 |**6. Uso del DIR3 para la identificación de publicadores (`dct:publisher` y `dct:identifier` de *Agent*)**|Aplicar la forma estándar de identificación única de organismos públicos y reforzar el uso que se realiza para otros fines de las AAPP |
