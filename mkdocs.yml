@@ -27,7 +27,7 @@ theme:
     primary: 'white'
     accent: 'red'
   font:
-    text: Poppins
+    text: Montserrat
     code: Roboto Mono
   icon:
       repo: fontawesome/brands/github

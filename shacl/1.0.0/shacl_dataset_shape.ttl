@@ -905,13 +905,35 @@ dcatapes:DurationDescription_Shape
 
 dcatapes:Frequency_Shape
     a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que los nodos de tipo dct:Frequency contengan exactamente un valor de duración correctamente definido."@es ;
-    rdfs:comment "Restriction to validate that nodes of type dct:Frequency contain exactly one properly defined duration value."@en ;
+    rdfs:comment "Restricción para validar que los nodos de tipo dct:Frequency definidos localmente contengan exactamente un valor de duración correctamente definido."@es ;
+    rdfs:comment "Restriction to validate that locally defined nodes of type dct:Frequency contain exactly one properly defined duration value."@en ;
     rdfs:label "Restricción para frecuencias"@es ;
     rdfs:label "Frequency Restriction"@en ;
     sh:name "Frecuencia"@es ;
     sh:name "Frequency"@en ;
-    sh:targetClass dct:Frequency ;
+    
+    # En lugar de sh:targetClass dct:Frequency, usa un target más específico
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix "dct" ;
+                sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            ] ;
+            sh:declare [
+                sh:prefix "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            ]
+        ] ;
+        sh:select """
+            SELECT ?this WHERE {
+                ?this a dct:Frequency .
+                # Excluir URIs del vocabulario oficial
+                FILTER(!STRSTARTS(STR(?this), "http://publications.europa.eu/resource/authority/frequency/"))
+            }
+        """ ;
+    ] ;
+
     sh:property [
         sh:path rdf:value ;
         sh:or (
@@ -945,9 +967,7 @@ dcatapes:Frequency_Shape
         sh:message "The rdf:value property cannot have more than one value."@en ;
     ] ;
     sh:severity sh:Violation ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_frequency> ;
-    sh:message "El valor de dct:frequency debe ser un dct:Frequency."@es ;
-    sh:message "The value of dct:frequency must be a dct:Frequency."@en .
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dct_frequency> .
 
 dcatapes:ADMSIdentifier_Shape
     # https://www.w3.org/TR/vocab-adms/#identifier

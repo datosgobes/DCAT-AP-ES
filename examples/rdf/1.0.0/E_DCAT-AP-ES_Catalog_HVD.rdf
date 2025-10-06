@@ -9,12 +9,11 @@
   <dcat:Catalog rdf:about="http://dcat-ap-es.ejemplo.org/catalogo">
     <dct:title xml:lang="es">Catálogo de Datos Abiertos HVD</dct:title>
     <dct:title xml:lang="en">Open Data Catalog HVD</dct:title>
-    <dct:description xml:lang="es">Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES HVD.</dct:description>
-    <dct:description xml:lang="en">Open Data Catalogue that serves as an example in DCAT-AP-ES HVD.</dct:description>
+    <dct:description xml:lang="es">Catálogo de Datos Abiertos que sirve de ejemplo en la migración a DCAT-AP-ES HVD.</dct:description>
+    <dct:description xml:lang="en">Open Data Catalogue that serves as an example in DCAT-AP-ES HVD migration.</dct:description>
     <foaf:homepage rdf:resource="http://dcat-ap-es.ejemplo.org"/>
     <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector"/>
-    <dcat:themeTaxonomy rdf:resource="http://publications.europa.eu/resource/authority/data-theme"/>
     <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T09:00:00+01:00</dct:issued>
     <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dct:modified>
     <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
@@ -42,7 +41,6 @@
 			</dcat:contactPoint>
 			<dcat:servesDataset rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD"/>
 			<dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
-			<dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ENVI"/> 
 			<foaf:page rdf:resource="https://dcat-ap-es.ejemplo_HVD.org/api/sla.html"/>
 			<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
 		</dcat:DataService> 
@@ -59,6 +57,7 @@
         <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
         <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
 		<dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
+		<dcat:keyword xml:lang="en">statistics</dcat:keyword>
 		<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
 		<dcat:contactPoint>
 				<vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/contactDataset">
@@ -81,11 +80,12 @@
         <dcat:distribution>
           <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV-HVD">
 			  <dct:title xml:lang="es">Distribución de ejemplo HVD</dct:title>
-			  <dct:description xml:lang="es">Descripción de un distribución de ejemplo HVD.</dct:description>
+			  <dct:description xml:lang="es">Descripción de una distribución de ejemplo HVD.</dct:description>
 			  <dcat:accessURL rdf:resource="http://dcat-ap-es.ejemplo.org/files/dataset-HVD-ejemplo-1-HVD.CSV"/>
 			  <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>  
 			  <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
 			  <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
+			  <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1024</dcat:byteSize>
           </dcat:Distribution>
         </dcat:distribution>
 

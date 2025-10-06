@@ -489,7 +489,7 @@ Se describe mediante las siguientes propiedades:
        5. `http://publications.europa.eu/resource/authority/place/`
        6. `http://sws.geonames.org/`
 
-    2.  Como alternativa, es posible delimitar el área geográfica utilizando las propiedades de la clase [Location](#loca) (explicada más adelante en este documento).
+    2.  Como alternativa, es posible delimitar el área geográfica utilizando las propiedades de la clase [`dct:Location`](#localización---clase-dctlocation---opcional).
 
 
 | dcat:Catalog | dcat:catalog |
@@ -1290,7 +1290,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
 | **Rango** | **rdfs:Literal** |
-****
+
 !!! note "Nota de uso"
 
     Se recomienda que se detallen las diferencias con la versión inmediatamente anterior. Puede incluirse esta descripción en varios idiomas.
@@ -2128,9 +2128,9 @@ Un catálogo de datos es conforme con DCAT-AP-ES cuando:
 
 7. **Recursos accesibles**: Todas las distribuciones referenciadas en el catálogo son accesibles a través de las URLs proporcionadas, o se indica claramente cuando no lo son mediante las propiedades de disponibilidad y estado apropiadas.
 
-# Anexo 1. Cambios del modelo DCAT-AP-ES respecto del modelo NTI-RISP (v.2013) {#annex-1-nti-risp-to-dcat-ap-es}
+# Anexo 1. Cambios del modelo DCAT-AP-ES respecto del modelo NTI-RISP (2013) {#annex-1-nti-risp-to-dcat-ap-es}
 
-A continuación, se detalla la relación de cambios y actualizaciones en los metadatos del modelo DCAT-AP-ES respecto al [modelo de metadatos NTI-RISP (v. 2013)](https://datosgobes.github.io/NTI-RISP), así como la relación de metadatos que han sido deprecados.
+A continuación, se detalla la relación de cambios y actualizaciones en los metadatos del modelo DCAT-AP-ES respecto al [modelo de metadatos NTI-RISP (2013)](https://datosgobes.github.io/NTI-RISP), así como la relación de metadatos que han sido deprecados.
 
 ## Metadatos incorporados al modelo DCAT-AP-ES
 Entre paréntesis se indica si el metadato estaba definido en la NTI-RISP o se ha incorporado de la especificación DCAT-AP-ES:
@@ -2151,9 +2151,9 @@ Entre paréntesis se indica si el metadato estaba definido en la NTI-RISP o se h
 | Actividad | prov:Activity |  | prov:startedAtTime (DCAT-AP)  prov:endedAtTime (DCAT-AP) |  |
 
 
-## Elementos de la NTI-RISP (v.2013) obsoletos
+## Elementos de la NTI-RISP (2013) obsoletos
 
-A continuación se indican los nombres de los metadatos y las propiedades descritas en el modelo previo NTI-RISP (v.2013) que están obsoletas o han cambiado en DCAT-AP-ES:
+A continuación se indican los nombres de los metadatos y las propiedades descritas en el modelo previo NTI-RISP (2013) que están obsoletas o han cambiado en DCAT-AP-ES:
 
 * En la clase Catálogo (**dcat:Catalog**):
   * *Tamaño del catálogo* (`dct:extent`)
@@ -2171,7 +2171,7 @@ A continuación se indican los nombres de los metadatos y las propiedades descri
 
 **[1]** La propiedad `dct:license` desaparece de la clase Dataset y se incorpora a la clase Distribution.
 
-**[2]** La propiedad `dct:relation` desaparece de la clase Distribution y se incorpora a la clase Dataset, aunque con una función diferente a la descrita en la NTI-RISP (v.2013). En este modelo de metadatos se utiliza para especificar recursos que están de alguna manera relacionados con el conjunto de datos.
+**[2]** La propiedad `dct:relation` desaparece de la clase Distribution y se incorpora a la clase Dataset, aunque con una función diferente a la descrita en la NTI-RISP (2013). En este modelo de metadatos se utiliza para especificar recursos que están de alguna manera relacionados con el conjunto de datos.
 
 **[3]** En DCAT-AP-ES la propiedad de formato se divide en varias, más especificamente se añade la propiedad "Formato" (`dct:format`) y se distingue del "Formato tipo MIME" (`dcat:mediaType`, qué era "Formato" en el anterior modelo). Está última en [DCAT 2](https://www.w3.org/TR/vocab-dcat-3/#Property:distribution_media_type) tiene como rango la clase más específica `dct:MediaType`, en lugar de la más general `dct:MediaTypeOrExtent` (qué se usa en `dct:format`). Esto significa que la propiedad "Formato tipo MIME" (`dcat:mediaType`) se restringe para usarse únicamente con valores que sean instancias de `dct:MediaType` ([tipos de media de IANA](http://www.iana.org/assignments/media-types/media-types.xhtml)), excluyendo otros tipos de nodos que podrían haberse permitido con `dct:MediaTypeOrExtent`.
 
@@ -2248,9 +2248,9 @@ Las especificaciones adicionales se muestran en las siguientes tablas comparativ
 
 | Especificidad | Justificación |
 |---|---|
-|**1. Declaración obligatoria de las siguientes propiedades opcionales**<br>*Catalog*<ul><li>`dcat:themeTaxonomy`</li><li>`dct:language`</li><li>`dct:issued`</li><li>`dct:modified`</li><li>`dct:license`</li><li>`foaf:homepage`</li></ul>*Dataset*<ul><li>`dcat:theme`</li><li>`dct:publisher`</li></ul>**2. Mantenimiento de estructura de URIs para la cobertura geográfica**| Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (v.2013)  que ya venían siendo aplicadas de esta forma por las AAPP |
-|**3. Ajuste a 3 la cardinalidad máxima de taxonomías de sectores primarios (`dcat:themeTaxonomy`)**| Facilitar la interoperabilidad al utilizar taxonomías de uso común (NTI-RISP (v.2013), INSPIRE y EDP) |
-|**4. Uso obligatorio de, al menos, la taxonomía de sectores primarios fijada por la NTI-RISP (v.2013)**|Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (v.2013) y  reforzar el uso que se realiza para otros fines de las AAPP |
+|**1. Declaración obligatoria de las siguientes propiedades opcionales**<br>*Catalog*<ul><li>`dcat:themeTaxonomy`</li><li>`dct:language`</li><li>`dct:issued`</li><li>`dct:modified`</li><li>`dct:license`</li><li>`foaf:homepage`</li></ul>*Dataset*<ul><li>`dcat:theme`</li><li>`dct:publisher`</li></ul>**2. Mantenimiento de estructura de URIs para la cobertura geográfica**| Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013)  que ya venían siendo aplicadas de esta forma por las AAPP |
+|**3. Ajuste a 3 la cardinalidad máxima de taxonomías de temas (`dcat:themeTaxonomy`)**| Facilitar la interoperabilidad al utilizar taxonomías de uso común (NTI-RISP (2013), INSPIRE y EDP) |
+|**4. Uso obligatorio de, al menos, la taxonomía de sectores primarios fijada por la NTI-RISP (2013)**|Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013) y  reforzar el uso que se realiza para otros fines de las AAPP |
 |**5. Obligación de incorporación de, al menos, el idioma castellano en propiedades multilingües.**|Garantizar la interoperabilidad|
 |**6. Uso del DIR3 para la identificación de publicadores (`dct:publisher` y `dct:identifier` de *Agent*)**|Aplicar la forma estándar de identificación única de organismos públicos y reforzar el uso que se realiza para otros fines de las AAPP |
 |**7. Concreción del vocabulario del metadato `adms:status`**<br>**8. Incorporación de `dct:publisher` y `dcat:theme` a *DataService***| Convergencia futura con DCAT-AP 3.0.0 y asegurar interoperabilidad.<br>`adms:status` define el ciclo de vida de una distribución, con las opciones: `OP_DATPRO`, `WITHDRAWN`, `COMPLETED`, `DEPRECATED`, `DEVELOP`|

@@ -5,7 +5,7 @@
     Estos ejemplos te guiarán en el uso de [propiedades obligatorias, recomendadas y opcionales](/#relacion_de_metadatos_del_modelo_dcat-ap-es) para describir las entidades principales del modelo.
 
 !!! Success "Migrar tu catálogo"
-    Se incluyen ^^ejemplos específicos si ya dispones de un catálogo RDF conforme a NTI-RISP 2013^^ y quieres actualizarlo: 
+    Se incluyen ^^ejemplos específicos si ya dispones de un catálogo RDF conforme a NTI-RISP (2013)^^ y quieres actualizarlo: 
 
     - [**Migrar a DCAT-AP-ES**](#catalogo_-_nti_dcatapes) <span style="color:#00bfa5"><b>:material-arrow-up-right:</b></span> 
     - [**Migrar a DCAT-AP-ES HVD**](#catalogo_-_nti_dcatapes_hvd) <span style="color:#00bfa5"><b>:material-arrow-up-right:</b></span> 
@@ -47,7 +47,7 @@ El catálogo `http://dcat-ap-es.ejemplo.org/catalogo` incluye información esenc
 
 !!! tip "Ejemplo original NTI 2013"
 
-    El ejemplo original de catálogo NTI-RISP 2013 está disponible en:
+    El ejemplo original de catálogo NTI-RISP (2013) está disponible en:
     [Catálogo NTI-RISP a DCAT-AP-ES](https://datosgobes.github.io/NTI-RISP/examples/#catalogo_-_nti_dcatapes)
 
 === "RDF/XML"
@@ -68,7 +68,7 @@ El catálogo `http://dcat-ap-es.ejemplo.org/catalogo` se enriquece con informaci
 
 !!! tip "Ejemplo original NTI 2013"
 
-    El ejemplo original de catálogo NTI-RISP 2013 está disponible en:
+    El ejemplo original de catálogo NTI-RISP (2013) está disponible en:
     [Catálogo NTI-RISP a DCAT-AP-ES](https://datosgobes.github.io/NTI-RISP/examples/#catalogo_-_nti_dcatapes)
 
 === "RDF/XML"
