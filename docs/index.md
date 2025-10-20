@@ -40,70 +40,70 @@ El modelo DCAT-AP-ES se representa a continuación como un diagrama UML que ilus
 
 Se enumeran a continuación las clases más relevantes utilizadas en el modelo:
 
-* [**Catálogo**](#catalogo_-_clase_dcatcatalog_-_obligatorio). La clase **`dcat:Catalog`** representa un catálogo, que es un conjunto de datos en el que cada elemento individual es un registro de metadatos que describe algún recurso. El contenido de un catálogo son colecciones de metadatos sobre conjuntos de datos, servicios de datos u otros tipos de recursos, incluso otros catálogos. Funciona como un punto de acceso unificado que facilita la búsqueda y reutilización de recursos de datos.
-* [**Registro del Catálogo**](#registro_del_catalogo_-_clase_dcatcatalogrecord_-_opcional). La clase Registro de Catálogo (**`dcat:CatalogRecord`**) describe entradas individuales dentro de un catálogo de datos, siendo cada una un registro específico de metadatos. Un registro de catálogo referencia una entidad en el catálogo pudiendo ser un conjunto de datos o un servicio de datos. Se utiliza principalmente para recopilar explícitamente información de procedencia sobre las entradas en un catálogo.
-* [**Servicio de Datos**](#servicio_de_datos_-_clase_dcatdataservice_-_opcional). La clase Servicio de Datos (**`dcat:DataService`**) representa una colección de operaciones accesibles a través de una interfaz (API) que proporciona acceso a uno o más conjuntos de datos o funciones de procesamiento de datos. Mediante su uso es posible la catalogación de diversos tipos de servicios de datos facilitando la implementación de funcionalidades para el manejo y/o explotación programática de los datos.
-* **[Conjunto de datos](#conjunto_de_datos_-_clase_dcatdataset_-_obligatorio)**. La clase Conjunto de Datos (**`dcat:Dataset`**) representa una conceptualización de una colección de información publicada por un único agente identificable. La noción de conjunto de datos es amplia con la intención de dar cabida a los tipos de recursos que surgen de un contexto de publicación pudiendo representarse de muchas formas, incluidos números, texto, imágenes, sonido y otros medios o tipos, cualquiera de los cuales podría recopilarse en un conjunto de datos.
-* [**Distribución**](#distribucion_-_clase_dcatdistribution_-_recomendado). La clase Distribución de un conjunto de datos (**`dcat:Distribution`**) representa una forma accesible y reutilizable de un conjunto de datos, como un archivo descargable.
-* [**Agente**](#agente_-_clase_foafagent_-_obligatorio). La clase Agent (**`foaf:Agent`**) se utiliza para representar cualquier organización o persona que posee competencias para realizar actuaciones sobre un catálogo y los recursos catalogados. Su función principal es proporcionar referencias concretas sobre los diferentes actores que pueden intervenir con diferentes roles en la gestión de un catálogo de datos.
-* [**Identificador**](#nota-dcat_dataset-dct_identifier). La clase Identificador de un conjunto de datos (**`dct:Identifier`**) se utiliza para expresar la referencia exclusiva asignada a un conjunto de datos en el contexto de un esquema de identificadores determinado.
-* [**Localización**](#localizacion_-_clase_dctlocation_-_opcional). La clase Localización (**`dct:Location`**), se emplea para identificar una región geográfica o un lugar. Se puede representar utilizando un vocabulario controlado o mediante la expresión de coordenadas geográficas que delimitan un área específica.
-* [**Vigencia**](#vigencia_-_clase_dctperiodoftime_-_opcional). La clase Vigencia o Período Temporal (**`dct:PeriodOfTime`**) se utiliza para definir un intervalo de tiempo que se delimita por una fecha de inicio y otra de finalización.
-* [**Control y verificación de integridad**](#control_y_verificacion_-_clase_spdxchecksum_-_opcional). La clase Control y Verificación de recursos (**`spdx:Checksum`**) se utiliza para especificar el método que se implementa y el resultado obtenido para garantizar la integridad de las distribuciones de conjuntos de datos, es decir, que su contenido no ha sido alterado.
-* [**Relación**](#relacion_entre_recursos_-_clase_dcatrelationship_-_opcional). La clase Relación entre recursos (**`dcat:Relationship`**), se utiliza para especificar información adicional relativa a una relación entre recursos o agentes aportando contextualización sobre cómo dichos recursos están interrelacionados.
+* [**Catálogo**](#Catalog). La clase [**`dcat:Catalog`**](http://www.w3.org/ns/dcat#Catalog) representa un catálogo, que es un conjunto de datos en el que cada elemento individual es un registro de metadatos que describe algún recurso. El contenido de un catálogo son colecciones de metadatos sobre conjuntos de datos, servicios de datos u otros tipos de recursos, incluso otros catálogos. Funciona como un punto de acceso unificado que facilita la búsqueda y reutilización de recursos de datos.
+* [**Registro del Catálogo**](#CatalogRecord). La clase Registro de Catálogo ([**`dcat:CatalogRecord`**](http://www.w3.org/ns/dcat#CatalogRecord)) describe entradas individuales dentro de un catálogo de datos, siendo cada una un registro específico de metadatos. Un registro de catálogo referencia una entidad en el catálogo pudiendo ser un conjunto de datos o un servicio de datos. Se utiliza principalmente para recopilar explícitamente información de procedencia sobre las entradas en un catálogo.
+* [**Servicio de Datos**](#DataService). La clase Servicio de Datos ([**`dcat:DataService`**](http://www.w3.org/ns/dcat#DataService)) representa una colección de operaciones accesibles a través de una interfaz (API) que proporciona acceso a uno o más conjuntos de datos o funciones de procesamiento de datos. Mediante su uso es posible la catalogación de diversos tipos de servicios de datos facilitando la implementación de funcionalidades para el manejo y/o explotación programática de los datos.
+* [**Conjunto de datos**](#Dataset). La clase Conjunto de Datos ([**`dcat:Dataset`**](http://www.w3.org/ns/dcat#Dataset)) representa una conceptualización de una colección de información publicada por un único agente identificable. La noción de conjunto de datos es amplia con la intención de dar cabida a los tipos de recursos que surgen de un contexto de publicación pudiendo representarse de muchas formas, incluidos números, texto, imágenes, sonido y otros medios o tipos, cualquiera de los cuales podría recopilarse en un conjunto de datos.
+* [**Distribución**](#Distribution). La clase Distribución de un conjunto de datos ([**`dcat:Distribution`**](http://www.w3.org/ns/dcat#Distribution)) representa una forma accesible y reutilizable de un conjunto de datos, como un archivo descargable.
+* [**Agente**](#Agent). La clase Agent ([**`foaf:Agent`**](http://xmlns.com/foaf/0.1/Agent)) se utiliza para representar cualquier organización o persona que posee competencias para realizar actuaciones sobre un catálogo y los recursos catalogados. Su función principal es proporcionar referencias concretas sobre los diferentes actores que pueden intervenir con diferentes roles en la gestión de un catálogo de datos.
+* [**Identificador**](#Identifier). La clase Identificador de un conjunto de datos ([**`adms:Identifier`**](http://www.w3.org/ns/adms#Identifier)) se utiliza para expresar la referencia exclusiva asignada a un conjunto de datos en el contexto de un esquema de identificadores determinado.
+* [**Localización**](#Location). La clase Localización ([**`dct:Location`**](http://purl.org/dc/terms/Location)), se emplea para identificar una región geográfica o un lugar. Se puede representar utilizando un vocabulario controlado o mediante la expresión de coordenadas geográficas que delimitan un área específica.
+* [**Vigencia**](#PeriodOfTime). La clase Vigencia o Período Temporal ([**`dct:PeriodOfTime`**](http://purl.org/dc/terms/PeriodOfTime)) se utiliza para definir un intervalo de tiempo que se delimita por una fecha de inicio y otra de finalización.
+* [**Control y verificación de integridad**](#Checksum). La clase Control y Verificación de recursos ([**`spdx:Checksum`**](http://spdx.org/rdf/terms#Checksum)) se utiliza para especificar el método que se implementa y el resultado obtenido para garantizar la integridad de las distribuciones de conjuntos de datos, es decir, que su contenido no ha sido alterado.
+* [**Relación**](#Relationship). La clase Relación entre recursos ([**`dcat:Relationship`**](http://www.w3.org/ns/dcat#Relationship)), se utiliza para especificar información adicional relativa a una relación entre recursos o agentes aportando contextualización sobre cómo dichos recursos están interrelacionados.
 
 ## Espacio de nombres utilizados en el modelo {#dcat-ap-es-namespaces}
 
-Cada propiedad de una clase que describe algún atributo de los elementos del catálogo, registro de catálogo, servicio de datos, dataset, distribución, etc., reutiliza términos de otros vocabularios existentes. Se especifican mediante una URI determinada por la composición del prefijo del vocabulario correspondiente referenciado en el espacio de nombres del modelo DCAT-AP-ES y el nombre de la clase o propiedad. Por ejemplo, la propiedad `dct:issued` de la clase Catálogo, se expresa de forma equivalente en su forma abreviada y extendida de la siguiente forma:
+Cada propiedad de una clase que describe algún atributo de los elementos del catálogo, registro de catálogo, servicio de datos, dataset, distribución, etc., reutiliza términos de otros vocabularios existentes. Se especifican mediante una URI determinada por la composición del prefijo del vocabulario correspondiente referenciado en el espacio de nombres del modelo DCAT-AP-ES y el nombre de la clase o propiedad. Por ejemplo, la propiedad [`dct:issued`](http://purl.org/dc/terms/issued) de la clase Catálogo, se expresa de forma equivalente en su forma abreviada y extendida de la siguiente forma:
 
 !!! info "Nota sobre espacios de nombres"
 
-    `dct:issued` es equivalente a `http://purl.org/dc/terms/issued`
+    [`dct:issued`](http://purl.org/dc/terms/issued) es equivalente a `http://purl.org/dc/terms/issued`
 
 Se enumerarán a continuación vocabularios genéricos que configuran el espacio de nombres reutilizados en la implementación del modelo DCAT-AP-ES:
 
 | **Vocabulario** | **Prefijo** | **URI** |
 | --- | --- | --- |
-| Asset Description Metadata Schema | `adms:` | `http://www.w3.org/ns/adms#` |
-| Data Catalog Vocabulary | `dcat:` | `http://www.w3.org/ns/dcat#` |
-| DCAT Application profile for data portals | `dcatap:` | `http://data.europa.eu/r5r/` |
-| Dublin Core Terms | `dct:` | `http://purl.org/dc/terms/` |
-| Friend Of A Friend | `foaf:` | `http://xmlns.com/foaf/0.1/` |
-| Location Core Vocabulary | `locn:` | `http://www.w3.org/ns/locn#` |
-| Web Ontology Document | `owl:` | `http://www.w3.org/2002/07/owl#` |
-| Open Digital Rights Language | `odrl:` | `http://www.w3.org/ns/odrl/2/` |
-| Prov Family of Documents | `prov:` | `http://www.w3.org/ns/prov#` |
-| Resource Description Framework | `rdf:` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` |
-| Resource Description Framework Schema | `rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` |
-| Simple Knowledge Organization System | `skos:` | `http://www.w3.org/2004/02/skos/core#` |
-| Software Package Data Exchange | `spdx:` | `http://spdx.org/rdf/terms#` |
-| W3C Time Ontology | `time:` | `http://www.w3.org/2006/time#` |
-| vCard Ontology | `vcard:` | `http://www.w3.org/2006/vcard/ns#` |
-| XML Schema | `xsd:` | `http://www.w3.org/2001/XMLSchema#` |
+| Asset Description Metadata Schema | [`adms:`](http://www.w3.org/ns/adms#) | `http://www.w3.org/ns/adms#` |
+| Data Catalog Vocabulary | [`dcat:`](http://www.w3.org/ns/dcat#) | `http://www.w3.org/ns/dcat#` |
+| DCAT Application profile for data portals | [`dcatap:`](http://data.europa.eu/r5r/) | `http://data.europa.eu/r5r/` |
+| Dublin Core Terms | [`dct:`](http://purl.org/dc/terms/) | `http://purl.org/dc/terms/` |
+| Friend Of A Friend | [`foaf:`](http://xmlns.com/foaf/0.1/) | `http://xmlns.com/foaf/0.1/` |
+| Location Core Vocabulary | [`locn:`](http://www.w3.org/ns/locn#) | `http://www.w3.org/ns/locn#` |
+| Web Ontology Document | [`owl:`](http://www.w3.org/2002/07/owl#) | `http://www.w3.org/2002/07/owl#` |
+| Open Digital Rights Language | [`odrl:`](http://www.w3.org/ns/odrl/2/) | `http://www.w3.org/ns/odrl/2/` |
+| Prov Family of Documents | [`prov:`](http://www.w3.org/ns/prov#) | `http://www.w3.org/ns/prov#` |
+| Resource Description Framework | [`rdf:`](http://www.w3.org/1999/02/22-rdf-syntax-ns#) | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` |
+| Resource Description Framework Schema | [`rdfs:`](http://www.w3.org/2000/01/rdf-schema#) | `http://www.w3.org/2000/01/rdf-schema#` |
+| Simple Knowledge Organization System | [`skos:`](http://www.w3.org/2004/02/skos/core#) | `http://www.w3.org/2004/02/skos/core#` |
+| Software Package Data Exchange | [`spdx:`](http://spdx.org/rdf/terms#) | `http://spdx.org/rdf/terms#` |
+| W3C Time Ontology | [`time:`](http://www.w3.org/2006/time#) | `http://www.w3.org/2006/time#` |
+| vCard Ontology | [`vcard:`](http://www.w3.org/2006/vcard/ns#) | `http://www.w3.org/2006/vcard/ns#` |
+| XML Schema | [`xsd:`](http://www.w3.org/2001/XMLSchema#) | `http://www.w3.org/2001/XMLSchema#` |
 
 ## Vocabularios controlados utilizados en el modelo {#dcat-ap-es-vocabularies}
 Para garantizar la coherencia e interoperabilidad entre catálogos de datos, DCAT-AP-ES recomienda el uso de vocabularios controlados para cada propiedad. La siguiente tabla muestra los vocabularios recomendados y sus correspondientes URIs, cuyo uso puede ser obligatorio en algunos casos según las especificaciones del modelo.
 
 | **Propiedad** | **Clase** | **Vocabulario** | **URI del vocabulario** |
 | --- | --- | --- | --- |
-| **adms:status** | CatalogRecord | [Concept status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/authority/concept-status) | `http://publications.europa.eu/resource/authority/concept-status` |
-| **adms:status** | Distribution | [Distribution status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/distribution-status) | `http://publications.europa.eu/resource/authority/distribution-status` |
-| **dcat:compressFormat** | Distribution | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
-| **dcat:mediaType** | Distribution | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
-| **dcat:packageFormat** | Distribution | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
-| **dcat:theme** | Dataset<br>DataService | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul>  | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
-| **dcat:themeTaxonomy** | Catalog | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul> | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
-| **dcatap:availability** | Distribution | [Planned availability](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/planned-availability) | `http://publications.europa.eu/resource/authority/planned-availability` |
-| **dcatap:hvdCategory** | Dataset<br>DataService | [HVD Category](https://op.europa.eu/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/bna/asd487ae75) | `http://data.europa.eu/bna/asd487ae75` |
-| **dct:accessRights** | Dataset<br>DataService | [Access right](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/access-right) | `http://publications.europa.eu/resource/authority/access-right` |
-| **dct:accrualPeriodicity** | Dataset | [Frequency](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/frequency) | `http://publications.europa.eu/resource/authority/frequency` |
-| **dct:format** | Distribution | [File type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/file-type) | `http://publications.europa.eu/resource/authority/file-type` |
-| **dct:language** | Catalog<br>Dataset<br>Distribution | [Language](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/language) | `http://publications.europa.eu/resource/authority/language` |
-| **dct:license** | Catalog<br>DataService<br>Distribution | [Licence](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/licence) | `http://publications.europa.eu/resource/authority/licence` |
-| **dct:spatial** | Catalog<br>Dataset | <ul><li>[Taxonomía de territorio NTI-RISP](https://datos.gob.es/es/recurso/sector-publico/territorio)</li><li> [Continent](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/continent)</li><li>[Countries and territories](http://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country)</li><li>[Administrative territorial unit](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/atu)</li><li>[Place](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/place)</li><li>[Geonames](http://www.geonames.org/)</li></ul> | <ul><li>`http://datos.gob.es/es/recurso/sector-publico/territorio`</li><li>`http://publications.europa.eu/resource/authority/continent`</li><li>`http://publications.europa.eu/resource/authority/country`</li><li>`http://publications.europa.eu/resource/authority/atu`</li><li>`http://publications.europa.eu/resource/authority/place`</li><li>`http://sws.geonames.org/`</li></ul> |
-| **dct:type** | Agent | [ADMS publisher type](http://purl.org/adms/publishertype/1.0) | `http://purl.org/adms/publishertype/1.0` |
-| **dct:type** | Dataset | [Dataset type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/dataset-type) | `http://publications.europa.eu/resource/authority/dataset-type` |
-| **dct:type** | LicenseDocument | [ADMS licence type](http://purl.org/adms/licencetype/1.0) | `http://purl.org/adms/licencetype/1.0` |
+| [**adms:status**](http://www.w3.org/ns/adms#status) | [`dcat:CatalogRecord`](#CatalogRecord) | [Concept status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/authority/concept-status) | `http://publications.europa.eu/resource/authority/concept-status` |
+| [**adms:status**](http://www.w3.org/ns/adms#status) | [`dcat:Distribution`](#Distribution) | [Distribution status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/distribution-status) | `http://publications.europa.eu/resource/authority/distribution-status` |
+| [**dcat:compressFormat**](http://www.w3.org/ns/dcat#compressFormat) | [`dcat:Distribution`](#Distribution) | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
+| [**dcat:mediaType**](http://www.w3.org/ns/dcat#mediaType) | [`dcat:Distribution`](#Distribution) | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
+| [**dcat:packageFormat**](http://www.w3.org/ns/dcat#packageFormat) | [`dcat:Distribution`](#Distribution) | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
+| [**dcat:theme**](http://www.w3.org/ns/dcat#theme) | [`dcat:Dataset`](#Dataset)<br>[`dcat:DataService`](#DataService) | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul>  | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
+| [**dcat:themeTaxonomy**](http://www.w3.org/ns/dcat#themeTaxonomy) | [`dcat:Catalog`](#Catalog) | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul> | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
+| [**dcatap:availability**](http://data.europa.eu/r5r/availability) | [`dcat:Distribution`](#Distribution) | [Planned availability](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/planned-availability) | `http://publications.europa.eu/resource/authority/planned-availability` |
+| [**dcatap:hvdCategory**](http://data.europa.eu/r5r/hvdCategory) | [`dcat:Dataset`](#Dataset)<br>[`dcat:DataService`](#DataService) | [HVD Category](https://op.europa.eu/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/bna/asd487ae75) | `http://data.europa.eu/bna/asd487ae75` |
+| [**dct:accessRights**](http://purl.org/dc/terms/accessRights) | [`dcat:Dataset`](#Dataset)<br>[`dcat:DataService`](#DataService) | [Access right](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/access-right) | `http://publications.europa.eu/resource/authority/access-right` |
+| [**dct:accrualPeriodicity**](http://purl.org/dc/terms/accrualPeriodicity) | [`dcat:Dataset`](#Dataset) | [Frequency](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/frequency) | `http://publications.europa.eu/resource/authority/frequency` |
+| [**dct:format**](http://purl.org/dc/terms/format) | [`dcat:Distribution`](#Distribution) | [File type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/file-type) | `http://publications.europa.eu/resource/authority/file-type` |
+| [**dct:language**](http://purl.org/dc/terms/language) | [`dcat:Catalog`](#Catalog)<br>[`dcat:Dataset`](#Dataset)<br>[`dcat:Distribution`](#Distribution) | [Language](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/language) | `http://publications.europa.eu/resource/authority/language` |
+| [**dct:license**](http://purl.org/dc/terms/license) | [`dcat:Catalog`](#Catalog)<br>[`dcat:DataService`](#DataService)<br>[`dcat:Distribution`](#Distribution) | [Licence](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/licence) | `http://publications.europa.eu/resource/authority/licence` |
+| [**dct:spatial**](http://purl.org/dc/terms/spatial) | [`dcat:Catalog`](#Catalog)<br>[`dcat:Dataset`](#Dataset) | <ul><li>[Taxonomía de territorio NTI-RISP](https://datos.gob.es/es/recurso/sector-publico/territorio)</li><li> [Continent](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/continent)</li><li>[Countries and territories](http://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country)</li><li>[Administrative territorial unit](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/atu)</li><li>[Place](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/place)</li><li>[Geonames](http://www.geonames.org/)</li></ul> | <ul><li>`http://datos.gob.es/es/recurso/sector-publico/territorio`</li><li>`http://publications.europa.eu/resource/authority/continent`</li><li>`http://publications.europa.eu/resource/authority/country`</li><li>`http://publications.europa.eu/resource/authority/atu`</li><li>`http://publications.europa.eu/resource/authority/place`</li><li>`http://sws.geonames.org/`</li></ul> |
+| [**dct:type**](http://purl.org/dc/terms/type) | [`foaf:Agent`](#Agent) | [ADMS publisher type](http://purl.org/adms/publishertype/1.0) | `http://purl.org/adms/publishertype/1.0` |
+| [**dct:type**](http://purl.org/dc/terms/type) | [`dcat:Dataset`](#Dataset) | [Dataset type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/dataset-type) | `http://publications.europa.eu/resource/authority/dataset-type` |
+| [**dct:type**](http://purl.org/dc/terms/type) | [`dct:LicenseDocument`](#LicenseDocument) | [ADMS licence type](http://purl.org/adms/licencetype/1.0) | `http://purl.org/adms/licencetype/1.0` |
 
 # Relación de metadatos del modelo DCAT-AP-ES {#dcat-ap-es-model-relations}
 
@@ -126,176 +126,176 @@ Esta estructura uniforme facilita la implementación y comprensión del perfil d
 Igualmente, se indica para cada entidad del modelo -catálogo, registro, servicio de datos, dataset, etc.- el requisito de aplicación.
 
 
-## Catálogo - Clase: dcat:Catalog - Obligatorio
+## Catálogo - Clase: dcat:Catalog - Obligatorio {#Catalog}
 
 | Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
-| Nombre | Breve título o nombre dado al catálogo de datos | dct:title | Ob | 1..n | **rdfs:Literal** |
-| Descripción | Resumen descriptivo del catálogo de datos | dct:description | Ob | 1..n | **rdfs:Literal** |
-| Órgano publicador | Organización que publica el catálogo. | dct:publisher | Ob | 1..1 | **foaf:Agent** |
-| Fecha de creación | Fecha de publicación inicial del catálogo. | dct:issued | Ob | 1..1 | **rdfs:Literal** |
-| Fecha de actualización | Fecha en la que se modificó por última vez el catálogo | dct:modified | Ob | 1..1 | **rdfs:Literal** |
-| Página web | Dirección web pública de acceso al catálogo de datos | foaf:homepage | Ob | 1..1 | **foaf:Document** |
-| Temáticas | Taxonomía de categorías de datasets incluidas en el catálogo. | dcat:themeTaxonomy | Ob | 1..3 | **skos:ConceptScheme** |
-| Idioma(s) | Idioma(s) en el(los) que se encuentran metadatos de los elementos incluidos en el catálogo | dct:language | Ob | 1..n | **dct:****LinguisticSystem** |
-| Términos de uso | Referencia a los términos de uso generales del catálogo | dct:license | Ob | 1..1 | **dct:LicenseDocument** |
-| Dataset | Cada uno de los datasets incluidos en el catálogo | dcat:dataset | R | 0..n | **dcat:Dataset** |
-| Servicio de datos | Cada uno de los servicios de datos incluidos en el catálogo | dcat:service | R | 0..n | **dcat:DataService** |
-| Cobertura geográfica | Ámbito geográfico cubierto por el catálogo | dct:spatial | R | 0..n | **rdfs:Resource** |
-| Catálogo | Catálogo relacionado | dcat:catalog | Op | 0..n | **dcat:Catalog** |
-| Registro | Registro del Catálogo | dcat:record | Op | 0..n | **dcat:CatalogRecord** |
-| Autor | Entidad responsable de generar el Catálogo | dct:creator | Op | 0..n | **foaf:Agent** |
-| Incluye a | Otro Catálogo que está incluido en el catálogo | dct:hasPart | Op | 0..n | **dcat:Catalog** |
-| Está incluido en | Forma parte de otro catálogo | dct:isPartOf | Op | 0..1 | **dcat:Catalog** |
-| Declaración de derechos | Declaración de los derechos relacionados con el catálogo. | dct:rights | Op | 0..1 | **dct:RightsStatement** |
-| Cobertura temporal | Define el período de tiempo que abarca el catálogo. | dct:temporal | Op | 0..n | **dct:PeriodOfTime** |
+| Nombre | Breve título o nombre dado al catálogo de datos | [title](#Catalog.title) | Ob | 1..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Descripción | Resumen descriptivo del catálogo de datos | [description](#Catalog.description) | Ob | 1..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Órgano publicador | Organización que publica el catálogo. | [publisher](#Catalog.publisher) | Ob | 1..1 | [**foaf:Agent**](#Agent) |
+| Fecha de creación | Fecha de publicación inicial del catálogo. | [issued](#Catalog.issued) | Ob | 1..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Fecha de actualización | Fecha en la que se modificó por última vez el catálogo | [modified](#Catalog.modified) | Ob | 1..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Página web | Dirección web pública de acceso al catálogo de datos | [homepage](#Catalog.homepage) | Ob | 1..1 | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
+| Temáticas | Taxonomía de categorías de datasets incluidas en el catálogo. | [themeTaxonomy](#Catalog.themeTaxonomy) | Ob | 1..3 | [**skos:ConceptScheme**](http://www.w3.org/2004/02/skos/core#ConceptScheme) |
+| Idioma(s) | Idioma(s) en el(los) que se encuentran metadatos de los elementos incluidos en el catálogo | [language](#Catalog.language) | Ob | 1..n | [**dct:LinguisticSystem**](http://purl.org/dc/terms/LinguisticSystem) |
+| Términos de uso | Referencia a los términos de uso generales del catálogo | [license](#Catalog.license) | Ob | 1..1 | [**dct:LicenseDocument**](http://purl.org/dc/terms/LicenseDocument) |
+| Dataset | Cada uno de los datasets incluidos en el catálogo | [dataset](#Catalog.dataset) | R | 0..n | [**dcat:Dataset**](#Dataset) |
+| Servicio de datos | Cada uno de los servicios de datos incluidos en el catálogo | [service](#Catalog.service) | R | 0..n | [**dcat:DataService**](#DataService) |
+| Cobertura geográfica | Ámbito geográfico cubierto por el catálogo | [spatial](#Catalog.spatial) | R | 0..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
+| Catálogo | Catálogo relacionado | [catalog](#Catalog.catalog) | Op | 0..n | [**dcat:Catalog**](#Catalog) |
+| Registro | Registro del Catálogo | [record](#Catalog.record) | Op | 0..n | [**dcat:CatalogRecord**](#CatalogRecord) |
+| Autor | Entidad responsable de generar el Catálogo | [creator](#Catalog.creator) | Op | 0..n | [**foaf:Agent**](#Agent) |
+| Incluye a | Otro Catálogo que está incluido en el catálogo | [hasPart](#Catalog.hasPart) | Op | 0..n | [**dcat:Catalog**](#Catalog) |
+| Está incluido en | Forma parte de otro catálogo | [isPartOf](#Catalog.isPartOf) | Op | 0..1 | [**dcat:Catalog**](#Catalog) |
+| Declaración de derechos | Declaración de los derechos relacionados con el catálogo. | [rights](#Catalog.rights) | Op | 0..1 | [**dct:RightsStatement**](http://purl.org/dc/terms/RightsStatement) |
+| Cobertura temporal | Define el período de tiempo que abarca el catálogo. | [temporal](#Catalog.temporal) | Op | 0..n | [**dct:PeriodOfTime**](#PeriodOfTime) |
 
 
-## Registro del catálogo - Clase: dcat:CatalogRecord - Opcional
-
-| Metadato | Descripción | Propiedad | T | C | Rango |
-| --- | --- | --- | --- | --- | --- |
-| Contenido principal del registro | Tipo de contenido principal del registro del catálogo | foaf:primaryTopic | Ob | 1..1 | **dcat:Dataset, dcat:DataService** |
-| Fecha de última actualización | Última fecha conocida en la que se modificó o actualizó el registro del catálogo. | dct:modified | Ob | 1..1 | **rdfs:Literal** |
-| Perfil de aplicación | Marco normativo relativo al registro del catálogo. | dct:conformsTo | R | 0..1 | **dct:Standard** |
-| Fecha de creación | Fecha inicial en la que se creó el registro. | dct:issued | R | 0..1 | **rdfs:Literal** |
-| Estado | Fase del ciclo de vida en que se encuentra | adms:status | R | 0..1 | **skos:Concept** |
-| Nombre | Nombre o título del Registro del Catálogo | dct:title | Op | 0..n | **rdfs:Literal** |
-| Descripción | Descripción resumida del contenido del registro del catálogo | dct:description | Op | 0..n | **rdfs:Literal** |
-
-## Servicio de datos - Clase: dcat:DataService - Opcional
+## Registro del catálogo - Clase: dcat:CatalogRecord - Opcional {#CatalogRecord}
 
 | Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
-| Nombre | Nombre del servicio de datos | dct:title | Ob | 1..n | **rdfs:Literal** |
-| URL de acceso | URL en la que se publica el servicio. | dcat:endpointURL | Ob | 1..n | **rdfs:Resource** |
-| Categoría de HVD | Categoría de dato de alto valor | dcatap:hvdCategory | Op[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **skos:Concept** |
-| Punto de contacto | Información de contacto sobre el servicio de datos HVD | dcat:contactPoint | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **vcard:Kind** |
-| Documentación | Documento relevante sobre el servicio de datos HVD | foaf:page | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **foaf:Document** |
-| Temática(s) | Temática o categoría principal del servicio de datos. | dcat:theme | Ob | 1..n | **skos:Concept** |
-| Publicador | Organización que publica el servicio. | dct:publisher | Ob | 1..1 | **foaf:Agent** |
-| Descripción del punto de acceso | Descripción de las características del punto de acceso | dcat:endpointDescription | R | 0..n | **rdfs:Resource** |
-| Conjuntos de datos | Conjuntos de datos disponibles a través del servicio. | dcat:servesDataset | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **dcat:Dataset** |
-| Legislación aplicable | URI de la legislación que es aplicable al recurso | dcatap:applicableLegislation | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **eli:LegalResource** |
-| Descripción | Descripción resumida del servicio de datos | dct:description | Op | 0..n | **rdfs:Literal** |
-| Derechos de acceso | Declaración acerca de las posibles restricciones de acceso | dct:accessRights | Op | 0..1 | **dct:RightsStatement** |
-| Licencia | Licencia del Servicio de datos | dct:license | Op | 0..1 | **dct:LicenseDocument** |
-| Etiqueta(s) | Etiqueta(s) textual(es) para categorizar libremente el servicio de datos. | dcat:keyword | Op | 0..n | **rdfs:Literal** |
+| Contenido principal del registro | Tipo de contenido principal del registro del catálogo | [primaryTopic](#CatalogRecord.primaryTopic) | Ob | 1..1 | [**dcat:Dataset**](#Dataset), [**dcat:DataService**](#DataService) |
+| Fecha de última actualización | Última fecha conocida en la que se modificó o actualizó el registro del catálogo. | [modified](#CatalogRecord.modified) | Ob | 1..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Perfil de aplicación | Marco normativo relativo al registro del catálogo. | [conformsTo](#CatalogRecord.conformsTo) | R | 0..1 | [**dct:Standard**](http://purl.org/dc/terms/Standard) |
+| Fecha de creación | Fecha inicial en la que se creó el registro. | [issued](#CatalogRecord.issued) | R | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Estado | Fase del ciclo de vida en que se encuentra | [status](#CatalogRecord.status) | R | 0..1 | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Nombre | Nombre o título del Registro del Catálogo | [title](#CatalogRecord.title) | Op | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Descripción | Descripción resumida del contenido del registro del catálogo | [description](#CatalogRecord.description) | Op | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
-## Conjunto de datos - clase: dcat:Dataset - Obligatorio
+## Servicio de datos - Clase: dcat:DataService - Opcional {#DataService}
 
 | Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
-| Nombre | Nombre o título del conjunto de datos. | dct:title | Ob | 1..n | **rdfs:Literal** |
-| Descripción | Descripción detallada del conjunto de datos. | dct:description | Ob | 1..n | **rdfs:Literal** |
-| Publicador | Organización que publica el conjunto de datos. | dct:publisher | Ob | 1..1 | **foaf:Agent** |
-| Temática(s) | Temática o categoría principal del conjunto de datos. | dcat:theme | Ob | 1..n | **skos:Concept** |
-| Distribución(es) | Recursos del conjunto de datos en sus posibles formatos. | dcat:distribution | R[^1]<br>Ob (HVD) | 1..n | **dcat:Distribution** |
-| Categoría de HVD | Categoría de dato de alto valor | dcatap:hvdCategory | Op[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **skos:Concept** |
-| Etiqueta(s) | Etiqueta(s) textual(es) para categorizar libremente el conjunto de datos. | dcat:keyword | R | 0..n | **rdfs:Literal** |
-| Punto de contacto | Información de contacto sobre el conjunto de datos | dcat:contactPoint | R | 0..n | **vcard:Kind** |
-| Cobertura temporal | Fecha inicial y final del período cubierto por el conjunto de datos. | dct:temporal | R | 0..n | **dct:PeriodOfTime** |
-| Cobertura geográfica | Ámbito geográfico cubierto por el conjunto de datos. | dct:spatial | R | 0..n | **rdfs:Resource** |
-| Legislación aplicable | URI de la legislación que es aplicable al recurso | dcatap:applicableLegislation | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **eli:LegalResource** |
-| Identificador principal | URI principal que identifica al conjunto de datos | dct:identifier | Op | 0..n | **rdfs:Literal** |
-| Otro identificador | Identificador secundario del conjunto de datos | adms:identifier | Op | 0..n | **adms:Identifier** |
-| Autor | Organización responsable de generar el conjunto de datos. | dct:creator | Op | 0..n | **foaf:Agent** |
-| Documentación | Referencia a un documento sobre el conjunto de datos | foaf:page | Op | 0..n | **foaf:Document** |
-| Sitio web | Página de acceso al conjunto de datos, sus distribuciones e información adicional | dcat:landingPage | Op | 0..n | **foaf:Document** |
-| Muestra | Muestra del conjunto de datos. | adms:sample | Op | 0..n | **dcat:Distribution** |
-| Estándar | Especificaciones que cumple el dataset. | dct:conformsTo | Op | 0..n | **dct:Standard** |
-| Fecha de creación | Fecha de creación del conjunto de datos. | dct:issued | Op | 0..1 | **rdfs:Literal** |
-| Fecha de última actualización | Última fecha conocida en la que se modificó o actualizó el contenido del conjunto de datos. | dct:modified | Op | 0..1 | **rdfs:Literal** |
-| Tipo | Categorización del conjunto de datos. | dct:type | Op | 0..1 | **skos:Concept** |
-| Idioma(s) | Idioma(s) de los metadatos y/o de los valores del conjunto de datos | dct:language | Op | 0..n | **dct:LinguisticSystem** |
-| Frecuencia de actualización | Período de tiempo aproximado entre actualizaciones del conjunto de datos | dct:accrualPeriodicity | Op | 0..1 | **dct:Frequency** |
-| Versión | Identificación de la versión del conjunto de datos | dcat:version | Op | 0..1 | **rdfs:Literal** |
-| Notas de Versión | Descripción de las diferencias entre versiones | adms:versionNotes | Op | 0..n | **rdfs:Literal** |
-| Relación | Relación entre recursos | dcat:qualifiedRelation | Op | 0..n | **dcat:Relationship** |
-| Resolución espacial | Mínima distancia entre dos datos distintos | dcat:spatialResolutionInMeters | Op | 0..1 | **rdfs:Literal** |
-| Resolución temporal | Tiempo mínimo entre dos registros de datos consecutivos | dcat:temporalResolution | Op | 0..1 | **rdfs:Literal** |
-| Referenciado por | Referencia al conjunto de datos | dct:isReferencedBy | Op | 0..n | **rdfs:Resource** |
-| Procedencia | Procedencia de los datos | dct:provenance | Op | 0..n | **dct:ProvenanceStatement** |
-| Recurso relacionado | Relación entre recursos | dct:relation | Op | 0..n | **rdfs:Resource** |
-| Atribución | Agentes con alguna responsabilidad significativa sobre el conjunto de datos | prov:qualifiedAttribution | Op | 0..n | **prov:Attribution** |
-| Generador | Referencia a la actividad que generó el conjunto de datos. | prov:wasGeneratedBy | Op | 0..n | **prov:Activity** |
-| Tiene versión | Relaciona este conjunto de datos con una versión, edición o adaptación. | dcat:hasVersion | Op | 0..n | **dcat:Dataset** |
-| Es versión de | Relaciona esta versión con el conjunto de datos versionado. | dcat:isVersionOf | Op | 0..n | **dcat:Dataset** |
-| Origen | Referencia a un dataset de origen | dct:source | Op | 0..n | **dcat:Dataset** |
-| Derechos de acceso | Declaración acerca de posibles restricciones de acceso | dct:accessRights | Op | 0..1 | **dct:RightsStatement** |
+| Nombre | Nombre del servicio de datos | [title](#DataService.title) | Ob | 1..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| URL de acceso | URL en la que se publica el servicio. | [endpointURL](#DataService.endpointURL) | Ob | 1..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
+| Categoría de HVD | Categoría de dato de alto valor | [hvdCategory](#DataService.hvdCategory) | Op[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Punto de contacto | Información de contacto sobre el servicio de datos HVD | [contactPoint](#DataService.contactPoint) | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**vcard:Kind**](http://www.w3.org/2006/vcard/ns#Kind) |
+| Documentación | Documento relevante sobre el servicio de datos HVD | [page](#DataService.page) | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
+| Temática(s) | Temática o categoría principal del servicio de datos. | [theme](#DataService.theme) | Ob | 1..n | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Publicador | Organización que publica el servicio. | [publisher](#DataService.publisher) | Ob | 1..1 | [**foaf:Agent**](#Agent) |
+| Descripción del punto de acceso | Descripción de las características del punto de acceso | [endpointDescription](#DataService.endpointDescription) | R | 0..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
+| Conjuntos de datos | Conjuntos de datos disponibles a través del servicio. | [servesDataset](#DataService.servesDataset) | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**dcat:Dataset**](#Dataset) |
+| Legislación aplicable | URI de la legislación que es aplicable al recurso | [applicableLegislation](#DataService.applicableLegislation) | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**eli:LegalResource**](http://data.europa.eu/eli/ontology#LegalResource) |
+| Descripción | Descripción resumida del servicio de datos | [description](#DataService.description) | Op | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Derechos de acceso | Declaración acerca de las posibles restricciones de acceso | [accessRights](#DataService.accessRights) | Op | 0..1 | [**dct:RightsStatement**](http://purl.org/dc/terms/RightsStatement) |
+| Licencia | Licencia del Servicio de datos | [license](#DataService.license) | Op | 0..1 | [**dct:LicenseDocument**](http://purl.org/dc/terms/LicenseDocument) |
+| Etiqueta(s) | Etiqueta(s) textual(es) para categorizar libremente el servicio de datos. | [keyword](#DataService.keyword) | Op | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
-
-
-## Distribución - Clase: dcat:Distribution - Recomendado
+## Conjunto de datos - clase: dcat:Dataset - Obligatorio {#Dataset}
 
 | Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
-| URL de acceso | URL que permite el acceso a la distribución | dcat:accessURL | Ob | 1..n | **rdfs:Resource** |
-| Legislación aplicable | URI de la legislación que es aplicable al recurso  | dcatap:applicableLegislation | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | **eli:LegalResource** |
-| Descripción | Descripción de la distribución | dct:description | R | 0..n | **rdfs:Literal** |
-| Disponibilidad | Disponibilidad planificada de la distribución | dcatpa:availability | R | 0..1 | **skos:Concept** |
-| Formato | Formato en que se encuentra representado el conjunto de datos | dct:format | R | 0..1 | **dct:MediaTypeOrExtent** |
-| Licencia | Licencia bajo la que se publica la distribución | dct:license | R | 0..1 | **dct:LicenseDocument** |
-| Formato tipo MIME | Tipo MIME de la distribución | dcat:mediaType | Op | 0..1 | **dct:MediaType** |
-| Servicio de acceso | Servicio de datos que proporciona acceso a la distribución | dcat:accessService | Op | 0..n | **dcat:DataService** |
-| Nombre | Breve título o nombre dado a la distribución. | dct:title | Op | 0..n | **rdfs:Literal** |
-| Documentación | Referencia a un documento que describe la distribución | foaf:page | Op | 0..n | **foaf:Document** |
-| URL de descarga | URL para la descarga del archivo en el formato definido. | dcat:downloadURL | Op | 0..n | **rdfs:Resource** |
-| Esquema | Esquema o modelo de datos vinculado | dct:conformsTo | Op | 0..n | **dct:Standard** |
-| Fecha de creación de la distribución | Fecha de creación | dct:issued | Op | 0..1 | **rdfs:Literal** |
-| Fecha de última actualización de la distribución | Última fecha conocida en la que se actualizó la distribución | dct:modified | Op | 0..1 | **rdfs:Literal** |
-| Estado | Estado del registro de catálogo en el contexto del flujo editorial de las descripciones de conjuntos de datos y servicios de datos. | adms:status | Op | 0..1 | **skos:Concept** |
-| Idioma(s) | Idioma(s) empleado en la información contenida en la distribución | dct:language | Op | 0..n | **dct:LinguisticSystem** |
-| Formato comprimido | Formato de compresión en el que se encuentran los datos | dcat:compressFormat | Op | 0..1 | **dct:MediaType** |
-| Formato empaquetado | Formato en el que agrupan archivos para su descarga | dcat:packageFormat | Op | 0..1 | **dct:MediaType** |
-| Tamaño | Tamaño aproximado del conjunto de datos. | dcat:byteSize | Op | 0..1 | **rdfs:Literal** |
-| Resolución espacial | Mínima separación física entre datos | dcat:spatialResolutionInMeters | Op | 0..1 | **rdfs:Literal** |
-| Resolución temporal | Tiempo mínimo entre dos registros de datos | dcat:temporalResolution | Op | 0..1 | **rdfs:Literal** |
-| Control de verificación | Mecanismo de verificación de integridad de la distribución | spdx:checksum | Op | 0..1 | **spdx:Checksum** |
-| Norma ODLR | Expresión de los derechos asociados con el uso de la distribución del conjunto de datos | odrl:hasPolicy | Op | 0..1 | **odrl:Policy** |
-| Declaración de derechos | Declaración que especifica los derechos vinculados con la distribución | dct:rights | Op | 0..1 | **dct:RightsStatement** |
+| Nombre | Nombre o título del conjunto de datos. | [title](#Dataset.title) | Ob | 1..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Descripción | Descripción detallada del conjunto de datos. | [description](#Dataset.description) | Ob | 1..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Publicador | Organización que publica el conjunto de datos. | [publisher](#Dataset.publisher) | Ob | 1..1 | [**foaf:Agent**](#Agent) |
+| Temática(s) | Temática o categoría principal del conjunto de datos. | [theme](#Dataset.theme) | Ob | 1..n | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Distribución(es) | Recursos del conjunto de datos en sus posibles formatos. | [distribution](#Dataset.distribution) | R[^1]<br>Ob (HVD) | 1..n | [**dcat:Distribution**](#Distribution) |
+| Categoría de HVD | Categoría de dato de alto valor | [hvdCategory](#Dataset.hvdCategory) | Op[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Etiqueta(s) | Etiqueta(s) textual(es) para categorizar libremente el conjunto de datos. | [keyword](#Dataset.keyword) | R | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Punto de contacto | Información de contacto sobre el conjunto de datos | [contactPoint](#Dataset.contactPoint) | R | 0..n | [**vcard:Kind**](http://www.w3.org/2006/vcard/ns#Kind) |
+| Cobertura temporal | Fecha inicial y final del período cubierto por el conjunto de datos. | [temporal](#Dataset.temporal) | R | 0..n | [**dct:PeriodOfTime**](#PeriodOfTime) |
+| Cobertura geográfica | Ámbito geográfico cubierto por el conjunto de datos. | [spatial](#Dataset.spatial) | R | 0..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
+| Legislación aplicable | URI de la legislación que es aplicable al recurso | [applicableLegislation](#Dataset.applicableLegislation) | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**eli:LegalResource**](http://data.europa.eu/eli/ontology#LegalResource) |
+| Identificador principal | URI principal que identifica al conjunto de datos | [identifier](#Dataset.identifier) | Op | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Otro identificador | Identificador secundario del conjunto de datos | [identifier](#Dataset.adms:identifier) | Op | 0..n | [**adms:Identifier**](#Identifier) |
+| Autor | Organización responsable de generar el conjunto de datos. | [creator](#Dataset.creator) | Op | 0..n | [**foaf:Agent**](#Agent) |
+| Documentación | Referencia a un documento sobre el conjunto de datos | [page](#Dataset.page) | Op | 0..n | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
+| Sitio web | Página de acceso al conjunto de datos, sus distribuciones e información adicional | [landingPage](#Dataset.landingPage) | Op | 0..n | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
+| Muestra | Muestra del conjunto de datos. | [sample](#Dataset.sample) | Op | 0..n | [**dcat:Distribution**](#Distribution) |
+| Estándar | Especificaciones que cumple el dataset. | [conformsTo](#Dataset.conformsTo) | Op | 0..n | [**dct:Standard**](http://purl.org/dc/terms/Standard) |
+| Fecha de creación | Fecha de creación del conjunto de datos. | [issued](#Dataset.issued) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Fecha de última actualización | Última fecha conocida en la que se modificó o actualizó el contenido del conjunto de datos. | [modified](#Dataset.modified) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Tipo | Categorización del conjunto de datos. | [type](#Dataset.type) | Op | 0..1 | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Idioma(s) | Idioma(s) de los metadatos y/o de los valores del conjunto de datos | [language](#Dataset.language) | Op | 0..n | [**dct:LinguisticSystem**](http://purl.org/dc/terms/LinguisticSystem) |
+| Frecuencia de actualización | Período de tiempo aproximado entre actualizaciones del conjunto de datos | [accrualPeriodicity](#Dataset.accrualPeriodicity) | Op | 0..1 | [**dct:Frequency**](http://purl.org/dc/terms/Frequency) |
+| Versión | Identificación de la versión del conjunto de datos | [version](#Dataset.version) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Notas de Versión | Descripción de las diferencias entre versiones | [versionNotes](#Dataset.versionNotes) | Op | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Relación | Relación entre recursos | [qualifiedRelation](#Dataset.qualifiedRelation) | Op | 0..n | [**dcat:Relationship**](#Relationship) |
+| Resolución espacial | Mínima distancia entre dos datos distintos | [spatialResolutionInMeters](#Dataset.spatialResolutionInMeters) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Resolución temporal | Tiempo mínimo entre dos registros de datos consecutivos | [temporalResolution](#Dataset.temporalResolution) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Referenciado por | Referencia al conjunto de datos | [isReferencedBy](#Dataset.isReferencedBy) | Op | 0..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
+| Procedencia | Procedencia de los datos | [provenance](#Dataset.provenance) | Op | 0..n | [**dct:ProvenanceStatement**](http://purl.org/dc/terms/ProvenanceStatement) |
+| Recurso relacionado | Relación entre recursos | [relation](#Dataset.relation) | Op | 0..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
+| Atribución | Agentes con alguna responsabilidad significativa sobre el conjunto de datos | [qualifiedAttribution](#Dataset.qualifiedAttribution) | Op | 0..n | [**prov:Attribution**](http://www.w3.org/ns/prov#Attribution) |
+| Generador | Referencia a la actividad que generó el conjunto de datos. | [wasGeneratedBy](#Dataset.wasGeneratedBy) | Op | 0..n | [**prov:Activity**](http://www.w3.org/ns/prov#Activity) |
+| Tiene versión | Relaciona este conjunto de datos con una versión, edición o adaptación. | [hasVersion](#Dataset.hasVersion) | Op | 0..n | [**dcat:Dataset**](#Dataset) |
+| Es versión de | Relaciona esta versión con el conjunto de datos versionado. | [isVersionOf](#Dataset.isVersionOf) | Op | 0..n | [**dcat:Dataset**](#Dataset) |
+| Origen | Referencia a un dataset de origen | [source](#Dataset.source) | Op | 0..n | [**dcat:Dataset**](#Dataset) |
+| Derechos de acceso | Declaración acerca de posibles restricciones de acceso | [accessRights](#Dataset.accessRights) | Op | 0..1 | [**dct:RightsStatement**](http://purl.org/dc/terms/RightsStatement) |
 
 
-## Agente - Clase: foaf:Agent - Obligatorio
 
-| Metadato | Descripción | Propiedad | T | C | Rango |
-| --- | --- | --- | --- | --- | --- |
-| Nombre | Nombre del agente | foaf:name | Ob | 1..n | **rdfs:Literal** |
-| Identificador | Identificador del agente | dct:identifier | R | 0..1 | **rdfs:Literal** |
-| Tipo | Tipo de agente | dct:type | R | 0..1 | **skos:Concept** |
-
-
-## Localización - Clase: dct:Location - Opcional
-
-| Metadato | Descripción | Propiedad | T | C | Rango |
-| --- | --- | --- | --- | --- | --- |
-| Ámbito geográfico (delimitación) | Delimitación geográfica de un recurso (área rectangular) | dcat:bbox | R | 0..1 | **rdfs:Literal** |
-| Ámbito geográfico (centroide) | Centro geográfico de un recurso (punto) | dcat:centroid | R | 0..1 | **rdfs:Literal** |
-| Geometría | Geometría de un recurso | locn:geometry | Op | 0..1 | **rdfs:Literal** |
-
-
-## Vigencia - Clase: dct:PeriodOfTime - Opcional
+## Distribución - Clase: dcat:Distribution - Recomendado {#Distribution}
 
 | Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
-| Fecha de inicio | Fecha de inicio de un intervalo temporal | dcat:startDate | R | 0..1 | **rdfs:Literal** |
-| Fecha de finalización | Fecha de finalización de un intervalo temporal | dcat:endDate | R | 0..1 | **rdfs:Literal** |
-| Comienzo | Instante de inicio de un intervalo o período | time:hasBeginning | Op | 0..1 | **time:Instant** |
-| Final | Instante de finalización de un intervalo o período | time:hasEnd | Op | 0..1 | **time:Instant** |
+| URL de acceso | URL que permite el acceso a la distribución | [accessURL](#Distribution.accessURL) | Ob | 1..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
+| Legislación aplicable | URI de la legislación que es aplicable al recurso  | [applicableLegislation](#Distribution.applicableLegislation) | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**eli:LegalResource**](http://data.europa.eu/eli/ontology#LegalResource) |
+| Descripción | Descripción de la distribución | [description](#Distribution.description) | R | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Disponibilidad | Disponibilidad planificada de la distribución | [availability](#Distribution.availability) | R | 0..1 | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Formato | Formato en que se encuentra representado el conjunto de datos | [format](#Distribution.format) | R | 0..1 | [**dct:MediaTypeOrExtent**](http://purl.org/dc/terms/MediaTypeOrExtent) |
+| Licencia | Licencia bajo la que se publica la distribución | [license](#Distribution.license) | R | 0..1 | [**dct:LicenseDocument**](http://purl.org/dc/terms/LicenseDocument) |
+| Formato tipo MIME | Tipo MIME de la distribución | [mediaType](#Distribution.mediaType) | Op | 0..1 | [**dct:MediaType**](http://purl.org/dc/terms/MediaType) |
+| Servicio de acceso | Servicio de datos que proporciona acceso a la distribución | [accessService](#Distribution.accessService) | Op | 0..n | [**dcat:DataService**](#DataService) |
+| Nombre | Breve título o nombre dado a la distribución. | [title](#Distribution.title) | Op | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Documentación | Referencia a un documento que describe la distribución | [page](#Distribution.page) | Op | 0..n | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
+| URL de descarga | URL para la descarga del archivo en el formato definido. | [downloadURL](#Distribution.downloadURL) | Op | 0..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
+| Esquema | Esquema o modelo de datos vinculado | [conformsTo](#Distribution.conformsTo) | Op | 0..n | [**dct:Standard**](http://purl.org/dc/terms/Standard) |
+| Fecha de creación de la distribución | Fecha de creación | [issued](#Distribution.issued) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Fecha de última actualización de la distribución | Última fecha conocida en la que se actualizó la distribución | [modified](#Distribution.modified) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Estado | Estado del registro de catálogo en el contexto del flujo editorial de las descripciones de conjuntos de datos y servicios de datos. | [status](#Distribution.status) | Op | 0..1 | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Idioma(s) | Idioma(s) empleado en la información contenida en la distribución | [language](#Distribution.language) | Op | 0..n | [**dct:LinguisticSystem**](http://purl.org/dc/terms/LinguisticSystem) |
+| Formato comprimido | Formato de compresión en el que se encuentran los datos | [compressFormat](#Distribution.compressFormat) | Op | 0..1 | [**dct:MediaType**](http://purl.org/dc/terms/MediaType) |
+| Formato empaquetado | Formato en el que agrupan archivos para su descarga | [packageFormat](#Distribution.packageFormat) | Op | 0..1 | [**dct:MediaType**](http://purl.org/dc/terms/MediaType) |
+| Tamaño | Tamaño aproximado del conjunto de datos. | [byteSize](#Distribution.byteSize) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Resolución espacial | Mínima separación física entre datos | [spatialResolutionInMeters](#Distribution.spatialResolutionInMeters) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Resolución temporal | Tiempo mínimo entre dos registros de datos | [temporalResolution](#Distribution.temporalResolution) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Control de verificación | Mecanismo de verificación de integridad de la distribución | [checksum](#Distribution.checksum) | Op | 0..1 | [**spdx:Checksum**](#Checksum) |
+| Norma ODLR | Expresión de los derechos asociados con el uso de la distribución del conjunto de datos | [hasPolicy](#Distribution.hasPolicy) | Op | 0..1 | **odrl:Policy** |
+| Declaración de derechos | Declaración que especifica los derechos vinculados con la distribución | [rights](#Distribution.rights) | Op | 0..1 | **dct:RightsStatement** |
 
-## Control y verificación - Clase: spdx:Checksum - Opcional
+
+## Agente - Clase: foaf:Agent - Obligatorio {#Agent}
 
 | Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
-| Algoritmo | Algoritmo utilizado para verificar la integridad | spdx:algorithm | Ob | 1..1 | **spdx:ChecksumAlgorithm\_sha1** |
-| Valor | Resultado generado por el algoritmo utilizado para la verificación de integridad | spdx:checksumValue | Ob | 1..1 | **rdfs:Literal** escrito como  **xsd:hexBinary** |
+| Nombre | Nombre del agente | [name](#Agent.name) | Ob | 1..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Identificador | Identificador del agente | [identifier](#Agent.identifier) | R | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Tipo | Tipo de agente | [type](#Agent.type) | R | 0..1 | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
-## Relación entre recursos - Clase: dcat:Relationship - Opcional
+
+## Localización - Clase: dct:Location - Opcional {#Location}
 
 | Metadato | Descripción | Propiedad | T | C | Rango |
 | --- | --- | --- | --- | --- | --- |
-| Función | Función que una entidad o agente ejerce respecto a otra entidad o recurso | dcat:hadRole | Ob | 1..n | **dcat:Role** |
-| Relación | Recurso sobre el que se describe la relación | dct:relation | Ob | 1..n | **rdfs:Resource** |
+| Ámbito geográfico (delimitación) | Delimitación geográfica de un recurso (área rectangular) | [bbox](#Location.bbox) | R | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Ámbito geográfico (centroide) | Centro geográfico de un recurso (punto) | [centroid](#Location.centroid) | R | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Geometría | Geometría de un recurso | [geometry](#Location.geometry) | Op | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+
+
+## Vigencia - Clase: dct:PeriodOfTime - Opcional {#PeriodOfTime}
+
+| Metadato | Descripción | Propiedad | T | C | Rango |
+| --- | --- | --- | --- | --- | --- |
+| Fecha de inicio | Fecha de inicio de un intervalo temporal | [startDate](#PeriodOfTime.startDate) | R | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Fecha de finalización | Fecha de finalización de un intervalo temporal | [endDate](#PeriodOfTime.endDate) | R | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+| Comienzo | Instante de inicio de un intervalo o período | [hasBeginning](#PeriodOfTime.hasBeginning) | Op | 0..1 | [**time:Instant**](http://www.w3.org/2006/time#Instant) |
+| Final | Instante de finalización de un intervalo o período | [hasEnd](#PeriodOfTime.hasEnd) | Op | 0..1 | [**time:Instant**](http://www.w3.org/2006/time#Instant) |
+
+## Control y verificación - Clase: spdx:Checksum - Opcional {#Checksum}
+
+| Metadato | Descripción | Propiedad | T | C | Rango |
+| --- | --- | --- | --- | --- | --- |
+| Algoritmo | Algoritmo utilizado para verificar la integridad | [algorithm](#Checksum.algorithm) | Ob | 1..1 | [**spdx:ChecksumAlgorithm_sha1**](http://spdx.org/rdf/terms#checksumAlgorithm_sha1) |
+| Valor | Resultado generado por el algoritmo utilizado para la verificación de integridad | [checksumValue](#Checksum.checksumValue) | Ob | 1..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) escrito como  [**xsd:hexBinary**](http://www.w3.org/2001/XMLSchema#hexBinary) |
+
+## Relación entre recursos - Clase: dcat:Relationship - Opcional {#Relationship}
+
+| Metadato | Descripción | Propiedad | T | C | Rango |
+| --- | --- | --- | --- | --- | --- |
+| Función | Función que una entidad o agente ejerce respecto a otra entidad o recurso | [hadRole](#Relationship.hadRole) | Ob | 1..n | [**dcat:Role**](http://www.w3.org/ns/dcat#Role) |
+| Relación | Recurso sobre el que se describe la relación | [relation](#Relationship.relation) | Ob | 1..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
 
 
 # Especificación detallada de metadatos del modelo DCAT-AP-ES {#dcat-ap-es-detailed-model}
@@ -308,112 +308,112 @@ Un catálogo es un repositorio para organizar conjuntos de datos y/o servicios d
 
 Se describe mediante las siguientes propiedades:
 
-| dcat:Catalog | dct:title |
+| [`dcat:Catalog`](#Catalog) | [`dct:title`](http://purl.org/dc/terms/title) |
 | --- | --- |
 | **Metadato** | **Nombre** |
 | **Descripción** | Breve título o nombre dado al catálogo de datos. |
-| **Propiedad** | **dct:title** |
+| **Propiedad** | [**dct:title**](http://purl.org/dc/terms/title) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **rdfs:Literal.** Cadena alfanumérica. |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal). Cadena alfanumérica. |
 
 !!! note "Nota de uso"
 
     Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (`dct:spatial`) y temporal (`dct:temporal`). Esta propiedad puede ser repetida para expresar el nombre en diferentes idiomas.
 
 
-| dcat:Catalog | dct:description |
+| [`dcat:Catalog`](#Catalog) | [`dct:description`](http://purl.org/dc/terms/description) |
 | --- | --- |
 | **Metadato** | **Descripción** |
 | **Descripción** | Descripción que ofrece un resumen claro del contenido y contexto del catálogo de datos proporcionando una visión general rápida y eficaz de los recursos de datos. |
-| **Propiedad** | **dct:description** |
+| **Propiedad** | [**dct:description**](http://purl.org/dc/terms/description) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **rdfs:Literal.** Cadena alfanumérica. |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal). Cadena alfanumérica. |
 
 !!! note "Nota de uso"
 
     Se debe especificar un literal. Esta propiedad puede ser repetida para expresar la descripción en diferentes idiomas.
 
 
-| dcat:Catalog | dct:publisher |
+| [`dcat:Catalog`](#Catalog) | [`dct:publisher`](http://purl.org/dc/terms/publisher) |
 | --- | --- |
 | **Metadato** | **Publicador** |
 | **Descripción** | Agente, en este caso una Organización, responsable de publicar y mantener el catálogo. Proporciona información clave sobre la autoría y la fuente oficial de los recursos de datos. |
-| **Propiedad** | **dct:publisher** |
+| **Propiedad** | [**dct:publisher**](http://purl.org/dc/terms/publisher) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..1** |
-| **Rango** | **foaf:Agent** |
+| **Rango** | [**foaf:Agent**](#Agent) |
 
 !!! note "Nota de uso"
 
     Cada organización se especificará mediante el siguiente patrón de URI:  `http://datos.gob.es/recurso/sector-publico/org/Organismo/{ID-DIR}`  Donde `{ID-DIR}` es el identificador alfanumérico único que diferencia a todas las entidades. En el caso de organismos del sector público éste se encuentra disponible en el Directorio Común de unidades orgánicas y oficinas (DIR3). En el caso de entidades del sector privado, el identificador a utilizar es el `NIF`.
 
 
-| dcat:Catalog | foaf:homepage |
+| [`dcat:Catalog`](#Catalog) | [`foaf:homepage`](http://xmlns.com/foaf/0.1/homepage) |
 | --- | --- |
 | **Metadato** | **Página web** |
 | **Descripción** | Se refiere a la URL o dirección de internet que proporciona acceso directo a la página de inicio del catálogo de datos. |
-| **Propiedad** | **foaf:homepage** |
+| **Propiedad** | [**foaf:homepage**](http://xmlns.com/foaf/0.1/homepage) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..1** |
-| **Rango** | **dcat:Document** |
+| **Rango** | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
 
 !!! note "Nota de uso"
 
     Se debe referir una URL directa y estable para asegurar que los usuarios puedan acceder al recurso de manera confiable y consistente, y que esté actualizada para reflejar el contenido más reciente del catálogo o del recurso de datos específico.
 
 
-| dcat:Catalog | dcat:themeTaxonomy |
+| [`dcat:Catalog`](#Catalog) | [`dcat:themeTaxonomy`](http://www.w3.org/ns/dcat#themeTaxonomy) |
 | --- | --- |
 | **Metadato** | **Temáticas** |
 | **Descripción** | Clasificación taxonómica de las categorías o temas que determinan el contexto de los recursos de datos incluidos en el catálogo que se describe Este metadato facilita a los usuarios la búsqueda y el acceso a información relevante por áreas de interés. |
-| **Propiedad** | **dcat:themeTaxonomy** |
+| **Propiedad** | [**dcat:themeTaxonomy**](http://www.w3.org/ns/dcat#themeTaxonomy) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..3** |
-| **Rango** | **skos:ConceptScheme** |
+| **Rango** | [**skos:ConceptScheme**](http://www.w3.org/2004/02/skos/core#ConceptScheme) |
 
 !!! note "Nota de uso"
 
     Se debe expresar al menos una clasificación taxonómica. Para ello se utilizará obligatoriamente la taxonomía de sectores primaros definida en el vocabulario `http://datos.gob.es/kos/sector-publico/sector` y de manera opcional, el vocabulario de Temas de datos (DCAT-AP): `http://publications.europa.eu/resource/authority/data-theme` o el registro de temas INSPIRE `http://inspire.ec.europa.eu/theme/`
 
 
-| dcat:Catalog | dct:issued |
+| [`dcat:Catalog`](#Catalog) | [`dct:issued`](http://purl.org/dc/terms/issued) |
 | --- | --- |
 | **Metadato** | **Fecha de creación** |
 | **Descripción** | Fecha en la que se generó o publicó por primera vez el catálogo de datos, proporcionando contexto temporal. |
-| **Propiedad** | **dct:issued** |
+| **Propiedad** | [**dct:issued**](http://purl.org/dc/terms/issued) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..1** |
-| **Rango** | **rdfs:Literal** de tipo **xsd:date** (Fecha), **xsd:dateTime** (Fecha/Hora), **xsd:gYear** (Año) o **xsd:gYearMonth** (Año-Mes) |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) de tipo [**xsd:date**](http://www.w3.org/2001/XMLSchema#date) (Fecha), [**xsd:dateTime**](http://www.w3.org/2001/XMLSchema#dateTime) (Fecha/Hora), [**xsd:gYear**](http://www.w3.org/2001/XMLSchema#gYear) (Año) o [**xsd:gYearMonth**](http://www.w3.org/2001/XMLSchema#gYearMonth) (Año-Mes) |
 
 !!! note "Nota de uso"
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 
-| dcat:Catalog | dct:modified |
+| [`dcat:Catalog`](#Catalog) | [`dct:modified`](http://purl.org/dc/terms/modified) |
 | --- | --- |
 | **Metadato** | **Fecha de actualización** |
 | **Descripción** | Fecha en la que se realizó el último cambio en el catálogo, como la adición, eliminación o modificación de un recurso de datos, asegurando que los usuarios acceden a la versión más actualizada. |
-| **Propiedad** | **dct:modified** |
+| **Propiedad** | [**dct:modified**](http://purl.org/dc/terms/modified) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..1** |
-| **Rango** | **rdfs:Literal** de tipo **xsd:date** (Fecha), **xsd:dateTime** (Fecha/Hora), **xsd:gYear** (Año) o **xsd:gYearMonth** (Año-Mes) |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) de tipo [**xsd:date**](http://www.w3.org/2001/XMLSchema#date) (Fecha), [**xsd:dateTime**](http://www.w3.org/2001/XMLSchema#dateTime) (Fecha/Hora), [**xsd:gYear**](http://www.w3.org/2001/XMLSchema#gYear) (Año) o [**xsd:gYearMonth**](http://www.w3.org/2001/XMLSchema#gYearMonth) (Año-Mes) |
 
 !!! note "Nota de uso"
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 
-| dcat:Catalog | dct:language |
+| [`dcat:Catalog`](#Catalog) | [`dct:language`](http://purl.org/dc/terms/language) |
 | --- | --- |
 | **Metadato** | **Idioma** |
 | **Descripción** | Especifica el idioma en el que se encuentra la información contenida en el catálogo de datos. |
-| **Propiedad** | **dct:language** |
+| **Propiedad** | [**dct:language**](http://purl.org/dc/terms/language) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **dct:LinguisticSystem** |
+| **Rango** | [**dct:LinguisticSystem**](http://purl.org/dc/terms/LinguisticSystem) |
 
 !!! note "Nota de uso"
 
@@ -425,56 +425,56 @@ Se describe mediante las siguientes propiedades:
     Complementariamente, es recomendable el uso del atributo `xml:lang` ajustado con el valor correspondiente para expresar literales en cada idioma especificado en la propiedad. Para ello, se recomienda usar los códigos de idioma normalizados definidos en el [RFC-5646](https://www.rfc-editor.org/rfc/rfc5646.html) (por ejemplo, `es` para español, `en` para inglés, `ca` para catalán, `eu` para vasco, `gl` para gallego, etc.).
 
 
-| dcat:Catalog | dct:license |
+| [`dcat:Catalog`](#Catalog) | [`dct:license`](http://purl.org/dc/terms/license) |
 | --- | --- |
 | **Metadato** | **Términos de uso** |
 | **Descripción** | Especifica las condiciones de reutilización del catálogo de datos. Informa a los usuarios sobre los derechos y obligaciones asociados al uso de los recursos de datos. |
-| **Propiedad** | **dct:license** |
+| **Propiedad** | [**dct:license**](http://purl.org/dc/terms/license) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..1** |
-| **Rango** | **dct:LicenseDocument** |
+| **Rango** | [**dct:LicenseDocument**](http://purl.org/dc/terms/LicenseDocument) |
 
 !!! note "Nota de uso"
 
     Se debe incluir una URI que enlace directamente al documento o recurso online que detalla los términos y condiciones de uso del catálogo. Se recomienda el uso de licencias tipo mediante el vocabulario `http://publications.europa.eu/resource/authority/licence` que permite describir dichas condiciones, asegurando así una interpretación y aplicación coherente de las normas de uso y reutilización de los datos. En el caso de datos de alto valor (HVD) la propiedad debe ajustarse especificando el tipo de [licencia CC-BY 4.0](http://publications.europa.eu/resource/authority/licence/CC_BY_4_0) u otra más permisiva. Alternativamente, se podrá referenciar un documento de licencia mediante una URL del texto legal que el publicador determine.
 
 
-| dcat:Catalog | dcat:dataset |
+| [`dcat:Catalog`](#Catalog) | [`dcat:dataset`](http://www.w3.org/ns/dcat#dataset) |
 | --- | --- |
 | **Metadato** | **Dataset** |
 | **Descripción** | Referencia a un conjunto de datos incluido en el catálogo que se describe. |
-| **Propiedad** | **dcat:dataset** |
+| **Propiedad** | [**dcat:dataset**](http://www.w3.org/ns/dcat#dataset) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:Dataset** |
+| **Rango** | [**dcat:Dataset**](#Dataset) |
 
 !!! note "Nota de uso"
 
     Se deben incluir referencias a datasets. Se sugiere incluir referencias claras y precisas a cada conjunto de datos, idealmente utilizando identificadores únicos o URIs.
 
 
-| dcat:Catalog | dcat:service |
+| [`dcat:Catalog`](#Catalog) | [`dcat:service`](http://www.w3.org/ns/dcat#service) |
 | --- | --- |
 | **Metadato** | **Servicio** |
 | **Descripción** | Referencia a un servicio de datos incluido en el catálogo que se describe. |
-| **Propiedad** | **dcat:service** |
+| **Propiedad** | [**dcat:service**](http://www.w3.org/ns/dcat#service) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:DataService** |
+| **Rango** | [**dcat:DataService**](#DataService) |
 
 !!! note "Nota de uso"
 
     Se deben incluir referencias a servicios de datos Se recomienda proporcionar referencias claras y precisas para cada servicio de datos.
 
 
-| dcat:Catalog | dct:spatial |
+| [`dcat:Catalog`](#Catalog) | [`dct:spatial`](http://purl.org/dc/terms/spatial) |
 | --- | --- |
 | **Metadato** | **Cobertura geográfica** |
 | **Descripción** | Específica el área geográfica a la que se circunscriben o son relevantes los datos del catálogo. |
-| **Propiedad** | **dct:spatial** |
+| **Propiedad** | [**dct:spatial**](http://purl.org/dc/terms/spatial) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Resource** |
+| **Rango** | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
 
 !!! note "Nota de uso"
 
@@ -489,100 +489,100 @@ Se describe mediante las siguientes propiedades:
        5. `http://publications.europa.eu/resource/authority/place/`
        6. `http://sws.geonames.org/`
 
-    2.  Como alternativa, es posible delimitar el área geográfica utilizando las propiedades de la clase [`dct:Location`](#localización---clase-dctlocation---opcional).
+    2.  Como alternativa, es posible delimitar el área geográfica utilizando las propiedades de la clase [`dct:Location`](#Location).
 
 
-| dcat:Catalog | dcat:catalog |
+| [`dcat:Catalog`](#Catalog) | [`dcat:catalog`](http://www.w3.org/ns/dcat#catalog) |
 | --- | --- |
 | **Metadato** | **Catálogo** |
 | **Descripción** | Especifica un catálogo de datos que es relevante o de interés en relación con el catálogo actual. |
-| **Propiedad** | **dcat:catalog** |
+| **Propiedad** | [**dcat:catalog**](http://www.w3.org/ns/dcat#catalog) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:Catalog** |
+| **Rango** | [**dcat:Catalog**](#Catalog) |
 
 !!! note "Nota de uso"
 
     Como subpropiedad de `dct:haspart` se usa para especificar una jerarquía de catálogos.
 
 
-| dcat:Catalog | dcat:record |
+| [`dcat:Catalog`](#Catalog) | [`dcat:record`](http://www.w3.org/ns/dcat#record) |
 | --- | --- |
 | **Metadato** | **Registro** |
 | **Descripción** | Especifica un registro que es una entrada específica incluida en el catálogo. Dicha entrada describe un conjunto de datos o servicio de datos. |
-| **Propiedad** | **dcat:record** |
+| **Propiedad** | [**dcat:record**](http://www.w3.org/ns/dcat#record) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:CatalogRecord** |
+| **Rango** | [**dcat:CatalogRecord**](#CatalogRecord) |
 
 !!! note "Nota de uso"
 
     Se especificará la referencia a un registro del catálogo.
 
 
-| dcat:Catalog | dct:creator |
+| [`dcat:Catalog`](#Catalog) | [`dct:creator`](http://purl.org/dc/terms/creator) |
 | --- | --- |
 | **Metadato** | **Autor** |
 | **Descripción** | Especifica la organización responsable de la creación del catálogo que se describe. Identifica la autoría y reconoce la fuente original del catálogo, proporcionando transparencia y contexto sobre su origen. |
-| **Propiedad** | **dct:creator** |
+| **Propiedad** | [**dct:creator**](http://purl.org/dc/terms/creator) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **foaf:Agent** |
+| **Rango** | [**foaf:Agent**](#Agent) |
 
 !!! note "Nota de uso"
 
-    Para su especificación se deben usar las propiedades de la clase [`foaf:Agent`](#agente---clase-foafagent---obligatorio).
+    Para su especificación se deben usar las propiedades de la clase [`foaf:Agent`](#Agent).
 
 
-| dcat:Catalog | dct:hasPart |
+| [`dcat:Catalog`](#Catalog) | [`dct:hasPart`](http://purl.org/dc/terms/hasPart) |
 | --- | --- |
 | **Metadato** | **Incluye a** |
 | **Descripción** | Referencia uno o varios catálogos cuyo contenido es relevante en el contexto del catálogo que se describe y por tanto está vinculado con él estableciendo así una relación de pertenencia. |
-| **Propiedad** | **dct:hasPart** |
+| **Propiedad** | [**dct:hasPart**](http://purl.org/dc/terms/hasPart) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:Catalog** |
+| **Rango** | [**dcat:Catalog**](#Catalog) |
 
 !!! note "Nota de uso"
 
     Se especificará uno o varios catálogos que son parte del catálogo que se describe. Esta propiedad es inversa a la propiedad `dct:isPartOf`
 
 
-| dcat:Catalog | dct:isPartOf |
+| [`dcat:Catalog`](#Catalog) | [`dct:isPartOf`](http://purl.org/dc/terms/isPartOf) |
 | --- | --- |
 | **Metadato** | **Está incluido en** |
 | **Descripción** | Referencia un catálogo para el cual, el catálogo que se describe es relevante y por tanto está vinculado a él estableciendo así una relación de inclusión. |
-| **Propiedad** | **dct:isPartOf** |
+| **Propiedad** | [**dct:isPartOf**](http://purl.org/dc/terms/isPartOf) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dcat:Catalog** |
+| **Rango** | [**dcat:Catalog**](#Catalog) |
 
 !!! note "Nota de uso"
 
     Se especificará un catálogo del que forma parte el catálogo que se describe. Esta propiedad es inversa a la propiedad `dct:hasPart`
 
 
-| dcat:Catalog | dct:rights |
+| [`dcat:Catalog`](#Catalog) | [`dct:rights`](http://purl.org/dc/terms/rights) |
 | --- | --- |
 | **Metadato** | **Declaración de derechos** |
 | **Descripción** | Declaración que especifica los derechos vinculados con el catálogo que se describe. |
-| **Propiedad** | **dct:rights** |
+| **Propiedad** | [**dct:rights**](http://purl.org/dc/terms/rights) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:RightsStatement** |
+| **Rango** | [**dct:RightsStatement**](http://purl.org/dc/terms/RightsStatement) |
 
 !!! note "Nota de uso"
 
     Mediante esta declaración se especifican los derechos que no están cubiertos por los términos de uso (`dct:licence`) o los derechos de acceso (`dct:accessRights`), por ejemplo, derechos de propiedad intelectual. Para ajustar esta propiedad se pueden utilizar propiedades del vocabulario `http://schema.theodi.org/odrs/`
 
-| dcat:DatasetCatalog | dct:temporal |
+| [`dcat:Catalog`](#Catalog) | [`dct:temporal`](http://purl.org/dc/terms/temporal) |
 | --- | --- |
 | **Metadato** | **Cobertura temporal** |
 | **Descripción** | Define el período de tiempo que abarca el catálogo. |
-| **Propiedad** | **dct:temporal** |
+| **Propiedad** | [**dct:temporal**](http://purl.org/dc/terms/temporal) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dct:PeriodOfTime** |
+| **Rango** | [**dct:PeriodOfTime**](#PeriodOfTime) |
 
 !!! note "Nota de uso"
 
@@ -596,11 +596,11 @@ El uso de esta clase es opcional. Se utiliza principalmente para recopilar expl�
 
 Si esta función no es necesaria, la clase `dcat:CatalogRecord` se puede ignorar sin problema.
 
-| dcat:CatalogRecord | foaf:primaryTopic |
+| [`dcat:CatalogRecord`](#CatalogRecord) | [`foaf:primaryTopic`](http://xmlns.com/foaf/0.1/primaryTopic) |
 | --- | --- |
 | **Metadato** | **Contenido principal del registro** |
 | **Descripción** | Indica el tipo de contenido de un registro específico del catálogo: conjunto de datos o servicio de datos. |
-| **Propiedad** | **foaf:primaryTopic** |
+| **Propiedad** | [**foaf:primaryTopic**](http://xmlns.com/foaf/0.1/primaryTopic) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..1** |
 | **Rango** | **dcat:Dataset, dcat:DataService** |
@@ -610,82 +610,82 @@ Si esta función no es necesaria, la clase `dcat:CatalogRecord` se puede ignor
     Se debe especificar el recurso principal que se registra en el catálogo. Puede ser un conjunto de datos específico o un servicio de datos
 
 
-| dcat:CatalogRecord | dct:modified |
+| [`dcat:CatalogRecord`](#CatalogRecord) | [`dct:modified`](http://purl.org/dc/terms/modified) |
 | --- | --- |
 | **Metadato** | **Fecha de actualización del registro** |
 | **Descripción** | Indica la última fecha en la que se actualizó el contenido del registro de un conjunto de datos o servicio de datos en el catálogo. |
-| **Propiedad** | **dct:modified** |
+| **Propiedad** | [**dct:modified**](http://purl.org/dc/terms/modified) |
 | **Aplicabilidad** | **Obligatoria** |
 | **Cardinalidad** | **1..1** |
-| **Rango** | **rdfs:Literal** de tipo **xsd:date** (Fecha), **xsd:dateTime** (Fecha/Hora), **xsd:gYear** (Año) o **xsd:gYearMonth** (Año-Mes) |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) de tipo [**xsd:date**](http://www.w3.org/2001/XMLSchema#date) (Fecha), [**xsd:dateTime**](http://www.w3.org/2001/XMLSchema#dateTime) (Fecha/Hora), [**xsd:gYear**](http://www.w3.org/2001/XMLSchema#gYear) (Año) o [**xsd:gYearMonth**](http://www.w3.org/2001/XMLSchema#gYearMonth) (Año-Mes) |
 
 !!! note "Nota de uso"
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 
-| dcat:CatalogRecord | dct:conformsTo |
+| [`dcat:CatalogRecord`](#CatalogRecord) | [`dct:conformsTo`](http://purl.org/dc/terms/conformsTo) |
 | --- | --- |
 | **Metadato** | **Perfil de aplicación** |
 | **Descripción** | Marco normativo asociado con el registro del catálogo, señalando el contexto en el que se encuentra. Generalmente incluye un enlace a un documento específico, proporcionando una referencia directa a las leyes o regulaciones aplicables. |
-| **Propiedad** | **dct:conformsTo** |
+| **Propiedad** | [**dct:conformsTo**](http://purl.org/dc/terms/conformsTo) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:Standard** |
+| **Rango** | [**dct:Standard**](http://purl.org/dc/terms/Standard) |
 
 !!! note "Nota de uso"
 
     Se debe incluir enlaces directos y actualizados a los documentos legales o marcos normativos específicos que se aplican al conjunto de datos, asegurando que los usuarios puedan acceder fácilmente a la información legal relevante.  Se aconseja verificar que los enlaces conducen a las versiones vigentes de las normativas para mantener la precisión y relevancia del metadato.
 
 
-| dcat:CatalogRecord | dct:issued |
+| [`dcat:CatalogRecord`](#CatalogRecord) | [`dct:issued`](http://purl.org/dc/terms/issued) |
 | --- | --- |
 | **Metadato** | **Fecha de creación del registro** |
 | **Descripción** | Fecha en que se creó el registro en el catálogo. Especifica el momento en que se insertó por primera vez el registro de un conjunto de datos o servicio de datos en el catálogo. |
-| **Propiedad** | **dct:issued** |
+| **Propiedad** | [**dct:issued**](http://purl.org/dc/terms/issued) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** de tipo **xsd:date** (Fecha), **xsd:dateTime** (Fecha/Hora), **xsd:gYear** (Año) o **xsd:gYearMonth** (Año-Mes) |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) de tipo [**xsd:date**](http://www.w3.org/2001/XMLSchema#date) (Fecha), [**xsd:dateTime**](http://www.w3.org/2001/XMLSchema#dateTime) (Fecha/Hora), [**xsd:gYear**](http://www.w3.org/2001/XMLSchema#gYear) (Año) o [**xsd:gYearMonth**](http://www.w3.org/2001/XMLSchema#gYearMonth) (Año-Mes) |
 
 !!! note "Nota de uso"
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
-| dcat:CatalogRecord | adms:status |
+| [`dcat:CatalogRecord`](#CatalogRecord) | [`adms:status`](http://www.w3.org/ns/adms#status) |
 | --- | --- |
 | **Metadato** | **Estado editorial del registro** |
 | **Descripción** | Estado del registro de catálogo en el contexto del flujo editorial de las descripciones de conjuntos de datos y servicios de datos. |
-| **Propiedad** | **adms:status** |
+| **Propiedad** | [**adms:status**](http://www.w3.org/ns/adms#status) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **skos:Concept** |
+| **Rango** | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
 !!! note "Nota de uso"
 
     El estado del registro del catálogo puede ser alguno de los valores definidos en el vocabulario:  `http://publications.europa.eu/resource/authority/concept-status` ([Recomendación DCAT 3](https://www.w3.org/TR/vocab-dcat-3/#life-cycle))
 
-| dcat:CatalogRecord | dct:title |
+| [`dcat:CatalogRecord`](#CatalogRecord) | [`dct:title`](http://purl.org/dc/terms/title) |
 | --- | --- |
 | **Metadato** | **Nombre** |
 | **Descripción** | Breve nombre o título del Registro del Catálogo |
-| **Propiedad** | **dct:title** |
+| **Propiedad** | [**dct:title**](http://purl.org/dc/terms/title) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal. Cadena alfanumérica** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) Cadena alfanumérica |
 
 !!! note "Nota de uso"
 
     Se debe especificar un literal conciso. Esta propiedad puede ser repetida para expresar el nombre en diferentes idiomas.
 
 
-| dcat:CatalogRecord | dct:description |
+| [`dcat:CatalogRecord`](#CatalogRecord) | [`dct:description`](http://purl.org/dc/terms/description) |
 | --- | --- |
 | **Metadato** | **Descripción** |
 | **Descripción** | Descripción resumida del contenido del registro del catálogo. |
-| **Propiedad** | **dct:description** |
+| **Propiedad** | [**dct:description**](http://purl.org/dc/terms/description) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Literal. Cadena alfanumérica** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) Cadena alfanumérica |
 
 !!! note "Nota de uso"
 
@@ -699,59 +699,59 @@ La clase Servicio de Datos (`dcat:DataService`) permite describir operaciones qu
 Utilizando esta clase, un dataset se puede distribuir en diferentes representaciones servidas por diferentes servicios de datos. Cada URL de acceso indicada en cada distribución se corresponde con el punto de acceso o endpoint del servicio que la sirve. Cada servicio se caracteriza por un tipo concreto (por ejemplo, un tipo de servicio de datos espaciales de [INSPIRE](https://datos.gob.es/es/noticia/inspire-infraestructura-europea-de-datos-espaciales)), el punto de acceso que será conforme a una especificación concreta y sus especificidades se detallarán mediante una descripción que explica el uso de parámetros y opciones.
 
 !!! warning "Importante"
-    Para la descripción de **datos de alto valor (HVD) se deberán añadir**, a las ya obligatorias, las propiedades [**legislación aplicable**](https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcatap_applicablelegislation) (`dcatap:applicableLegislation`), [**categoría HVD**](https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcatap_hvdcategory) (`dcatap:hvdCategory`), [**punto de contacto**](https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_contactpoint) (`dcat:contactPoint`), [**conjuntos de datos servidos**](https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_servesdataset) (`dcat:servesDataset`) y [**documentación**](https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-foaf_page) `foaf:page`.
+    Para la descripción de **datos de alto valor (HVD) se deberán añadir**, a las ya obligatorias, las propiedades [**legislación aplicable**](#Dataset.applicableLegislation) (`dcatap:applicableLegislation`), [**categoría HVD**](#Dataset.hvdCategory) (`dcatap:hvdCategory`), [**punto de contacto**](#Dataset.contactPoint) (`dcat:contactPoint`), [**conjuntos de datos servidos**](#DataService.servesDataset) (`dcat:servesDataset`) y [**documentación**](#Dataset.page) `foaf:page`.
 
 
-| dcat:DataService | dct:title |
+| [`dcat:DataService`](#DataService) | [`dct:title`](http://purl.org/dc/terms/title) |
 | --- | --- |
 | **Metadato** | **Nombre** |
 | **Descripción** | Breve título o nombre dado al servicio de datos. |
-| **Propiedad** | **dct:title** |
+| **Propiedad** | [**dct:title**](http://purl.org/dc/terms/title) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **rdfs:Literal. Cadena alfanumérica** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) Cadena alfanumérica |
 
 !!! note "Nota de uso"
 
     Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (`dct:spatial`) y temporal (`dct:temporal`). Esta propiedad puede ser repetida para expresar el nombre en diferentes idiomas.
 
 
-| dcat:DataService | dcatap:applicableLegislation |
+| [`dcat:DataService`](#DataService) | [`dcatap:applicableLegislation`](http://data.europa.eu/r5r/applicableLegislation) |
 | --- | --- |
 | **Metadato** | **Legislación aplicable** |
 | **Descripción** | Referencia a la legislación aplicable, sí contiene datos de alto valor, entonces debe indicarse al menos el [Reglamento de Implementación 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj) |
-| **Propiedad** | **dcatap:applicableLegislation** |
+| **Propiedad** | [**dcatap:applicableLegislation**](http://data.europa.eu/r5r/applicableLegislation) |
 | **Aplicabilidad** | **Recomendado - Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
-| **Rango** | **eli:LegalResource** |
+| **Rango** | [**eli:LegalResource**](http://data.europa.eu/eli/ontology#LegalResource) |
 
 !!! note "Nota de uso"
 
     Se debe proporcionar como mínimo el ELI del reglamento: `http://data.europa.eu/eli/reg_impl/2023/138/oj`. Dado que la disponibilidad del HVD puede estar regulada por múltiples normativas específicas del dato, la cardinalidad máxima no está limitada.
 
 
-| dcat:DataService | dcatap:hvdCategory |
+| [`dcat:DataService`](#DataService) | [`dcatap:hvdCategory`](http://data.europa.eu/r5r/hvdCategory) |
 | --- | --- |
 | **Metadato** | **Categoría de HVD** |
 | **Descripción** | Referencia la categoría de dato de alto valor con la que se vincula el servicio de datos que se describe según el [reglamento de implementación 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj). |
-| **Propiedad** | **dcatap:hvdCategory** |
+| **Propiedad** | [**dcatap:hvdCategory**](http://data.europa.eu/r5r/hvdCategory) |
 | **Aplicabilidad** | **Opcional** - **Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
-| **Rango** | **skos:Concept** |
+| **Rango** | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
 !!! note "Nota de uso"
 
     Se debe proporcionar, al menos, un valor de la taxonomía: <https://op.europa.eu/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/bna/asd487ae75>
 
 
-| dcat:DataService | dcat:contactPoint |
+| [`dcat:DataService`](#DataService) | [`dcat:contactPoint`](http://www.w3.org/ns/dcat#contactPoint) |
 | --- | --- |
 | **Metadato** | **Punto de contacto** |
 | **Descripción** | Proporciona la información de contacto que se puede utilizar para enviar comentarios sobre el Servicio de Datos. |
-| **Propiedad** | **dcat:contactPoint** |
+| **Propiedad** | [**dcat:contactPoint**](http://www.w3.org/ns/dcat#contactPoint) |
 | **Aplicabilidad** | **Recomendado** - **Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
-| **Rango** | **vcard:Kind** |
+| **Rango** | [**vcard:Kind**](http://www.w3.org/2006/vcard/ns#Kind) |
 
 !!! note "Nota de uso"
 
@@ -766,70 +766,70 @@ Utilizando esta clase, un dataset se puede distribuir en diferentes representaci
     | `vcard:hasTelephone`  | Número de teléfono                                      |
     | `vcard:hasURL`        | Enlace al formulario de contacto (recomendado) o al sitio web |
 
-| dcat:DataService | foaf:page |
+| [`dcat:DataService`](#DataService) | [`foaf:page`](http://xmlns.com/foaf/0.1/page) |
 | --- | --- |
 | **Metadato** | **Documentación** |
 | **Descripción** | Proporciona la referencia a un documento que contiene información relevante sobre el servicio de datos. Entre otras cuestiones relevantes susceptibles de ser documentadas, se encuentra la calidad. La calidad de un servicio de datos cubre un amplio espectro de aspectos. El reglamento HVD no incluye ningún aspecto obligatorio. Por lo tanto, la información sobre la calidad del servicio se considera parte de la documentación genérica de un Servicio de Datos. |
-| **Propiedad** | **foaf:page** |
+| **Propiedad** | [**foaf:page**](http://xmlns.com/foaf/0.1/page) |
 | **Aplicabilidad** | **Recomendado** - **Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
-| **Rango** | **foaf:Document** |
+| **Rango** | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
 
 !!! note "Nota de uso"
 
     Se recomienda incluir enlaces a recursos documentales que proporcionen a los usuarios un contexto más amplio y una mejor comprensión del servicio de datos.
 
 
-| dcat:DataService | dcat:theme |
+| [`dcat:DataService`](#DataService) | [`dcat:theme`](http://www.w3.org/ns/dcat#theme) |
 | --- | --- |
 | **Metadato** | **Temática** |
 | **Descripción** | Este metadato identifica la temática o materia principal del Servicio de datos. Sirve para categorizar los datos según su contenido conforme a una clasificación cerrada, facilitando su búsqueda y localización. |
-| **Propiedad** | **dcat:theme** |
+| **Propiedad** | [**dcat:theme**](http://www.w3.org/ns/dcat#theme) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **skos:Concept** |
+| **Rango** | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
 !!! note "Nota de uso"
 
     Se ajustará utilizando uno o varios de los temas de las clasificaciones taxonómicas que se indican en la clase Catálogo mediante el metadato temáticas (`dcat:themeTaxonomy`). Cada uno de los temas se designará referenciando la URI asociada a la categoría correspondiente de la taxonomía.  Se deben utilizar obligatoriamente temas de la taxonomía de sectores primaros definida en el vocabulario `http://datos.gob.es/kos/sector-publico/sector` y de manera opcional se podrán indicar temas del vocabulario de Temas de datos (DCAT-AP): `http://publications.europa.eu/resource/authority/data-theme` o los temas del registro de temas INSPIRE `http://inspire.ec.europa.eu/theme/`
 
 
-| dcat:DataService | dct:publisher |
+| [`dcat:DataService`](#DataService) | [`dct:publisher`](http://purl.org/dc/terms/publisher) |
 | --- | --- |
 | **Metadato** | **Publicador** |
 | **Descripción** | Agente, en este caso una organización, responsable de hacer que el Servicio de datos esté disponible. |
-| **Propiedad** | **dct:publisher** |
+| **Propiedad** | [**dct:publisher**](http://purl.org/dc/terms/publisher) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..1** |
-| **Rango** | **foaf:Agent** |
+| **Rango** | [**foaf:Agent**](#Agent) |
 
 !!! note "Nota de uso"
 
     Cada organización se especificará mediante el siguiente patrón de URI:  `http://datos.gob.es/recurso/sector-publico/org/Organismo/{ID-DIR}`  Donde `{ID-DIR}` es el identificador alfanumérico único que diferencia a todas las entidades. En el caso de organismos del sector público éste se encuentra disponible en el Directorio Común de unidades orgánicas y oficinas (DIR3). En el caso de entidades del sector privado, el identificador que a utilizar es el NIF.
 
 
-| dcat:DataService | dcat:endpointURL |
+| [`dcat:DataService`](#DataService) | [`dcat:endpointURL`](http://www.w3.org/ns/dcat#endpointURL) |
 | --- | --- |
 | **Metadato** | **URL de Acceso** |
 | **Descripción** | Este metadato proporciona la localización principal del punto de acceso al servicio de datos. |
-| **Propiedad** | **dcat:endpointURL** |
+| **Propiedad** | [**dcat:endpointURL**](http://www.w3.org/ns/dcat#endpointURL) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **rdfs:Resource** |
+| **Rango** | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
 
 !!! note "Nota de uso"
 
     Se indicará la localización raíz o punto de acceso primario (un IRI resoluble web) del servicio de datos.
 
 
-| dcat:DataService | dcat:endpointDescription |
+| [`dcat:DataService`](#DataService) | [`dcat:endpointDescription`](http://www.w3.org/ns/dcat#endpointDescription) |
 | --- | --- |
 | **Metadato** | **Descripción del punto de acceso** |
 | **Descripción** | Proporciona detalles sobre las características y capacidades disponibles en el punto de acceso del servicio de datos. Esto incluye información sobre las operaciones, parámetros y otras características técnicas del servicio. |
-| **Propiedad** | **dcat:endpointDescription** |
+| **Propiedad** | [**dcat:endpointDescription**](http://www.w3.org/ns/dcat#endpointDescription) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Resource** |
+| **Rango** | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
 
 !!! note "Nota de uso"
 
@@ -846,69 +846,69 @@ Utilizando esta clase, un dataset se puede distribuir en diferentes representaci
     3. un recurso web que referencie un documento en formato texto o algún otro modo informal.
 
 
-| dcat:DataService | dcat:servesDataset |
+| [`dcat:DataService`](#DataService) | [`dcat:servesDataset`](http://www.w3.org/ns/dcat#servesDataset) |
 | --- | --- |
 | **Metadato** | **Conjunto de datos** |
 | **Descripción** | Este metadato indica el vínculo existente entre un servicio de datos y uno o varios conjuntos de datos, es decir, la colección de datos que el servicio puede distribuir. |
-| **Propiedad** | **dcat:servesDataset** |
+| **Propiedad** | [**dcat:servesDataset**](http://www.w3.org/ns/dcat#servesDataset) |
 | **Aplicabilidad** | **Recomendado** - **Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
-| **Rango** | **dcat:Dataset** |
+| **Rango** | [**dcat:Dataset**](#Dataset) |
 
 !!! note "Nota de uso"
 
     Se debe referenciar cada dataset que el servicio de datos distribuye.  Conviene tener en cuenta que diferentes servicios de datos pueden servir un mismo dataset.
 
 
-| dcat:DataService | dct:description |
+| [`dcat:DataService`](#DataService) | [`dct:description`](http://purl.org/dc/terms/description) |
 | --- | --- |
 | **Metadato** | **Descripción** |
 | **Descripción** | Descripción que ofrece un resumen claro del propósito y alcance del servicio de datos. |
-| **Propiedad** | **dct:description** |
+| **Propiedad** | [**dct:description**](http://purl.org/dc/terms/description) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Literal** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 !!! note "Nota de uso"
 
     Se debe especificar un literal. La descripción debe ser clara y concisa, pero a la vez suficientemente detallada para que los usuarios entiendan el propósito del servicio de datos.  Esta propiedad puede ser repetida para expresar la descripción en diferentes idiomas.
 
 
-| dcat:DataService | dct:accessRights |
+| [`dcat:DataService`](#DataService) | [`dct:accessRights`](http://purl.org/dc/terms/accessRights) |
 | --- | --- |
 | **Metadato** | **Derechos de acceso** |
 | **Descripción** | Contiene una declaración acerca de las posibles restricciones de acceso, políticas de seguridad, privacidad u otras condiciones relevantes que afectan la forma en que se interactúa con el servicio de datos. |
-| **Propiedad** | **dct:accessRights** |
+| **Propiedad** | [**dct:accessRights**](http://purl.org/dc/terms/accessRights) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:RightsStatement** |
+| **Rango** | [**dct:RightsStatement**](http://purl.org/dc/terms/RightsStatement) |
 
 !!! note "Nota de uso"
 
     Se debe ajustar uno de los valores del vocabulario:  `http://publications.europa.eu/resource/authority/access-right`
 
 
-| dcat:DataService | dct:license |
+| [`dcat:DataService`](#DataService) | [`dct:license`](http://purl.org/dc/terms/license) |
 | --- | --- |
 | **Metadato** | **Términos de uso** |
 | **Descripción** | Especifica la licencia o condiciones de reutilización del servicio de datos. Informa a los usuarios sobre los derechos y obligaciones asociados a su uso. |
-| **Propiedad** | **dct:license** |
+| **Propiedad** | [**dct:license**](http://purl.org/dc/terms/license) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:LicenseDocument** |
+| **Rango** | [**dct:LicenseDocument**](http://purl.org/dc/terms/LicenseDocument) |
 
 !!! note "Nota de uso"
 
     Se debe incluir una URI que enlace directamente al documento o recurso online que detalla los términos y condiciones de uso del catálogo. Se recomienda el uso de licencias tipo mediante el vocabulario `http://publications.europa.eu/resource/authority/licence` que permite describir dichas condiciones, asegurando así una interpretación y aplicación coherente de las normas de uso y reutilización de los datos. En el caso de datos de alto valor (HVD) la propiedad debe ajustarse especificando el tipo de `http://publications.europa.eu/resource/authority/licence/CC_BY_4_0` (licencia CC-BY 4.0), u otra más permisiva. Alternativamente, se podrá referenciar un documento de licencia mediante una URL del texto legal que el publicador determine.
 
-| dcat:DataService | dcat:keyword |
+| [`dcat:DataService`](#DataService) | [`dcat:keyword`](http://www.w3.org/ns/dcat#keyword) |
 | --- | --- |
 | **Metadato** | **Etiqueta** |
 | **Descripción** | Permite asignar una o más palabras clave o etiquetas a un conjunto de datos, para categorizarlo libremente. Las etiquetas son términos simples y breves o frases cortas que describen el contenido y el contexto del conjunto de datos. Facilitan la búsqueda y categorización del conjunto de datos, mejorando su descubrimiento y accesibilidad. |
-| **Propiedad** | **dcat:keyword** |
+| **Propiedad** | [**dcat:keyword**](http://www.w3.org/ns/dcat#keyword) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Literal.** Cadena alfanumérica compacta. |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) Cadena alfanumérica compacta. |
 
 !!! note "Nota de uso"
 
@@ -922,128 +922,128 @@ La clase Conjunto de datos (`dcat:Dataset`) representa una conceptualización qu
 Esta clase es una de las clases fundamentales en repositorios y catálogos, ya que proporcionan identificación, acceso y reutilización de información.
 
 !!! warning "Importante"
-    Para la descripción de **datos de alto valor (HVD) se deberán añadir**, a las ya obligatorias, la [**legislación aplicable**](https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcatap_applicablelegislation) (`dcatap:applicableLegislation`), [**categoría HVD**](https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcatap_hvdcategory) (`dcatap:hvdCategory`) y deberán añadirse [**distribuciones**](https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_distribution) (`dcat:distribution`).
+    Para la descripción de **datos de alto valor (HVD) se deberán añadir**, a las ya obligatorias, la [**legislación aplicable**](#Dataset.applicableLegislation) (`dcatap:applicableLegislation`), [**categoría HVD**](#Dataset.hvdCategory) (`dcatap:hvdCategory`) y deberán añadirse [**distribuciones**](#Dataset.distribution) (`dcat:distribution`).
 
-| dcat:Dataset | dct:title |
+| [`dcat:Dataset`](#Dataset) | [`dct:title`](http://purl.org/dc/terms/title) |
 | --- | --- |
 | **Metadato** | **Nombre** |
 | **Descripción** | Breve título o nombre dado al conjunto de datos. |
-| **Propiedad** | **dct:title** |
+| **Propiedad** | [**dct:title**](http://purl.org/dc/terms/title) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **rdfs:Literal.** Cadena alfanumérica. |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) Cadena alfanumérica. |
 
 !!! note "Nota de uso"
 
     Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (`dct:spatial`) y temporal (`dct:temporal`). Esta propiedad puede ser repetida para expresar el nombre en diferentes idiomas.
 
 
-| dcat:Dataset | dct:description |
+| [`dcat:Dataset`](#Dataset) | [`dct:description`](http://purl.org/dc/terms/description) |
 | --- | --- |
 | **Metadato** | **Descripción** |
 | **Descripción** | Descripción que ofrece un resumen claro del contenido del conjunto de datos proporcionando una visión general rápida y eficaz del recurso de información. |
-| **Propiedad** | **dct:description** |
+| **Propiedad** | [**dct:description**](http://purl.org/dc/terms/description) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **rdfs:Literal.** Cadena alfanumérica. |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) Cadena alfanumérica. |
 
 !!! note "Nota de uso"
 
     Se debe especificar un literal. Esta propiedad puede ser repetida para expresar la descripción en diferentes idiomas.
 
 
-| dcat:Dataset | dct:publisher |
+| [`dcat:Dataset`](#Dataset) | [`dct:publisher`](http://purl.org/dc/terms/publisher) |
 | --- | --- |
 | **Metadato** | **Publicador** |
 | **Descripción** | Agente, en este caso una organización, responsable de hacer que el conjunto de datos esté disponible. |
-| **Propiedad** | **dct:publisher** |
+| **Propiedad** | [**dct:publisher**](http://purl.org/dc/terms/publisher) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..1** |
-| **Rango** | **foaf:Agent** |
+| **Rango** | [**foaf:Agent**](#Agent) |
 
 !!! note "Nota de uso"
 
     Cada organización se especificará mediante el siguiente patrón de URI:  `http://datos.gob.es/recurso/sector-publico/org/Organismo/{ID-DIR}`  Donde `{ID-DIR}` es el identificador alfanumérico único que diferencia a todas las entidades. En el caso de organismos del sector público éste se encuentra disponible en el Directorio Común de unidades orgánicas y oficinas (DIR3). En el caso de entidades del sector privado, el identificador que a utilizar es el NIF.
 
 
-| dcat:Dataset | dcat:theme |
+| [`dcat:Dataset`](#Dataset) | [`dcat:theme`](http://www.w3.org/ns/dcat#theme) |
 | --- | --- |
 | **Metadato** | **Temática** |
 | **Descripción** | Este metadato identifica la temática o materia principal del conjunto de datos. Sirve para categorizar los datos según su contenido conforme a una clasificación cerrada, facilitando su búsqueda y localización. |
-| **Propiedad** | **dcat:theme** |
+| **Propiedad** | [**dcat:theme**](http://www.w3.org/ns/dcat#theme) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **skos:Concept** |
+| **Rango** | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
 !!! note "Nota de uso"
 
     Se ajustará utilizando uno o varios de los temas de las clasificaciones taxonómicas que se indican en la clase Catálogo mediante el metadato temáticas (`dcat:themeTaxonomy`). Cada uno de los temas se designará referenciando la URI asociada a la categoría correspondiente de la taxonomía.  Se deben utilizar obligatoriamente temas de la taxonomía de sectores primaros definida en el vocabulario `http://datos.gob.es/kos/sector-publico/sector` y de manera opcional se podrán indicar temas del vocabulario de Temas de datos (DCAT-AP): `http://publications.europa.eu/resource/authority/data-theme` o los temas del registro de temas INSPIRE `http://inspire.ec.europa.eu/theme/`
 
 
-| dcat:Dataset | dcatap:applicableLegislation |
+| [`dcat:Dataset`](#Dataset) | [`dcatap:applicableLegislation`](http://data.europa.eu/r5r/applicableLegislation) |
 | --- | --- |
 | **Metadato** | **Legislación aplicable** |
 | **Descripción** | Referencia a la legislación aplicable, sí contiene datos de alto valor, entonces debe indicarse al menos el [Reglamento de Implementación 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj) |
-| **Propiedad** | **dcatap:applicableLegislation** |
+| **Propiedad** | [**dcatap:applicableLegislation**](http://data.europa.eu/r5r/applicableLegislation) |
 | **Aplicabilidad** | **Recomendado** - **Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
-| **Rango** | **eli:LegalResource** |
+| **Rango** | [**eli:LegalResource**](http://data.europa.eu/eli/ontology#LegalResource) |
 
 !!! note "Nota de uso"
 
     Se debe proporcionar como mínimo el ELI del reglamento: `http://data.europa.eu/eli/reg_impl/2023/138/oj`. Dado que la disponibilidad del HVD puede estar regulada por múltiples normativas específicas del dato, la cardinalidad máxima no está limitada.
 
 
-| dcat:Dataset | dcatap:hvdCategory |
+| [`dcat:Dataset`](#Dataset) | [`dcatap:hvdCategory`](http://data.europa.eu/r5r/hvdCategory) |
 | --- | --- |
 | **Metadato** | **Categoría de HVD** |
 | **Descripción** | Referencia la categoría de dato de alto valor con la que se vincula el conjunto de datos que se describe según el [reglamento de implementación 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj). |
-| **Propiedad** | **dcatap:hvdCategory** |
+| **Propiedad** | [**dcatap:hvdCategory**](http://data.europa.eu/r5r/hvdCategory) |
 | **Aplicabilidad** | **Opcional** - **Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
-| **Rango** | **skos:Concept** |
+| **Rango** | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
 !!! note "Nota de uso"
 
     Se debe proporcionar, al menos, un valor de la taxonomía: <http://publications.europa.eu/resource/dataset/high-value-dataset-category>
 
 
-| dcat:Dataset | dcat:distribution |
+| [`dcat:Dataset`](#Dataset) | [`dcat:distribution`](http://www.w3.org/ns/dcat#distribution) |
 | --- | --- |
 | **Metadato** | **Distribución** |
 | **Descripción** | Vincula el dataset a las distribuciones disponibles |
-| **Propiedad** | **dcat:distribution** |
+| **Propiedad** | [**dcat:distribution**](http://www.w3.org/ns/dcat#distribution) |
 | **Aplicabilidad** | **Recomendado** - **Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
-| **Rango** | **dcat:Distribution** |
+| **Rango** | [**dcat:Distribution**](#Distribution) |
 
 !!! note "Nota de uso"
 
     Normalmente, un dataset puede tener diferentes representaciones de los datos, en diferentes formatos, disponibles para su descarga como distribuciones de este. Hay ocasiones en las que el dataset simplemente es la referencia a la colección de datos que es servida por un servicio de datos. Para indicar representaciones descargables de datos, se deben proporcionar referencias precisas de cada distribución utilizando identificadores únicos o URI.
 
 
-| dcat:Dataset | dcat:keyword |
+| [`dcat:Dataset`](#Dataset) | [`dcat:keyword`](http://www.w3.org/ns/dcat#keyword) |
 | --- | --- |
 | **Metadato** | **Etiqueta** |
 | **Descripción** | Permite asignar una o más palabras clave o etiquetas a un conjunto de datos, para categorizarlo libremente. Las etiquetas son términos simples y breves o frases cortas que describen el contenido y el contexto del conjunto de datos. Facilitan la búsqueda y categorización del conjunto de datos, mejorando su descubrimiento y accesibilidad. |
-| **Propiedad** | **dcat:keyword** |
+| **Propiedad** | [**dcat:keyword**](http://www.w3.org/ns/dcat#keyword) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Literal. Cadena alfanumérica compacta.** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) Cadena alfanumérica compacta. |
 
 !!! note "Nota de uso"
 
     Se recomienda elegir cuidadosamente las etiquetas para reflejar de manera precisa el contenido, ámbito y propósito del conjunto de datos para ayudar a los usuarios a identificar y localizar conjuntos de datos de interés y establecer relaciones con otros elementos similares.  Es conveniente etiquetar de forma homogénea, aplicando reglas y criterios normalizados y válidos ortográficamente.  Se permite que los términos sean texto libre, aunque se recomienda utilizar únicamente los incluidos en un conjunto de términos cerrado (vocabulario, taxonomía, tesauro, etc.) como puede ser [Eurovoc](https://eur-lex.europa.eu/browse/eurovoc.html).
 
 
-| dcat:Dataset | dcat:contactPoint |
+| [`dcat:Dataset`](#Dataset) | [`dcat:contactPoint`](http://www.w3.org/ns/dcat#contactPoint) |
 | --- | --- |
 | **Metadato** | **Punto de contacto** |
 | **Descripción** | Proporciona la información de contacto que se puede utilizar para enviar comentarios sobre el conjunto de datos. |
-| **Propiedad** | **dcat:contactPoint** |
+| **Propiedad** | [**dcat:contactPoint**](http://www.w3.org/ns/dcat#contactPoint) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **vcard:Kind** |
+| **Rango** | [**vcard:Kind**](http://www.w3.org/2006/vcard/ns#Kind) |
 
 !!! note "Nota de uso"
 
@@ -1059,28 +1059,28 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
     | `vcard:hasURL`        | Enlace al formulario de contacto (recomendado) o al sitio web |
 
 
-| dcat:Dataset | dct:temporal |
+| [`dcat:Dataset`](#Dataset) | [`dct:temporal`](http://purl.org/dc/terms/temporal) |
 | --- | --- |
 | **Metadato** | **Cobertura temporal** |
 | **Descripción** | Define el período de tiempo que cubre el conjunto de datos. |
-| **Propiedad** | **dct:temporal** |
+| **Propiedad** | [**dct:temporal**](http://purl.org/dc/terms/temporal) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dct:PeriodOfTime** |
+| **Rango** | [**dct:PeriodOfTime**](#PeriodOfTime) |
 
 !!! note "Nota de uso"
 
     Se ajusta utilizando las propiedades de la clase Período temporal (`dct:PeriodOfTime`). Se recomienda incluir un intervalo de tiempo, definido por inicio y fin como fecha o instante temporal. Si se usa fecha para el inicio, debería usarse fecha como fin (ídem para instante temporal) y siempre emparejados, evitando los intervalos abiertos.
 
 
-| dcat:Dataset | dct:spatial |
+| [`dcat:Dataset`](#Dataset) | [`dct:spatial`](http://purl.org/dc/terms/spatial) |
 | --- | --- |
 | **Metadato** | **Cobertura geográfica** |
 | **Descripción** | Específica el área geográfica a la que se circunscriben o son relevantes los datos del conjunto de datos. |
-| **Propiedad** | **dct:spatial** |
+| **Propiedad** | [**dct:spatial**](http://purl.org/dc/terms/spatial) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Resource** |
+| **Rango** | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
 
 !!! note "Nota de uso"
 
@@ -1095,254 +1095,254 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
        5. `http://publications.europa.eu/resource/authority/place/`
        6. `http://sws.geonames.org/`
 
-    2.  Como alternativa, es posible delimitar el área geográfica utilizando las propiedades de la clase [`dct:Location`](#localización---clase-dctlocation---opcional).
+    2.  Como alternativa, es posible delimitar el área geográfica utilizando las propiedades de la clase [`dct:Location`](#Location).
 
 
-| dcat:Dataset | dct:identifier |
+| [`dcat:Dataset`](#Dataset) | [`dct:identifier`](http://purl.org/dc/terms/identifier) |
 | --- | --- |
 | **Metadato** | **Identificador** |
 | **Descripción** | El identificador es la propiedad que permite la identificación única e inequívoca del conjunto de datos. |
-| **Propiedad** | **dct:identifier** |
+| **Propiedad** | [**dct:identifier**](http://purl.org/dc/terms/identifier) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Literal.** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 !!! note "Nota de uso"
 
     El uso de esta propiedad es apropiado para indicar el identificador principal del dataset. Es posible ajustar otros identificadores utilizando la propiedad *"Otro Identificador"* (`adms:identifier`). El identificador podría ser parte de la URI del conjunto de datos, pero por sí mismo debería ser significativo y proporcionar una referencia única y no ambigua dentro de un contexto determinado. Este identificador debería ser persistente en el tiempo ante futuros cambios del conjunto de datos.
 
 
-| dcat:Dataset | adms:identifier |
+| [`dcat:Dataset`](#Dataset) | [`adms:identifier`](http://www.w3.org/ns/adms#identifier) |
 | --- | --- |
 | **Metadato** | **Otro Identificador** |
 | **Descripción** | Metadato que expresa un identificador secundario del conjunto de datos cuyo propósito es referenciarlo de manera única e inequívoca. |
-| **Propiedad** | **adms:identifier** |
+| **Propiedad** | [**adms:identifier**](http://www.w3.org/ns/adms#identifier) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **adms:Identifier** |
+| **Rango** | [**adms:Identifier**](#Identifier) |
 
 !!! note "Nota de uso"
 
     Se recomienda expresar mediante un literal de tipo URI de uno de los patrones posibles del [esquema de identificadores de recursos Datacite](http://purl.org/spar/datacite/ResourceIdentifierScheme). Entre otros, [DOI](http://purl.org/spar/datacite/doi), [URI](http://purl.org/spar/datacite/uri), [URN](http://purl.org/spar/datacite/urn) o [ISBN](http://purl.org/spar/datacite/isbn).
 
 
-| dcat:Dataset | dct:creator |
+| [`dcat:Dataset`](#Dataset) | [`dct:creator`](http://purl.org/dc/terms/creator) |
 | --- | --- |
 | **Metadato** | **Autor** |
 | **Descripción** | Especifica la organización responsable de la creación del conjunto de datos. |
-| **Propiedad** | **dct:creator** |
+| **Propiedad** | [**dct:creator**](http://purl.org/dc/terms/creator) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **foaf:Agent** |
+| **Rango** | [**foaf:Agent**](#Agent) |
 
 !!! note "Nota de uso"
 
     Para su especificación se deben usar las propiedades de la clase Agent (explicada más adelante en este documento).  Es recomendable indicar el autor del conjunto de datos para proporcionar claridad sobre la fuente y responsabilidad del contenido, así como una correcta atribución y reconocimiento.
 
 
-| dcat:Dataset | foaf:page |
+| [`dcat:Dataset`](#Dataset) | [`foaf:page`](http://xmlns.com/foaf/0.1/page) |
 | --- | --- |
 | **Metadato** | **Documentación** |
 | **Descripción** | Proporciona la referencia a un documento que contiene información relevante sobre el conjunto de datos. |
-| **Propiedad** | **foaf:page** |
+| **Propiedad** | [**foaf:page**](http://xmlns.com/foaf/0.1/page) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **foaf:Document** |
+| **Rango** | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
 
 !!! note "Nota de uso"
 
     Se recomienda incluir enlaces a recursos documentales que proporcionen a los usuarios un contexto más amplio y una mejor comprensión del conjunto de datos. Estos recursos pueden incluir detalles sobre la metodología utilizada, limitaciones de los datos, guías y condiciones de uso, etc.
 
 
-| dcat:Dataset | dcat:landingPage |
+| [`dcat:Dataset`](#Dataset) | [`dcat:landingPage`](http://www.w3.org/ns/dcat#landingPage) |
 | --- | --- |
 | **Metadato** | **Sitio Web** |
 | **Descripción** | Referencia a una página web que proporciona acceso al conjunto de datos, sus distribuciones e información adicional. |
-| **Propiedad** | **dcat:landingPage** |
+| **Propiedad** | [**dcat:landingPage**](http://www.w3.org/ns/dcat#landingPage) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **foaf:Document** |
+| **Rango** | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
 
 !!! note "Nota de uso"
 
     Este metadato se debe utilizar para incluir la URL que referencia a la página del proveedor original del conjunto de datos y no un tercero como, por ejemplo, un agregador.
 
 
-| dcat:Dataset | adms:sample |
+| [`dcat:Dataset`](#Dataset) | [`adms:sample`](http://www.w3.org/ns/adms#sample) |
 | --- | --- |
 | **Metadato** | **Muestra** |
 | **Descripción** | Parte representativa o ejemplo del conjunto de datos. |
-| **Propiedad** | **adms:sample** |
+| **Propiedad** | [**adms:sample**](http://www.w3.org/ns/adms#sample) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:Distribution** |
+| **Rango** | [**dcat:Distribution**](#Distribution) |
 
 !!! note "Nota de uso"
 
     Este metadato es útil para proporcionar una vista previa de los datos contenidos en el conjunto de datos completo. No es posible modelarlo como una distribución ya que ésta debe ser completa para el conjunto de datos.
 
 
-| dcat:Dataset | dct:conformsTo |
+| [`dcat:Dataset`](#Dataset) | [`dct:conformsTo`](http://purl.org/dc/terms/conformsTo) |
 | --- | --- |
 | **Metadato** | **Estándar** |
 | **Descripción** | Determina las especificaciones, normas o estándares a los que se ajusta el conjunto de datos. |
-| **Propiedad** | **dct:conformsTo** |
+| **Propiedad** | [**dct:conformsTo**](http://purl.org/dc/terms/conformsTo) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dct:Standard** |
+| **Rango** | [**dct:Standard**](http://purl.org/dc/terms/Standard) |
 
 !!! note "Nota de uso"
 
     Se recomienda utilizar este metadato para indicar las especificaciones técnicas que cumple el dataset. Esto puede incluir referencias a estándares de datos, esquemas de metadatos, protocolos de comunicación, formatos de archivo, etc.  La representación de esta propiedad debe hacerse mediante una URI que enlace al estándar o especificación correspondiente.  En el caso de que sea normativa recogida en la legislación europea, debería utilizarse el identificador ELI correspondiente.
 
 
-| dcat:Dataset | dct:issued |
+| [`dcat:Dataset`](#Dataset) | [`dct:issued`](http://purl.org/dc/terms/issued) |
 | --- | --- |
 | **Metadato** | **Fecha de creación** |
 | **Descripción** | Fecha en la que se generó o publicó por primera vez el conjunto de datos. |
-| **Propiedad** | **dct:issued** |
+| **Propiedad** | [**dct:issued**](http://purl.org/dc/terms/issued) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** de tipo **xsd:date** (Fecha), **xsd:dateTime** (Fecha/Hora), **xsd:gYear** (Año) o **xsd:gYearMonth** (Año-Mes) |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) de tipo [**xsd:date**](http://www.w3.org/2001/XMLSchema#date) (Fecha), [**xsd:dateTime**](http://www.w3.org/2001/XMLSchema#dateTime) (Fecha/Hora), [**xsd:gYear**](http://www.w3.org/2001/XMLSchema#gYear) (Año) o [**xsd:gYearMonth**](http://www.w3.org/2001/XMLSchema#gYearMonth) (Año-Mes) |
 
 !!! note "Nota de uso"
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 
-| dcat:Dataset | dct:modified |
+| [`dcat:Dataset`](#Dataset) | [`dct:modified`](http://purl.org/dc/terms/modified) |
 | --- | --- |
 | **Metadato** | **Fecha de actualización** |
 | **Descripción** | Fecha en la que se realizó el último cambio en el conjunto de datos, con el fin de asegurar que los usuarios acceden a la versión más actualizada. |
-| **Propiedad** | **dct:modified** |
+| **Propiedad** | [**dct:modified**](http://purl.org/dc/terms/modified) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** de tipo **xsd:date** (Fecha), **xsd:dateTime** (Fecha/Hora), **xsd:gYear** (Año) o **xsd:gYearMonth** (Año-Mes) |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) de tipo [**xsd:date**](http://www.w3.org/2001/XMLSchema#date) (Fecha), [**xsd:dateTime**](http://www.w3.org/2001/XMLSchema#dateTime) (Fecha/Hora), [**xsd:gYear**](http://www.w3.org/2001/XMLSchema#gYear) (Año) o [**xsd:gYearMonth**](http://www.w3.org/2001/XMLSchema#gYearMonth) (Año-Mes) |
 
 !!! note "Nota de uso"
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 
-| dcat:Dataset | dct:type |
+| [`dcat:Dataset`](#Dataset) | [`dct:type`](http://purl.org/dc/terms/type) |
 | --- | --- |
 | **Metadato** | **Tipo** |
 | **Descripción** | Categorización del conjunto de datos. |
-| **Propiedad** | **dct:type** |
+| **Propiedad** | [**dct:type**](http://purl.org/dc/terms/type) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **skos:Concept** |
+| **Rango** | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
 !!! note "Nota de uso"
 
     Se recomienda utilizar un vocabulario que permita expresar mediante URI el tipo de conjunto de datos que se describe. Preferentemente se utilizará el vocabulario: `http://publications.europa.eu/resource/authority/dataset-type` que permite categorizar diferentes tipos de conjuntos de datos. Los conjuntos de datos espaciales también pueden categorizarse mediante la URI `http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset`.
 
 
-| dcat:Dataset | dct:language |
+| [`dcat:Dataset`](#Dataset) | [`dct:language`](http://purl.org/dc/terms/language) |
 | --- | --- |
 | **Metadato** | **idioma** |
 | **Descripción** | Especifica el idioma utilizado para los metadatos textuales (es decir, títulos, descripciones, palabras clave, etc.) que describen el dataset y/o el idioma que se utiliza en los valores textuales de la o las distribuciones del conjunto de datos. |
-| **Propiedad** | **dct:language** |
+| **Propiedad** | [**dct:language**](http://purl.org/dc/terms/language) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dct:LinguisticSystem** |
+| **Rango** | [**dct:LinguisticSystem**](http://purl.org/dc/terms/LinguisticSystem) |
 
 !!! note "Nota de uso"
 
-    Esta propiedad se puede repetir si los metadatos se proporcionan en varios idiomas, pero _uno de los idiomas utilizado para los metadatos textuales debe ser español_.  Se ha actualizado respecto de la propiedad `dc:language` [que se usaba en NTI-RISP](https://datosgobes.github.io/NTI-RISP/#catalogo_-_clase_dcatcatalog_-_obligatorio).  Se debe usar el vocabulario normalizado de idiomas:  `http://publications.europa.eu/resource/authority/language`  Complementariamente, es recomendable el uso del atributo xml:lang ajustado con el valor correspondiente para expresar literales en cada idioma especificado en la propiedad. Para ello, se recomienda usar los códigos de idioma normalizados definidos en el [RFC-5646](https://www.rfc-editor.org/rfc/rfc5646.html) (por ejemplo, `es` para español, `en` para inglés, `ca` para catalán, `eu` para vasco, `gl` para gallego, etc.).  Los valores ajustados en esta propiedad de dataset anulan los valores proporcionados para el catálogo si entran en conflicto.
+    Esta propiedad se puede repetir si los metadatos se proporcionan en varios idiomas, pero _uno de los idiomas utilizado para los metadatos textuales debe ser español_.  Se ha actualizado respecto de la propiedad `dc:language` [que se usaba en NTI-RISP](https://datosgobes.github.io/NTI-RISP/#Catalog).  Se debe usar el vocabulario normalizado de idiomas:  `http://publications.europa.eu/resource/authority/language`  Complementariamente, es recomendable el uso del atributo xml:lang ajustado con el valor correspondiente para expresar literales en cada idioma especificado en la propiedad. Para ello, se recomienda usar los códigos de idioma normalizados definidos en el [RFC-5646](https://www.rfc-editor.org/rfc/rfc5646.html) (por ejemplo, `es` para español, `en` para inglés, `ca` para catalán, `eu` para vasco, `gl` para gallego, etc.).  Los valores ajustados en esta propiedad de dataset anulan los valores proporcionados para el catálogo si entran en conflicto.
     
     Por otro lado, se prevé un segundo uso de esta propiedad: si las distribuciones de un conjunto de datos están disponibles para cada idioma por separado, se debe definir una instancia de `dcat:Distribution` para cada idioma y describir el idioma específico de cada distribución usando `dct:language`. Es decir, el conjunto de datos tendrá múltiples valores de `dct:language` y cada distribución tendrá solo un valor de la propiedad `dct:language`. En el caso de distribuciones multilingües, éstas tendrán múltiples valores `dct:language`.
 
 
-| dcat:Dataset | dct:accrualPeriodicity |
+| [`dcat:Dataset`](#Dataset) | [`dct:accrualPeriodicity`](http://purl.org/dc/terms/accrualPeriodicity) |
 | --- | --- |
 | **Metadato** | **Frecuencia de actualización** |
 | **Descripción** | Describe la periodicidad con la que se actualiza el conjunto de datos. |
-| **Propiedad** | **dct:accrualPeriodicity** |
+| **Propiedad** | [**dct:accrualPeriodicity**](http://purl.org/dc/terms/accrualPeriodicity) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:Frequency** |
+| **Rango** | [**dct:Frequency**](http://purl.org/dc/terms/Frequency) |
 
 !!! note "Nota de uso"
 
     Se recomienda usar conceptos del vocabulario estandarizado:  [`http://publications.europa.eu/resource/authority/frequency`](http://publications.europa.eu/resource/authority/frequency)
 
 
-| dcat:Dataset | dcat:version |
+| [`dcat:Dataset`](#Dataset) | [`dcat:version`](http://www.w3.org/ns/dcat#version) |
 | --- | --- |
 | **Metadato** | **Versión** |
 | **Descripción** | Especifica la versión del conjunto de datos. |
-| **Propiedad** | **dcat:version** |
+| **Propiedad** | [**dcat:version**](http://www.w3.org/ns/dcat#version) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 !!! note "Nota de uso"
 
     Se utiliza para proporcionar información sobre la versión del conjunto de datos cuando éste se actualiza o modifica con el tiempo. El detalle de la información puede incluir un número de versión o cualquier otra política de denominación de versiones. Se recomienda que sea independientemente de un idioma concreto.
 
 
-| dcat:Dataset | adms:versionNotes |
+| [`dcat:Dataset`](#Dataset) | [`adms:versionNotes`](http://www.w3.org/ns/adms#versionNotes) |
 | --- | --- |
 | **Metadato** | **Notas de versión** |
 | **Descripción** | Proporciona detalles adicionales sobre la diferencia entre esta versión del conjunto de datos y versiones anteriores del mismo. |
-| **Propiedad** | **adms:versionNotes** |
+| **Propiedad** | [**adms:versionNotes**](http://www.w3.org/ns/adms#versionNotes) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Literal** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 !!! note "Nota de uso"
 
     Se recomienda que se detallen las diferencias con la versión inmediatamente anterior. Puede incluirse esta descripción en varios idiomas.
 
 
-| dcat:Dataset | dcat:hasVersion |
+| [`dcat:Dataset`](#Dataset) | [`dcat:hasVersion`](http://www.w3.org/ns/dcat#hasVersion) |
 | --- | --- |
 | **Metadato** | **Tiene versión** |
 | **Descripción** | Referencia a otro conjunto de datos que es una versión, edición o adaptación del conjunto de datos que se describe. |
-| **Propiedad** | **dcat:hasVersion** |
+| **Propiedad** | [**dcat:hasVersion**](http://www.w3.org/ns/dcat#hasVersion) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:Dataset** |
+| **Rango** | [`dcat:Dataset`](#Dataset) |
 
 !!! note "Nota de uso"
 
     Se recomienda incluir la referencia clara y precisa al dataset versionado, idealmente utilizando identificadores únicos o URIs. Su propiedad inversa es dcat:isVersionOf
 
 
-| dcat:Dataset | dcat:isVersionOf |
+| [`dcat:Dataset`](#Dataset) | [`dcat:isVersionOf`](http://www.w3.org/ns/dcat#isVersionOf) |
 | --- | --- |
 | **Metadato** | **Es versión de** |
 | **Descripción** | Referencia a otro conjunto de datos del cual, el que se describe, es una versión, edición o adaptación. |
-| **Propiedad** | **dcat:isVersionOf** |
+| **Propiedad** | [**dcat:isVersionOf**](http://www.w3.org/ns/dcat#isVersionOf) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:Dataset** |
+| **Rango** | [**dcat:Dataset**](#Dataset) |
 
 !!! note "Nota de uso"
 
     Se recomienda incluir la referencia clara y precisa al dataset versionado, idealmente utilizando identificadores únicos o URIs. Su propiedad inversa es dcat:hasVersion.
 
 
-| dcat:Dataset | dcat:qualifiedRelation |
+| [`dcat:Dataset`](#Dataset) | [`dcat:qualifiedRelation`](http://www.w3.org/ns/dcat#qualifiedRelation) |
 | --- | --- |
 | **Metadato** | **Relación** |
 | **Descripción** | Especifica un vínculo a una descripción de una relación específica entre el conjunto de datos que se describe y otros recursos de datos. |
-| **Propiedad** | **dcat:qualifiedRelation** |
+| **Propiedad** | [**dcat:qualifiedRelation**](http://www.w3.org/ns/dcat#qualifiedRelation) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:Relationship** |
+| **Rango** | [**dcat:Relationship**](#Relationship) |
 
 !!! note "Nota de uso"
 
     Se utiliza para especificar vínculos entre recursos donde se conoce la naturaleza de la relación pero no coincide con una de las propiedades estándar contempladas en el vocabulario [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) (como [dct:hasPart](http://purl.org/dc/terms/hasPart), [dct:isPartOf](http://purl.org/dc/terms/isPartOf), [dct:conformsTo](http://purl.org/dc/terms/conformsTo),[dct:isVersionOf](http://purl.org/dc/terms/isVersionOf), [dct:hasVersion](http://purl.org/dc/terms/hasVersion), [dct:replaces](http://purl.org/dc/terms/replaces), [dct:isReplacedBy](http://purl.org/dc/terms/isReplacedBy), [dct:references](http://purl.org/dc/terms/references), [dct:isReferencedBy](http://purl.org/dc/terms/isReferencedBy), [dct:requires](http://purl.org/dc/terms/requires), [dct:isRequiredBy](http://purl.org/dc/terms/isRequiredBy), entre otras) o las propiedades del vocabulario para especificar procedencia [PROV-O](https://www.w3.org/TR/vocab-dcat/#bib-prov-o) (como [prov:wasDerivedFrom](https://www.w3.org/TR/prov-o/#wasDerivedFrom), [prov:wasInfluencedBy](https://www.w3.org/TR/prov-o/#wasInfluencedBy), [prov:wasQuotedFrom](https://www.w3.org/TR/prov-o/#wasQuotedFrom), [prov:wasRevisionOf](https://www.w3.org/TR/prov-o/#wasRevisionOf), [prov:hadPrimarySource](https://www.w3.org/TR/prov-o/#hadPrimarySource), [prov:alternateOf](https://www.w3.org/TR/prov-o/#alternateOf), [prov:specializationOf](https://www.w3.org/TR/prov-o/#specializationOf)).  Una forma de especificar relaciones alternativas entre recursos es utilizando la especificación: <https://www.iana.org/assignments/link-relations/>
 
 
-| dcat:Dataset | dcat:spatialResolutionInMeters |
+| [`dcat:Dataset`](#Dataset) | [`dcat:spatialResolutionInMeters`](http://www.w3.org/ns/dcat#spatialResolutionInMeters) |
 | --- | --- |
 | **Metadato** | **Resolución Espacial** |
 | **Descripción** | Refiere a la mínima distancia entre dos datos distintos que el conjunto de datos puede distinguir, medida en metros. |
-| **Propiedad** | **dcat:spatialResolutionInMeters** |
+| **Propiedad** | [**dcat:spatialResolutionInMeters**](http://www.w3.org/ns/dcat#spatialResolutionInMeters) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
 | **Rango** | **rdfs:Literal de tipo xsd:decimal o xsd:double** |
@@ -1352,11 +1352,11 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
     Se aplica principalmente para conjunto de datos geoespaciales y refleja la granularidad y el nivel de detalle. El valor se asume que será siempre positivo. En el caso de mallas (grid) o imágenes, corresponde con la distancia entre dos puntos, y en otros datasets geoespaciales es la distancia mínima entre elementos.
 
 
-| dcat:Dataset | dcat:temporalResolution |
+| [`dcat:Dataset`](#Dataset) | [`dcat:temporalResolution`](http://www.w3.org/ns/dcat#temporalResolution) |
 | --- | --- |
 | **Metadato** | **Resolución Temporal** |
 | **Descripción** | Refiere el intervalo de tiempo mínimo entre dos registros de datos consecutivos dentro del conjunto de datos. |
-| **Propiedad** | **dcat:temporalResolution** |
+| **Propiedad** | [**dcat:temporalResolution**](http://www.w3.org/ns/dcat#temporalResolution) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
 | **Rango** | **rdfs:Literal de tipo xsd:duration** |
@@ -1366,70 +1366,70 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
     Se recomienda proporcionar este metadato en conjuntos de datos que se actualizan o capturan a intervalos regulares, como datos meteorológicos, datos de tráfico en tiempo real o cualquier otro tipo de datos que se registren a lo largo del tiempo.  Esta duración debe seguir el formato ISO-8601 (P si contiene detalle de fecha sin hora o PT si contiene detalle de tiempo horario).  Por ejemplo, se pueden utilizar valores como “PT1S” (segundos), “PT1M” (minutos), “PT1H” (horas), "P1D" (diario), "P1W" (semanal), "P1M" (mensual), "P1Y" (anual).
 
 
-| dcat:Dataset | dct:isReferencedBy |
+| [`dcat:Dataset`](#Dataset) | [`dct:isReferencedBy`](http://purl.org/dc/terms/isReferencedBy) |
 | --- | --- |
 | **Metadato** | **Referenciado por** |
 | **Descripción** | Este metadato identifica otros recursos web que hacen referencia o citan al conjunto de datos que se describe. |
-| **Propiedad** | **dct:isReferencedBy** |
+| **Propiedad** | [**dct:isReferencedBy**](http://purl.org/dc/terms/isReferencedBy) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Resource** |
+| **Rango** | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
 
 !!! note "Nota de uso"
 
     En el caso de otras relaciones que no sean una cita o vinculo al conjunto de datos, se recomienda utilizar la propiedad genérica dcat:qualifiedRelation.
 
 
-| dcat:Dataset | dct:provenance |
+| [`dcat:Dataset`](#Dataset) | [`dct:provenance`](http://purl.org/dc/terms/provenance) |
 | --- | --- |
 | **Metadato** | **Procedencia** |
 | **Descripción** | Contiene una declaración sobre el linaje del dataset. El objetivo es aportar información relevante para que los usuarios comprendan de dónde provienen los datos y cómo pueden haberse modificado a lo largo del tiempo. |
-| **Propiedad** | **dct:provenance** |
+| **Propiedad** | [**dct:provenance**](http://purl.org/dc/terms/provenance) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dct:ProvenanceStatement** |
+| **Rango** | [**dct:ProvenanceStatement**](http://purl.org/dc/terms/ProvenanceStatement) |
 
 !!! note "Nota de uso"
 
     Se recomienda especificar cualquier cambio en la propiedad o custodia que sea significativo para verificar la autenticidad, integridad e interpretación del dataset. Es aconsejable utilizar la [ontología PROV-O](https://www.w3.org/TR/prov-o/), si bien una descripción en texto libre también es aceptada.
 
 
-| dcat:Dataset | dct:relation |
+| [`dcat:Dataset`](#Dataset) | [`dct:relation`](http://purl.org/dc/terms/relation) |
 | --- | --- |
 | **Metadato** | **Recurso relacionado** |
 | **Descripción** | Especifica recursos que están de alguna manera relacionados con el conjunto de datos. |
-| **Propiedad** | **dct:relation** |
+| **Propiedad** | [**dct:relation**](http://purl.org/dc/terms/relation) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Resource** |
+| **Rango** | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
 
 !!! note "Nota de uso"
 
     Se debe utilizar esta propiedad cuando la naturaleza de la relación entre un elemento catalogado y los recursos relacionados no es conocida; en caso de que sí sea conocida, debería utilizarse otras propiedades más específicas como dct:hasPart, dct:hasVesion, entre otras.
 
 
-| dcat:Dataset | prov:qualifiedAttribution |
+| [`dcat:Dataset`](#Dataset) | [`prov:qualifiedAttribution`](http://www.w3.org/ns/prov#qualifiedAttribution) |
 | --- | --- |
 | **Metadato** | **Atribución** |
 | **Descripción** | Agentes (personas, organizaciones o entidades) que tienen algún tipo de responsabilidad o una contribución significativa sobre el conjunto de datos. |
-| **Propiedad** | **prov:qualifiedAttribution** |
+| **Propiedad** | [**prov:qualifiedAttribution**](http://www.w3.org/ns/prov#qualifiedAttribution) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **prov:Attribution** |
+| **Rango** | [**prov:Attribution**](http://www.w3.org/ns/prov#Attribution) |
 
 !!! note "Nota de uso"
 
     Se debe utilizar cuando la naturaleza de la relación entre Agente y conjunto de datos es conocida, pero no encaja con ninguno de los roles específicos (`dct:creator`, `dct:publisher`). Se recomienda utilizar además la propiedad `dcat:hadRole` para especificar la responsabilidad del Agente respecto al recurso.
 
 
-| dcat:Dataset | prov:wasGeneratedBy |
+| [`dcat:Dataset`](#Dataset) | [`prov:wasGeneratedBy`](http://www.w3.org/ns/prov#wasGeneratedBy) |
 | --- | --- |
 | **Metadato** | **Generador** |
 | **Descripción** | Referencia a la actividad, proceso o contexto de negocio que propició la creación del conjunto de datos. |
-| **Propiedad** | **prov:wasGeneratedBy** |
+| **Propiedad** | [**prov:wasGeneratedBy**](http://www.w3.org/ns/prov#wasGeneratedBy) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **prov:Activity** |
+| **Rango** | [**prov:Activity**](http://www.w3.org/ns/prov#Activity) |
 
 !!! note "Nota de uso"
 
@@ -1442,28 +1442,28 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
     | `prov:startedAtTime`            | La fecha y hora en el que se inicia la actividad.|
     | `prov:endedAtTime`            | La fecha y hora en el que se finaliza la actividad.|
 
-| dcat:Dataset | dct:source |
+| [`dcat:Dataset`](#Dataset) | [`dct:source`](http://purl.org/dc/terms/source) |
 | --- | --- |
 | **Metadato** | **Origen** |
 | **Descripción** | Identifica el dataset original o fuente primaria del que deriva el conjunto de datos que se describe. |
-| **Propiedad** | **dct:source** |
+| **Propiedad** | [**dct:source**](http://purl.org/dc/terms/source) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:Dataset** |
+| **Rango** | [**dcat:Dataset**](#Dataset) |
 
 !!! note "Nota de uso"
 
     Esta propiedad suele estar relacionada con dct:provenance. No implica que la fuente primaria sea necesariamente un conjunto de datos preexistente.
 
 
-| dcat:Dataset | dct:accessRights |
+| [`dcat:Dataset`](#Dataset) | [`dct:accessRights`](http://purl.org/dc/terms/accessRights) |
 | --- | --- |
 | **Metadato** | **Derechos de acceso** |
 | **Descripción** | Especifica una declaración acerca de las posibles restricciones de acceso, políticas de seguridad, privacidad u otras condiciones relevantes que afectan a la forma en que se interactúa con el conjunto de datos. |
-| **Propiedad** | **dct:accessRights** |
+| **Propiedad** | [**dct:accessRights**](http://purl.org/dc/terms/accessRights) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:RightsStatement** |
+| **Rango** | [**dct:RightsStatement**](http://purl.org/dc/terms/RightsStatement) |
 
 !!! note "Nota de uso"
 
@@ -1477,279 +1477,279 @@ La clase Distribución de un conjunto de datos (`dcat:Distribution`), modela dif
 Esta entidad se considera clave para entender cómo se puede obtener y utilizar un conjunto de datos específico.
 
 !!! warning "Importante"
-    Para la descripción de **datos de alto valor (HVD) se deberá añadir**, a las ya obligatorias, la [**legislación aplicable**](https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcatap_applicablelegislation) (`dcatap:applicableLegislation`).
+    Para la descripción de **datos de alto valor (HVD) se deberá añadir**, a las ya obligatorias, la [**legislación aplicable**](#Dataset.applicableLegislation) (`dcatap:applicableLegislation`).
 
-| dcat:Distribution | dcat:accessURL |
+| [`dcat:Distribution`](#Distribution) | [`dcat:accessURL`](http://www.w3.org/ns/dcat#accessURL) |
 | --- | --- |
 | **Metadato** | **URL de Acceso** |
 | **Descripción** | URL que permite acceder a la distribución. |
-| **Propiedad** | **dcat:accessURL** |
+| **Propiedad** | [**dcat:accessURL**](http://www.w3.org/ns/dcat#accessURL) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **rdfs:Resource** |
+| **Rango** | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
 
 !!! note "Nota de uso"
 
     Se utiliza para designar la URL del sitio web que facilita el acceso a la distribución (por ejemplo, mediante formulario web o consulta a una API). La URL puede contener información sobre cómo obtener el dataset.  El valor de esta propiedad debería duplicarse en la propiedad dcat:landingPage de su conjunto de datos asociado.  Esta propiedad debe utilizarse si la distribución no tiene URL directa a la descarga del dataset. Alternativamente, si la URL da acceso directo a la distribución descargable deberá, además, duplicarse en la propiedad dcat:downloadURL.
 
 
-| dcat:Distribution | dcatap:applicableLegislation |
+| [`dcat:Distribution`](#Distribution) | [`dcatap:applicableLegislation`](http://data.europa.eu/r5r/applicableLegislation) |
 | --- | --- |
 | **Metadato** | **Legislación aplicable** |
 | **Descripción** | Referencia a la legislación aplicable, sí distribuye datos de alto valor, entonces debe indicarse al menos el [Reglamento de Implementación 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj) |
-| **Propiedad** | **dcatap:applicableLegislation** |
+| **Propiedad** | [**dcatap:applicableLegislation**](http://data.europa.eu/r5r/applicableLegislation) |
 | **Aplicabilidad** | **Recomendado - Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
-| **Rango** | **eli:LegalResource** |
+| **Rango** | [**eli:LegalResource**](http://data.europa.eu/eli/ontology#LegalResource) |
 
 !!! note "Nota de uso"
 
     Se debe proporcionar como mínimo el ELI del reglamento: `http://data.europa.eu/eli/reg_impl/2023/138/oj`. Dado que la disponibilidad del HVD puede estar regulada por múltiples normativas específicas del dato, la cardinalidad máxima no está limitada.
 
 
-| dcat:Distribution | dct:description |
+| [`dcat:Distribution`](#Distribution) | [`dct:description`](http://purl.org/dc/terms/description) |
 | --- | --- |
 | **Metadato** | **Descripción** |
 | **Descripción** | Proporciona un resumen claro del contenido de la distribución aportando una visión general rápida y eficaz del recurso de información. |
-| **Propiedad** | **dct:description** |
+| **Propiedad** | [**dct:description**](http://purl.org/dc/terms/description) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Literal.** Cadena alfanumérica |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) Cadena alfanumérica |
 
 !!! note "Nota de uso"
 
     Se debe especificar un literal. Esta propiedad puede ser repetida para expresar la descripción en diferentes idiomas.
 
 
-| dcat:Distribution | dcatap:availability |
+| [`dcat:Distribution`](#Distribution) | [`dcatap:availability`](http://data.europa.eu/r5r/availability) |
 | --- | --- |
 | **Metadato** | **Disponibilidad** |
 | **Descripción** | Estado de la disponibilidad prevista de la distribución del conjunto de datos. |
-| **Propiedad** | **dcatap:availability** |
+| **Propiedad** | [**dcatap:availability**](http://data.europa.eu/r5r/availability) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **skos:Concept** |
+| **Rango** | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
 !!! note "Nota de uso"
 
     Se debe usar un concepto del vocabulario controlado `http://publications.europa.eu/resource/authority/planned-availability`
 
 
-| dcat:Distribution | dct:format |
+| [`dcat:Distribution`](#Distribution) | [`dct:format`](http://purl.org/dc/terms/format) |
 | --- | --- |
 | **Metadato** | **Formato** |
 | **Descripción** | Especifica el formato del fichero de la distribución del conjunto de datos. |
-| **Propiedad** | **dct:format** |
+| **Propiedad** | [**dct:format**](http://purl.org/dc/terms/format) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:MediaTypeOrExtent** |
+| **Rango** | [**dct:MediaTypeOrExtent**](http://purl.org/dc/terms/MediaTypeOrExtent) |
 
 !!! note "Nota de uso"
 
-    Se recomienda utilizar los conceptos definidos en el vocabulario: `http://publications.europa.eu/resource/authority/file-type` Además, si el valor es uno de los definidos por IANA para los *media types,* debe ajustarse la [propiedad formato tipo MIME (`dcat:mediaType`)](#nota-dcat_distribution-dcat_mediatype).
+    Se recomienda utilizar los conceptos definidos en el vocabulario: `http://publications.europa.eu/resource/authority/file-type` Además, si el valor es uno de los definidos por IANA para los *media types,* debe ajustarse la [propiedad formato tipo MIME (`dcat:mediaType`)](#Distribution.mediaType).
 
 
-| dcat:Distribution | dct:license |
+| [`dcat:Distribution`](#Distribution) | [`dct:license`](http://purl.org/dc/terms/license) |
 | --- | --- |
 | **Metadato** | **Licencia** |
 | **Descripción** | Especifica la licencia o condiciones de reutilización de la distribución del conjunto de datos. Informa a los usuarios sobre los derechos y obligaciones asociados a su uso. |
-| **Propiedad** | **dct:license** |
+| **Propiedad** | [**dct:license**](http://purl.org/dc/terms/license) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:LicenseDocument** |
+| **Rango** | [**dct:LicenseDocument**](http://purl.org/dc/terms/LicenseDocument) |
 
 !!! note "Nota de uso"
 
     Se debe incluir una URI que enlace directamente al documento o recurso online que detalla los términos y condiciones de uso del catálogo. Se recomienda el uso de licencias tipo mediante el vocabulario `http://publications.europa.eu/resource/authority/licence` que permite describir dichas condiciones, asegurando así una interpretación y aplicación coherente de las normas de uso y reutilización de los datos. En el caso de datos de alto valor (HVD) la propiedad debe ajustarse especificando el tipo de [licencia CC-BY 4.0](http://publications.europa.eu/resource/authority/licence/CC_BY_4_0) u otra más permisiva. Alternativamente, se podrá referenciar un documento de licencia mediante una URL del texto legal que el publicador determine.
 
 
-| dcat:Distribution | dcat:accessService |
+| [`dcat:Distribution`](#Distribution) | [`dcat:accessService`](http://www.w3.org/ns/dcat#accessService) |
 | --- | --- |
 | **Metadato** | **Servicio de acceso** |
 | **Descripción** | Este metadato indica el servicio de datos que proporciona acceso a la distribución del conjunto de datos. |
-| **Propiedad** | **dcat:accessService** |
+| **Propiedad** | [**dcat:accessService**](http://www.w3.org/ns/dcat#accessService) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dcat:DataService** |
+| **Rango** | [**dcat:DataService**](#DataService) |
 
 !!! note "Nota de uso"
 
     Se debe incluir la referencia al servicio de datos que proporciona acceso a la distribución que se describe
 
 
-| dcat:Distribution | dct:title |
+| [`dcat:Distribution`](#Distribution) | [`dct:title`](http://purl.org/dc/terms/title) |
 | --- | --- |
 | **Metadato** | **Nombre** |
 | **Descripción** | Breve título o nombre dado a la distribución del conjunto de datos |
-| **Propiedad** | **dct:title** |
+| **Propiedad** | [**dct:title**](http://purl.org/dc/terms/title) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Literal. Cadena alfanumérica** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) Cadena alfanumérica |
 
 !!! note "Nota de uso"
 
     Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (dct:spatial) y temporal (dct:temporal). Esta propiedad puede ser repetida para expresar el nombre en diferentes idiomas.
 
 
-| dcat:Distribution | foaf:page |
+| [`dcat:Distribution`](#Distribution) | [`foaf:page`](http://xmlns.com/foaf/0.1/page) |
 | --- | --- |
 | **Metadato** | **Documentación** |
 | **Descripción** | Proporciona la referencia a un documento que contiene información relevante sobre la distribución del conjunto de datos. |
-| **Propiedad** | **foaf:page** |
+| **Propiedad** | [**foaf:page**](http://xmlns.com/foaf/0.1/page) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **foaf:Document** |
+| **Rango** | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
 
 !!! note "Nota de uso"
 
     Se recomienda incluir enlaces a recursos documentales que proporcionen a los usuarios un contexto más amplio y una mejor comprensión de la distribución de datos. Estos recursos pueden incluir detalles sobre la metodología utilizada, la estructura, las limitaciones, el propósito de la distribución de los datos., etc.
 
 
-| dcat:Distribution | dcat:mediaType |
+| [`dcat:Distribution`](#Distribution) | [`dcat:mediaType`](http://www.w3.org/ns/dcat#mediaType) |
 | --- | --- |
 | **Metadato** | **Formato tipo MIME** |
 | **Descripción** | Permite especificar el tipo de medio (MIME) de la distribución del conjunto de datos. |
-| **Propiedad** | **dcat:mediaType** |
+| **Propiedad** | [**dcat:mediaType**](http://www.w3.org/ns/dcat#mediaType) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:MediaType** |
+| **Rango** | [**dct:MediaType**](http://purl.org/dc/terms/MediaType) |
 
 !!! note "Nota de uso"
 
     Se debe expresar tal como se define en el registro oficial de tipos de medios administrado por IANA, si está entre los incluidos en <http://www.iana.org/assignments/media-types/media-types.xhtml>.
 
 
-| dcat:Distribution | dcat:downloadURL |
+| [`dcat:Distribution`](#Distribution) | [`dcat:downloadURL`](http://www.w3.org/ns/dcat#downloadURL) |
 | --- | --- |
 | **Metadato** | **URL de descarga** |
 | **Descripción** | URL que permite la descarga directa de la distribución. |
-| **Propiedad** | **dcat:downloadURL** |
+| **Propiedad** | [**dcat:downloadURL**](http://www.w3.org/ns/dcat#downloadURL) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **rdfs:Resource** |
+| **Rango** | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
 
 !!! note "Nota de uso"
 
     Las URLs deben ser estables y conducir directamente al archivo de datos en el formato definido, sin requerir pasos adicionales, típicamente mediante una petición HTTP Get. Se recomienda duplicar el valor de esta propiedad como dcat:accessURL.
 
 
-| dcat:Distribution | dct:conformsTo |
+| [`dcat:Distribution`](#Distribution) | [`dct:conformsTo`](http://purl.org/dc/terms/conformsTo) |
 | --- | --- |
 | **Metadato** | **Esquema** |
 | **Descripción** | Determina la especificación, norma, estándar o modelo de datos al que se ajusta la distribución. |
 | **Propiedad** | **dct**:**conformsTo** |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dct:Standard** |
+| **Rango** | [**dct:Standard**](http://purl.org/dc/terms/Standard) |
 
 !!! note "Nota de uso"
 
     Se recomienda utilizar este metadato para indicar las especificaciones técnicas que cumple la distribución. Esto puede incluir referencias a modelos, esquemas, ontologías o perfiles de aplicación con los cuales esta distribución es conforme. El uso preferente es especificar el modelo o estructura de datos subyacente a la distribución.
 
 
-| dcat:Distribution | dct:issued |
+| [`dcat:Distribution`](#Distribution) | [`dct:issued`](http://purl.org/dc/terms/issued) |
 | --- | --- |
 | **Metadato** | **Fecha de creación de la distribución** |
 | **Descripción** | Fecha en la que se creó o publicó la distribución del conjunto de datos. |
-| **Propiedad** | **dct:issued** |
+| **Propiedad** | [**dct:issued**](http://purl.org/dc/terms/issued) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** de tipo **xsd:date** (Fecha), **xsd:dateTime** (Fecha/Hora), **xsd:gYear** (Año) o **xsd:gYearMonth** (Año-Mes) |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) de tipo [**xsd:date**](http://www.w3.org/2001/XMLSchema#date) (Fecha), [**xsd:dateTime**](http://www.w3.org/2001/XMLSchema#dateTime) (Fecha/Hora), [**xsd:gYear**](http://www.w3.org/2001/XMLSchema#gYear) (Año) o [**xsd:gYearMonth**](http://www.w3.org/2001/XMLSchema#gYearMonth) (Año-Mes) |
 
 !!! note "Nota de uso"
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 
-| dcat:Distribution | dct:modified |
+| [`dcat:Distribution`](#Distribution) | [`dct:modified`](http://purl.org/dc/terms/modified) |
 | --- | --- |
 | **Metadato** | **Fecha de última actualización de la distribución** |
 | **Descripción** | Indica la última fecha en que se actualizó o modificó la distribución del conjunto de datos asegurando que los usuarios acceden a la versión más actualizada. |
-| **Propiedad** | **dct:modified** |
+| **Propiedad** | [**dct:modified**](http://purl.org/dc/terms/modified) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** de tipo **xsd:date** (Fecha), **xsd:dateTime** (Fecha/Hora), **xsd:gYear** (Año) o **xsd:gYearMonth** (Año-Mes) |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) de tipo [**xsd:date**](http://www.w3.org/2001/XMLSchema#date) (Fecha), [**xsd:dateTime**](http://www.w3.org/2001/XMLSchema#dateTime) (Fecha/Hora), [**xsd:gYear**](http://www.w3.org/2001/XMLSchema#gYear) (Año) o [**xsd:gYearMonth**](http://www.w3.org/2001/XMLSchema#gYearMonth) (Año-Mes) |
 
 !!! note "Nota de uso"
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 
-| dcat:Distribution | adms:status |
+| [`dcat:Distribution`](#Distribution) | [`adms:status`](http://www.w3.org/ns/adms#status) |
 | --- | --- |
 | **Metadato** | **Estado** |
 | **Descripción** | Permite definir la fase actual del ciclo de vida en la que se encuentra la distribución del conjunto de datos en el momento de su descripción. |
-| **Propiedad** | **adms:status** |
+| **Propiedad** | [**adms:status**](http://www.w3.org/ns/adms#status) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **skos:Concept** |
+| **Rango** | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
 !!! note "Nota de uso"
 
     El estado de la distribución de un conjunto de datos puede ser alguno de los siguientes: `completa`, `obsoleta`, `en desarrollo` o `retirada`. Estos valores están definidos en el vocabulario:  `http://publications.europa.eu/resource/authority/distribution-status`
 
 
-| dcat:Distribution | dct:language |
+| [`dcat:Distribution`](#Distribution) | [`dct:language`](http://purl.org/dc/terms/language) |
 | --- | --- |
 | **Metadato** | **Idioma** |
 | **Descripción** | Especifica el idioma en el que se encuentra la información contenida en la distribución del conjunto de datos. |
-| **Propiedad** | **dct:language** |
+| **Propiedad** | [**dct:language**](http://purl.org/dc/terms/language) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..n** |
-| **Rango** | **dct:LinguisticSystem** |
+| **Rango** | [**dct:LinguisticSystem**](http://purl.org/dc/terms/LinguisticSystem) |
 
 !!! note "Nota de uso"
 
     Se ajusta utilizando valores del vocabulario normalizado de idiomas: `http://publications.europa.eu/resource/authority/language`. En el caso de distribuciones multilingües, esta propiedad puede ser ajustada con múltiples valores y no se requiere ningun valor específico ya que hace referencia al idioma de los datos.
 
 
-| dcat:Distribution | dcat:compressFormat |
+| [`dcat:Distribution`](#Distribution) | [`dcat:compressFormat`](http://www.w3.org/ns/dcat#compressFormat) |
 | --- | --- |
 | **Metadato** | **Formato comprimido** |
 | **Descripción** | Define el formato de compresión utilizado para agrupar y comprimir los datos en la distribución, habitualmente para reducir su tamaño. |
-| **Propiedad** | **dcat:compressFormat** |
+| **Propiedad** | [**dcat:compressFormat**](http://www.w3.org/ns/dcat#compressFormat) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:MediaType** |
+| **Rango** | [**dct:MediaType**](http://purl.org/dc/terms/MediaType) |
 
 !!! note "Nota de uso"
 
     Se debe expresar tal como se define en el registro oficial de tipos de medios administrado por IANA, si está entre los incluidos en <http://www.iana.org/assignments/media-types/media-types.xhtml>.
 
 
-| dcat:Distribution | dcat:packageFormat |
+| [`dcat:Distribution`](#Distribution) | [`dcat:packageFormat`](http://www.w3.org/ns/dcat#packageFormat) |
 | --- | --- |
 | **Metadato** | **Formato empaquetado** |
 | **Descripción** | Este metadato especifica el formato utilizado para agrupar varios archivos de datos en un único fichero para que se descarguen todos juntos. |
-| **Propiedad** | **dcat:packageFormat** |
+| **Propiedad** | [**dcat:packageFormat**](http://www.w3.org/ns/dcat#packageFormat) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:MediaType** |
+| **Rango** | [**dct:MediaType**](http://purl.org/dc/terms/MediaType) |
 
 !!! note "Nota de uso"
 
     Se debe expresar tal como se define en el registro oficial de tipos de medios administrado por IANA, si está entre los incluidos en <http://www.iana.org/assignments/media-types/media-types.xhtml>.
 
 
-| dcat:Distribution | dcat:byteSize |
+| [`dcat:Distribution`](#Distribution) | [`dcat:byteSize`](http://www.w3.org/ns/dcat#byteSize) |
 | --- | --- |
 | **Metadato** | **Tamaño** |
 | **Descripción** | Indica el tamaño total de la distribución del conjunto de datos expresado en bytes. |
-| **Propiedad** | **dcat:byteSize** |
+| **Propiedad** | [**dcat:byteSize**](http://www.w3.org/ns/dcat#byteSize) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** habitualmente de tipo **xsd:nonNegativeInteger** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) habitualmente de tipo [**xsd:nonNegativeInteger**](http://www.w3.org/2001/XMLSchema#nonNegativeInteger) |
 
 !!! note "Nota de uso"
 
     Este metadato ayuda a los usuarios a estimar la capacidad necesaria para las necesidades de almacenamiento y tiempo de descarga.  Es posible incluir un valor aproximado (siempre como número no negativo), por ejemplo: `843636`
 
 
-| dcat:Distribution | dcat:spatialResolutionInMeters |
+| [`dcat:Distribution`](#Distribution) | [`dcat:spatialResolutionInMeters`](http://www.w3.org/ns/dcat#spatialResolutionInMeters) |
 | --- | --- |
 | **Metadato** | **Resolución espacial** |
 | **Descripción** | Refiere a la mínima separación espacial entre dos datos distintos que la distribución puede distinguir, medida en metros. |
-| **Propiedad** | **dcat:spatialResolutionInMeters** |
+| **Propiedad** | [**dcat:spatialResolutionInMeters**](http://www.w3.org/ns/dcat#spatialResolutionInMeters) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
 | **Rango** | **rdfs:Literal de tipo xsd:decimal o xsd:double** |
@@ -1759,11 +1759,11 @@ Esta entidad se considera clave para entender cómo se puede obtener y utilizar 
     Se aplica principalmente para distribuciones de conjuntos de datos geoespaciales y refleja la granularidad y el nivel de detalle. El valor se asume que será siempre positivo. En el caso de mallas (grid) o imágenes, corresponde con la distancia entre dos puntos, y en otros datasets geoespaciales es la distancia mínima entre elementos.
 
 
-| dcat:Distribution | dcat:temporalResolution |
+| [`dcat:Distribution`](#Distribution) | [`dcat:temporalResolution`](http://www.w3.org/ns/dcat#temporalResolution) |
 | --- | --- |
 | **Metadato** | **Resolución temporal** |
 | **Descripción** | Refiere el intervalo de tiempo mínimo entre dos registros de datos consecutivos dentro del conjunto de datos. |
-| **Propiedad** | **dcat:temporalResolution** |
+| **Propiedad** | [**dcat:temporalResolution**](http://www.w3.org/ns/dcat#temporalResolution) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
 | **Rango** | **rdfs:Literal de tipo xsd:duration** |
@@ -1773,42 +1773,42 @@ Esta entidad se considera clave para entender cómo se puede obtener y utilizar 
     Se recomienda proporcionar este metadato en conjuntos de datos que se actualizan o capturan a intervalos regulares, como datos meteorológicos, datos de tráfico en tiempo real o cualquier otro tipo de datos que se registren a lo largo del tiempo.  Esta duración debe seguir el formato ISO-8601 (P si contiene detalle de fecha sin hora o PT si contiene detalle de tiempo horario).  Por ejemplo, se pueden utilizar valores como “PT1S” (segundos), “PT1M” (minutos), “PT1H” (horas), "P1D" (diario), "P1W" (semanal), "P1M" (mensual), "P1Y" (anual).
 
 
-| dcat:Distribution | spdx:checksum |
+| [`dcat:Distribution`](#Distribution) | [`spdx:checksum`](http://spdx.org/rdf/terms#checksum) |
 | --- | --- |
 | **Metadato** | **Control de verificación** |
 | **Descripción** | Proporciona un mecanismo de verificación de la integridad del conjunto de datos. Ayuda a asegurar que el contenido de una distribución no haya sido alterado o corrompido durante el proceso de transferencia o almacenamiento. |
-| **Propiedad** | **spdx:checksum** |
+| **Propiedad** | [**spdx:checksum**](http://spdx.org/rdf/terms#checksum) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **spdx:Checksum** |
+| **Rango** | [**spdx:Checksum**](http://spdx.org/rdf/terms#Checksum) |
 
 !!! note "Nota de uso"
 
     En el caso de incluirse, el checksum debe contener la información del algoritmo utilizado y del valor obtenido como resultado en binario hexadecimal (xsd:hexBinary).
 
 
-| dcat:Distribution | odrl:hasPolicy |
+| [`dcat:Distribution`](#Distribution) | [`odrl:hasPolicy`](http://www.w3.org/ns/odrl/2/hasPolicy) |
 | --- | --- |
 | **Metadato** | **Norma ODLR** |
 | **Descripción** | Este metadato expresa los derechos y condiciones asociados con el uso de la distribución del conjunto de datos, utilizando el vocabulario de la Open Digital Rights Language (ODRL). |
-| **Propiedad** | **odrl:hasPolicy** |
+| **Propiedad** | [**odrl:hasPolicy**](http://www.w3.org/ns/odrl/2/hasPolicy) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **odrl:Policy** |
+| **Rango** | [**odrl:Policy**](http://www.w3.org/ns/odrl/2/Policy) |
 
 !!! note "Nota de uso"
 
     Siempre que se utilice este metadato, su valor se debe ajustar mediante el uso del vocabulario Open Digital Rights Language (ODRL) definido en: <https://www.w3.org/TR/odrl-vocab/>. ODLR es un lenguaje de expresión de políticas para representar declaraciones sobre el uso (es decir, permisos, prohibiciones y obligaciones) de contenidos y servicios.
 
 
-| dcat:Distribution | dct:rights |
+| [`dcat:Distribution`](#Distribution) | [`dct:rights`](http://purl.org/dc/terms/rights) |
 | --- | --- |
 | **Metadato** | **Declaración de derechos** |
 | **Descripción** | Permite especificar los derechos vinculados con la distribución que se describe. |
-| **Propiedad** | **dct:rights** |
+| **Propiedad** | [**dct:rights**](http://purl.org/dc/terms/rights) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **dct:RightsStatement** |
+| **Rango** | [**dct:RightsStatement**](http://purl.org/dc/terms/RightsStatement) |
 
 !!! note "Nota de uso"
 
@@ -1828,42 +1828,42 @@ El agente o entidad podrá ser una organización o una persona. Si el agente es 
 
 Como se indica a continuación, todo agente o entidad debe tener un nombre y es recomendable que se indique de qué tipo de agente se trata.
 
-| foaf:Agent | foaf:name |
+| [`foaf:Agent`](#Agent) | [`foaf:name`](http://xmlns.com/foaf/0.1/name) |
 | --- | --- |
 | **Metadato** | **Nombre** |
 | **Descripción** | Identifica el nombre del agente (persona u organización) que ejerce alguno de los roles posibles en el catálogo o los recursos de datos que se describen, |
-| **Propiedad** | **foaf:name** |
+| **Propiedad** | [**foaf:name**](http://xmlns.com/foaf/0.1/name) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **rdfs:Literal** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 !!! note "Nota de uso"
 
     Es importante proporcionar el nombre completo y preciso del agente para una mejor identificación y atribución. Esta propiedad se puede repetir para diferentes versiones del nombre en diferentes idiomas.
 
 
-| foaf:Agent | dct:identifier |
+| [`foaf:Agent`](#Agent) | [`dct:identifier`](http://purl.org/dc/terms/identifier) |
 | --- | --- |
 | **Metadato** | **Identificador** |
 | **Descripción** | El identificador es la propiedad que permite la identificación única e inequívoca de un agente. |
-| **Propiedad** | **dct:identifier** |
+| **Propiedad** | [**dct:identifier**](http://purl.org/dc/terms/identifier) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal.** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 !!! note "Nota de uso"
 
     El uso de esta propiedad es apropiado para indicar el identificador principal de un agente. El identificador podrá ser una URI que proporciona una referencia única y no ambigua respecto al agente. Este identificador debería ser persistente en el tiempo.
 
 
-| foaf:Agent | dct:type |
+| [`foaf:Agent`](#Agent) | [`dct:type`](http://purl.org/dc/terms/type) |
 | --- | --- |
 | **Metadato** | **Tipo** |
 | **Descripción** | Permite identificar la categoría de entidad en la que se enmarca el agente. |
-| **Propiedad** | **dct:type** |
+| **Propiedad** | [**dct:type**](http://purl.org/dc/terms/type) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **skos:Concept** |
+| **Rango** | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
 !!! note "Nota de uso"
 
@@ -1874,28 +1874,28 @@ Como se indica a continuación, todo agente o entidad debe tener un nombre y es 
 
 La clase Control y Verificación de recursos de datos (`spdx:Checksum`) se utiliza para especificar el método y el resultado obtenido que se implementa para garantizar la integridad de las distribuciones de conjuntos de datos, es decir, que su contenido no ha sido alterado.. Permite representar el resultado de una variedad de algoritmos de verificación.
 
-| spdx:Checksum | spdx:algorithm |
+| [`spdx:Checksum`](#Checksum) | [`spdx:algorithm`](http://spdx.org/rdf/terms#algorithm) |
 | --- | --- |
 | **Metadato** | **Algoritmo** |
 | **Descripción** | Identificador del algoritmo utilizado para verificar la integridad de la distribución del conjunto de datos. |
-| **Propiedad** | **spdx:algorithm** |
+| **Propiedad** | [**spdx:algorithm**](http://spdx.org/rdf/terms#algorithm) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..1** |
-| **Rango** | **spdx:checksumAlgorithm\_sha1** |
+| **Rango** | [**spdx:checksumAlgorithm\_sha1**](http://spdx.org/rdf/terms#checksumAlgorithm_sha1) |
 
 !!! note "Nota de uso"
 
     Se recomienda describir el algoritmo utilizado mediante el uso de alguna de los definidos en la [ontología SPDX](http://spdx.org/rdf/spdx-terms-v2.2/#d4e1968).
 
 
-| spdx:Checksum | spdx:checksumValue |
+| [`spdx:Checksum`](#Checksum) | [`spdx:checksumValue`](http://spdx.org/rdf/terms#checksumValue) |
 | --- | --- |
 | **Metadato** | **Valor** |
 | **Descripción** | Especifica el resultado único generado por el algoritmo utilizado para la verificación de integridad. |
-| **Propiedad** | **spdx:checksumValue** |
+| **Propiedad** | [**spdx:checksumValue**](http://spdx.org/rdf/terms#checksumValue) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..1** |
-| **Rango** | **rdfs:Literal** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 !!! note "Nota de uso"
 
@@ -1912,42 +1912,42 @@ Para su implementación, se pueden utilizar las siguientes propiedades recomenda
 * Para referir el centro geográfico de un área espacial u otro punto característico, debe usarse la propiedad `dcat:centroid`.
 * Para referir una geometría extensa, se recomienda utilizar la propiedad `locn:geometry` para expresar un conjunto de coordenadas que denotan los vértices del área geográfica.
 
-| dct:Location | dcat:bbox |
+| [`dct:Location`](#Location) | [`dcat:bbox`](http://www.w3.org/ns/dcat#bbox) |
 | --- | --- |
 | **Metadato** | **Delimitador rectangular** |
 | **Descripción** | Esta propiedad permite especificar el área geográfica determinada por las coordenadas de un delimitador rectangular. |
-| **Propiedad** | **dcat:bbox** |
+| **Propiedad** | [**dcat:bbox**](http://www.w3.org/ns/dcat#bbox) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 !!! note "Nota de uso"
 
     El rango de esta propiedad es genérico (`rdfs:Literal`) para poder expresar la geometría utilizando diferentes codificaciones. Por ejemplo, se puede expresar indicando las coordenadas geográficas (Longitud y Latitud) de las cuatro esquinas que delimitan el rectángulo geográfico.
 
 
-| dct:Location | dcat:centroid |
+| [`dct:Location`](#Location) | [`dcat:centroid`](http://www.w3.org/ns/dcat#centroid) |
 | --- | --- |
 | **Metadato** | **Centroide** |
 | **Descripción** | Esta propiedad permite especificar el punto central de un área geográfica específica |
-| **Propiedad** | **dcat:centroid** |
+| **Propiedad** | [**dcat:centroid**](http://www.w3.org/ns/dcat#centroid) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 !!! note "Nota de uso"
 
     El rango de esta propiedad es genérico (`rdfs:Literal`) para poder expresar la geometría utilizando diferentes codificaciones. Por ejemplo, se puede expresar indicando las coordenadas geográficas (Longitud y Latitud) del punto geográfico.
 
 
-| dct:Location | locn:geometry |
+| [`dct:Location`](#Location) | [`locn:geometry`](http://www.w3.org/ns/locn#geometry) |
 | --- | --- |
 | **Metadato** | **Geometría** |
 | **Descripción** | Esta propiedad permite especificar la forma geométrica específica que representa un área geográfica. Puede referir polígonos o o cualquier área irregular que delimite la región geográfica. |
-| **Propiedad** | **locn:geometry** |
+| **Propiedad** | [**locn:geometry**](http://www.w3.org/ns/locn#geometry) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 !!! note "Nota de uso"
 
@@ -1960,42 +1960,42 @@ La clase Período temporal (`dct:PeriodOfTime`) se utiliza para definir un inter
 
 Respecto al uso de las propiedades fecha de inicio (`dcat:startDate`) y fecha de finalización (`dcat:endDate`), aunque es recomendado el uso de ambas propiedades, al menos una de las dos debe ser especificada cuando se utiliza una instancia de la clase `dct:PeriodOfTime`.
 
-| dct:PeriodOfTime | dcat:startDate |
+| [`dct:PeriodOfTime`](#PeriodOfTime) | [`dcat:startDate`](http://www.w3.org/ns/dcat#startDate) |
 | --- | --- |
 | **Metadato** | **Fecha de inicio** |
 | **Descripción** | Este metadato define la fecha de inicio del intervalo temporal que abarca el contenido de un conjunto de datos. |
-| **Propiedad** | **dcat:startDate** |
+| **Propiedad** | [**dcat:startDate**](http://www.w3.org/ns/dcat#startDate) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** de tipo **xsd:date** (Fecha), **xsd:dateTime** (Fecha/Hora), **xsd:gYear** (Año) o **xsd:gYearMonth** (Año-Mes) |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) de tipo [**xsd:date**](http://www.w3.org/2001/XMLSchema#date) (Fecha), [**xsd:dateTime**](http://www.w3.org/2001/XMLSchema#dateTime) (Fecha/Hora), [**xsd:gYear**](http://www.w3.org/2001/XMLSchema#gYear) (Año) o [**xsd:gYearMonth**](http://www.w3.org/2001/XMLSchema#gYearMonth) (Año-Mes) |
 
 !!! note "Nota de uso"
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 
-| dct:PeriodOfTime | dcat:endDate |
+| [`dct:PeriodOfTime`](#PeriodOfTime) | [`dcat:endDate`](http://www.w3.org/ns/dcat#endDate) |
 | --- | --- |
 | **Metadato** | **Fecha de finalización** |
 | **Descripción** | Este metadato especifica la fecha de finalización del período temporal que abarca el contenido de un conjunto de datos. |
-| **Propiedad** | **dcat:endDate** |
+| **Propiedad** | [**dcat:endDate**](http://www.w3.org/ns/dcat#endDate) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal** de tipo **xsd:date** (Fecha), **xsd:dateTime** (Fecha/Hora), **xsd:gYear** (Año) o **xsd:gYearMonth** (Año-Mes) |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) de tipo [**xsd:date**](http://www.w3.org/2001/XMLSchema#date) (Fecha), [**xsd:dateTime**](http://www.w3.org/2001/XMLSchema#dateTime) (Fecha/Hora), [**xsd:gYear**](http://www.w3.org/2001/XMLSchema#gYear) (Año) o [**xsd:gYearMonth**](http://www.w3.org/2001/XMLSchema#gYearMonth) (Año-Mes) |
 
 !!! note "Nota de uso"
 
     Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 
-| dct:PeriodOfTime | time:hasBeginning |
+| [`dct:PeriodOfTime`](#PeriodOfTime) | [`time:hasBeginning`](http://www.w3.org/2006/time#hasBeginning) |
 | --- | --- |
 | **Metadato** | **Comienzo** |
 | **Descripción** | Este metadato indica el instante concreto que marca el inicio de un período de tiempo relevante para el conjunto de datos. |
-| **Propiedad** | **time:hasBeginning** |
+| **Propiedad** | [**time:hasBeginning**](http://www.w3.org/2006/time#hasBeginning) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **time:Instant** |
+| **Rango** | [**time:Instant**](http://www.w3.org/2006/time#Instant) |
 
 !!! note "Nota de uso"
 
@@ -2009,14 +2009,14 @@ Respecto al uso de las propiedades fecha de inicio (`dcat:startDate`) y fecha de
     * [time::inDateTime](https://www.w3.org/TR/owl-time/#time:inDateTime)
 
 
-| dct:PeriodOfTime | time:hasEnd |
+| [`dct:PeriodOfTime`](#PeriodOfTime) | [`time:hasEnd`](http://www.w3.org/2006/time#hasEnd) |
 | --- | --- |
 | **Metadato** | **Final** |
 | **Descripción** | Este metadato indica el instante concreto que marca el final del período de tiempo relacionado con el conjunto de datos. |
-| **Propiedad** | **time:hasEnd** |
+| **Propiedad** | [**time:hasEnd**](http://www.w3.org/2006/time#hasEnd) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **time:Instant** |
+| **Rango** | [**time:Instant**](http://www.w3.org/2006/time#Instant) |
 
 !!! note "Nota de uso"
 
@@ -2038,49 +2038,47 @@ Este enfoque enriquece la capacidad de describir las relaciones, ofreciendo una 
 
 Se utilizan dos propiedades (`dct:relation` y `dcat:hadRole`) que se declaran obligatoriamente si se implementa una instancia de esta clase.
 
-| dcat:Relationship | dcat:hadRole |
+| [`dcat:Relationship`](#Relationship) | [`dcat:hadRole`](http://www.w3.org/ns/dcat#hadRole) |
 | --- | --- |
 | **Metadato** | **Función** |
 | **Descripción** | Especifica la función que una entidad o agente ejerce respecto a otra entidad o recurso. |
-| **Propiedad** | **dcat:hadRole** |
+| **Propiedad** | [**dcat:hadRole**](http://www.w3.org/ns/dcat#hadRole) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **dcat:Role** |
+| **Rango** | [**dcat:Role**](http://www.w3.org/ns/dcat#Role) |
 
 !!! note "Nota de uso"
 
-    Esta propiedad se puede utilizar para especificar funciones alternativas a las definidas en la clase [`foaf:Agent`](#agente---clase-foafagent---obligatorio) (creador o publicador)). Para ello se puede utilizar uno de los valores del vocabulario controlado de roles de agentes de `http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole` o [RoleCode-ISO19115](https://standards.iso.org/iso/19115/resources/Codelists/gml/CI_RoleCode.xml).
+    Esta propiedad se puede utilizar para especificar funciones alternativas a las definidas en la clase [`foaf:Agent`](#Agent) (creador o publicador)). Para ello se puede utilizar uno de los valores del vocabulario controlado de roles de agentes de `http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole` o [RoleCode-ISO19115](https://standards.iso.org/iso/19115/resources/Codelists/gml/CI_RoleCode.xml).
 
 
-| dcat:Relationship | dct:relation |
+| [`dcat:Relationship`](#Relationship) | [`dct:relation`](http://purl.org/dc/terms/relation) |
 | --- | --- |
 | **Metadato** | **Relación** |
 | **Descripción** | Especifica el recurso sobre el que se describe la relación. |
-| **Propiedad** | **dct:relation** |
+| **Propiedad** | [**dct:relation**](http://purl.org/dc/terms/relation) |
 | **Aplicabilidad** | **Obligatorio** |
 | **Cardinalidad** | **1..n** |
-| **Rango** | **rdfs:Resource** |
+| **Rango** | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
 
 !!! note "Nota de uso"
 
-    Se debe especificar la referencia a un recurso de datos ([`dcat:Dataset`](#conjunto-de-datos---clase-dcatdataset---obligatorio) o [`dcat:DataService`](#servicio-de-datos---clase-dcatdataservice---opcional)).
+    Se debe especificar la referencia a un recurso de datos ([`dcat:Dataset`](#Dataset) o [`dcat:DataService`](#DataService)).
 
-Aquí tienes una actualización para la sección de **Documento de licencia** (`dct:LicenseDocument`) siguiendo la referencia de DCAT-AP 3 (sección 7.11):
-
-## Metadatos de la clase Documento de licencia {#dct-licencedocument}
+## Metadatos de la clase Documento de licencia {#LicenseDocument}
 
 La clase **Documento de licencia** (`dct:LicenseDocument`) representa un documento legal que otorga permiso oficial para hacer algo con un recurso, como reutilizar, compartir o modificar datos.
 
 Se utiliza para describir las condiciones legales bajo las cuales se puede utilizar un recurso, proporcionando claridad sobre los derechos y obligaciones asociados.
 
-| dct:LicenseDocument | dct:type |
+| [`dct:LicenseDocument`](#LicenseDocument) | [`dct:type`](http://purl.org/dc/terms/type) |
 | --- | --- |
 | **Metadato** | **Tipo** |
 | **Descripción** | Permite identificar el tipo de licencia en el que se enmarca el documento. |
-| **Propiedad** | **dct:type** |
+| **Propiedad** | [**dct:type**](http://purl.org/dc/terms/type) |
 | **Aplicabilidad** | **Recomendado** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **skos:Concept** |
+| **Rango** | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 
 !!! note "Nota de uso"
 
@@ -2116,7 +2114,7 @@ Un catálogo de datos es conforme con DCAT-AP-ES cuando:
 
 1. **Estructura del catálogo**: Se estructura como una instancia de `dcat:Catalog` que contiene o referencia todas las instancias de `dcat:Dataset` y/o `dcat:DataService`.
 
-2. **Propiedades obligatorias del catálogo**: Implementa todas las propiedades obligatorias de la clase [`dcat:Catalog`](/#catalogo_-_clase_dcatcatalog_-_obligatorio).
+2. **Propiedades obligatorias del catálogo**: Implementa todas las propiedades obligatorias de la clase [`dcat:Catalog`](/#catalog).
 
 3. **Vocabularios controlados**: Utiliza los [vocabularios controlados recomendados por el modelo](/#dcat-ap-es-vocabularies), y particularmente aquellos que son obligatorios para las propiedades descritas.
 

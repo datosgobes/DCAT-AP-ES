@@ -206,6 +206,51 @@ th {
     color: var(--header-text-color);
 }
 
+/* First column: auto width by default (allows wrapping for text) */
+th:first-child,
+td:first-child {
+    min-width: fit-content;
+}
+
+/* First column with code: fixed width and no wrapping */
+th:first-child:has(code),
+td:first-child:has(code) {
+    white-space: nowrap;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+/* Prevent code elements from wrapping */
+td code, th code {
+    white-space: nowrap;
+}
+
+/* Allow cells containing code to expand if needed */
+td:has(code), th:has(code) {
+    white-space: nowrap;
+}
+
+/* Responsive: adjust first column width on smaller screens (only for cells with code) */
+@media screen and (max-width: 768px) {
+    th:first-child:has(code),
+    td:first-child:has(code) {
+        width: 150px;
+        min-width: 150px;
+        max-width: 150px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    th:first-child:has(code),
+    td:first-child:has(code) {
+        width: 120px;
+        min-width: 120px;
+        max-width: 120px;
+        font-size: 0.85em;
+    }
+}
+
 a {
     color: var(--link-color);
     text-decoration: none;
