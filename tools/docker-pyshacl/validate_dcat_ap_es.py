@@ -384,6 +384,8 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
                 validation_failed = True
                 # In 'all' mode, stop immediately if a phase fails
                 if self.mode == 'all':
+                    # Generate summary before exiting so SUMMARY.md exists
+                    self.generate_summary()
                     self.print_section("Validación Completa")
                     self.log_error("❌ Fase 0 falló. Deteniendo validación.")
                     return 1
@@ -393,6 +395,8 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
                 validation_failed = True
                 # In 'all' mode, stop immediately if a phase fails
                 if self.mode == 'all':
+                    # Generate summary before exiting so SUMMARY.md exists
+                    self.generate_summary()
                     self.print_section("Validación Completa")
                     self.log_error("❌ Fase 1 falló. Deteniendo validación.")
                     return 1
@@ -402,6 +406,8 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
                 validation_failed = True
                 # In 'all' mode, stop immediately if a phase fails
                 if self.mode == 'all':
+                    # Generate summary before exiting so SUMMARY.md exists
+                    self.generate_summary()
                     self.print_section("Validación Completa")
                     self.log_error("❌ Fase 2 falló. Deteniendo validación.")
                     return 1
