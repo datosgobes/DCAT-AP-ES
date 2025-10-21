@@ -19,7 +19,7 @@ assignees: dportoles, mjanez
 ## Elemento afectado
 > *Indica la clase, propiedad o componente del modelo DCAT-AP-ES donde se encuentra el problema.*
 - ***Clase/Propiedad**: Ej: `dcat:Dataset`, `dct:publisher`, etc.*
-- ***Ubicación en el perfil**:  Referencia a la sección específica del documento, ej: https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_distribution-dcat_accessurl*
+- ***Ubicación en el perfil**:  Referencia a la sección específica del documento, ej: https://datosgobes.github.io/DCAT-AP-ES/#Distribution.accessURL*
 
 ### Situación actual en DCAT-AP-ES
 > *Describe cómo funciona o está definido actualmente el elemento.*
