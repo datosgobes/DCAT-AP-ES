@@ -2,7 +2,6 @@
 """
 Compare model properties in docs/index.md against SHACL shapes.
 Generates tests/validation-reports/model-vs-shacl-report.md (Markdown table)
-and model-vs-shacl-report.csv (CSV export)
 
 Improvements (A, B, C):
  A) Robust Markdown table parser for index.md (accurate Aplicabilidad/Cardinalidad extraction)
@@ -24,7 +23,6 @@ Usage: run from repo root:
 import re
 import os
 import sys
-import csv
 from collections import defaultdict
 from configparser import ConfigParser
 from rdflib import Graph, Namespace, URIRef
@@ -41,7 +39,6 @@ SHACL_DIR = os.path.join(REPO_ROOT, 'shacl', '1.0.0')
 SHACL_HVD_DIR = os.path.join(REPO_ROOT, 'shacl', '1.0.0', 'hvd')
 TEST_INI = os.path.join(REPO_ROOT, 'tests', 'test.ini')
 OUT_REPORT = os.path.join(REPO_ROOT, 'tests', 'validation-reports', 'model-vs-shacl-report.md')
-OUT_CSV = os.path.join(REPO_ROOT, 'tests', 'validation-reports', 'model-vs-shacl-report.csv')
 
 SH = Namespace('http://www.w3.org/ns/shacl#')
 DCAT = Namespace('http://www.w3.org/ns/dcat#')
@@ -182,20 +179,67 @@ def parse_index_md(path):
                     if future_line.strip() == '' or future_line.startswith('## ') or future_line.startswith('!!!'):
                         break
                     
-                    # Extract Aplicabilidad
+                    # Extract Aplicabilidad (handles "Recomendado - Sí es HVD: Obligatorio")
                     if '**Aplicabilidad**' in future_line:
-                        if 'Obligatorio' in future_line:
-                            applicability = 'Obligatorio'
-                        elif 'Recomendado' in future_line:
-                            applicability = 'Recomendado'
-                        elif 'Opcional' in future_line:
-                            applicability = 'Opcional'
+                        # Check for HVD-specific format first (look for " - " separator followed by HVD indicator)
+                        if ' - ' in future_line and 'HVD' in future_line:
+                            # Format: "Recomendado - Sí es HVD: Obligatorio"
+                            # Split on " - " to get base part
+                            parts = future_line.split(' - ', 1)
+                            if len(parts) == 2:
+                                # Base applicability (before " - ")
+                                base_part = parts[0]
+                                if 'Obligatorio' in base_part:
+                                    applicability = 'Obligatorio'
+                                elif 'Recomendado' in base_part:
+                                    applicability = 'Recomendado'
+                                elif 'Opcional' in base_part:
+                                    applicability = 'Opcional'
+                                
+                                # HVD applicability (after "Sí es HVD:" or "HVD:")
+                                hvd_part = parts[1]
+                                # Look for the colon after HVD indicator
+                                if ':' in hvd_part:
+                                    hvd_text = hvd_part.split(':', 1)[-1]
+                                    if 'Obligatorio' in hvd_text:
+                                        hvd_applicability = 'Obligatorio'
+                                    elif 'Recomendado' in hvd_text:
+                                        hvd_applicability = 'Recomendado'
+                                    elif 'Opcional' in hvd_text:
+                                        hvd_applicability = 'Opcional'
+                        else:
+                            # Standard format (no HVD distinction)
+                            if 'Obligatorio' in future_line:
+                                applicability = 'Obligatorio'
+                            elif 'Recomendado' in future_line:
+                                applicability = 'Recomendado'
+                            elif 'Opcional' in future_line:
+                                applicability = 'Opcional'
                     
-                    # Extract Cardinalidad
+                    # Extract Cardinalidad (handles "0..n - Sí es HVD: 1..n")
                     if '**Cardinalidad**' in future_line:
-                        m_card = re.search(r'([\d]+\.\.[\dn]+)', future_line)
-                        if m_card:
-                            cardinality = m_card.group(1)
+                        # Check for HVD-specific format first
+                        if ' - ' in future_line and 'HVD' in future_line:
+                            # Format: "0..n - Sí es HVD: 1..n"
+                            parts = future_line.split(' - ', 1)
+                            if len(parts) == 2:
+                                # Base cardinality
+                                m_card = re.search(r'([\d]+\.\.[\dn]+)', parts[0])
+                                if m_card:
+                                    cardinality = m_card.group(1)
+                                
+                                # HVD cardinality
+                                hvd_part = parts[1]
+                                if ':' in hvd_part:
+                                    hvd_text = hvd_part.split(':', 1)[-1]
+                                    m_hvd_card = re.search(r'([\d]+\.\.[\dn]+)', hvd_text)
+                                    if m_hvd_card:
+                                        hvd_cardinality = m_hvd_card.group(1)
+                        else:
+                            # Standard format (no HVD distinction)
+                            m_card = re.search(r'([\d]+\.\.[\dn]+)', future_line)
+                            if m_card:
+                                cardinality = m_card.group(1)
                 
                 # Extract property name from URI (last part after # or /)
                 prop_name = prop_uri.split('/')[-1].split('#')[-1]
@@ -379,6 +423,9 @@ def merge_shape_entries(shapes):
     """
     Merge multiple SHACL property shape entries for the same property.
     Takes the best values from all shapes (e.g., if one has minCount and another has severity).
+    
+    IMPORTANT: For cardinality constraints (minCount/maxCount), we preserve
+    the severity from the shape that defines that specific constraint.
     """
     if not shapes:
         return None
@@ -386,21 +433,39 @@ def merge_shape_entries(shapes):
         return shapes[0]
     
     merged = dict(shapes[0])
+    
+    # Track severity associated with cardinality constraints
+    mincount_severity = merged.get('severity') if merged.get('minCount') is not None else None
+    maxcount_severity = merged.get('severity') if merged.get('maxCount') is not None else None
+    
     # Merge attributes from remaining shapes
     for shape in shapes[1:]:
         # Keep non-None values; if first entry has None, take from next
         if not merged.get('severity') and shape.get('severity'):
             merged['severity'] = shape.get('severity')
+        
+        # Track severity from the shape that provides minCount
         if merged.get('minCount') is None and shape.get('minCount') is not None:
             merged['minCount'] = shape.get('minCount')
+            mincount_severity = shape.get('severity')
+        
+        # Track severity from the shape that provides maxCount
         if merged.get('maxCount') is None and shape.get('maxCount') is not None:
             merged['maxCount'] = shape.get('maxCount')
+            maxcount_severity = shape.get('severity')
+            
         if not merged.get('nodeKind') and shape.get('nodeKind'):
             merged['nodeKind'] = shape.get('nodeKind')
         if not merged.get('datatype') and shape.get('datatype'):
             merged['datatype'] = shape.get('datatype')
         if not merged.get('class') and shape.get('class'):
             merged['class'] = shape.get('class')
+    
+    # Store cardinality-specific severities for later comparison
+    if mincount_severity:
+        merged['minCount_severity'] = mincount_severity
+    if maxcount_severity:
+        merged['maxCount_severity'] = maxcount_severity
     
     return merged
 
@@ -475,54 +540,92 @@ def compare_properties(model, base_idx, hvd_idx, reusable_shapes):
             hvd_shape = merge_shape_entries(hvd_shapes)
             
             if shape:
-                # Check 2: Severity alignment
-                severity = shape.get('severity', '')
+                # Check 2: Severity alignment for BASE (non-HVD)
+                # Use minCount_severity if available, otherwise general severity
+                severity = shape.get('minCount_severity') if shape.get('minCount') is not None else shape.get('severity', '')
+                
                 if applicability:
                     app_lower = applicability.lower()
                     if 'oblig' in app_lower or 'mandatory' in app_lower:
                         if not severity or 'Violation' not in severity:
-                            result['issues'].append(f"Doc: Obligatorio, pero la severidad en SHACL es {severity or 'not set'}")
+                            result['issues'].append(f"Doc base: Obligatorio, pero severidad SHACL base es {severity or 'not set'}")
                             result['status'] = 'WARN'
                     elif 'recomend' in app_lower or 'recommend' in app_lower:
-                        if severity and 'Violation' in severity:
-                            result['issues'].append(f"Doc: Recomendado, pero la severidad en SHACL es Violation")
-                            result['status'] = 'WARN'
+                        # For Recomendado: Warning is correct, Violation would be inconsistent
+                        # But only check if we have a minCount (cardinality constraint)
+                        if shape.get('minCount') is not None:
+                            if severity and 'Violation' in severity:
+                                result['issues'].append(f"Doc base: Recomendado, pero severidad SHACL base es Violation")
+                                result['status'] = 'WARN'
                 
-                # Check 3: Cardinality alignment
+                # Check 3: Cardinality alignment for BASE (non-HVD)
                 min_count = shape.get('minCount')
                 max_count = shape.get('maxCount')
                 if cardinality:
-                    if '1..' in cardinality or cardinality.startswith('1'):
-                        if min_count != 1:
-                            result['issues'].append(f"Modelo: cardinalidad 1, pero en SHACL minCount={min_count}")
+                    # Extract min from cardinality (e.g., "0..n" -> 0, "1..1" -> 1)
+                    card_min = int(cardinality.split('..')[0]) if '..' in cardinality else None
+                    card_max_str = cardinality.split('..')[-1] if '..' in cardinality else None
+                    card_max = int(card_max_str) if card_max_str and card_max_str.isdigit() else None
+                    
+                    # Only validate if both have values
+                    if card_min is not None and min_count is not None:
+                        if card_min != min_count:
+                            result['issues'].append(f"Doc base: cardinalidad min={card_min}, pero SHACL base minCount={min_count}")
                             result['status'] = 'WARN'
-                    if '0..' in cardinality or cardinality.startswith('0'):
-                        if min_count and min_count > 0:
-                            result['issues'].append(f"Modelo: cardinalidad 0, pero en SHACL minCount={min_count}")
-                            result['status'] = 'WARN'
-                    if '1..1' in cardinality:
-                        if max_count != 1:
-                            result['issues'].append(f"Modelo: cardinalidad 1, pero en SHACL maxCount={max_count}")
+                    
+                    if card_max is not None and max_count is not None:
+                        if card_max != max_count:
+                            result['issues'].append(f"Doc base: cardinalidad max={card_max}, pero SHACL base maxCount={max_count}")
                             result['status'] = 'WARN'
             
-            # Check C: HVD compliance (informational only, not blocking)
-            if hvd_applicability:
-                hvd_app_lower = hvd_applicability.lower()
-                if 'oblig' in hvd_app_lower or 'mandatory' in hvd_app_lower:
-                    # HVD-mandatory: SHOULD have HVD shape with minCount>=1 and severity=Violation
-                    if not hvd_shape:
-                        result['issues'].append('INFO: HVD-mandatory but no HVD SHACL shape found')
-                        if result['status'] == 'OK':
-                            result['status'] = 'INFO'
-                    else:
-                        hvd_sev = hvd_shape.get('severity', '')
-                        hvd_min = hvd_shape.get('minCount')
-                        if not hvd_sev or 'Violation' not in hvd_sev:
-                            result['issues'].append(f'INFO: HVD obligatorio pero la severidad en SHACL es {hvd_sev or "not set"}')
+            # Check C: HVD compliance (informational, not blocking)
+            if hvd_applicability or hvd_cardinality:
+                if hvd_applicability:
+                    hvd_app_lower = hvd_applicability.lower()
+                    if 'oblig' in hvd_app_lower or 'mandatory' in hvd_app_lower:
+                        # HVD-mandatory: SHOULD have HVD shape with minCount>=1 and severity=Violation
+                        if not hvd_shape:
+                            result['issues'].append('INFO: Doc HVD obligatorio pero no hay forma SHACL HVD')
                             if result['status'] == 'OK':
                                 result['status'] = 'INFO'
-                        if not hvd_min or hvd_min < 1:
-                            result['issues'].append(f'INFO: HVD obligatorio pero en SHACL minCount={hvd_min}')
+                        else:
+                            hvd_sev = hvd_shape.get('severity', '')
+                            hvd_min = hvd_shape.get('minCount')
+                            if not hvd_sev or 'Violation' not in hvd_sev:
+                                result['issues'].append(f'INFO: Doc HVD obligatorio pero severidad SHACL HVD es {hvd_sev or "not set"}')
+                                if result['status'] == 'OK':
+                                    result['status'] = 'INFO'
+                            if not hvd_min or hvd_min < 1:
+                                result['issues'].append(f'INFO: Doc HVD obligatorio pero SHACL HVD minCount={hvd_min}')
+                                if result['status'] == 'OK':
+                                    result['status'] = 'INFO'
+                    elif 'recomend' in hvd_app_lower or 'recommend' in hvd_app_lower:
+                        if hvd_shape:
+                            hvd_sev = hvd_shape.get('severity', '')
+                            if hvd_sev and 'Violation' in hvd_sev:
+                                result['issues'].append(f'INFO: Doc HVD recomendado pero severidad SHACL HVD es Violation')
+                                if result['status'] == 'OK':
+                                    result['status'] = 'INFO'
+                
+                # HVD Cardinality check
+                if hvd_cardinality and hvd_shape:
+                    hvd_min = hvd_shape.get('minCount')
+                    hvd_max = hvd_shape.get('maxCount')
+                    
+                    # Extract min/max from HVD cardinality
+                    hvd_card_min = int(hvd_cardinality.split('..')[0]) if '..' in hvd_cardinality else None
+                    hvd_card_max_str = hvd_cardinality.split('..')[-1] if '..' in hvd_cardinality else None
+                    hvd_card_max = int(hvd_card_max_str) if hvd_card_max_str and hvd_card_max_str.isdigit() else None
+                    
+                    if hvd_card_min is not None and hvd_min is not None:
+                        if hvd_card_min != hvd_min:
+                            result['issues'].append(f'INFO: Doc HVD cardinalidad min={hvd_card_min}, pero SHACL HVD minCount={hvd_min}')
+                            if result['status'] == 'OK':
+                                result['status'] = 'INFO'
+                    
+                    if hvd_card_max is not None and hvd_max is not None:
+                        if hvd_card_max != hvd_max:
+                            result['issues'].append(f'INFO: Doc HVD cardinalidad max={hvd_card_max}, pero SHACL HVD maxCount={hvd_max}')
                             if result['status'] == 'OK':
                                 result['status'] = 'INFO'
             
@@ -549,9 +652,9 @@ def generate_markdown_report(results, output_file):
         fh.write(f'- **Total propiedades analizadas**: {total}\n')
         fh.write(f'- ✅ **OK**: {ok}\n')
         fh.write(f'- ⚠️ **WARN**: {warn} (no bloqueante)\n')
-        fh.write(f'- ❌ **MISSING**: {missing}\n')
+        fh.write(f'- ❔ **MISSING**: {missing}\n')
         fh.write(f'- ℹ️ **INFO**: {info} (HVD - no bloqueante)\n')
-        fh.write(f'- 🚨 **CRITICAL**: {critical} (Propiedades OBLIGATORIAS sin SHACL)\n\n')
+        fh.write(f'- ❌ **CRITICAL**: {critical} (Propiedades OBLIGATORIAS sin SHACL)\n\n')
         
         if critical > 0:
             fh.write('❌ **ERROR BLOQUEANTE**: Propiedades OBLIGATORIAS del modelo no tienen formas SHACL correspondientes.\n\n')
@@ -565,8 +668,8 @@ def generate_markdown_report(results, output_file):
         
         for entity in sorted(by_entity.keys()):
             fh.write(f'## {entity}\n\n')
-            fh.write('| Propiedad | Doc Aplicabilidad | Doc Cardinalidad | SHACL Severity | SHACL minCount | SHACL maxCount | HVD App | HVD minCount | Status | Notas |\n')
-            fh.write('|-----------|-------------------|------------------|----------------|----------------|----------------|---------|--------------|--------|-------|\n')
+            fh.write('| Propiedad | Doc App Base | Doc Card Base | Doc App HVD | Doc Card HVD | SHACL Sev Base | SHACL minC Base | SHACL maxC Base | SHACL Sev HVD | SHACL minC HVD | SHACL maxC HVD | Status | Notas |\n')
+            fh.write('|-----------|--------------|---------------|-------------|--------------|----------------|-----------------|-----------------|---------------|----------------|----------------|--------|-------|\n')
             
             for r in sorted(by_entity[entity], key=lambda x: x['prop']):
                 prop_short = r['prop'].replace('http://purl.org/dc/terms/', 'dct:') \
@@ -581,18 +684,33 @@ def generate_markdown_report(results, output_file):
                     .replace('http://www.w3.org/ns/locn#', 'locn:') \
                     .replace('http://www.w3.org/2006/time#', 'time:')
                 
-                doc_app = r['doc_applicability'] or '-'
-                doc_card = r['doc_cardinality'] or '-'
+                # Base documentation
+                doc_app_base = r['doc_applicability'] or '-'
+                doc_card_base = r['doc_cardinality'] or '-'
                 
+                # HVD documentation
+                doc_app_hvd = r['hvd_applicability'] or '-'
+                doc_card_hvd = r['hvd_cardinality'] or '-'
+                
+                # Base SHACL
                 base_shape = merge_shape_entries(r['base_shapes']) if r['base_shapes'] else None
+                # Use minCount_severity if available (for cardinality constraints), otherwise general severity
+                if base_shape and base_shape.get('minCount') is not None and base_shape.get('minCount_severity'):
+                    shacl_sev_base = base_shape['minCount_severity'].replace('http://www.w3.org/ns/shacl#', 'sh:')
+                else:
+                    shacl_sev_base = base_shape['severity'].replace('http://www.w3.org/ns/shacl#', 'sh:') if base_shape and base_shape.get('severity') else '-'
+                shacl_min_base = str(base_shape['minCount']) if base_shape and base_shape.get('minCount') is not None else '-'
+                shacl_max_base = str(base_shape['maxCount']) if base_shape and base_shape.get('maxCount') is not None else '-'
+                
+                # HVD SHACL
                 hvd_shape = merge_shape_entries(r['hvd_shapes']) if r['hvd_shapes'] else None
-                
-                shacl_sev = base_shape['severity'].replace('http://www.w3.org/ns/shacl#', 'sh:') if base_shape and base_shape.get('severity') else '-'
-                shacl_min = str(base_shape['minCount']) if base_shape and base_shape.get('minCount') is not None else '-'
-                shacl_max = str(base_shape['maxCount']) if base_shape and base_shape.get('maxCount') is not None else '-'
-                
-                hvd_app = r['hvd_applicability'] or '-'
-                hvd_min = str(hvd_shape['minCount']) if hvd_shape and hvd_shape.get('minCount') is not None else '-'
+                # Use minCount_severity if available (for cardinality constraints), otherwise general severity
+                if hvd_shape and hvd_shape.get('minCount') is not None and hvd_shape.get('minCount_severity'):
+                    shacl_sev_hvd = hvd_shape['minCount_severity'].replace('http://www.w3.org/ns/shacl#', 'sh:')
+                else:
+                    shacl_sev_hvd = hvd_shape['severity'].replace('http://www.w3.org/ns/shacl#', 'sh:') if hvd_shape and hvd_shape.get('severity') else '-'
+                shacl_min_hvd = str(hvd_shape['minCount']) if hvd_shape and hvd_shape.get('minCount') is not None else '-'
+                shacl_max_hvd = str(hvd_shape['maxCount']) if hvd_shape and hvd_shape.get('maxCount') is not None else '-'
                 
                 status_icon = {
                     'OK': '✅',
@@ -604,7 +722,7 @@ def generate_markdown_report(results, output_file):
                 
                 issues_str = '; '.join(r['issues']) if r['issues'] else ''
                 
-                fh.write(f'| `{prop_short}` | {doc_app} | {doc_card} | {shacl_sev} | {shacl_min} | {shacl_max} | {hvd_app} | {hvd_min} | {status_icon} {r["status"]} | {issues_str} |\n')
+                fh.write(f'| `{prop_short}` | {doc_app_base} | {doc_card_base} | {doc_app_hvd} | {doc_card_hvd} | {shacl_sev_base} | {shacl_min_base} | {shacl_max_base} | {shacl_sev_hvd} | {shacl_min_hvd} | {shacl_max_hvd} | {status_icon} {r["status"]} | {issues_str} |\n')
             
             fh.write('\n')
         
@@ -632,44 +750,6 @@ def generate_markdown_report(results, output_file):
     print(f'Generado informe Markdown: {output_file}')
 
 
-def generate_csv_report(results, output_file):
-    """Generate CSV export for spreadsheet analysis."""
-    os.makedirs(os.path.dirname(output_file), exist_ok=True)
-    
-    with open(output_file, 'w', encoding='utf-8', newline='') as fh:
-        writer = csv.writer(fh)
-        writer.writerow([
-            'Entity', 'Property', 'Metadato',
-            'Doc Aplicabilidad', 'Doc Cardinalidad',
-            'SHACL Severity', 'SHACL minCount', 'SHACL maxCount', 'SHACL nodeKind',
-            'HVD Aplicabilidad', 'HVD minCount',
-            'Status', 'Issues'
-        ])
-        
-        for r in results:
-            # Use merged shapes
-            base_shape = merge_shape_entries(r['base_shapes']) if r['base_shapes'] else {}
-            hvd_shape = merge_shape_entries(r['hvd_shapes']) if r['hvd_shapes'] else {}
-            
-            writer.writerow([
-                r['entity'],
-                r['prop'],
-                r['metadato'],
-                r['doc_applicability'] or '',
-                r['doc_cardinality'] or '',
-                base_shape.get('severity', ''),
-                base_shape.get('minCount', ''),
-                base_shape.get('maxCount', ''),
-                base_shape.get('nodeKind', ''),
-                r['hvd_applicability'] or '',
-                hvd_shape.get('minCount', ''),
-                r['status'],
-                '; '.join(r['issues'])
-            ])
-
-    print(f'Generado informe CSV: {output_file}')
-
-
 def main():
     print('Cargando configuración del test.ini...')
     load_config(TEST_INI)
@@ -685,7 +765,6 @@ def main():
 
     print('Generando informes...')
     generate_markdown_report(results, OUT_REPORT)
-    generate_csv_report(results, OUT_CSV)
     
     # Note: Summary is generated by validate-local.sh as part of Phase 3 (all phases combined)
     

@@ -721,7 +721,7 @@ Utilizando esta clase, un dataset se puede distribuir en diferentes representaci
 | **Metadato** | **Legislación aplicable** |
 | **Descripción** | Referencia a la legislación aplicable, sí contiene datos de alto valor, entonces debe indicarse al menos el [Reglamento de Implementación 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj) |
 | **Propiedad** | [**dcatap:applicableLegislation**](http://data.europa.eu/r5r/applicableLegislation) |
-| **Aplicabilidad** | **Recomendado - Sí es HVD: Obligatorio** |
+| **Aplicabilidad** | **Recomendado** - **Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
 | **Rango** | [**eli:LegalResource**](http://data.europa.eu/eli/ontology#LegalResource) |
 
@@ -1498,7 +1498,7 @@ Esta entidad se considera clave para entender cómo se puede obtener y utilizar 
 | **Metadato** | **Legislación aplicable** |
 | **Descripción** | Referencia a la legislación aplicable, sí distribuye datos de alto valor, entonces debe indicarse al menos el [Reglamento de Implementación 2023/138](http://data.europa.eu/eli/reg_impl/2023/138/oj) |
 | **Propiedad** | [**dcatap:applicableLegislation**](http://data.europa.eu/r5r/applicableLegislation) |
-| **Aplicabilidad** | **Recomendado - Sí es HVD: Obligatorio** |
+| **Aplicabilidad** | **Recomendado** - **Sí es HVD: Obligatorio** |
 | **Cardinalidad** | **0..n** - **Sí es HVD: 1..n** |
 | **Rango** | [**eli:LegalResource**](http://data.europa.eu/eli/ontology#LegalResource) |
 

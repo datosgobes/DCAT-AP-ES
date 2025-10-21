@@ -337,32 +337,34 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 | Caso de Prueba | Esperado | Estado |
 |----------------|----------|--------|
 """
-        
-        for section in config.sections():
-            # Skip configuration sections
-            if section in config_sections:
-                continue
-            test_name = config.get(section, 'name', fallback=section)
-            test_expect = config.get(section, 'expect', fallback='conformant')
-            report_file = os.path.join(self.report_dir, f'{section}-report.ttl')
+            # Only process test cases if Phase 2 was executed
+            for section in config.sections():
+                # Skip configuration sections
+                if section in config_sections:
+                    continue
+                test_name = config.get(section, 'name', fallback=section)
+                test_expect = config.get(section, 'expect', fallback='conformant')
+                report_file = os.path.join(self.report_dir, f'{section}-report.ttl')
+                
+                if os.path.exists(report_file):
+                    with open(report_file, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        conforms = 'true' in content and 'sh:conforms true' in content
+                        violations = content.count('sh:resultSeverity sh:Violation')
+                else:
+                    conforms = False
+                    violations = 0
+                
+                expect_label = "Conformidad completa" if test_expect == "conformant" else "Avisos permitidos"
+                
+                if test_expect == 'conformant':
+                    status = "✅ CORRECTO" if conforms else "❌ ERROR"
+                else:  # warnings
+                    status = "✅ CORRECTO" if (conforms or violations == 0) else "❌ ERROR"
+                
+                summary_content += f"| {test_name} | {expect_label} | {status} |\n"
             
-            if os.path.exists(report_file):
-                with open(report_file, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    conforms = 'true' in content and 'sh:conforms true' in content
-                    violations = content.count('sh:resultSeverity sh:Violation')
-            else:
-                conforms = False
-                violations = 0
-            
-            expect_label = "Conformidad completa" if test_expect == "conformant" else "Avisos permitidos"
-            
-            if test_expect == 'conformant':
-                status = "✅ CORRECTO" if conforms else "❌ ERROR"
-            else:  # warnings
-                status = "✅ CORRECTO" if (conforms or violations == 0) else "❌ ERROR"
-            
-            summary_content += f"| {test_name} | {expect_label} | {status} |\n"
+            summary_content += "\n---\n"
         
         summary_content += """
 ## Estadísticas
@@ -380,22 +382,27 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 ## Informes Detallados
 
 >[!TIP]
-> **GitHub Actions**: Informes detallados disponibles en los artefactos generados por el contenedor. Ver: **{self.repo_url}/actions/workflows/validate-shacl.yml**
+> **GitHub Actions**: Informes detallados disponibles en los artefactos generados por el contenedor. Ver: **https://github.com/datosgobes/DCAT-AP-ES/actions/workflows/validate-shacl.yml**
 
-**Fase 0 - Comparación Modelo-SHACL:**
+"""
+        
+        if self.phase_0_executed:
+            summary_content += """**Fase 0 - Comparación Modelo-SHACL:**
 - `model-vs-shacl-report.md` - Formato Markdown con análisis detallado de propiedades
 - `model-vs-shacl-report.csv` - Formato CSV para importar en hojas de cálculo
 
-**Fase 2 - Resultados de Validación SHACL (formato Turtle):**
 """
         
-        for section in config.sections():
-            # Skip configuration sections
-            if section in config_sections:
-                continue
-            
-            test_name = config.get(section, 'name', fallback=section)
-            summary_content += f"- `{section}-report.ttl` - {test_name}\n"
+        if self.phase_2_executed:
+            summary_content += """**Fase 2 - Resultados de Validación SHACL (formato Turtle):**
+"""
+            for section in config.sections():
+                # Skip configuration sections
+                if section in config_sections:
+                    continue
+                
+                test_name = config.get(section, 'name', fallback=section)
+                summary_content += f"- `{section}-report.ttl` - {test_name}\n"
         
         summary_file = os.path.join(self.report_dir, 'SUMMARY.md')
         with open(summary_file, 'w', encoding='utf-8') as f:
