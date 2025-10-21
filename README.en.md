@@ -1,5 +1,5 @@
 # DCAT-AP-ES repository
-[![EN](https://img.shields.io/badge/lang-EN-blue.svg)](README.en.md) [![ES](https://img.shields.io/badge/lang-ES-yellow.svg)](README.md)
+[![ES](https://img.shields.io/badge/lang-ES-yellow.svg)](README.md) [![EN](https://img.shields.io/badge/lang-EN-blue.svg)](README.en.md) [![Validación formas SHACL](https://github.com/datosgobes/DCAT-AP-ES/actions/workflows/validate-shacl.yml/badge.svg)](https://github.com/datosgobes/DCAT-AP-ES/actions/workflows/validate-shacl.yml)
 
 This project provides a set of resources for the [technical implementation of DCAT-AP-ES](https://datos.gob.es/es/documentacion/etiquetas/normativas-3836), an application profile of the Data Catalog Vocabulary ([DCAT-AP](https://datos.gob.es/es/documentacion/dcat-ap-perfil-de-aplicacion-de-dcat-para-portales-open-data-europeos)) for Spain.
 
