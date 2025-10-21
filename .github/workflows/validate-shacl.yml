@@ -60,7 +60,7 @@ jobs:
         run: |
           EXIT_CODE="${{ steps.validate.outputs.exit_code }}"
           if [ "$EXIT_CODE" != "0" ]; then
-            echo "❌ Validación fallida con código de salida: $EXIT_CODE"
+            echo "❌ Validación fallida, revisa los artefactos con los informes. Código de salida: $EXIT_CODE"
             exit 1
           fi
           echo "✅ Validación completa exitosa"

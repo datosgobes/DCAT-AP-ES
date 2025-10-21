@@ -31,6 +31,7 @@ NC = '\033[0m'  # No Color
 class Validator:
     def __init__(self, repo_root, mode='all'):
         self.repo_root = repo_root
+        self.repo_url = f'https://github.com/datosgobes/DCAT-AP-ES'
         self.mode = mode
         self.report_dir = os.path.join(repo_root, 'tests/validation-reports')
         self.test_config = os.path.join(repo_root, 'tests/test.ini')
@@ -353,6 +354,9 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 - **Fase 2 (Semántica):** Fallos en pruebas: {self.shacl_errors}
 
 ## Informes Detallados
+
+>[!TIP]
+> **GitHub Actions**: Informes detallados disponibles en los artefactos generados por el contenedor. Ver: **{self.repo_url}/actions/workflows/validate-shacl.yml**
 
 **Fase 0 - Comparación Modelo-SHACL:**
 - `model-vs-shacl-report.md` - Formato Markdown con análisis detallado de propiedades
