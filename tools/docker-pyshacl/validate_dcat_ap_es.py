@@ -45,6 +45,11 @@ class Validator:
         self.model_warnings = 0
         self.model_info = 0
         
+        # Track which phases were executed
+        self.phase_0_executed = False
+        self.phase_1_executed = False
+        self.phase_2_executed = False
+        
         # Create report directory
         os.makedirs(self.report_dir, exist_ok=True)
     
@@ -79,6 +84,7 @@ class Validator:
     
     def phase_0_model_shacl(self):
         """Fase 0: Comparación Modelo-SHACL - llama a compare_model_shacl.py directamente."""
+        self.phase_0_executed = True
         self.print_section("Fase 0: Comparación Modelo-SHACL")
         
         self.log_info("Comparando documentación del modelo (docs/index.md) contra formas SHACL...")
@@ -117,6 +123,7 @@ class Validator:
     
     def phase_1_syntax(self):
         """Fase 1: Validar sintaxis de archivos de formas SHACL."""
+        self.phase_1_executed = True
         self.print_section("Fase 1: Validación Sintáctica (Formas SHACL)")
         
         if not os.path.exists(self.test_config):
@@ -187,6 +194,7 @@ class Validator:
     
     def phase_2_semantic(self):
         """Fase 2: Validación semántica (ejemplos RDF contra SHACL) - usa pyshacl directamente."""
+        self.phase_2_executed = True
         self.print_section("Fase 2: Validación Semántica (Ejemplos RDF contra SHACL)")
         
         if not os.path.exists(self.test_config):
@@ -296,7 +304,11 @@ class Validator:
 
 El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 
-### Fase 0: Comparación Modelo-SHACL
+"""
+        
+        # Only show executed phases
+        if self.phase_0_executed:
+            summary_content += f"""### Fase 0: Comparación Modelo-SHACL
 **Propósito:** Verificar que el modelo de documentación tiene definiciones SHACL correspondientes
 
 - **Estado:** {'❌ BLOQUEANTE' if self.model_critical > 0 else '✅ CORRECTO'}
@@ -305,7 +317,10 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 
 ---
 
-### Fase 1: Validación Sintáctica (Formas SHACL)
+"""
+        
+        if self.phase_1_executed:
+            summary_content += f"""### Fase 1: Validación Sintáctica (Formas SHACL)
 **Propósito:** Verificar que los archivos de formas SHACL son RDF/Turtle sintácticamente válidos
 
 - **Errores de sintaxis:** {self.syntax_errors}
@@ -313,7 +328,10 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 
 ---
 
-### Fase 2: Validación Semántica (Ejemplos RDF contra SHACL)
+"""
+        
+        if self.phase_2_executed:
+            summary_content += """### Fase 2: Validación Semántica (Ejemplos RDF contra SHACL)
 **Propósito:** Validar archivos de ejemplo RDF contra las restricciones de las formas SHACL
 
 | Caso de Prueba | Esperado | Estado |
@@ -346,13 +364,19 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
             
             summary_content += f"| {test_name} | {expect_label} | {status} |\n"
         
-        summary_content += f"""
+        summary_content += """
 ## Estadísticas
 
-- **Fase 0 (Modelo-SHACL):** Problemas CRÍTICOS: {self.model_critical}
-- **Fase 1 (Sintaxis):** Errores: {self.syntax_errors}
-- **Fase 2 (Semántica):** Fallos en pruebas: {self.shacl_errors}
-
+"""
+        
+        if self.phase_0_executed:
+            summary_content += f"- **Fase 0 (Modelo-SHACL):** Problemas CRÍTICOS: {self.model_critical}\n"
+        if self.phase_1_executed:
+            summary_content += f"- **Fase 1 (Sintaxis):** Errores: {self.syntax_errors}\n"
+        if self.phase_2_executed:
+            summary_content += f"- **Fase 2 (Semántica):** Fallos en pruebas: {self.shacl_errors}\n"
+        
+        summary_content += """
 ## Informes Detallados
 
 >[!TIP]

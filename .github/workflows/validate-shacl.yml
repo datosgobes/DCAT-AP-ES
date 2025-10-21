@@ -1,4 +1,4 @@
-name: Validate SHACL and RDF Examples
+name: Validación formas SHACL
 
 on:
   pull_request:
@@ -18,14 +18,14 @@ on:
 
 jobs:
   validate-dcat-ap-es:
-    name: Validación DCAT-AP-ES (Todas las Fases)
+    name: Validación formas SHACL DCAT-AP-ES (Todas las Fases)
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Comprobar repositorio
+        uses: actions/checkout@v5
 
-      - name: Run DCAT-AP-ES Validation
+      - name: Ejecutar validación de formas SHACL DCAT-AP-ES
         id: validate
         continue-on-error: true
         run: |
@@ -33,7 +33,7 @@ jobs:
           ./tests/validate-local.sh all
           echo "exit_code=$?" >> $GITHUB_OUTPUT
 
-      - name: Upload validation reports
+      - name: Subir informes de validación
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -41,9 +41,9 @@ jobs:
           path: tests/validation-reports/
           retention-days: 30
 
-      - name: Comment PR with results
+      - name: Commentar resumen de validación en el PR
         if: github.event_name == 'pull_request' && always()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -56,11 +56,11 @@ jobs:
               body: summary
             });
 
-      - name: Check validation result
+      - name: Comprobar resultado de la validación
         run: |
           EXIT_CODE="${{ steps.validate.outputs.exit_code }}"
           if [ "$EXIT_CODE" != "0" ]; then
             echo "❌ Validación fallida, revisa los artefactos con los informes. Código de salida: $EXIT_CODE"
             exit 1
           fi
-          echo "✅ Validación completa exitosa"
+          echo "✅ Validación completada con éxito."
