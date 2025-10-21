@@ -71,7 +71,9 @@ def load_config(ini_path):
     """
     global PREFIX_MAP, ENTITY_CLASS_MAP, ENTITY_TO_REUSABLE_SHAPE
     
+    # Use RawConfigParser to preserve case sensitivity
     config = ConfigParser()
+    config.optionxform = str  # Preserve case for keys
     config.read(ini_path, encoding='utf-8')
     
     # Load prefix mappings
@@ -136,9 +138,10 @@ def parse_index_md(path):
     
     current_entity = None
     in_table = False
-    debug = False  # DISABLED
     
-    print(f"Parseando docs/index.md...")
+    print(f"Parseando {path}...")
+    print(f"Total de líneas: {len(lines)}")
+    print(f"Entidades a buscar: {list(ENTITY_CLASS_MAP.keys())}")
     
     for i, line in enumerate(lines):
         # Detect detail table header: | [Entity](#Entity) | [dct:property](URI) |
@@ -205,6 +208,13 @@ def parse_index_md(path):
                     'hvd_applicability': hvd_applicability,
                     'hvd_cardinality': hvd_cardinality,
                 })
+    
+    # Print summary of parsed properties
+    total_props = sum(len(props) for props in entities.values())
+    print(f"Propiedades encontradas por entidad:")
+    for entity, props in entities.items():
+        print(f"  {entity}: {len(props)} propiedades")
+    print(f"Total de propiedades parseadas: {total_props}")
     
     return entities
 

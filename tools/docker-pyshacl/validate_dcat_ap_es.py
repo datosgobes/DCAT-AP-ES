@@ -284,6 +284,9 @@ class Validator:
         config = configparser.ConfigParser()
         config.read(self.test_config)
         
+        # Skip configuration sections
+        config_sections = {'prefixes', 'entity_classes', 'reusable_shapes', 'shacl_shapes', 'tests'}
+        
         summary_content = f"""# Informe de Validación DCAT-AP-ES
 
 **Generado:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
@@ -317,6 +320,9 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 """
         
         for section in config.sections():
+            # Skip configuration sections
+            if section in config_sections:
+                continue
             test_name = config.get(section, 'name', fallback=section)
             test_expect = config.get(section, 'expect', fallback='conformant')
             report_file = os.path.join(self.report_dir, f'{section}-report.ttl')
@@ -356,6 +362,10 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 """
         
         for section in config.sections():
+            # Skip configuration sections
+            if section in config_sections:
+                continue
+            
             test_name = config.get(section, 'name', fallback=section)
             summary_content += f"- `{section}-report.ttl` - {test_name}\n"
         
