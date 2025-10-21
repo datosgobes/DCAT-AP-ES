@@ -19,7 +19,7 @@
         vcard:fn "Oficina de Datos Abiertos"@es ;
         vcard:hasUid "EA0000000" ;
         vcard:hasEmail <mailto:datos@example.org> ;
-        vcard:hasTelephone <tel:+34-912345678> ;
+        vcard:hasTelephone <tel:+34-900999999> ;
         vcard:hasURL <https://example.org/contacto>
     ] ;
     dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;

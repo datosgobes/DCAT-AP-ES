@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+################################################################################
+# DCAT-AP-ES Full Conformance Example (versión 1.0.0)
+# Incluye todas las propiedades obligatorias (Ob) y recomendadas (R)
+# Incluye propiedades opcionales (O) representativas para demostrar conformidad completa
+# Referencia: https://datosgobes.github.io/DCAT-AP-ES/
+################################################################################
+-->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dcat="http://www.w3.org/ns/dcat#"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+         xmlns:adms="http://www.w3.org/ns/adms#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+  <!--
+  ################################################################################
+  # 1. Catálogo: dcat:Catalog (todas las propiedades obligatorias y recomendadas)
+  ################################################################################
+  -->
+  <dcat:Catalog rdf:about="http://dcat-ap-es.ejemplo.org/catalogo">
+    <!-- Obligatorias (Ob) -->
+    <dct:title xml:lang="es">Catálogo de Datos Abiertos del Gobierno</dct:title>
+    <dct:title xml:lang="en">Government Open Data Catalog</dct:title>
+    <dct:description xml:lang="es">Catálogo nacional de datos abiertos que contiene conjuntos de datos de todas las administraciones públicas españolas.</dct:description>
+    <dct:description xml:lang="en">National open data catalog containing datasets from all Spanish public administrations.</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <foaf:homepage rdf:resource="http://dcat-ap-es.ejemplo.org"/>
+    <dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-01</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-15</dct:modified>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG"/>
+    <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+
+    <!-- Recomendadas (R) -->
+    <dct:identifier>http://dcat-ap-es.ejemplo.org/catalogo</dct:identifier>
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+    
+    <!-- Opcionales (O) representativas -->
+    <dct:rights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC"/>
+    <dcat:contactPoint>
+      <vcard:Organization>
+        <vcard:fn xml:lang="es">Punto de Contacto del Catálogo</vcard:fn>
+        <vcard:hasEmail rdf:resource="mailto:catalogo@ejemplo.gob.es"/>
+        <vcard:hasTelephone>
+          <vcard:Voice>
+            <vcard:hasValue rdf:resource="tel:+34-900999999"/>
+          </vcard:Voice>
+        </vcard:hasTelephone>
+        <vcard:hasURL rdf:resource="http://dcat-ap-es.ejemplo.org/contacto"/>
+      </vcard:Organization>
+    </dcat:contactPoint>
+
+    <!--
+    ################################################################################
+    # 2. Dataset: dcat:Dataset (todas las propiedades obligatorias y recomendadas)
+    ################################################################################
+    -->
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="http://dcat-ap-es.ejemplo.org/dataset/calidad-aire-madrid">
+        <!-- Obligatorias (Ob) -->
+        <dct:title xml:lang="es">Calidad del Aire en Madrid - Datos Horarios</dct:title>
+        <dct:title xml:lang="en">Air Quality in Madrid - Hourly Data</dct:title>
+        <dct:description xml:lang="es">Mediciones horarias de la calidad del aire en las estaciones de monitoreo de Madrid, incluyendo NO2, PM10, PM2.5, O3, SO2 y CO.</dct:description>
+        <dct:description xml:lang="en">Hourly air quality measurements from Madrid monitoring stations, including NO2, PM10, PM2.5, O3, SO2 and CO.</dct:description>
+        <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
+
+        <!-- Recomendadas (R) -->
+        <dct:identifier>http://dcat-ap-es.ejemplo.org/dataset/calidad-aire-madrid</dct:identifier>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-01</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-15</dct:modified>
+        <dcat:keyword xml:lang="es">calidad del aire</dcat:keyword>
+        <dcat:keyword xml:lang="es">contaminación</dcat:keyword>
+        <dcat:keyword xml:lang="es">medio ambiente</dcat:keyword>
+        <dcat:keyword xml:lang="en">air quality</dcat:keyword>
+        <dcat:keyword xml:lang="en">pollution</dcat:keyword>
+        <dcat:keyword xml:lang="en">environment</dcat:keyword>
+        <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Madrid"/>
+        
+        <!-- Opcionales (O) representativas -->
+        <dct:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/HOURLY"/>
+        <dct:temporal>
+          <dct:PeriodOfTime>
+            <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-01-01</dcat:startDate>
+            <dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-12-31</dcat:endDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+        <dcat:landingPage rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/calidad-aire-madrid"/>
+        <dct:conformsTo rdf:resource="https://www.eea.europa.eu/data-and-maps/data/aqereporting-8"/>
+        <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC"/>
+        <adms:identifier>
+          <adms:Identifier>
+            <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CAM-AIR-2024-001</skos:notation>
+          </adms:Identifier>
+        </adms:identifier>
+        <dcat:contactPoint>
+          <vcard:Organization>
+            <vcard:fn xml:lang="es">Departamento de Medio Ambiente</vcard:fn>
+            <vcard:hasEmail rdf:resource="mailto:medioambiente@ejemplo.gob.es"/>
+          </vcard:Organization>
+        </dcat:contactPoint>
+
+        <!--
+        ################################################################################
+        # 3. Distribution: dcat:Distribution (todas las propiedades obligatorias y recomendadas)
+        ################################################################################
+        -->
+        <dcat:distribution>
+          <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/distribucion/calidad-aire-madrid-CSV">
+            <!-- Obligatorias (Ob) -->
+            <dcat:accessURL rdf:resource="http://dcat-ap-es.ejemplo.org/download/calidad-aire-madrid.csv"/>
+
+            <!-- Recomendadas (R) -->
+            <dct:title xml:lang="es">Distribución CSV - Calidad del Aire Madrid</dct:title>
+            <dct:title xml:lang="en">CSV Distribution - Madrid Air Quality</dct:title>
+            <dct:description xml:lang="es">Archivo CSV con mediciones horarias de calidad del aire.</dct:description>
+            <dct:description xml:lang="en">CSV file with hourly air quality measurements.</dct:description>
+            <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+            <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+
+            <!-- Opcionales (O) representativas -->
+            <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-01</dct:issued>
+            <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-15</dct:modified>
+            <dcat:downloadURL rdf:resource="http://dcat-ap-es.ejemplo.org/files/calidad-aire-madrid.csv"/>
+            <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2456789</dcat:byteSize>
+            <dcat:mediaType>text/csv</dcat:mediaType>
+            <adms:status rdf:resource="http://purl.org/adms/status/Completed"/>
+            <dct:rights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC"/>
+          </dcat:Distribution>
+        </dcat:distribution>
+
+        <!-- Distribución adicional en formato JSON -->
+        <dcat:distribution>
+          <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/distribucion/calidad-aire-madrid-JSON">
+            <dcat:accessURL rdf:resource="http://dcat-ap-es.ejemplo.org/api/calidad-aire-madrid"/>
+            <dct:title xml:lang="es">Distribución JSON - Calidad del Aire Madrid</dct:title>
+            <dct:title xml:lang="en">JSON Distribution - Madrid Air Quality</dct:title>
+            <dct:description xml:lang="es">API REST que devuelve datos en formato JSON.</dct:description>
+            <dct:description xml:lang="en">REST API returning data in JSON format.</dct:description>
+            <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/JSON"/>
+            <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+            <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-01</dct:issued>
+            <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-15</dct:modified>
+            <dcat:mediaType>application/json</dcat:mediaType>
+            <adms:status rdf:resource="http://purl.org/adms/status/Completed"/>
+          </dcat:Distribution>
+        </dcat:distribution>
+      </dcat:Dataset>
+    </dcat:dataset>
+  </dcat:Catalog>
+
+  <!--
+  ################################################################################
+  # Notas sobre conformidad completa
+  ################################################################################
+  # - Este ejemplo incluye todas las propiedades obligatorias (Ob) según DCAT-AP-ES 1.0.0
+  # - Incluye todas las propiedades recomendadas (R) para máxima interoperabilidad
+  # - Incluye propiedades opcionales (O) representativas: contactPoint, temporal, accrualPeriodicity, etc.
+  # - Uso de multilingüismo (español e inglés) en títulos y descripciones
+  # - Estructura vcard:Organization completa para puntos de contacto
+  # - Uso de vocabularios controlados europeos (MDR) para:
+  #   * Formatos de archivo (file-type)
+  #   * Licencias (licence)
+  #   * Frecuencias (frequency)
+  #   * Derechos de acceso (access-right)
+  # - Identificadores únicos para todas las entidades principales
+  # - Cobertura temporal con dct:PeriodOfTime
+  # - Metadatos de publicación (issued, modified) en todas las entidades
+  # - Este ejemplo debe pasar la validación SHACL sin warnings ni violations
+  ################################################################################
+  -->
+</rdf:RDF>

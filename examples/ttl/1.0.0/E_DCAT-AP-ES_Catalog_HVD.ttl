@@ -30,6 +30,7 @@
   dcat:keyword "estadísticas"@es, "statistics"@en ;
   dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataService> ;
   dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
   dcatap:hvdCategory <http://data.europa.eu/bna/c_b7f6a4f3> ;
   foaf:page <https://dcat-ap-es.ejemplo_HVD.org/api/sla.html> ;
   dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> .

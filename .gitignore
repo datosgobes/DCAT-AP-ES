@@ -133,3 +133,4 @@ docs/img/shacl_overview_validation.svg
 tools/.temp
 refs/github_issue_*.md
 shacl/dev
+tests/validation-reports

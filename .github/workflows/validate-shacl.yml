@@ -17,199 +17,28 @@ on:
       - 'examples/**/*.ttl'
 
 jobs:
-  # Job 1: Validación sintáctica de archivos SHACL con Apache Jena RIOT
-  validate-syntax:
-    name: Syntax Validation (RIOT)
+  validate-dcat-ap-es:
+    name: Validación DCAT-AP-ES (Todas las Fases)
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate SHACL Catalog Shape
-        uses: vemonet/jena-riot-action@v3.17
-        with:
-          input: shacl/1.0.0/shacl_catalog_shape.ttl
-
-      - name: Validate SHACL Dataset Shape
-        uses: vemonet/jena-riot-action@v3.17
-        with:
-          input: shacl/1.0.0/shacl_dataset_shape.ttl
-
-      - name: Validate SHACL Distribution Shape
-        uses: vemonet/jena-riot-action@v3.17
-        with:
-          input: shacl/1.0.0/shacl_distribution_shape.ttl
-
-      - name: Validate SHACL DataService Shape
-        uses: vemonet/jena-riot-action@v3.17
-        with:
-          input: shacl/1.0.0/shacl_dataservice_shape.ttl
-
-      - name: Validate SHACL Common Shapes
-        uses: vemonet/jena-riot-action@v3.17
-        with:
-          input: shacl/1.0.0/shacl_common_shapes.ttl
-
-      - name: Validate SHACL MDR Vocabularies
-        uses: vemonet/jena-riot-action@v3.17
-        with:
-          input: shacl/1.0.0/shacl_mdr-vocabularies.shape.ttl
-
-      - name: Validate SHACL HVD Common Shapes
-        uses: vemonet/jena-riot-action@v3.17
-        with:
-          input: shacl/1.0.0/hvd/shacl_common_hvd_shapes.ttl
-
-      - name: Validate SHACL HVD Dataset Shape
-        uses: vemonet/jena-riot-action@v3.17
-        with:
-          input: shacl/1.0.0/hvd/shacl_dataset_hvd_shape.ttl
-
-      - name: Validate SHACL HVD Distribution Shape
-        uses: vemonet/jena-riot-action@v3.17
-        with:
-          input: shacl/1.0.0/hvd/shacl_distribution_hvd_shape.ttl
-
-      - name: Validate SHACL HVD DataService Shape
-        uses: vemonet/jena-riot-action@v3.17
-        with:
-          input: shacl/1.0.0/hvd/shacl_dataservice_hvd_shape.ttl
-
-  # Job 2: Validación semántica con SHACL usando pyshacl
-  validate-semantics:
-    name: Semantic Validation (pySHACL)
-    runs-on: ubuntu-latest
-    needs: validate-syntax
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Build pyshacl Docker image
-        run: |
-          cd tools/docker-pyshacl
-          docker build -t dcat-ap-es/pyshacl:latest .
-
-      - name: Create validation report directory
-        run: mkdir -p validation-reports
-
-      - name: Run SHACL Validations (from test.ini)
-        id: validate-all
+      - name: Run DCAT-AP-ES Validation
+        id: validate
         continue-on-error: true
         run: |
-          # Helper function to parse INI files
-          parse_ini() {
-              local file="$1"
-              local section="$2"
-              local key="$3"
-              sed -n "/^\[$section\]/,/^\[/p" "$file" | \
-                  grep "^$key" | cut -d'=' -f2- | \
-                  sed 's/^[[:space:]]*//;s/[[:space:]]*$//'
-          }
-          
-          # Get test IDs from INI
-          test_ids=$(grep '^\[' tests/test.ini | tr -d '[]')
-          
-          for test_id in $test_ids; do
-              echo "Running test: $test_id"
-              
-              test_name=$(parse_ini tests/test.ini "$test_id" "name")
-              test_file=$(parse_ini tests/test.ini "$test_id" "file")
-              test_shapes=$(parse_ini tests/test.ini "$test_id" "shapes")
-              
-              # Build shapes arguments from comma-separated list
-              shapes_args=""
-              IFS=',' read -ra SHAPES <<< "$test_shapes"
-              for shape in "${SHAPES[@]}"; do
-                  shape=$(echo "$shape" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
-                  shapes_args="$shapes_args -s /shapes/$shape"
-              done
-              
-              # Run validation
-              docker run --rm \
-                -v "$PWD/examples:/data" \
-                -v "$PWD/shacl:/shapes" \
-                dcat-ap-es/pyshacl:latest \
-                pyshacl \
-                -d "/data/ttl/$test_file" \
-                $shapes_args \
-                -df turtle -f turtle \
-                > "validation-reports/${test_id}-report.ttl" 2>/dev/null || true
-              
-              echo "✓ Completed: $test_name"
-          done
-
-      - name: Generate Summary Report
-        if: always()
-        run: |
-          # Helper function to parse INI files
-          parse_ini() {
-              local file="$1"
-              local section="$2"
-              local key="$3"
-              sed -n "/^\[$section\]/,/^\[/p" "$file" | \
-                  grep "^$key" | cut -d'=' -f2- | \
-                  sed 's/^[[:space:]]*//;s/[[:space:]]*$//'
-          }
-          
-          {
-            echo "# DCAT-AP-ES Validation Report"
-            echo ""
-            echo "**Generated:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-            echo "**Workflow:** ${{ github.workflow }}"
-            echo "**Run:** #${{ github.run_number }}"
-            echo ""
-            echo "## Test Results"
-            echo ""
-            echo "| Test Case | Expected | Conforms | Violations | Warnings | Status |"
-            echo "|-----------|----------|----------|------------|----------|--------|"
-            
-            # Get test IDs from INI
-            test_ids=$(grep '^\[' tests/test.ini | tr -d '[]')
-            
-            for test_id in $test_ids; do
-                test_name=$(parse_ini tests/test.ini "$test_id" "name")
-                test_expect=$(parse_ini tests/test.ini "$test_id" "expect")
-                report_file="validation-reports/${test_id}-report.ttl"
-                
-                conforms=$(grep -o "sh:conforms [^;]*" "$report_file" 2>/dev/null | head -1 | awk '{print $2}' | tr -d '\n' || echo "unknown")
-                violations=$(grep -c "sh:resultSeverity sh:Violation" "$report_file" 2>/dev/null | tr -d '\n' || echo "0")
-                warnings=$(grep -c "sh:resultSeverity sh:Warning" "$report_file" 2>/dev/null | tr -d '\n' || echo "0")
-                
-                status="❌ FAIL"
-                if [ "$test_expect" = "conformant" ]; then
-                    [ "$conforms" = "true" ] && status="✅ PASS"
-                elif [ "$test_expect" = "warnings" ]; then
-                    ([ "$conforms" = "true" ] || [ "$violations" = "0" ]) && status="✅ PASS"
-                fi
-                
-                expect_label="Full conformance"
-                [ "$test_expect" = "warnings" ] && expect_label="Warnings allowed"
-                
-                echo "| $test_name | $expect_label | $conforms | $violations | $warnings | $status |"
-            done
-            
-            echo ""
-            echo "## Detailed Reports"
-            echo ""
-            echo "Download the validation artifacts to see detailed SHACL reports in Turtle format:"
-            echo ""
-            for test_id in $test_ids; do
-                test_name=$(parse_ini tests/test.ini "$test_id" "name")
-                echo "- \`${test_id}-report.ttl\` - $test_name"
-            done
-            echo ""
-          } > validation-reports/SUMMARY.md
-          
-          cat validation-reports/SUMMARY.md
+          chmod +x tests/validate-local.sh
+          ./tests/validate-local.sh all
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
 
       - name: Upload validation reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: shacl-validation-reports
-          path: validation-reports/
+          name: dcat-ap-es-validation-reports
+          path: tests/validation-reports/
           retention-days: 30
 
       - name: Comment PR with results
@@ -218,7 +47,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const summary = fs.readFileSync('validation-reports/SUMMARY.md', 'utf8');
+            const summary = fs.readFileSync('tests/validation-reports/SUMMARY.md', 'utf8');
             
             github.rest.issues.createComment({
               issue_number: context.issue.number,
@@ -227,38 +56,11 @@ jobs:
               body: summary
             });
 
-      - name: Check for validation failures
+      - name: Check validation result
         run: |
-          # Helper function to parse INI files
-          parse_ini() {
-              local file="$1"
-              local section="$2"
-              local key="$3"
-              sed -n "/^\[$section\]/,/^\[/p" "$file" | \
-                  grep "^$key" | cut -d'=' -f2- | \
-                  sed 's/^[[:space:]]*//;s/[[:space:]]*$//'
-          }
-          
-          # Get test IDs that require full conformance
-          test_ids=$(grep '^\[' tests/test.ini | tr -d '[]')
-          
-          failed_tests=""
-          for test_id in $test_ids; do
-              test_expect=$(parse_ini tests/test.ini "$test_id" "expect")
-              test_name=$(parse_ini tests/test.ini "$test_id" "name")
-              
-              # Only check tests that expect full conformance
-              if [ "$test_expect" = "conformant" ]; then
-                  if ! grep -q "sh:conforms true" "validation-reports/${test_id}-report.ttl" 2>/dev/null; then
-                      echo "❌ $test_name failed validation"
-                      failed_tests="$failed_tests $test_id"
-                  fi
-              fi
-          done
-          
-          if [ -n "$failed_tests" ]; then
-              echo "Failed tests:$failed_tests"
-              exit 1
+          EXIT_CODE="${{ steps.validate.outputs.exit_code }}"
+          if [ "$EXIT_CODE" != "0" ]; then
+            echo "❌ Validación fallida con código de salida: $EXIT_CODE"
+            exit 1
           fi
-          
-          echo "✅ All full conformance tests passed"
+          echo "✅ Validación completa exitosa"
