@@ -9,7 +9,14 @@
 # 3. Llama al contenedor Docker con el comando 'validate'
 #
 # Uso:
-#   ./tests/validate-local.sh [all|model-only|syntax-only|shacl-only]
+#   ./tests/validate-local.sh [all|model-only|syntax-only|shacl-only] [--rebuild|-r]
+#
+# Opciones:
+#   all             : Ejecutar todas las fases de validación (default)
+#   model-only      : Solo Fase 0 (comparación Modelo-SHACL)
+#   syntax-only     : Solo Fase 1 (sintaxis de formas SHACL)
+#   shacl-only      : Solo Fase 2 (validación semántica de ejemplos)
+#   --rebuild, -r   : Forzar reconstrucción de la imagen Docker
 #
 # Toda la lógica de validación está en Docker: tools/docker-pyshacl/validate_dcat_ap_es.py
 ################################################################################
@@ -27,7 +34,36 @@ NC='\033[0m' # No Color
 DOCKER_IMAGE="dcat-ap-es/shacl-validation:latest"
 
 # Parse arguments
-MODE="${1:-all}"
+MODE="all"
+REBUILD=false
+
+for arg in "$@"; do
+    case $arg in
+        --rebuild|-r)
+            REBUILD=true
+            ;;
+        all|model-only|syntax-only|shacl-only)
+            MODE="$arg"
+            ;;
+        --help|-h)
+            echo "Uso: $0 [MODE] [OPTIONS]"
+            echo ""
+            echo "Modos de validación:"
+            echo "  all             Ejecutar todas las fases (default)"
+            echo "  model-only      Solo Fase 0 (comparación Modelo-SHACL)"
+            echo "  syntax-only     Solo Fase 1 (sintaxis de formas SHACL)"
+            echo "  shacl-only      Solo Fase 2 (validación semántica)"
+            echo ""
+            echo "Opciones:"
+            echo "  --rebuild, -r   Forzar reconstrucción de imagen Docker"
+            echo "  --help, -h      Mostrar esta ayuda"
+            exit 0
+            ;;
+        *)
+            log_warning "Argumento desconocido: $arg (ignorado)"
+            ;;
+    esac
+done
 
 # Helper functions
 log_info() {
@@ -65,8 +101,16 @@ check_prerequisites() {
     fi
     log_success "Docker encontrado: $(docker --version)"
     
-    # Check if shacl-validation Docker image exists
-    if docker images "$DOCKER_IMAGE" | grep -q shacl-validation; then
+    # Check if rebuild is requested or image doesn't exist
+    if [ "$REBUILD" = true ]; then
+        log_info "Reconstrucción forzada de imagen Docker..."
+        if docker build -t "$DOCKER_IMAGE" tools/docker-pyshacl; then
+            log_success "Imagen Docker shacl-validation reconstruida exitosamente"
+        else
+            log_error "Error al reconstruir imagen Docker: $DOCKER_IMAGE"
+            exit 1
+        fi
+    elif docker images "$DOCKER_IMAGE" | grep -q shacl-validation; then
         log_success "Imagen Docker DCAT-AP-ES shacl-validation encontrada: $DOCKER_IMAGE"
     else
         # Build shacl-validation Docker image if not exists
