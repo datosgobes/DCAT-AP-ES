@@ -140,7 +140,6 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 **Ubicación de informes**: `tests/validation-reports/`
 - `SUMMARY.md` - Resumen ejecutivo de todas las fases
 - `model-vs-shacl-report.md` - Comparación detallada Modelo-SHACL
-- `model-vs-shacl-report.csv` - Exportable a Excel
 - `*-report.ttl` - Informes SHACL en formato Turtle
 
 ## Comprender Resultados de Validación
@@ -192,13 +191,22 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 
 El flujo de trabajo de GitHub Actions se ejecuta automáticamente en:
 
-- **Solicitudes de extracción** que afecten:
-  - `shacl/**/*.ttl`
-  - `examples/**/*.rdf`
-  - `examples/**/*.ttl`
-  - `.github/workflows/validate-shacl.yml`
+- **Solicitudes de extracción (Pull Requests)** (para evitar duplicación, se ejecuta solo una vez por actualización de PR):
+  - Cuando apuntan a las ramas `main` o `develop`
+  - Solo si se modifican estas rutas:
+    - `shacl/**/*.ttl` - Definiciones de formas SHACL
+    - `examples/**/*.rdf` - Ejemplos RDF
+    - `examples/**/*.ttl` - Ejemplos Turtle
+    - `docs/index.md` - Modelo de documentación
+    - `tools/docker-pyshacl/**` - Scripts de validación
+    - `tests/test.ini` - Configuración de tests
+    - `.github/workflows/validate-shacl.yml` - El propio workflow
 
-- **Cambios en ramas main/develop**
+- **Pushes directos a main/develop** (fuera de PRs):
+  - Mismos filtros de rutas que arriba
+  - Solo se ejecuta si no hay un PR asociado (evita duplicación)
+
+> **Nota**: El workflow incluye una comprobación de deduplicación para evitar ejecutarse dos veces cuando ocurren eventos `pull_request` y `push` simultáneamente (ej: al hacer push a una rama de PR).
 
 ### Artefactos del Flujo de Trabajo
 

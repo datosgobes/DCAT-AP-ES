@@ -1,12 +1,21 @@
 name: Validación formas SHACL
 
 on:
+  # Ejecutar en PRs cuando se modifican archivos relevantes
   pull_request:
+    branches:
+      - main
+      - develop
     paths:
       - 'shacl/**/*.ttl'
       - 'examples/**/*.rdf'
       - 'examples/**/*.ttl'
+      - 'docs/index.md'
+      - 'tools/docker-pyshacl/**'
+      - 'tests/test.ini'
       - '.github/workflows/validate-shacl.yml'
+  
+  # Ejecutar en push directo a main/develop (fuera de PR)
   push:
     branches:
       - main
@@ -15,11 +24,17 @@ on:
       - 'shacl/**/*.ttl'
       - 'examples/**/*.rdf'
       - 'examples/**/*.ttl'
+      - 'docs/index.md'
+      - 'tools/docker-pyshacl/**'
+      - 'tests/test.ini'
+      - '.github/workflows/validate-shacl.yml'
 
 jobs:
   validate-dcat-ap-es:
     name: Validación formas SHACL DCAT-AP-ES (Todas las Fases)
     runs-on: ubuntu-latest
+    # Evitar duplicación: no ejecutar en push si hay una PR abierta para esta rama
+    if: github.event_name == 'pull_request' || github.event.pull_request == null
     
     steps:
       - name: Comprobar repositorio

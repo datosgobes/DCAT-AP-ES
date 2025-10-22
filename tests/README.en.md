@@ -140,7 +140,6 @@ The `validate-local.sh` script handles everything automatically:
 **Reports location**: `tests/validation-reports/`
 - `SUMMARY.md` - Executive summary of all phases
 - `model-vs-shacl-report.md` - Detailed Model-SHACL comparison
-- `model-vs-shacl-report.csv` - Excel-exportable format
 - `*-report.ttl` - SHACL reports in Turtle format
 
 ## Understanding Validation Results
@@ -192,13 +191,22 @@ The `validate-local.sh` script handles everything automatically:
 
 The GitHub Actions workflow runs automatically on:
 
-- **Pull Requests** affecting:
-    - `shacl/**/*.ttl`
-    - `examples/**/*.rdf`
-    - `examples/**/*.ttl`
-    - `.github/workflows/validate-shacl.yml`
+- **Pull Requests** (to avoid duplication, runs only once per PR update):
+    - When targeting `main` or `develop` branches
+    - Only if these paths are modified:
+        - `shacl/**/*.ttl` - SHACL shape definitions
+        - `examples/**/*.rdf` - RDF examples
+        - `examples/**/*.ttl` - Turtle examples
+        - `docs/index.md` - Documentation model
+        - `tools/docker-pyshacl/**` - Validation scripts
+        - `tests/test.ini` - Test configuration
+        - `.github/workflows/validate-shacl.yml` - Workflow itself
 
-- **Changes to main/develop branches**
+- **Direct pushes to main/develop** (outside of PRs):
+    - Same path filters as above
+    - Only runs if there's no associated PR (avoids duplication)
+
+> **Note**: The workflow includes a deduplication check to prevent running twice when both `pull_request` and `push` events occur (e.g., when pushing to a PR branch).
 
 ### Workflow Artifacts
 
