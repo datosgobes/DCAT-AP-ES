@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/#> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 
 <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_dataservice_shape.ttl>
@@ -20,12 +20,12 @@
     dct:description "Este archivo incluye las restricciones SHACL para las propiedades y clases relacionadas con servicios de datos en el perfil de aplicación DCAT-AP-ES."@es ;
     dct:description "This file includes SHACL restrictions for properties and classes related to data services in the DCAT-AP-ES application profile."@en ;
     owl:versionInfo "1.0.0" ;
-    dct:modified "2024-04-08"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     cc:attributionURL <https://datos.gob.es/> ;
     dcatap:availability <http://data.europa.eu/r5r/stable> ;
     foaf:homepage <https://datosgobes.github.io/DCAT-AP-ES/> ;
-    rdfs:seeAlso <https://datosgobes.github.io/DCAT-AP-ES/#dcat-dataservice> ;
+    rdfs:seeAlso <https://datosgobes.github.io/DCAT-AP-ES/#DataService> ;
     rdfs:comment """
         Este archivo requiere importar las siguientes dependencias adicionales para funcionar correctamente:
         - shacl_common_shapes.ttl
@@ -51,7 +51,7 @@ dcatapes:DataService_Shape
     rdfs:comment "Shape defining restrictions for the dcat:DataService class."@en ;
     rdfs:label "Restricciones de servicio de datos"@es ;
     rdfs:label "Data service restrictions"@en ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#dcat-dataservice> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService> ;
     sh:property 
     [
     # dct:title
@@ -59,7 +59,7 @@ dcatapes:DataService_Shape
         sh:minCount 1 ;
         sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_title> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.title> ;
         sh:message "El servicio de datos debe contener al menos un dct:title."@es ;
         sh:message "The data service must contain at least one dct:title."@en ;
     ], 
@@ -75,7 +75,7 @@ dcatapes:DataService_Shape
     ],
     [
         sh:path dct:title ;
-        sh:uniqueLang true;
+        sh:uniqueLang true ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
@@ -101,7 +101,7 @@ dcatapes:DataService_Shape
         sh:path dcat:contactPoint ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_contactpoint> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.contactPoint> ;
         sh:message "El servicio de datos debería contener al menos un dcat:contactPoint."@es ;
         sh:message "The data service should contain at least one dcat:contactPoint."@en ;
     ], 
@@ -112,7 +112,7 @@ dcatapes:DataService_Shape
         sh:nodeKind sh:IRI;
         #sh:class foaf:Document ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-foaf_page> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.page> ;
         sh:message "El valor de foaf:page debe ser un IRI válido."@es ;
         sh:message "The value of foaf:page must be a valid IRI."@en ;
     ], 
@@ -120,7 +120,7 @@ dcatapes:DataService_Shape
         sh:path foaf:page ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-foaf_page> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.page> ;
         sh:message "El servicio de datos debería contener al menos un foaf:page."@es ;
         sh:message "The data service should contain at least one foaf:page."@en ;
     ], 
@@ -132,7 +132,7 @@ dcatapes:DataService_Shape
         sh:path dct:publisher ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_publisher> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.publisher> ;
         sh:message "El servicio de datos debe contener al menos un dct:publisher."@es ;
         sh:message "The data service must contain at least one dct:publisher."@en ;
     ], 
@@ -140,7 +140,7 @@ dcatapes:DataService_Shape
         sh:path dct:publisher ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_publisher> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.publisher> ;
         sh:message "La propiedad dct:publisher no puede tener más de un valor."@es ;
         sh:message "The dct:publisher property cannot have more than one value."@en ;
     ],
@@ -159,7 +159,7 @@ dcatapes:DataService_Shape
             ]
         );
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_publisher> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.publisher> ;
         sh:message "El valor de dct:publisher debe ser un IRI o un nodo en blanco que cumpla con las restricciones de la forma de agente."@es ;
         sh:message "The value of dct:publisher must be an IRI or a blank node that meets the agent shape restrictions."@en ;
     ],
@@ -176,7 +176,7 @@ dcatapes:DataService_Shape
             ]
         );
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_publisher> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.publisher> ;
         sh:message "El valor de dct:publisher debe ser un IRI o un nodo en blanco que cumpla con las restricciones de la forma de agente."@es ;
         sh:message "The value of dct:publisher must be an IRI or a blank node that meets the agent shape restrictions."@en ;
     ],
@@ -185,7 +185,7 @@ dcatapes:DataService_Shape
         sh:path dcat:theme ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_theme> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.theme> ;
         sh:message "El servicio de datos debe contener al menos un dcat:theme."@es ;
         sh:message "The data service must contain at least one dcat:theme."@en ;
     ], 
@@ -218,7 +218,7 @@ dcatapes:DataService_Shape
         sh:path dcat:endpointURL ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointurl> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.endpointURL> ;
         sh:message "El valor de dcat:endpointURL debe ser un IRI válido."@es ;
         sh:message "The value of dcat:endpointURL must be a valid IRI."@en ;
     ],
@@ -226,7 +226,7 @@ dcatapes:DataService_Shape
         sh:path dcat:endpointURL ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointurl> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.endpointURL> ;
         sh:message "El servicio de datos debe contener al menos un dcat:endpointURL."@es ;
         sh:message "The data service must contain at least one dcat:endpointURL."@en ;
     ],
@@ -235,7 +235,7 @@ dcatapes:DataService_Shape
         sh:path dcat:endpointDescription ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointdescription> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.endpointDescription> ;
         sh:message "El valor de dcat:endpointDescription debe ser un IRI válido."@es ;
         sh:message "The value of dcat:endpointDescription must be a valid IRI."@en ;
     ],
@@ -243,7 +243,7 @@ dcatapes:DataService_Shape
         sh:path dcat:endpointDescription ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_endpointdescription> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.endpointDescription> ;
         sh:message "El servicio de datos debería contener al menos un dcat:endpointDescription."@es ;
         sh:message "The data service should contain at least one dcat:endpointDescription."@en ;
     ], 
@@ -253,7 +253,7 @@ dcatapes:DataService_Shape
         sh:path dcat:servesDataset ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_servesdataset> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.servesDataset> ;
         sh:message "El valor de dcat:servesDataset debe ser un IRI válido."@es ;
         sh:message "The value of dcat:servesDataset must be a valid IRI."@en ;
     ],
@@ -261,7 +261,7 @@ dcatapes:DataService_Shape
         sh:path dcat:servesDataset ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_servesdataset> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.servesDataset> ;
         sh:message "El servicio de datos debería contener al menos un dcat:servesDataset."@es ;
         sh:message "The data service should contain at least one dcat:servesDataset."@en ;
     ], 
@@ -271,7 +271,7 @@ dcatapes:DataService_Shape
         sh:path dcatap:applicableLegislation ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_applicablelegislation> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.applicableLegislation> ;
         sh:message "El valor de dcatap:applicableLegislation debe ser un IRI válido."@es ;
         sh:message "The value of dcatap:applicableLegislation must be a valid IRI."@en ;
     ],
@@ -279,7 +279,7 @@ dcatapes:DataService_Shape
         sh:path dcatap:applicableLegislation ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_applicablelegislation> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.applicableLegislation> ;
         sh:message "El servicio de datos debería contener al menos un dcatap:applicableLegislation."@es ;
         sh:message "The data service should contain at least one dcatap:applicableLegislation."@en ;
     ], 
@@ -294,7 +294,7 @@ dcatapes:DataService_Shape
         sh:path dct:description ;
         sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_description> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.description> ;
         sh:message "El valor de dct:description debe ser un Literal."@es ;
         sh:message "The value of dct:description must be a Literal."@en ;
     ],
@@ -310,7 +310,7 @@ dcatapes:DataService_Shape
     ],
     [
         sh:path dct:description ;
-        sh:uniqueLang true;
+        sh:uniqueLang true ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
@@ -322,7 +322,7 @@ dcatapes:DataService_Shape
         sh:path dct:accessRights ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_accessrights> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.accessrights> ;
         sh:message "La propiedad dct:publisher no puede tener más de un valor."@es ;
         sh:message "The dct:publisher property cannot have more than one value."@en ;
     ],
@@ -337,7 +337,7 @@ dcatapes:DataService_Shape
         sh:path dct:license ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dct_license> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.license> ;
         sh:message "La propiedad dct:license no puede tener más de un valor."@es ;
         sh:message "The dct:license property cannot have more than one value."@en ;
     ],
@@ -356,7 +356,7 @@ dcatapes:DataService_Shape
         sh:path dcat:keyword ;
         sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_keyword> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.keyword> ;
         sh:message "El valor de dcat:keyword ser un Literal."@es ;
         sh:message "The value of dcat:keyword must be a Literal."@en ;
     ],

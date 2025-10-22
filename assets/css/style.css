@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #00a99d;
+    --primary-color: #DCE0E7;
     --secondary-color: #c9e2df;
     --hover-color: #45a049;
     --button-color: #4CAF50;
@@ -13,6 +13,12 @@
     --red-aporta: #e5013e;
     --red-aporta-light: #f5d0d6;
     --blue-aporta: #154481;
+
+    /* Table colors */
+    --table-header-bg: #17305F;
+    --table-first-column-bg: #DCE0E7;
+    --table-row-odd-bg: #E8EAEF;
+    --table-row-even-bg: #F3F5F7;
 
     /* Admonition Icons */
     --md-admonition-icon--must: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="red" d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm0 120c-17.7 0-32 14.3-32 32v96c0 17.7 14.3 32 32 32s32-14.3 32-32v-96c0-17.7-14.3-32-32-32zm0 240c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"/></svg>');
@@ -53,64 +59,50 @@
     text-align: justify;
 }
 
+/* Table base styles - sin bordes */
+.md-typeset table:not([class]) {
+    border: none !important;
+    border-collapse: collapse;
+}
+
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+    border: none !important;
+    padding: 0.6em 0.8em;
+}
+
 td {
-    padding: 0.5em;
+    padding: 0.6em 0.8em;
     text-align: left;
 }
 
-.md-typeset table:not([class]) td {
-    padding: 0.4em;
-}
-.md-typeset table:not([class]) th {
-    padding: 0.4em;
-    min-width: 4rem;
-}
-
-td:first-child:not(.code) {
-    border-bottom: 2px solid var(--primary-color);
-    border-left: 2px solid var(--primary-color);
-    background-color: var(--secondary-color) !important;
+/* Table header - color #17305F */
+th {
+    background-color: var(--table-header-bg) !important;
+    color: var(--header-text-color);
+    text-align: center !important;
+    border: none !important;
 }
 
-td:not(:first-child):not(.code):not(.linenos) {
-    border-bottom: 2px solid var(--primary-color);
-    border-right: 2px solid var(--primary-color);
-}
-
-/* Reglas base para celdas */
+/* Primera columna completa - color #DCE0E7 */
 td:first-child:not(.code):not(.linenos) {
-    border-bottom: 2px solid var(--primary-color);
-    border-left: 2px solid var(--primary-color);
-    background-color: var(--secondary-color) !important;
+    background-color: var(--table-first-column-bg) !important;
 }
 
+/* Filas alternadas - solo para celdas que NO son primera columna */
 td:not(:first-child):not(.code):not(.linenos) {
-    border-bottom: 2px solid var(--primary-color);
-    border-right: 2px solid var(--primary-color);
+    /* Las filas pares (2, 4, 6...) tienen color #E8EAEF */
+    background-color: var(--table-row-odd-bg);
 }
 
-/* Mantener el borde izquierdo para todas las primeras celdas */
-td:first-child {
-    border-left: 2px solid var(--primary-color);
+tr:nth-child(even) td:not(:first-child):not(.code):not(.linenos) {
+    /* Las filas impares (3, 5, 7...) tienen color #F3F5F7 */
+    background-color: var(--table-row-even-bg);
 }
 
-/* Sin borde inferior para celdas de código y números de línea */
+/* Sin borde para celdas de código y números de línea */
 td.code, td.linenos {
-    border-bottom: none !important;
-}
-
-/* Mantén el borde izquierdo para la primera celda */
-td:first-child {
-    border-left: 2px solid var(--primary-color);
-}
-
-/* Add border to first cell in each row for consistent left border */
-td:first-child {
-    border-left: 2px solid var(--primary-color);
-}
-
-td:nth-child(2n+1) {
-    background-color: var(--alternate-bg-color);
+    border: none !important;
 }
 
 .md-typeset th abbr {
@@ -127,8 +119,12 @@ td:nth-child(2n+1) {
     background-color: var(--alternate-table-color--light);
 }
 
+.md-typeset table:not([class]) tbody tr:hover td:first-child {
+    background-color: var(--table-first-column-bg) !important;
+}
+
 .js .md-typeset .tabbed-labels:before {
-    background: #00a99d;
+    background: var(--primary-color);
     bottom: 0;
     content: "";
     display: block;
@@ -200,10 +196,49 @@ table.codehilitetable {
     }
 }
 
-th {
-    background-color: var(--header-bg-color);
-    text-align: center !important;
-    color: var(--header-text-color);
+/* First column: auto width by default (allows wrapping for text) */
+th:first-child,
+td:first-child {
+    min-width: fit-content;
+}
+
+/* First column with code: fixed width and no wrapping */
+th:first-child:has(code),
+td:first-child:has(code) {
+    white-space: nowrap;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+/* Prevent code elements from wrapping */
+td code, th code {
+    white-space: nowrap;
+}
+
+/* Allow cells containing code to expand if needed */
+td:has(code), th:has(code) {
+    white-space: nowrap;
+}
+
+/* Responsive: adjust first column width on smaller screens (only for cells with code) */
+@media screen and (max-width: 768px) {
+    th:first-child:has(code),
+    td:first-child:has(code) {
+        width: 150px;
+        min-width: 150px;
+        max-width: 150px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    th:first-child:has(code),
+    td:first-child:has(code) {
+        width: 120px;
+        min-width: 120px;
+        max-width: 120px;
+        font-size: 0.85em;
+    }
 }
 
 a {

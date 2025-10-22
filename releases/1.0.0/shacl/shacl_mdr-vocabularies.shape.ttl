@@ -7,7 +7,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/#> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -20,7 +20,7 @@
     dct:description "Este documento especifica las restricciones en propiedades y clases expresadas por el modelo de metadatos DCAT-AP-ES en SHACL para los vocabularios controlados utilizados."@es ;
     dct:description "This document specifies the constraints on properties and classes expressed by the DCAT-AP-ES application profile in SHACL for the controlled vocabularies used."@en ;
     owl:versionInfo "1.0.0" ;
-    dct:modified "2024-04-08"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     cc:attributionURL <https://datos.gob.es/> ;
     dcatap:availability <http://data.europa.eu/r5r/stable> ;
@@ -131,7 +131,7 @@ dcatapes:LicenceTypeRestriction
     rdfs:label "Licence type restriction"@en ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://purl\\.org/adms/licencetype/[A-Z][A-Za-z0-9_-]{3,}$" ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dct_licensedocument-dct_type> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#LicenseDocument.type> ;
     sh:message "El valor debe ser un IRI del vocabulario de tipos de licencia http://purl.org/adms/licencetype/1.0/"@es ;
     sh:message "The value must be an IRI from the licence type vocabulary http://purl.org/adms/licencetype/1.0/"@en ;
     sh:severity sh:Violation .

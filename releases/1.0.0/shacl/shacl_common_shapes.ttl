@@ -14,7 +14,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/#> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 
 <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_common_shapes.ttl>
@@ -27,7 +27,7 @@
     dct:description "Este archivo incluye restricciones SHACL comunes para propiedades y clases utilizadas en el perfil de aplicación DCAT-AP-ES."@es ;
     dct:description "This file includes common SHACL restrictions for properties and classes used in the DCAT-AP-ES application profile."@en ;
     owl:versionInfo "1.0.0" ;
-    dct:modified "2025-04-10"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     cc:attributionURL <https://datos.gob.es/> ;
     dcatap:availability <http://data.europa.eu/r5r/stable> ;
@@ -57,7 +57,7 @@ dcatapes:Agent_Shape
         sh:path foaf:name ;
         sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-foaf_name> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.name> ;
         sh:message "El nombre del agente debe ser un literal válido."@es ;
         sh:message "The agent's name must be a valid literal."@en ;
     ],
@@ -65,7 +65,7 @@ dcatapes:Agent_Shape
         sh:path foaf:name ;
         sh:node dcatapes:LiteralMultilingualConvention ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-foaf_name> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.name> ;
         sh:message "El nombre del agente debe ser multilingüe."@es ;
         sh:message "The agent's name must be multilingual."@en ;
     ],
@@ -73,7 +73,7 @@ dcatapes:Agent_Shape
         sh:path foaf:name ;
         sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-foaf_name> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.name> ;
         sh:message "El nombre del agente no puede estar vacío."@es ;
         sh:message "The agent's name cannot be empty."@en ;
     ],
@@ -81,7 +81,7 @@ dcatapes:Agent_Shape
         sh:path foaf:name ;
         sh:uniqueLang true ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-foaf_name> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.name> ;
         sh:message "Más de un valor comparten la misma etiqueta de idioma."@es ;
         sh:message "More than one value shares the same language tag."@en ;
     ],
@@ -101,7 +101,7 @@ dcatapes:Agent_Shape
             """ ;
         ] ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-foaf_name> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.name> ;
         sh:message "El nombre del agente debe estar al menos en español."@es ;
         sh:message "The agent's name value must be at least in Spanish."@en ;
     ],
@@ -109,7 +109,7 @@ dcatapes:Agent_Shape
         sh:path foaf:name ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-foaf_name> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.name> ;
         sh:message "Debe haber al menos un valor para el nombre del agente."@es ;
         sh:message "There must be at least one value for the agent's name."@en ;
     ],
@@ -119,7 +119,7 @@ dcatapes:Agent_Shape
         sh:path dct:identifier ;
         sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-dct_identifier> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.identifier> ;
         sh:message "El identificador del agente debe ser un literal válido."@es ;
         sh:message "The agent's identifier must be a valid literal."@en ;
     ],
@@ -127,7 +127,7 @@ dcatapes:Agent_Shape
         sh:path dct:identifier ;
         sh:node dcatapes:NonEmptyLiteralConvention ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-dct_identifier> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.identifier> ;
         sh:message "El identificador del agente no puede estar vacío."@es ;
         sh:message "The agent's identifier cannot be empty."@en ;
     ],
@@ -136,7 +136,7 @@ dcatapes:Agent_Shape
         sh:maxCount 1 ;
         sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-dct_identifier> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.identifier> ;
         sh:message "Solo puede haber un identificador para el agente."@es ;
         sh:message "There can only be one identifier for the agent."@en ;
     ],
@@ -146,7 +146,7 @@ dcatapes:Agent_Shape
         sh:path dct:type ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-dct_type> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.type> ;
         sh:message "Solo puede haber un tipo para el agente."@es ;
         sh:message "There can only be one type for the agent."@en ;
     ],
@@ -161,10 +161,10 @@ dcatapes:Agent_Shape
 
 dcatapes:Agent_ShapeRecommended
     a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que un agente tenga al menos un identificador y un tipo, cumpliendo con las reglas de DCAT-AP-ES."@es ;
-    rdfs:comment "Restriction to validate that an agent has at least one identifier and one type, complying with DCAT-AP-ES rules."@en ;
-    rdfs:label "Restricción para agentes con identificador y tipo"@es ;
-    rdfs:label "Agent Restriction with Identifier and Type"@en ;
+    rdfs:comment "Restricción para validar que un agente debería tener al menos un identificador y un tipo."@es ;
+    rdfs:comment "Restriction to validate that an agent should have at least one identifier and one type."@en ;
+    rdfs:label "Recomendación para agentes con identificador y tipo"@es ;
+    rdfs:label "Agent recommendation with Identifier and Type"@en ;
     sh:name "Agent Shape recommended properties"@en ;
     sh:property
     # dct:identifier
@@ -172,7 +172,7 @@ dcatapes:Agent_ShapeRecommended
         sh:path dct:identifier ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-dct_identifier> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.identifier> ;
         sh:message "El agente debe tener al menos un identificador (dct:identifier)."@es ;
         sh:message "The agent must have at least one identifier (dct:identifier)."@en ;
     ],
@@ -182,12 +182,12 @@ dcatapes:Agent_ShapeRecommended
         sh:path dct:type ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-foaf_agent-dct_type> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.type> ;
         sh:message "El agente debe tener al menos un tipo (dct:type)."@es ;
         sh:message "The agent must have at least one type (dct:type)."@en ;
     ] ;
     sh:severity sh:Warning ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#foaf-agent> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent> ;
     sh:message "Se recomienda que el agente tenga al menos un identificador y un tipo."@es ;
     sh:message "It is recommended that the agent has at least one identifier and one type."@en .
 
@@ -202,7 +202,7 @@ dcatapes:PublisherAgentRestriction
         [ sh:class foaf:Organization; ]
     ) ;
     sh:severity sh:Violation ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#foaf-agent> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent> ;
     sh:message "El tipo del nodo debe ser un foaf:Agent o foaf:Organization."@es ;
     sh:message "The node type must be foaf:Agent or foaf:Organization."@en .
 
@@ -226,7 +226,7 @@ dcatapes:CreatorAgentRestriction
         ]
     ) ;
     sh:severity sh:Violation ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#foaf-agent> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent> ;
     sh:message "El tipo del nodo debe ser foaf:Agent, foaf:Organization o foaf:Person."@es ;
     sh:message "The node type must be foaf:Agent, foaf:Organization, or foaf:Person."@en .
 
@@ -292,7 +292,7 @@ dcatapes:DurationRestriction
     sh:nodeKind sh:Literal ;
     sh:datatype xsd:duration ;
     sh:pattern "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$" ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataset-dcat_temporalresolution> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.temporalResolution> ;
     sh:message "El valor de duración debe seguir el formato ISO 8601 para xsd:duration (por ejemplo, P3Y6M4DT12H30M5S)."@es ;
     sh:message "The duration value must follow the ISO 8601 format for xsd:duration (e.g., P3Y6M4DT12H30M5S)."@en ;
     sh:severity sh:Violation .
@@ -365,11 +365,11 @@ dcatapes:VcardKindRestriction
     sh:targetObjectsOf <http://www.w3.org/ns/dcat#contactPoint> ; # Apply to connect nodes with dcat:contactPoint
     # Class validation  (vcard:Kind o subclases)
     sh:or ( 
-        [ sh:class vcard:Kind; sh:nodeKind sh:IRI ] 
-        [ sh:class vcard:Organization; sh:nodeKind sh:IRI ]
-        [ sh:class vcard:Group; sh:nodeKind sh:IRI ]
-        [ sh:class vcard:Individual; sh:nodeKind sh:IRI ]
-        [ sh:class vcard:Location; sh:nodeKind sh:IRI ]
+        [ sh:class vcard:Kind; sh:nodeKind sh:BlankNodeOrIRI ] 
+        [ sh:class vcard:Organization; sh:nodeKind sh:BlankNodeOrIRI ]
+        [ sh:class vcard:Group; sh:nodeKind sh:BlankNodeOrIRI ]
+        [ sh:class vcard:Individual; sh:nodeKind sh:BlankNodeOrIRI ]
+        [ sh:class vcard:Location; sh:nodeKind sh:BlankNodeOrIRI ]
     ) ;
     sh:property[
     # vcard:organization-name
@@ -398,7 +398,7 @@ dcatapes:VcardKindRestriction
     ],
     [
         sh:path vcard:organization-name ;
-        sh:uniqueLang true;
+        sh:uniqueLang true ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
@@ -406,7 +406,7 @@ dcatapes:VcardKindRestriction
     ],
     [
         sh:path vcard:organization-name ;        
-        sh:resultPath vcard:organization-name ; ;
+        sh:resultPath vcard:organization-name ;
         sh:sparql [
                 sh:select """
                 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
@@ -445,7 +445,7 @@ dcatapes:VcardKindRestriction
     ],
     [
         sh:path vcard:fn ;
-        sh:uniqueLang true;
+        sh:uniqueLang true ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
@@ -457,7 +457,7 @@ dcatapes:VcardKindRestriction
         sh:sparql [
                 sh:select """
                 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
-                SELECT ?this
+                SELECT ?thisc
                 WHERE {
                     ?this vcard:fn ?anyvalue .
                     FILTER(isLiteral(?anyvalue)) 
@@ -619,7 +619,7 @@ dcatapes:LicenceDocumentRestriction
         sh:path dct:type ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dct_licensedocument-dct_type> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#LicenseDocument.type> ;
         sh:message "El documento de licencia debe tener al menos un tipo definido."@es ;
         sh:message "The license document must have at least one defined type."@en ;
     ],
@@ -628,7 +628,7 @@ dcatapes:LicenceDocumentRestriction
         sh:node dcatapes:LicenceTypeRestriction ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dct_licensedocument-dct_type> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#LicenseDocument.type> ;
         sh:message "El valor debe ser un IRI del vocabulario de tipos de licencia http://purl.org/adms/licencetype/1.0/"@es ;
         sh:message "The value must be an IRI from the licence type vocabulary http://purl.org/adms/licencetype/1.0/"@en ;
     ] ;
@@ -705,7 +705,7 @@ dcatapes:NonEmptyLiteralConvention
     sh:name "Literal no vacío"@es ;
     sh:nodeKind sh:Literal ;
     sh:minLength 1 ;
-    sh:pattern "^(?s)(?=.*\\S).*$" ;
+    sh:pattern ".*\\S.*" ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
     sh:message "El literal no puede estar vacío ni contener solo caracteres en blanco, tabulaciones o saltos de línea. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
     sh:message "The literal cannot be empty or contain only whitespace characters, tabs, or line breaks. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
@@ -994,7 +994,6 @@ dcatapes:SpatialGeometryConvention
         sh:message "El valor de dcat:centroid debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
         sh:message "The value of dcat:centroid should be a literal in WKT format (geo:wktLiteral). See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en ;
     ] ;
-    sh:severity sh:Warning ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17> ;
     sh:message "Las referencias espaciales geométricas deberían usar WKT (geo:wktLiteral) según GeoSPARQL. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
     sh:message "Spatial geometric references should use WKT (geo:wktLiteral) according to GeoSPARQL. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@en .
