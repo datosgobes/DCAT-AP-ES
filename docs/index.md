@@ -419,7 +419,7 @@ Se describe mediante las siguientes propiedades:
 
     Esta propiedad expresa el, o los idiomas, utilizados en los literales que describen títulos, descripciones, palabras clave, etc. de los recursos de datos incluidos en el Catálogo.
     
-    * Se puede repetir si los metadatos se proporcionan en varios idiomas, ^pero al menos uno de los idiomas debe ser español^.  
+    * Se puede repetir si los metadatos se proporcionan en varios idiomas, pero al menos uno de los idiomas debe ser español.  
     * Se debe usar el vocabulario normalizado de idiomas:  `http://publications.europa.eu/resource/authority/language`  
     
     Complementariamente, es recomendable el uso del atributo `xml:lang` ajustado con el valor correspondiente para expresar literales en cada idioma especificado en la propiedad. Para ello, se recomienda usar los códigos de idioma normalizados definidos en el [RFC-5646](https://www.rfc-editor.org/rfc/rfc5646.html) (por ejemplo, `es` para español, `en` para inglés, `ca` para catalán, `eu` para vasco, `gl` para gallego, etc.).
