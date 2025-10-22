@@ -9,6 +9,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <http://dcat-ap-es.ejemplo.org/catalogo-hvd-completo>
+    a dcat:Catalog ;
     dct:description "Catálogo nacional de datos de alto valor (HVD) conforme al Reglamento de Ejecución (UE) 2023/138 de la Comisión. Contiene conjuntos de datos en categorías temáticas prioritarias para reutilización."@es, "National high value datasets (HVD) catalog compliant with Commission Implementing Regulation (EU) 2023/138. Contains datasets in priority thematic categories for re-use."@en ;
     dct:identifier "http://dcat-ap-es.ejemplo.org/catalogo-hvd-completo" ;
     dct:issued "2024-01-01T00:00:00+01:00"^^xsd:dateTime ;
@@ -19,7 +20,6 @@
     dct:rights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
     dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
     dct:title "Catálogo de Datos de Alto Valor - España"@es, "High Value Datasets Catalog - Spain"@en ;
-    a dcat:Catalog ;
     dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contacto-catalogo-hvd> ;
     dcat:dataset <http://dcat-ap-es.ejemplo.org/dataset/red-transporte-hvd> ;
     dcat:service <http://dcat-ap-es.ejemplo.org/dataservice/api-geoespacial-hvd> ;
@@ -54,6 +54,7 @@
     vcard:organization-name "datos.gob.es"@es .
 
 <http://dcat-ap-es.ejemplo.org/dataservice/api-geoespacial-hvd>
+    a dcat:DataService ;
     dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
     dcatap:hvdCategory <http://data.europa.eu/bna/c_164e0bf5> ;
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
@@ -65,7 +66,6 @@
     dct:modified "2025-01-10T14:00:00+01:00"^^xsd:dateTime ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     dct:title "API Geoespacial de Datos de Alto Valor"@es, "HVD Geospatial Data API"@en ;
-    a dcat:DataService ;
     dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contacto-dataservice-hvd> ;
     dcat:endpointDescription <https://api.dcat-ap-es.ejemplo.org/geoespacial/v1/swagger.json> ;
     dcat:endpointURL <https://api.dcat-ap-es.ejemplo.org/geoespacial/v1> ;
@@ -75,6 +75,7 @@
     foaf:page <https://dcat-ap-es.ejemplo.org/hvd/api/sla.html> .
 
 <http://dcat-ap-es.ejemplo.org/dataset/red-transporte-hvd>
+    a dcat:Dataset ;
     dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
     dcatap:hvdCategory <http://data.europa.eu/bna/c_ac64a52d> ;
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
@@ -91,7 +92,6 @@
         dcat:startDate "2024-06-09T00:00:00+01:00"^^xsd:dateTime
     ] ;
     dct:title "National Public Transport Network - High Value Data"@en, "Red de Transporte Público Nacional - Datos de Alto Valor"@es ;
-    a dcat:Dataset ;
     adms:identifier [
         a adms:Identifier ;
         skos:notation "ES-HVD-TRANSPORT-2024-001"^^xsd:string
@@ -103,6 +103,8 @@
     dcat:theme <http://datos.gob.es/kos/sector-publico/sector/transporte> .
 
 <http://dcat-ap-es.ejemplo.org/distribucion/red-transporte-csv>
+    a dcat:Distribution ;
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
     dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
     dct:description "List of all public transport stops in CSV format for analysis."@en, "Listado de todas las paradas de transporte público en formato CSV para análisis."@es ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
@@ -112,14 +114,15 @@
     dct:modified "2025-01-15T06:00:00+01:00"^^xsd:dateTime ;
     dct:rights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
     dct:title "CSV Distribution - Transport Stops"@en, "Distribución CSV - Paradas de Transporte"@es ;
-    a dcat:Distribution ;
-    adms:status <http://purl.org/adms/status/Completed> ;
+    adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
     dcat:accessURL <https://dcat-ap-es.ejemplo.org/download/transporte-paradas.csv> ;
     dcat:byteSize "8901234"^^xsd:nonNegativeInteger ;
     dcat:downloadURL <https://dcat-ap-es.ejemplo.org/files/transporte-paradas.csv> ;
-    dcat:mediaType "text/csv" .
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> .
 
 <http://dcat-ap-es.ejemplo.org/distribucion/red-transporte-gtfs>
+    a dcat:Distribution ;
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
     dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
     dct:conformsTo <https://gtfs.org/schedule/reference/> ;
     dct:description "Archivo GTFS completo con horarios, rutas y paradas del transporte público nacional."@es, "Complete GTFS file with schedules, routes and stops of the national public transport."@en ;
@@ -130,16 +133,17 @@
     dct:modified "2025-01-15T06:00:00+01:00"^^xsd:dateTime ;
     dct:rights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
     dct:title "Distribución GTFS - Red Transporte Nacional"@es, "GTFS Distribution - National Transport Network"@en ;
-    a dcat:Distribution ;
-    adms:status <http://purl.org/adms/status/Completed> ;
+    adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
     dcat:accessURL <https://dcat-ap-es.ejemplo.org/download/transporte-gtfs.zip> ;
     dcat:byteSize "45678901"^^xsd:nonNegativeInteger ;
     dcat:compressFormat <http://www.iana.org/assignments/media-types/application/zip> ;
     dcat:downloadURL <https://dcat-ap-es.ejemplo.org/files/transporte-gtfs.zip> ;
-    dcat:mediaType "application/zip" ;
-    dcat:packageFormat <http://publications.europa.eu/resource/authority/file-type/ZIP> .
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/zip> ;
+    dcat:packageFormat <https://www.iana.org/assignments/media-types/application/zip> .
 
 <http://dcat-ap-es.ejemplo.org/distribucion/red-transporte-gtfs-rt>
+    a dcat:Distribution ;
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
     dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE> ;
     dct:conformsTo <https://gtfs.org/realtime/reference/> ;
     dct:description "API de datos en tiempo real del transporte público en formato GTFS Realtime (Protocol Buffers)."@es, "Real-time public transport data API in GTFS Realtime format (Protocol Buffers)."@en ;
@@ -149,9 +153,8 @@
     dct:license <http://publications.europa.eu/resource/authority/licence/CC0> ;
     dct:modified "2025-01-15T08:00:00+01:00"^^xsd:dateTime ;
     dct:title "Distribución GTFS Realtime - Datos en Tiempo Real"@es, "GTFS Realtime Distribution - Real-Time Data"@en ;
-    a dcat:Distribution ;
-    adms:status <http://purl.org/adms/status/UnderDevelopment> ;
+    adms:status <http://publications.europa.eu/resource/authority/distribution-status/UNDER_DEVELOPMENT> ;
     dcat:accessService <http://dcat-ap-es.ejemplo.org/dataservice/api-geoespacial-hvd> ;
     dcat:accessURL <https://api.dcat-ap-es.ejemplo.org/transporte/gtfs-realtime> ;
-    dcat:mediaType "application/x-protobuf" .
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/x-protobuf> .
 

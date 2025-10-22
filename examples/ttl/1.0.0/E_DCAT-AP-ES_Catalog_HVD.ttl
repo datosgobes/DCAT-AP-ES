@@ -76,6 +76,7 @@
   a dcat:Distribution ;
   dct:title "Distribución de ejemplo HVD"@es ;
   dct:description "Descripción de un distribución de ejemplo HVD."@es ;
+  dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
   dcat:accessURL <http://dcat-ap-es.ejemplo.org/files/dataset-HVD-ejemplo-1-HVD.CSV> ;
   dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
   dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
