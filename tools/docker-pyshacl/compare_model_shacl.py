@@ -506,9 +506,9 @@ def compare_properties(model, base_idx, hvd_idx, reusable_shapes):
         for p in props:
             prop_uri = p['prop']
             applicability = (p.get('applicability') or '').strip()
-            cardinality = (p.get('cardinality') or '').strip()
+            cardinality = (p.get('cardinality') or '').strip().strip('*')
             hvd_applicability = (p.get('hvd_applicability') or '').strip()
-            hvd_cardinality = (p.get('hvd_cardinality') or '').strip()
+            hvd_cardinality = (p.get('hvd_cardinality') or '').strip().strip('*')
             
             # Search in base shapes
             base_shapes = base_idx.get(entity_uri, {}).get(prop_uri, [])
