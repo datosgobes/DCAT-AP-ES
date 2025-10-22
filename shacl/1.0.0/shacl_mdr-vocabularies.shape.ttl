@@ -20,7 +20,7 @@
     dct:description "Este documento especifica las restricciones en propiedades y clases expresadas por el modelo de metadatos DCAT-AP-ES en SHACL para los vocabularios controlados utilizados."@es ;
     dct:description "This document specifies the constraints on properties and classes expressed by the DCAT-AP-ES application profile in SHACL for the controlled vocabularies used."@en ;
     owl:versionInfo "1.0.0" ;
-    dct:modified "2024-04-08"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     cc:attributionURL <https://datos.gob.es/> ;
     dcatap:availability <http://data.europa.eu/r5r/stable> ;
