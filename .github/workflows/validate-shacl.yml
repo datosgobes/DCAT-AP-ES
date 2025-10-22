@@ -1,0 +1,81 @@
+name: Validación formas SHACL
+
+on:
+  # Ejecutar en PRs cuando se modifican archivos relevantes
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'shacl/**/*.ttl'
+      - 'examples/**/*.rdf'
+      - 'examples/**/*.ttl'
+      - 'docs/index.md'
+      - 'tools/docker-pyshacl/**'
+      - 'tests/test.ini'
+      - '.github/workflows/validate-shacl.yml'
+  
+  # Ejecutar en push directo a main/develop (fuera de PR)
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'shacl/**/*.ttl'
+      - 'examples/**/*.rdf'
+      - 'examples/**/*.ttl'
+      - 'docs/index.md'
+      - 'tools/docker-pyshacl/**'
+      - 'tests/test.ini'
+      - '.github/workflows/validate-shacl.yml'
+
+jobs:
+  validate-dcat-ap-es:
+    name: Validación formas SHACL DCAT-AP-ES (Todas las Fases)
+    runs-on: ubuntu-latest
+    # Evitar duplicación: no ejecutar en push si hay una PR abierta para esta rama
+    if: github.event_name == 'pull_request' || github.event.pull_request == null
+    
+    steps:
+      - name: Comprobar repositorio
+        uses: actions/checkout@v5
+
+      - name: Ejecutar validación de formas SHACL DCAT-AP-ES
+        id: validate
+        continue-on-error: true
+        run: |
+          chmod +x tests/validate-local.sh
+          ./tests/validate-local.sh all
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+
+      - name: Subir informes de validación
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dcat-ap-es-validation-reports
+          path: tests/validation-reports/
+          retention-days: 30
+
+      - name: Commentar resumen de validación en el PR
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = fs.readFileSync('tests/validation-reports/SUMMARY.md', 'utf8');
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
+
+      - name: Comprobar resultado de la validación
+        run: |
+          EXIT_CODE="${{ steps.validate.outputs.exit_code }}"
+          if [ "$EXIT_CODE" != "0" ]; then
+            echo "❌ Validación fallida, revisa los artefactos con los informes. Código de salida: $EXIT_CODE"
+            exit 1
+          fi
+          echo "✅ Validación completada con éxito."

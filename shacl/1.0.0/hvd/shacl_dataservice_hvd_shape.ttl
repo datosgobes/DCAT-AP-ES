@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/> .
+@prefix dcatapes: <https://datosgobes.github.io/DCAT-AP-ES/#> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 
 <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/1.0.0/hvd/shacl_dataservice_hvd_shape.ttl>
@@ -20,12 +20,12 @@
     dct:description "Este archivo incluye las restricciones SHACL específicas para servicios de datos de alto valor (HVD) para las propiedades y clases relacionadas con servicios de datos en el perfil de aplicación DCAT-AP-ES."@es ;
     dct:description "This file includes SHACL restrictions specific to High-Value Data Services (HVD) for properties and classes related to data services in the DCAT-AP-ES application profile."@en ;
     owl:versionInfo "1.0.0" ;
-    dct:modified "2024-04-08"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     cc:attributionURL <https://datos.gob.es/> ;
     dcatap:availability <http://data.europa.eu/r5r/stable> ;
     foaf:homepage <https://datosgobes.github.io/DCAT-AP-ES/> ;
-    rdfs:seeAlso <https://datosgobes.github.io/DCAT-AP-ES/#dcat-dataservice>  ;
+    rdfs:seeAlso <https://datosgobes.github.io/DCAT-AP-ES/#DataService>  ;
     rdfs:comment """
         Este archivo requiere importar las siguientes dependencias adicionales para funcionar correctamente de acuerdo con el Reglamento de ejecución (UE) 2023/138 de la Comisión Europea (High Value Datasets Implementing Regulation, HVD IR):
         - shacl_common_hvd_shape.ttl
@@ -62,7 +62,7 @@ dcatapes:DataService_HVD_Shape
         sh:path dcatap:applicableLegislation ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_applicablelegislation> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.applicablelegislation> ;
         sh:message "El valor de dcatap:applicableLegislation debe ser un IRI válido."@es ;
         sh:message "The value of dcatap:applicableLegislation must be a valid IRI."@en ;
     ],
@@ -70,7 +70,7 @@ dcatapes:DataService_HVD_Shape
         sh:path dcatap:applicableLegislation ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_applicablelegislation> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.applicablelegislation> ;
         sh:message "El servicio de datos debería contener al menos un dcatap:applicableLegislation."@es ;
         sh:message "The data service should contain at least one dcatap:applicableLegislation."@en ;
     ], 
@@ -80,7 +80,7 @@ dcatapes:DataService_HVD_Shape
         sh:description "The applicable legislation must be set to the HVD IR ELI."@en;
         sh:hasValue <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
         sh:severity sh:Violation;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_applicablelegislation> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.applicablelegislation> ;
         sh:message "El servicio de datos HVD debe contener un dcatap:applicableLegislation cuyo valor sea el ELI del Reglamento de ejecución HVD: <http://data.europa.eu/eli/reg_impl/2023/138/oj>."@es ;
         sh:message "The HVD data service must contain a dcatap:applicableLegislation whose value is the ELI of the HVD Implementing Regulation: <http://data.europa.eu/eli/reg_impl/2023/138/oj>."@en ;
     ], 
@@ -90,7 +90,7 @@ dcatapes:DataService_HVD_Shape
         sh:path dcatap:hvdCategory;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_hvdcategory> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.hvdcategory> ;
         sh:message "El valor de dcatap:hvdCategory debe ser un IRI válido."@es ;
         sh:message "The value of dcatap:hvdCategory must be a valid IRI."@en ;
     ],
@@ -98,7 +98,7 @@ dcatapes:DataService_HVD_Shape
         sh:path dcatap:hvdCategory ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcatap_hvdcategory> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.hvdcategory> ;
         sh:message "El servicio de datos HVD debe contener al menos un dcatap:hvdCategory."@es ;
         sh:message "The HVD data service must contain at least one dcatap:hvdCategory."@en ;
     ], 
@@ -112,7 +112,7 @@ dcatapes:DataService_HVD_Shape
         sh:path dcat:contactPoint ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_contactpoint> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.contactPoint> ;
         sh:message "El servicio de datos HVD debe contener al menos un dcat:contactPoint."@es ;
         sh:message "The HVD data service must contain at least one dcat:contactPoint."@en ;
     ], 
@@ -122,7 +122,7 @@ dcatapes:DataService_HVD_Shape
         sh:nodeKind sh:IRI;
         #sh:class foaf:Document ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-foaf_page> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.page> ;
         sh:message "El valor de foaf:page debe ser un IRI válido."@es ;
         sh:message "The value of foaf:page must be a valid IRI."@en ;
     ], 
@@ -130,7 +130,7 @@ dcatapes:DataService_HVD_Shape
         sh:path foaf:page ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-foaf_page> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.page> ;
         sh:message "El servicio de datos HVD debe contener al menos un foaf:page."@es ;
         sh:message "The HVD data service must contain at least one foaf:page."@en ;
     ],
@@ -139,7 +139,7 @@ dcatapes:DataService_HVD_Shape
         sh:path dcat:servesDataset ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#nota-dcat_dataservice-dcat_servesdataset> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.servesDataset> ;
         sh:message "El servicio de datos HVD debe contener al menos un dcat:servesDataset."@es ;
         sh:message "The HVD data service must contain at least one dcat:servesDataset."@en ;
     ];

@@ -1,5 +1,5 @@
 # Repositorio DCAT-AP-ES
-[![ES](https://img.shields.io/badge/lang-ES-yellow.svg)](README.md) [![EN](https://img.shields.io/badge/lang-EN-blue.svg)](README.en.md)
+[![ES](https://img.shields.io/badge/lang-ES-yellow.svg)](README.md) [![EN](https://img.shields.io/badge/lang-EN-blue.svg)](README.en.md) [![Validación formas SHACL](https://github.com/datosgobes/DCAT-AP-ES/actions/workflows/validate-shacl.yml/badge.svg)](https://github.com/datosgobes/DCAT-AP-ES/actions/workflows/validate-shacl.yml)
 
 Este proyecto proporciona una serie de recursos para la [implementación técnica de DCAT-AP-ES](https://datos.gob.es/es/documentacion/etiquetas/normativas-3836), un perfil de aplicación del vocabulario de catálogo de datos ([DCAT-AP](https://datos.gob.es/es/documentacion/dcat-ap-perfil-de-aplicacion-de-dcat-para-portales-open-data-europeos)) para España.
 
@@ -11,12 +11,41 @@ Este proyecto proporciona una serie de recursos para la [implementación técnic
 El proyecto está organizado de la siguiente manera:
 
 - `.devcontainer`: Configuración para [Dev Containers](https://containers.dev/implementors/spec/), una funcionalidad que permite desarrollar en un entorno preconfigurado dentro de un contenedor [Docker](https://docs.docker.com/).
-- `.github/workflows/`: Contiene los flujos de trabajo de [GitHub Actions](https://docs.github.com/es/actions) para la generación de la documentación online.
+- `.github/workflows/`: Contiene los flujos de trabajo de [GitHub Actions](https://docs.github.com/es/actions) para la generación de la documentación online y pruebas automatizadas para las formas SHACL.
 - `docs/`: Documentación principal del proyecto en formato [`Markdown`](https://daringfireball.net/projects/markdown/syntax) para [MKDocs](https://www.mkdocs.org/getting-started/).
 - `overrides`: [Plantillas personalizadas](https://squidfunk.github.io/mkdocs-material/customization/) para la documentación online.
-- `examples/`: Ejemplos de uso de `DCAT-AP-ES`.
+- `examples/`: Ejemplos de uso de `DCAT-AP-ES` en formato RDF/XML y Turtle.
+- `shacl/`: Archivos de validación SHACL para `DCAT-AP-ES` y extensión HVD.
+- `tests/`: Scripts y documentación para validación local de SHACL. [Más información](./tests/README.md)
 - `refs/`: Referencias adicionales y documentación relacionada.
 - `tools/`: Herramientas y software útil para la gestión del proyecto. [Más información](#herramientas-adicionales-del-repositorio)
+
+## Testing y Validación
+
+Este repositorio incluye un sistema completo de validación SHACL automatizado mediante GitHub Actions. Para más información sobre cómo ejecutar tests localmente y entender los resultados de validación, consulta [tests/README.md](./tests/README.md).
+
+### Validación Local
+
+Para validar cambios antes de hacer commit:
+
+```bash
+# Ejecutar todas las validaciones
+./tests/validate-local.sh
+
+# Solo validación sintáctica
+./tests/validate-local.sh --syntax-only
+
+# Solo validación semántica SHACL
+./tests/validate-local.sh --shacl-only
+```
+
+El script validará:
+- Coherencia entre el modelo DCAT-AP-ES y las formas SHACL.
+- Sintaxis de archivos SHACL (Turtle)
+- Conformidad de ejemplos RDF con las shapes SHACL
+
+> [!WARNING]
+> **Requisitos**: [Docker](https://docs.docker.com/get-started/get-docker/)
 
 ## Contribución
 
@@ -34,19 +63,28 @@ Si deseas contribuir a este proyecto, por ejemplo arreglando algún [fichero de 
     git checkout -b fix/shacl-property-x
     ```
 
-3. Realiza tus cambios y haz commit 
+3. **Valida tus cambios localmente** antes de hacer commit
+
+    ```sh
+    ./tests/validate-local.sh
+    ```
+
+4. Realiza tus cambios y haz commit 
 
     ```sh
     git commit -am 'Corregido rango de propiedad x'
     ```
 
-4. Sube tus cambios 
+5. Sube tus cambios 
 
     ```sh
     git push origin fix/shacl-property-x
     ```
 
-5. Abre una [Solicitud de extracción (*Pull Request*)](https://github.com/datosgobes/DCAT-AP-ES/pulls) para confirmar el cambio en la rama principal.
+6. Abre una [Solicitud de extracción (*Pull Request*)](https://github.com/datosgobes/DCAT-AP-ES/pulls) para confirmar el cambio en la rama principal.
+
+> [!TIP]
+> El workflow de GitHub Actions ejecutará automáticamente las validaciones SHACL en tu Pull Request y comentará los resultados. Asegúrate de que todas las validaciones pasen antes de solicitar revisión.
 
 ## Desarrollo
 

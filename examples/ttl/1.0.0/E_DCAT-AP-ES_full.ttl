@@ -1,0 +1,104 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dcat-ap-es.ejemplo.org/catalogo>
+    a dcat:Catalog ;
+    dct:description "Catálogo nacional de datos abiertos que contiene conjuntos de datos de todas las administraciones públicas españolas."@es, "National open data catalog containing datasets from all Spanish public administrations."@en ;
+    dct:identifier "http://dcat-ap-es.ejemplo.org/catalogo" ;
+    dct:issued "2025-01-01"^^xsd:date ;
+    dct:language <http://publications.europa.eu/resource/authority/language/ENG>, <http://publications.europa.eu/resource/authority/language/SPA> ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:modified "2025-01-15"^^xsd:date ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    dct:rights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+    dct:title "Catálogo de Datos Abiertos del Gobierno"@es, "Government Open Data Catalog"@en ;
+    dcat:contactPoint [
+        a vcard:Organization ;
+        vcard:fn "Punto de Contacto del Catálogo"@es ;
+        vcard:hasEmail <mailto:catalogo@ejemplo.gob.es> ;
+        vcard:hasTelephone <tel:+34-900999999> ;
+        vcard:hasURL <http://dcat-ap-es.ejemplo.org/contacto> ;
+        vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+        vcard:organization-name "datos.gob.es"@es
+    ] ;
+    dcat:dataset <http://dcat-ap-es.ejemplo.org/dataset/calidad-aire-madrid> ;
+    dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ;
+    foaf:homepage <http://dcat-ap-es.ejemplo.org> .
+
+<http://dcat-ap-es.ejemplo.org/dataset/calidad-aire-madrid>
+    a dcat:Dataset ;
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/HOURLY> ;
+    dct:conformsTo <https://www.eea.europa.eu/data-and-maps/data/aqereporting-8> ;
+    dct:description "Hourly air quality measurements from Madrid monitoring stations, including NO2, PM10, PM2.5, O3, SO2 and CO."@en, "Mediciones horarias de la calidad del aire en las estaciones de monitoreo de Madrid, incluyendo NO2, PM10, PM2.5, O3, SO2 y CO."@es ;
+    dct:identifier "http://dcat-ap-es.ejemplo.org/dataset/calidad-aire-madrid" ;
+    dct:issued "2024-01-01"^^xsd:date ;
+    dct:modified "2025-01-15"^^xsd:date ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+    dct:temporal [
+        a dct:PeriodOfTime ;
+        dcat:endDate "2024-12-31"^^xsd:date ;
+        dcat:startDate "2020-01-01"^^xsd:date
+    ] ;
+    dct:title "Air Quality in Madrid - Hourly Data"@en, "Calidad del Aire en Madrid - Datos Horarios"@es ;
+    adms:identifier [
+        a adms:Identifier ;
+        skos:notation "CAM-AIR-2024-001"^^xsd:string
+    ] ;
+    dcat:contactPoint [
+        a vcard:Organization ;
+        vcard:fn "Departamento de Medio Ambiente"@es ;
+        vcard:hasEmail <mailto:medioambiente@ejemplo.gob.es> ;
+        vcard:hasTelephone <tel:+34-915556789> ;
+        vcard:hasURL <http://dcat-ap-es.ejemplo.org/medioambiente/contacto> ;
+        vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+        vcard:organization-name "datos.gob.es"@es
+    ] ;
+    dcat:distribution <http://dcat-ap-es.ejemplo.org/distribucion/calidad-aire-madrid-CSV>, <http://dcat-ap-es.ejemplo.org/distribucion/calidad-aire-madrid-JSON> ;
+    dcat:keyword "air quality"@en, "calidad del aire"@es, "contaminación"@es, "environment"@en, "medio ambiente"@es, "pollution"@en ;
+    dcat:landingPage <http://dcat-ap-es.ejemplo.org/dataset/calidad-aire-madrid> ;
+    dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> .
+
+# Nota: dcat:hasVersion y dcat:isVersionOf se omiten en este ejemplo
+# porque referencian datasets externos que no están incluidos aquí
+
+<http://dcat-ap-es.ejemplo.org/distribucion/calidad-aire-madrid-CSV>
+    a dcat:Distribution ;
+    dcatap:applicableLegislation <http://data.europa.eu/eli/dir/2019/1024/oj> ;
+    dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
+    dct:description "Archivo CSV con mediciones horarias de calidad del aire."@es, "CSV file with hourly air quality measurements."@en ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    dct:issued "2024-01-01"^^xsd:date ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:modified "2025-01-15"^^xsd:date ;
+    dct:rights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    dct:title "Distribución CSV - Calidad del Aire Madrid"@es, "CSV Distribution - Madrid Air Quality"@en ;
+    adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
+    dcat:accessURL <http://dcat-ap-es.ejemplo.org/download/calidad-aire-madrid.csv> ;
+    dcat:byteSize 2456789 ;
+    dcat:downloadURL <http://dcat-ap-es.ejemplo.org/files/calidad-aire-madrid.csv> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> .
+
+<http://dcat-ap-es.ejemplo.org/distribucion/calidad-aire-madrid-JSON>
+    a dcat:Distribution ;
+    dcatap:applicableLegislation <http://data.europa.eu/eli/dir/2019/1024/oj> ;
+    dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE> ;
+    dct:description "API REST que devuelve datos en formato JSON."@es, "REST API returning data in JSON format."@en ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/JSON> ;
+    dct:issued "2024-01-01"^^xsd:date ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:modified "2025-01-15"^^xsd:date ;
+    dct:title "Distribución JSON - Calidad del Aire Madrid"@es, "JSON Distribution - Madrid Air Quality"@en ;
+    adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
+    dcat:accessURL <http://dcat-ap-es.ejemplo.org/api/calidad-aire-madrid> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/json> .
+

@@ -224,7 +224,7 @@ Para garantizar la trazabilidad temporal de los recursos y su correcto seguimien
 
 La propiedad `dct:temporal` en DCAT-AP-ES se usa para describir el periodo de tiempo al que se refiere un conjunto de datos. En la actualidad, existen múltiples formas de describir esta información, incluyendo el uso de `dcat:startDate`, `dcat:endDate`, `time:hasBeginning`, `time:hasEnd` y `schema:startDate`, `schema:endDate`. Sin embargo, esta flexibilidad puede generar inconsistencias en la representación de los periodos temporales.
 
-Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rangos suficientemente flexibles](/#nota-dct_periodoftime-dcat_startdate), se opta por adoptar este enfoque por motivos organizativos.
+Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rangos suficientemente flexibles](#PeriodOfTime.startDate), se opta por adoptar este enfoque por motivos organizativos.
 
 
 !!! must organisational "Convención 22"

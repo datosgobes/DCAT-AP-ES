@@ -59,6 +59,95 @@ function generateNoteId(table) {
 }
 
 /**
+ * Generates a property anchor ID from a property table
+ * Format: EntityName.propertyName (e.g., DataService.accessRights)
+ * @param {HTMLElement} table - The table element to extract data from
+ * @returns {string|null} The generated property ID or null if unable to generate
+ */
+function generatePropertyId(table) {
+    if (!table) return null;
+
+    const firstHeaderRow = table.querySelector('thead tr');
+    if (!firstHeaderRow) return null;
+
+    const [classCell, propertyCell] = firstHeaderRow.querySelectorAll('th');
+    if (!classCell || !propertyCell) return null;
+
+    // Extract entity name from link: [`dcat:DataService`](#DataService)
+    const classLink = classCell.querySelector('a[href^="#"]');
+    const entityId = classLink?.getAttribute('href')?.substring(1); // Remove #
+    
+    if (!entityId) return null;
+
+    // Extract property name from link: [`dct:accessRights`](http://...)
+    const propertyLink = propertyCell.querySelector('a');
+    const propertyText = propertyLink?.textContent.trim();
+    
+    if (!propertyText) return null;
+
+    // Extract the local part of the property (after the colon)
+    // dct:accessRights -> accessRights
+    const propertyName = propertyText.includes(':') 
+        ? propertyText.split(':')[1] 
+        : propertyText;
+
+    // Normalize property name (remove backticks, spaces, etc.)
+    const normalizedProperty = propertyName.replace(/[`\s]/g, '');
+
+    return `${entityId}.${normalizedProperty}`;
+}
+
+/**
+ * Updates property table links to point to local anchors
+ * @param {HTMLElement} table - The table element
+ * @param {string} propertyId - The generated property ID
+ */
+function updatePropertyTableLinks(table, propertyId) {
+    if (!table || !propertyId) return;
+
+    const firstHeaderRow = table.querySelector('thead tr');
+    if (!firstHeaderRow) return;
+
+    const propertyCell = firstHeaderRow.querySelectorAll('th')[1];
+    if (!propertyCell) return;
+
+    const propertyLink = propertyCell.querySelector('a');
+    if (!propertyLink) return;
+
+    // // Store original href as data attribute for reference
+    // const originalHref = propertyLink.getAttribute('href');
+    // propertyLink.setAttribute('data-original-href', originalHref);
+    
+    // // Update href to point to local anchor
+    // propertyLink.setAttribute('href', `#${propertyId}`);
+    // propertyLink.setAttribute('title', 'Ir a la propiedad');
+}
+
+/**
+ * Adds anchor to property table header
+ * @param {HTMLElement} table - The table element
+ * @param {string} propertyId - The property ID for the anchor
+ */
+function addPropertyTableAnchor(table, propertyId) {
+    if (!table || !propertyId) return;
+
+    const firstHeaderRow = table.querySelector('thead tr');
+    if (!firstHeaderRow) return;
+
+    const propertyCell = firstHeaderRow.querySelectorAll('th')[1];
+    if (!propertyCell) return;
+
+    // Check if anchor already exists
+    if (propertyCell.querySelector('.headerlink')) return;
+
+    // Add anchor after the property link
+    const anchor = createAnchor(propertyId);
+    anchor.style.marginLeft = '0.5em';
+    anchor.style.color = '#ce3642';
+    propertyCell.appendChild(anchor);
+}
+
+/**
  * Normalizes a string to be used as part of an ID
  * @param {string} value - The string to normalize
  * @returns {string} The normalized string
@@ -146,7 +235,7 @@ function generateNoteIdFromTitle(titleText) {
 }
 
 /**
- * Main function to process admonitions
+ * Main function to process admonitions and property tables
  */
 function addAnchors() {
     if (!window.dcatapesConfig) {
@@ -163,6 +252,7 @@ function addAnchors() {
         return;
     }
     
+    // Process admonitions (existing functionality)
     document.querySelectorAll('div.admonition.must, div.admonition.should, div.admonition.may, div.admonition.note')
         .forEach(admonition => {
             if (admonition.id) return;
@@ -200,6 +290,9 @@ function addAnchors() {
             admonition.id = id;
             processTitle(admonition, id, badges);
         });
+    
+    // NEW: Process property tables
+    processPropertyTables();
 }
 /**
  * Generates convention ID from admonition
@@ -255,6 +348,43 @@ function processTitle(admonition, id, badges) {
 }
 
 /**
+ * Process all property tables and add IDs and anchors
+ */
+function processPropertyTables() {
+    // Find all tables that match the property table structure
+    document.querySelectorAll('table').forEach(table => {
+        // Skip if already processed
+        if (table.id && table.id.includes('.')) return;
+        
+        // Check if this is a property table by looking for specific structure
+        const firstHeaderRow = table.querySelector('thead tr');
+        if (!firstHeaderRow) return;
+        
+        const cells = firstHeaderRow.querySelectorAll('th');
+        if (cells.length < 2) return;
+        
+        // Check if first cell has entity link and second has property link
+        const hasEntityLink = cells[0].querySelector('a[href^="#"]');
+        const hasPropertyLink = cells[1].querySelector('a');
+        
+        if (!hasEntityLink || !hasPropertyLink) return;
+        
+        // Generate property ID
+        const propertyId = generatePropertyId(table);
+        if (!propertyId) return;
+        
+        // Set table ID
+        table.id = propertyId;
+        
+        // Add anchor to property cell
+        addPropertyTableAnchor(table, propertyId);
+        
+        // Update property link to point to local anchor
+        updatePropertyTableLinks(table, propertyId);
+    });
+}
+
+/**
  * Updates badges and anchors when language changes
  */
 function updateForLanguageChange() {
@@ -282,8 +412,9 @@ function scrollToElement(id) {
     const element = document.getElementById(id);
     if (!element) return;
     
-    // Verificar si es un ID de tipo nota o convención
+    // Verificar si es un ID de tipo nota, convención o propiedad
     const isNoteOrConvention = id.startsWith('nota-') || id.startsWith('convencion-');
+    const isProperty = id.includes('.'); // Property IDs have format Entity.property
     
     // Esperar un momento para asegurarse de que todos los elementos se han renderizado
     setTimeout(() => {
@@ -311,8 +442,8 @@ function scrollToElement(id) {
             behavior: 'smooth'
         });
         
-        // Añadir efecto de resaltado SOLO para notas y convenciones
-        if (isNoteOrConvention) {
+        // Añadir efecto de resaltado para notas, convenciones y propiedades
+        if (isNoteOrConvention || isProperty) {
             highlightElement(element);
         }
     }, 200);
@@ -325,8 +456,8 @@ function handleAnchorLinks() {
     // Comprobar si la URL tiene un ancla
     if (window.location.hash) {
         const id = window.location.hash.substring(1);
-        // Verificar si es un ID de tipo nota o convención antes de aplicar efectos especiales
-        if (id.startsWith('nota-') || id.startsWith('convencion-')) {
+        // Verificar si es un ID especial (nota, convención o propiedad)
+        if (id.startsWith('nota-') || id.startsWith('convencion-') || id.includes('.')) {
             scrollToElement(id);
         }
         // Para otros anchors, dejamos que Material for MkDocs haga su trabajo
@@ -339,8 +470,8 @@ function handleAnchorLinks() {
             if (href.length > 1) { // Ignorar enlaces vacíos (#)
                 const id = href.substring(1);
                 
-                // Solo aplicar nuestro manejo especial a notas y convenciones
-                if (id.startsWith('nota-') || id.startsWith('convencion-')) {
+                // Aplicar nuestro manejo especial a notas, convenciones y propiedades
+                if (id.startsWith('nota-') || id.startsWith('convencion-') || id.includes('.')) {
                     e.preventDefault(); // Prevenir el comportamiento predeterminado
                     scrollToElement(id);
                     // Actualizar la URL sin recargar la página
@@ -445,8 +576,8 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('popstate', () => {
         if (window.location.hash) {
             const id = window.location.hash.substring(1);
-            // Solo aplicar nuestro manejo especial a notas y convenciones
-            if (id.startsWith('nota-') || id.startsWith('convencion-')) {
+            // Aplicar nuestro manejo especial a notas, convenciones y propiedades
+            if (id.startsWith('nota-') || id.startsWith('convencion-') || id.includes('.')) {
                 scrollToElement(id);
             }
             // Para otros anchors, dejamos que Material for MkDocs haga su trabajo
