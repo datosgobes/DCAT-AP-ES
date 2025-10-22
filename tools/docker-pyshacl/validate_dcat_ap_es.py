@@ -486,7 +486,6 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
         if self.phase_0_executed:
             summary_content += """**Fase 0 - Comparación Modelo-SHACL:**
 - `model-vs-shacl-report.md` - Formato Markdown con análisis detallado de propiedades
-- `model-vs-shacl-report.csv` - Formato CSV para importar en hojas de cálculo
 
 """
         
