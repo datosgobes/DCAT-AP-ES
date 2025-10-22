@@ -1,0 +1,66 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+# Este es un ejemplo MÍNIMO de HVD con SOLO propiedades OBLIGATORIAS
+# Debe generar WARNINGS por las propiedades RECOMENDADAS que faltan
+
+<http://dcat-ap-es.ejemplo.org/catalogo-hvd-minimal>
+  a dcat:Catalog ;
+  # Obligatorias
+  dct:title "Catálogo HVD Mínimo"@es ;
+  dct:description "Ejemplo mínimo de catálogo HVD con solo propiedades obligatorias"@es ;
+  foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+  dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ;
+  dct:issued "2025-01-01T09:00:00+01:00"^^xsd:dateTime ;
+  dct:modified "2025-01-02T12:00:00+01:00"^^xsd:dateTime ;
+  dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+  dcat:dataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-hvd-minimal> .
+  # FALTAN propiedades Recomendadas: dct:spatial, dcat:service
+
+<http://dcat-ap-es.ejemplo.org/dataset/dataset-hvd-minimal>
+  a dcat:Dataset ;
+  # Obligatorias base
+  dct:title "Dataset HVD Mínimo"@es ;
+  dct:description "Dataset de ejemplo HVD con solo propiedades obligatorias"@es ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+  dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
+  # Obligatorias HVD
+  dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+  dcatap:hvdCategory <http://data.europa.eu/bna/c_b7f6a4f3> ;
+  dcat:distribution <http://dcat-ap-es.ejemplo.org/distribucion/dist-hvd-minimal> .
+  # FALTAN propiedades Recomendadas: dct:spatial, dct:temporal, dcat:contactPoint, dcat:keyword
+
+<http://dcat-ap-es.ejemplo.org/distribucion/dist-hvd-minimal>
+  a dcat:Distribution ;
+  # Obligatorias base
+  dcat:accessURL <http://dcat-ap-es.ejemplo.org/files/dataset-hvd-minimal.csv> ;
+  # Obligatorias HVD
+  dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> .
+  # FALTAN propiedades Recomendadas: dct:format, dct:license, dcatap:availability, dct:title, dct:description
+
+<http://dcat-ap-es.ejemplo.org/dataservice/dataservice-hvd-minimal>
+  a dcat:DataService ;
+  # Obligatorias base
+  dct:title "Servicio de datos HVD Mínimo"@es ;
+  dcat:endpointURL <http://dcat-ap-es.ejemplo.org/dataservice/api-hvd-minimal> ;
+  dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
+  dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+  # Obligatorias HVD
+  dcatap:hvdCategory <http://data.europa.eu/bna/c_b7f6a4f3> ;
+  dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contact-hvd-minimal> ;
+  dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-hvd-minimal> ;
+  foaf:page <http://dcat-ap-es.ejemplo.org/api/sla.html> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> .
+  # FALTAN propiedades Recomendadas: dcat:endpointDescription, dcat:keyword
+
+<http://dcat-ap-es.ejemplo.org/contact-hvd-minimal>
+  a vcard:Organization ;
+  vcard:fn "Oficina del dato"@es ;
+  vcard:hasEmail <mailto:info@example.org> .
