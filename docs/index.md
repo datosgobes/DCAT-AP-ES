@@ -2244,15 +2244,18 @@ Las especificaciones adicionales se muestran en las siguientes tablas comparativ
 
     <span style="color:#154481"><b>:material-layers:</b></span>  DCAT-AP-ES es el resultado de combinar el perfil europeo DCAT-AP 2.1.1, la extensión HVD 2.2.0 y requisitos adicionales adaptados al contexto español que se justifican a continuación.
 
-| Especificidad | Justificación |
-|---|---|
-|**1. Declaración obligatoria de las siguientes propiedades opcionales**<br>*Catalog*<ul><li>`dcat:themeTaxonomy`</li><li>`dct:language`</li><li>`dct:issued`</li><li>`dct:modified`</li><li>`dct:license`</li><li>`foaf:homepage`</li></ul>*Dataset*<ul><li>`dcat:theme`</li><li>`dct:publisher`</li></ul>**2. Mantenimiento de estructura de URIs para la cobertura geográfica**| Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013)  que ya venían siendo aplicadas de esta forma por las AAPP |
-|**3. Ajuste a 3 la cardinalidad máxima de taxonomías de temas (`dcat:themeTaxonomy`)**| Facilitar la interoperabilidad al utilizar taxonomías de uso común (NTI-RISP (2013), INSPIRE y EDP) |
-|**4. Uso obligatorio de, al menos, la taxonomía de sectores primarios fijada por la NTI-RISP (2013)**|Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013) y  reforzar el uso que se realiza para otros fines de las AAPP |
-|**5. Obligación de incorporación de, al menos, el idioma castellano en propiedades multilingües.**|Garantizar la interoperabilidad|
-|**6. Uso del DIR3 para la identificación de publicadores (`dct:publisher` y `dct:identifier` de *Agent*)**|Aplicar la forma estándar de identificación única de organismos públicos y reforzar el uso que se realiza para otros fines de las AAPP |
-|**7. Concreción del vocabulario del metadato `adms:status`**<br>**8. Incorporación de `dct:publisher` y `dcat:theme` a *DataService***| Convergencia futura con DCAT-AP 3.0.0 y asegurar interoperabilidad.<br>`adms:status` define el ciclo de vida de una distribución, con las opciones: `OP_DATPRO`, `WITHDRAWN`, `COMPLETED`, `DEPRECATED`, `DEVELOP`|
-|**9. Incorporación del vocabulario ATU para `dct:spatial`**|Permite mayor precisión para divisiones administrativas, garantizando la interoperabilidad. `dct:spatial` es Recomendado |
+    | Especificidad | Propiedad | Justificación |
+    |---|---|---|
+    |**1. Declaración obligatoria de las siguientes propiedades opcionales**| (*Catalog*)<br>dcat:themeTaxonomy<br> dct:language<br> dct:issued<br> dct:modified<br> dct:license<br> foaf:homepage<br><br>(*Dataset*)<br>dcat:theme<br> dct:publisher<br> | Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013) que ya venían siendo aplicadas de esta forma por las AAPP |
+    |**2. Mantenimiento de estructura de URIs para la cobertura geográfica**| (*Catalog*/*Dataset*)<br>dct:spatial | Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013) que ya venían siendo aplicadas de esta forma por las AAPP |
+    |**3. Ajuste a 3 la cardinalidad máxima de taxonomías de temas**| (*Catalog*)<br>dcat:themeTaxonomy | Facilitar la interoperabilidad al utilizar taxonomías de uso común (NTI-RISP (2013), INSPIRE y EDP) |
+    |**4. Uso obligatorio de, al menos, la taxonomía de sectores primarios fijada por la NTI-RISP (2013)**| (*Catalog*)<br>dcat:themeTaxonomy | Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013) y reforzar el uso que se realiza para otros fines de las AAPP |
+    |**5. Obligación de incorporación de, al menos, el idioma castellano en propiedades multilingües**| (*Catalog*/*Dataset*/*Distribution*)<br>dct:language | Garantizar la interoperabilidad |
+    |**6. Uso del DIR3 para la identificación de publicadores**|  (*Agent*)<br>dct:publisher<br> dct:identifier| Aplicar la forma estándar de identificación única de organismos públicos y reforzar el uso que se realiza para otros fines de las AAPP |
+    |**7. Concreción del vocabulario del metadato**| (*CatalogRecord*/*Distribution*)<br>adms:status | Convergencia futura con DCAT-AP 3.0.0 y asegurar interoperabilidad. adms:status define el ciclo de vida de una distribución, con las opciones: OP_DATPRO, WITHDRAWN, COMPLETED, DEPRECATED, DEVELOP |
+    |**8. Incorporación a *DataService***| (*DataService*)<br>dct:publisher<br> dcat:theme<br><br> | Convergencia futura con DCAT-AP 3.0.0 y asegurar interoperabilidad |
+    |**9. Incorporación del vocabulario ATU para**| (*Catalog*/*Dataset*)<br>dct:spatial | Permite mayor precisión para divisiones administrativas, garantizando la interoperabilidad. dct:spatial es Recomendado |
+
 
 ### Detalle completo
 
