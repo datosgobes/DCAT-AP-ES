@@ -2310,22 +2310,22 @@ Las especificaciones adicionales se muestran en las siguientes tablas comparativ
 | Catalog | Fecha de actualización | dct:modified | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
 | Catalog | Página web | foaf:homepage | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
 | Catalog | Términos de uso | dct:license | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
-| Catalog | Legislación aplicable | dcatap:applicableLegislation | No existe | R | - | 0..* | Propiedad de DCAT-AP 3 no incorporada a DCAT-AP-ES |
+| Catalog | Legislación aplicable | dcatap:applicableLegislation | No existe | R | - | 0..n | Propiedad de DCAT-AP 3 no incorporada a DCAT-AP-ES |
 | CatalogRecord | Estado editorial | adms:status | R | R | 0..1 | 0..1 | En DCAT-AP 3 usa vocabulario diferente al de DCAT-AP 2.1.1, en `DCAT-AP-ES` se adopta como una recomendación: `http://publications.europa.eu/resource/authority/concept-status`|
 | Dataset | Nombre | dct:title | Ob | Ob | 1..n | 1..n | - |
 | Dataset | Descripción | dct:description | Ob | Ob | 1..n | 1..n | - |
 | Dataset | Publicador | dct:publisher | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria y ajusta cardinalidad (`1..1`) |
-| Dataset | Temática(s) | dcat:theme | Ob | R | 1..n | 0..* | DCAT-AP-ES eleva la propiedad a Obligatoria |
-| Dataset | Distribución | dcat:distribution | R/Ob (HVD) | R | 0..n/1..n (HVD) | 0..* | DCAT-AP-ES hace obligatoria esta propiedad para conjuntos de datos HVD |
+| Dataset | Temática(s) | dcat:theme | Ob | R | 1..n | 0..n | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| Dataset | Distribución | dcat:distribution | R/Ob (HVD) | R | 0..n/1..n (HVD) | 0..n | DCAT-AP-ES hace obligatoria esta propiedad para conjuntos de datos HVD |
 | Dataset | Categoría HVD | dcatap:hvdCategory | Op/Ob (HVD) | Op | 0..n/1..n (HVD) | 0..n | En DCAT-AP-ES es Obligatorio para conjuntos de datos HVD |
 | Dataset | Calidad | dqv:hasQualityMeasurement | No existe | Op | - | 0..n | Propiedad nueva en DCAT-AP 3.0.0 no incorporada a DCAT-AP-ES |
 | Dataset | Resolución espacial | dcat:spatialResolutionInMeters | Op | Op | 0..1 | 0..1 | DCAT-AP-ES mantiene la misma cardinalidad |
 | Dataset | Resolución temporal | dcat:temporalResolution | Op | Op | 0..1 | 0..n | DCAT-AP-ES limita a una única resolución temporal |
 | DataService | Nombre | dct:title | Ob | Ob | 1..n | 1..n | - |
 | DataService | URL de acceso | dcat:endpointURL | Ob | Ob | 1..n | 1..n | - |
-| DataService | Temática(s) | dcat:theme | Ob | R | 1..n | 0..* | DCAT-AP-ES eleva la propiedad a Obligatoria |
+| DataService | Temática(s) | dcat:theme | Ob | R | 1..n | 0..n | DCAT-AP-ES eleva la propiedad a Obligatoria |
 | DataService | Publicador | dct:publisher | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
-| DataService | Descripción del punto de acceso | dcat:endpointDescription | R | R | 0..n | 0..* | - |
+| DataService | Descripción del punto de acceso | dcat:endpointDescription | R | R | 0..n | 0..n | - |
 | DataService | Descripción del punto por tipo | dcat:endpointDescriptionByType | No existe | R | - | 0..n | Propiedad nueva en DCAT-AP 3.0.0 no incorporada a DCAT-AP-ES |
 | DataService | Categoría HVD | dcatap:hvdCategory | Op/Ob (HVD) | Op | 0..n/1..n (HVD) | 0..n | En DCAT-AP-ES es Obligatorio para servicios HVD |
 | Distribution | URL de acceso | dcat:accessURL | Ob | Ob | 1..n | 1..n | - |
