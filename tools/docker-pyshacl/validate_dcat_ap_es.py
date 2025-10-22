@@ -20,6 +20,8 @@ import subprocess
 import configparser
 from pathlib import Path
 from datetime import datetime
+from rdflib import Graph
+from pyshacl import validate
 
 # Color codes
 RED = '\033[0;31m'
@@ -193,7 +195,7 @@ class Validator:
             return False
     
     def phase_2_semantic(self):
-        """Fase 2: Validación semántica (ejemplos RDF contra SHACL) - usa pyshacl directamente."""
+        """Fase 2: Validación semántica (ejemplos RDF contra SHACL) - fusiona shapes en un grafo."""
         self.phase_2_executed = True
         self.print_section("Fase 2: Validación Semántica (Ejemplos RDF contra SHACL)")
         
@@ -208,6 +210,8 @@ class Validator:
         config_sections = {'prefixes', 'entity_classes', 'reusable_shapes', 'shacl_shapes', 'tests'}
         
         test_num = 1
+        syntax_errors = 0
+        
         for section in config.sections():
             # Skip configuration sections (not test cases)
             if section in config_sections:
@@ -220,65 +224,154 @@ class Validator:
             
             self.log_info(f"Prueba {test_num}: {test_name} (esperado: {test_expect})")
             
-            # Build shapes arguments
-            shapes_args = []
+            # Build data file path
+            data_file = os.path.join(self.examples_dir, 'ttl', test_file)
+            self.log_info(f"Archivo de datos: {data_file}")
+            
+            if not os.path.exists(data_file):
+                self.log_error(f"Archivo de datos no encontrado: {data_file}")
+                self.shacl_errors += 1
+                test_num += 1
+                continue
+            
+            # FIRST: Validate syntax of the example file using rapper
+            self.log_info(f"Validando sintaxis de: {data_file}")
+            exit_code, stdout, stderr = self.run_command(['rapper', '-i', 'turtle', '-c', data_file])
+            
+            if exit_code != 0:
+                self.log_error(f"✗ Error de sintaxis en {test_name}")
+                syntax_errors += 1
+                self.shacl_errors += 1
+                # Show detailed error
+                if stderr:
+                    error_lines = stderr.strip().split('\n')
+                    for line in error_lines[:10]:
+                        if line.strip():
+                            print(f"  {line}")
+                    if len(error_lines) > 10:
+                        print(f"  ... ({len(error_lines) - 10} líneas de error adicionales)")
+                
+                # Create empty report for this failed test
+                report_file = os.path.join(self.report_dir, f'{section}-report.ttl')
+                Graph().serialize(destination=report_file, format='turtle')
+                
+                test_num += 1
+                continue
+            else:
+                self.log_success(f"✓ Sintaxis válida")
+            
+            # Merge all SHACL shapes into a single graph (in memory, no temp file)
+            shapes_graph = Graph()
             for shape in test_shapes.split(','):
                 shape = shape.strip()
                 if shape:
                     shape_path = os.path.join(self.shacl_dir, '1.0.0', shape)
-                    shapes_args.extend(['-s', shape_path])
+                    if os.path.exists(shape_path):
+                        shapes_graph.parse(shape_path, format='turtle')
             
-            # Build data file path
-            data_file = os.path.join(self.examples_dir, 'ttl', test_file)
+            # Parse data graph
+            data_graph = Graph()
+            try:
+                data_graph.parse(data_file, format='turtle')
+            except Exception as e:
+                self.log_error(f"Error al parsear {data_file}: {str(e)}")
+                syntax_errors += 1
+                self.shacl_errors += 1
+                
+                # Create empty report for this failed test
+                report_file = os.path.join(self.report_dir, f'{section}-report.ttl')
+                Graph().serialize(destination=report_file, format='turtle')
+                
+                test_num += 1
+                continue
             
-            # Run pyshacl directly
-            cmd = [
-                'pyshacl',
-                '-d', data_file,
-                '-df', 'turtle',
-                '-f', 'turtle'
-            ] + shapes_args
-            
+            # Run validation using pyshacl Python API
             report_file = os.path.join(self.report_dir, f'{section}-report.ttl')
             
-            # Run command and capture output
-            exit_code, stdout, stderr = self.run_command(cmd)
+            try:
+                # Validate and get results
+                conforms, report_graph, results_text = validate(
+                    data_graph,
+                    shacl_graph=shapes_graph,
+                    inference='rdfs',
+                    abort_on_first=False,
+                    allow_infos=True,
+                    allow_warnings=True
+                )
+                
+                # Write TTL report from report_graph
+                report_graph.serialize(destination=report_file, format='turtle')
+                
+                # Also keep text report for parsing
+                stdout = results_text
+                stderr = ''
+                exit_code = 0 if conforms else 1
+                
+            except Exception as e:
+                self.log_error(f"Error en validación: {str(e)}")
+                # Write empty graph on error
+                Graph().serialize(destination=report_file, format='turtle')
+                stdout = ''
+                stderr = str(e)
+                exit_code = 1
             
-            # Write report
-            with open(report_file, 'w', encoding='utf-8') as f:
-                f.write(stdout if stdout else '')
-            
-            # Parse results
-            conforms = 'unknown'
-            violations = 0
+            # Parse results from text report
+            conforms_result = 'unknown'
+            violations_count = 0
+            warnings_count = 0
             
             if stdout:
-                if 'sh:conforms true' in stdout:
-                    conforms = 'true'
-                elif 'sh:conforms false' in stdout:
-                    conforms = 'false'
-                violations = stdout.count('sh:resultSeverity sh:Violation')
+                # Check conformance status
+                if 'Conforms: True' in stdout:
+                    conforms_result = 'true'
+                elif 'Conforms: False' in stdout:
+                    conforms_result = 'false'
+                
+                # Count violations and warnings from result types
+                violations_count = stdout.count('Constraint Violation')
+                warnings_count = stdout.count('Validation Result') - stdout.count('Details:')
+            
+            # Check if report has any results (violations OR warnings)
+            has_any_results = False
+            try:
+                # Parse the TTL report to check for sh:result
+                report_graph_check = Graph()
+                report_graph_check.parse(report_file, format='turtle')
+                # Check if there are any sh:result triples
+                from rdflib import Namespace
+                SH = Namespace("http://www.w3.org/ns/shacl#")
+                has_any_results = len(list(report_graph_check.subject_objects(SH.result))) > 0
+            except:
+                pass
             
             # Check result
             test_pass = False
             if test_expect == 'conformant':
-                if conforms == 'true':
+                # For 'conformant' examples (Full): require conforms=true AND no results (no violations, no warnings)
+                if conforms_result == 'true' and not has_any_results:
                     test_pass = True
                     self.log_success(f"✓ {test_name} es totalmente conforme")
+                elif conforms_result == 'true' and has_any_results:
+                    self.log_error(f"✗ {test_name} tiene avisos (warnings) - debe ser totalmente conforme sin avisos")
+                    self.shacl_errors += 1
                 else:
-                    self.log_error(f"✗ {test_name} tiene violaciones ({violations})")
+                    self.log_error(f"✗ {test_name} tiene {violations_count} violación(es)")
                     self.shacl_errors += 1
             elif test_expect == 'warnings':
-                if conforms == 'true' or violations == 0:
+                # For 'warnings' examples (Minimal): allow warnings, but no violations
+                if conforms_result == 'true' or violations_count == 0:
                     test_pass = True
                     self.log_success(f"✓ {test_name} es conforme (avisos permitidos)")
                 else:
-                    self.log_error(f"✗ {test_name} tiene violaciones ({violations})")
+                    self.log_error(f"✗ {test_name} tiene {violations_count} violación(es)")
                     self.shacl_errors += 1
             
             test_num += 1
         
         print()
+        if syntax_errors > 0:
+            self.log_error(f"Encontrados {syntax_errors} error(es) de sintaxis en ejemplos RDF")
+        
         if self.shacl_errors == 0:
             self.log_success("Todas las validaciones SHACL pasaron")
             return True
@@ -351,15 +444,19 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
                         content = f.read()
                         conforms = 'true' in content and 'sh:conforms true' in content
                         violations = content.count('sh:resultSeverity sh:Violation')
+                        has_results = content.count('sh:result [')
                 else:
                     conforms = False
                     violations = 0
+                    has_results = 0
                 
                 expect_label = "Conformidad completa" if test_expect == "conformant" else "Avisos permitidos"
                 
                 if test_expect == 'conformant':
-                    status = "✅ CORRECTO" if conforms else "❌ ERROR"
+                    # For Full examples: must be conforms=true AND no results (no warnings, no violations)
+                    status = "✅ CORRECTO" if (conforms and has_results == 0) else "❌ ERROR"
                 else:  # warnings
+                    # For Minimal examples: allow warnings, but no violations
                     status = "✅ CORRECTO" if (conforms or violations == 0) else "❌ ERROR"
                 
                 summary_content += f"| {test_name} | {expect_label} | {status} |\n"

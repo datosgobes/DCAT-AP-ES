@@ -59,6 +59,22 @@ ENTITY_CLASS_MAP = {}
 ENTITY_TO_REUSABLE_SHAPE = {}
 
 
+def normalize_cardinality(card_str):
+    """
+    Normalize cardinality string to treat ..n and ..* as equivalent (unbounded).
+    Examples:
+      '0..n' -> '0..n'
+      '0..*' -> '0..n'
+      '1..n' -> '1..n'
+      '1..*' -> '1..n'
+      '1..1' -> '1..1'
+    """
+    if not card_str:
+        return card_str
+    # Replace ..* with ..n for consistency
+    return card_str.replace('..*', '..n')
+
+
 def load_config(ini_path):
     """
     Load configuration from test.ini:
@@ -223,23 +239,23 @@ def parse_index_md(path):
                             # Format: "0..n - Sí es HVD: 1..n"
                             parts = future_line.split(' - ', 1)
                             if len(parts) == 2:
-                                # Base cardinality
-                                m_card = re.search(r'([\d]+\.\.[\dn]+)', parts[0])
+                                # Base cardinality - updated regex to support both ..n and ..*
+                                m_card = re.search(r'([\d]+\.\.[\dn*]+)', parts[0])
                                 if m_card:
-                                    cardinality = m_card.group(1)
+                                    cardinality = normalize_cardinality(m_card.group(1))
                                 
                                 # HVD cardinality
                                 hvd_part = parts[1]
                                 if ':' in hvd_part:
                                     hvd_text = hvd_part.split(':', 1)[-1]
-                                    m_hvd_card = re.search(r'([\d]+\.\.[\dn]+)', hvd_text)
+                                    m_hvd_card = re.search(r'([\d]+\.\.[\dn*]+)', hvd_text)
                                     if m_hvd_card:
-                                        hvd_cardinality = m_hvd_card.group(1)
+                                        hvd_cardinality = normalize_cardinality(m_hvd_card.group(1))
                         else:
-                            # Standard format (no HVD distinction)
-                            m_card = re.search(r'([\d]+\.\.[\dn]+)', future_line)
+                            # Standard format (no HVD distinction) - updated regex to support both ..n and ..*
+                            m_card = re.search(r'([\d]+\.\.[\dn*]+)', future_line)
                             if m_card:
-                                cardinality = m_card.group(1)
+                                cardinality = normalize_cardinality(m_card.group(1))
                 
                 # Extract property name from URI (last part after # or /)
                 prop_name = prop_uri.split('/')[-1].split('#')[-1]
