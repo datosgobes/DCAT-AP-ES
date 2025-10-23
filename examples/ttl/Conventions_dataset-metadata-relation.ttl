@@ -1,0 +1,28 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Dataset en DCAT-AP-ES
+<http://datos.gob.es/recurso/dataset/123>
+    a dcat:Dataset ;
+    dct:title "Dataset geográfico de ejemplo"@es ;
+    dct:identifier <http://datos.gob.es/recurso/dataset/123> ;
+    
+    # Identificador INSPIRE con contexto adicional
+    adms:identifier <http://www.idee.es/csw-codsi-idee/ES-INSPIRE-456> .
+
+# Descripción del identificador INSPIRE
+<http://www.idee.es/csw-codsi-idee/ES-INSPIRE-456>
+    a adms:Identifier ;
+    skos:notation "ES-INSPIRE-456" ;
+    dct:identifier <http://www.idee.es/csw-codsi-idee/ES-INSPIRE-456> ;
+    rdfs:comment "Identificador INSPIRE del mismo dataset"@es ;
+    
+    # Propiedades contextuales adicionales
+    dct:conformsTo <http://data.europa.eu/eli/reg/2008/1205> ;  # Reglamento de Metadatos INSPIRE
+    foaf:page <http://geonetwork.example.org/metadata/ES-INSPIRE-456> ;  # Página HTML de visualización
+    dct:format <http://publications.europa.eu/resource/authority/file-type/XML> ;
+    dct:issued "2020-01-15"^^xsd:date .

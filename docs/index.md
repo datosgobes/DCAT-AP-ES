@@ -46,7 +46,7 @@ Se enumeran a continuación las clases más relevantes utilizadas en el modelo:
 * [**Conjunto de datos**](#Dataset). La clase Conjunto de Datos ([**`dcat:Dataset`**](http://www.w3.org/ns/dcat#Dataset)) representa una conceptualización de una colección de información publicada por un único agente identificable. La noción de conjunto de datos es amplia con la intención de dar cabida a los tipos de recursos que surgen de un contexto de publicación pudiendo representarse de muchas formas, incluidos números, texto, imágenes, sonido y otros medios o tipos, cualquiera de los cuales podría recopilarse en un conjunto de datos.
 * [**Distribución**](#Distribution). La clase Distribución de un conjunto de datos ([**`dcat:Distribution`**](http://www.w3.org/ns/dcat#Distribution)) representa una forma accesible y reutilizable de un conjunto de datos, como un archivo descargable.
 * [**Agente**](#Agent). La clase Agent ([**`foaf:Agent`**](http://xmlns.com/foaf/0.1/Agent)) se utiliza para representar cualquier organización o persona que posee competencias para realizar actuaciones sobre un catálogo y los recursos catalogados. Su función principal es proporcionar referencias concretas sobre los diferentes actores que pueden intervenir con diferentes roles en la gestión de un catálogo de datos.
-* [**Identificador**](#Identifier). La clase Identificador de un conjunto de datos ([**`adms:Identifier`**](http://www.w3.org/ns/adms#Identifier)) se utiliza para expresar la referencia exclusiva asignada a un conjunto de datos en el contexto de un esquema de identificadores determinado.
+* [**Identificador**](#Identifier). La clase Identificador (alternativo) de un conjunto de datos ([**`adms:Identifier`**](https://www.w3.org/TR/vocab-adms/#identifier)) se utiliza para expresar la referencia exclusiva asignada a un conjunto de datos en el contexto de un esquema de identificadores determinado.
 * [**Localización**](#Location). La clase Localización ([**`dct:Location`**](http://purl.org/dc/terms/Location)), se emplea para identificar una región geográfica o un lugar. Se puede representar utilizando un vocabulario controlado o mediante la expresión de coordenadas geográficas que delimitan un área específica.
 * [**Vigencia**](#PeriodOfTime). La clase Vigencia o Período Temporal ([**`dct:PeriodOfTime`**](http://purl.org/dc/terms/PeriodOfTime)) se utiliza para definir un intervalo de tiempo que se delimita por una fecha de inicio y otra de finalización.
 * [**Control y verificación de integridad**](#Checksum). La clase Control y Verificación de recursos ([**`spdx:Checksum`**](http://spdx.org/rdf/terms#Checksum)) se utiliza para especificar el método que se implementa y el resultado obtenido para garantizar la integridad de las distribuciones de conjuntos de datos, es decir, que su contenido no ha sido alterado.
@@ -263,6 +263,12 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Nombre | Nombre del agente | [name](#Agent.name) | Ob | 1..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 | Identificador | Identificador del agente | [identifier](#Agent.identifier) | R | 0..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 | Tipo | Tipo de agente | [type](#Agent.type) | R | 0..1 | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+
+## Identificador - Clase: adms:Identifier - Opcional {#Identifier}
+
+| Metadato | Descripción | Propiedad | T | C | Rango |
+| --- | --- | --- | --- | --- | --- |
+| Notación | Identificador alternativo basado en la clase de identificadores UN/CEFACT. | [notation](#Identifier.notation) | Ob | 1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 
 
 ## Localización - Clase: dct:Location - Opcional {#Location}
@@ -1953,6 +1959,30 @@ Para su implementación, se pueden utilizar las siguientes propiedades recomenda
 
     El rango de esta propiedad es genérico (`rdfs:Literal`) para poder expresar la geometría utilizando diferentes codificaciones. Por ejemplo, se puede expresar indicando la secuencia de coordenadas geográficas (Longitud y Latitud) que delimitan la región geográfica que se describe.
 
+## Metadatos de la clase Identificador {#adms-Identifier}
+
+La clase Identificador (alternativo) de un conjunto de datos `adms:Identifier` se utiliza para expresar la referencia exclusiva asignada a un conjunto de datos en el contexto de un esquema de identificadores determinado.
+
+Para su implementación, se debe utilizar la siguiente propiedad obligatoria:
+
+* Para referir la cadena que representa al identificador, debe usarse la propiedad `skos:notation`.
+
+| [`adms:Identifier`](#Identifier) | [`skos:notation`](http://www.w3.org/2004/02/skos/core#notation) |
+| --- | --- |
+| **Metadato** | **Notación** |
+| **Descripción** | Una cadena que es un identificador en el contexto del esquema de identificadores al que hace referencia su tipo de datos. Esto se basa en la clase de identificadores UN/CEFACT. |
+| **Propiedad** | [**skos:notation**](http://www.w3.org/2004/02/skos/core#notation) |
+| **Aplicabilidad** | **Obligatorio** |
+| **Cardinalidad** | **1..1** |
+| **Rango** | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
+
+!!! note "Nota de uso"
+
+    Un identificador en un contexto concreto, compuesto por:
+    - la cadena de contenido que constituye el identificador;
+    - un identificador opcional para el esquema de identificadores;
+    - un identificador opcional para la versión del esquema de identificadores;
+    - un identificador opcional para la agencia que gestiona el esquema de identificadores.
 
 ## Metadatos de la clase Período temporal {#dct-Periodoftime}
 
