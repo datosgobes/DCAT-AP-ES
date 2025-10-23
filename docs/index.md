@@ -82,28 +82,28 @@ Se enumerarán a continuación vocabularios genéricos que configuran el espacio
 | XML Schema | [`xsd:`](http://www.w3.org/2001/XMLSchema#) | `http://www.w3.org/2001/XMLSchema#` |
 
 ## Vocabularios controlados utilizados en el modelo {#dcat-ap-es-vocabularies}
-Para garantizar la coherencia e interoperabilidad entre catálogos de datos, DCAT-AP-ES recomienda el uso de vocabularios controlados para cada propiedad. La siguiente tabla muestra los vocabularios recomendados y sus correspondientes URIs, cuyo uso puede ser obligatorio en algunos casos según las especificaciones del modelo.
+Para garantizar la coherencia e interoperabilidad entre catálogos de datos, DCAT-AP-ES recomienda el uso de vocabularios controlados para cada propiedad. La siguiente tabla muestra los vocabularios recomendados, su relación con las entidades descritas explicitamente en el perfil y las URIs que corresponden, cuyo uso puede ser obligatorio en algunos casos según las especificaciones del modelo.
 
 | **Propiedad** | **Clase** | **Vocabulario** | **URI del vocabulario** |
 | --- | --- | --- | --- |
-| [**adms:status**](http://www.w3.org/ns/adms#status) | [`dcat:CatalogRecord`](#CatalogRecord) | [Concept status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/authority/concept-status) | `http://publications.europa.eu/resource/authority/concept-status` |
-| [**adms:status**](http://www.w3.org/ns/adms#status) | [`dcat:Distribution`](#Distribution) | [Distribution status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/distribution-status) | `http://publications.europa.eu/resource/authority/distribution-status` |
-| [**dcat:compressFormat**](http://www.w3.org/ns/dcat#compressFormat) | [`dcat:Distribution`](#Distribution) | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
-| [**dcat:mediaType**](http://www.w3.org/ns/dcat#mediaType) | [`dcat:Distribution`](#Distribution) | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
-| [**dcat:packageFormat**](http://www.w3.org/ns/dcat#packageFormat) | [`dcat:Distribution`](#Distribution) | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
-| [**dcat:theme**](http://www.w3.org/ns/dcat#theme) | [`dcat:Dataset`](#Dataset)<br>[`dcat:DataService`](#DataService) | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul>  | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
-| [**dcat:themeTaxonomy**](http://www.w3.org/ns/dcat#themeTaxonomy) | [`dcat:Catalog`](#Catalog) | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul> | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
-| [**dcatap:availability**](http://data.europa.eu/r5r/availability) | [`dcat:Distribution`](#Distribution) | [Planned availability](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/planned-availability) | `http://publications.europa.eu/resource/authority/planned-availability` |
-| [**dcatap:hvdCategory**](http://data.europa.eu/r5r/hvdCategory) | [`dcat:Dataset`](#Dataset)<br>[`dcat:DataService`](#DataService) | [HVD Category](https://op.europa.eu/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/bna/asd487ae75) | `http://data.europa.eu/bna/asd487ae75` |
-| [**dct:accessRights**](http://purl.org/dc/terms/accessRights) | [`dcat:Dataset`](#Dataset)<br>[`dcat:DataService`](#DataService) | [Access right](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/access-right) | `http://publications.europa.eu/resource/authority/access-right` |
-| [**dct:accrualPeriodicity**](http://purl.org/dc/terms/accrualPeriodicity) | [`dcat:Dataset`](#Dataset) | [Frequency](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/frequency) | `http://publications.europa.eu/resource/authority/frequency` |
-| [**dct:format**](http://purl.org/dc/terms/format) | [`dcat:Distribution`](#Distribution) | [File type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/file-type) | `http://publications.europa.eu/resource/authority/file-type` |
-| [**dct:language**](http://purl.org/dc/terms/language) | [`dcat:Catalog`](#Catalog)<br>[`dcat:Dataset`](#Dataset)<br>[`dcat:Distribution`](#Distribution) | [Language](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/language) | `http://publications.europa.eu/resource/authority/language` |
-| [**dct:license**](http://purl.org/dc/terms/license) | [`dcat:Catalog`](#Catalog)<br>[`dcat:DataService`](#DataService)<br>[`dcat:Distribution`](#Distribution) | [Licence](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/licence) | `http://publications.europa.eu/resource/authority/licence` |
-| [**dct:spatial**](http://purl.org/dc/terms/spatial) | [`dcat:Catalog`](#Catalog)<br>[`dcat:Dataset`](#Dataset) | <ul><li>[Taxonomía de territorio NTI-RISP](https://datos.gob.es/es/recurso/sector-publico/territorio)</li><li> [Continent](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/continent)</li><li>[Countries and territories](http://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country)</li><li>[Administrative territorial unit](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/atu)</li><li>[Place](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/place)</li><li>[Geonames](http://www.geonames.org/)</li></ul> | <ul><li>`http://datos.gob.es/es/recurso/sector-publico/territorio`</li><li>`http://publications.europa.eu/resource/authority/continent`</li><li>`http://publications.europa.eu/resource/authority/country`</li><li>`http://publications.europa.eu/resource/authority/atu`</li><li>`http://publications.europa.eu/resource/authority/place`</li><li>`http://sws.geonames.org/`</li></ul> |
-| [**dct:type**](http://purl.org/dc/terms/type) | [`foaf:Agent`](#Agent) | [ADMS publisher type](http://purl.org/adms/publishertype/1.0) | `http://purl.org/adms/publishertype/1.0` |
-| [**dct:type**](http://purl.org/dc/terms/type) | [`dcat:Dataset`](#Dataset) | [Dataset type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/dataset-type) | `http://publications.europa.eu/resource/authority/dataset-type` |
-| [**dct:type**](http://purl.org/dc/terms/type) | [`dct:LicenseDocument`](#LicenseDocument) | [ADMS licence type](http://purl.org/adms/licencetype/1.0) | `http://purl.org/adms/licencetype/1.0` |
+| [**adms:status**](http://www.w3.org/ns/adms#status) | [`CatalogRecord`](#CatalogRecord) | [Concept status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/authority/concept-status) | `http://publications.europa.eu/resource/authority/concept-status` |
+| [**adms:status**](http://www.w3.org/ns/adms#status) | [`Distribution`](#Distribution) | [Distribution status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/distribution-status) | `http://publications.europa.eu/resource/authority/distribution-status` |
+| [**dcat:compressFormat**](http://www.w3.org/ns/dcat#compressFormat) | [`Distribution`](#Distribution) | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
+| [**dcat:mediaType**](http://www.w3.org/ns/dcat#mediaType) | [`Distribution`](#Distribution) | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
+| [**dcat:packageFormat**](http://www.w3.org/ns/dcat#packageFormat) | [`Distribution`](#Distribution) | [IANA Media Types](http://www.iana.org/assignments/media-types/) | `http://www.iana.org/assignments/media-types/` |
+| [**dcat:theme**](http://www.w3.org/ns/dcat#theme) | [`Dataset`](#Dataset)<br>[`DataService`](#DataService) | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul>  | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
+| [**dcat:themeTaxonomy**](http://www.w3.org/ns/dcat#themeTaxonomy) | [`Catalog`](#Catalog) | <ul><li>[Taxonomía de sectores primarios NTI-RISP](http://datos.gob.es/kos/sector-publico/sector)</li><li> [Vocabulario de Temas de datos (DCAT-AP)](http://publications.europa.eu/resource/authority/data-theme)</li><li>[Registro de temas INSPIRE](http://inspire.ec.europa.eu/theme)</li></ul> | <ul><li>`http://datos.gob.es/kos/sector-publico/sector`</li><li>`http://publications.europa.eu/resource/authority/data-theme`</li><li>`http://inspire.ec.europa.eu/theme`</li></ul> |
+| [**dcatap:availability**](http://data.europa.eu/r5r/availability) | [`Distribution`](#Distribution) | [Planned availability](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/planned-availability) | `http://publications.europa.eu/resource/authority/planned-availability` |
+| [**dcatap:hvdCategory**](http://data.europa.eu/r5r/hvdCategory) | [`Dataset`](#Dataset)<br>[`DataService`](#DataService) | [HVD Category](https://op.europa.eu/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/bna/asd487ae75) | `http://data.europa.eu/bna/asd487ae75` |
+| [**dct:accessRights**](http://purl.org/dc/terms/accessRights) | [`Dataset`](#Dataset)<br>[`DataService`](#DataService) | [Access right](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/access-right) | `http://publications.europa.eu/resource/authority/access-right` |
+| [**dct:accrualPeriodicity**](http://purl.org/dc/terms/accrualPeriodicity) | [`Dataset`](#Dataset) | [Frequency](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/frequency) | `http://publications.europa.eu/resource/authority/frequency` |
+| [**dct:format**](http://purl.org/dc/terms/format) | [`Distribution`](#Distribution) | [File type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/file-type) | `http://publications.europa.eu/resource/authority/file-type` |
+| [**dct:language**](http://purl.org/dc/terms/language) | [`Catalog`](#Catalog)<br>[`Dataset`](#Dataset)<br>[`Distribution`](#Distribution) | [Language](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/language) | `http://publications.europa.eu/resource/authority/language` |
+| [**dct:license**](http://purl.org/dc/terms/license) | [`Catalog`](#Catalog)<br>[`DataService`](#DataService)<br>[`Distribution`](#Distribution) | [Licence](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/licence) | `http://publications.europa.eu/resource/authority/licence` |
+| [**dct:spatial**](http://purl.org/dc/terms/spatial) | [`Catalog`](#Catalog)<br>[`Dataset`](#Dataset) | <ul><li>[Taxonomía de territorio NTI-RISP](https://datos.gob.es/es/recurso/sector-publico/territorio)</li><li> [Continent](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/continent)</li><li>[Countries and territories](http://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country)</li><li>[Administrative territorial unit](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/atu)</li><li>[Place](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/place)</li><li>[Geonames](http://www.geonames.org/)</li></ul> | <ul><li>`http://datos.gob.es/es/recurso/sector-publico/territorio`</li><li>`http://publications.europa.eu/resource/authority/continent`</li><li>`http://publications.europa.eu/resource/authority/country`</li><li>`http://publications.europa.eu/resource/authority/atu`</li><li>`http://publications.europa.eu/resource/authority/place`</li><li>`http://sws.geonames.org/`</li></ul> |
+| [**dct:type**](http://purl.org/dc/terms/type) | [`Agent`](#Agent) | [ADMS publisher type](http://purl.org/adms/publishertype/1.0) | `http://purl.org/adms/publishertype/1.0` |
+| [**dct:type**](http://purl.org/dc/terms/type) | [`Dataset`](#Dataset) | [Dataset type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/dataset-type) | `http://publications.europa.eu/resource/authority/dataset-type` |
+| [**dct:type**](http://purl.org/dc/terms/type) | [`LicenseDocument`](#LicenseDocument) | [ADMS licence type](http://purl.org/adms/licencetype/1.0) | `http://purl.org/adms/licencetype/1.0` |
 
 # Relación de metadatos del modelo DCAT-AP-ES {#dcat-ap-es-model-relations}
 
@@ -302,7 +302,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 
 A continuación, se detalla para cada clase del modelo DCAT-AP-ES la relación de propiedades o metadatos con sus características de ajuste y las notas de uso para su implementación.
 
-## Metadatos de la clase Catálogo {#dcat-catalog}
+## Metadatos de la clase Catálogo {#dcat-Catalog}
 
 Un catálogo es un repositorio para organizar conjuntos de datos y/o servicios de datos principalmente, aunque también puede ser un catálogo de catálogos de datos. Funciona como un punto de acceso unificado que facilita la búsqueda y reutilización de recursos de datos. En DCAT-AP-ES se representa mediante instancias de la clase Catálogo (`dcat:Catalog`).
 
@@ -588,7 +588,7 @@ Se describe mediante las siguientes propiedades:
 
     Se ajusta utilizando las propiedades de la clase Período temporal (`dct:PeriodOfTime`). Se recomienda incluir un intervalo de tiempo, definido por inicio y fin como fecha o instante temporal. Si se usa fecha para el inicio, debería usarse fecha como fin (ídem para instante temporal) y siempre emparejados, evitando los intervalos abiertos.
 
-## Metadatos de la clase Registro del Catálogo {#dcat-catalogrecord}
+## Metadatos de la clase Registro del Catálogo {#dcat-CatalogRecord}
 
 La clase Registro de Catálogo (`dcat:CatalogRecord`) describe entradas individuales dentro de un catálogo de datos. Un registro de catálogo referencia una entidad en el catálogo pudiendo ser un conjunto de datos o un servicio de datos.
 
@@ -692,7 +692,7 @@ Si esta función no es necesaria, la clase `dcat:CatalogRecord` se puede ignor
     Se debe especificar un literal. Esta propiedad puede ser repetida para expresar la descripción en diferentes idiomas
 
 
-## Metadatos de la clase Servicio de Datos {#dcat-dataservice}
+## Metadatos de la clase Servicio de Datos {#dcat-DataService}
 
 La clase Servicio de Datos (`dcat:DataService`) permite describir operaciones que proporcionan acceso a uno o más conjuntos de datos o funciones de procesamiento de datos. Mediante su uso es posible la catalogación de diversos tipos de servicios de datos facilitando la implementación de funcionalidades para el manejo y/o explotación programática de los datos. Esta clase es importante para facilitar el acceso programable de los datos, permitiendo así su integración y uso efectivo en diferentes aplicaciones y servicios.
 
@@ -915,7 +915,7 @@ Utilizando esta clase, un dataset se puede distribuir en diferentes representaci
     Se recomienda elegir cuidadosamente las etiquetas para reflejar de manera precisa el contenido, ámbito y propósito del conjunto de datos para ayudar a los usuarios a identificar y localizar conjuntos de datos de interés y establecer relaciones con otros elementos similares.  Es conveniente etiquetar de forma homogénea, aplicando reglas y criterios normalizados y válidos ortográficamente.  Se permite que los términos sean texto libre, aunque se recomienda utilizar únicamente los incluidos en un conjunto de términos cerrado (vocabulario, taxonomía, tesauro, etc.) como puede ser [Eurovoc](https://eur-lex.europa.eu/browse/eurovoc.html).
 
 
-## Metadatos de la clase Conjunto de datos {#dcat-dataset}
+## Metadatos de la clase Conjunto de datos {#dcat-Dataset}
 
 La clase Conjunto de datos (`dcat:Dataset`) representa una conceptualización que expresa una colección de información estructurada. Estos conjuntos son publicados por una entidad y están destinados a ser consumidos o utilizados por actores o aplicaciones.
 
@@ -1470,7 +1470,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
     En general, se utiliza para informar acerca de la condición del dataset, si son datos abiertos, tiene restricciones de acceso o no es público. Se debe ajustar usando valores del vocabulario:  `http://publications.europa.eu/resource/authority/access-right`
 
 
-## Metadatos de la clase Distribución {#dcat-distribution}
+## Metadatos de la clase Distribución {#dcat-Distribution}
 
 La clase Distribución de un conjunto de datos (`dcat:Distribution`), modela diferentes formas o representaciones específicas de un conjunto de datos. Esta clase permite especificar y describir las diversas maneras en las que un conjunto de datos puede estar disponible, por ejemplo, en diferentes formatos o a través de distintos canales.
 
@@ -1815,7 +1815,7 @@ Esta entidad se considera clave para entender cómo se puede obtener y utilizar 
     Mediante esta declaración se especifican los derechos que no están cubiertos por los términos de uso (dct:licence), por ejemplo, derechos de propiedad intelectual. Para ajustar esta propiedad se pueden utilizar propiedades del vocabulario <http://schema.theodi.org/odrs/>.  Es recomendable establecer la licencia y derechos de uso para las distribuciones. En todo caso, nunca debería haber discrepancias entre los derechos de uso de un conjunto de datos y de una de sus distribuciones para que no genere un conflicto legal.
 
 
-## Metadatos de la clase Agente {#foaf-agent}
+## Metadatos de la clase Agente {#foaf-Agent}
 
 La clase Agent (`foaf:Agent`) se utiliza para representar cualquier organización o persona que posee competencias para realizar actuaciones sobre un catálogo y los recursos de datos catalogados.
 
@@ -1870,7 +1870,7 @@ Como se indica a continuación, todo agente o entidad debe tener un nombre y es 
     Se deben utilizar vocabularios controlados o esquemas de clasificación estandarizados para describir el tipo de agente o rol que desempeña de manera coherente y precisa. Se recomienda el uso del vocabulario `http://purl.org/adms/publishertype/1.0`
 
 
-## Metadatos de la clase Control y verificación de la integridad {#spdx-checksum}
+## Metadatos de la clase Control y verificación de la integridad {#spdx-Checksum}
 
 La clase Control y Verificación de recursos de datos (`spdx:Checksum`) se utiliza para especificar el método y el resultado obtenido que se implementa para garantizar la integridad de las distribuciones de conjuntos de datos, es decir, que su contenido no ha sido alterado.. Permite representar el resultado de una variedad de algoritmos de verificación.
 
@@ -1902,7 +1902,7 @@ La clase Control y Verificación de recursos de datos (`spdx:Checksum`) se utili
     El valor del resultado de verificación debe ser único, exacto y se debe expresar codificado en formato hexadecimal.
 
 
-## Metadatos de la clase Localización {#dct-location}
+## Metadatos de la clase Localización {#dct-Location}
 
 La clase Localización (`dct:Location`), se emplea para identificar una región geográfica o un lugar . Se puede representar utilizando un vocabulario controlado o mediante la expresión de coordenadas geográficas. Esta clase es importante para determinar el ámbito geográfico de los datos que se describen, como una localidad, una región, un país o un área geográfica específica.
 
@@ -1954,7 +1954,7 @@ Para su implementación, se pueden utilizar las siguientes propiedades recomenda
     El rango de esta propiedad es genérico (`rdfs:Literal`) para poder expresar la geometría utilizando diferentes codificaciones. Por ejemplo, se puede expresar indicando la secuencia de coordenadas geográficas (Longitud y Latitud) que delimitan la región geográfica que se describe.
 
 
-## Metadatos de la clase Período temporal {#dct-periodoftime}
+## Metadatos de la clase Período temporal {#dct-Periodoftime}
 
 La clase Período temporal (`dct:PeriodOfTime`) se utiliza para definir un intervalo temporal que se define por sus fechas de inicio y finalización. Se utiliza para ajustar la propiedad cobertura temporal (`dct:temporal`) que abarca el contenido de un conjunto de datos.
 
@@ -2030,7 +2030,7 @@ Respecto al uso de las propiedades fecha de inicio (`dcat:startDate`) y fecha de
     * [time::inDateTime](https://www.w3.org/TR/owl-time/#time:inDateTime)
 
 
-## Metadatos de la clase Relación entre Recursos {#dcat-relationship}
+## Metadatos de la clase Relación entre Recursos {#dcat-Relationship}
 
 La clase Relación entre Recursos (`dcat:Relationship`), se utiliza para especificar información adicional a una relación entre Recursos DCAT-AP (recursos o agentes) permitiendo así una mayor contextualización sobre cómo estos recursos están interrelacionados.
 
@@ -2311,10 +2311,10 @@ Las especificaciones adicionales se muestran en las siguientes tablas comparativ
 | Catalog | Página web | foaf:homepage | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
 | Catalog | Términos de uso | dct:license | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
 | Catalog | Legislación aplicable | dcatap:applicableLegislation | No existe | R | - | 0..n | Propiedad de DCAT-AP 3 no incorporada a DCAT-AP-ES |
-| CatalogRecord | Estado editorial | adms:status | R | R | 0..1 | 0..1 | En DCAT-AP 3 usa vocabulario diferente al de DCAT-AP 2.1.1, en `DCAT-AP-ES` se adopta como una recomendación: `http://publications.europa.eu/resource/authority/concept-status`|
+| CatalogRecord | Estado editorial | adms:status | R | R | 0..1 | 0..1 | En DCAT-AP 3 usa vocabulario diferente al de DCAT-AP 2.1.1, en DCAT-AP-ES se adopta como una recomendación: [CatalogRecord.status](#CatalogRecord.status) |
 | Dataset | Nombre | dct:title | Ob | Ob | 1..n | 1..n | - |
 | Dataset | Descripción | dct:description | Ob | Ob | 1..n | 1..n | - |
-| Dataset | Publicador | dct:publisher | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria y ajusta cardinalidad (`1..1`) |
+| Dataset | Publicador | dct:publisher | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria y ajusta cardinalidad (1..1) |
 | Dataset | Temática(s) | dcat:theme | Ob | R | 1..n | 0..n | DCAT-AP-ES eleva la propiedad a Obligatoria |
 | Dataset | Distribución | dcat:distribution | R/Ob (HVD) | R | 0..n/1..n (HVD) | 0..n | DCAT-AP-ES hace obligatoria esta propiedad para conjuntos de datos HVD |
 | Dataset | Categoría HVD | dcatap:hvdCategory | Op/Ob (HVD) | Op | 0..n/1..n (HVD) | 0..n | En DCAT-AP-ES es Obligatorio para conjuntos de datos HVD |

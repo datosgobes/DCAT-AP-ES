@@ -197,29 +197,32 @@ table.codehilitetable {
 }
 
 /* First column: auto width by default (allows wrapping for text) */
-th:first-child,
-td:first-child {
+th:first-child:not(.highlighttable th:first-child),
+td:first-child:not(.highlighttable td:first-child) {
     min-width: fit-content;
 }
 
-/* First column with code: fixed width and no wrapping */
-th:first-child:has(code),
-td:first-child:has(code) {
+/* First column with code: fixed width and no wrapping (except highlighttable) */
+th:first-child:has(code):not(.highlighttable th:first-child),
+td:first-child:has(code):not(.highlighttable td:first-child) {
     white-space: nowrap;
     width: 200px;
     min-width: 200px;
     max-width: 200px;
 }
 
-/* Prevent code elements from wrapping */
-td code, th code {
+/* Prevent code elements from wrapping (except in highlighttable) */
+td:not(.highlighttable td) code, 
+th:not(.highlighttable th) code {
     white-space: nowrap;
 }
 
-/* Allow cells containing code to expand if needed */
-td:has(code), th:has(code) {
+/* Allow cells containing code to expand if needed (except highlighttable) */
+td:has(code):not(.highlighttable td), 
+th:has(code):not(.highlighttable th) {
     white-space: nowrap;
 }
+
 
 /* Responsive: adjust first column width on smaller screens (only for cells with code) */
 @media screen and (max-width: 768px) {
