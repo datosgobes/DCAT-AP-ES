@@ -48,6 +48,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 21**](#convencion-21): En las distribuciones de servicios OGC, las URLs de acceso *DEBEN* modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
 - [**Convención 23**](#convencion-23): Los *datasets* *DEBEN* incluir al menos una distribución (`dcat:Distribution`).
+- [**Convención 24**](#convencion-24): Cuando un recurso DCAT-AP-ES derive de un metadato fuente de otro estándar (por ejemplo: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), *DEBERÍA* incluirse una relación mediante la propiedad `adms:identifier` que apunte al identificador persistente del metadato fuente, utilizando un nodo de tipo `adms:Identifier`.
 
 # Convenciones generales {#general}
 
@@ -413,6 +414,27 @@ Obligatoriedad temporal de distribuciones en los datasets
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_dataset-dcat-distribution.ttl"
     ```
+
+## Relación explícita con metadatos fuente mediante `adms:identifier` {#dataset-metadata-relation}
+La federación y migración de metadatos desde diferentes perfiles y estándares (INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.) hacia DCAT-AP-ES genera la necesidad de enlazar los metadatos fuente con los recursos DCAT-AP-ES generados. Establecer una convención clara facilita la trazabilidad, la interoperabilidad semántica y la gestión eficiente de versiones en procesos de migración y federación entre diferentes modelos de metadatos.
+
+!!! should technical "Convención 24"
+    Cuando un recurso DCAT-AP-ES derive de un metadato fuente de otro estándar (por ejemplo: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), **DEBERÍA** incluirse una relación mediante la propiedad `adms:identifier` que apunte al identificador persistente del metadato fuente, utilizando un nodo de tipo `adms:Identifier`.
+
+!!! info "Ejemplo de un dataset relacionado con un servicio OGC INSPIRE"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataset-metadata-relation.ttl"
+    ```
+
+!!! warning "Importante"
+    - La URI referenciada en la propiedad `adms:identifier` debe ser persistente y resoluble, preferentemente el identificador completo del metadato fuente.
+    - La clase [`adms:Identifier`](https://www.w3.org/TR/vocab-adms/#identifier) requiere proporcionar `skos:notation`, con un tipo de dato que especifique el esquema de identificación (incluyendo el número de versión si es apropiado).
+    - Esta convención no impide el uso de otras propiedades de relación (`dct:relation`, `rdfs:seeAlso`, `dcat:qualifiedRelation`) si se requiere mayor granularidad o complementariedad.
+    - El uso de `adms:Identifier` como nodo informativo permite enriquecer el enlace para hacerlo más usable en vistas de metadatos de catálogos o para reutilizadores externos.
+
+!!! info "Nota sobre implementación"
+    - Usar `adms:identifier` permite incluir propiedades contextuales adicionales sobre el identificador secundario (estándar de conformidad, formato, página de visualización, etc.).
+    - Referencia: [Best practices for linking DCAT-AP datasets to alternative metadata descriptions (SEMICeu/DCAT-AP#450)](https://github.com/SEMICeu/DCAT-AP/issues/450)
 
 # Convenciones para `dcat:Distribution` {#distribution}
 
