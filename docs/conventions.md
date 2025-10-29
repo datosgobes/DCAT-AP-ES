@@ -421,7 +421,7 @@ La federación y migración de metadatos desde diferentes perfiles y estándares
 !!! should technical "Convención 24"
     Cuando un recurso DCAT-AP-ES derive de un metadato fuente de otro estándar (por ejemplo: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), **DEBERÍA** incluirse una relación mediante la propiedad `adms:identifier` que apunte al identificador persistente del metadato fuente, utilizando un nodo de tipo `adms:Identifier`.
 
-!!! info "Ejemplo de un dataset relacionado con un servicio OGC INSPIRE"
+!!! info "Ejemplo de un dataset relacionado con un servicio geográfico"
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_dataset-metadata-relation.ttl"
     ```
