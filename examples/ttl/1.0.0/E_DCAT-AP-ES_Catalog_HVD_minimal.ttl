@@ -41,8 +41,9 @@
   # Obligatorias base
   dcat:accessURL <http://dcat-ap-es.ejemplo.org/files/dataset-hvd-minimal.csv> ;
   # Obligatorias HVD
-  dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> .
-  # FALTAN propiedades Recomendadas: dct:format, dct:license, dcatap:availability, dct:title, dct:description
+  dcatap:applicableLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+  dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> .
+  # FALTAN propiedades Recomendadas: dct:format, dcatap:availability, dct:title, dct:description
 
 <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-hvd-minimal>
   a dcat:DataService ;
