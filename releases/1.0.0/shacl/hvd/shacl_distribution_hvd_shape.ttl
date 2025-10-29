@@ -112,4 +112,4 @@ dcatapes:Distribution_HVD_Shape_legalInformation
     foaf:page <https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/#c3> ;
     sh:message "It is mandatory to provide legal information (dct:license OR dct:rights)."@en ;
     sh:message "Es obligatorio aportar información legal (dct:license O dct:rights O odrl:hasPolicy)."@es ;
-    sh:targetClass dcat:DataService .
+    sh:targetClass dcat:Distribution .

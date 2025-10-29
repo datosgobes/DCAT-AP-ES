@@ -399,8 +399,8 @@ dcatapes:Catalog_Shape
                 sh:node dcatapes:Agent_Shape ;
                 sh:or(
                     [
-                        sh:node dcatapes::DIR3OrganismRestriction ;
-                        sh:node dcatapes::PublisherAgentRestriction ;
+                        sh:node dcatapes:DIR3OrganismRestriction ;
+                        sh:node dcatapes:PublisherAgentRestriction ;
                     ]
                     [
                         sh:not dcatapes:DIR3OrganismRestriction ;
