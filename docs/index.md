@@ -2150,7 +2150,7 @@ Un catálogo de datos es conforme con DCAT-AP-ES cuando:
 
 4. **Federación**: Es capaz de compartir sus metadatos con el [catálogo nacional](https://datos.gob.es/) a través de alguno de los mecanismos de federación soportados.
 
-5. **Consistencia y validación**: Todos los recursos del catálogo cumplen con los requisitos estructurales y semánticos del [modelo DCAT-AP-ES](/#dcat-ap-es-model), y pueden ser [validados utilizando las formas SHACL previstas](/validación).
+5. **Consistencia y validación**: Todos los recursos del catálogo cumplen con los requisitos estructurales y semánticos del [modelo DCAT-AP-ES](/#dcat-ap-es-model), y pueden ser [validados utilizando las formas SHACL previstas](/validation).
 
 6. **Metadatos de alto valor (HVD)**: Para los conjuntos de datos de alto valor (HVD), el catálogo proporciona todos los [metadatos adicionales obligatorios según la normativa HVD](##dcat-ap-es-hvd), incluyendo la legislación aplicable y la categoría HVD correspondiente.
 
