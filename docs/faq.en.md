@@ -26,7 +26,7 @@ Sections:
 
     Adaptation of DCAT-AP that incorporates specifications specific to the Spanish context and the HVD extension.
 
-    [:octicons-arrow-right-24: Learn more](/DCAT-AP-ES/en/)
+    [:octicons-arrow-right-24: Learn more](index.en.md)
 
 -   :fontawesome-solid-plus:{ .lg .middle .grid-emoji } **Main new features of DCAT-AP-ES?**{ .grid-title #novedades }
 
@@ -34,7 +34,7 @@ Sections:
 
     It aligns with the European DCAT-AP profile, incorporates data services (`dcat:DataService`), high-value dataset modeling (HVD), and improvements in metadata quality description.
     
-    [:octicons-arrow-right-24: Classes](/DCAT-AP-ES/en/#dcat-ap-es-entities)
+    [:octicons-arrow-right-24: Classes](index.en.md#dcat-ap-es-entities)
 
 
 -   :material-connection:{ .lg .middle .grid-emoji } **Relationship with other standards?**{ .grid-title #relacion }
@@ -43,7 +43,7 @@ Sections:
 
     DCAT-AP-ES implements DCAT-AP and its HVD extension, ensuring compatibility with the European open data ecosystem.
     
-    [:octicons-arrow-right-24: UML](/DCAT-AP-ES/en/#dcat-ap-es-model)
+    [:octicons-arrow-right-24: UML](index.en.md#dcat-ap-es-model)
 
 -   :material-calendar:{ .lg .middle .grid-emoji } **When does it come into effect?**{ .grid-title #vigencia }
 
@@ -59,7 +59,7 @@ Sections:
 
     Publishers have an adaptation period of six months from the entry into force of the NTI-RISP.
     
-    [:octicons-arrow-right-24: Changes](/DCAT-AP-ES/#annex-1-nti-risp-to-dcat-ap-es)
+    [:octicons-arrow-right-24: Changes](index.en.md#annex-1-nti-risp-to-dcat-ap-es)
 
 </div>
 
@@ -104,7 +104,7 @@ Sections:
         linkStyle default stroke:#154481,stroke-width:1px,stroke-dasharray:3;
     ```
     
-    [:octicons-arrow-right-24: Relationships](/DCAT-AP-ES/#dcat-ap-es-model-relations)
+    [:octicons-arrow-right-24: Relationships](index.en.md#dcat-ap-es-model-relations)
 
 </div>
 
@@ -121,7 +121,7 @@ Sections:
 
     Available in the online guide and in the `examples/` directory of the repository, organized by entities and specific use cases.
 
-    [:octicons-arrow-right-24: Examples](/DCAT-AP-ES/examples)
+    [:octicons-arrow-right-24: Examples](examples.en.md)
 
 -   :fontawesome-solid-file-code:{ .lg .middle .grid-emoji } **What format should the catalog have?**{ .grid-title #implementacion-formatos }
 
@@ -161,7 +161,7 @@ Sections:
 
     There are application guides and technical implementation documents, conventions, data models, vocabularies, examples, SHACL validation files, etc.
     
-    [:octicons-arrow-right-24: Guide](/DCAT-AP-ES/en/)
+    [:octicons-arrow-right-24: Guide](index.en.md)
 
 -   :fontawesome-solid-code-pull-request:{ .lg .middle .grid-emoji } **Designed to contribute**{ .grid-title #repository-contribuir }
 
