@@ -1,4 +1,4 @@
-Con el propósito de verificar si el intercambio de metadatos cumple técnicamente con [DCAT-AP-ES](/), se pueden utilizar los grafos de [formas SHACL disponibles en el repositorio](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/). El Lenguaje de Restricción de Formas (*Shapes Constraint Language* - SHACL), es una [recomendación del W3C](https://www.w3.org/TR/shacl/]) para expresar restricciones en un grafo de conocimiento RDF. 
+Con el propósito de verificar si el intercambio de metadatos cumple técnicamente con [DCAT-AP-ES](/), se pueden utilizar los grafos de [formas SHACL disponibles en el repositorio](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/). El Lenguaje de Restricción de Formas (*Shapes Constraint Language* - SHACL), es una [recomendación del W3C](https://www.w3.org/TR/shacl/) para expresar restricciones en un grafo de conocimiento RDF. 
 
 La siguiente ilustración muestra de forma esquemática las etapas principales del proceso de validación SHACL aplicadas a los metadatos, desde la preparación de los datos hasta la obtención de los resultados de conformidad.
 

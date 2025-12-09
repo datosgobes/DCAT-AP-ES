@@ -1,4 +1,4 @@
-To verify that the metadata exchange is technically compliant with [DCAT-AP-EN](/), the [SHACL shapes available in the repository](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/) graphs can be used. Shapes Constraint Language* (SHACL) is a [W3C recommendation](https://www.w3.org/TR/shacl/]) for expressing constraints in an RDF knowledge graph. 
+To verify that the metadata exchange is technically compliant with [DCAT-AP-EN](/), the [SHACL shapes available in the repository](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/) graphs can be used. Shapes Constraint Language* (SHACL) is a [W3C recommendation](https://www.w3.org/TR/shacl/) for expressing constraints in an RDF knowledge graph. 
 
 The following illustration schematically shows the main stages of the SHACL validation process applied to metadata, from data preparation to obtaining the conformance results.
 
