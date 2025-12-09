@@ -13,10 +13,11 @@ ENV PYTHONUNBUFFERED=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1
 
 # Instalar dependencias del sistema necesarias para RDFLib y rapper
+# Nota: No se especifican versiones exactas para evitar errores cuando Alpine actualiza paquetes
 RUN apk add --no-cache \
-    tini=0.19.0-r3 \
-    bash=5.2.37-r0 \
-    raptor2=2.0.16-r1 \
+    tini \
+    bash \
+    raptor2 \
     && rm -rf /var/cache/apk/*
 
 # Crear directorio de trabajo
