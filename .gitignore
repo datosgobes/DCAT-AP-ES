@@ -113,6 +113,7 @@ docker-compose.override-*.yaml
 *.swp
 *.swo
 *~
+docs/img/*.drawio.bkp
 
 # PDF files
 *.pdf
