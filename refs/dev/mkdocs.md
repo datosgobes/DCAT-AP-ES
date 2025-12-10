@@ -32,7 +32,7 @@ Ejecuta el siguiente comando en la terminal:
 curl -sSL https://pdm-project.org/install-pdm.py | python3 -
 ```
 
-> [!NOTA]  
+> [!NOTE]  
 > Después de la instalación, agrega `bin` al `PATH` ejecutando:  
 > ```bash
 > export PATH=/home/admin/.local/bin:$PATH
@@ -45,7 +45,7 @@ Ejecuta el siguiente comando en **PowerShell**:
 (Invoke-WebRequest -Uri https://pdm-project.org/install-pdm.py -UseBasicParsing).Content | python -
 ```
 
-> [!IMPORTANTE]  
+> [!IMPORTANT]  
 > Si usas Windows, agrega la ruta del ejecutable de PDM al `PATH`. Para ello:  
 > 1. Abre **Panel de control** → **Sistema** → **Configuración avanzada del sistema**.  
 > 2. En la pestaña **Opciones avanzadas**, haz clic en **Variables de entorno**.  
