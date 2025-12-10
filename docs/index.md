@@ -11,7 +11,7 @@ Como es sabido, un catálogo de datos abiertos puede estar constituido únicamen
 En este documento, se detallan las clases principales del perfil de aplicación: Catálogo, Dataset, Distribución y Servicio de datos, así como otras clases relevantes para una completa información descriptiva de los elementos reutilizables catalogados de acuerdo con el modelo DCAT-AP-ES. Se especifica, además, el conjunto de vocabularios controlados que deben ser utilizados para ajustar las propiedades que describen los elementos catalogados.
 
 !!! warning "Guía de convenciones "
-    Como material adicional a esta guía técnica se incluyen las [**Convenciones datos.gob.es**](./conventions) que establecen **convenciones específicas** donde se definen **reglas adicionales** para abordar necesidades prácticas, semánticas o técnicas de la aplicación de DCAT-AP-ES que complementan esta especificación formal.
+    Como material adicional a esta guía técnica se incluyen las [**Convenciones datos.gob.es**](conventions.md) que establecen **convenciones específicas** donde se definen **reglas adicionales** para abordar necesidades prácticas, semánticas o técnicas de la aplicación de DCAT-AP-ES que complementan esta especificación formal.
 
 En respuesta a la creciente importancia de los datos en la sociedad y la economía, la Comisión Europea adoptó el [**Reglamento de ejecución (UE) 2023/138 de la Comisión Europea**](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138) (*High Value Datasets Implementing Regulation, HVD IR*) el 21 de diciembre de 2022. Este reglamento establece pautas claras para los organismos públicos en la disponibilidad de conjuntos de datos de alto valor y tiene como objetivo mejorar la calidad, accesibilidad y uso de un conjunto especifico de datos clave dentro del sector público. Para lograrlo, el reglamento HVD establece requisitos específicos para los metadatos asociados a los conjuntos de datos publicados.
 
@@ -2144,15 +2144,15 @@ Un catálogo de datos es conforme con DCAT-AP-ES cuando:
 
 1. **Estructura del catálogo**: Se estructura como una instancia de `dcat:Catalog` que contiene o referencia todas las instancias de `dcat:Dataset` y/o `dcat:DataService`.
 
-2. **Propiedades obligatorias del catálogo**: Implementa todas las propiedades obligatorias de la clase [`dcat:Catalog`](/#catalog).
+2. **Propiedades obligatorias del catálogo**: Implementa todas las propiedades obligatorias de la clase [`dcat:Catalog`](#catalog).
 
-3. **Vocabularios controlados**: Utiliza los [vocabularios controlados recomendados por el modelo](/#dcat-ap-es-vocabularies), y particularmente aquellos que son obligatorios para las propiedades descritas.
+3. **Vocabularios controlados**: Utiliza los [vocabularios controlados recomendados por el modelo](#dcat-ap-es-vocabularies), y particularmente aquellos que son obligatorios para las propiedades descritas.
 
 4. **Federación**: Es capaz de compartir sus metadatos con el [catálogo nacional](https://datos.gob.es/) a través de alguno de los mecanismos de federación soportados.
 
-5. **Consistencia y validación**: Todos los recursos del catálogo cumplen con los requisitos estructurales y semánticos del [modelo DCAT-AP-ES](/#dcat-ap-es-model), y pueden ser [validados utilizando las formas SHACL previstas](/validación).
+5. **Consistencia y validación**: Todos los recursos del catálogo cumplen con los requisitos estructurales y semánticos del [modelo DCAT-AP-ES](#dcat-ap-es-model), y pueden ser [validados utilizando las formas SHACL previstas](validation.md).
 
-6. **Metadatos de alto valor (HVD)**: Para los conjuntos de datos de alto valor (HVD), el catálogo proporciona todos los [metadatos adicionales obligatorios según la normativa HVD](##dcat-ap-es-hvd), incluyendo la legislación aplicable y la categoría HVD correspondiente.
+6. **Metadatos de alto valor (HVD)**: Para los conjuntos de datos de alto valor (HVD), el catálogo proporciona todos los [metadatos adicionales obligatorios según la normativa HVD](#annex-2-quickguide-dcat-ap-es), incluyendo la legislación aplicable y la categoría HVD correspondiente.
 
 7. **Recursos accesibles**: Todas las distribuciones referenciadas en el catálogo son accesibles a través de las URLs proporcionadas, o se indica claramente cuando no lo son mediante las propiedades de disponibilidad y estado apropiadas.
 

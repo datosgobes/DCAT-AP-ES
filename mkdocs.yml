@@ -8,9 +8,10 @@ edit_uri: edit/main/docs/
 site_dir: dist
 
 validation:
-  absolute_links: ignore
-  unrecognized_links: ignore
-  anchors: ignore
+  links:
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+    anchors: ignore
 
 nav:
   - Guía técnica y modelo DCAT-AP-ES: index.md

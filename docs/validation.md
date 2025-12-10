@@ -1,4 +1,4 @@
-Con el propósito de verificar si el intercambio de metadatos cumple técnicamente con [DCAT-AP-ES](/), se pueden utilizar los grafos de [formas SHACL disponibles en el repositorio](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/). El Lenguaje de Restricción de Formas (*Shapes Constraint Language* - SHACL), es una [recomendación del W3C](https://www.w3.org/TR/shacl/]) para expresar restricciones en un grafo de conocimiento RDF. 
+Con el propósito de verificar si el intercambio de metadatos cumple técnicamente con [DCAT-AP-ES](index.md), se pueden utilizar los grafos de [formas SHACL disponibles en el repositorio](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/). El Lenguaje de Restricción de Formas (*Shapes Constraint Language* - SHACL), es una [recomendación del W3C](https://www.w3.org/TR/shacl/) para expresar restricciones en un grafo de conocimiento RDF. 
 
 La siguiente ilustración muestra de forma esquemática las etapas principales del proceso de validación SHACL aplicadas a los metadatos, desde la preparación de los datos hasta la obtención de los resultados de conformidad.
 
@@ -43,8 +43,8 @@ Los diferentes casos de validación para DCAT-AP-ES se basan en el nivel de comp
 
 !!! tip "Consejo. Caso de uso."
 
-    Para la mayoría de los casos de uso, se recomienda el [`Caso 1: DCAT-AP-ES completo`](/validation/#case_1_dcat_ap_es_full). Proporciona una validación completa de la coherencia básica y conformidad con vocabularios estándar.
-    Si tu catálogo contiene conjuntos de datos de alto valor (HVD), considera utilizar el [`Caso 2: DCAT-AP-ES completo (HVD)`](/validation/#case_1_dcat_ap_es_full_hvd) para una validación que incluya los requerimientos del [Reglamento de ejecución (UE) 2023/138 de la Comisión Europea](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138).
+    Para la mayoría de los casos de uso, se recomienda el [`Caso 1: DCAT-AP-ES completo`](#case_1_dcat_ap_es_full). Proporciona una validación completa de la coherencia básica y conformidad con vocabularios estándar.
+    Si tu catálogo contiene conjuntos de datos de alto valor (HVD), considera utilizar el [`Caso 2: DCAT-AP-ES completo (HVD)`](#case_2_dcat_ap_es_full_hvd) para una validación que incluya los requerimientos del [Reglamento de ejecución (UE) 2023/138 de la Comisión Europea](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138).
 
     La elección del caso de validación adecuado depende de tus necesidades específicas y del contexto de intercambio de datos.
 
@@ -64,7 +64,7 @@ Incluye todas las restricciones necesarias para la coherencia técnica de las di
   - [`shacl_mdr-vocabularies.shape.ttl`](https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_mdr-vocabularies.shape.ttl)
 
 ## **Caso 2: DCAT-AP-ES completo (HVD)** {#case_2_dcat_ap_es_full_hvd}
-Incluye todas las restricciones anteriormente mencionadas, además de aquellas que permiten describir adecuadamente los conjuntos de datos de alto valor ([HVD](/#conjuntos_de_datos_de_alto_valor_high_value_datasets)).
+Incluye todas las restricciones anteriormente mencionadas, además de aquellas que permiten describir adecuadamente los conjuntos de datos de alto valor ([HVD](index.md#conjuntos_de_datos_de_alto_valor_high_value_datasets)).
 
 *Formas SHACL*:
 
@@ -83,7 +83,7 @@ Incluye todas las restricciones anteriormente mencionadas, además de aquellas q
   - [`shacl_distribution_hvd_shape.ttl`](https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/hvd/shacl_distribution_hvd_shape.ttl)
 
 ## **Caso 3: DCAT-AP-ES completo (con conocimiento de fondo)** {#case_3_dcat_ap_es_full_imports}
-Extiende el [Caso 1](validation/#case_1_dcat_ap_es_full) con conocimiento de fondo, añadiendo conformidad con estándares externos.
+Extiende el [Caso 1](#case_1_dcat_ap_es_full) con conocimiento de fondo, añadiendo conformidad con estándares externos.
 
 *Formas SHACL*:
 
@@ -111,7 +111,7 @@ Extiende el [Caso 1](validation/#case_1_dcat_ap_es_full) con conocimiento de fon
     Sin embargo, incluir este conocimiento de fondo puede hacer que la validación sea más lenta y consuma más recursos.
 
 ## **Caso 4: DCAT-AP-ES completo (HVD con conocimiento de fondo)** {#case_4_dcat_ap_es_full_hvd_imports}
-Extiende el [Caso 1](validation/#case_1_dcat_ap_es_full) con conocimiento de fondo conformidad con estándares externos. También incluye las formas que permiten describir adecuadamente los conjuntos de datos de alto valor ([HVD](#conjuntos_de_datos_de_alto_valor_high_value_datasets)).
+Extiende el [Caso 1](#case_1_dcat_ap_es_full) con conocimiento de fondo conformidad con estándares externos. También incluye las formas que permiten describir adecuadamente los conjuntos de datos de alto valor ([HVD](#conjuntos_de_datos_de_alto_valor_high_value_datasets)).
 
 *Formas SHACL*:
 

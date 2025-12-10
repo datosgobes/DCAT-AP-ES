@@ -1,4 +1,4 @@
-To verify that the metadata exchange is technically compliant with [DCAT-AP-EN](/), the [SHACL shapes available in the repository](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/) graphs can be used. Shapes Constraint Language* (SHACL) is a [W3C recommendation](https://www.w3.org/TR/shacl/]) for expressing constraints in an RDF knowledge graph. 
+To verify that the metadata exchange is technically compliant with [DCAT-AP-ES](index.en.md), the [SHACL shapes available in the repository](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/) graphs can be used. Shapes Constraint Language* (SHACL) is a [W3C recommendation](https://www.w3.org/TR/shacl/) for expressing constraints in an RDF knowledge graph. 
 
 The following illustration schematically shows the main stages of the SHACL validation process applied to metadata, from data preparation to obtaining the conformance results.
 
@@ -41,8 +41,8 @@ The different validation cases in the DCAT-AP-ES Validator are based on the leve
 
 !!! tip "Tip. Use case."
 
-    For most use cases, the [`Case 1: DCAT-AP-ES full`](/validation/#case_1_dcat_ap_es_full) is recommended. It provides a complete validation of basic consistency and conformance to standard vocabularies.
-    If your catalog contains High Value Datasets (HVD), consider using [`Case 2: Full DCAT-AP-ES (HVD)`](/validation/#case_1_dcat_ap_es_full_hvd) for a validation that includes the requirements of the [European Commission Implementing Regulation (EU) 2023/138](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138).
+    For most use cases, the [`Case 1: DCAT-AP-ES full`](#case_1_dcat_ap_es_full) is recommended. It provides a complete validation of basic consistency and conformance to standard vocabularies.
+    If your catalog contains High Value Datasets (HVD), consider using [`Case 2: Full DCAT-AP-ES (HVD)`](#case_2_dcat_ap_es_full_hvd) for a validation that includes the requirements of the [European Commission Implementing Regulation (EU) 2023/138](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023R0138).
 
     Choosing the appropriate validation case depends on your specific needs and data exchange context.
 
@@ -62,7 +62,7 @@ It contains all the necessary constraints for the technical consistency of the d
   - [`shacl_mdr-vocabularies.shape.ttl`](https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/1.0.0/shacl_mdr-vocabularies.shape.ttl)
 
 ## **Case 2: Full DCAT-AP-ES (HVD)** {#case_2_dcat_ap_es_full_hvd}
-Includes all of the above constraints, plus those to adequately describe high_value datasets ([HVD](/#high_value_datasets_high_value_datasets)).
+Includes all of the above constraints, plus those to adequately describe high_value datasets ([HVD](index.en.md#high_value_datasets_high_value_datasets)).
 
 *SHACL Shapes*: 
 
@@ -82,7 +82,7 @@ Includes all of the above constraints, plus those to adequately describe high_va
 
 
 ## **Case 3: Full DCAT-AP-ES (with background knowlegdge)**  {#case_3_dcat_ap_es_full_imports}
-Extends [Case 1](validation/#case_1_dcat_ap_en_full) with background knowledge and adds conformance to external standards.
+Extends [Case 1](#case_1_dcat_ap_es_full) with background knowledge and adds conformance to external standards.
 
 *SHACL Shapes*: 
 
@@ -110,7 +110,7 @@ Extends [Case 1](validation/#case_1_dcat_ap_en_full) with background knowledge a
     However, including this background knowledge can make validation slower and more resource-intensive.
 
 ## **Caso 4: Full DCAT-AP-ES (HVD with background knowlegdge)** {#case_4_dcat_ap_es_full_hvd_imports}
-Extends [Case 1](validation/#case_1_dcat_ap_en_full) with background knowledge about conformance to external standards. It also includes the forms that allow to properly describe high value datasets ([HVD](#high_value_datasets_high_value_datasets)).
+Extends [Case 1](#case_1_dcat_ap_es_full) with background knowledge about conformance to external standards. It also includes the forms that allow to properly describe high value datasets ([HVD](#high_value_datasets_high_value_datasets)).
 
 *SHACL Shapes*: 
 

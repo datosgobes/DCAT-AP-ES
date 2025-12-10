@@ -25,7 +25,7 @@ Secciones:
 
     Adaptación de DCAT-AP que incorpora especificaciones propias del contexto español y la extensión HVD.
 
-    [:octicons-arrow-right-24: Ver más](/DCAT-AP-ES/)
+    [:octicons-arrow-right-24: Ver más](index.md)
 
 
 -   :fontawesome-solid-plus:{ .lg .middle .grid-emoji } **¿Principales novedades de DCAT-AP-ES?**{ .grid-title #novedades }
@@ -34,7 +34,7 @@ Secciones:
 
     Se alinea con el perfil europeo DCAT-AP, incorpora servicios de datos (`dcat:DataService`), el modelado de conjuntos de alto valor (HVD) y mejoras en la descripción de la calidad de metadatos.
 
-    [:octicons-arrow-right-24: Clases](/DCAT-AP-ES/#dcat-ap-es-entities)
+    [:octicons-arrow-right-24: Clases](index.md#dcat-ap-es-entities)
 
 -   :material-connection:{ .lg .middle .grid-emoji } **¿Relación con otros estándares?**{ .grid-title #relacion }
 
@@ -42,7 +42,7 @@ Secciones:
 
     DCAT-AP-ES implementa DCAT-AP y su extensión HVD, garantizando la compatibilidad con el ecosistema europeo de datos abiertos.
 
-    [:octicons-arrow-right-24: UML](/DCAT-AP-ES/#uml)
+    [:octicons-arrow-right-24: UML](index.md#uml)
 
 -   :material-calendar:{ .lg .middle .grid-emoji } **¿Cuándo entra en vigor?**{ .grid-title #vigencia }
 
@@ -58,7 +58,7 @@ Secciones:
 
     Los publicadores disponen de un periodo de adaptación desde la entrada en vigor de la NTI-RISP.
 
-    [:octicons-arrow-right-24: Cambios](/DCAT-AP-ES/#annex-1-nti-risp-to-dcat-ap-es)
+    [:octicons-arrow-right-24: Cambios](index.md#annex-1-nti-risp-to-dcat-ap-es)
 
 </div>
 
@@ -103,7 +103,7 @@ Secciones:
         linkStyle default stroke:#154481,stroke-width:1px,stroke-dasharray:3;
     ```
 
-    [:octicons-arrow-right-24: Relaciones](/DCAT-AP-ES/#dcat-ap-es-model-relations)
+    [:octicons-arrow-right-24: Relaciones](index.md#dcat-ap-es-model-relations)
 
 -   :material-update:{ .lg .middle .grid-emoji } **¿ Cómo evoluciono desde un catálogo NTI-RISP?**{ .grid-title #migracion-nti }
 
@@ -111,15 +111,15 @@ Secciones:
 
     Si ya tienes un catálogo conforme al modelo de metadatos NTI-RISP (2013), para evolucionar a DCAT-AP-ES puedes:
 
-    1. **Identificar cambios**: Revisar las diferencias entre ambos modelos según el [Anexo 1 - Cambios respecto a la NTI-RISP](/DCAT-AP-ES/#annex-1-nti-risp-to-dcat-ap-es) e incorporar nuevos metadatos obligatorios.
+    1. **Identificar cambios**: Revisar las diferencias entre ambos modelos según el [Anexo 1 - Cambios respecto a la NTI-RISP](index.md#annex-1-nti-risp-to-dcat-ap-es) e incorporar nuevos metadatos obligatorios.
 
-    2. **Adaptar vocabularios controlados**: Utilizar los [vocabularios actualizados del modelo](/DCAT-AP-ES/#dcat-ap-es-vocabularies) en vez de literales.
+    2. **Adaptar vocabularios controlados**: Utilizar los [vocabularios actualizados del modelo](index.md#dcat-ap-es-vocabularies) en vez de literales.
 
-    3. **Añadir soporte a servicios**: Incorporar la clase [`dcat:DataService`](/DCAT-AP-ES/#servicio_de_datos_-_clase_dcatdataservice_-_opcional) si ofreces APIs o servicios.
+    3. **Añadir soporte a servicios**: Incorporar la clase [`dcat:DataService`](index.md#servicio_de_datos_-_clase_dcatdataservice_-_opcional) si ofreces APIs o servicios.
 
-    4. **Validar el catálogo**: Comprobar la conformidad utilizando las [herramientas de validación](/DCAT-AP-ES/validacion/)
+    4. **Validar el catálogo**: Comprobar la conformidad utilizando las [herramientas de validación](validation.md)
 
-    [:octicons-arrow-right-24: Migración](/DCAT-AP-ES/#annex-1-nti-risp-to-dcat-ap-es)
+    [:octicons-arrow-right-24: Migración](index.md#annex-1-nti-risp-to-dcat-ap-es)
 
 -   :material-compare:{ .lg .middle .grid-emoji } **¿ Diferencias entre DCAT-AP-ES y DCAT-AP?**{ .grid-title #diferencias-dcat }
 
@@ -135,7 +135,7 @@ Secciones:
 
     - **Cardinalidad adaptada**: Limita algunas cardinalidades para descripciones más precisas.
 
-    [:octicons-arrow-right-24: Diferencias](/DCAT-AP-ES/#annex-3-dcat-ap-to-dcat-ap-es)
+    [:octicons-arrow-right-24: Diferencias](index.md#annex-3-dcat-ap-to-dcat-ap-es)
 
 </div>
 
@@ -152,7 +152,7 @@ Secciones:
 
     Disponibles en la guía online y en el directorio `examples/` del repositorio, organizados por entidades y casos de uso específicos.
 
-    [:octicons-arrow-right-24: Ejemplos](/DCAT-AP-ES/examples)
+    [:octicons-arrow-right-24: Ejemplos](examples.md)
 
 -   :fontawesome-solid-file-code:{ .lg .middle .grid-emoji } **¿Qué formato debe tener el catálogo?**{ .grid-title #implementacion-formatos }
 
@@ -196,7 +196,7 @@ Secciones:
 
     Existen guías de aplicación e implementación técnica, convenciones, modelos de datos, vocabularios, ejemplos, ficheros de validación SHACL, etc.
 
-    [:octicons-arrow-right-24: Guía](/DCAT-AP-ES/)
+    [:octicons-arrow-right-24: Guía](index.md)
 
 -   :fontawesome-solid-code-pull-request:{ .lg .middle .grid-emoji } **Pensado para contribuir**{ .grid-title #repository-contribuir }
 
