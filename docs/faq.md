@@ -115,7 +115,7 @@ Secciones:
 
     2. **Adaptar vocabularios controlados**: Utilizar los [vocabularios actualizados del modelo](index.md#dcat-ap-es-vocabularies) en vez de literales.
 
-    3. **Añadir soporte a servicios**: Incorporar la clase [`dcat:DataService`](index.md#servicio_de_datos_-_clase_dcatdataservice_-_opcional) si ofreces APIs o servicios.
+    3. **Añadir soporte a servicios**: Incorporar la clase [`dcat:DataService`](index.md#DataService) si ofreces APIs o servicios.
 
     4. **Validar el catálogo**: Comprobar la conformidad utilizando las [herramientas de validación](validation.md)
 
