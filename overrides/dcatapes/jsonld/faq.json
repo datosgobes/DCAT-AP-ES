@@ -44,11 +44,51 @@
         },
         {
             "@type": "Question",
+            "name": "¿Qué son las convenciones datos.gob.es?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Complemento de DCAT-AP-ES que define reglas adicionales para abordar necesidades prácticas para federar con el catálogo nacional de datos.gob.es",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are the datos.gob.es Conventions?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Complement to DCAT-AP-ES that defines additional rules to address practical needs to federate with the national catalog of datos.gob.es",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cuál es la relación entre las convenciones y DCAT-AP-ES?",
+            "inLanguage": "es",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mientras que DCAT-AP-ES define el modelo base, las convenciones establecen directrices para resolver casos prácticos concretos sin modificar la especificación.",
+                "inLanguage": "es"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the relationship between conventions and DCAT-AP-ES?",
+            "inLanguage": "en",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "While DCAT-AP-ES defines the base model, conventions establish guidelines to resolve concrete practical cases without modifying the specification.",
+                "inLanguage": "en"
+            }
+        },
+        {
+            "@type": "Question",
             "name": "¿Cuándo entra en vigor DCAT-AP-ES?",
             "inLanguage": "es",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "DCAT-AP-ES está previsto que entre en vigor en 2025, tras la aprobación de la nueva NTI-RISP, el día siguiente a su publicación en el BOE.",
+                "text": "DCAT-AP-ES está previsto que entre en vigor en los próximos meses, tras la aprobación de la nueva NTI-RISP, el día siguiente a su publicación en el BOE.",
                 "inLanguage": "es"
             }
         },
