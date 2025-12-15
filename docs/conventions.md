@@ -49,6 +49,8 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
 - [**Convención 23**](#convencion-23): Los *datasets* *DEBEN* incluir al menos una distribución (`dcat:Distribution`).
 - [**Convención 24**](#convencion-24): Cuando un recurso DCAT-AP-ES derive de un metadato fuente de otro estándar (por ejemplo: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), *DEBERÍA* incluirse una relación mediante la propiedad `adms:identifier` que apunte al identificador persistente del metadato fuente, utilizando un nodo de tipo `adms:Identifier`.
+- [**Convención 25**](#convencion-25): Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se *DEBE*: 1. indicar `dct:accessRights` con uno de los valores: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `NON_PUBLIC` 2. relacionar mediante `dcatap:applicableLegislation` el dataset con la legislación específica (mínimo el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`)
+- [**Convención 26**](#convencion-26): Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se *DEBE* indicar: 1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso 2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado) 3. `dct:format`: tipo de archivo (vocabulario `file-type`) 4. `dct:rights`: condiciones de reutilización aplicables a esta distribución
 
 # Convenciones generales {#general}
 
@@ -238,6 +240,55 @@ Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rang
 
 !!! info "Nota sobre implementación"
     Se recomienda revisar los metadatos, sí son heredados de la versión inicial de NTI-RISP, para actualizar `schema:startDate`, `schema:endDate` (propiedades anteriores a [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/#changes)) en los nuevos registros conforme al vocabulario DCAT.
+
+## Datos restringidos pero accesibles a través de NSIP/ERPD {#general-nsip-erpd-publication}
+
+Esta convención define cómo representar conjuntos de datos que no son abiertos pero que están accesibles bajo la implementación de la [DGA (*Data Governance Act*) a través de NSIP/ERPD](https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained).
+
+!!! must semantic "Convención 25"
+    Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se **DEBE**:
+
+    1. indicar `dct:accessRights` con uno de los valores: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `NON_PUBLIC`
+    2. relacionar mediante `dcatap:applicableLegislation` el dataset con la legislación específica (mínimo el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`)
+
+!!! must semantic "Convención 26"
+    Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se **DEBE** indicar:
+
+    1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso
+    2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado)
+    3. `dct:format`: tipo de archivo (vocabulario `file-type`)
+    4. `dct:rights`: condiciones de reutilización aplicables a esta distribución
+
+!!! success "Ejemplo de uso correcto"
+    ```turtle linenums="1"
+    @prefix dcat: <http://www.w3.org/ns/dcat#> .
+    @prefix dct: <http://purl.org/dc/terms/> . 
+    @prefix dcatap:  <http://data.europa.eu/r5r/> . 
+
+    <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1>
+        a dcat:Dataset ;
+        dct:title "Dataset de ejemplo"@es, "Example Dataset"@en ;
+        
+        # Metadatos obligatorios NSIP/ERPD (Dataset)
+        dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
+        dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
+        dcat:distribution <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1/dist/1> . 
+    
+    <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1/dist/1>
+        a dcat:Distribution ;
+        dct:title "Distribución CSV"@es ;
+        
+        # Metadatos obligatorios NSIP/ERPD (Distribution)
+        dcat:accessURL <https://example.com/nsip/request-access> ;
+        dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+        dcat:byteSize "18006"^^xsd:decimal ;
+        dct:rights <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> . 
+    ```
+
+!!! warning "Importante"
+    - El harvester de data.europa.eu filtrará automáticamente los datasets con `dct:accessRights` = `RESTRICTED` o `NON_PUBLIC` para el catálogo ERPD
+    - La ausencia de `dcat:byteSize` o `dct:format` en Distribution causará rechazo del registro
+    - Si se proporciona tanto `dct:accessURL` como `dcat:downloadURL`, el harvester priorizará `accessURL` para NSIP
 
 # Convenciones para `dcat:Catalog` {#catalog}
 
