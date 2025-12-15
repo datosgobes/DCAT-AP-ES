@@ -261,28 +261,7 @@ Esta convención define cómo representar conjuntos de datos que no son abiertos
 
 !!! success "Ejemplo de uso correcto"
     ```turtle linenums="1"
-    @prefix dcat: <http://www.w3.org/ns/dcat#> .
-    @prefix dct: <http://purl.org/dc/terms/> . 
-    @prefix dcatap:  <http://data.europa.eu/r5r/> . 
-
-    <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1>
-        a dcat:Dataset ;
-        dct:title "Dataset de ejemplo"@es, "Example Dataset"@en ;
-        
-        # Metadatos obligatorios NSIP/ERPD (Dataset)
-        dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
-        dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
-        dcat:distribution <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1/dist/1> . 
-    
-    <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1/dist/1>
-        a dcat:Distribution ;
-        dct:title "Distribución CSV"@es ;
-        
-        # Metadatos obligatorios NSIP/ERPD (Distribution)
-        dcat:accessURL <https://example.com/nsip/request-access> ;
-        dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
-        dcat:byteSize "18006"^^xsd:decimal ;
-        dct:rights <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> . 
+    --8<-- "examples/ttl/Conventions_general-nsip-erpd-publication.ttl"
     ```
 
 !!! warning "Importante"
