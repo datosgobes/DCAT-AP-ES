@@ -49,6 +49,9 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
 - [**Convención 23**](#convencion-23): Los *datasets* *DEBEN* incluir al menos una distribución (`dcat:Distribution`).
 - [**Convención 24**](#convencion-24): Cuando un recurso DCAT-AP-ES derive de un metadato fuente de otro estándar (por ejemplo: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), *DEBERÍA* incluirse una relación mediante la propiedad `adms:identifier` que apunte al identificador persistente del metadato fuente, utilizando un nodo de tipo `adms:Identifier`.
+- [**Convención 27**](#convencion-27): Para APIs con APIKey de *acceso universal* (registro automático sin aprobación manual), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `PUBLIC` e incluir en `foaf:page` la documentación para obtener la clave. 
+- [**Convención 28**](#convencion-28): Para APIs con APIKey de *acceso restringido* (requiere aprobación, contrato o pago), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso. 
+- [**Convención 29**](#convencion-29): Los `dcat:Dataset` y `dcat:Distribution` accesibles mediante API Key *DEBEN* mantener coherencia con el `dct:accessRights` del `dcat:DataService` que los sirve.  
 
 # Convenciones generales {#general}
 
@@ -341,6 +344,43 @@ Para mejorar la interoperabilidad y descripción de servicios OGC (`WMS`, `WFS`,
     - Incluya la URL del `GetCapabilities` en `dcat:endpointDescription`
     - Vincule con los *datasets* servidos usando `dcat:servesDataset`
     - En `dcat:endpointURL` indicar la URL base del servicio sin parámetros.
+
+## APIs con autenticación mediante APIKey {#dataservice-apikey}
+
+Las APIs que requieren [*API Key*](https://swagger.io/docs/specification/v3_0/authentication/api-keys/) se clasifican según el [vocabulario access-right](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right) en dos categorías principales:
+
+!!! should semantic "Convención 27"
+    Para APIs con APIKey de **acceso universal** (registro automático sin aprobación manual), un `dcat:DataService` **DEBERÍA** usar `dct:accessRights` con valor `PUBLIC` e incluir en `foaf:page` la documentación para obtener la clave. 
+
+!!! should semantic "Convención 28"
+    Para APIs con APIKey de **acceso restringido** (requiere aprobación, contrato o pago), un `dcat:DataService` **DEBERÍA** usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso.
+
+!!! must technical "Convención 29"
+    Los `dcat:Dataset` y `dcat:Distribution` accesibles mediante API Key **DEBEN** mantener coherencia con el `dct:accessRights` del `dcat:DataService` que los sirve. 
+
+!!! info "Ejemplo de descripción pública"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataservice-apikey-public.ttl"
+    ```
+
+!!! info "Ejemplo de descripción restringida"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataservice-apikey-restricted.ttl"
+    ```
+
+!!! info "Nota sobre implementación"
+    Se considera **acceso universal** cuando: 
+    
+    - El registro es automático y sin aprobación manual
+    - No requiere contratos, [*SLAs*](https://es.wikipedia.org/wiki/Acuerdo_de_nivel_de_servicio) o acuerdos especiales
+    - Puede incluir límites técnicos (*rate limiting*, *geofencing*)
+
+    Se considera **acceso restringido** cuando: 
+    
+    - Requiere aprobación manual o revisión
+    - Exige firma de contratos, [*SLAs*](https://es.wikipedia.org/wiki/Acuerdo_de_nivel_de_servicio) o acuerdos de confidencialidad
+    - Tiene coste económico
+    - Está limitado a tipos específicos de usuarios/organizaciones
 
 # Convenciones para `dcat:Dataset` {#dataset}
 

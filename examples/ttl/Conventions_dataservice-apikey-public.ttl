@@ -1,0 +1,42 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> . 
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<https://api.example.com/data>
+    a dcat:DataService ;
+    dcat:endpointURL <https://api.example.com/data> ;
+    dct:title "API de datos abiertos de ejemplo"@es ;
+    dct:description "API que requiere registro para obtener API key, pero abierta a todos"@es ;
+    
+    # Acceso público con API key universal
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    
+    # Documentación sobre cómo obtener API key
+    foaf:page <https://example.com/api-docs/getting-started> ;
+    
+    # Licencia de los datos
+    dct:license <http://creativecommons.org/licenses/by/4.0/> ;
+    
+    # Dataset servido
+    dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> . 
+
+<http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1>
+    a dcat:Dataset ;
+    dct:title "Dataset de ejemplo"@es ;
+    dct:description "Datos accesibles mediante API"@es ;
+    
+    # Coherente con el servicio
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> ;
+    
+    # Distribución mediante servicio
+    dcat:distribution <http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-JSON> . 
+
+<http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-JSON>
+    a dcat:Distribution ;
+    dct:title "Distribución JSON vía API"@es ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/JSON> ;
+    
+    # Referencia al servicio
+    dcat:accessService <https://api.example.com/data> ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> . 
