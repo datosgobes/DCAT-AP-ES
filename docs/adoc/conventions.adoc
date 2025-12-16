@@ -1007,6 +1007,7 @@ Los prefijos listados son los más comúnmente utilizados, aunque técnicamente 
 | `geo` | `http://www.opengis.net/ont/geosparql#` | GeoSPARQL Ontology | Lenguaje de consulta geográfica de datos RDF
 | `locn` | `http://www.w3.org/ns/locn#` | Location Core | Vocabulario para ubicaciones y direcciones
 | `odrl` | `http://www.w3.org/ns/odrl/2/` | Open Digital Rights Language | Expresión de derechos digitales
+| `odrs` | `http://schema.theodi.org/odrs#` | Open Data Rights Statement Vocabulary | Publicación de declaraciones de derechos para datos abiertos
 | `prov` | `http://www.w3.org/ns/prov#` | Provenance Ontology | Trazabilidad y procedencia de datos
 | `rdf` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` | RDF Schema | Vocabulario básico para definir recursos RDF
 | `rdfs` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema | Extensión de RDF para definir clases y propiedades
