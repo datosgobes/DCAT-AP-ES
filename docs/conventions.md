@@ -49,6 +49,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
 - [**Convención 23**](#convencion-23): Los *datasets* *DEBEN* incluir al menos una distribución (`dcat:Distribution`).
 - [**Convención 24**](#convencion-24): Cuando un recurso DCAT-AP-ES derive de un metadato fuente de otro estándar (por ejemplo: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), *DEBERÍA* incluirse una relación mediante la propiedad `adms:identifier` que apunte al identificador persistente del metadato fuente, utilizando un nodo de tipo `adms:Identifier`.
+- [**Convención 30**](#convencion-30): La propiedad `dcat:themeTaxonomy` en catálogos y la propiedad `dcat:theme` en datasets y servicios de datos **DEBEN** admitir cardinalidad flexible `1..*` para permitir la clasificación en tantos esquemas temáticos o taxonomías como sean necesarios, siempre que al menos uno corresponda a la [taxonomía de sectores primarios](https://datos.gob.es/kos/sector-publico/sector). 
 
 # Convenciones generales {#general}
 
@@ -238,6 +239,17 @@ Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rang
 
 !!! info "Nota sobre implementación"
     Se recomienda revisar los metadatos, sí son heredados de la versión inicial de NTI-RISP, para actualizar `schema:startDate`, `schema:endDate` (propiedades anteriores a [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/#changes)) en los nuevos registros conforme al vocabulario DCAT.
+
+## Ampliación de taxonomías de temas {#general-themes}
+En el perfil DCAT-AP-ES, la cardinalidad de las propiedades `dcat:themeTaxonomy` (en catálogo) y `dcat:theme` (en dataset y servicios) [está actualmente limitada a un máximo de 3 valores (`1..3`)](index.md#Catalog.themeTaxonomy). Sin embargo, existen escenarios donde es necesario asociar más de tres taxonomías temáticas o temas, especialmente para interoperabilidad con perfiles sectoriales (INSPIRE, Eurovoc), integración con catálogos internacionales, o para datasets multitemáticos.
+
+!!! must organisational "Convención 30"
+    La propiedad `dcat:themeTaxonomy` en catálogos y la propiedad `dcat:theme` en datasets y servicios de datos **DEBEN** admitir cardinalidad flexible `1..*` para permitir la clasificación en tantos esquemas temáticos o taxonomías como sean necesarios, siempre que al menos uno corresponda a la [taxonomía de sectores primarios](https://datos.gob.es/kos/sector-publico/sector). 
+
+!!! info "Ejemplo de serialización de temas ampliados"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_general-themes.ttl"
+    ```
 
 # Convenciones para `dcat:Catalog` {#catalog}
 
