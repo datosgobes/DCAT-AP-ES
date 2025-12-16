@@ -39,6 +39,18 @@ Incluye únicamente las **entidades y propiedades obligatorias** para describir 
     --8<-- "examples/ttl/1.0.0/E_DCAT-AP-ES_minimal.ttl"
     ```
 
+## Plantilla completa de DCAT-AP-ES {#dcatapes_full_optional}
+
+Esta plantilla proporciona una implementación exhaustiva del perfil DCAT-AP-ES, mostrando la **totalidad de propiedades disponibles** en todos sus niveles de aplicabilidad: obligatorias, recomendadas y opcionales. 
+
+Mediante esta serialización completa, podrás explorar cómo enriquecer la descripción de catálogos, datasets, distribuciones y servicios de datos con metadatos avanzados. Constituye una plantilla de referencia integral para maximizar la interoperabilidad y calidad de los metadatos, facilitando su integración en ecosistemas de datos abiertos nacionales e internacionales según las especificaciones técnicas vigentes.
+
+=== "RDF/XML"
+    [`RDF/XML`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/examples/rdf/1.0.0/E_DCAT-AP-ES_full_optional.rdf) <span style="color:#00bfa5"><b>:material-arrow-up-right:</b></span>
+
+=== "TTL"
+    [`Turtle (TTL)`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/examples/ttl/1.0.0/E_DCAT-AP-ES_full_optional.ttl) <span style="color:#00bfa5"><b>:material-arrow-up-right:</b></span>
+
 ## Migración desde NTI-RISP a DCAT-AP-ES {#catalogo_-_nti_dcatapes}
 
 Este ejemplo muestra cómo migrar un catálogo modelado originalmente según NTI-RISP (2013) al perfil DCAT-AP-ES. Facilitando la interoperabilidad y enriqueciendo los metadatos del catálogo, permitiendo su integración en portales nacionales y europeos. El proceso consiste en mapear las propiedades clave de NTI-RISP a DCAT-AP-ES, añadiendo vocabularios y elementos recomendados por el nuevo perfil.
