@@ -1,0 +1,16 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://ejemplo.org/catalogo/1> a dcat:Catalog ;
+    dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> ,
+                    <http://publications.europa.eu/resource/authority/data-theme> ,
+                    <http://inspire.ec.europa.eu/theme/> ,
+                    <http://custom.org/vocab/taxonomy> .
+
+...
+
+<http://ejemplo.org/dataset/123> a dcat:Dataset ;
+    dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ,
+                <http://publications.europa.eu/resource/authority/data-theme/ENVI> ,
+                <http://inspire.ec.europa.eu/theme/hy> ,
+                <http://custom.org/vocab/theme/agua> .
