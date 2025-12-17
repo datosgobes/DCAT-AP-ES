@@ -49,8 +49,9 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
 - [**Convención 23**](#convencion-23): Los *datasets* *DEBEN* incluir al menos una distribución (`dcat:Distribution`).
 - [**Convención 24**](#convencion-24): Cuando un recurso DCAT-AP-ES derive de un metadato fuente de otro estándar (por ejemplo: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), *DEBERÍA* incluirse una relación mediante la propiedad `adms:identifier` que apunte al identificador persistente del metadato fuente, utilizando un nodo de tipo `adms:Identifier`.
-- [**Convención 25**](#convencion-25): Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se *DEBE*: 1. indicar `dct:accessRights` con uno de los valores: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `NON_PUBLIC` 2. relacionar mediante `dcatap:applicableLegislation` el dataset con la legislación específica (mínimo el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`)
-- [**Convención 26**](#convencion-26): Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se *DEBE* indicar: 1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso 2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado) 3. `dct:format`: tipo de archivo (vocabulario `file-type`) 4. `dct:rights`: condiciones de reutilización aplicables a esta distribución
+- [**Convención 25**](#convencion-25): Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se *DEBE* indicar `dct:accessRights` con uno de los valores: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `NON_PUBLIC`
+- [**Convención 26**](#convencion-26): Un conjunto de datos accesible vía NSIP/ERPD se *DEBERÍA* relacionar mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`).
+- [**Convención 27**](#convencion-27): Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se *DEBE* indicar: 1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso 2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado) 3. `dct:format`: tipo de archivo (vocabulario `file-type`) 4. `dct:rights`: condiciones de reutilización aplicables a esta distribución
 
 # Convenciones generales {#general}
 
@@ -246,12 +247,12 @@ Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rang
 Esta convención define cómo representar conjuntos de datos que no son abiertos pero que están accesibles bajo la implementación de la [DGA (*Data Governance Act*) a través de NSIP/ERPD](https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained).
 
 !!! must semantic "Convención 25"
-    Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se **DEBE**:
-
-    1. indicar `dct:accessRights` con uno de los valores: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `NON_PUBLIC`
-    2. relacionar mediante `dcatap:applicableLegislation` el dataset con la legislación específica (mínimo el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`)
+    Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se **DEBE** indicar `dct:accessRights` con uno de los valores: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `NON_PUBLIC` y se **DEBERÍA** relacionar mediante `dcatap:applicableLegislation` con la legislación específica (por ejemplo el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`)
 
 !!! must semantic "Convención 26"
+    Un conjunto de datos accesible vía NSIP/ERPD se **DEBERÍA** relacionar mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`).
+
+!!! must semantic "Convención 27"
     Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se **DEBE** indicar:
 
     1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso
