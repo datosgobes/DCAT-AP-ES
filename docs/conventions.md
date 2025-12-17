@@ -249,7 +249,7 @@ Esta convención define cómo representar conjuntos de datos que no son abiertos
 !!! must semantic "Convención 25"
     Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se **DEBE** indicar `dct:accessRights` con uno de los valores: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `NON_PUBLIC` y se **DEBERÍA** relacionar mediante `dcatap:applicableLegislation` con la legislación específica (por ejemplo el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`)
 
-!!! must semantic "Convención 26"
+!!! should semantic "Convención 26"
     Un conjunto de datos accesible vía NSIP/ERPD se **DEBERÍA** relacionar mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`).
 
 !!! must semantic "Convención 27"
