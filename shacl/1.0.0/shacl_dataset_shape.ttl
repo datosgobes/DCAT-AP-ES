@@ -807,7 +807,7 @@ dcatapes:DistributionMandatoryConvention
 dcatapes:NSIPDatasetConvention
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los datasets con acceso restringido a través de NSIP/ERPD cumplan con los requisitos obligatorios de la Convención 25."@es ;
-    rdfs: comment "Restriction to validate that datasets with restricted access through NSIP/ERPD comply with the mandatory requirements of Convention 25."@en ;
+    rdfs:comment "Restriction to validate that datasets with restricted access through NSIP/ERPD comply with the mandatory requirements of Convention 25."@en ;
     rdfs:label "Restricción para datasets NSIP/ERPD"@es ;
     rdfs:label "NSIP/ERPD Dataset Restriction"@en ;
     sh:name "Dataset NSIP/ERPD"@es ;
@@ -845,10 +845,10 @@ dcatapes:NSIPDatasetConvention
     [
         # 2. dct:description - obligatorio (ya validado en Dataset_Shape, aquí reforzamos el mensaje)
         sh:path dct:description ;
-        sh: minCount 1 ;
+        sh:minCount 1 ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
-        sh: message "Los datasets NSIP/ERPD DEBEN incluir dct:description. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "Los datasets NSIP/ERPD DEBEN incluir dct:description. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
         sh:message "NSIP/ERPD datasets MUST include dct:description. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
     ],
     [
@@ -874,9 +874,9 @@ dcatapes:NSIPDatasetConvention
     ],
     [
         # 5. dcat:distribution - al menos una distribución conforme a Convención 26
-        sh:path dcat: distribution ;
+        sh:path dcat:distribution ;
         sh:minCount 1 ;
-        sh: severity sh:Violation ;
+        sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
         sh:message "Los datasets NSIP/ERPD DEBEN tener al menos una distribución (dcat:distribution). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
         sh:message "NSIP/ERPD datasets MUST have at least one distribution (dcat:distribution). See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
@@ -884,8 +884,8 @@ dcatapes:NSIPDatasetConvention
 
 # Convención 27
 dcatapes:NSIPDatasetRecommendation
-    a sh: NodeShape ;
-    rdfs: comment "Recomendaciones para datasets accesibles vía NSIP/ERPD según la Convención 27."@es ;
+    a sh:NodeShape ;
+    rdfs:comment "Recomendaciones para datasets accesibles vía NSIP/ERPD según la Convención 27."@es ;
     rdfs:comment "Recommendations for datasets accessible via NSIP/ERPD according to Convention 27."@en ;
     rdfs:label "Recomendación para datasets NSIP/ERPD"@es ;
     rdfs:label "NSIP/ERPD Dataset Recommendation"@en ;
@@ -923,7 +923,7 @@ dcatapes:NSIPDatasetRecommendation
     ],
     [
         # Recomendación: incluir al menos el Reglamento DGA
-        sh: path dcatap:applicableLegislation ;
+        sh:path dcatap:applicableLegislation ;
         sh:severity sh:Info ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
         sh:sparql [
