@@ -130,7 +130,7 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 
 # O ejecutar fases específicas
 ./tests/validate-local.sh syntax-only     # Fase 0: Validación sintáctica SHACL
-./tests/validate-local.sh model-only      # Fase 1: Comparación Modelo-SHACL
+./tests/validate-local.sh model-only      # Fase 1: Comparación modelo-SHACL
 ./tests/validate-local.sh shacl-only      # Fase 2: Validación semántica
 
 # Sin argumentos = 'all'
@@ -139,7 +139,7 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 
 **Ubicación de informes**: `tests/validation-reports/`
 - `SUMMARY.md` - Resumen ejecutivo de todas las fases
-- `model-vs-shacl-report.md` - Comparación detallada Modelo-SHACL
+- `model-vs-shacl-report.md` - Comparación detallada modelo-SHACL
 - `*-report.ttl` - Informes SHACL en formato Turtle
 
 ## Comprender Resultados de Validación
@@ -153,7 +153,7 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 ### Resultados Esperados
 
 ```md
-### Fase 0: Validación Sintáctica (Formas SHACL)
+### Fase 0: Validación sintáctica (Formas SHACL)
 **Propósito:** Verificar que los archivos de formas SHACL son RDF/Turtle sintácticamente válidos
 
 - **Errores de sintaxis:** 1
@@ -161,7 +161,7 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 
 ---
 
-### Fase 1: Comparación Modelo-SHACL
+### Fase 1: Comparación modelo-SHACL
 **Propósito:** Verificar que el modelo de documentación tiene definiciones SHACL correspondientes
 
 - **Estado:** ✅ CORRECTO
@@ -170,7 +170,7 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 
 ---
 
-### Fase 2: Validación Semántica (Ejemplos RDF contra SHACL)
+### Fase 2: Validación semántica (Ejemplos RDF contra SHACL)
 **Propósito:** Validar archivos de ejemplo RDF contra las restricciones de las formas SHACL
 
 | Caso de Prueba | Esperado | Estado |

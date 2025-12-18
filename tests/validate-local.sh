@@ -51,7 +51,7 @@ for arg in "$@"; do
             echo "Modos de validación:"
             echo "  all             Ejecutar todas las fases (default)"
             echo "  syntax-only     Solo Fase 0 (sintaxis de formas SHACL)"
-            echo "  model-only      Solo Fase 1 (comparación Modelo-SHACL)"
+            echo "  model-only      Solo Fase 1 (comparación modelo-SHACL)"
             echo "  shacl-only      Solo Fase 2 (validación semántica)"
             echo ""
             echo "Opciones:"
