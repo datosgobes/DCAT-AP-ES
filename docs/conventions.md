@@ -49,9 +49,9 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
 - [**Convención 23**](#convencion-23): Los *datasets* *DEBEN* incluir al menos una distribución (`dcat:Distribution`).
 - [**Convención 24**](#convencion-24): Cuando un recurso DCAT-AP-ES derive de un metadato fuente de otro estándar (por ejemplo: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), *DEBERÍA* incluirse una relación mediante la propiedad `adms:identifier` que apunte al identificador persistente del metadato fuente, utilizando un nodo de tipo `adms:Identifier`.
-- [**Convención 25**](#convencion-25): Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se *DEBE* indicar `dct:accessRights` con uno de los valores: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `NON_PUBLIC`
-- [**Convención 26**](#convencion-26): Un conjunto de datos accesible vía NSIP/ERPD se *DEBERÍA* relacionar mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`).
-- [**Convención 27**](#convencion-27): Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se *DEBE* indicar: 1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso 2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado) 3. `dct:format`: tipo de archivo (vocabulario `file-type`) 4. `dct:rights`: condiciones de reutilización aplicables a esta distribución
+- [**Convención 25**](#convencion-25): Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se *DEBE* indicar: 1. `dct:title`: nombre dado al conjunto de datos. 2. `dct:description`: resumen del contenido en texto libre. 3. `dct:publisher`: entidad (organización) responsable de poner a disposición el conjunto de datos. 4. `dct:accessRights`: las restricciones de acceso con uno de los dos únicos valores posibles [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) o [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC) 5. `dcat:distribution`: al menos una distribución disponible para acceder al conjunto de datos.
+- [**Convención 26**](#convencion-26): Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se *DEBE* indicar: 1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso. 2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado). 3. `dct:format`: tipo de archivo (vocabulario `file-type`) 4. `dct:rights`: condiciones de reutilización aplicables a esta distribución.
+- [**Convención 27**](#convencion-27): Un conjunto de datos accesible vía NSIP/ERPD *DEBERÍA* relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
 
 # Convenciones generales {#general}
 
@@ -244,21 +244,27 @@ Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rang
 
 ## Datos restringidos pero accesibles a través de NSIP/ERPD {#general-nsip-erpd-publication}
 
-Esta convención define cómo representar conjuntos de datos que no son abiertos pero que están accesibles bajo la implementación de la [DGA (*Data Governance Act*) a través de NSIP/ERPD](https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained).
+Esta convención define cómo representar conjuntos de datos que no son abiertos pero que están accesibles bajo la implementación de la [DGA (*Data Governance Act*) a través de NSIP/ERPD](https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained). Para más información sobre la publicación de datos restringidos en el contexto de NSIP/ERPD se puede encontrar en la [Directrices para la recopilación de datos del Registro Europeo de Datos Protegidos (ERPD) en poder del sector público](https://dataeuropa.gitlab.io/data-provider-manual/how-to-publish/guidelines/#required-metadata).
 
 !!! must semantic "Convención 25"
-    Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se **DEBE** indicar `dct:accessRights` con uno de los valores: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `NON_PUBLIC`
+    Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se **DEBE** indicar:
 
-!!! should semantic "Convención 26"
-    Un conjunto de datos accesible vía NSIP/ERPD se *DEBERÍA* relacionar mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`).
+    1. `dct:title`: nombre dado al conjunto de datos.
+    2. `dct:description`: resumen del contenido en texto libre.
+    3. `dct:publisher`: entidad (organización) responsable de poner a disposición el conjunto de datos.
+    4. `dct:accessRights`: las restricciones de acceso con uno de los dos únicos valores posibles [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) o [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC)
+    5. `dcat:distribution`: al menos una distribución disponible para acceder al conjunto de datos.
 
-!!! must semantic "Convención 27"
+!!! must semantic "Convención 26"
     Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se **DEBE** indicar:
 
-    1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso
-    2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado)
-    3. `dct:format`: tipo de archivo (vocabulario `file-type`)
-    4. `dct:rights`: condiciones de reutilización aplicables a esta distribución
+    1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso.
+    2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado).
+    3. `dct:format`: tipo de archivo (vocabulario [`file-type`](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/file-type))
+    4. `dct:rights`: condiciones de reutilización aplicables a esta distribución.
+
+!!! should semantic "Convención 27"
+    Un conjunto de datos accesible vía NSIP/ERPD **DEBERÍA** relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
 
 !!! success "Ejemplo de uso correcto"
     ```turtle linenums="1"
@@ -266,9 +272,9 @@ Esta convención define cómo representar conjuntos de datos que no son abiertos
     ```
 
 !!! warning "Importante"
-    - El harvester de data.europa.eu filtrará automáticamente los datasets con `dct:accessRights` = `RESTRICTED` o `NON_PUBLIC` para el catálogo ERPD
-    - La ausencia de `dcat:byteSize` o `dct:format` en Distribution causará rechazo del registro
-    - Si se proporciona tanto `dct:accessURL` como `dcat:downloadURL`, el harvester priorizará `accessURL` para NSIP
+    - El harvester de data.europa.eu filtrará automáticamente los datasets con `dct:accessRights` que contenga: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC` para el catálogo ERPD
+    - La ausencia de `dcat:byteSize` o `dct:format` en la distribución puede causar rechazo de la misma en el proceso de ingesta.
+    - Si se proporciona tanto `dct:accessURL` como `dcat:downloadURL`, el harvester priorizará `accessURL` para NSIP.
 
 # Convenciones para `dcat:Catalog` {#catalog}
 
