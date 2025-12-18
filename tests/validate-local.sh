@@ -13,8 +13,8 @@
 #
 # Opciones:
 #   all             : Ejecutar todas las fases de validación (default)
-#   model-only      : Solo Fase 0 (comparación Modelo-SHACL)
-#   syntax-only     : Solo Fase 1 (sintaxis de formas SHACL)
+#   syntax-only     : Solo Fase 0 (sintaxis de formas SHACL)
+#   model-only      : Solo Fase 1 (comparación Modelo-SHACL)
 #   shacl-only      : Solo Fase 2 (validación semántica de ejemplos)
 #   --rebuild, -r   : Forzar reconstrucción de la imagen Docker
 #
@@ -50,8 +50,8 @@ for arg in "$@"; do
             echo ""
             echo "Modos de validación:"
             echo "  all             Ejecutar todas las fases (default)"
-            echo "  model-only      Solo Fase 0 (comparación Modelo-SHACL)"
-            echo "  syntax-only     Solo Fase 1 (sintaxis de formas SHACL)"
+            echo "  syntax-only     Solo Fase 0 (sintaxis de formas SHACL)"
+            echo "  model-only      Solo Fase 1 (comparación Modelo-SHACL)"
             echo "  shacl-only      Solo Fase 2 (validación semántica)"
             echo ""
             echo "Opciones:"
