@@ -8,8 +8,10 @@
     
     # Metadatos obligatorios NSIP/ERPD (Dataset)
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
-    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
     dcat:distribution <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1/dist/1> . 
+
+    # Metadatos recomendados NSIP/ERPD (Dataset)
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
 
 <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1/dist/1>
     a dcat:Distribution ;
