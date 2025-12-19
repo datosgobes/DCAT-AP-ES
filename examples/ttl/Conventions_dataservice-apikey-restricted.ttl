@@ -1,0 +1,45 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
+
+<https://api.example.com/premium-data>
+    a dcat:DataService ;
+    dcat:endpointURL <https://api.example.com/premium-data> ;
+    dct:title "API de datos premium"@es ;
+    dct:description "API que requiere contrato y aprobación para acceso"@es ;
+    
+    # Acceso restringido
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
+    
+    # Términos de uso y proceso de solicitud
+    dct:rights <https://example.com/api-premium-terms> ;
+    foaf:page <https://example.com/api-docs/premium-access> ;
+    
+    # Licencia específica
+    dct:license <https://example.com/api-premium-license> ;
+    
+    # Dataset servido
+    dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-premium-1> .
+
+<http://dcat-ap-es.ejemplo.org/dataset/dataset-premium-1>
+    a dcat:Dataset ;
+    dct:title "Dataset premium de ejemplo"@es ;
+    dct:description "Datos de acceso restringido mediante API"@es ;
+    
+    # Coherente con el servicio
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
+    dct:rights <https://example.com/api-premium-terms> ;
+    dct:license <https://example.com/api-premium-license> ;
+    
+    # Distribución mediante servicio
+    dcat:distribution <http://dcat-ap-es.ejemplo.org/distribucion/dataset-premium-1-JSON> .
+
+<http://dcat-ap-es.ejemplo.org/distribucion/dataset-premium-1-JSON>
+    a dcat:Distribution ;
+    dct:title "Distribución JSON vía API premium"@es ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/JSON> ;
+    
+    # Referencia al servicio
+    dcat:accessService <https://api.example.com/premium-data> ;
+    dct:rights <https://example.com/api-premium-terms> ;
+    dct:license <https://example.com/api-premium-license> .
