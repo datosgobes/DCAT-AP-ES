@@ -1,0 +1,149 @@
+@prefix dcatapes: <https://datos.gob.es/def/dcat-ap-es#> .
+@prefix dcatapesconv: <https://datos.gob.es/def/dcat-ap-es/conventions#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://datos.gob.es/def/dcat-ap-es> a owl:Ontology ;
+	dct:title "Vocabulario del perfil DCAT-AP-ES"@es ,
+		"DCAT-AP-ES Application Profile Vocabulary"@en ;
+	dct:description "Ontología de apoyo para las extensiones JSON-LD del perfil DCAT-AP-ES: define los niveles de aplicabilidad, los contextos y las referencias a convenciones."@es ,
+		"Support ontology for the DCAT-AP-ES JSON-LD context, describing requirement levels, application contexts, and links to conventions."@en ;
+	dct:publisher <https://datos.gob.es/> ;
+	dct:issued "2025-12-01"^^xsd:date ;
+	owl:versionInfo "1.0.0" .
+
+dcatapes:ApplicabilityLevel a owl:Class , skos:Concept ;
+	rdfs:label "Nivel de aplicabilidad"@es ,
+		"Applicability level"@en ;
+	rdfs:comment "Nivel de obligatoriedad definido siguiendo las palabras clave de la RFC 2119."@es ,
+		"Requirement level derived from RFC 2119 key words."@en ;
+	skos:inScheme dcatapes:RequirementLevelScheme .
+
+dcatapes:Context a owl:Class , skos:Concept ;
+	rdfs:label "Contexto de aplicación"@es ,
+		"Application context"@en ;
+	rdfs:comment "Escenarios regulatorios o funcionales que aplican modificaciones sobre el perfil base."@es ,
+		"Regulatory or functional scenarios that trigger overrides on top of the base profile."@en ;
+	skos:inScheme dcatapes:ContextScheme .
+
+dcatapes:ContextVariant a owl:Class ;
+	rdfs:label "Variante de contexto"@es ,
+		"Context variant"@en ;
+	rdfs:comment "Conjunto de restricciones alternativas (cardinalidad, rango o nivel) aplicadas dentro de un contexto específico."@es ,
+		"Bundle of alternative constraints (cardinality, ranges or levels) enforced inside a given context."@en ;
+	rdfs:seeAlso sh:PropertyShape .
+
+dcatapes:RequirementLevelScheme a skos:ConceptScheme ;
+	skos:prefLabel "Esquema de niveles de aplicabilidad DCAT-AP-ES"@es ,
+		"DCAT-AP-ES requirement level scheme"@en .
+
+dcatapes:ContextScheme a skos:ConceptScheme ;
+	skos:prefLabel "Contextos de aplicación DCAT-AP-ES"@es ,
+		"DCAT-AP-ES application contexts"@en .
+
+dcatapes:Mandatory a dcatapes:ApplicabilityLevel , skos:Concept ;
+	skos:prefLabel "Obligatorio"@es ,
+		"Mandatory"@en ;
+	skos:notation "MUST" ;
+	skos:definition "Propiedad que siempre debe declararse en DCAT-AP-ES."@es ;
+	skos:definition "Property that must always be declared in DCAT-AP-ES."@en ;
+	skos:inScheme dcatapes:RequirementLevelScheme .
+
+dcatapes:Recommended a dcatapes:ApplicabilityLevel , skos:Concept ;
+	skos:prefLabel "Recomendado"@es ,
+		"Recommended"@en ;
+	skos:notation "SHOULD" ;
+	skos:definition "Propiedad cuya ausencia limita la interoperabilidad y que debería declararse."@es ;
+	skos:definition "Property whose absence limits interoperability and therefore should be provided."@en ;
+	skos:inScheme dcatapes:RequirementLevelScheme .
+
+dcatapes:Optional a dcatapes:ApplicabilityLevel , skos:Concept ;
+	skos:prefLabel "Opcional"@es ,
+		"Optional"@en ;
+	skos:notation "MAY" ;
+	skos:definition "Propiedad que puede declararse según el caso de uso."@es ;
+	skos:definition "Property that may be declared depending on the use case."@en ;
+	skos:inScheme dcatapes:RequirementLevelScheme .
+
+dcatapes:Base a dcatapes:Context , skos:Concept ;
+	skos:prefLabel "Contexto base"@es ,
+		"Base context"@en ;
+	skos:notation "BASE" ;
+	skos:definition "Perfil DCAT-AP-ES general sin modificaciones adicionales."@es ;
+	skos:definition "Generic DCAT-AP-ES profile without additional requirements."@en ;
+	skos:inScheme dcatapes:ContextScheme .
+
+dcatapes:HVD a dcatapes:Context , skos:Concept ;
+	skos:prefLabel "High Value Datasets"@es ,
+		"High Value Datasets"@en ;
+	skos:notation "HVD" ;
+	skos:definition "Contexto regulado por el Reglamento de Ejecución (UE) 2023/138 para conjuntos de datos de alto valor."@es ;
+	skos:definition "Context regulated by Implementing Regulation (EU) 2023/138 for high-value datasets."@en ;
+	dct:source <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+	skos:inScheme dcatapes:ContextScheme .
+
+dcatapes:NSIP a dcatapes:Context , skos:Concept ;
+	skos:prefLabel "Single Information Point"@es ,
+		"Single Information Point"@en ;
+	skos:notation "NSIP" ;
+	skos:definition "Contexto para los puntos únicos de información descritos en el Reglamento (UE) 2022/868."@es ;
+	skos:definition "Context for the single information points defined in Regulation (EU) 2022/868."@en ;
+	dct:source <http://data.europa.eu/eli/reg/2022/868/oj> ;
+	skos:inScheme dcatapes:ContextScheme .
+
+dcatapes:ERPD a dcatapes:Context , skos:Concept ;
+	skos:prefLabel "Entidad registrada de intermediación"@es ,
+		"Registered data intermediary"@en ;
+	skos:notation "ERPD" ;
+	skos:definition "Contexto aplicable a los proveedores registrados regulados por el DGA."@es ;
+	skos:definition "Context applicable to the registered providers governed by the Data Governance Act."@en ;
+	dct:source <http://data.europa.eu/eli/reg/2022/868/oj> ;
+	skos:inScheme dcatapes:ContextScheme .
+
+dcatapes:applicabilityLevel a owl:ObjectProperty ;
+	rdfs:label "nivel de aplicabilidad"@es ,
+		"applicability level"@en ;
+	rdfs:comment "Asocia una propiedad o shape con el nivel de obligatoriedad definido por el perfil."@es ,
+		"Associates a property or shape with the requirement level defined by the profile."@en ;
+	rdfs:domain rdfs:Resource ;
+	rdfs:range dcatapes:ApplicabilityLevel .
+
+dcatapes:contextVariants a owl:ObjectProperty ;
+	rdfs:label "variantes de contexto"@es ,
+		"context variants"@en ;
+	rdfs:comment "Enlaza una entidad con un conjunto de restricciones alternativas aplicables a un contexto específico."@es ,
+		"Links an entity with the set of alternative constraints that apply under a given context."@en ;
+	rdfs:domain rdfs:Resource ;
+	rdfs:range dcatapes:ContextVariant .
+
+dcatapes:context a owl:ObjectProperty ;
+	rdfs:label "contexto"@es ,
+		"context"@en ;
+	rdfs:comment "Identifica el contexto al que pertenece una variante."@es ,
+		"Identifies the scenario where a variant is valid."@en ;
+	rdfs:domain dcatapes:ContextVariant ;
+	rdfs:range dcatapes:Context .
+
+dcatapes:conventions a owl:ObjectProperty ;
+	rdfs:label "convenciones aplicables"@es ,
+		"applicable conventions"@en ;
+	rdfs:comment "Referencia a las convenciones DCAT-AP-ES que introducen requisitos adicionales."@es ,
+		"Reference to DCAT-AP-ES conventions introducing extra requirements."@en ;
+	rdfs:domain rdfs:Resource ;
+	rdfs:range dcatapesconv:Convention .
+
+# Relación de apoyo con DCAT
+dcatapes:profile a owl:ObjectProperty ;
+	rdfs:label "perfil"@es ,
+		"profile"@en ;
+	rdfs:comment "Relaciona una implementación con el perfil DCAT-AP-ES."@es ,
+		"Links an implementation artefact with the DCAT-AP-ES profile."@en ;
+	rdfs:domain rdfs:Resource ;
+	rdfs:range dcat:Resource ;
+	rdfs:seeAlso dcat:Resource .

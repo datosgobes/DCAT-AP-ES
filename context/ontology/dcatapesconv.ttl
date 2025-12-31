@@ -1,0 +1,203 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix dcatapes: <https://datos.gob.es/def/dcat-ap-es#> .
+@prefix dcatapesconv: <https://datos.gob.es/def/dcat-ap-es/conventions#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://datos.gob.es/def/dcat-ap-es/conventions> a owl:Ontology ;
+	dct:title "Ontología de convenciones DCAT-AP-ES"@es ,
+		"DCAT-AP-ES Conventions Ontology"@en ;
+	dct:description "Catálogo formal de las convenciones que amplían el perfil DCAT-AP-ES, incluyendo contexto, alcance y tipo de modificación."@es ,
+		"Formal catalogue of the conventions that extend DCAT-AP-ES, including context, scope and modification type."@en ;
+	dct:publisher <https://datos.gob.es/> ;
+	dct:issued "2025-12-01"^^xsd:date ;
+	owl:versionInfo "1.0.0" ;
+	dct:relation <https://datos.gob.es/def/dcat-ap-es> .
+
+dcatapesconv:Convention a owl:Class ;
+	rdfs:label "Convención DCAT-AP-ES"@es ,
+		"DCAT-AP-ES convention"@en ;
+	rdfs:comment "Regla que modifica o concreta el perfil DCAT-AP-ES en un contexto determinado."@es ,
+		"Rule that constrains or extends the DCAT-AP-ES profile for a given context."@en .
+
+dcatapesconv:ApplicationContext a owl:Class ;
+	rdfs:label "Contexto de aplicación"@es ,
+		"Application context"@en ;
+	rdfs:comment "Escenario normativo o funcional donde opera una convención."@es ,
+		"Regulatory or functional scenario in which a convention applies."@en .
+
+dcatapesconv:ModificationType a owl:Class ;
+	rdfs:label "Tipo de modificación"@es ,
+		"Modification type"@en ;
+	rdfs:comment "Clasifica el efecto principal de una convención sobre el modelo."@es ,
+		"Classifies the main kind of change introduced by a convention."@en .
+
+dcatapesconv:conventionNumber a owl:DatatypeProperty ;
+	rdfs:label "número de convención"@es ,
+		"convention number"@en ;
+	rdfs:domain dcatapesconv:Convention ;
+	rdfs:range xsd:integer .
+
+dcatapesconv:title a owl:DatatypeProperty ;
+	rdfs:subPropertyOf dct:title ;
+	rdfs:label "título"@es ,
+		"title"@en ;
+	rdfs:domain dcatapesconv:Convention ;
+	rdfs:range rdfs:Literal .
+
+dcatapesconv:description a owl:DatatypeProperty ;
+	rdfs:subPropertyOf dct:description ;
+	rdfs:label "descripción"@es ,
+		"description"@en ;
+	rdfs:domain dcatapesconv:Convention ;
+	rdfs:range rdfs:Literal .
+
+dcatapesconv:appliesInContext a owl:ObjectProperty ;
+	rdfs:label "se aplica en"@es ,
+		"applies in"@en ;
+	rdfs:domain dcatapesconv:Convention ;
+	rdfs:range dcatapesconv:ApplicationContext .
+
+dcatapesconv:affectsEntity a owl:ObjectProperty ;
+	rdfs:label "afecta a la entidad"@es ,
+		"affects entity"@en ;
+	rdfs:domain dcatapesconv:Convention ;
+	rdfs:range rdfs:Class .
+
+dcatapesconv:affectsProperty a owl:ObjectProperty ;
+	rdfs:label "afecta a la propiedad"@es ,
+		"affects property"@en ;
+	rdfs:domain dcatapesconv:Convention ;
+	rdfs:range rdf:Property .
+
+dcatapesconv:modificationType a owl:ObjectProperty ;
+	rdfs:label "tipo de modificación"@es ,
+		"modification type"@en ;
+	rdfs:domain dcatapesconv:Convention ;
+	rdfs:range dcatapesconv:ModificationType .
+
+dcatapesconv:basedOnLegislation a owl:ObjectProperty ;
+	rdfs:label "basada en la legislación"@es ,
+		"based on legislation"@en ;
+	rdfs:domain dcatapesconv:Convention ;
+	rdfs:range eli:LegalResource .
+
+dcatapesconv:status a owl:ObjectProperty ;
+	rdfs:label "estado"@es ,
+		"status"@en ;
+	rdfs:domain dcatapesconv:Convention ;
+	rdfs:range skos:Concept .
+
+dcatapesconv:shaclRule a owl:DatatypeProperty ;
+	rdfs:label "regla SHACL"@es ,
+		"SHACL rule"@en ;
+	rdfs:comment "Fragmento textual en sintaxis SHACL o SPARQL que implementa la convención."@es ;
+	rdfs:domain dcatapesconv:Convention ;
+	rdfs:range rdfs:Literal .
+
+# Tipos de modificación
+dcatapesconv:CardinalityChange a dcatapesconv:ModificationType ;
+	rdfs:label "Cambio de cardinalidad"@es ,
+		"Cardinality change"@en .
+
+dcatapesconv:ApplicabilityChange a dcatapesconv:ModificationType ;
+	rdfs:label "Cambio de aplicabilidad"@es ,
+		"Applicability change"@en .
+
+dcatapesconv:RangeRestriction a dcatapesconv:ModificationType ;
+	rdfs:label "Restricción de rango"@es ,
+		"Range restriction"@en .
+
+dcatapesconv:NewProperty a dcatapesconv:ModificationType ;
+	rdfs:label "Nueva propiedad"@es ,
+		"New property"@en .
+
+dcatapesconv:RelationalConstraint a dcatapesconv:ModificationType ;
+	rdfs:label "Restricción relacional"@es ,
+		"Relational constraint"@en .
+
+# Contextos de aplicación
+dcatapesconv:BaseContext a dcatapesconv:ApplicationContext ;
+	rdfs:label "Contexto base"@es ,
+		"Base context"@en ;
+	skos:definition "Contexto por defecto del perfil DCAT-AP-ES."@es ;
+	skos:definition "Default context for the DCAT-AP-ES profile."@en ;
+	skos:exactMatch dcatapes:Base .
+
+dcatapesconv:HVDContext a dcatapesconv:ApplicationContext ;
+	rdfs:label "High Value Datasets"@es ,
+		"High Value Datasets"@en ;
+	dcatapesconv:basedOnLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+	skos:definition "Implementa los requisitos adicionales para conjuntos de datos de alto valor."@es ;
+	skos:definition "Implements the extra requirements for high-value datasets."@en ;
+	skos:exactMatch dcatapes:HVD .
+
+dcatapesconv:NSIPContext a dcatapesconv:ApplicationContext ;
+	rdfs:label "Punto Único de Información Nacional (NSIP, por sus siglas en inglés)"@es ,
+		"National Single Information Point (NSIP)"@en ;
+	dcatapesconv:basedOnLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
+	skos:definition "Contexto para los puntos únicos de información definidos por el DGA."@es ;
+	skos:definition "Context for the single information points defined in the DGA."@en ;
+	skos:exactMatch dcatapes:NSIP .
+
+dcatapesconv:ERPDContext a dcatapesconv:ApplicationContext ;
+	rdfs:label "Entidad registrada de intermediación"@es ,
+		"Registered data intermediary"@en ;
+	dcatapesconv:basedOnLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
+	skos:definition "Contexto para proveedores registrados en el marco del DGA."@es ;
+	skos:definition "Context for registered providers operating under the DGA."@en ;
+	skos:exactMatch dcatapes:ERPD .
+
+# Ejemplos de convenciones publicadas
+dcatapesconv:convencion-11 a dcatapesconv:Convention ;
+	dcatapesconv:conventionNumber 11 ;
+	dct:title "Conjunto de datos de alto valor (HVD)"@es ,
+		"High Value Dataset"@en ;
+	dct:description "Los conjuntos de datos catalogados como HVD deben declarar propiedades adicionales obligatorias según el Reglamento 2023/138."@es ;
+	dcatapesconv:appliesInContext dcatapesconv:HVDContext ;
+	dcatapesconv:basedOnLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+	dcatapesconv:status <http://purl.org/adms/status/Completed> ;
+	dcatapesconv:affectsEntity dcat:Dataset , dcat:Distribution , dcat:DataService ;
+	dcatapesconv:affectsProperty dcatap:hvdCategory ,
+		dcatap:applicableLegislation ,
+		dcat:distribution ,
+		dcat:accessURL ,
+		dcat:downloadURL ;
+	dcatapesconv:modificationType dcatapesconv:ApplicabilityChange ,
+		dcatapesconv:CardinalityChange .
+
+dcatapesconv:convencion-12 a dcatapesconv:Convention ;
+	dcatapesconv:conventionNumber 12 ;
+	dct:title "Servicio de datos para HVD"@es ,
+		"HVD data service"@en ;
+	dct:description "Todo dataset HVD debe exponer al menos un DataService que permita acceder a sus distribuciones."@es ;
+	dcatapesconv:appliesInContext dcatapesconv:HVDContext ;
+	dcatapesconv:basedOnLegislation <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
+	dcatapesconv:status <http://purl.org/adms/status/Completed> ;
+	dcatapesconv:affectsEntity dcat:Dataset , dcat:DataService ;
+	dcatapesconv:affectsProperty dcat:servesDataset ;
+	dcatapesconv:modificationType dcatapesconv:RelationalConstraint ;
+	dcatapesconv:shaclRule """
+		@prefix sh: <http://www.w3.org/ns/shacl#> .
+		@prefix dcat: <http://www.w3.org/ns/dcat#> .
+		@prefix dcatap: <http://data.europa.eu/r5r/> .
+
+		[] a sh:NodeShape ;
+			sh:targetClass dcat:Dataset ;
+			sh:property [
+				sh:path dcatap:hvdCategory ;
+				sh:minCount 1 ;
+			] ;
+			sh:property [
+				sh:path [ sh:inversePath dcat:servesDataset ] ;
+				sh:minCount 1 ;
+				sh:class dcat:DataService ;
+			] .
+	"""^^sh:SPARQLRule .
