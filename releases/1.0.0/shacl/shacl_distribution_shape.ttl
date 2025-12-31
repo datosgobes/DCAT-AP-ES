@@ -190,7 +190,7 @@ dcatapes:Distribution_Shape
             #TODO: Review DCAT-AP-ES model
             #[ sh:class dct:MediaTypeOrExtent ;]
             [
-                # Legacy NTI-RISP: https://datosgobes.github.io/NTI-RISP/#distribucion_-_clase_dcatdistribution_-_obligatorio
+                # Legacy NTI-RISP: https://datosgobes.github.io/NTI-RISP/#Distribution
                 sh:class dct:IMT ;
                 
             ]
