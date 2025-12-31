@@ -113,3 +113,32 @@ dcatapes:Dataset_HVD_Shape
         sh:node dcatapes:HVDCategoryRestriction ;
     ];
     sh:targetClass dcat:Dataset .
+
+# Convención 12
+dcatapes:Dataset_HVD_MustHaveServiceConvention
+    a sh:NodeShape ;
+    sh:targetClass dcat:Dataset ;
+    sh:name "Dataset HVD debe ser servido por al menos un DataService"@es ,
+        "HVD Dataset must be served by at least one DataService"@en ;
+    rdfs:comment "Los datasets catalogados como HVD deben ser servidos por al menos un dcat:DataService que lo referencie mediante dcat:servesDataset (Convención 12)"@es ,
+        "Datasets catalogued as HVD must be served by at least one dcat:DataService that references it via dcat:servesDataset (Convention 12)"@en ;
+    rdfs:label "Restricción de conjunto de datos: debe tener al menos un servicio de datos"@es ,
+        "Dataset restriction: must have at least one data service"@en ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12> ;
+    sh:severity sh:Violation ;
+    sh:property [
+        # Solo aplica a datasets HVD (con dcatap:hvdCategory)
+        sh:path dcatap:hvdCategory ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        # Detectar al menos un dcat:DataService mediante el inverso de dcat:servesDataset
+        sh:path [ 
+            sh:inversePath 
+            dcat:servesDataset 
+        ] ;
+        sh:minCount 1 ;
+        sh:class dcat:DataService ;
+        sh:message "Un dataset HVD debe ser servido por al menos un dcat:DataService mediante dcat:servesDataset. Ver Convención 12: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12"@es ;
+        sh:message "An HVD dataset must be served by at least one dcat:DataService via dcat:servesDataset. See Convention 12: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12"@en ;
+    ] .
