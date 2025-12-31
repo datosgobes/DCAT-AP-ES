@@ -10,8 +10,8 @@ Sistema automatizado de validación DCAT-AP-ES con 3 fases: comparación modelo-
 ./tests/validate-local.sh all
 
 # Validar fases individuales
-./tests/validate-local.sh model-only    # Fase 0 solamente
-./tests/validate-local.sh syntax-only   # Fase 1 solamente
+./tests/validate-local.sh syntax-only   # Fase 0 solamente
+./tests/validate-local.sh model-only    # Fase 1 solamente
 ./tests/validate-local.sh shacl-only    # Fase 2 solamente
 ```
 
@@ -21,13 +21,7 @@ Sistema automatizado de validación DCAT-AP-ES con 3 fases: comparación modelo-
 
 ## Fases de Validación
 
-### Fase 0: Comparación Modelo-SHACL
-Verifica que todas las propiedades OBLIGATORIAS del modelo (`docs/index.md`) tengan formas SHACL correspondientes.
-
-**Tecnología**: Python + rdflib  
-**Resultado**: `model-vs-shacl-report.md` y `.csv`
-
-### Fase 1: Validación Sintáctica
+### Fase 0: Validación sintáctica
 Valida sintaxis Turtle de archivos SHACL definidos en `test.ini`.
 
 **Tecnología**: Raptor rapper  
@@ -39,7 +33,13 @@ rapper: Error - URI file:///workspace/shacl/1.0.0/file.ttl:123 - syntax error
 ```
 El número `:123` indica la línea exacta del error.
 
-### Fase 2: Validación Semántica
+### Fase 1: Comparación modelo-SHACL
+Verifica que todas las propiedades OBLIGATORIAS del modelo (`docs/index.md`) tengan formas SHACL correspondientes.
+
+**Tecnología**: Python + rdflib  
+**Resultado**: `model-vs-shacl-report.md` y `.csv`
+
+### Fase 2: Validación semántica
 Valida ejemplos RDF contra formas SHACL usando pySHACL.
 
 **Tecnología**: pySHACL  
@@ -129,8 +129,8 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 ./tests/validate-local.sh all
 
 # O ejecutar fases específicas
-./tests/validate-local.sh model-only      # Fase 0: Comparación Modelo-SHACL
-./tests/validate-local.sh syntax-only     # Fase 1: Validación sintáctica SHACL
+./tests/validate-local.sh syntax-only     # Fase 0: Validación sintáctica SHACL
+./tests/validate-local.sh model-only      # Fase 1: Comparación modelo-SHACL
 ./tests/validate-local.sh shacl-only      # Fase 2: Validación semántica
 
 # Sin argumentos = 'all'
@@ -139,7 +139,7 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 
 **Ubicación de informes**: `tests/validation-reports/`
 - `SUMMARY.md` - Resumen ejecutivo de todas las fases
-- `model-vs-shacl-report.md` - Comparación detallada Modelo-SHACL
+- `model-vs-shacl-report.md` - Comparación detallada modelo-SHACL
 - `*-report.ttl` - Informes SHACL en formato Turtle
 
 ## Comprender Resultados de Validación
@@ -153,7 +153,15 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 ### Resultados Esperados
 
 ```md
-### Fase 0: Comparación Modelo-SHACL
+### Fase 0: Validación sintáctica (Formas SHACL)
+**Propósito:** Verificar que los archivos de formas SHACL son RDF/Turtle sintácticamente válidos
+
+- **Errores de sintaxis:** 1
+- **Estado:** ❌ ERROR
+
+---
+
+### Fase 1: Comparación modelo-SHACL
 **Propósito:** Verificar que el modelo de documentación tiene definiciones SHACL correspondientes
 
 - **Estado:** ✅ CORRECTO
@@ -162,15 +170,7 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 
 ---
 
-### Fase 1: Validación Sintáctica (Formas SHACL)
-**Propósito:** Verificar que los archivos de formas SHACL son RDF/Turtle sintácticamente válidos
-
-- **Errores de sintaxis:** 1
-- **Estado:** ❌ ERROR
-
----
-
-### Fase 2: Validación Semántica (Ejemplos RDF contra SHACL)
+### Fase 2: Validación semántica (Ejemplos RDF contra SHACL)
 **Propósito:** Validar archivos de ejemplo RDF contra las restricciones de las formas SHACL
 
 | Caso de Prueba | Esperado | Estado |
@@ -182,8 +182,8 @@ El script `validate-local.sh` se encarga de todo automáticamente:
 
 ## Estadísticas
 
-- **Fase 0 (Modelo-SHACL):** Problemas CRÍTICOS: 0
-- **Fase 1 (Sintaxis):** Errores: 1
+- **Fase 0 (Sintaxis):** Errores: 1
+- **Fase 1 (Modelo-SHACL):** Problemas CRÍTICOS: 0
 - **Fase 2 (Semántica):** Fallos en pruebas: 0
 ```
 
