@@ -112,7 +112,7 @@
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dcat:keyword "estadísticas"@es ;
-  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/conctactDataset> ;
+  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataset> ;
   dct:temporal [
     a dct:PeriodOfTime ;
     dcat:startDate "2021-02-01T12:00:00+01:00"^^xsd:dateTime ;
@@ -154,7 +154,7 @@
   dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
   dcat:distribution <http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV> .
 
-<http://dcat-ap-es.ejemplo.org/conctactDataset>
+<http://dcat-ap-es.ejemplo.org/contactDataset>
   a vcard:Organization ;
   vcard:organization-name "Organismo"@es ;
   vcard:fn "Oficina del dato"@es ;
@@ -207,7 +207,7 @@
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dcat:keyword "estadísticas"@es ;
-  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/conctactDataset> ;
+  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataset> ;
   dct:temporal [
     a dct:PeriodOfTime ;
     dcat:startDate "2021-02-01T12:00:00+01:00"^^xsd:dateTime ;
@@ -284,7 +284,7 @@
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dcat:keyword "estadísticas"@es ;
-  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/conctactDataset> ;
+  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataset> ;
   dct:temporal [
     a dct:PeriodOfTime ;
     dcat:startDate "2021-02-01T12:00:00+01:00"^^xsd:dateTime ;
@@ -360,7 +360,7 @@
   dcat:endpointURL <http://api.dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1> ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
-  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/conctactDataservice> ;
+  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataservice> ;
   foaf:page <https://dcat-ap-es.ejemplo.org/api/doc.html> ;
   dcat:endpointDescription <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD?service=CSW> ;
   dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> ;
@@ -371,7 +371,7 @@
   dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
   dcat:keyword "estadísticas"@es .
 
-<http://dcat-ap-es.ejemplo.org/conctactDataservice>
+<http://dcat-ap-es.ejemplo.org/contactDataservice>
   a vcard:Organization ;
   vcard:organization-name "Organismo"@es ;
   vcard:fn "Oficina del dato"@es ;
