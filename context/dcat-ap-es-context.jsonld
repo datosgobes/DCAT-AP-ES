@@ -1,0 +1,969 @@
+{
+  "@context": {
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "adms": "http://www.w3.org/ns/adms#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "eli": "http://data.europa.eu/eli/ontology#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "time": "http://www.w3.org/2006/time#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "dcatapes": "http://datos.gob.es/def/dcat-ap-es#",
+    "dcatapesconv": "https://datos.gob.es/def/dcat-ap-es/convenciones#",
+    "Catalog": {
+      "@id": "dcat:Catalog",
+      "@context": {
+        "title": {
+          "@id": "dct:title",
+          "@container": "@set",
+          "sh:minCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "description": {
+          "@id": "dct:description",
+          "@container": "@set",
+          "sh:minCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "publisher": {
+          "@id": "dct:publisher",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:class": "foaf:Agent",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "issued": {
+          "@id": "dct:issued",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "modified": {
+          "@id": "dct:modified",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "homepage": {
+          "@id": "foaf:homepage",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:class": "foaf:Document",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "themeTaxonomy": {
+          "@id": "dcat:themeTaxonomy",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:maxCount": 3,
+          "sh:class": "skos:ConceptScheme",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "language": {
+          "@id": "dct:language",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:class": "dct:LinguisticSystem",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "license": {
+          "@id": "dct:license",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:class": "dct:LicenseDocument",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "dataset": {
+          "@id": "dcat:dataset",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:Dataset",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "service": {
+          "@id": "dcat:service",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:DataService",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "spatial": {
+          "@id": "dct:spatial",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "rdfs:Resource",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "catalog": {
+          "@id": "dcat:catalog",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:Catalog",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "record": {
+          "@id": "dcat:record",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:CatalogRecord",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "creator": {
+          "@id": "dct:creator",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "foaf:Agent",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "hasPart": {
+          "@id": "dct:hasPart",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:Catalog",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "isPartOf": {
+          "@id": "dct:isPartOf",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dcat:Catalog",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "rights": {
+          "@id": "dct:rights",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:RightsStatement",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "temporal": {
+          "@id": "dct:temporal",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dct:PeriodOfTime",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        }
+      }
+    },
+    "CatalogRecord": {
+      "@id": "dcat:CatalogRecord",
+      "@context": {
+        "primaryTopic": {
+          "@id": "foaf:primaryTopic",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:or": [
+            "dcat:Dataset",
+            "dcat:DataService"
+          ],
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "modified": {
+          "@id": "dct:modified",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "conformsTo": {
+          "@id": "dct:conformsTo",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:Standard",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "issued": {
+          "@id": "dct:issued",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "status": {
+          "@id": "adms:status",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "skos:Concept",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "title": {
+          "@id": "dct:title",
+          "@container": "@set",
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "description": {
+          "@id": "dct:description",
+          "@container": "@set",
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        }
+      }
+    },
+    "DataService": {
+      "@id": "dcat:DataService",
+      "@context": {
+        "title": {
+          "@id": "dct:title",
+          "@container": "@set",
+          "sh:minCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "endpointURL": {
+          "@id": "dcat:endpointURL",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:class": "rdfs:Resource",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "hvdCategory": {
+          "@id": "dcatap:hvdCategory",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "skos:Concept",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional",
+          "dcatapes:contextVariants": [
+            {
+              "dcatapes:context": "dcatapes:HVD",
+              "dcatapes:applicabilityLevel": "dcatapes:Mandatory",
+              "sh:minCount": 1
+            }
+          ],
+          "dcatapes:conventions": [
+            "dcatapesconv:convencion-11"
+          ]
+        },
+        "contactPoint": {
+          "@id": "dcat:contactPoint",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "vcard:Kind",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended",
+          "dcatapes:contextVariants": [
+            {
+              "dcatapes:context": "dcatapes:HVD",
+              "dcatapes:applicabilityLevel": "dcatapes:Mandatory",
+              "sh:minCount": 1
+            }
+          ],
+          "dcatapes:conventions": [
+            "dcatapesconv:convencion-11"
+          ]
+        },
+        "page": {
+          "@id": "foaf:page",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "foaf:Document",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended",
+          "dcatapes:contextVariants": [
+            {
+              "dcatapes:context": "dcatapes:HVD",
+              "dcatapes:applicabilityLevel": "dcatapes:Mandatory",
+              "sh:minCount": 1
+            }
+          ],
+          "dcatapes:conventions": [
+            "dcatapesconv:convencion-11"
+          ]
+        },
+        "theme": {
+          "@id": "dcat:theme",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:class": "skos:Concept",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "publisher": {
+          "@id": "dct:publisher",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:class": "foaf:Agent",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "endpointDescription": {
+          "@id": "dcat:endpointDescription",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "rdfs:Resource",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "servesDataset": {
+          "@id": "dcat:servesDataset",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:Dataset",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended",
+          "dcatapes:contextVariants": [
+            {
+              "dcatapes:context": "dcatapes:HVD",
+              "dcatapes:applicabilityLevel": "dcatapes:Mandatory",
+              "sh:minCount": 1
+            }
+          ],
+          "dcatapes:conventions": [
+            "dcatapesconv:convencion-11",
+            "dcatapesconv:convencion-12"
+          ]
+        },
+        "applicableLegislation": {
+          "@id": "dcatap:applicableLegislation",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "eli:LegalResource",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended",
+          "dcatapes:contextVariants": [
+            {
+              "dcatapes:context": "dcatapes:HVD",
+              "dcatapes:applicabilityLevel": "dcatapes:Mandatory",
+              "sh:minCount": 1
+            }
+          ],
+          "dcatapes:conventions": [
+            "dcatapesconv:convencion-11"
+          ]
+        },
+        "description": {
+          "@id": "dct:description",
+          "@container": "@set",
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "accessRights": {
+          "@id": "dct:accessRights",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:RightsStatement",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "license": {
+          "@id": "dct:license",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:LicenseDocument",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "keyword": {
+          "@id": "dcat:keyword",
+          "@container": "@set",
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        }
+      }
+    },
+    "Dataset": {
+      "@id": "dcat:Dataset",
+      "@context": {
+        "title": {
+          "@id": "dct:title",
+          "@container": "@set",
+          "sh:minCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "description": {
+          "@id": "dct:description",
+          "@container": "@set",
+          "sh:minCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "publisher": {
+          "@id": "dct:publisher",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:class": "foaf:Agent",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "theme": {
+          "@id": "dcat:theme",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:class": "skos:Concept",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "distribution": {
+          "@id": "dcat:distribution",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:class": "dcat:Distribution",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended",
+          "dcatapes:contextVariants": [
+            {
+              "dcatapes:context": "dcatapes:HVD",
+              "dcatapes:applicabilityLevel": "dcatapes:Mandatory",
+              "sh:minCount": 1
+            }
+          ],
+          "dcatapes:conventions": [
+            "dcatapesconv:convencion-11"
+          ]
+        },
+        "hvdCategory": {
+          "@id": "dcatap:hvdCategory",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "skos:Concept",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional",
+          "dcatapes:contextVariants": [
+            {
+              "dcatapes:context": "dcatapes:HVD",
+              "dcatapes:applicabilityLevel": "dcatapes:Mandatory",
+              "sh:minCount": 1
+            }
+          ],
+          "dcatapes:conventions": [
+            "dcatapesconv:convencion-11"
+          ]
+        },
+        "keyword": {
+          "@id": "dcat:keyword",
+          "@container": "@set",
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "contactPoint": {
+          "@id": "dcat:contactPoint",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "vcard:Kind",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "temporal": {
+          "@id": "dct:temporal",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dct:PeriodOfTime",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "spatial": {
+          "@id": "dct:spatial",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "rdfs:Resource",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "applicableLegislation": {
+          "@id": "dcatap:applicableLegislation",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "eli:LegalResource",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended",
+          "dcatapes:contextVariants": [
+            {
+              "dcatapes:context": "dcatapes:HVD",
+              "dcatapes:applicabilityLevel": "dcatapes:Mandatory",
+              "sh:minCount": 1
+            }
+          ],
+          "dcatapes:conventions": [
+            "dcatapesconv:convencion-11"
+          ]
+        },
+        "identifier": {
+          "@id": "dct:identifier",
+          "@container": "@set",
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "admsIdentifier": {
+          "@id": "adms:identifier",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "adms:Identifier",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "creator": {
+          "@id": "dct:creator",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "foaf:Agent",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "page": {
+          "@id": "foaf:page",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "foaf:Document",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "landingPage": {
+          "@id": "dcat:landingPage",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "foaf:Document",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "sample": {
+          "@id": "adms:sample",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:Distribution",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "conformsTo": {
+          "@id": "dct:conformsTo",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dct:Standard",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "issued": {
+          "@id": "dct:issued",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "modified": {
+          "@id": "dct:modified",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "type": {
+          "@id": "dct:type",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "skos:Concept",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "language": {
+          "@id": "dct:language",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dct:LinguisticSystem",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "accrualPeriodicity": {
+          "@id": "dct:accrualPeriodicity",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:Frequency",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "version": {
+          "@id": "owl:versionInfo",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "versionNotes": {
+          "@id": "adms:versionNotes",
+          "@container": "@set",
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "qualifiedRelation": {
+          "@id": "dcat:qualifiedRelation",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:Relationship",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "spatialResolutionInMeters": {
+          "@id": "dcat:spatialResolutionInMeters",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "temporalResolution": {
+          "@id": "dcat:temporalResolution",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "isReferencedBy": {
+          "@id": "dct:isReferencedBy",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "rdfs:Resource",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "provenance": {
+          "@id": "dct:provenance",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dct:ProvenanceStatement",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "relation": {
+          "@id": "dct:relation",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "rdfs:Resource",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "qualifiedAttribution": {
+          "@id": "prov:qualifiedAttribution",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "prov:Attribution",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "wasGeneratedBy": {
+          "@id": "prov:wasGeneratedBy",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "prov:Activity",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "hasVersion": {
+          "@id": "dct:hasVersion",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:Dataset",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "isVersionOf": {
+          "@id": "dct:isVersionOf",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:Dataset",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "source": {
+          "@id": "dct:source",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:Dataset",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "accessRights": {
+          "@id": "dct:accessRights",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:RightsStatement",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        }
+      }
+    },
+    "Distribution": {
+      "@id": "dcat:Distribution",
+      "@context": {
+        "accessURL": {
+          "@id": "dcat:accessURL",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:class": "rdfs:Resource",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "applicableLegislation": {
+          "@id": "dcatap:applicableLegislation",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "eli:LegalResource",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended",
+          "dcatapes:contextVariants": [
+            {
+              "dcatapes:context": "dcatapes:HVD",
+              "dcatapes:applicabilityLevel": "dcatapes:Mandatory",
+              "sh:minCount": 1
+            }
+          ],
+          "dcatapes:conventions": [
+            "dcatapesconv:convencion-11"
+          ]
+        },
+        "description": {
+          "@id": "dct:description",
+          "@container": "@set",
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "availability": {
+          "@id": "dcatap:availability",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "skos:Concept",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "format": {
+          "@id": "dct:format",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:MediaTypeOrExtent",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "license": {
+          "@id": "dct:license",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:LicenseDocument",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "mediaType": {
+          "@id": "dcat:mediaType",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:MediaType",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "accessService": {
+          "@id": "dcat:accessService",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dcat:DataService",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "title": {
+          "@id": "dct:title",
+          "@container": "@set",
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "page": {
+          "@id": "foaf:page",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "foaf:Document",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "downloadURL": {
+          "@id": "dcat:downloadURL",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "rdfs:Resource",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "conformsTo": {
+          "@id": "dct:conformsTo",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dct:Standard",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "issued": {
+          "@id": "dct:issued",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "modified": {
+          "@id": "dct:modified",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "status": {
+          "@id": "adms:status",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "skos:Concept",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "language": {
+          "@id": "dct:language",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:class": "dct:LinguisticSystem",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "compressFormat": {
+          "@id": "dcat:compressFormat",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:MediaType",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "packageFormat": {
+          "@id": "dcat:packageFormat",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:MediaType",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "byteSize": {
+          "@id": "dcat:byteSize",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "spatialResolutionInMeters": {
+          "@id": "dcat:spatialResolutionInMeters",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "temporalResolution": {
+          "@id": "dcat:temporalResolution",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "checksum": {
+          "@id": "spdx:checksum",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "spdx:Checksum",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "hasPolicy": {
+          "@id": "odrl:hasPolicy",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "odrl:Policy",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "rights": {
+          "@id": "dct:rights",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "dct:RightsStatement",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        }
+      }
+    },
+    "Agent": {
+      "@id": "foaf:Agent",
+      "@context": {
+        "name": {
+          "@id": "foaf:name",
+          "@container": "@set",
+          "sh:minCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "identifier": {
+          "@id": "dct:identifier",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "type": {
+          "@id": "dct:type",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "skos:Concept",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        }
+      }
+    },
+    "Identifier": {
+      "@id": "adms:Identifier",
+      "@context": {
+        "notation": {
+          "@id": "skos:notation",
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        }
+      }
+    },
+    "Location": {
+      "@id": "dct:Location",
+      "@context": {
+        "bbox": {
+          "@id": "dcat:bbox",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "centroid": {
+          "@id": "dcat:centroid",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "geometry": {
+          "@id": "locn:geometry",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        }
+      }
+    },
+    "PeriodOfTime": {
+      "@id": "dct:PeriodOfTime",
+      "@context": {
+        "startDate": {
+          "@id": "dcat:startDate",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "endDate": {
+          "@id": "dcat:endDate",
+          "sh:maxCount": 1,
+          "sh:datatype": "rdfs:Literal",
+          "dcatapes:applicabilityLevel": "dcatapes:Recommended"
+        },
+        "hasBeginning": {
+          "@id": "time:hasBeginning",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "time:Instant",
+          "dcatapes:applicabilityLevel": "dcatapes:Optional"
+        },
+        "hasEnd": {
+          "@id": "time:hasEnd",
+          "@type": "@id",
+          "sh:maxCount": 1,
+          "sh:class": "time:Instant"
+        }
+      }
+    },
+    "Checksum": {
+      "@id": "spdx:Checksum",
+      "@context": {
+        "algorithm": {
+          "@id": "spdx:algorithm",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:class": "spdx:ChecksumAlgorithm",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "checksumValue": {
+          "@id": "spdx:checksumValue",
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+          "sh:datatype": "xsd:hexBinary",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        }
+      }
+    },
+    "Relationship": {
+      "@id": "dcat:Relationship",
+      "@context": {
+        "hadRole": {
+          "@id": "dcat:hadRole",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:class": "dcat:Role",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        },
+        "relation": {
+          "@id": "dct:relation",
+          "@container": "@set",
+          "@type": "@id",
+          "sh:minCount": 1,
+          "sh:class": "rdfs:Resource",
+          "dcatapes:applicabilityLevel": "dcatapes:Mandatory"
+        }
+      }
+    }
+  }
+}
