@@ -2,7 +2,7 @@
 
     Aquí encontrarás prototipos listos para usar que demuestran cómo implementar el [modelo de metadatos DCAT-AP-ES](index.md#dcat-ap-es-model) en diferentes formatos: [`RDF/XML`](https://www.w3.org/TR/rdf-syntax-grammar/) y [Turtle `(TTL)`](https://www.w3.org/TR/turtle/). 
     
-    Estos ejemplos te guiarán en el uso de [propiedades obligatorias, recomendadas y opcionales](index.md#relacion_de_metadatos_del_modelo_dcat-ap-es) para describir las entidades principales del modelo.
+    Estos ejemplos te guiarán en el uso de [propiedades obligatorias, recomendadas y opcionales](index.md#dcat-ap-es-model-relations) para describir las entidades principales del modelo.
 
 !!! Success "Migrar tu catálogo"
     Se incluyen ^^ejemplos específicos si ya dispones de un catálogo RDF conforme a NTI-RISP (2013)^^ y quieres actualizarlo: 
@@ -38,6 +38,18 @@ Incluye únicamente las **entidades y propiedades obligatorias** para describir 
     ```turtle linenums="1"
     --8<-- "examples/ttl/1.0.0/E_DCAT-AP-ES_minimal.ttl"
     ```
+
+## Plantilla completa de DCAT-AP-ES {#dcatapes_full_optional}
+
+Esta plantilla proporciona una implementación exhaustiva del perfil DCAT-AP-ES, mostrando la **totalidad de propiedades disponibles** en todos sus niveles de aplicabilidad: obligatorias, recomendadas y opcionales. 
+
+Mediante esta serialización completa, podrás explorar cómo enriquecer la descripción de catálogos, datasets, distribuciones y servicios de datos con metadatos avanzados. Constituye una plantilla de referencia integral para maximizar la interoperabilidad y calidad de los metadatos, facilitando su integración en ecosistemas de datos abiertos nacionales e internacionales según las especificaciones técnicas vigentes.
+
+=== "RDF/XML"
+    [`RDF/XML`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/examples/rdf/1.0.0/E_DCAT-AP-ES_full_optional.rdf) <span style="color:#00bfa5"><b>:material-arrow-up-right:</b></span>
+
+=== "TTL"
+    [`Turtle (TTL)`](https://github.com/datosgobes/DCAT-AP-ES/tree/main/examples/ttl/1.0.0/E_DCAT-AP-ES_full_optional.ttl) <span style="color:#00bfa5"><b>:material-arrow-up-right:</b></span>
 
 ## Migración desde NTI-RISP a DCAT-AP-ES {#catalogo_-_nti_dcatapes}
 
@@ -81,7 +93,7 @@ El catálogo `http://dcat-ap-es.ejemplo.org/catalogo` se enriquece con informaci
     --8<-- "examples/ttl/1.0.0/E_DCAT-AP-ES_Catalog_HVD.ttl"
     ```
 
-# Catálogo - Clase: [`dcat:Catalog`](index.md#catalogo_-_clase_dcatcatalog_-_obligatorio)
+# Catálogo - Clase: [`dcat:Catalog`](index.md#Catalog)
 ## Catálogo - Propiedades obligatorias
 
 Este ejemplo muestra cómo declarar un catálogo de datos utilizando **únicamente las propiedades obligatorias** según el perfil DCAT-AP-ES. Incluye metadatos esenciales como: Título, Descripción, Página web, Publicador, Licencia, Taxonomía de temas, Fecha de creación, Fecha de actualización e Idioma.
@@ -144,7 +156,7 @@ Este ejemplo muestra cómo **detallar la información del publicador de un catá
     ```
 
 
-# Servicio de datos - Clase: [`dcat:DataService`](index.md#servicio_de_datos_-_clase_dcatdataservice_-_opcional)
+# Servicio de datos - Clase: [`dcat:DataService`](index.md#DataService)
 ## Servicio de datos - Especificación de servicios de acceso a datos
 
 El ejemplo describe **un catálogo que contiene el registro de un único servicio de datos que proporciona el acceso a un servicio CSW** sin especificar qué datasets sirve. El servicio de datos CSW cumple con el IR HVD e INSPIRE, está descrito como un servicio de descubrimiento, está disponible bajo derechos de acceso público, es compatible con el estándar CSW de OGC, cuenta con una licencia de reutilización CC-BY 4.0, el ámbito territorial cubierto por el dataset está delimitado por un rectangular para la que se especifican sus coordenadas y detalla un punto de contacto para trasladar cuestiones relativas al servicio mediante un formulario web o un correo electrónico.
@@ -186,7 +198,7 @@ Para simplificar la presentación del ejemplo, se obvia la especificación de la
     --8<-- "examples/ttl/E9_Data_Service_HVD.ttl"
     ```
 
-# Conjunto de datos - Clase: [`dcat:Dataset`](index.md#conjunto_de_datos_-_clase_dcatdataset_-_obligatorio)
+# Conjunto de datos - Clase: [`dcat:Dataset`](index.md#Dataset)
 ## Conjunto de datos - *Datasets* HVD y no HVD
 
 Este ejemplo describe **un catálogo que contiene dos conjuntos de datos HVD y no HVD:**:

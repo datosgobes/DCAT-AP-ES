@@ -72,6 +72,7 @@ Se enumerarán a continuación vocabularios genéricos que configuran el espacio
 | Location Core Vocabulary | [`locn:`](http://www.w3.org/ns/locn#) | `http://www.w3.org/ns/locn#` |
 | Web Ontology Document | [`owl:`](http://www.w3.org/2002/07/owl#) | `http://www.w3.org/2002/07/owl#` |
 | Open Digital Rights Language | [`odrl:`](http://www.w3.org/ns/odrl/2/) | `http://www.w3.org/ns/odrl/2/` |
+| Open Data Rights Statement Vocabulary | [`odrs:`](http://schema.theodi.org/odrs#) | `http://schema.theodi.org/odrs#` |
 | Prov Family of Documents | [`prov:`](http://www.w3.org/ns/prov#) | `http://www.w3.org/ns/prov#` |
 | Resource Description Framework | [`rdf:`](http://www.w3.org/1999/02/22-rdf-syntax-ns#) | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` |
 | Resource Description Framework Schema | [`rdfs:`](http://www.w3.org/2000/01/rdf-schema#) | `http://www.w3.org/2000/01/rdf-schema#` |
