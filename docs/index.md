@@ -6,6 +6,9 @@ Los metadatos se describen sobre la base del paradigma de la Web Semántica, que
 
 El perfil de aplicación, en adelante, DCAT-AP-ES, es el modelo de metadatos que se recoge en la nueva versión de la Norma Técnica de Interoperabilidad de Recursos de Información del Sector Público ([NTI-RISP](https://datos.gob.es/es/doc-tags/nti-risp)), que está en proceso de tramitación administrativa. El modelo adopta las directrices del esquema europeo de intercambio de metadatos DCAT-AP con algunas restricciones y ajustes adicionales, perfil de aplicación que a su vez, se basa en la especificación DCAT, un vocabulario RDF creado con el objetivo de mejorar la interoperabilidad entre catálogos de datos en línea que viene siendo desarrollada por el [Grupo de trabajo de intercambio de conjuntos de datos](https://www.w3.org/2017/dxwg/) desde que fue publicada como recomendación por W3C en 2014. La versión del perfil europeo que se toma como referencia para la elaboración de DCAT-AP-ES es [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) junto a los elementos descritos en la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) para incorporar el modelado de los [Conjuntos de datos de alto valor](https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir) (*High Value Datasets*).
 
+!!! info "Conformidad perfil (SEMIC)"
+    [DCAT-AP-ES ha sido evaluado conforme a las **directrices SEMIC para la reutilización de DCAT-AP**](#semic-reuse-guidelines), logrando una **conformidad global aproximada del 94%**, con **tres acciones de mejora no críticas**.
+
 Como es sabido, un catálogo de datos abiertos puede estar constituido únicamente por conjuntos de datos o por servicios de datos, aunque lo habitual será que cuente tanto conjuntos de datos como servicios y se representa mediante instancias de las clases y propiedades que se especifican en este modelo.
 
 En este documento, se detallan las clases principales del perfil de aplicación: Catálogo, Dataset, Distribución y Servicio de datos, así como otras clases relevantes para una completa información descriptiva de los elementos reutilizables catalogados de acuerdo con el modelo DCAT-AP-ES. Se especifica, además, el conjunto de vocabularios controlados que deben ser utilizados para ajustar las propiedades que describen los elementos catalogados.
@@ -2119,7 +2122,39 @@ Se utiliza para describir las condiciones legales bajo las cuales se puede utili
 
 ## DCAT-AP
 
-DCAT-AP-ES se basa en DCAT-AP 2.1.1, y se alinea con las principales restricciones.
+### Directrices SEMIC para la publicación de perfiles DCAT-AP (*DCAT-AP reuse guidelines*) {#semic-reuse-guidelines}
+
+El perfil DCAT-AP-ES ha sido evaluado frente a las directrices oficiales de SEMIC para la creación de perfiles DCAT-AP (["*How to create your DCAT-AP profile*"](https://semiceu.github.io/DCAT-AP-reuse-guidelines/)). El análisis concluye **una conformidad global aproximada del 94%**, con **3 acciones no críticas** centradas en gobernanza y publicación formal de vocabularios LOD. El perfil se basa en DCAT-AP 2.1.1, y se alinea con las principales restricciones de forma solvente.
+
+#### Resultados detallados
+
+!!! note "Resumen (01/2026)"
+    - **Perfil evaluado:** DCAT-AP-ES
+    - **Conformidad global:** **94%** (técnicamente conforme)
+    - **Áreas de mejora no críticas:** gobernanza abierta, negociación de contenido y publicación SKOS
+    - **Referencia:** [Directrices SEMIC](https://semiceu.github.io/DCAT-AP-reuse-guidelines/)
+
+=== "Paso 4 · Metodología de creación"
+
+    | Aspecto | Estado | Evidencia clave | Acción requerida |
+    | --- | --- | --- | --- |
+    | **4.1 Base en DCAT-AP** | ✅ Conforme | Basado en [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) + [HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) | Ninguna |
+    | **4.2 Resolución de casos de uso** | ✅ Conforme | Reutilización directa y ajustes válidos | Ninguna |
+    | **4.3 Gobernanza abierta** | ⚠️ Parcial | [Repositorio público](https://github.com/datosgobes/DCAT-AP-ES) y gestión [Issues](https://github.com/datosgobes/DCAT-AP-ES/issues)/[Discusiones](https://github.com/datosgobes/DCAT-AP-ES/discussions) | Consulta pública formal y actas |
+    | **4.4 Publicación del perfil** | ✅ Conforme | [HTML](/), [SHACL](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/), URIs, [registro SEMIC](https://github.com/SEMICeu/DCAT-AP/issues/451) | Ninguna |
+
+=== "Paso 5 · Situaciones específicas"
+
+    | Aspecto | Estado | Evidencia clave | Acción requerida |
+    | --- | --- | --- | --- |
+    | **5.1 Linked Data y dereferenciabilidad** | ⚠️ Sustancial | URIs persistentes, falta content negotiation | Documentar negociación<br>Publicar vocabularios SKOS |
+    | **5.2 Encaje semántico** | ✅ Conforme | Coherencia semántica preservada | Ninguna |
+    | **5.3 Vocabularios controlados** | ✅ Conforme | Mantiene MUST y mapeos adicionales | Ninguna | 
+    | **5.4 Rango de propiedades** | ✅ Conforme | Sin cambios incompatibles | Ninguna |
+    | **5.5 Nuevas propiedades** | ✅ No aplica | No se crean propiedades nuevas | Ninguna |
+    | **5.6 Cardinalidades** | ✅ Conforme | Solo endurecimientos permitidos | Ninguna |
+    | **5.7 Alcance y definiciones** | ✅ Conforme | Contexto documentado | Ninguna |
+    | **5.8 Vocabularios externos** | ✅ Conforme | Referencias correctas (vCard, ELI) | Ninguna |
 
 ## DCAT-AP-ES
 
