@@ -16,6 +16,7 @@
 *[ISBN]: International Standard Book Number
 *[ISO]: International Organization for Standardization
 *[JSON-LD]: JSON for Linking Data
+*[LOD]: Linked Open Data
 *[NTI-RISP]: Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público
 *[Ob]: Obligatorio
 *[Op]: Opcional

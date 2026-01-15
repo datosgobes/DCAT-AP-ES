@@ -24,22 +24,8 @@
   dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
   dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
   dcat:catalog <http://dcat-ap-es.ejemplo.org/catalogo_relacionado> ;
-  dcat:record [
-    a dcat:CatalogRecord ;
-    foaf:primaryTopic <http://dcat-ap-es.ejemplo.org/catalogo> ;
-    dct:modified "2021-01-02T12:00:00+01:00"^^xsd:dateTime ;
-    dct:conformsTo <http://datos.gob.es/es/documentacion/DCAT-AP-ES> ;
-    dct:issued "2022-01-01T12:00:00+01:00"^^xsd:dateTime ;
-    adms:status <http://purl.org/adms/status/Completed> ;
-    dct:title "Registro del Catálogo de Datos Abiertos"@es ;
-    dct:description "Registro de metadatos del Catálogo de Datos Abiertos de ejemplo"@es
-  ] ;
-  dct:creator [
-    a foaf:Organization ;
-    foaf:name "Nombre del departamento del organismo" ;
-    dct:identifier "E0DAT0001" ;
-    dct:type <http://purl.org/adms/publishertype/NationalAuthority>
-  ] ;
+  dcat:record <http://dcat-ap-es.ejemplo.org/catalogo/record/dataset-ejemplo-1> ;
+  dct:creator <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dct:hasPart <http://dcat-ap-es.ejemplo.org/catalogo-vinculado> ;
   dct:isPartOf <http://dcat-ap-es.ejemplo.org/catalogo-delqueformaparte> ;
   dct:rights <http://dcat-ap-es.ejemplo.org/catalogo/derechos-de-acceso> ;
@@ -91,6 +77,7 @@
 
 <http://dcat-ap-es.ejemplo.org/catalogo-vinculado/distribucion/ejemplo>
   a dcat:Distribution ;
+  dct:title "Distribución de ejemplo en formato CSV"@es ;
   dcat:accessURL <http://dcat-ap-es.ejemplo.org/catalogo-vinculado/files/ejemplo.csv> ;
   dcatap:applicableLegislation <http://data.europa.eu/eli/dir/2007/2/2019-06-26> ;
   dct:description "Descripción de una distribución distribuida de ejemplo"@es ;
@@ -112,7 +99,7 @@
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dcat:keyword "estadísticas"@es ;
-  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/conctactDataset> ;
+  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataset> ;
   dct:temporal [
     a dct:PeriodOfTime ;
     dcat:startDate "2021-02-01T12:00:00+01:00"^^xsd:dateTime ;
@@ -154,7 +141,7 @@
   dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
   dcat:distribution <http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV> .
 
-<http://dcat-ap-es.ejemplo.org/conctactDataset>
+<http://dcat-ap-es.ejemplo.org/contactDataset>
   a vcard:Organization ;
   vcard:organization-name "Organismo"@es ;
   vcard:fn "Oficina del dato"@es ;
@@ -207,7 +194,7 @@
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dcat:keyword "estadísticas"@es ;
-  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/conctactDataset> ;
+  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataset> ;
   dct:temporal [
     a dct:PeriodOfTime ;
     dcat:startDate "2021-02-01T12:00:00+01:00"^^xsd:dateTime ;
@@ -284,7 +271,7 @@
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dcat:keyword "estadísticas"@es ;
-  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/conctactDataset> ;
+  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataset> ;
   dct:temporal [
     a dct:PeriodOfTime ;
     dcat:startDate "2021-02-01T12:00:00+01:00"^^xsd:dateTime ;
@@ -360,7 +347,7 @@
   dcat:endpointURL <http://api.dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1> ;
   dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
-  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/conctactDataservice> ;
+  dcat:contactPoint <http://dcat-ap-es.ejemplo.org/contactDataservice> ;
   foaf:page <https://dcat-ap-es.ejemplo.org/api/doc.html> ;
   dcat:endpointDescription <http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD?service=CSW> ;
   dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> ;
@@ -371,7 +358,7 @@
   dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
   dcat:keyword "estadísticas"@es .
 
-<http://dcat-ap-es.ejemplo.org/conctactDataservice>
+<http://dcat-ap-es.ejemplo.org/contactDataservice>
   a vcard:Organization ;
   vcard:organization-name "Organismo"@es ;
   vcard:fn "Oficina del dato"@es ;
@@ -379,3 +366,13 @@
   vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
   vcard:hasEmail <mailto:info-contacto@dcat-ap-es.ejemplo.org> ;
   vcard:hasTelephone <tel:.+3491222222> .
+
+<http://dcat-ap-es.ejemplo.org/catalogo/record/dataset-ejemplo-1>
+  a dcat:CatalogRecord ;
+  foaf:primaryTopic <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> ;
+  dct:modified "2025-01-02T12:00:00+01:00"^^xsd:dateTime ;
+  dct:conformsTo <http://datos.gob.es/es/documentacion/DCAT-AP-ES> ;
+  dct:issued "2024-01-01T12:00:00+01:00"^^xsd:dateTime ;
+  adms:status <http://purl.org/adms/status/Completed> ;
+  dct:title "Registro del Dataset de ejemplo 1"@es ;
+  dct:description "Registro de metadatos del Dataset de ejemplo 1 del Catálogo de Datos Abiertos"@es .

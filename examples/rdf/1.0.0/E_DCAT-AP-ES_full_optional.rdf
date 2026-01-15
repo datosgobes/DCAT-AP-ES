@@ -24,25 +24,9 @@
     <dc:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
     <dc:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
     <dcat:catalog rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo_relacionado"/>
-    <dcat:record>
-      <dcat:CatalogRecord>
-        <foaf:primaryTopic rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo"/>
-        <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-02T12:00:00+01:00</dc:modified>
-        <dc:conformsTo rdf:resource="http://datos.gob.es/es/documentacion/DCAT-AP-ES"/>
-        <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-01-01T12:00:00+01:00</dc:issued>
-        <adms:status rdf:resource="http://purl.org/adms/status/Completed"/>
-        <dc:title xml:lang="es">Registro del Catálogo de Datos Abiertos</dc:title>
-        <dc:description xml:lang="es">Registro de metadatos del Catálogo de Datos Abiertos de ejemplo</dc:description>
-      </dcat:CatalogRecord>
-    </dcat:record>
+    <dcat:record rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo/record/dataset-ejemplo-1"/>
 
-    <dc:creator>
-      <foaf:Organization>
-        <foaf:name>Nombre del departamento del organismo</foaf:name>
-        <dc:identifier>E0DAT0001</dc:identifier>
-        <dc:type rdf:resource="http://purl.org/adms/publishertype/NationalAuthority"/>
-      </foaf:Organization>
-    </dc:creator>
+    <dc:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
 
     <dc:hasPart rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo-vinculado"/>
     <dc:isPartOf rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo-delqueformaparte"/>
@@ -108,6 +92,7 @@
 
         <dcat:distribution>
           <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/catalogo-vinculado/distribucion/ejemplo">
+            <dc:title xml:lang="es">Distribución de ejemplo en formato CSV</dc:title>
             <dcat:accessURL rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo-vinculado/files/ejemplo.csv"/>
             <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/dir/2007/2/2019-06-26"/>
             <dc:description xml:lang="es">Descripción de una distribución distribuida de ejemplo</dc:description>
@@ -128,7 +113,7 @@
     <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
     <dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
-    <dcat:contactPoint rdf:resource="http://dcat-ap-es.ejemplo.org/conctactDataset"/>
+    <dcat:contactPoint rdf:resource="http://dcat-ap-es.ejemplo.org/contactDataset"/>
     <dc:temporal>
       <dc:PeriodOfTime>
         <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-02-01T12:00:00+01:00</dcat:startDate>
@@ -177,7 +162,7 @@
     <dcat:distribution rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV"/>
   </dcat:Dataset>
 
-  <vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/conctactDataset">
+  <vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/contactDataset">
     <vcard:organization-name xml:lang="es">Organismo</vcard:organization-name>
     <vcard:fn xml:lang="es">Oficina del dato</vcard:fn>
     <vcard:hasURL rdf:resource="http://dcat-ap-es.ejemplo.org/"/>
@@ -232,7 +217,7 @@
     <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
     <dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
-    <dcat:contactPoint rdf:resource="http://dcat-ap-es.ejemplo.org/conctactDataset"/>
+    <dcat:contactPoint rdf:resource="http://dcat-ap-es.ejemplo.org/contactDataset"/>
     <dc:temporal>
       <dc:PeriodOfTime>
         <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-02-01T12:00:00+01:00</dcat:startDate>
@@ -318,7 +303,7 @@
     <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
     <dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
-    <dcat:contactPoint rdf:resource="http://dcat-ap-es.ejemplo.org/conctactDataset"/>
+    <dcat:contactPoint rdf:resource="http://dcat-ap-es.ejemplo.org/contactDataset"/>
     <dc:temporal>
       <dc:PeriodOfTime>
         <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-02-01T12:00:00+01:00</dcat:startDate>
@@ -404,7 +389,7 @@
     <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
     <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dcat:contactPoint>
-      <vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/conctactDataservice">
+      <vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/contactDataservice">
         <vcard:organization-name xml:lang="es">Organismo</vcard:organization-name>
         <vcard:fn xml:lang="es">Oficina del dato</vcard:fn>
         <vcard:hasURL rdf:resource="http://dcat-ap-es.ejemplo.org/"/>
@@ -424,5 +409,15 @@
     <dc:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
     <dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
   </dcat:DataService>
+
+  <dcat:CatalogRecord rdf:about="http://dcat-ap-es.ejemplo.org/catalogo/record/dataset-ejemplo-1">
+    <foaf:primaryTopic rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dc:modified>
+    <dc:conformsTo rdf:resource="http://datos.gob.es/es/documentacion/DCAT-AP-ES"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T12:00:00+01:00</dc:issued>
+    <adms:status rdf:resource="http://purl.org/adms/status/Completed"/>
+    <dc:title xml:lang="es">Registro del Dataset de ejemplo 1</dc:title>
+    <dc:description xml:lang="es">Registro de metadatos del Dataset de ejemplo 1 del Catálogo de Datos Abiertos</dc:description>
+  </dcat:CatalogRecord>
 
 </rdf:RDF>

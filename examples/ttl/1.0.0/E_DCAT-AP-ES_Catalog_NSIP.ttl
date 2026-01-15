@@ -1,0 +1,533 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix dct: <http://purl.org/dc/terms/> . 
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix spdx: <http://spdx.org/rdf/terms#> . 
+
+# ============================================================================
+# CATÁLOGO DE EJEMPLO:  DATOS PROTEGIDOS (NSIP/ERPD)
+# ============================================================================
+
+<http://dcat-ap-es.ejemplo.org/catalogo-protegido>
+    a dcat:Catalog ;
+    
+    # Propiedades obligatorias del catálogo
+    dct:title "Catálogo de Ejemplo - Datos Protegidos"@es,
+              "Example Catalog - Protected Data"@en ;
+    
+    dct:description "Catálogo de ejemplo que demuestra cómo representar conjuntos de datos con acceso restringido disponibles a través de NSIP/ERPD conforme al Reglamento de Gobernanza de Datos (DGA). Este catálogo contiene únicamente datos ficticios para propósitos de demostración."@es,
+                    "Example catalog demonstrating how to represent datasets with restricted access available through NSIP/ERPD in compliance with the Data Governance Act (DGA). This catalog contains only fictitious data for demonstration purposes."@en ;
+    
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    
+    dct:issued "2025-01-01"^^xsd:date ;
+    dct:modified "2025-12-18"^^xsd:date ;
+    
+    dct:language <http://publications.europa.eu/resource/authority/language/SPA>,
+                 <http://publications.europa.eu/resource/authority/language/ENG> ;
+    
+    # Legislación aplicable
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj>,
+                                  <http://data.europa.eu/eli/dir/2019/1024/oj> ;
+    
+    dct:rights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
+    
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    
+    dct:temporal [
+        a dct:PeriodOfTime ;
+        dcat:startDate "2025-01-01"^^xsd:date
+    ] ;
+    
+    dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+    
+    dcat:contactPoint [
+        a vcard:Organization ;
+        vcard:fn "Oficina de Ejemplo NSIP"@es,
+                 "Example NSIP Office"@en ;
+        vcard:hasEmail <mailto:nsip@ejemplo.org> ;
+        vcard:hasTelephone <tel:+34-900000000> ;
+        vcard:hasURL <http://dcat-ap-es.ejemplo.org/contacto> ;
+        vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+        vcard:organization-name "Organización de Ejemplo"@es
+    ] ;
+    
+    foaf:homepage <http://dcat-ap-es.ejemplo.org> ;
+    
+    dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme>,
+                       <http://datos.gob.es/kos/sector-publico/sector> ;
+    
+    dcat:dataset <http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo>,
+                 <http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo>,
+                 <http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo> ;
+    
+    dcat:service <http://dcat-ap-es.ejemplo.org/service/api-datos-protegidos> . 
+
+
+# ============================================================================
+# DATASET 1: DATOS ECONÓMICOS DE EJEMPLO (RESTRICTED)
+# ============================================================================
+
+<http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo>
+    a dcat:Dataset ;
+    
+    # === CONVENCIÓN 25: PROPIEDADES OBLIGATORIAS NSIP/ERPD ===
+    
+    # 1. dct:title
+    dct:title "Datos Económicos Agregados de Ejemplo"@es,
+              "Example Aggregated Economic Data"@en ;
+    
+    # 2. dct:description
+    dct:description "Conjunto de datos de ejemplo que contiene información económica ficticia agregada por sector y región. Los datos están anonimizados y son únicamente para propósitos de demostración del perfil DCAT-AP-ES para datos protegidos NSIP/ERPD."@es,
+                    "Example dataset containing fictitious economic information aggregated by sector and region. Data is anonymized and for demonstration purposes of the DCAT-AP-ES profile for NSIP/ERPD protected data only."@en ;
+    
+    # 3. dct:publisher
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    
+    # 4. dct:accessRights (RESTRICTED o NON_PUBLIC)
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
+    
+    # 5. dcat:distribution (al menos una)
+    dcat:distribution <http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/csv>,
+                      <http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/json> ;
+    
+    # === OTRAS PROPIEDADES OBLIGATORIAS DCAT-AP-ES ===
+    
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/ECON>,
+               <http://datos.gob.es/kos/sector-publico/sector/economia> ;
+    
+    dcat:keyword "economía"@es, "ejemplo"@es, "ficticio"@es, "agregado"@es,
+                 "economy"@en, "example"@en, "fictitious"@en, "aggregated"@en ;
+    
+    # === CONVENCIÓN 27: LEGISLACIÓN APLICABLE (RECOMENDADO) ===
+    
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj>,
+                                  <http://data.europa.eu/eli/reg/2016/679/oj> ;
+    
+    # === PROPIEDADES ADICIONALES ===
+    
+    dct:identifier "EJEMPLO-ECO-2024-001" ;
+    
+    adms:identifier [
+        a adms:Identifier ;
+        skos:notation "ECO-EJEMPLO-001"^^xsd:string ;
+        dct:creator <http://dcat-ap-es.ejemplo.org/organizacion/ejemplo-economia> ;
+        adms:schemeAgency "Organización de Ejemplo"@es
+    ] ;
+    
+    dct:issued "2024-01-15"^^xsd:date ;
+    dct:modified "2025-12-01"^^xsd:date ;
+    
+    dct:temporal [
+        a dct:PeriodOfTime ;
+        dcat:startDate "2020-01-01"^^xsd:date ;
+        dcat:endDate "2024-12-31"^^xsd:date
+    ] ;
+    
+    dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+    
+    dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/ANNUAL> ;
+    
+    dcat:contactPoint [
+        a vcard:Organization ;
+        vcard:fn "Punto de Contacto - Datos Económicos de Ejemplo"@es ;
+        vcard:hasEmail <mailto:economia@ejemplo.org> ;
+        vcard:hasTelephone <tel:+34-900111111> ;
+        vcard:hasURL <http://dcat-ap-es.ejemplo.org/solicitudes/datos-economicos> ;
+        vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+        vcard:organization-name "Organización Económica de Ejemplo"@es
+    ] ;
+    
+    dcat:landingPage <http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo> ;
+    
+    foaf:page <http://dcat-ap-es.ejemplo.org/docs/datos-economicos-metodologia> ;
+    
+    dcat:temporalResolution "P1Y"^^xsd:duration ;
+    
+    dct:provenance [
+        a dct:ProvenanceStatement ;
+        rdfs:label "Datos ficticios generados para demostración del perfil DCAT-AP-ES NSIP/ERPD."@es
+    ] ;
+    
+    dcat:accessService <http://dcat-ap-es.ejemplo.org/service/api-datos-protegidos> . 
+
+
+# ============================================================================
+# DISTRIBUCIÓN 1.1: CSV (CONVENCIÓN 26)
+# ============================================================================
+
+<http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/csv>
+    a dcat:Distribution ;
+    
+    # === CONVENCIÓN 26: PROPIEDADES OBLIGATORIAS ===
+    
+    # 1. dcat:accessURL
+    dcat:accessURL <http://dcat-ap-es.ejemplo.org/solicitud-acceso/datos-economicos-csv> ;
+    
+    # 2. dcat:byteSize
+    dcat:byteSize 45678900 ;
+    
+    # 3. dct:format
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    
+    # 4. dct:rights
+    dct:rights <http://dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial> ;
+    
+    # === PROPIEDADES ADICIONALES ===
+    
+    dct:title "Datos Económicos 2020-2024 - Formato CSV"@es,
+              "Economic Data 2020-2024 - CSV Format"@en ;
+    
+    dct:description "Archivo CSV de ejemplo con datos económicos ficticios agregados.  Contiene aproximadamente 150000 registros con 40 variables.  Este archivo es únicamente para demostración."@es,
+                    "Example CSV file with fictitious aggregated economic data. Contains approximately 150000 records with 40 variables.  This file is for demonstration purposes only."@en ;
+    
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_NC_ND_4_0> ;
+    
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
+    
+    dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
+    
+    adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
+    
+    dct:issued "2024-01-15"^^xsd:date ;
+    dct:modified "2025-12-01"^^xsd:date ;
+    
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
+    
+    dcat:compressFormat <https://www.iana.org/assignments/media-types/application/gzip> ;
+    
+    dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
+    
+    spdx:checksum [
+        a spdx:Checksum ;
+        spdx:algorithm <http://spdx.org/rdf/terms#checksumAlgorithm_sha1> ;
+        spdx:checksumValue "a1b2c3d4e5f6789012345678901234567890abcd"^^xsd:hexBinary
+    ] ;
+    
+    foaf:page <http://dcat-ap-es.ejemplo.org/docs/datos-economicos-csv-schema> . 
+
+
+# ============================================================================
+# DISTRIBUCIÓN 1.2: JSON (CONVENCIÓN 26)
+# ============================================================================
+
+<http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/json>
+    a dcat:Distribution ;
+    
+    # === CONVENCIÓN 26: PROPIEDADES OBLIGATORIAS ===
+    
+    dcat:accessURL <http://dcat-ap-es.ejemplo.org/solicitud-acceso/datos-economicos-json> ;
+    dcat:byteSize 52345678 ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/JSON> ;
+    dct:rights <http://dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial> ;
+    
+    # === PROPIEDADES ADICIONALES ===
+    
+    dct:title "Datos Económicos 2020-2024 - Formato JSON"@es,
+              "Economic Data 2020-2024 - JSON Format"@en ;
+    
+    dct:description "Archivo JSON de ejemplo con la misma información que el CSV pero en formato JSON estructurado. Únicamente para demostración."@es,
+                    "Example JSON file with the same information as CSV but in structured JSON format. For demonstration purposes only."@en ;
+    
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_NC_ND_4_0> ;
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
+    dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
+    adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
+    
+    dct:issued "2024-01-15"^^xsd:date ;
+    dct:modified "2025-12-01"^^xsd:date ;
+    
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/json> ;
+    dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
+    
+    foaf:page <http://dcat-ap-es.ejemplo.org/docs/datos-economicos-json-schema> .
+
+
+# ============================================================================
+# DATASET 2: DATOS ESTADÍSTICOS DE EJEMPLO (NON_PUBLIC)
+# ============================================================================
+
+<http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo>
+    a dcat:Dataset ;
+    
+    # === CONVENCIÓN 25: PROPIEDADES OBLIGATORIAS ===
+    
+    dct:title "Datos Estadísticos Detallados de Ejemplo"@es,
+              "Example Detailed Statistical Data"@en ;
+    
+    dct:description "Conjunto de datos de ejemplo con información estadística ficticia detallada y anonimizada. Los datos son completamente ficticios y sirven para demostrar el perfil DCAT-AP-ES para datos con acceso no público."@es,
+                    "Example dataset with fictitious detailed and anonymized statistical information. Data is completely fictitious and serves to demonstrate the DCAT-AP-ES profile for non-public access data."@en ;
+    
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC> ;
+    
+    dcat:distribution <http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo/dist/api> ;
+    
+    # === PROPIEDADES OBLIGATORIAS DCAT-AP-ES ===
+    
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/SOC>,
+               <http://datos.gob.es/kos/sector-publico/sector/sociedad-bienestar> ;
+    
+    dcat:keyword "estadística"@es, "ejemplo"@es, "ficticio"@es, "detallado"@es,
+                 "statistics"@en, "example"@en, "fictitious"@en, "detailed"@en ;
+    
+    # === CONVENCIÓN 27: LEGISLACIÓN ===
+    
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj>,
+                                  <http://data.europa.eu/eli/reg/2016/679/oj> ;
+    
+    # === PROPIEDADES ADICIONALES ===
+    
+    dct:identifier "EJEMPLO-EST-2024-002" ;
+    
+    adms:identifier [
+        a adms:Identifier ;
+        skos:notation "EST-EJEMPLO-002"^^xsd:string
+    ] ;
+    
+    dct:issued "2024-03-01"^^xsd:date ;
+    dct:modified "2025-11-15"^^xsd:date ;
+    
+    dct:temporal [
+        a dct:PeriodOfTime ;
+        dcat:startDate "2015-01-01"^^xsd:date ;
+        dcat:endDate "2024-12-31"^^xsd:date
+    ] ;
+    
+    dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+    dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/MONTHLY> ;
+    
+    dcat:contactPoint [
+        a vcard:Organization ;
+        vcard:fn "Punto de Contacto - Estadística de Ejemplo"@es ;
+        vcard:hasEmail <mailto:estadistica@ejemplo.org> ;
+        vcard:hasTelephone <tel:+34-900222222> ;
+        vcard:hasURL <http://dcat-ap-es.ejemplo.org/solicitudes/datos-estadisticos> ;
+        vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+        vcard:organization-name "Organización Estadística de Ejemplo"@es
+    ] ;
+    
+    dcat:landingPage <http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo> ;
+    foaf:page <http://dcat-ap-es.ejemplo.org/docs/datos-estadisticos-metodologia> ;
+    
+    dcat:temporalResolution "P1M"^^xsd:duration ;
+    
+    dct:provenance [
+        a dct:ProvenanceStatement ;
+        rdfs:label "Datos ficticios generados mediante simulación estadística para demostración."@es
+    ] ;
+    
+    prov:wasGeneratedBy [
+        a prov:Activity ;
+        rdfs:label "Proceso de generación de datos de ejemplo"@es ;
+        prov:startedAtTime "2024-02-15T00:00:00"^^xsd:dateTime ;
+        prov:endedAtTime "2024-02-28T23:59:59"^^xsd:dateTime
+    ] ;
+    
+    dcat:accessService <http://dcat-ap-es.ejemplo.org/service/api-datos-protegidos> .
+
+
+# ============================================================================
+# DISTRIBUCIÓN 2.1: API (CONVENCIÓN 26)
+# ============================================================================
+
+<http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo/dist/api>
+    a dcat:Distribution ;
+    
+    # === CONVENCIÓN 26: PROPIEDADES OBLIGATORIAS ===
+    
+    dcat:accessURL <http://dcat-ap-es.ejemplo.org/solicitud-acceso/datos-estadisticos-api> ;
+    dcat:byteSize 987654321 ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/JSON_LD> ;
+    dct:rights <http://dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-investigacion> ;
+    
+    # === PROPIEDADES ADICIONALES ===
+    
+    dct:title "Datos Estadísticos 2015-2024 - API REST de Ejemplo"@es,
+              "Statistical Data 2015-2024 - Example REST API"@en ;
+    
+    dct:description "Acceso mediante API REST de ejemplo con autenticación ficticia. Permite consultas filtradas simuladas.  Este endpoint es únicamente para demostración y no contiene datos reales."@es,
+                    "Access via example REST API with fictitious authentication.  Allows simulated filtered queries. This endpoint is for demonstration only and does not contain real data."@en ;
+    
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_NC_ND_4_0> ;
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
+    dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE> ;
+    adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
+    
+    dct:issued "2024-03-01"^^xsd:date ;
+    dct:modified "2025-11-15"^^xsd:date ;
+    
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/ld+json> ;
+    dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
+    
+    dct:conformsTo <https://www.openapis.org/> ;
+    
+    foaf:page <http://dcat-ap-es.ejemplo.org/docs/api-estadistica-openapi> ;
+    
+    dcat:accessService <http://dcat-ap-es.ejemplo.org/service/api-datos-protegidos> .
+
+
+# ============================================================================
+# DATASET 3: DATOS AGREGADOS DE EJEMPLO (RESTRICTED)
+# ============================================================================
+
+<http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo>
+    a dcat:Dataset ;
+    
+    # === CONVENCIÓN 25: PROPIEDADES OBLIGATORIAS ===
+    
+    dct:title "Datos Agregados Sectoriales de Ejemplo"@es,
+              "Example Sector Aggregated Data"@en ;
+    
+    dct:description "Datos de ejemplo agregados por sector con información ficticia sobre indicadores económicos y sociales.  Todos los datos son ficticios y generados para propósitos de demostración del modelo DCAT-AP-ES para NSIP/ERPD."@es,
+                    "Example data aggregated by sector with fictitious information on economic and social indicators. All data is fictitious and generated for demonstration purposes of the DCAT-AP-ES model for NSIP/ERPD."@en ;
+    
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
+    
+    dcat:distribution <http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo/dist/xlsx> ;
+    
+    # === PROPIEDADES OBLIGATORIAS DCAT-AP-ES ===
+    
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/ECON>,
+               <http://datos.gob.es/kos/sector-publico/sector/sector-publico> ;
+    
+    dcat:keyword "agregado"@es, "sectorial"@es, "ejemplo"@es, "indicadores"@es,
+                 "aggregated"@en, "sectoral"@en, "example"@en, "indicators"@en ;
+    
+    # === CONVENCIÓN 27 ===
+    
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj>,
+                                  <http://data.europa.eu/eli/reg/2016/679/oj> ;
+    
+    # === PROPIEDADES ADICIONALES ===
+    
+    dct:identifier "EJEMPLO-AGR-2024-003" ;
+    
+    dct:issued "2024-06-01"^^xsd:date ;
+    dct:modified "2025-12-10"^^xsd:date ;
+    
+    dct:temporal [
+        a dct:PeriodOfTime ;
+        dcat:startDate "2018-01-01"^^xsd:date ;
+        dcat:endDate "2024-12-31"^^xsd:date
+    ] ;
+    
+    dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Pais/España> ;
+    dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/QUARTERLY> ;
+    
+    dcat:contactPoint [
+        a vcard:Organization ;
+        vcard:fn "Punto de Contacto - Datos Sectoriales de Ejemplo"@es ;
+        vcard:hasEmail <mailto:sectorial@ejemplo.org> ;
+        vcard:hasTelephone <tel:+34-900333333> ;
+        vcard:hasURL <http://dcat-ap-es.ejemplo.org/solicitudes/datos-agregados> ;
+        vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+        vcard:organization-name "Organización Sectorial de Ejemplo"@es
+    ] ;
+    
+    dcat:landingPage <http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo> ;
+    
+    dcat:temporalResolution "P3M"^^xsd:duration . 
+
+
+# ============================================================================
+# DISTRIBUCIÓN 3.1: EXCEL (CONVENCIÓN 26)
+# ============================================================================
+
+<http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo/dist/xlsx>
+    a dcat:Distribution ;
+    
+    # === CONVENCIÓN 26: PROPIEDADES OBLIGATORIAS ===
+    
+    dcat:accessURL <http://dcat-ap-es.ejemplo.org/solicitud-acceso/datos-agregados-xlsx> ;
+    dcat:byteSize 34567890 ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/XLSX> ;
+    dct:rights <http://dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-analisis> ;
+    
+    # === PROPIEDADES ADICIONALES ===
+    
+    dct:title "Datos Agregados 2018-2024 - Formato Excel de Ejemplo"@es,
+              "Aggregated Data 2018-2024 - Example Excel Format"@en ;
+    
+    dct:description "Archivo Excel de ejemplo con múltiples hojas organizadas por año y sector. Incluye tablas dinámicas ficticias pre-configuradas.  Únicamente para demostración."@es,
+                    "Example Excel file with multiple sheets organized by year and sector. Includes fictitious pre-configured pivot tables. For demonstration purposes only."@en ;
+    
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_NC_4_0> ;
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
+    dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
+    adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
+    
+    dct:issued "2024-06-01"^^xsd:date ;
+    dct:modified "2025-12-10"^^xsd:date ;
+    
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet> ;
+    dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
+    
+    foaf:page <http://dcat-ap-es.ejemplo.org/docs/datos-agregados-guia> . 
+
+
+# ============================================================================
+# DATA SERVICE:  API DE DATOS PROTEGIDOS DE EJEMPLO (CONVENCIÓN 27)
+# ============================================================================
+
+<http://dcat-ap-es.ejemplo.org/service/api-datos-protegidos>
+    a dcat:DataService ;
+    
+    dct:title "API de Ejemplo para Datos Protegidos"@es,
+              "Example API for Protected Data"@en ;
+    
+    dct:description "Servicio de API de ejemplo para acceso a conjuntos de datos protegidos ficticios. Demuestra cómo implementar un servicio conforme a DCAT-AP-ES para NSIP/ERPD.  Este servicio es únicamente para demostración y no proporciona acceso a datos reales."@es,
+                    "Example API service for access to fictitious protected datasets. Demonstrates how to implement a service compliant with DCAT-AP-ES for NSIP/ERPD. This service is for demonstration purposes only and does not provide access to real data."@en ;
+    
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+    
+    dcat:endpointURL <http://api.dcat-ap-es.ejemplo.org/v1> ;
+    
+    dcat:endpointDescription <http://api.dcat-ap-es.ejemplo.org/v1/openapi.json> ;
+    
+    dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo>,
+                       <http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo>,
+                       <http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo> ;
+    
+    dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
+    
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
+    
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_NC_4_0> ;
+    
+    dct:conformsTo <https://www.openapis.org/>,
+                   <https://oauth.net/2/> ;
+    
+    dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE> ;
+    
+    dct:format <http://publications.europa.eu/resource/authority/file-type/JSON_LD>,
+               <http://publications.europa.eu/resource/authority/file-type/XML>,
+               <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    
+    dcat:keyword "API"@en, "ejemplo"@es, "OAuth2"@en, "NSIP"@en, "datos protegidos"@es, "protected data"@en, "example"@en ;
+    
+    dct:issued "2024-01-01"^^xsd:date ;
+    dct:modified "2025-12-18"^^xsd:date ;
+    
+    dcat:contactPoint [
+        a vcard:Organization ;
+        vcard:fn "Soporte Técnico API de Ejemplo"@es ;
+        vcard:hasEmail <mailto:api-soporte@ejemplo.org> ;
+        vcard:hasTelephone <tel:+34-900444444> ;
+        vcard:hasURL <http://dcat-ap-es.ejemplo.org/soporte> ;
+        vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
+        vcard:organization-name "Organización de Ejemplo"@es
+    ] ;
+    
+    dcat:landingPage <http://dcat-ap-es.ejemplo.org/api> ;
+    foaf:page <http://dcat-ap-es.ejemplo.org/docs/api-reference> .

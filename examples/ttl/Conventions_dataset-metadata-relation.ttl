@@ -22,7 +22,8 @@
     rdfs:comment "Identificador INSPIRE del mismo dataset"@es ;
     
     # Propiedades contextuales adicionales
-    dct:conformsTo <http://data.europa.eu/eli/reg/2008/1205> ;  # Reglamento de Metadatos INSPIRE
-    foaf:page <http://geonetwork.example.org/metadata/ES-INSPIRE-456> ;  # Página HTML de visualización
+    dct:conformsTo <http://data.europa.eu/eli/reg/2008/1205> ;                      # Reglamento de Metadatos INSPIRE
+    foaf:page <http://www.idee.es/csw-codsi-idee/ES-INSPIRE-456> ;                  # Página HTML de visualización del metadato INSPIRE
+    foaf:homepage <http://www.idee.es/csw-codsi-idee/> ;                            # Página principal del catálogo/iniciativa de datos
     dct:format <http://publications.europa.eu/resource/authority/file-type/XML> ;
     dct:issued "2020-01-15"^^xsd:date .
