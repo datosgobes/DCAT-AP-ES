@@ -243,4 +243,4 @@ To ensure the temporal traceability of resources and their correct tracking, it 
     To validate dates:
     
     1. Verify that the modification date is later than the creation date
-    2. Check that the dates are in the formats defined by the model; dates can be recorded using the standard format: `YYYY-MM-DD` (`xsd:date`), or ISO-8601 datetime with time zone: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), as well as the year: `YYYY` (`xsd:gYear`) or the year and month: `YYYY-MM` (`xsd:gYearMonth`).
+    2. Check that the dates are in the formats defined by the model. Dates can be recorded using the standard format: `YYYY-MM-DD` (`xsd:date`), or an ISO-8601 datetime `YYYY-MM-DDThh:mm:ss` (`xsd:dateTime`). For interoperability it is **recommended** to include a time zone (TZD), e.g. `Z` or `+01:00` (the validator will emit a warning if it is missing). The year `YYYY` (`xsd:gYear`) and the year-month `YYYY-MM` (`xsd:gYearMonth`) are also allowed.
