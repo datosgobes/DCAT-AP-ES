@@ -219,7 +219,7 @@ Para garantizar la trazabilidad temporal de los recursos y su correcto seguimien
     Para validar las fechas:
     
     1. Verificar que la fecha de modificación sea posterior a la de creación
-    2. Comprobar que las fechas estén en los formatos definidos por el modelo, se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
+    2. Comprobar que las fechas estén en los formatos definidos por el modelo. Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) `YYYY-MM-DDThh:mm:ss` (`xsd:dateTime`). Para mejorar la interoperabilidad se **recomienda** incluir zona horaria (TZD), por ejemplo `Z` o `+01:00` (el validador emitirá una advertencia si falta). También se admite el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 ## Especificación de períodos temporales {#general-temporal}
 
