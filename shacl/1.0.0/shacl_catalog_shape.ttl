@@ -244,12 +244,8 @@ dcatapes:Catalog_Shape
     ],
     [
         sh:path dct:issued ;
-        sh:datatype xsd:dateTime ;
-        sh:pattern "^[1-9][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]{1,6})?(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$" ;
-        sh:severity sh:Warning ;
+        sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
-        sh:message "El valor es un xsd:dateTime sin zona horaria (TZD). Por interoperabilidad, se recomienda incluir 'Z' o un offset (por ejemplo, +01:00)."@es ;
-        sh:message "The value is an xsd:dateTime without a time zone (TZD). For interoperability, it is recommended to include 'Z' or an offset (e.g., +01:00)."@en ;
     ],
     [
         sh:path dct:issued ;
@@ -273,12 +269,8 @@ dcatapes:Catalog_Shape
     ],
     [
         sh:path dct:modified ;
-        sh:datatype xsd:dateTime ;
-        sh:pattern "^[1-9][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]{1,6})?(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$" ;
-        sh:severity sh:Warning ;
+        sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
-        sh:message "El valor es un xsd:dateTime sin zona horaria (TZD). Por interoperabilidad, se recomienda incluir 'Z' o un offset (por ejemplo, +01:00)."@es ;
-        sh:message "The value is an xsd:dateTime without a time zone (TZD). For interoperability, it is recommended to include 'Z' or an offset (e.g., +01:00)."@en ;
     ],
     [
         sh:path dct:modified ;
