@@ -331,6 +331,11 @@ dcatapes:Distribution_Shape
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
     ],
+    [
+        sh:path dct:issued ;
+        sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
+    ],
 
     # dct:modified 
     [
@@ -339,6 +344,11 @@ dcatapes:Distribution_Shape
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
+    ], 
+    [
+        sh:path dct:modified ;
+        sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
     ], 
 
     # adms:status
