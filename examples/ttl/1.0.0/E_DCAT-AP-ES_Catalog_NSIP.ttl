@@ -15,7 +15,7 @@
 # CATÁLOGO DE EJEMPLO:  DATOS PROTEGIDOS (NSIP/ERPD)
 # ============================================================================
 
-<http://dcat-ap-es.ejemplo.org/catalogo-protegido>
+<http://nsip.dcat-ap-es.ejemplo.org/catalogo-protegido>
     a dcat:Catalog ;
     
     # Propiedades obligatorias del catálogo
@@ -54,7 +54,7 @@
                  "Example NSIP Office"@en ;
         vcard:hasEmail <mailto:nsip@ejemplo.org> ;
         vcard:hasTelephone <tel:+34-900000000> ;
-        vcard:hasURL <http://dcat-ap-es.ejemplo.org/contacto> ;
+        vcard:hasURL <http://nsip.dcat-ap-es.ejemplo.org/contacto> ;
         vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
         vcard:organization-name "Organización de Ejemplo"@es
     ] ;
@@ -64,18 +64,18 @@
     dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme>,
                        <http://datos.gob.es/kos/sector-publico/sector> ;
     
-    dcat:dataset <http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo>,
-                 <http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo>,
-                 <http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo> ;
+    dcat:dataset <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo>,
+                 <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo>,
+                 <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo> ;
     
-    dcat:service <http://dcat-ap-es.ejemplo.org/service/api-datos-protegidos> . 
+    dcat:service <http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos> . 
 
 
 # ============================================================================
 # DATASET 1: DATOS ECONÓMICOS DE EJEMPLO (RESTRICTED)
 # ============================================================================
 
-<http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo>
+<http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo>
     a dcat:Dataset ;
     
     # === CONVENCIÓN 25: PROPIEDADES OBLIGATORIAS NSIP/ERPD ===
@@ -95,8 +95,8 @@
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
     
     # 5. dcat:distribution (al menos una)
-    dcat:distribution <http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/csv>,
-                      <http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/json> ;
+    dcat:distribution <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/csv>,
+                      <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/json> ;
     
     # === OTRAS PROPIEDADES OBLIGATORIAS DCAT-AP-ES ===
     
@@ -118,7 +118,7 @@
     adms:identifier [
         a adms:Identifier ;
         skos:notation "ECO-EJEMPLO-001"^^xsd:string ;
-        dct:creator <http://dcat-ap-es.ejemplo.org/organizacion/ejemplo-economia> ;
+        dct:creator <http://nsip.dcat-ap-es.ejemplo.org/organizacion/ejemplo-economia> ;
         adms:schemeAgency "Organización de Ejemplo"@es
     ] ;
     
@@ -140,14 +140,14 @@
         vcard:fn "Punto de Contacto - Datos Económicos de Ejemplo"@es ;
         vcard:hasEmail <mailto:economia@ejemplo.org> ;
         vcard:hasTelephone <tel:+34-900111111> ;
-        vcard:hasURL <http://dcat-ap-es.ejemplo.org/solicitudes/datos-economicos> ;
+        vcard:hasURL <http://nsip.dcat-ap-es.ejemplo.org/solicitudes/datos-economicos> ;
         vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
         vcard:organization-name "Organización Económica de Ejemplo"@es
     ] ;
     
-    dcat:landingPage <http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo> ;
+    dcat:landingPage <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo> ;
     
-    foaf:page <http://dcat-ap-es.ejemplo.org/docs/datos-economicos-metodologia> ;
+    foaf:page <http://nsip.dcat-ap-es.ejemplo.org/docs/datos-economicos-metodologia> ;
     
     dcat:temporalResolution "P1Y"^^xsd:duration ;
     
@@ -156,20 +156,20 @@
         rdfs:label "Datos ficticios generados para demostración del perfil DCAT-AP-ES NSIP/ERPD."@es
     ] ;
     
-    dcat:accessService <http://dcat-ap-es.ejemplo.org/service/api-datos-protegidos> . 
+    dcat:accessService <http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos> . 
 
 
 # ============================================================================
 # DISTRIBUCIÓN 1.1: CSV (CONVENCIÓN 26)
 # ============================================================================
 
-<http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/csv>
+<http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/csv>
     a dcat:Distribution ;
     
     # === CONVENCIÓN 26: PROPIEDADES OBLIGATORIAS ===
     
     # 1. dcat:accessURL
-    dcat:accessURL <http://dcat-ap-es.ejemplo.org/solicitud-acceso/datos-economicos-csv> ;
+    dcat:accessURL <http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-economicos-csv> ;
     
     # 2. dcat:byteSize
     dcat:byteSize 45678900 ;
@@ -178,7 +178,7 @@
     dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
     
     # 4. dct:rights
-    dct:rights <http://dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial> ;
+    dct:rights <http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial> ;
     
     # === PROPIEDADES ADICIONALES ===
     
@@ -211,22 +211,22 @@
         spdx:checksumValue "a1b2c3d4e5f6789012345678901234567890abcd"^^xsd:hexBinary
     ] ;
     
-    foaf:page <http://dcat-ap-es.ejemplo.org/docs/datos-economicos-csv-schema> . 
+    foaf:page <http://nsip.dcat-ap-es.ejemplo.org/docs/datos-economicos-csv-schema> . 
 
 
 # ============================================================================
 # DISTRIBUCIÓN 1.2: JSON (CONVENCIÓN 26)
 # ============================================================================
 
-<http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/json>
+<http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/json>
     a dcat:Distribution ;
     
     # === CONVENCIÓN 26: PROPIEDADES OBLIGATORIAS ===
     
-    dcat:accessURL <http://dcat-ap-es.ejemplo.org/solicitud-acceso/datos-economicos-json> ;
+    dcat:accessURL <http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-economicos-json> ;
     dcat:byteSize 52345678 ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/JSON> ;
-    dct:rights <http://dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial> ;
+    dct:rights <http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial> ;
     
     # === PROPIEDADES ADICIONALES ===
     
@@ -247,14 +247,14 @@
     dcat:mediaType <https://www.iana.org/assignments/media-types/application/json> ;
     dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
     
-    foaf:page <http://dcat-ap-es.ejemplo.org/docs/datos-economicos-json-schema> .
+    foaf:page <http://nsip.dcat-ap-es.ejemplo.org/docs/datos-economicos-json-schema> .
 
 
 # ============================================================================
 # DATASET 2: DATOS ESTADÍSTICOS DE EJEMPLO (NON_PUBLIC)
 # ============================================================================
 
-<http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo>
+<http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo>
     a dcat:Dataset ;
     
     # === CONVENCIÓN 25: PROPIEDADES OBLIGATORIAS ===
@@ -269,7 +269,7 @@
     
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC> ;
     
-    dcat:distribution <http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo/dist/api> ;
+    dcat:distribution <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo/dist/api> ;
     
     # === PROPIEDADES OBLIGATORIAS DCAT-AP-ES ===
     
@@ -310,13 +310,13 @@
         vcard:fn "Punto de Contacto - Estadística de Ejemplo"@es ;
         vcard:hasEmail <mailto:estadistica@ejemplo.org> ;
         vcard:hasTelephone <tel:+34-900222222> ;
-        vcard:hasURL <http://dcat-ap-es.ejemplo.org/solicitudes/datos-estadisticos> ;
+        vcard:hasURL <http://nsip.dcat-ap-es.ejemplo.org/solicitudes/datos-estadisticos> ;
         vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
         vcard:organization-name "Organización Estadística de Ejemplo"@es
     ] ;
     
-    dcat:landingPage <http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo> ;
-    foaf:page <http://dcat-ap-es.ejemplo.org/docs/datos-estadisticos-metodologia> ;
+    dcat:landingPage <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo> ;
+    foaf:page <http://nsip.dcat-ap-es.ejemplo.org/docs/datos-estadisticos-metodologia> ;
     
     dcat:temporalResolution "P1M"^^xsd:duration ;
     
@@ -328,26 +328,26 @@
     prov:wasGeneratedBy [
         a prov:Activity ;
         rdfs:label "Proceso de generación de datos de ejemplo"@es ;
-        prov:startedAtTime "2024-02-15T00:00:00"^^xsd:dateTime ;
-        prov:endedAtTime "2024-02-28T23:59:59"^^xsd:dateTime
+        prov:startedAtTime "2024-02-15T00:00:00+01:00"^^xsd:dateTime ;
+        prov:endedAtTime "2024-02-28T23:59:59+01:00"^^xsd:dateTime
     ] ;
     
-    dcat:accessService <http://dcat-ap-es.ejemplo.org/service/api-datos-protegidos> .
+    dcat:accessService <http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos> .
 
 
 # ============================================================================
 # DISTRIBUCIÓN 2.1: API (CONVENCIÓN 26)
 # ============================================================================
 
-<http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo/dist/api>
+<http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo/dist/api>
     a dcat:Distribution ;
     
     # === CONVENCIÓN 26: PROPIEDADES OBLIGATORIAS ===
     
-    dcat:accessURL <http://dcat-ap-es.ejemplo.org/solicitud-acceso/datos-estadisticos-api> ;
+    dcat:accessURL <http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-estadisticos-api> ;
     dcat:byteSize 987654321 ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/JSON_LD> ;
-    dct:rights <http://dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-investigacion> ;
+    dct:rights <http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-investigacion> ;
     
     # === PROPIEDADES ADICIONALES ===
     
@@ -370,16 +370,16 @@
     
     dct:conformsTo <https://www.openapis.org/> ;
     
-    foaf:page <http://dcat-ap-es.ejemplo.org/docs/api-estadistica-openapi> ;
+    foaf:page <http://nsip.dcat-ap-es.ejemplo.org/docs/api-estadistica-openapi> ;
     
-    dcat:accessService <http://dcat-ap-es.ejemplo.org/service/api-datos-protegidos> .
+    dcat:accessService <http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos> .
 
 
 # ============================================================================
 # DATASET 3: DATOS AGREGADOS DE EJEMPLO (RESTRICTED)
 # ============================================================================
 
-<http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo>
+<http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo>
     a dcat:Dataset ;
     
     # === CONVENCIÓN 25: PROPIEDADES OBLIGATORIAS ===
@@ -394,7 +394,7 @@
     
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
     
-    dcat:distribution <http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo/dist/xlsx> ;
+    dcat:distribution <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo/dist/xlsx> ;
     
     # === PROPIEDADES OBLIGATORIAS DCAT-AP-ES ===
     
@@ -430,12 +430,12 @@
         vcard:fn "Punto de Contacto - Datos Sectoriales de Ejemplo"@es ;
         vcard:hasEmail <mailto:sectorial@ejemplo.org> ;
         vcard:hasTelephone <tel:+34-900333333> ;
-        vcard:hasURL <http://dcat-ap-es.ejemplo.org/solicitudes/datos-agregados> ;
+        vcard:hasURL <http://nsip.dcat-ap-es.ejemplo.org/solicitudes/datos-agregados> ;
         vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
         vcard:organization-name "Organización Sectorial de Ejemplo"@es
     ] ;
     
-    dcat:landingPage <http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo> ;
+    dcat:landingPage <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo> ;
     
     dcat:temporalResolution "P3M"^^xsd:duration . 
 
@@ -444,15 +444,15 @@
 # DISTRIBUCIÓN 3.1: EXCEL (CONVENCIÓN 26)
 # ============================================================================
 
-<http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo/dist/xlsx>
+<http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo/dist/xlsx>
     a dcat:Distribution ;
     
     # === CONVENCIÓN 26: PROPIEDADES OBLIGATORIAS ===
     
-    dcat:accessURL <http://dcat-ap-es.ejemplo.org/solicitud-acceso/datos-agregados-xlsx> ;
+    dcat:accessURL <http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-agregados-xlsx> ;
     dcat:byteSize 34567890 ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/XLSX> ;
-    dct:rights <http://dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-analisis> ;
+    dct:rights <http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-analisis> ;
     
     # === PROPIEDADES ADICIONALES ===
     
@@ -473,14 +473,14 @@
     dcat:mediaType <https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet> ;
     dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
     
-    foaf:page <http://dcat-ap-es.ejemplo.org/docs/datos-agregados-guia> . 
+    foaf:page <http://nsip.dcat-ap-es.ejemplo.org/docs/datos-agregados-guia> . 
 
 
 # ============================================================================
 # DATA SERVICE:  API DE DATOS PROTEGIDOS DE EJEMPLO (CONVENCIÓN 27)
 # ============================================================================
 
-<http://dcat-ap-es.ejemplo.org/service/api-datos-protegidos>
+<http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos>
     a dcat:DataService ;
     
     dct:title "API de Ejemplo para Datos Protegidos"@es,
@@ -495,9 +495,9 @@
     
     dcat:endpointDescription <http://api.dcat-ap-es.ejemplo.org/v1/openapi.json> ;
     
-    dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo>,
-                       <http://dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo>,
-                       <http://dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo> ;
+    dcat:servesDataset <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo>,
+                       <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo>,
+                       <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo> ;
     
     dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
     
@@ -516,6 +516,8 @@
     
     dcat:keyword "API"@en, "ejemplo"@es, "OAuth2"@en, "NSIP"@en, "datos protegidos"@es, "protected data"@en, "example"@en ;
     
+    dcat:theme <http://datos.gob.es/kos/sector-publico/sector/sector-publico> ;
+
     dct:issued "2024-01-01"^^xsd:date ;
     dct:modified "2025-12-18"^^xsd:date ;
     
@@ -524,10 +526,10 @@
         vcard:fn "Soporte Técnico API de Ejemplo"@es ;
         vcard:hasEmail <mailto:api-soporte@ejemplo.org> ;
         vcard:hasTelephone <tel:+34-900444444> ;
-        vcard:hasURL <http://dcat-ap-es.ejemplo.org/soporte> ;
+        vcard:hasURL <http://nsip.dcat-ap-es.ejemplo.org/soporte> ;
         vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
         vcard:organization-name "Organización de Ejemplo"@es
     ] ;
     
-    dcat:landingPage <http://dcat-ap-es.ejemplo.org/api> ;
-    foaf:page <http://dcat-ap-es.ejemplo.org/docs/api-reference> .
+    dcat:landingPage <http://nsip.dcat-ap-es.ejemplo.org/api> ;
+    foaf:page <http://nsip.dcat-ap-es.ejemplo.org/docs/api-reference> .
