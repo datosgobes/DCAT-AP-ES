@@ -213,25 +213,24 @@ dcatapes:Catalog_Shape
     [
         # Convencion 11
         sh:path dcat:themeTaxonomy ;
-        sh:in (
-            <http://datos.gob.es/kos/sector-publico/sector> 
-            <http://publications.europa.eu/resource/authority/data-theme>
-            <http://inspire.ec.europa.eu/theme>
-            );
-        sh:severity sh:Violation ;
+        sh:or (
+            [ sh:hasValue <http://datos.gob.es/kos/sector-publico/sector> ]
+            [ sh:hasValue <http://publications.europa.eu/resource/authority/data-theme> ]
+            [ sh:hasValue <http://inspire.ec.europa.eu/theme> ]
+        );
+        sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11> ;
-        sh:message "Sólo pueden estar presentes las taxonomías <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> y <http://inspire.ec.europa.eu/theme>. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@es ;
-        sh:message "Only the them taxonomies <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> and <http://inspire.ec.europa.eu/theme> can be present. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@en ;
+        sh:message "Se recomienda utilizar las taxonomías estándar: <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> o <http://inspire.ec.europa.eu/theme>. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@es ;
+        sh:message "It is recommended to use standard taxonomies: <http://datos.gob.es/kos/sector-publico/sector>, <http://publications.europa.eu/resource/authority/data-theme> or <http://inspire.ec.europa.eu/theme>. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@en ;
     ],    
     [
-        # Convencion 11
+        # Convencion 30
         sh:path dcat:themeTaxonomy ;
         sh:minCount 1 ;
-        sh:maxCount 3 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11> ;
-        sh:message "El catálogo debe tener entre 1 y 3 valores para dcat:themeTaxonomy. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@es ;
-        sh:message "The catalog must have between 1 and 3 values for dcat:themeTaxonomy. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11"@en ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30> ;
+        sh:message "El catálogo debe tener al menos 1 valor para dcat:themeTaxonomy. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30"@es ;
+        sh:message "The catalog must have at least 1 value for dcat:themeTaxonomy. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30"@en ;
     ] ,
 
     #dct:issued
@@ -653,4 +652,40 @@ dcatapes:CatalogSPALanguageRestriction
     sh:node dcatapes:SpanishDescriptionRestriction ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+    sh:targetClass dcat:Catalog .
+
+# Convencion 30
+dcatapes:CatalogThemeTaxonomyCoherence
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que las taxonomías utilizadas en los temas de datasets y servicios estén declaradas en dcat:themeTaxonomy del catálogo."@es ;
+    rdfs:comment "Restriction to validate that the taxonomies used in dataset and service themes are declared in the catalog's dcat:themeTaxonomy."@en ;
+    rdfs:label "Restricción de coherencia entre taxonomías y temas"@es ;
+    rdfs:label "Theme taxonomy coherence restriction"@en ;
+    sh:name "Theme Taxonomy Coherence"@en ;
+    sh:name "Coherencia de taxonomías de temas"@es ;
+    sh:sparql [
+        sh:message "Los temas utilizados en datasets o servicios provienen de taxonomías que no están declaradas en dcat:themeTaxonomy del catálogo. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30"@es ;
+        sh:message "Themes used in datasets or services come from taxonomies not declared in the catalog's dcat:themeTaxonomy. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30"@en ;
+        sh:select """
+            PREFIX dcat: <http://www.w3.org/ns/dcat#>
+            
+            SELECT DISTINCT $this ?theme ?themeNamespace
+            WHERE {
+
+                $this (dcat:dataset|dcat:service) ?resource .
+                ?resource dcat:theme ?theme .
+                
+                BIND(REPLACE(STR(?theme), "^(.*/)[^/]*$", "$1") AS ?themeNamespaceStr)
+                BIND(REPLACE(?themeNamespaceStr, "/$", "") AS ?themeNamespace)
+                
+                # Verificar que el namespace NO esté en themeTaxonomy
+                FILTER NOT EXISTS {
+                    $this dcat:themeTaxonomy ?taxonomy .
+                    FILTER(STR(?taxonomy) = ?themeNamespace)
+                }
+            }
+        """ ;
+    ] ;
+    sh:severity sh:Info ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30> ;
     sh:targetClass dcat:Catalog .

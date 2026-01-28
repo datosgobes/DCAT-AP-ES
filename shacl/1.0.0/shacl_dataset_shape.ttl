@@ -198,6 +198,7 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation
     ],
     [
+        # Convencion 30
         sh:path dcat:theme ;
         sh:nodeKind sh:IRI ;
         sh:or(
@@ -211,7 +212,10 @@ dcatapes:Dataset_Shape
                 sh:node dcatapes:InspireDataThemeRestriction ;
             ]
         );
-        sh:severity sh:Violation
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30> ;
+        sh:message "Se recomienda que los temas provengan de los vocabularios estándar: sectores NTI, temas europeos o temas INSPIRE. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30"@es ;
+        sh:message "It is recommended that themes come from standard vocabularies: NTI sectors, European themes or INSPIRE themes. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30"@en
     ],
 
     # dcat:Distribution
