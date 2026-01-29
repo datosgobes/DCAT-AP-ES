@@ -173,7 +173,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | --- | --- | --- | --- | --- | --- |
 | Nombre | Nombre del servicio de datos | [title](#DataService.title) | Ob | 1..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 | URL de acceso | URL en la que se publica el servicio. | [endpointURL](#DataService.endpointURL) | Ob | 1..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
-| Categoría de HVD | Categoría de dato de alto valor | [hvdCategory](#DataService.hvdCategory) | Op[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Categoría de HVD | Categoría de dato de alto valor | [hvdCategory](#DataService.hvdCategory) | Op[^2]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 | Punto de contacto | Información de contacto sobre el servicio de datos HVD | [contactPoint](#DataService.contactPoint) | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**vcard:Kind**](http://www.w3.org/2006/vcard/ns#Kind) |
 | Documentación | Documento relevante sobre el servicio de datos HVD | [page](#DataService.page) | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
 | Temática(s) | Temática o categoría principal del servicio de datos. | [theme](#DataService.theme) | Ob | 1..n | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
@@ -195,7 +195,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Publicador | Organización que publica el conjunto de datos. | [publisher](#Dataset.publisher) | Ob | 1..1 | [**foaf:Agent**](#Agent) |
 | Temática(s) | Temática o categoría principal del conjunto de datos. | [theme](#Dataset.theme) | Ob | 1..n | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 | Distribución(es) | Recursos del conjunto de datos en sus posibles formatos. | [distribution](#Dataset.distribution) | R[^1]<br>Ob (HVD) | 1..n | [**dcat:Distribution**](#Distribution) |
-| Categoría de HVD | Categoría de dato de alto valor | [hvdCategory](#Dataset.hvdCategory) | Op[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Categoría de HVD | Categoría de dato de alto valor | [hvdCategory](#Dataset.hvdCategory) | Op[^2]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 | Etiqueta(s) | Etiqueta(s) textual(es) para categorizar libremente el conjunto de datos. | [keyword](#Dataset.keyword) | R | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 | Punto de contacto | Información de contacto sobre el conjunto de datos | [contactPoint](#Dataset.contactPoint) | R | 0..n | [**vcard:Kind**](http://www.w3.org/2006/vcard/ns#Kind) |
 | Cobertura temporal | Fecha inicial y final del período cubierto por el conjunto de datos. | [temporal](#Dataset.temporal) | R | 0..n | [**dct:PeriodOfTime**](#PeriodOfTime) |
@@ -2533,3 +2533,4 @@ La lista siguiente indica las especificaciones adicionales respecto a la versió
 - Ajustes en referencias a vocabularios controlados para asegurar su disponibilidad y persistencia
 
 [^1]: Obligatorio cuando se trata de datos de alto valor, en otro caso, recomendado.
+[^2]: Obligatorio cuando se trata de datos de alto valor, en otro caso, opcional.
