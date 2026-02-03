@@ -931,8 +931,8 @@ dcatapes:DurationDescription_Shape
     );
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualPeriodicity> ;
-    sh:message "Un time:DurationDescription de un dct:Frequency debe tener exactamente una de las propiedades: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, o time:seconds. Los valores de estas propiedades deben usar el tipo de dato xsd:integer o xsd:nonNegativeInteger."@es ;
-    sh:message "A time:DurationDescription of a dct:Frequency must have exactly one of the properties: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, or time:seconds. The values of these properties must use the datatype xsd:integer or xsd:nonNegativeInteger."@en .
+    sh:message "Un time:DurationDescription de un dct:Frequency debe tener exactamente una de las propiedades: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, o time:seconds. Los valores deben ser xsd:decimal no negativos según la ontología OWL Time."@es ;
+    sh:message "A time:DurationDescription of a dct:Frequency must have exactly one of the properties: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, or time:seconds. Values must be non-negative xsd:decimal according to the OWL Time ontology."@en .
 
 dcatapes:Frequency_Shape
     a sh:NodeShape ;
@@ -1095,7 +1095,7 @@ dcatapes:TimeDaysRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:days ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1104,7 +1104,7 @@ dcatapes:TimeHoursRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:hours ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1113,7 +1113,7 @@ dcatapes:TimeMinutesRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:minutes ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1122,7 +1122,7 @@ dcatapes:TimeMonthsRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:months ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1131,7 +1131,7 @@ dcatapes:TimeSecondsRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:seconds ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1140,7 +1140,7 @@ dcatapes:TimeWeeksRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:weeks ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1149,7 +1149,7 @@ dcatapes:TimeYearsRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:years ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .

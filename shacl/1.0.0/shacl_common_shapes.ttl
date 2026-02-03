@@ -770,6 +770,21 @@ dcatapes:NonNegativeIntegerRestriction
     sh:message "The value must be a non-negative integer with datatype xsd:integer or xsd:nonNegativeInteger"@en ;
     sh:severity sh:Violation .
 
+dcatapes:DecimalRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que un valor sea un número decimal no negativo, incluyendo cero."@es ;
+    rdfs:comment "Restriction to validate that a value is a non-negative decimal, including zero."@en ;
+    rdfs:label "Restricción de decimal no negativo"@es ;
+    rdfs:label "Non-negative Decimal Restriction"@en ;
+    sh:name "Non-negative Decimal"@en ;
+    sh:name "Número decimal no negativo"@es ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0 ;
+    sh:message "El valor debe ser xsd:decimal no negativo (mayor o igual a 0) según lo definido en la ontología OWL Time."@es ;
+    sh:message "The value must be a non-negative xsd:decimal (greater than or equal to 0) as defined in the OWL Time ontology."@en ;
+    sh:severity sh:Violation .
+
 dcatapes:PublicSectorRestriction
     a sh:NodeShape ;
     rdfs:comment "NTI-RISP sector vocabulary restriction."@en ;
