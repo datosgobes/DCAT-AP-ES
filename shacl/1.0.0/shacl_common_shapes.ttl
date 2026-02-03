@@ -766,8 +766,8 @@ dcatapes:NonNegativeIntegerRestriction
         ]
     ) ;
     sh:pattern "^[0-9]+$" ; # Número positivo, incluyendo 0
-    sh:message "El valor debe ser un número entero no negativo."@es ;
-    sh:message "The value must be a non-negative integer."@en ;
+    sh:message "El valor debe ser un número entero no negativo con tipo de dato xsd:integer o xsd:nonNegativeInteger"@es ;
+    sh:message "The value must be a non-negative integer with datatype xsd:integer or xsd:nonNegativeInteger"@en ;
     sh:severity sh:Violation .
 
 dcatapes:PublicSectorRestriction

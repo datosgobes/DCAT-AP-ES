@@ -931,8 +931,8 @@ dcatapes:DurationDescription_Shape
     );
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualPeriodicity> ;
-    sh:message "Un time:DurationDescription de un dct:Frequency debe tener exactamente una de las propiedades: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, o time:seconds."@es ;
-    sh:message "A time:DurationDescription of a dct:Frequency must have exactly one of the properties: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, or time:seconds."@en .
+    sh:message "Un time:DurationDescription de un dct:Frequency debe tener exactamente una de las propiedades: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, o time:seconds. Los valores de estas propiedades deben usar el tipo de dato xsd:integer o xsd:nonNegativeInteger."@es ;
+    sh:message "A time:DurationDescription of a dct:Frequency must have exactly one of the properties: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, or time:seconds. The values of these properties must use the datatype xsd:integer or xsd:nonNegativeInteger."@en .
 
 dcatapes:Frequency_Shape
     a sh:NodeShape ;
