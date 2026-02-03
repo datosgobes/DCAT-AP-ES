@@ -270,11 +270,17 @@ dcatapes:Dataset_Shape
         sh:path dcat:contactPoint ;
         sh:node dcatapes:VcardKindMinimalConvention ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
+        sh:message "Se recomienda que el punto de contacto utilice vcard:fn, vcard:hasTelephone y vcard:hasUID. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19"@es ;
+        sh:message "It is recommended that the contact point uses vcard:fn, vcard:hasTelephone, and vcard:hasUID. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19"@en ;
     ],
     [
         sh:path dcat:contactPoint ;
         sh:node dcatapes:VcardKindRestriction2 ;
-        sh:severity sh:Violation
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.contactPoint> ;
+        sh:message "Debe proporcionarse al menos un vcard:hasEmail o vcard:hasURL."@es ;
+        sh:message "At least one of vcard:hasEmail or vcard:hasURL must be provided."@en ;
     ],
     [
         sh:path dcat:contactPoint ;
