@@ -330,6 +330,9 @@ dcatapes:Distribution_Shape
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
+        sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
+        sh:message "The value must be data typed as either xsd:date, xsd:dateTime, xsd:gYear, or xsd:gYearMonth and follow the ISO-8601 format."@en ;
     ],
     [
         sh:path dct:issued ;
@@ -344,6 +347,9 @@ dcatapes:Distribution_Shape
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
+        sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
+        sh:message "The value must be data typed as either xsd:date, xsd:dateTime, xsd:gYear, or xsd:gYearMonth and follow the ISO-8601 format."@en ;
     ], 
     [
         sh:path dct:modified ;
