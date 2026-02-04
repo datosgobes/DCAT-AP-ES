@@ -562,8 +562,8 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasTelephone ;
         sh:minCount 1; 
         sh:severity sh:Warning ;
-        sh:message "Un vcard:Kind debería contener al menos un vcard:hasTelephone."@es ;
-        sh:message "A vcard:Kind should contain at least one vcard:hasTelephone."@en ;
+        sh:message "Un vcard:Kind debería incluir al menos un vcard:hasTelephone."@es ;
+        sh:message "A vcard:Kind should include at least one vcard:hasTelephone."@en ;
     ],
     [
         sh:path vcard:hasTelephone ;
@@ -584,8 +584,8 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasURL ;
         sh:minCount 1; 
         sh:severity sh:Warning ;
-        sh:message "Un vcard:Kind debería contener al menos un vcard:hasURL."@es ;
-        sh:message "A vcard:Kind should contain at least one vcard:hasURL."@en ;
+        sh:message "Un vcard:Kind debería incluir al menos un vcard:hasURL."@es ;
+        sh:message "A vcard:Kind should include at least one vcard:hasURL."@en ;
     ].
     #sh:targetClass vcard:Kind .
 
