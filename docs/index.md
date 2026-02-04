@@ -88,6 +88,13 @@ Se enumerarán a continuación vocabularios genéricos que configuran el espacio
 ## Vocabularios controlados utilizados en el modelo {#dcat-ap-es-vocabularies}
 Para garantizar la coherencia e interoperabilidad entre catálogos de datos, DCAT-AP-ES recomienda el uso de vocabularios controlados para cada propiedad. La siguiente tabla muestra los vocabularios recomendados, su relación con las entidades descritas explicitamente en el perfil y las URIs que corresponden, cuyo uso puede ser obligatorio en algunos casos según las especificaciones del modelo.
 
+!!! info "Nota sobre mapeos de vocabularios"
+
+    En los Anexos de las convenciones de datos.gob.es se incluyen mapeos detallados entre la taxonomía de sectores primarios NTI-RISP, Temáticas DCAT-AP e INSPIRE:
+
+    - [Anexo 1. Tabla de mapeo de sectores primarios a Temáticas de datos DCAT-AP](conventions.md#annex-1-mapping-nti-themes-dcatap-themes)
+    - [Anexo 2. Tabla de mapeo entre Temas INSPIRE y Temáticas DCAT-AP](conventions.md#annex-2-mapping-inspire-themes-dcatap-themes)
+  
 | **Propiedad** | **Clase** | **Vocabulario** | **URI del vocabulario** |
 | --- | --- | --- | --- |
 | [**adms:status**](http://www.w3.org/ns/adms#status) | [`CatalogRecord`](#CatalogRecord) | [Concept status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/authority/concept-status) | `http://publications.europa.eu/resource/authority/concept-status` |

@@ -85,7 +85,14 @@ Below, generic vocabularies that configure the namespaces reused in the implemen
 
 ## Controlled Vocabularies used in the model {#dcat-ap-es-vocabularies}
 
-The following is a list of properties that must be adjusted using the controlled vocabularies indicated in the table below, in order to guarantee a minimum level of interoperability.
+To ensure consistency and interoperability among data catalogs, DCAT-AP-ES recommends the use of controlled vocabularies for each property. The following table shows the recommended vocabularies, their relationship with the entities explicitly described in the profile, and the corresponding URIs, whose use may be mandatory in some cases according to the model specifications.
+
+!!! info "Note on vocabulary mappings"
+    
+    The Annexes of the datos.gob.es conventions include detailed mappings between the NTI-RISP primary sector taxonomy, DCAT-AP Data Themes, and INSPIRE:
+    
+    - [Annex 1. Mapping table of primary sectors to DCAT-AP Data Themes](conventions.en.md#annex-1-mapping-nti-themes-dcatap-themes)
+    - [Annex 2. Mapping table between INSPIRE Themes and DCAT-AP Data Themes](conventions.en.md#annex-2-mapping-inspire-themes-dcatap-themes)
 
 | **Property** | **Entity** | **Vocabulary** | **Vocabulary URI** |
 | --- | --- | --- | --- |
