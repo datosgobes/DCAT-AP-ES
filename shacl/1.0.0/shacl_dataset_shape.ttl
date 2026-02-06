@@ -1098,17 +1098,10 @@ dcatapes:Frequency_Shape
     # En lugar de sh:targetClass dct:Frequency, usa un target más específico
     sh:target [
         a sh:SPARQLTarget ;
-        sh:prefixes [
-            sh:declare [
-                sh:prefix "dct" ;
-                sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            ] ;
-            sh:declare [
-                sh:prefix "rdf" ;
-                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
-            ]
-        ] ;
         sh:select """
+            PREFIX dct: <http://purl.org/dc/terms/>
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            
             SELECT ?this WHERE {
                 ?this a dct:Frequency .
                 # Excluir URIs del vocabulario oficial
