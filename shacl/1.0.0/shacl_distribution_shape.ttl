@@ -617,11 +617,11 @@ dcatapes:NSIPDistributionConvention
             PREFIX dcat:  <http://www.w3.org/ns/dcat#>
             PREFIX dct: <http://purl.org/dc/terms/>
             
-            SELECT ? this WHERE {
+            SELECT ?this WHERE {
                 ?dataset a dcat:Dataset ;
                          dct:accessRights ?accessRights ;
                          dcat:distribution ?this .
-                ? this a dcat:Distribution . 
+                ?this a dcat:Distribution . 
                 FILTER(
                     ?accessRights = <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ||
                     ?accessRights = <http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC>
