@@ -27,6 +27,21 @@ Secciones:
 
     [:octicons-arrow-right-24: Ver más](index.md)
 
+-   :material-clipboard-text:{ .lg .middle .grid-emoji } **Convenciones datos.gob.es**{ .grid-title #conventions-dcat-ap-es }
+
+    ---
+
+    Complemento de DCAT-AP-ES que define reglas adicionales para abordar necesidades prácticas para federar con el catálogo nacional de [datos.gob.es](https://datos.gob.es/).
+
+    [:octicons-arrow-right-24: Ver más](conventions.md)
+
+-   :material-link-variant:{ .lg .middle .grid-emoji } **¿Relación entre convenciones y DCAT-AP-ES?**{ .grid-title #relacion-convenciones }
+
+    ---
+
+    Mientras que DCAT-AP-ES define el modelo base, las convenciones establecen directrices para resolver casos prácticos concretos sin modificarlo.
+
+    [:octicons-arrow-right-24: Tipos](conventions.md#lista_de_convenciones)
 
 -   :fontawesome-solid-plus:{ .lg .middle .grid-emoji } **¿Principales novedades de DCAT-AP-ES?**{ .grid-title #novedades }
 
@@ -48,7 +63,7 @@ Secciones:
 
     ---
 
-    DCAT-AP-ES está previsto que entre en vigor en 2025, tras la aprobación de la nueva NTI-RISP, el día siguiente a su publicación en el BOE.
+    DCAT-AP-ES está previsto que entre en vigor en los próximos meses, tras la aprobación de la nueva NTI-RISP, el día siguiente a su publicación en el BOE.
 
     [:octicons-arrow-right-24: NTI-RISP](https://www.boe.es/eli/es/res/2013/02/19/(4))
 

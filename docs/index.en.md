@@ -6,6 +6,9 @@ The metadata is described based on the Semantic Web paradigm, which implements r
 
 The application profile, hereinafter referred to as DCAT-AP-ES, is the metadata model included in the new version of the Public Sector Information Resources Interoperability Technical Standard ([NTI-RISP](https://datos.gob.es/en/doc-tags/nti-risp)), which is currently under administrative processing. The model adopts the guidelines of the European metadata exchange schema DCAT-AP with some additional restrictions and adjustments. This application profile is in turn based on the DCAT specification, an RDF vocabulary created with the objective of improving interoperability among online data catalogs, developed by the [Data Exchange Working Group](https://www.w3.org/2017/dxwg/) since it was published as a W3C Recommendation in 2014. The European profile version used as a reference for the preparation of DCAT-AP-ES is [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211), together with the elements described in the extension [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) to incorporate the modeling of [High Value Datasets](https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir).
 
+!!! info "About conformance with DCAT-AP and SEMIC Guidelines"
+    [DCAT-AP-ES is **aligned with DCAT-AP 2.1.1** and has been assessed against the **SEMIC DCAT-AP reuse guidelines**](#semic-reuse-guidelines), achieving **approximately 94% overall conformance**, with **three non-critical improvement actions**.
+
 As is known, an open data catalog may consist solely of datasets or data services, although it is common to have both datasets and services represented by instances of the classes and properties specified in this model.
 
 In this document, the main classes of the application profile are detailed: Catalog, Dataset, Distribution, and Data Service, as well as other classes relevant for providing comprehensive descriptive information about the reusable resources cataloged according to the DCAT-AP-ES model. The set of controlled vocabularies that must be used to harmonize the properties describing the cataloged elements is also specified.
@@ -82,7 +85,14 @@ Below, generic vocabularies that configure the namespaces reused in the implemen
 
 ## Controlled Vocabularies used in the model {#dcat-ap-es-vocabularies}
 
-The following is a list of properties that must be adjusted using the controlled vocabularies indicated in the table below, in order to guarantee a minimum level of interoperability.
+To ensure consistency and interoperability among data catalogs, DCAT-AP-ES recommends the use of controlled vocabularies for each property. The following table shows the recommended vocabularies, their relationship with the entities explicitly described in the profile, and the corresponding URIs, whose use may be mandatory in some cases according to the model specifications.
+
+!!! info "Note on vocabulary mappings"
+    
+    The Annexes of the datos.gob.es conventions include detailed mappings between the NTI-RISP primary sector taxonomy, DCAT-AP Data Themes, and INSPIRE:
+    
+    - [Annex 1. Mapping table of primary sectors to DCAT-AP Data Themes](conventions.en.md#annex-1-mapping-nti-themes-dcatap-themes)
+    - [Annex 2. Mapping table between INSPIRE Themes and DCAT-AP Data Themes](conventions.en.md#annex-2-mapping-inspire-themes-dcatap-themes)
 
 | **Property** | **Entity** | **Vocabulary** | **Vocabulary URI** |
 | --- | --- | --- | --- |
@@ -100,3 +110,41 @@ The following is a list of properties that must be adjusted using the controlled
 | **dct:type** | Agent | [ADMS publisher type vocabulary](http://purl.org/adms/publishertype/1.0) | `http://purl.org/adms/publishertype/1.0` |
 | **dct:type** | Dataset | [Dataset type](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/dataset-type) | `http://publications.europa.eu/resource/authority/dataset-type` |
 | **adms:status** | Distribution | [Distribution status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/distribution-status) | `http://publications.europa.eu/resource/authority/distribution-status` |
+
+# Conformance
+
+## DCAT-AP
+
+### SEMIC Guidelines for Publishing DCAT-AP Profiles (*DCAT-AP reuse guidelines*) {#semic-reuse-guidelines}
+
+The DCAT-AP-ES profile has been evaluated against the official SEMIC guidelines for creating DCAT-AP profiles (["*How to create your DCAT-AP profile*"](https://semiceu.github.io/DCAT-AP-reuse-guidelines/)). The analysis concludes **approximately 94% overall conformity**, with **3 non-critical actions** focused on governance and formal publication of LOD vocabularies. The profile is based on DCAT-AP 2.1.1 and aligns with the main restrictions effectively.
+
+#### Detailed Results
+
+!!! note "Summary (01/2026)"
+    - **Profile evaluated:** DCAT-AP-ES
+    - **Overall conformity:** **94%** (technically compliant)
+    - **Non-critical improvement areas:** open governance, content negotiation, and SKOS publication
+    - **Reference:** [SEMIC Guidelines](https://semiceu.github.io/DCAT-AP-reuse-guidelines/)
+
+=== "Step 4 · Creation Methodology"
+
+    | Aspect | Status | Key Evidence | Required Action |
+    | --- | --- | --- | --- |
+    | **4.1 Based on DCAT-AP** | ✅ Compliant | Based on [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) + [HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) | None |
+    | **4.2 Use Case Resolution** | ✅ Compliant | Direct reuse and valid adjustments | None |
+    | **4.3 Open Governance** | ⚠️ Partial | [Public repository](https://github.com/datosgobes/DCAT-AP-ES) and management of [Issues](https://github.com/datosgobes/DCAT-AP-ES/issues)/[Discussions](https://github.com/datosgobes/DCAT-AP-ES/discussions) | Formal public consultation and minutes |
+    | **4.4 Profile Publication** | ✅ Compliant | [HTML](/), [SHACL](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/), URIs, [SEMIC registry](https://github.com/SEMICeu/DCAT-AP/issues/451) | None |
+
+=== "Step 5 · Specific Situations"
+
+    | Aspect | Status | Key Evidence | Required Action |
+    | --- | --- | --- | --- |
+    | **5.1 Linked Data and Dereference** | ⚠️ Substantial | Persistent URIs, lacking content negotiation | Document negotiation<br>Publish SKOS vocabularies |
+    | **5.2 Semantic Fit** | ✅ Compliant | Semantic coherence preserved | None |
+    | **5.3 Controlled Vocabularies** | ✅ Compliant | Maintains MUST and additional mappings | None | 
+    | **5.4 Property Range** | ✅ Compliant | No incompatible changes | None |
+    | **5.5 New Properties** | ✅ Not applicable | No new properties created | None |
+    | **5.6 Cardinalities** | ✅ Compliant | Only allowed tightenings | None |
+    | **5.7 Scope and Definitions** | ✅ Compliant | Context documented | None |
+    | **5.8 External Vocabularies** | ✅ Compliant | Correct references (vCard, ELI) | None |
