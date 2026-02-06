@@ -30,7 +30,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 03**](#convencion-03): Los identificadores y referencias URI *DEBERÍAN* utilizar el esquema `http://` en lugar de `https://` como norma general.
 - [**Convención 04**](#convencion-04): Los organismos *DEBERÍAN* implementar la federación automática mediante RDF como único método de publicación de metadatos en formato DCAT-AP-ES, evitando la coexistencia de federación manual y automática para un mismo organismo.
 - [**Convención 05**](#convencion-05): Las URIs *DEBEN* estar correctamente codificadas en su origen, especialmente cuando contengan: 1. Caracteres reservados (`?`, `&`, `=`, `#`, etc.) 2. Espacios 3. Caracteres no ASCII (acentos, `ñ`, etc.) 4. Caracteres especiales (`<`, `>`, `"`, `{`, `}`, `|`, `\`, `^`, `~`, `[`, `]`, `` ` ``)
-- [**Convención 06**](#convencion-06): Los recursos *DEBEN* tener un identificador único y persistente que cumpla los siguientes requisitos: 1. Incluir la propiedad `dct:identifier` con un valor único para cada recurso. 2. Mantener la coherencia del identificador aunque el recurso se actualice. 3. Usar el mismo identificador cuando el recurso se publique en diferentes catálogos.
+- [**Convención 06**](#convencion-06): Los recursos *DEBEN* tener un identificador único y persistente que cumpla los siguientes requisitos: 1. Incluir la propiedad `dct:identifier` con un valor único para cada recurso. 2. Mantener la coherencia del identificador aunque el recurso se actualice. 3. Usar el mismo identificador cuando el recurso se publique en diferentes catálogos. 4. Generar, mantener y gestionar el identificador por el publicador del recurso, siendo externo a [datos.gob.es](https://datos.gob.es/)
 - [**Convención 07**](#convencion-07): Las referencias a documentos legales *DEBEN* utilizar identificadores ELI cuando estén disponibles: 1. Para legislación europea: `http://data.europa.eu/eli/...` 2. Para legislación nacional: `https://www.boe.es/eli/...` 3. Para documentos derivados usar la URI ELI del documento principal
 - [**Convención 08**](#convencion-08): Las fechas de creación y modificación de recursos *DEBEN* cumplir los siguientes requisitos: 1. La fecha de modificación (`dct:modified`) *DEBE* ser posterior a la fecha de creación (`dct:created`) 2. La fecha de modificación *DEBE* reflejar el último cambio en los datos, no en los metadatos
 - [**Convención 09**](#convencion-09): Se *DEBE* utilizar un único catálogo por organismo publicador, evitando el uso de subcatálogos mediante `dct:hasPart`. Las relaciones entre recursos *DEBEN* modelarse usando las siguientes propiedades según corresponda.
@@ -146,7 +146,7 @@ Para garantizar la validez del RDF y evitar problemas de procesamiento, todas la
 
 ## Identificadores únicos y persistentes {#general-resource-identifier}
 
-Para garantizar la correcta identificación y trazabilidad de los recursos a lo largo del tiempo, así como evitar duplicidades durante la federación desde múltiples fuentes, es necesario establecer un sistema de identificadores únicos y persistentes dado que el identificador (`dct:identifier`) es la propiedad que permite la identificación única e inequívoca del conjunto de datos. 
+Para garantizar la correcta identificación y trazabilidad de los recursos a lo largo del tiempo, así como evitar duplicidades durante la federación desde múltiples fuentes, es necesario establecer un sistema de identificadores únicos y persistentes dado que el identificador (`dct:identifier`) es la propiedad que permite la identificación única e inequívoca del conjunto de datos.
 
 !!! must technical "Convención 06"
     Los recursos **DEBEN** tener un identificador único y persistente que cumpla los siguientes requisitos:
@@ -154,6 +154,7 @@ Para garantizar la correcta identificación y trazabilidad de los recursos a lo 
     1. Incluir la propiedad `dct:identifier` con un valor único para cada recurso.
     2. Mantener la coherencia del identificador aunque el recurso se actualice.
     3. Usar el mismo identificador cuando el recurso se publique en diferentes catálogos.
+    4. Generar, mantener y gestionar el identificador por el publicador del recurso, siendo externo a [datos.gob.es](https://datos.gob.es/)
 
 !!! info "Ejemplo de identificadores coherentes"
     ```turtle linenums="1"
@@ -164,10 +165,20 @@ Para garantizar la correcta identificación y trazabilidad de los recursos a lo 
     - Los identificadores no deben cambiar aunque cambie la URI del recurso.
     - El mismo dataset publicado en diferentes catálogos debe mantener el mismo `dct:identifier`.
     - En caso de conflicto durante la federación, prevalecerá el último dataset federado según el orden establecido.
+    - Es responsabilidad exclusiva del publicador el mantenimiento, persistencia y unicidad del identificador. Los identificadores **NO PUEDEN** ser los asignados por datos.gob.es, ya que estos son ajenos y pueden cambiar por motivos internos.
+
+!!! info "Esquemas de identificadores recomendados"
+    
+    Se recomiendan los siguientes esquemas de identificadores:
+
+    | Esquema | Ejemplo | Uso recomendado |
+    |---------|---------|-----------------|
+    | **UUID v4** | `550e8400-e29b-41d4-a716-446655440000` | **Recomendado por defecto** para nuevos datasets sin identificador previo |
+    | **URI + UUID** | `http://{base}/catalogo/{UUID}` | Identificadores web-resolubles |
 
 !!! info "Nota sobre implementación"
     Para evitar duplicados durante la federación:
-    
+
     1. Coordinar con otros publicadores la asignación de identificadores.
     2. Documentar el esquema de identificadores utilizado.
     3. Mantener un registro de equivalencias entre identificadores de diferentes fuentes.
