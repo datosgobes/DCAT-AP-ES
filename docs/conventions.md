@@ -52,6 +52,8 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 25**](#convencion-25): Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se *DEBE* indicar: 1. `dct:title`: nombre dado al conjunto de datos. 2. `dct:description`: resumen del contenido en texto libre. 3. `dct:publisher`: entidad (organización) responsable de poner a disposición el conjunto de datos. 4. `dct:accessRights`: las restricciones de acceso con uno de los dos únicos valores posibles [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) o [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC) 5. `dcat:distribution`: al menos una distribución disponible para acceder al conjunto de datos.
 - [**Convención 26**](#convencion-26): Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se *DEBE* indicar: 1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso. 2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado). 3. `dct:format`: tipo de archivo (vocabulario `file-type`) 4. `dct:rights`: condiciones de reutilización aplicables a esta distribución.
 - [**Convención 27**](#convencion-27): Un conjunto de datos accesible vía NSIP/ERPD *DEBERÍA* relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
+- [**Convención 28**](#convencion-28): Para APIs con APIKey de *acceso universal* (registro automático sin aprobación manual), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `PUBLIC` e incluir `dcat:endpointDescription` con documento OpenAPI que especifique `securitySchemes` o documentar en `foaf:page` la documentación para obtener la clave.
+- [**Convención 29**](#convencion-29): Para APIs con APIKey de *acceso restringido* (requiere aprobación, contrato o pago), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso y `dcat:endpointDescription` con documento OpenAPI.
 
 # Convenciones generales {#general}
 
@@ -389,6 +391,43 @@ Para mejorar la interoperabilidad y descripción de servicios OGC (`WMS`, `WFS`,
     - Incluya la URL del `GetCapabilities` en `dcat:endpointDescription`
     - Vincule con los *datasets* servidos usando `dcat:servesDataset`
     - En `dcat:endpointURL` indicar la URL base del servicio sin parámetros.
+
+## APIs con autenticación mediante APIKey {#dataservice-apikey}
+
+Las APIs que requieren [*API Key*](https://swagger.io/docs/specification/v3_0/authentication/api-keys/) se clasifican según el [vocabulario access-right](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right) en dos categorías principales:
+
+!!! should semantic "Convención 28"
+    Para APIs con APIKey de **acceso universal** (registro automático sin aprobación manual), un `dcat:DataService` **DEBERÍA** usar `dct:accessRights` con valor `PUBLIC` e incluir `dcat:endpointDescription` con documento OpenAPI que especifique `securitySchemes` o documentar en `foaf:page` la documentación para obtener la clave.
+
+!!! should semantic "Convención 29"
+    Para APIs con APIKey de **acceso restringido** (requiere aprobación, contrato o pago), un `dcat:DataService` **DEBERÍA** usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso y `dcat:endpointDescription` con documento OpenAPI.
+
+!!! info "Ejemplo de descripción pública"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataservice-apikey-public.ttl"
+    ```
+
+!!! info "Ejemplo de descripción restringida"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataservice-apikey-restricted.ttl"
+    ```
+
+!!! warning "Importante"
+    Los `dcat:Dataset` y `dcat:Distribution` accesibles mediante API Key tendrían que ser coherentes con el `dct:accessRights` del `dcat:DataService` que los sirve. 
+
+!!! info "Nota sobre implementación"
+    Se considera **acceso universal** cuando: 
+    
+    - El registro es automático y sin aprobación manual
+    - No requiere contratos, [*SLAs*](https://es.wikipedia.org/wiki/Acuerdo_de_nivel_de_servicio) o acuerdos especiales
+    - Puede incluir límites técnicos (*rate limiting*, *geofencing*)
+
+    Se considera **acceso restringido** cuando: 
+    
+    - Requiere aprobación manual o revisión
+    - Exige firma de contratos, [*SLAs*](https://es.wikipedia.org/wiki/Acuerdo_de_nivel_de_servicio) o acuerdos de confidencialidad
+    - Tiene coste económico
+    - Está limitado a tipos específicos de usuarios/organizaciones
 
 # Convenciones para `dcat:Dataset` {#dataset}
 
