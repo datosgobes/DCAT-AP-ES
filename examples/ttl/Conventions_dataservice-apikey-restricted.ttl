@@ -7,6 +7,9 @@
     dcat:endpointURL <https://api.example.com/premium-data> ;
     dct:title "API de datos premium"@es ;
     dct:description "API que requiere contrato y aprobación para acceso"@es ;
+
+    # Documento OpenAPI legible por máquina
+    dcat:endpointDescription <https://example.org/endpoint/openapi.json> ;
     
     # Acceso restringido
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;

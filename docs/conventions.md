@@ -348,11 +348,11 @@ Para mejorar la interoperabilidad y descripción de servicios OGC (`WMS`, `WFS`,
 
 Las APIs que requieren [*API Key*](https://swagger.io/docs/specification/v3_0/authentication/api-keys/) se clasifican según el [vocabulario access-right](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right) en dos categorías principales:
 
-!!! should semantic "Convención 28"
-    Para APIs con APIKey de **acceso universal** (registro automático sin aprobación manual), un `dcat:DataService` **DEBERÍA** usar `dct:accessRights` con valor `PUBLIC` e incluir en `foaf:page` la documentación para obtener la clave. 
+!!! should semantic "Convención XX"
+    Para APIs con APIKey de **acceso universal** (registro automático sin aprobación manual), un `dcat:DataService` **DEBERÍA** usar `dct:accessRights` con valor `PUBLIC` e incluir `dcat:endpointDescription` con documento OpenAPI que especifique `securitySchemes` o documentar en `foaf:page` la documentación para obtener la clave.
 
-!!! should semantic "Convención 29"
-    Para APIs con APIKey de **acceso restringido** (requiere aprobación, contrato o pago), un `dcat:DataService` **DEBERÍA** usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso.
+!!! should semantic "Convención XY"
+    Para APIs con APIKey de **acceso restringido** (requiere aprobación, contrato o pago), un `dcat:DataService` **DEBERÍA** usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso y  `dcat:endpointDescription` con documento OpenAPI.
 
 !!! info "Ejemplo de descripción pública"
     ```turtle linenums="1"

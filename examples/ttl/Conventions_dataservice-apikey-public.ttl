@@ -7,7 +7,10 @@
     dcat:endpointURL <https://api.example.com/data> ;
     dct:title "API de datos abiertos de ejemplo"@es ;
     dct:description "API que requiere registro para obtener API key, pero abierta a todos"@es ;
-    
+
+    # Documento OpenAPI legible por máquina
+    dcat:endpointDescription <https://example.org/endpoint/openapi.json> ;
+
     # Acceso público con API key universal
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
     
