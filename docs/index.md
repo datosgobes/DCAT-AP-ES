@@ -6,6 +6,9 @@ Los metadatos se describen sobre la base del paradigma de la Web Semántica, que
 
 El perfil de aplicación, en adelante, DCAT-AP-ES, es el modelo de metadatos que se recoge en la nueva versión de la Norma Técnica de Interoperabilidad de Recursos de Información del Sector Público ([NTI-RISP](https://datos.gob.es/es/doc-tags/nti-risp)), que está en proceso de tramitación administrativa. El modelo adopta las directrices del esquema europeo de intercambio de metadatos DCAT-AP con algunas restricciones y ajustes adicionales, perfil de aplicación que a su vez, se basa en la especificación DCAT, un vocabulario RDF creado con el objetivo de mejorar la interoperabilidad entre catálogos de datos en línea que viene siendo desarrollada por el [Grupo de trabajo de intercambio de conjuntos de datos](https://www.w3.org/2017/dxwg/) desde que fue publicada como recomendación por W3C en 2014. La versión del perfil europeo que se toma como referencia para la elaboración de DCAT-AP-ES es [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) junto a los elementos descritos en la extensión [DCAT-AP HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) para incorporar el modelado de los [Conjuntos de datos de alto valor](https://datos.gob.es/es/noticia/europa-define-los-conjuntos-de-datos-de-alto-valor-que-el-sector-publico-tendra-que-abrir) (*High Value Datasets*).
 
+!!! info "Conformidad perfil (SEMIC)"
+    [DCAT-AP-ES ha sido evaluado conforme a las **directrices SEMIC para la reutilización de DCAT-AP**](#semic-reuse-guidelines), logrando una **conformidad global aproximada del 94%**, con **tres acciones de mejora no críticas**.
+
 Como es sabido, un catálogo de datos abiertos puede estar constituido únicamente por conjuntos de datos o por servicios de datos, aunque lo habitual será que cuente tanto conjuntos de datos como servicios y se representa mediante instancias de las clases y propiedades que se especifican en este modelo.
 
 En este documento, se detallan las clases principales del perfil de aplicación: Catálogo, Dataset, Distribución y Servicio de datos, así como otras clases relevantes para una completa información descriptiva de los elementos reutilizables catalogados de acuerdo con el modelo DCAT-AP-ES. Se especifica, además, el conjunto de vocabularios controlados que deben ser utilizados para ajustar las propiedades que describen los elementos catalogados.
@@ -72,6 +75,7 @@ Se enumerarán a continuación vocabularios genéricos que configuran el espacio
 | Location Core Vocabulary | [`locn:`](http://www.w3.org/ns/locn#) | `http://www.w3.org/ns/locn#` |
 | Web Ontology Document | [`owl:`](http://www.w3.org/2002/07/owl#) | `http://www.w3.org/2002/07/owl#` |
 | Open Digital Rights Language | [`odrl:`](http://www.w3.org/ns/odrl/2/) | `http://www.w3.org/ns/odrl/2/` |
+| Open Data Rights Statement Vocabulary | [`odrs:`](http://schema.theodi.org/odrs#) | `http://schema.theodi.org/odrs#` |
 | Prov Family of Documents | [`prov:`](http://www.w3.org/ns/prov#) | `http://www.w3.org/ns/prov#` |
 | Resource Description Framework | [`rdf:`](http://www.w3.org/1999/02/22-rdf-syntax-ns#) | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` |
 | Resource Description Framework Schema | [`rdfs:`](http://www.w3.org/2000/01/rdf-schema#) | `http://www.w3.org/2000/01/rdf-schema#` |
@@ -84,6 +88,13 @@ Se enumerarán a continuación vocabularios genéricos que configuran el espacio
 ## Vocabularios controlados utilizados en el modelo {#dcat-ap-es-vocabularies}
 Para garantizar la coherencia e interoperabilidad entre catálogos de datos, DCAT-AP-ES recomienda el uso de vocabularios controlados para cada propiedad. La siguiente tabla muestra los vocabularios recomendados, su relación con las entidades descritas explicitamente en el perfil y las URIs que corresponden, cuyo uso puede ser obligatorio en algunos casos según las especificaciones del modelo.
 
+!!! info "Nota sobre mapeos de vocabularios"
+
+    En los Anexos de las convenciones de datos.gob.es se incluyen mapeos detallados entre la taxonomía de sectores primarios NTI-RISP, Temáticas DCAT-AP e INSPIRE:
+
+    - [Anexo 1. Tabla de mapeo de sectores primarios a Temáticas de datos DCAT-AP](conventions.md#annex-1-mapping-nti-themes-dcatap-themes)
+    - [Anexo 2. Tabla de mapeo entre Temas INSPIRE y Temáticas DCAT-AP](conventions.md#annex-2-mapping-inspire-themes-dcatap-themes)
+  
 | **Propiedad** | **Clase** | **Vocabulario** | **URI del vocabulario** |
 | --- | --- | --- | --- |
 | [**adms:status**](http://www.w3.org/ns/adms#status) | [`CatalogRecord`](#CatalogRecord) | [Concept status](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/authority/concept-status) | `http://publications.europa.eu/resource/authority/concept-status` |
@@ -169,7 +180,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | --- | --- | --- | --- | --- | --- |
 | Nombre | Nombre del servicio de datos | [title](#DataService.title) | Ob | 1..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 | URL de acceso | URL en la que se publica el servicio. | [endpointURL](#DataService.endpointURL) | Ob | 1..n | [**rdfs:Resource**](http://www.w3.org/2000/01/rdf-schema#Resource) |
-| Categoría de HVD | Categoría de dato de alto valor | [hvdCategory](#DataService.hvdCategory) | Op[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Categoría de HVD | Categoría de dato de alto valor | [hvdCategory](#DataService.hvdCategory) | Op[^2]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 | Punto de contacto | Información de contacto sobre el servicio de datos HVD | [contactPoint](#DataService.contactPoint) | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**vcard:Kind**](http://www.w3.org/2006/vcard/ns#Kind) |
 | Documentación | Documento relevante sobre el servicio de datos HVD | [page](#DataService.page) | R[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
 | Temática(s) | Temática o categoría principal del servicio de datos. | [theme](#DataService.theme) | Ob | 1..n | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
@@ -191,7 +202,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Publicador | Organización que publica el conjunto de datos. | [publisher](#Dataset.publisher) | Ob | 1..1 | [**foaf:Agent**](#Agent) |
 | Temática(s) | Temática o categoría principal del conjunto de datos. | [theme](#Dataset.theme) | Ob | 1..n | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 | Distribución(es) | Recursos del conjunto de datos en sus posibles formatos. | [distribution](#Dataset.distribution) | R[^1]<br>Ob (HVD) | 1..n | [**dcat:Distribution**](#Distribution) |
-| Categoría de HVD | Categoría de dato de alto valor | [hvdCategory](#Dataset.hvdCategory) | Op[^1]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
+| Categoría de HVD | Categoría de dato de alto valor | [hvdCategory](#Dataset.hvdCategory) | Op[^2]<br>Ob (HVD) | 0..n<br>1..n (HVD) | [**skos:Concept**](http://www.w3.org/2004/02/skos/core#Concept) |
 | Etiqueta(s) | Etiqueta(s) textual(es) para categorizar libremente el conjunto de datos. | [keyword](#Dataset.keyword) | R | 0..n | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 | Punto de contacto | Información de contacto sobre el conjunto de datos | [contactPoint](#Dataset.contactPoint) | R | 0..n | [**vcard:Kind**](http://www.w3.org/2006/vcard/ns#Kind) |
 | Cobertura temporal | Fecha inicial y final del período cubierto por el conjunto de datos. | [temporal](#Dataset.temporal) | R | 0..n | [**dct:PeriodOfTime**](#PeriodOfTime) |
@@ -2118,7 +2129,39 @@ Se utiliza para describir las condiciones legales bajo las cuales se puede utili
 
 ## DCAT-AP
 
-DCAT-AP-ES se basa en DCAT-AP 2.1.1, y se alinea con las principales restricciones.
+### Directrices SEMIC para la publicación de perfiles DCAT-AP (*DCAT-AP reuse guidelines*) {#semic-reuse-guidelines}
+
+El perfil DCAT-AP-ES ha sido evaluado frente a las directrices oficiales de SEMIC para la creación de perfiles DCAT-AP (["*How to create your DCAT-AP profile*"](https://semiceu.github.io/DCAT-AP-reuse-guidelines/)). El análisis concluye **una conformidad global aproximada del 94%**, con **3 acciones no críticas** centradas en gobernanza y publicación formal de vocabularios LOD. El perfil se basa en DCAT-AP 2.1.1, y se alinea con las principales restricciones de forma solvente.
+
+#### Resultados detallados
+
+!!! note "Resumen (01/2026)"
+    - **Perfil evaluado:** DCAT-AP-ES
+    - **Conformidad global:** **94%** (técnicamente conforme)
+    - **Áreas de mejora no críticas:** gobernanza abierta, negociación de contenido y publicación SKOS
+    - **Referencia:** [Directrices SEMIC](https://semiceu.github.io/DCAT-AP-reuse-guidelines/)
+
+=== "Paso 4 · Metodología de creación"
+
+    | Aspecto | Estado | Evidencia clave | Acción requerida |
+    | --- | --- | --- | --- |
+    | **4.1 Base en DCAT-AP** | ✅ Conforme | Basado en [DCAT-AP 2.1.1](https://joinup.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe/release/211) + [HVD 2.2.0](https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/) | Ninguna |
+    | **4.2 Resolución de casos de uso** | ✅ Conforme | Reutilización directa y ajustes válidos | Ninguna |
+    | **4.3 Gobernanza abierta** | ⚠️ Parcial | [Repositorio público](https://github.com/datosgobes/DCAT-AP-ES) y gestión [Issues](https://github.com/datosgobes/DCAT-AP-ES/issues)/[Discusiones](https://github.com/datosgobes/DCAT-AP-ES/discussions) | Consulta pública formal y actas |
+    | **4.4 Publicación del perfil** | ✅ Conforme | [HTML](/), [SHACL](https://github.com/datosgobes/DCAT-AP-ES/tree/main/shacl/), URIs, [registro SEMIC](https://github.com/SEMICeu/DCAT-AP/issues/451) | Ninguna |
+
+=== "Paso 5 · Situaciones específicas"
+
+    | Aspecto | Estado | Evidencia clave | Acción requerida |
+    | --- | --- | --- | --- |
+    | **5.1 Linked Data y dereferenciabilidad** | ⚠️ Sustancial | URIs persistentes, falta content negotiation | Documentar negociación<br>Publicar vocabularios SKOS |
+    | **5.2 Encaje semántico** | ✅ Conforme | Coherencia semántica preservada | Ninguna |
+    | **5.3 Vocabularios controlados** | ✅ Conforme | Mantiene MUST y mapeos adicionales | Ninguna | 
+    | **5.4 Rango de propiedades** | ✅ Conforme | Sin cambios incompatibles | Ninguna |
+    | **5.5 Nuevas propiedades** | ✅ No aplica | No se crean propiedades nuevas | Ninguna |
+    | **5.6 Cardinalidades** | ✅ Conforme | Solo endurecimientos permitidos | Ninguna |
+    | **5.7 Alcance y definiciones** | ✅ Conforme | Contexto documentado | Ninguna |
+    | **5.8 Vocabularios externos** | ✅ Conforme | Referencias correctas (vCard, ELI) | Ninguna |
 
 ## DCAT-AP-ES
 
@@ -2497,3 +2540,4 @@ La lista siguiente indica las especificaciones adicionales respecto a la versió
 - Ajustes en referencias a vocabularios controlados para asegurar su disponibilidad y persistencia
 
 [^1]: Obligatorio cuando se trata de datos de alto valor, en otro caso, recomendado.
+[^2]: Obligatorio cuando se trata de datos de alto valor, en otro caso, opcional.

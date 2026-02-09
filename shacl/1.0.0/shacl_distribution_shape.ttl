@@ -330,6 +330,14 @@ dcatapes:Distribution_Shape
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
+        sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
+        sh:message "The value must be data typed as either xsd:date, xsd:dateTime, xsd:gYear, or xsd:gYearMonth and follow the ISO-8601 format."@en ;
+    ],
+    [
+        sh:path dct:issued ;
+        sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
     ],
 
     # dct:modified 
@@ -339,6 +347,14 @@ dcatapes:Distribution_Shape
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
+        sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
+        sh:message "The value must be data typed as either xsd:date, xsd:dateTime, xsd:gYear, or xsd:gYearMonth and follow the ISO-8601 format."@en ;
+    ], 
+    [
+        sh:path dct:modified ;
+        sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
     ], 
 
     # adms:status
@@ -582,6 +598,102 @@ dcatapes:OGCServiceAccessURLRestriction
         sh:severity sh:Violation ;
     ] ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-21> .
+
+# Convención 26
+dcatapes:NSIPDistributionConvention
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que las distribuciones de datasets con acceso restringido cumplan con los requisitos obligatorios de la Convención 26."@es ;
+    rdfs:comment "Restriction to validate that distributions of datasets with restricted access comply with the mandatory requirements of Convention 26."@en ;
+    rdfs:label "Restricción para distribuciones NSIP/ERPD"@es ;
+    rdfs:label "NSIP/ERPD Distribution Restriction"@en ;
+    sh:name "Distribution NSIP/ERPD"@es ;
+    sh:name "NSIP/ERPD Distribution"@en ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
+    
+    # Target: Distribuciones de datasets con accessRights RESTRICTED o NON_PUBLIC
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            PREFIX dcat:  <http://www.w3.org/ns/dcat#>
+            PREFIX dct: <http://purl.org/dc/terms/>
+            
+            SELECT ?this WHERE {
+                ?dataset a dcat:Dataset ;
+                         dct:accessRights ?accessRights ;
+                         dcat:distribution ?this .
+                ?this a dcat:Distribution . 
+                FILTER(
+                    ?accessRights = <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ||
+                    ?accessRights = <http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC>
+                )
+            }
+        """ ;
+    ] ;
+    
+    sh:property 
+    [
+        # 1. dcat:accessURL - obligatorio para NSIP/ERPD
+        sh:path dcat:accessURL ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
+        sh:message "Las distribuciones NSIP/ERPD DEBEN incluir dcat:accessURL con la URL para solicitar acceso. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
+        sh:message "NSIP/ERPD distributions MUST include dcat: accessURL with the URL to request access. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@en ;
+    ],
+    [
+        # 2. dcat:byteSize - obligatorio para NSIP/ERPD
+        sh:path dcat:byteSize ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
+        sh:message "Las distribuciones NSIP/ERPD DEBEN incluir dcat:byteSize (puede ser aproximado). La ausencia puede causar rechazo en la ingesta. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
+        sh:message "NSIP/ERPD distributions MUST include dcat:byteSize (can be approximate). Absence may cause ingestion rejection. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@en ;
+    ],
+    [
+        # 3. dct:format - obligatorio para NSIP/ERPD
+        sh:path dct:format ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
+        sh:message "Las distribuciones NSIP/ERPD DEBEN incluir dct: format del vocabulario file-type. La ausencia puede causar rechazo en la ingesta. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
+        sh:message "NSIP/ERPD distributions MUST include dct:format from the file-type vocabulary. Absence may cause ingestion rejection. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@en ;
+    ],
+    [
+        # dct:format debe ser del vocabulario file-type
+        sh:path dct:format ;
+        sh:node dcatapes:FileTypeRestriction ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
+    ],
+    [
+        # 4. dct:rights - obligatorio para NSIP/ERPD
+        sh:path dct:rights ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
+        sh:message "Las distribuciones NSIP/ERPD DEBEN incluir dct: rights con las condiciones de reutilización. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
+        sh:message "NSIP/ERPD distributions MUST include dct:rights with reuse conditions. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@en ;
+    ],
+    [
+        # Advertencia si existe downloadURL en contexto NSIP
+        sh:path dcat:downloadURL ;
+        sh:severity sh:Info ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
+        sh:sparql [
+            sh:select """
+                PREFIX dcat: <http://www.w3.org/ns/dcat#>
+                
+                SELECT ?this WHERE {
+                    ?this a dcat:Distribution ;
+                          dcat:downloadURL ?downloadURL ;
+                          dcat:accessURL ?accessURL .
+                }
+            """ ;
+            sh:message "Nota: En distribuciones NSIP/ERPD con ambas propiedades (dcat:accessURL y dcat:downloadURL), el harvester priorizará accessURL. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
+            sh:message "Note: In NSIP/ERPD distributions with both properties (dcat:accessURL and dcat:downloadURL), the harvester will prioritize accessURL. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@en ;
+        ] ;
+    ] .
 
 #---------------------------
 # Other shape restrictions

@@ -274,11 +274,17 @@ dcatapes:Dataset_Shape
         sh:path dcat:contactPoint ;
         sh:node dcatapes:VcardKindMinimalConvention ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
+        sh:message "Se recomienda que el punto de contacto utilice vcard:fn, vcard:hasTelephone y vcard:hasUID. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19"@es ;
+        sh:message "It is recommended that the contact point uses vcard:fn, vcard:hasTelephone, and vcard:hasUID. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19"@en ;
     ],
     [
         sh:path dcat:contactPoint ;
         sh:node dcatapes:VcardKindRestriction2 ;
-        sh:severity sh:Violation
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.contactPoint> ;
+        sh:message "Debe proporcionarse al menos un vcard:hasEmail o vcard:hasURL."@es ;
+        sh:message "At least one of vcard:hasEmail or vcard:hasURL must be provided."@en ;
     ],
     [
         sh:path dcat:contactPoint ;
@@ -441,6 +447,14 @@ dcatapes:Dataset_Shape
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
+        sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
+        sh:message "The value must be data typed as either xsd:date, xsd:dateTime, xsd:gYear, or xsd:gYearMonth and follow the ISO-8601 format."@en ;
+    ],
+    [
+        sh:path dct:issued ;
+        sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
     ],
 
     # dct:modified 
@@ -450,6 +464,14 @@ dcatapes:Dataset_Shape
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
+        sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
+        sh:message "The value must be data typed as either xsd:date, xsd:dateTime, xsd:gYear, or xsd:gYearMonth and follow the ISO-8601 format."@en ;
+    ], 
+    [
+        sh:path dct:modified ;
+        sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
     ], 
 
     # dct:type
@@ -807,6 +829,146 @@ dcatapes:DistributionMandatoryConvention
     sh:message "El conjunto de datos debe contener al menos una distribución (dcat:distribution). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-23"@es ;
     sh:message "The dataset must contain at least one distribution (dcat:distribution). See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-23"@en .
 
+# Convención 25
+dcatapes:NSIPDatasetConvention
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que los datasets con acceso restringido a través de NSIP/ERPD cumplan con los requisitos obligatorios de la Convención 25."@es ;
+    rdfs:comment "Restriction to validate that datasets with restricted access through NSIP/ERPD comply with the mandatory requirements of Convention 25."@en ;
+    rdfs:label "Restricción para datasets NSIP/ERPD"@es ;
+    rdfs:label "NSIP/ERPD Dataset Restriction"@en ;
+    sh:name "Dataset NSIP/ERPD"@es ;
+    sh:name "NSIP/ERPD Dataset"@en ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
+    
+    # Target: Datasets con accessRights RESTRICTED o NON_PUBLIC
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            PREFIX dcat: <http://www.w3.org/ns/dcat#>
+            PREFIX dct: <http://purl.org/dc/terms/>
+            
+            SELECT ?this WHERE {
+                ?this a dcat:Dataset ;
+                      dct:accessRights ?accessRights . 
+                FILTER(
+                    ?accessRights = <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ||
+                    ?accessRights = <http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC>
+                )
+            }
+        """ ;
+    ] ;
+    
+    sh:property 
+    [
+        # 1. dct:title - obligatorio (ya validado en Dataset_Shape, aquí reforzamos el mensaje)
+        sh:path dct:title ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
+        sh:message "Los datasets NSIP/ERPD DEBEN incluir dct:title.  Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "NSIP/ERPD datasets MUST include dct:title.  See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
+    ],
+    [
+        # 2. dct:description - obligatorio (ya validado en Dataset_Shape, aquí reforzamos el mensaje)
+        sh:path dct:description ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
+        sh:message "Los datasets NSIP/ERPD DEBEN incluir dct:description. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "NSIP/ERPD datasets MUST include dct:description. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
+    ],
+    [
+        # 3. dct:publisher - obligatorio (ya validado en Dataset_Shape, aquí reforzamos el mensaje)
+        sh:path dct:publisher ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
+        sh:message "Los datasets NSIP/ERPD DEBEN incluir dct:publisher. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "NSIP/ERPD datasets MUST include dct:publisher. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
+    ],
+    [
+        # 4. dct:accessRights - validación de valores permitidos
+        sh:path dct:accessRights ;
+        sh:in (
+            <http://publications.europa.eu/resource/authority/access-right/RESTRICTED>
+            <http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC>
+        ) ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
+        sh:message "Los datasets NSIP/ERPD DEBEN tener dct:accessRights con valor RESTRICTED o NON_PUBLIC. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "NSIP/ERPD datasets MUST have dct:accessRights with value RESTRICTED or NON_PUBLIC. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
+    ],
+    [
+        # 5. dcat:distribution - al menos una distribución conforme a Convención 26
+        sh:path dcat:distribution ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
+        sh:message "Los datasets NSIP/ERPD DEBEN tener al menos una distribución (dcat:distribution). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "NSIP/ERPD datasets MUST have at least one distribution (dcat:distribution). See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
+    ] . 
+
+# Convención 27
+dcatapes:NSIPDatasetRecommendation
+    a sh:NodeShape ;
+    rdfs:comment "Recomendaciones para datasets accesibles vía NSIP/ERPD según la Convención 27."@es ;
+    rdfs:comment "Recommendations for datasets accessible via NSIP/ERPD according to Convention 27."@en ;
+    rdfs:label "Recomendación para datasets NSIP/ERPD"@es ;
+    rdfs:label "NSIP/ERPD Dataset Recommendation"@en ;
+    sh:name "Dataset NSIP/ERPD (recomendado)"@es ;
+    sh:name "NSIP/ERPD Dataset (recommended)"@en ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
+    
+    # Mismo target que Convención 25
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            PREFIX dcat: <http://www.w3.org/ns/dcat#>
+            PREFIX dct:  <http://purl.org/dc/terms/>
+            
+            SELECT ?this WHERE {
+                ?this a dcat:Dataset ;
+                      dct:accessRights ?accessRights .
+                FILTER(
+                    ?accessRights = <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ||
+                    ?accessRights = <http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC>
+                )
+            }
+        """ ;
+    ] ;
+    
+    sh:property 
+    [
+        # dcatap:applicableLegislation - recomendado (Warning)
+        sh:path dcatap:applicableLegislation ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
+        sh:message "Los datasets NSIP/ERPD DEBERÍAN incluir dcatap: applicableLegislation con la legislación aplicable. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@es ;
+        sh:message "NSIP/ERPD datasets SHOULD include dcatap:applicableLegislation with applicable legislation. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@en ;
+    ],
+    [
+        # Recomendación: incluir al menos el Reglamento DGA
+        sh:path dcatap:applicableLegislation ;
+        sh:severity sh:Info ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
+        sh:sparql [
+            sh:select """
+                PREFIX dcat: <http://www.w3.org/ns/dcat#>
+                PREFIX dcatap: <http://data.europa.eu/r5r/>
+                
+                SELECT ?this WHERE {
+                    ?this a dcat:Dataset . 
+                    FILTER NOT EXISTS {
+                        ?this dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> . 
+                    }
+                }
+            """ ;
+            sh:message "Se recomienda referenciar el Reglamento DGA (http://data.europa.eu/eli/reg/2022/868/oj) en dcatap:applicableLegislation. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@es ;
+            sh:message "It is recommended to reference the DGA Regulation (http://data.europa.eu/eli/reg/2022/868/oj) in dcatap:applicableLegislation. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@en ;
+        ] ;
+    ] . 
+
 #---------------------------
 # Other shapes restrictions
 #---------------------------
@@ -836,6 +998,11 @@ dcatapes:Activity_Shape
         sh:message "El valor de prov:startedAtTime debe ser un literal de tipo fecha o fecha-hora."@es ;
         sh:message "The value of prov:startedAtTime must be a literal of type date or date-time."@en ;
     ],
+    [
+        sh:path prov:startedAtTime ;
+        sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
+    ],
     # prov:endedAtTime
     [
         sh:path prov:endedAtTime ;
@@ -851,6 +1018,11 @@ dcatapes:Activity_Shape
         sh:severity sh:Violation ;
         sh:message "El valor de prov:endedAtTime debe ser un literal de tipo fecha o fecha-hora."@es ;
         sh:message "The value of prov:endedAtTime must be a literal of type date or date-time."@en ;
+    ],
+    [
+        sh:path prov:endedAtTime ;
+        sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
     ] ;
     sh:targetClass prov:Activity .
 
@@ -915,8 +1087,8 @@ dcatapes:DurationDescription_Shape
     );
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualPeriodicity> ;
-    sh:message "Un time:DurationDescription de un dct:Frequency debe tener exactamente una de las propiedades: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, o time:seconds."@es ;
-    sh:message "A time:DurationDescription of a dct:Frequency must have exactly one of the properties: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, or time:seconds."@en .
+    sh:message "Un time:DurationDescription de un dct:Frequency debe tener exactamente una de las propiedades: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, o time:seconds. Los valores deben ser xsd:decimal no negativos según la ontología OWL Time."@es ;
+    sh:message "A time:DurationDescription of a dct:Frequency must have exactly one of the properties: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, or time:seconds. Values must be non-negative xsd:decimal according to the OWL Time ontology."@en .
 
 dcatapes:Frequency_Shape
     a sh:NodeShape ;
@@ -930,17 +1102,10 @@ dcatapes:Frequency_Shape
     # En lugar de sh:targetClass dct:Frequency, usa un target más específico
     sh:target [
         a sh:SPARQLTarget ;
-        sh:prefixes [
-            sh:declare [
-                sh:prefix "dct" ;
-                sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            ] ;
-            sh:declare [
-                sh:prefix "rdf" ;
-                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
-            ]
-        ] ;
         sh:select """
+            PREFIX dct: <http://purl.org/dc/terms/>
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            
             SELECT ?this WHERE {
                 ?this a dct:Frequency .
                 # Excluir URIs del vocabulario oficial
@@ -1079,7 +1244,7 @@ dcatapes:TimeDaysRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:days ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1088,7 +1253,7 @@ dcatapes:TimeHoursRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:hours ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1097,7 +1262,7 @@ dcatapes:TimeMinutesRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:minutes ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1106,7 +1271,7 @@ dcatapes:TimeMonthsRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:months ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1115,7 +1280,7 @@ dcatapes:TimeSecondsRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:seconds ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1124,7 +1289,7 @@ dcatapes:TimeWeeksRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:weeks ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
@@ -1133,7 +1298,7 @@ dcatapes:TimeYearsRestriction
     a sh:NodeShape ;
     sh:property [
         sh:path time:years ;
-        sh:node dcatapes:NonNegativeIntegerRestriction ;
+        sh:node dcatapes:DecimalRestriction ;
         sh:maxCount 1 ;
         sh:minCount 1;
     ] .
