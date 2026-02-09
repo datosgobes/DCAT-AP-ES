@@ -1,0 +1,125 @@
+name: Update SHACL Changelog
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'shacl/**/*.ttl'
+  workflow_dispatch:  # Permite ejecución manual
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-shacl-changelog:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Get last changelog commit
+        id: last_commit
+        run: |
+          # Buscar el último commit que actualizó el CHANGELOG
+          LAST_COMMIT=$(git log --all --grep="Update SHACL CHANGELOG" --format="%H" -n 1)
+          
+          # Si no hay commits previos, usar el primer commit de SHACL
+          if [ -z "$LAST_COMMIT" ]; then
+            LAST_COMMIT=$(git log --all --reverse --format="%H" -- shacl/ | head -1)
+          fi
+          
+          echo "last_commit=$LAST_COMMIT" >> $GITHUB_OUTPUT
+          echo "Last CHANGELOG update commit: $LAST_COMMIT"
+
+      - name: Get changed SHACL files
+        id: changed_files
+        run: |
+          # Obtener archivos SHACL modificados en este PR
+          CHANGED_FILES=$(git diff --name-only origin/main...HEAD -- shacl/)
+          echo "Changed SHACL files:"
+          echo "$CHANGED_FILES"
+          
+          # Contar archivos
+          FILE_COUNT=$(echo "$CHANGED_FILES" | grep -v '^$' | wc -l)
+          echo "file_count=$FILE_COUNT" >> $GITHUB_OUTPUT
+          
+          if [ "$FILE_COUNT" -eq "0" ]; then
+            echo "No SHACL files changed"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate/Update SHACL CHANGELOG
+        if: steps.changed_files.outputs.has_changes == 'true'
+        run: |
+          echo "Updating SHACL CHANGELOG since commit ${{ steps.last_commit.outputs.last_commit }}"
+          
+          # Verificar si el CHANGELOG existe
+          if [ -f "shacl/CHANGELOG.md" ]; then
+            # Actualizar desde el último commit registrado
+            python3 tools/shacl-changelog-generator/generate_shacl_changelog.py \
+              --output shacl/CHANGELOG.md \
+              --since "${{ steps.last_commit.outputs.last_commit }}"
+          else
+            # Crear CHANGELOG completo
+            python3 tools/shacl-changelog-generator/generate_shacl_changelog.py \
+              --output shacl/CHANGELOG.md
+          fi
+
+      - name: Check for CHANGELOG changes
+        if: steps.changed_files.outputs.has_changes == 'true'
+        id: changelog_diff
+        run: |
+          if git diff --quiet shacl/CHANGELOG.md; then
+            echo "No changes in CHANGELOG"
+            echo "has_changelog_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "CHANGELOG has been updated"
+            echo "has_changelog_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push CHANGELOG
+        if: steps.changed_files.outputs.has_changes == 'true' && steps.changelog_diff.outputs.has_changelog_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          git add shacl/CHANGELOG.md
+          git commit -m "docs: Update SHACL CHANGELOG [automated]"
+          git push
+
+      - name: Comment on PR
+        if: steps.changed_files.outputs.has_changes == 'true' && steps.changelog_diff.outputs.has_changelog_changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ El CHANGELOG de SHACL ha sido actualizado automáticamente con los cambios de este PR.\n\n📄 Ver: [shacl/CHANGELOG.md](../blob/${{ github.head_ref }}/shacl/CHANGELOG.md)'
+            })
+
+      - name: Summary
+        if: steps.changed_files.outputs.has_changes == 'true'
+        run: |
+          echo "## SHACL CHANGELOG Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Changed SHACL files**: ${{ steps.changed_files.outputs.file_count }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Last CHANGELOG commit**: \`${{ steps.last_commit.outputs.last_commit }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **CHANGELOG updated**: ${{ steps.changelog_diff.outputs.has_changelog_changes }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📄 [View CHANGELOG](../blob/${{ github.head_ref }}/shacl/CHANGELOG.md)" >> $GITHUB_STEP_SUMMARY
