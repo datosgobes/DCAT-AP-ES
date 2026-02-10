@@ -21,11 +21,19 @@ import sys
 class SHACLChangelogGenerator:
     """Generador de CHANGELOG para archivos SHACL."""
     
-    def __init__(self, repo_path: str = ".", output_file: str = "SHACL_CHANGELOG.md"):
+    def __init__(self, repo_path: str = ".", output_file: str = "SHACL_CHANGELOG.md", repo_url: str = None):
         self.repo_path = Path(repo_path)
         self.output_file = Path(output_file)
         self.shacl_path = "shacl/"
         
+        if not repo_url:
+            raise ValueError(
+                "El parámetro 'repo_url' es obligatorio. "
+                "Especifica la URL del repositorio, ej: https://github.com/user/repo"
+            )
+        
+        self.repo_url = repo_url
+    
     def get_commits(self, since_commit: str = None, until_commit: str = None) -> List[Dict]:
         """
         Obtiene la lista de commits que han modificado archivos SHACL.
@@ -262,10 +270,16 @@ class SHACLChangelogGenerator:
                     # Limpiar mensaje (eliminar prefijo de conventional commits)
                     clean_message = re.sub(r'^(feat|fix|refactor|docs|style|test|chore|feature):\s*', '', commit['message'])
                     
+                    # Generar enlace al commit
+                    commit_link = f"{self.repo_url}/commit/{commit['hash']}"
+                    
+                    # Generar enlace al autor en GitHub
+                    author_link = f"[@{commit['author']}](https://github.com/{commit['author']})"
+                    
                     content.append(
                         f"- {clean_message}{conv_text}{files_summary} "
-                        f"([`{commit['hash'][:7]}`](../../commit/{commit['hash']})) "
-                        f"- @{commit['author']}\n"
+                        f"([`{commit['hash'][:7]}`]({commit_link})) "
+                        f"- {author_link}\n"
                     )
                 
                 content.append("\n")
@@ -367,12 +381,18 @@ def main():
         default='.',
         help='Ruta al repositorio Git (default: directorio actual)'
     )
+    parser.add_argument(
+        '--repo-url',
+        required=True,
+        help='URL del repositorio GitHub (ej: https://github.com/user/repo)'
+    )
     
     args = parser.parse_args()
     
     generator = SHACLChangelogGenerator(
         repo_path=args.repo_path,
-        output_file=args.output
+        output_file=args.output,
+        repo_url=args.repo_url
     )
     
     generator.update_changelog(since_commit=args.since)

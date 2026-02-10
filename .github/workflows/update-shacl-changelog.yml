@@ -91,11 +91,13 @@ jobs:
             # Actualizar desde el último commit registrado
             python3 tools/shacl-changelog-generator/generate_shacl_changelog.py \
               --output shacl/CHANGELOG.md \
+              --repo-url "https://github.com/${{ github.repository }}" \
               --since "${{ steps.last_commit.outputs.last_commit }}"
           else
             # Crear CHANGELOG completo
             python3 tools/shacl-changelog-generator/generate_shacl_changelog.py \
-              --output shacl/CHANGELOG.md
+              --output shacl/CHANGELOG.md \
+              --repo-url "https://github.com/${{ github.repository }}"
           fi
 
       - name: Check for changes
