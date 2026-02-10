@@ -148,8 +148,10 @@ jobs:
           author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           labels: |
+            SHACL
+            CHANGELOG
             documentation
-            automated
+            automated-pr
           assignees: ${{ github.actor }}
 
       - name: Summary
@@ -173,5 +175,5 @@ jobs:
             fi
             echo "- **Último commit procesado**: \`${{ steps.last_commit.outputs.last_commit }}\`" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "[Ver CHANGELOG](../blob/chore/update-shacl-changelog/shacl/CHANGELOG.md)" >> $GITHUB_STEP_SUMMARY
+            echo "[Ver CHANGELOG](https://github.com/${{ github.repository }}/blob/chore/update-shacl-changelog/shacl/CHANGELOG.md)" >> $GITHUB_STEP_SUMMARY
           fi
