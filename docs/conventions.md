@@ -54,6 +54,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 27**](#convencion-27): Un conjunto de datos accesible vía NSIP/ERPD *DEBERÍA* relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
 - [**Convención 28**](#convencion-28): Para APIs con APIKey de *acceso universal* (registro automático sin aprobación manual), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `PUBLIC` e incluir `dcat:endpointDescription` con documento OpenAPI que especifique `securitySchemes` o documentar en `foaf:page` la documentación para obtener la clave.
 - [**Convención 29**](#convencion-29): Para APIs con APIKey de *acceso restringido* (requiere aprobación, contrato o pago), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso y `dcat:endpointDescription` con documento OpenAPI.
+- [**Convención 30**](#convencion-30): La propiedad `dcat:themeTaxonomy` en catálogos y la propiedad `dcat:theme` en datasets y servicios de datos **DEBEN** admitir cardinalidad flexible `1..*` para permitir la clasificación en tantos esquemas temáticos o taxonomías como sean necesarios, siempre que al menos uno corresponda a la [taxonomía de sectores primarios](https://datos.gob.es/kos/sector-publico/sector). 
 
 # Convenciones generales {#general}
 
@@ -288,6 +289,17 @@ Esta convención define cómo representar conjuntos de datos que no son abiertos
     - El harvester de data.europa.eu filtrará automáticamente los datasets con `dct:accessRights` que contenga: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC` para el catálogo ERPD
     - La ausencia de `dcat:byteSize` o `dct:format` en la distribución puede causar rechazo de la misma en el proceso de ingesta.
     - Si se proporciona tanto `dct:accessURL` como `dcat:downloadURL`, el harvester priorizará `accessURL` para NSIP.
+
+## Ampliación de taxonomías de temas {#general-themes}
+En el perfil DCAT-AP-ES, la cardinalidad de las propiedades `dcat:themeTaxonomy` (en catálogo) y `dcat:theme` (en dataset y servicios) [está actualmente limitada a un máximo de 3 valores (`1..3`)](index.md#Catalog.themeTaxonomy). Sin embargo, existen escenarios donde es necesario asociar más de tres taxonomías temáticas o temas, especialmente para interoperabilidad con perfiles sectoriales (INSPIRE, Eurovoc), integración con catálogos internacionales, o para datasets multitemáticos.
+
+!!! must organisational "Convención 30"
+    La propiedad `dcat:themeTaxonomy` en catálogos y la propiedad `dcat:theme` en datasets y servicios de datos **DEBEN** admitir cardinalidad flexible `1..*` para permitir la clasificación en tantos esquemas temáticos o taxonomías como sean necesarios, siempre que al menos uno corresponda a la [taxonomía de sectores primarios](https://datos.gob.es/kos/sector-publico/sector). 
+
+!!! info "Ejemplo de serialización de temas ampliados"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_general-themes.ttl"
+    ```
 
 # Convenciones para `dcat:Catalog` {#catalog}
 
