@@ -25,60 +25,36 @@ These conventions establish rules for the management and organization of catalog
 These conventions ensure consistency in the description of resources, guaranteeing that metadata is semantically accurate and consistent.
 
 ## List of Conventions
-- [**Convention 01**](#convention-01): The publisher's identifier *MUST* be registered in the [Identification of Public Organizations (DIR3)](https://datos.gob.es/es/recurso/sector-publico/org/Organismo) taxonomy.
-- [**Convention 02**](#convention-02): The literals `dct:title`, `dct:description`, `vcard:organization-name `, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` *MUST* be defined with language tags, at least in the spanish language `es`, and cannot be empty literals.
-- [**Convention 03**](#convention-03): Identifiers and URI references *SHOULD* use the `http://` scheme instead of `https://`.
-- [**Convention 04**](#convention-04): Organizations *SHOULD* implement automatic federation through RDF as the sole method of publishing metadata in DCAT-AP-ES format, avoiding the coexistence of manual and automatic federation for the same organization.
-- [**Convention 05**](#convention-05): URIs *MUST* be correctly encoded at their source, especially when they contain:
-    1. Reserved characters (`?`, `&`, `=`, `#`, etc.)
-    2. Spaces
-    3. Non-ASCII characters (accents, `ñ`, etc.)
-    4. Special characters (`<`, `>`, `"`, `{`, `}`, `|`, `\`, `^`, `~`, `[`, `]`, `` ` ``)
-- [**Convention 06**](#convention-06): Resources *MUST* have a unique and persistent identifier that meets the following requirements:
-    1. Include the `dct:identifier` property with a unique value for each resource.
-    2. Maintain identifier consistency even if the resource is updated.
-    3. Use the same identifier when the resource is published in different catalogs.
-- [**Convention 07**](#convention-07): References to legal documents *MUST* use ELI identifiers when available:
-    1. For European legislation: `http://data.europa.eu/eli/...`
-    2. For national legislation: `https://www.boe.es/eli/...`
-    3. For derived documents, use the ELI URI of the main document
-- [**Convention 08**](#convention-08): Creation and modification dates of resources *MUST* meet the following requirements:
-    1. The modification date (`dct:modified`) *MUST* be later than the creation date (`dct:created`)
-    2. The modification date *MUST* reflect the last change in the data, not in the metadata
-- [**Convention 09**](#convention-09): A single catalog per publishing organization *MUST* be used, avoiding the use of subcatalogs through `dct:hasPart`. Relationships between resources *MUST* be modeled using the appropriate properties as necessary.
-- [**Convention 10**](#convention-10): The catalog *MUST* include at least the [primary sector taxonomy](https://datos.gob.es/kos/sector-publico/sector) in the `dcat:themeTaxonomy` property.
-- [**Convention 11**](#convention-11): Additional taxonomies may be included to improve dataset classification: `http://publications.europa.eu/resource/authority/data-theme` or `http://inspire.ec.europa.eu/theme`
-- [**Convention 12**](#convention-12): Datasets categorized as HVD *MUST* include at least one data service (`dcat:DataService`) with the following mandatory properties:
-    1. Endpoint URL (`dcat:endpointURL`)
-    2. Endpoint Description (`dcat:endpointDescription`)
-    3. Contact Point (`dcat:contactPoint`)
-    4. Applicable Legislation (`dcatap:applicableLegislation`)
-    5. HVD Category (`dcatap:hvdCategory`)
-    6. Documentation (`foaf:page`)
-    7. Served Datasets (`dcat:servesDataset`)
-- [**Convention 13**](#convention-13): OGC services *SHOULD* be modeled as `dcat:DataService` instead of `dcat:Distribution`.
-- [**Convention 14**](#convention-14): Publisher information *SHOULD* contain a [DIR3 identifier code](https://datos.gob.es/es/recurso/sector-publico/org/Organismo) in the identifier property (`dct:identifier`), for example: `EA0000000`
-- [**Convention 15**](#convention-15): Creator information *SHOULD* contain a [DIR3 identifier code](https://datos.gob.es/es/recurso/sector-publico/org/Organism) in the identifier property (`dct:identifier`), for example: `EA0000000`
-- [**Convention 16**](#convention-16): Geographic coverage *MUST* be declared using URIs from the [Annex V of NTI-RISP for geographic resources of Spanish territory](https://datos.gob.es/es/recurso/sector-publico/territorio), following these rules:
-    1. Use the most specific territorial level that corresponds to the dataset's actual scope.
-    2. Avoid using `Spain` by default when the scope is narrower.
-    3. Do not declare an Autonomous Community and its provinces simultaneously.
-    4. For single-province Autonomous Communities, preferably use the reference to the Autonomous Community.
-- [**Convention 17**](#convention-17): When specifying geometric coverage, `WKT` *SHOULD* be used (according to [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql)).
-- [**Convention 18**](#convention-18): *Dataservices HVD*  *MUST* include at least one contact point (`dcat:contactPoint`) with one of the following mandatory properties:
-    1. Email address (`vcard:hasEmail`) OR Contact URL (`vcard:hasURL`)
-- [**Convention 19**](#convention-19): The contact point *SHOULD* also include:
-    1. Name of the area or person (`vcard:organization-name`)
-    2. Telephone number (`vcard:hasTelephone`)
-    3. Organization identifier (`vcard:hasUid`)
-    4. Email (`vcard:hasEmail`)
-    5. Contact form URL (`vcard:hasURL`)
-
-- [**Convention 20**](#convention-20): Contact points listed in the portal's taxonomy *MUST* be described as a `vcard:Kind` and not directly with the organization's URI.
-- [**Convention 21**](#convention-21): In OGC service distributions, access URLs *MUST* be modeled as follows: In `dcat:accessURL`: Complete URL of the service `GetCapabilities` request (e.g., `http://example.org/wms?request=GetCapabilities&service=WMS`) and in `dct:conformsTo`: URL of the corresponding OGC standard, e.g., `http://www.opengeospatial.org/standards/wms`.
-- [**Convention 22**](#convention-22): Time periods *MUST* be described exclusively using the properties `dcat:startDate` and `dcat:endDate` within `dct:temporal`. The interval can also be open - i.e., it can have just a start or just an end.
-- [**Convention 23**](#convention-23): *Datasets* *MUST* include at least a distribution (`dcat:Distribution`).
-- [**Convention 24**](#convention-24): When a DCAT-AP-ES resource derives from a source metadata of another standard (e.g.: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), a relationship *SHOULD* be included using the `adms:identifier` property pointing to the persistent identifier of the source metadata, using a node of type `adms:Identifier`.
+- [**Convention 01**](#convention-01): The publisher's identifier **MUST** [be registered and available in the taxonomy of datos.gob.es](mailto:soporte@datos.gob.es?subject=Solicitud%20de%20alta%20de%20Organismo%20y%20usuario%20en%20datos.gob.es)
+- [**Convention 02**](#convention-02): The literals `dct:title`, `dct:description`, `vcard:organization-name`, `vcard:fn`, `foaf:name`, `dcat:keyword` and `adms:versionNotes` **MUST** be defined with language tags, at least in Spanish `es`, and cannot be empty literals.
+- [**Convention 03**](#convention-03): Identifiers and URI references **SHOULD** use the `http://` scheme instead of `https://` as a general rule.
+- [**Convention 04**](#convention-04): Organizations **SHOULD** implement automatic federation through RDF as the sole method of publishing metadata in DCAT-AP-ES format, avoiding the coexistence of manual and automatic federation for the same organization.
+- [**Convention 05**](#convention-05): URIs **MUST** be correctly encoded at their source, especially when they contain: 1. Reserved characters (`?`, `&`, `=`, `#`, etc.) 2. Spaces 3. Non-ASCII characters (accents, `ñ`, etc.) 4. Special characters (`<`, `>`, `"`, `{`, `}`, `|`, `\`, `^`, `~`, `[`, `]`, `` ` ``)
+- [**Convention 06**](#convention-06): Resources **MUST** have a unique and persistent identifier that meets the following requirements: 1. Include the `dct:identifier` property with a unique value for each resource. 2. Maintain identifier consistency even if the resource is updated. 3. Use the same identifier when the resource is published in different catalogs. 4. Generate, maintain, and manage the identifier by the resource publisher, being external to [datos.gob.es](https://datos.gob.es/)
+- [**Convention 07**](#convention-07): References to legal documents **MUST** use ELI identifiers when available: 1. For European legislation: `http://data.europa.eu/eli/...` 2. For national legislation: `https://www.boe.es/eli/...` 3. For derived documents, use the ELI URI of the main document
+- [**Convention 08**](#convention-08): Creation and modification dates of resources **MUST** meet the following requirements: 1. The modification date (`dct:modified`) **MUST** be later than the creation date (`dct:created`) 2. The modification date **MUST** reflect the last change in the data, not in the metadata
+- [**Convention 09**](#convention-09): A single catalog per publishing organization **MUST** be used, avoiding the use of subcatalogs through `dct:hasPart`. Relationships between resources **MUST** be modeled using the following properties as appropriate.
+- [**Convention 10**](#convention-10): The catalog **MUST** include at least the [primary sector taxonomy](https://datos.gob.es/kos/sector-publico/sector) in the `dcat:themeTaxonomy` property.
+- [**Convention 11**](#convention-11): Additional taxonomies **MAY** be included to improve dataset classification: `http://publications.europa.eu/resource/authority/data-theme` or `http://inspire.ec.europa.eu/theme`
+- [**Convention 12**](#convention-12): Datasets cataloged as HVD **MUST** include at least one data service (`dcat:DataService`) with the following mandatory properties: 1. Endpoint URL (`dcat:endpointURL`) 2. Endpoint Description (`dcat:endpointDescription`) 3. Contact Point (`dcat:contactPoint`) 4. Applicable Legislation (`dcatap:applicableLegislation`) 5. HVD Category (`dcatap:hvdCategory`) 6. Documentation (`foaf:page`) 7. Served Datasets (`dcat:servesDataset`)
+- [**Convention 13**](#convention-13): OGC services **SHOULD** be modeled as `dcat:DataService` instead of `dcat:Distribution`.
+- [**Convention 14**](#convention-14): Publisher information **SHOULD** contain a [DIR3 identifier code](https://datos.gob.es/es/recurso/sector-publico/org/Organismo) in the identifier property (`dct:identifier`), for example: `EA0000000`
+- [**Convention 15**](#convention-15): Creator information **SHOULD** contain a [DIR3 identifier code](https://datos.gob.es/es/recurso/sector-publico/org/Organismo) in the identifier property (`dct:identifier`), for example: `EA0000000`
+- [**Convention 16**](#convention-16): Geographic coverage **MUST** be declared using URIs from the [Annex V of NTI-RISP for geographic resources of Spanish territory](https://datos.gob.es/es/recurso/sector-publico/territorio), following these rules: 1. Use the most specific territorial level that corresponds to the dataset's actual scope. 2. Avoid using `Spain` by default when the scope is narrower. 3. Do not declare an Autonomous Community and its provinces simultaneously. 4. For single-province Autonomous Communities, preferably use the reference to the Autonomous Community.
+- [**Convention 17**](#convention-17): When specifying geometric coverage, `WKT` **SHOULD** be used (according to [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql)).
+- [**Convention 18**](#convention-18): HVD data services **MUST** include at least one contact point (`dcat:contactPoint`) with one of the following properties: Email address (`vcard:hasEmail`) or Contact form URL (`vcard:hasURL`)
+- [**Convention 19**](#convention-19): The contact point **SHOULD** include: 1. Name (`vcard:organization-name`) 2. Telephone number (`vcard:hasTelephone`) 3. Organization identifier (`vcard:hasUid`) 4. Email address (`vcard:hasEmail`) 5. Contact form URL (`vcard:hasURL`)
+- [**Convention 20**](#convention-20): Contact points listed in the portal's taxonomy **MUST** be described as a `vcard:Kind` and not directly with the organization's URI.
+- [**Convention 21**](#convention-21): In OGC service distributions, access URLs **MUST** be modeled as follows: In `dcat:accessURL`: Complete URL of the service capabilities request `GetCapabilities` (e.g.: `http://example.org/wms?request=GetCapabilities&service=WMS`) and in `dct:conformsTo`: URL of the corresponding OGC standard, e.g.: `http://www.opengeospatial.org/standards/wms`
+- [**Convention 22**](#convention-22): Time periods **MUST** be described exclusively using the properties `dcat:startDate` and `dcat:endDate` within `dct:temporal`. The interval can also be open, that is, it can have only a start or only an end.
+- [**Convention 23**](#convention-23): Datasets **MUST** include at least one distribution (`dcat:Distribution`).
+- [**Convention 24**](#convention-24): When a DCAT-AP-ES resource derives from a source metadata of another standard (for example: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), a relationship **SHOULD** be included using the `adms:identifier` property pointing to the persistent identifier of the source metadata, using a node of type `adms:Identifier`.
+- [**Convention 25**](#convention-25): To describe a dataset accessible via NSIP/ERPD, each `dcat:Dataset` **MUST** include: 1. `dct:title`: name given to the dataset. 2. `dct:description`: summary of the content in free text. 3. `dct:publisher`: entity (organization) responsible for making the dataset available. 4. `dct:accessRights`: access restrictions with one of the two only possible values [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) or [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC) 5. `dcat:distribution`: at least one distribution available to access the dataset.
+- [**Convention 26**](#convention-26): To describe a distribution accessible via NSIP/ERPD, each `dcat:Distribution` **MUST** include: 1. `dcat:accessURL`: URL with information on how to request access. 2. `dcat:byteSize`: size in bytes (can be approximate). 3. `dct:format`: file type (vocabulary `file-type`) 4. `dct:rights`: reuse conditions applicable to this distribution.
+- [**Convention 27**](#convention-27): A dataset accessible via NSIP/ERPD **SHOULD** be related through `dcatap:applicableLegislation` with specific legislation (at least the DGA Regulation: `http://data.europa.eu/eli/reg/2022/868/oj`) and, if it includes directly accessible endpoints or APIs, use the class [`dcat:DataService`](index.md#DataService) to describe the service in addition to `dcat:Distribution`.
+- [**Convention 28**](#convention-28): For APIs with **universal access** APIKey (automatic registration without manual approval), a `dcat:DataService` **SHOULD** use `dct:accessRights` with value `PUBLIC` and include `dcat:endpointDescription` with OpenAPI document that specifies `securitySchemes` or document in `foaf:page` the documentation to obtain the key.
+- [**Convention 29**](#convention-29): For APIs with **restricted access** APIKey (requires approval, contract or payment), a `dcat:DataService` **SHOULD** use `dct:accessRights` with value `RESTRICTED` and indicate in `dct:rights` the terms of use and `dcat:endpointDescription` with OpenAPI document.
+- [**Convention 30**](#convention-30): The `dcat:themeTaxonomy` property in catalogs and the `dcat:theme` property in datasets and data services **MUST** support flexible cardinality `1..*` to allow classification in as many thematic schemes or taxonomies as necessary, as long as at least one corresponds to the [primary sector taxonomy](https://datos.gob.es/kos/sector-publico/sector). 
 
 # General conventions {#general}
 
@@ -173,7 +149,7 @@ To ensure RDF validity and avoid processing issues, all URIs must be correctly e
 
 ## Unique and Persistent Identifiers {#general-resource-identifier}
 
-To ensure the correct identification and traceability of resources over time, as well as to avoid duplicates during federation from multiple sources, it is necessary to establish a system of unique and persistent identifiers since the identifier (`dct:identifier`) is the property that allows the unique and unequivocal identification of the dataset.
+To ensure correct identification and traceability of resources over time, as well as to avoid duplicities during federation from multiple sources, it is necessary to establish a system of unique and persistent identifiers since the identifier (`dct:identifier`) is the property that allows unique and unambiguous identification of the dataset.
 
 !!! must technical "Convention 06"
     Resources **MUST** have a unique and persistent identifier that meets the following requirements:
@@ -181,8 +157,9 @@ To ensure the correct identification and traceability of resources over time, as
     1. Include the `dct:identifier` property with a unique value for each resource.
     2. Maintain identifier consistency even if the resource is updated.
     3. Use the same identifier when the resource is published in different catalogs.
+    4. Generate, maintain, and manage the identifier by the resource publisher, being external to [datos.gob.es](https://datos.gob.es/)
 
-!!! info "Example of Consistent Identifiers"
+!!! info "Example of consistent identifiers"
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_general-resource-identifier.ttl"
     ```
@@ -190,12 +167,22 @@ To ensure the correct identification and traceability of resources over time, as
 !!! warning "Important"
     - Identifiers must not change even if the resource's URI changes.
     - The same dataset published in different catalogs must maintain the same `dct:identifier`.
-    - In case of conflict during federation, the last federated dataset according to the established order will prevail.
+    - In case of conflict during federation, the last federated dataset will prevail according to the established order.
+    - It is the sole responsibility of the publisher to maintain, persist, and ensure uniqueness of the identifier. Identifiers **CANNOT** be those assigned by datos.gob.es, as these are external and may change for internal reasons.
+
+!!! info "Recommended identifier schemes"
+    
+    The following identifier schemes are recommended:
+
+    | Scheme | Example | Recommended use |
+    |---------|---------|-----------------|
+    | **UUID v4** | `550e8400-e29b-41d4-a716-446655440000` | **Recommended by default** for new datasets without a previous identifier |
+    | **URI + UUID** | `http://{base}/catalogo/{UUID}` | Web-resolvable identifiers |
 
 !!! info "Note on Implementation"
     To avoid duplicates during federation:
-    
-    1. Coordinate with other publishers on identifier assignment.
+
+    1. Coordinate with other publishers the assignment of identifiers.
     2. Document the identifier scheme used.
     3. Maintain a record of equivalences between identifiers from different sources.
     4. Consult the established federation order in case of multiple publications.
@@ -273,6 +260,51 @@ Since both `dcat:startDate` and `dcat:endDate` can be recorded with [sufficientl
 
 !!! info "Note on Implementation"
     It is recommended to review metadata, if inherited from the initial version of NTI-RISP, to update `schema:startDate`, `schema:endDate` (properties prior to [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/#changes)) in new records according to the DCAT vocabulary.
+
+## Restricted data but accessible through NSIP/ERPD {#general-nsip-erpd-publication}
+
+This convention defines how to represent datasets that are not open but are accessible under the implementation of the [DGA (*Data Governance Act*) through NSIP/ERPD](https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained). For more information on publishing restricted data in the context of NSIP/ERPD, you can find it in the [Guidelines for collecting data from the European Protected Data Registry (ERPD) in the possession of the public sector](https://dataeuropa.gitlab.io/data-provider-manual/how-to-publish/guidelines/#required-metadata).
+
+!!! must semantic "Convention 25"
+    To describe a dataset accessible via NSIP/ERPD, each `dcat:Dataset` **MUST** include:
+
+    1. `dct:title`: name given to the dataset.
+    2. `dct:description`: summary of the content in free text.
+    3. `dct:publisher`: entity (organization) responsible for making the dataset available.
+    4. `dct:accessRights`: access restrictions with one of the two only possible values [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) or [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC)
+    5. `dcat:distribution`: at least one distribution available to access the dataset.
+
+!!! must semantic "Convention 26"
+    To describe a distribution accessible via NSIP/ERPD, each `dcat:Distribution` **MUST** include:
+
+    1. `dcat:accessURL`: URL with information on how to request access.
+    2. `dcat:byteSize`: size in bytes (can be approximate).
+    3. `dct:format`: file type (vocabulary [`file-type`](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/file-type))
+    4. `dct:rights`: reuse conditions applicable to this distribution.
+
+!!! should semantic "Convention 27"
+    A dataset accessible via NSIP/ERPD **SHOULD** be related through `dcatap:applicableLegislation` with specific legislation (at least the DGA Regulation: `http://data.europa.eu/eli/reg/2022/868/oj`) and, if it includes directly accessible endpoints or APIs, use the [`dcat:DataService`](index.md#DataService) class to describe the service in addition to `dcat:Distribution`.
+
+!!! success "Example of correct usage"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_general-nsip-erpd-publication.ttl"
+    ```
+
+!!! warning "Important"
+    - The data.europa.eu harvester will automatically filter datasets with `dct:accessRights` containing: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` or `http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC` for the ERPD catalog
+    - The absence of `dcat:byteSize` or `dct:format` in the distribution may cause it to be rejected in the ingestion process.
+    - If both `dct:accessURL` and `dcat:downloadURL` are provided, the harvester will prioritize `accessURL` for NSIP.
+
+## Expansion of Topic Taxonomies {#general-themes}
+In the DCAT-AP-ES profile, the cardinality of the `dcat:themeTaxonomy` properties (in catalog) and `dcat:theme` (in datasets and services) [is currently limited to a maximum of 3 values (`1..3`)](index.md#Catalog.themeTaxonomy). However, there are scenarios where it is necessary to associate more than three thematic taxonomies or topics, especially for interoperability with sectoral profiles (INSPIRE, Eurovoc), integration with international catalogs, or for multithematic datasets.
+
+!!! must organisational "Convention 30"
+    The `dcat:themeTaxonomy` property in catalogs and the `dcat:theme` property in datasets and data services **MUST** support flexible cardinality `1..*` to allow classification in as many thematic schemes or taxonomies as necessary, as long as at least one corresponds to the [primary sector taxonomy](https://datos.gob.es/kos/sector-publico/sector). 
+
+!!! info "Example of expanded topics serialization"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_general-themes.ttl"
+    ```
 
 # Conventions for `dcat:Catalog` {#catalog}
 
@@ -376,6 +408,43 @@ To improve interoperability and description of OGC services (`WMS`, `WFS`, `WMTS
     - Include the URL of `GetCapabilities` in `dcat:endpointDescription`
     - Link with served *datasets* using `dcat:servesDataset`
     - In `dcat:endpointURL` indicate the base URL of the service without parameters.
+
+## APIs with APIKey Authentication {#dataservice-apikey}
+
+APIs that require [*API Key*](https://swagger.io/docs/specification/v3_0/authentication/api-keys/) are classified according to the [access-right vocabulary](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right) into two main categories:
+
+!!! should semantic "Convention 28"
+    For APIs with **universal access** APIKey (automatic registration without manual approval), a `dcat:DataService` **SHOULD** use `dct:accessRights` with value `PUBLIC` and include `dcat:endpointDescription` with OpenAPI document that specifies `securitySchemes` or document in `foaf:page` the documentation to obtain the key.
+
+!!! should semantic "Convention 29"
+    For APIs with **restricted access** APIKey (requires approval, contract or payment), a `dcat:DataService` **SHOULD** use `dct:accessRights` with value `RESTRICTED` and indicate in `dct:rights` the terms of use and `dcat:endpointDescription` with OpenAPI document.
+
+!!! info "Example of public description"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataservice-apikey-public.ttl"
+    ```
+
+!!! info "Example of restricted description"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataservice-apikey-restricted.ttl"
+    ```
+
+!!! warning "Important"
+    The `dcat:Dataset` and `dcat:Distribution` accessible via API Key should be consistent with the `dct:accessRights` of the `dcat:DataService` that serves them.
+
+!!! info "Note on Implementation"
+    Universal access is considered when:
+    
+    - Registration is automatic and without manual approval
+    - Does not require contracts, [*SLAs*](https://en.wikipedia.org/wiki/Service-level_agreement) or special agreements
+    - Can include technical limits (*rate limiting*, *geofencing*)
+
+    Restricted access is considered when:
+    
+    - Requires manual approval or review
+    - Requires signing contracts, [*SLAs*](https://en.wikipedia.org/wiki/Service-level_agreement) or confidentiality agreements
+    - Has an economic cost
+    - Is limited to specific types of users/organizations
 
 # Conventions for `dcat:Dataset` {#dataset}
 
