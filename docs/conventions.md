@@ -30,7 +30,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 03**](#convencion-03): Los identificadores y referencias URI *DEBERÍAN* utilizar el esquema `http://` en lugar de `https://` como norma general.
 - [**Convención 04**](#convencion-04): Los organismos *DEBERÍAN* implementar la federación automática mediante RDF como único método de publicación de metadatos en formato DCAT-AP-ES, evitando la coexistencia de federación manual y automática para un mismo organismo.
 - [**Convención 05**](#convencion-05): Las URIs *DEBEN* estar correctamente codificadas en su origen, especialmente cuando contengan: 1. Caracteres reservados (`?`, `&`, `=`, `#`, etc.) 2. Espacios 3. Caracteres no ASCII (acentos, `ñ`, etc.) 4. Caracteres especiales (`<`, `>`, `"`, `{`, `}`, `|`, `\`, `^`, `~`, `[`, `]`, `` ` ``)
-- [**Convención 06**](#convencion-06): Los recursos *DEBEN* tener un identificador único y persistente que cumpla los siguientes requisitos: 1. Incluir la propiedad `dct:identifier` con un valor único para cada recurso. 2. Mantener la coherencia del identificador aunque el recurso se actualice. 3. Usar el mismo identificador cuando el recurso se publique en diferentes catálogos.
+- [**Convención 06**](#convencion-06): Los recursos *DEBEN* tener un identificador único y persistente que cumpla los siguientes requisitos: 1. Incluir la propiedad `dct:identifier` con un valor único para cada recurso. 2. Mantener la coherencia del identificador aunque el recurso se actualice. 3. Usar el mismo identificador cuando el recurso se publique en diferentes catálogos. 4. Generar, mantener y gestionar el identificador por el publicador del recurso, siendo externo a [datos.gob.es](https://datos.gob.es/)
 - [**Convención 07**](#convencion-07): Las referencias a documentos legales *DEBEN* utilizar identificadores ELI cuando estén disponibles: 1. Para legislación europea: `http://data.europa.eu/eli/...` 2. Para legislación nacional: `https://www.boe.es/eli/...` 3. Para documentos derivados usar la URI ELI del documento principal
 - [**Convención 08**](#convencion-08): Las fechas de creación y modificación de recursos *DEBEN* cumplir los siguientes requisitos: 1. La fecha de modificación (`dct:modified`) *DEBE* ser posterior a la fecha de creación (`dct:created`) 2. La fecha de modificación *DEBE* reflejar el último cambio en los datos, no en los metadatos
 - [**Convención 09**](#convencion-09): Se *DEBE* utilizar un único catálogo por organismo publicador, evitando el uso de subcatálogos mediante `dct:hasPart`. Las relaciones entre recursos *DEBEN* modelarse usando las siguientes propiedades según corresponda.
@@ -49,6 +49,12 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
 - [**Convención 23**](#convencion-23): Los *datasets* *DEBEN* incluir al menos una distribución (`dcat:Distribution`).
 - [**Convención 24**](#convencion-24): Cuando un recurso DCAT-AP-ES derive de un metadato fuente de otro estándar (por ejemplo: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), *DEBERÍA* incluirse una relación mediante la propiedad `adms:identifier` que apunte al identificador persistente del metadato fuente, utilizando un nodo de tipo `adms:Identifier`.
+- [**Convención 25**](#convencion-25): Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se *DEBE* indicar: 1. `dct:title`: nombre dado al conjunto de datos. 2. `dct:description`: resumen del contenido en texto libre. 3. `dct:publisher`: entidad (organización) responsable de poner a disposición el conjunto de datos. 4. `dct:accessRights`: las restricciones de acceso con uno de los dos únicos valores posibles [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) o [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC) 5. `dcat:distribution`: al menos una distribución disponible para acceder al conjunto de datos.
+- [**Convención 26**](#convencion-26): Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se *DEBE* indicar: 1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso. 2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado). 3. `dct:format`: tipo de archivo (vocabulario `file-type`) 4. `dct:rights`: condiciones de reutilización aplicables a esta distribución.
+- [**Convención 27**](#convencion-27): Un conjunto de datos accesible vía NSIP/ERPD *DEBERÍA* relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
+- [**Convención 28**](#convencion-28): Para APIs con APIKey de *acceso universal* (registro automático sin aprobación manual), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `PUBLIC` e incluir `dcat:endpointDescription` con documento OpenAPI que especifique `securitySchemes` o documentar en `foaf:page` la documentación para obtener la clave.
+- [**Convención 29**](#convencion-29): Para APIs con APIKey de *acceso restringido* (requiere aprobación, contrato o pago), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso y `dcat:endpointDescription` con documento OpenAPI.
+- [**Convención 30**](#convencion-30): La propiedad `dcat:themeTaxonomy` en catálogos y la propiedad `dcat:theme` en datasets y servicios de datos **DEBEN** admitir cardinalidad flexible `1..*` para permitir la clasificación en tantos esquemas temáticos o taxonomías como sean necesarios, siempre que al menos uno corresponda a la [taxonomía de sectores primarios](https://datos.gob.es/kos/sector-publico/sector). 
 
 # Convenciones generales {#general}
 
@@ -143,7 +149,7 @@ Para garantizar la validez del RDF y evitar problemas de procesamiento, todas la
 
 ## Identificadores únicos y persistentes {#general-resource-identifier}
 
-Para garantizar la correcta identificación y trazabilidad de los recursos a lo largo del tiempo, así como evitar duplicidades durante la federación desde múltiples fuentes, es necesario establecer un sistema de identificadores únicos y persistentes dado que el identificador (`dct:identifier`) es la propiedad que permite la identificación única e inequívoca del conjunto de datos. 
+Para garantizar la correcta identificación y trazabilidad de los recursos a lo largo del tiempo, así como evitar duplicidades durante la federación desde múltiples fuentes, es necesario establecer un sistema de identificadores únicos y persistentes dado que el identificador (`dct:identifier`) es la propiedad que permite la identificación única e inequívoca del conjunto de datos.
 
 !!! must technical "Convención 06"
     Los recursos **DEBEN** tener un identificador único y persistente que cumpla los siguientes requisitos:
@@ -151,6 +157,7 @@ Para garantizar la correcta identificación y trazabilidad de los recursos a lo 
     1. Incluir la propiedad `dct:identifier` con un valor único para cada recurso.
     2. Mantener la coherencia del identificador aunque el recurso se actualice.
     3. Usar el mismo identificador cuando el recurso se publique en diferentes catálogos.
+    4. Generar, mantener y gestionar el identificador por el publicador del recurso, siendo externo a [datos.gob.es](https://datos.gob.es/)
 
 !!! info "Ejemplo de identificadores coherentes"
     ```turtle linenums="1"
@@ -161,10 +168,20 @@ Para garantizar la correcta identificación y trazabilidad de los recursos a lo 
     - Los identificadores no deben cambiar aunque cambie la URI del recurso.
     - El mismo dataset publicado en diferentes catálogos debe mantener el mismo `dct:identifier`.
     - En caso de conflicto durante la federación, prevalecerá el último dataset federado según el orden establecido.
+    - Es responsabilidad exclusiva del publicador el mantenimiento, persistencia y unicidad del identificador. Los identificadores **NO PUEDEN** ser los asignados por datos.gob.es, ya que estos son ajenos y pueden cambiar por motivos internos.
+
+!!! info "Esquemas de identificadores recomendados"
+    
+    Se recomiendan los siguientes esquemas de identificadores:
+
+    | Esquema | Ejemplo | Uso recomendado |
+    |---------|---------|-----------------|
+    | **UUID v4** | `550e8400-e29b-41d4-a716-446655440000` | **Recomendado por defecto** para nuevos datasets sin identificador previo |
+    | **URI + UUID** | `http://{base}/catalogo/{UUID}` | Identificadores web-resolubles |
 
 !!! info "Nota sobre implementación"
     Para evitar duplicados durante la federación:
-    
+
     1. Coordinar con otros publicadores la asignación de identificadores.
     2. Documentar el esquema de identificadores utilizado.
     3. Mantener un registro de equivalencias entre identificadores de diferentes fuentes.
@@ -219,7 +236,7 @@ Para garantizar la trazabilidad temporal de los recursos y su correcto seguimien
     Para validar las fechas:
     
     1. Verificar que la fecha de modificación sea posterior a la de creación
-    2. Comprobar que las fechas estén en los formatos definidos por el modelo, se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) con zona horaria: `YYYY-MM-DDThh:mm:ssTZD` (`xsd:dateTime`), así como el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
+    2. Comprobar que las fechas estén en los formatos definidos por el modelo. Se puede registrar la fecha utilizando el formato estándar: `YYYY-MM-DD` (`xsd:date`), o el [datetime ISO-8601](https://www.w3.org/TR/1998/NOTE-datetime-19980827) `YYYY-MM-DDThh:mm:ss` (`xsd:dateTime`). Para mejorar la interoperabilidad se **recomienda** incluir zona horaria (TZD), por ejemplo `Z` o `+01:00` (el validador emitirá una advertencia si falta). También se admite el año: `YYYY` (`xsd:gYear`) o el año y el mes: `YYYY-MM` (`xsd:gYearMonth`).
 
 ## Especificación de períodos temporales {#general-temporal}
 
@@ -238,6 +255,51 @@ Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rang
 
 !!! info "Nota sobre implementación"
     Se recomienda revisar los metadatos, sí son heredados de la versión inicial de NTI-RISP, para actualizar `schema:startDate`, `schema:endDate` (propiedades anteriores a [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/#changes)) en los nuevos registros conforme al vocabulario DCAT.
+
+## Datos restringidos pero accesibles a través de NSIP/ERPD {#general-nsip-erpd-publication}
+
+Esta convención define cómo representar conjuntos de datos que no son abiertos pero que están accesibles bajo la implementación de la [DGA (*Data Governance Act*) a través de NSIP/ERPD](https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained). Para más información sobre la publicación de datos restringidos en el contexto de NSIP/ERPD se puede encontrar en la [Directrices para la recopilación de datos del Registro Europeo de Datos Protegidos (ERPD) en poder del sector público](https://dataeuropa.gitlab.io/data-provider-manual/how-to-publish/guidelines/#required-metadata).
+
+!!! must semantic "Convención 25"
+    Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se **DEBE** indicar:
+
+    1. `dct:title`: nombre dado al conjunto de datos.
+    2. `dct:description`: resumen del contenido en texto libre.
+    3. `dct:publisher`: entidad (organización) responsable de poner a disposición el conjunto de datos.
+    4. `dct:accessRights`: las restricciones de acceso con uno de los dos únicos valores posibles [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) o [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC)
+    5. `dcat:distribution`: al menos una distribución disponible para acceder al conjunto de datos.
+
+!!! must semantic "Convención 26"
+    Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se **DEBE** indicar:
+
+    1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso.
+    2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado).
+    3. `dct:format`: tipo de archivo (vocabulario [`file-type`](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/file-type))
+    4. `dct:rights`: condiciones de reutilización aplicables a esta distribución.
+
+!!! should semantic "Convención 27"
+    Un conjunto de datos accesible vía NSIP/ERPD **DEBERÍA** relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
+
+!!! success "Ejemplo de uso correcto"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_general-nsip-erpd-publication.ttl"
+    ```
+
+!!! warning "Importante"
+    - El harvester de data.europa.eu filtrará automáticamente los datasets con `dct:accessRights` que contenga: `http://publications.europa.eu/resource/authority/access-right/RESTRICTED` o `http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC` para el catálogo ERPD
+    - La ausencia de `dcat:byteSize` o `dct:format` en la distribución puede causar rechazo de la misma en el proceso de ingesta.
+    - Si se proporciona tanto `dct:accessURL` como `dcat:downloadURL`, el harvester priorizará `accessURL` para NSIP.
+
+## Ampliación de taxonomías de temas {#general-themes}
+En el perfil DCAT-AP-ES, la cardinalidad de las propiedades `dcat:themeTaxonomy` (en catálogo) y `dcat:theme` (en dataset y servicios) [está actualmente limitada a un máximo de 3 valores (`1..3`)](index.md#Catalog.themeTaxonomy). Sin embargo, existen escenarios donde es necesario asociar más de tres taxonomías temáticas o temas, especialmente para interoperabilidad con perfiles sectoriales (INSPIRE, Eurovoc), integración con catálogos internacionales, o para datasets multitemáticos.
+
+!!! must organisational "Convención 30"
+    La propiedad `dcat:themeTaxonomy` en catálogos y la propiedad `dcat:theme` en datasets y servicios de datos **DEBEN** admitir cardinalidad flexible `1..*` para permitir la clasificación en tantos esquemas temáticos o taxonomías como sean necesarios, siempre que al menos uno corresponda a la [taxonomía de sectores primarios](https://datos.gob.es/kos/sector-publico/sector). 
+
+!!! info "Ejemplo de serialización de temas ampliados"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_general-themes.ttl"
+    ```
 
 # Convenciones para `dcat:Catalog` {#catalog}
 
@@ -341,6 +403,43 @@ Para mejorar la interoperabilidad y descripción de servicios OGC (`WMS`, `WFS`,
     - Incluya la URL del `GetCapabilities` en `dcat:endpointDescription`
     - Vincule con los *datasets* servidos usando `dcat:servesDataset`
     - En `dcat:endpointURL` indicar la URL base del servicio sin parámetros.
+
+## APIs con autenticación mediante APIKey {#dataservice-apikey}
+
+Las APIs que requieren [*API Key*](https://swagger.io/docs/specification/v3_0/authentication/api-keys/) se clasifican según el [vocabulario access-right](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right) en dos categorías principales:
+
+!!! should semantic "Convención 28"
+    Para APIs con APIKey de **acceso universal** (registro automático sin aprobación manual), un `dcat:DataService` **DEBERÍA** usar `dct:accessRights` con valor `PUBLIC` e incluir `dcat:endpointDescription` con documento OpenAPI que especifique `securitySchemes` o documentar en `foaf:page` la documentación para obtener la clave.
+
+!!! should semantic "Convención 29"
+    Para APIs con APIKey de **acceso restringido** (requiere aprobación, contrato o pago), un `dcat:DataService` **DEBERÍA** usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso y `dcat:endpointDescription` con documento OpenAPI.
+
+!!! info "Ejemplo de descripción pública"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataservice-apikey-public.ttl"
+    ```
+
+!!! info "Ejemplo de descripción restringida"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_dataservice-apikey-restricted.ttl"
+    ```
+
+!!! warning "Importante"
+    Los `dcat:Dataset` y `dcat:Distribution` accesibles mediante API Key tendrían que ser coherentes con el `dct:accessRights` del `dcat:DataService` que los sirve. 
+
+!!! info "Nota sobre implementación"
+    Se considera **acceso universal** cuando: 
+    
+    - El registro es automático y sin aprobación manual
+    - No requiere contratos, [*SLAs*](https://es.wikipedia.org/wiki/Acuerdo_de_nivel_de_servicio) o acuerdos especiales
+    - Puede incluir límites técnicos (*rate limiting*, *geofencing*)
+
+    Se considera **acceso restringido** cuando: 
+    
+    - Requiere aprobación manual o revisión
+    - Exige firma de contratos, [*SLAs*](https://es.wikipedia.org/wiki/Acuerdo_de_nivel_de_servicio) o acuerdos de confidencialidad
+    - Tiene coste económico
+    - Está limitado a tipos específicos de usuarios/organizaciones
 
 # Convenciones para `dcat:Dataset` {#dataset}
 

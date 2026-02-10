@@ -1,0 +1,175 @@
+name: Actualizar CHANGELOG de formas SHACL
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'shacl/**/*.ttl'
+  workflow_dispatch:  # Permite ejecución manual
+    inputs:
+      regenerate_full:
+        description: 'Regenerar CHANGELOG completo desde el inicio'
+        required: false
+        type: boolean
+        default: false
+      since_commit:
+        description: 'Commit específico desde el cual actualizar (opcional)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# Evita PRs duplicadas si hay múltiples pushes seguidos
+concurrency:
+  group: shacl-changelog-update
+  cancel-in-progress: false
+
+jobs:
+  update-shacl-changelog:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout develop branch
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check if last commit was from bot
+        id: check_bot
+        run: |
+          LAST_AUTHOR=$(git log -1 --pretty=format:'%an')
+          if [[ "$LAST_AUTHOR" == "github-actions[bot]" ]]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "Último commit fue del bot. Saltando para evitar bucle."
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Setup Python
+        if: steps.check_bot.outputs.skip != 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Get last changelog commit
+        if: steps.check_bot.outputs.skip != 'true'
+        id: last_commit
+        run: |
+          # Si se ejecuta manualmente con un commit específico, usar ese
+          if [[ -n "${{ inputs.since_commit }}" ]]; then
+            LAST_COMMIT="${{ inputs.since_commit }}"
+            echo "Usando commit especificado manualmente: $LAST_COMMIT"
+          # Si se pide regeneración completa, no usar commit previo
+          elif [[ "${{ inputs.regenerate_full }}" == "true" ]]; then
+            LAST_COMMIT=""
+            echo "Regeneración completa solicitada"
+          else
+            # Buscar el último commit que actualizó el CHANGELOG
+            LAST_COMMIT=$(git log --all --grep="Update SHACL CHANGELOG" --format="%H" -n 1)
+            
+            # Si no hay commits previos, usar el primer commit de SHACL
+            if [ -z "$LAST_COMMIT" ]; then
+              LAST_COMMIT=$(git log --all --reverse --format="%H" -- shacl/ | head -1)
+            fi
+          fi
+          
+          echo "last_commit=$LAST_COMMIT" >> $GITHUB_OUTPUT
+          echo "Último commit de CHANGELOG: $LAST_COMMIT"
+
+      - name: Generate/Update SHACL CHANGELOG
+        if: steps.check_bot.outputs.skip != 'true'
+        run: |
+          echo "Actualizando CHANGELOG desde commit ${{ steps.last_commit.outputs.last_commit }}"
+          
+          # Verificar si el CHANGELOG existe
+          if [ -f "shacl/CHANGELOG.md" ]; then
+            # Actualizar desde el último commit registrado
+            python3 tools/shacl-changelog-generator/generate_shacl_changelog.py \
+              --output shacl/CHANGELOG.md \
+              --since "${{ steps.last_commit.outputs.last_commit }}"
+          else
+            # Crear CHANGELOG completo
+            python3 tools/shacl-changelog-generator/generate_shacl_changelog.py \
+              --output shacl/CHANGELOG.md
+          fi
+
+      - name: Check for changes
+        if: steps.check_bot.outputs.skip != 'true'
+        id: changes
+        run: |
+          if git diff --quiet shacl/CHANGELOG.md; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No hay cambios en el CHANGELOG"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Cambios detectados en CHANGELOG"
+          fi
+
+      - name: Create pull request
+        if: steps.check_bot.outputs.skip != 'true' && steps.changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "docs: Update SHACL CHANGELOG [automated]"
+          title: "docs: actualizar CHANGELOG de SHACL"
+          body: |
+            ## Actualización automática del CHANGELOG de SHACL
+            
+            Este PR actualiza automáticamente el archivo `shacl/CHANGELOG.md` con los últimos cambios en los archivos SHACL.
+            
+            ### Detalles
+            - **Último commit procesado**: `${{ steps.last_commit.outputs.last_commit }}`
+            - **Rama base**: `develop`
+            - **Tipo**: ${{ github.event_name == 'workflow_dispatch' && '🔧 Manual' || '🤖 Automático' }}
+            ${{ inputs.regenerate_full == 'true' && '- **Modo**: Regeneración completa' || '' }}
+            ${{ inputs.since_commit && format('- **Commit base**: {0}', inputs.since_commit) || '' }}
+            - **Generado por**: GitHub Actions
+            
+            ### Verificación
+            - [ ] Revisar que el formato del CHANGELOG es correcto
+            - [ ] Verificar que todos los commits relevantes están incluidos
+            - [ ] Comprobar enlaces y referencias
+            
+            ---
+            
+            **Nota**: Este PR se genera automáticamente cuando hay cambios en archivos `.ttl` dentro de `shacl/`.
+            
+            Para regenerar manualmente: Ejecuta el workflow [Update SHACL Changelog](../actions/workflows/update-shacl-changelog.yml) desde la pestaña Actions.
+          branch: "chore/update-shacl-changelog"
+          delete-branch: true
+          add-paths: |
+            shacl/CHANGELOG.md
+          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          labels: |
+            documentation
+            automated
+          assignees: ${{ github.actor }}
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Resumen: Actualización SHACL CHANGELOG" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ "${{ steps.check_bot.outputs.skip }}" == "true" ]]; then
+            echo "**Ejecución saltada**: El último commit fue realizado por el bot" >> $GITHUB_STEP_SUMMARY
+          elif [[ "${{ steps.changes.outputs.has_changes }}" == "false" ]]; then
+            echo "**Sin cambios**: El CHANGELOG ya está actualizado" >> $GITHUB_STEP_SUMMARY
+          elif [[ "${{ steps.changes.outputs.has_changes }}" == "true" ]]; then
+            echo "**PR creada**: Se ha generado un Pull Request con los cambios" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Detalles" >> $GITHUB_STEP_SUMMARY
+            echo "- **Rama**: \`develop\`" >> $GITHUB_STEP_SUMMARY
+            echo "- **Tipo**: ${{ github.event_name == 'workflow_dispatch' && 'Manual' || 'Automático' }}" >> $GITHUB_STEP_SUMMARY
+            if [[ "${{ inputs.regenerate_full }}" == "true" ]]; then
+              echo "- **Modo**: Regeneración completa" >> $GITHUB_STEP_SUMMARY
+            fi
+            echo "- **Último commit procesado**: \`${{ steps.last_commit.outputs.last_commit }}\`" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "[Ver CHANGELOG](../blob/chore/update-shacl-changelog/shacl/CHANGELOG.md)" >> $GITHUB_STEP_SUMMARY
+          fi

@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dcat="http://www.w3.org/ns/dcat#"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:dcatap="http://data.europa.eu/r5r/"
+         xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:adms="http://www.w3.org/ns/adms#"
+         xmlns:spdx="http://spdx.org/rdf/terms#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:prov="http://www.w3.org/ns/prov#">
+
+  <dcat:Catalog rdf:about="http://nsip.dcat-ap-es.ejemplo.org/catalogo-protegido">
+    <dct:title xml:lang="es">Catálogo de Ejemplo - Datos Protegidos</dct:title>
+    <dct:title xml:lang="en">Example Catalog - Protected Data</dct:title>
+    <dct:description xml:lang="es">Catálogo de ejemplo que demuestra cómo representar conjuntos de datos con acceso restringido disponibles a través de NSIP/ERPD conforme al Reglamento de Gobernanza de Datos (DGA). Este catálogo contiene únicamente datos ficticios para propósitos de demostración.</dct:description>
+    <dct:description xml:lang="en">Example catalog demonstrating how to represent datasets with restricted access available through NSIP/ERPD in compliance with the Data Governance Act (DGA). This catalog contains only fictitious data for demonstration purposes.</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-01</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-18</dct:modified>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG"/>
+    <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj"/>
+    <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/dir/2019/1024/oj"/>
+    <dct:rights rdf:resource="http://publications.europa.eu/resource/authority/access-right/RESTRICTED"/>
+    <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+    <dct:temporal>
+      <dct:PeriodOfTime>
+        <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-01</dcat:startDate>
+      </dct:PeriodOfTime>
+    </dct:temporal>
+
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+    <dcat:contactPoint>
+      <vcard:Organization>
+        <vcard:fn xml:lang="es">Oficina de Ejemplo NSIP</vcard:fn>
+        <vcard:fn xml:lang="en">Example NSIP Office</vcard:fn>
+        <vcard:hasEmail rdf:resource="mailto:nsip@ejemplo.org"/>
+        <vcard:hasTelephone rdf:resource="tel:+34-900000000"/>
+        <vcard:hasURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/contacto"/>
+        <vcard:hasUID rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <vcard:organization-name xml:lang="es">Organización de Ejemplo</vcard:organization-name>
+      </vcard:Organization>
+    </dcat:contactPoint>
+
+    <foaf:homepage rdf:resource="http://dcat-ap-es.ejemplo.org"/>
+    <dcat:themeTaxonomy rdf:resource="http://publications.europa.eu/resource/authority/data-theme"/>
+    <dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector"/>
+    <dcat:dataset rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo"/>
+    <dcat:dataset rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo"/>
+    <dcat:dataset rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo"/>
+    <dcat:service rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos"/>
+  </dcat:Catalog>
+
+  <dcat:Dataset rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo">
+    <dct:title xml:lang="es">Datos Económicos Agregados de Ejemplo</dct:title>
+    <dct:title xml:lang="en">Example Aggregated Economic Data</dct:title>
+    <dct:description xml:lang="es">Conjunto de datos de ejemplo que contiene información económica ficticia agregada por sector y región. Los datos están anonimizados y son únicamente para propósitos de demostración del perfil DCAT-AP-ES para datos protegidos NSIP/ERPD.</dct:description>
+    <dct:description xml:lang="en">Example dataset containing fictitious economic information aggregated by sector and region. Data is anonymized and for demonstration purposes of the DCAT-AP-ES profile for NSIP/ERPD protected data only.</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/RESTRICTED"/>
+    <dcat:distribution>
+      <dcat:Distribution rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/csv">
+        <dcat:accessURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-economicos-csv"/>
+        <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45678900</dcat:byteSize>
+        <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+        <dct:rights rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial"/>
+        <dct:title xml:lang="es">Datos Económicos 2020-2024 - Formato CSV</dct:title>
+        <dct:title xml:lang="en">Economic Data 2020-2024 - CSV Format</dct:title>
+        <dct:description xml:lang="es">Archivo CSV de ejemplo con datos económicos ficticios agregados.  Contiene aproximadamente 150000 registros con 40 variables.  Este archivo es únicamente para demostración.</dct:description>
+        <dct:description xml:lang="en">Example CSV file with fictitious aggregated economic data. Contains approximately 150000 records with 40 variables.  This file is for demonstration purposes only.</dct:description>
+        <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_NC_ND_4_0"/>
+        <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj"/>
+        <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
+        <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-15</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-01</dct:modified>
+        <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/text/csv"/>
+        <dcat:compressFormat rdf:resource="https://www.iana.org/assignments/media-types/application/gzip"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+        <spdx:checksum>
+          <spdx:Checksum>
+            <spdx:algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha1"/>
+            <spdx:checksumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">A1B2C3D4E5F6789012345678901234567890ABCD</spdx:checksumValue>
+          </spdx:Checksum>
+        </spdx:checksum>
+
+        <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/datos-economicos-csv-schema"/>
+      </dcat:Distribution>
+    </dcat:distribution>
+
+    <dcat:distribution>
+      <dcat:Distribution rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo/dist/json">
+        <dcat:accessURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-economicos-json"/>
+        <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52345678</dcat:byteSize>
+        <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/JSON"/>
+        <dct:rights rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial"/>
+        <dct:title xml:lang="es">Datos Económicos 2020-2024 - Formato JSON</dct:title>
+        <dct:title xml:lang="en">Economic Data 2020-2024 - JSON Format</dct:title>
+        <dct:description xml:lang="es">Archivo JSON de ejemplo con la misma información que el CSV pero en formato JSON estructurado. Únicamente para demostración.</dct:description>
+        <dct:description xml:lang="en">Example JSON file with the same information as CSV but in structured JSON format. For demonstration purposes only.</dct:description>
+        <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_NC_ND_4_0"/>
+        <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj"/>
+        <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
+        <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-15</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-01</dct:modified>
+        <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/application/json"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+        <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/datos-economicos-json-schema"/>
+      </dcat:Distribution>
+    </dcat:distribution>
+
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ECON"/>
+    <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/economia"/>
+    <dcat:keyword xml:lang="es">economía</dcat:keyword>
+    <dcat:keyword xml:lang="es">ejemplo</dcat:keyword>
+    <dcat:keyword xml:lang="es">ficticio</dcat:keyword>
+    <dcat:keyword xml:lang="es">agregado</dcat:keyword>
+    <dcat:keyword xml:lang="en">economy</dcat:keyword>
+    <dcat:keyword xml:lang="en">example</dcat:keyword>
+    <dcat:keyword xml:lang="en">fictitious</dcat:keyword>
+    <dcat:keyword xml:lang="en">aggregated</dcat:keyword>
+    <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj"/>
+    <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2016/679/oj"/>
+    <dct:identifier>EJEMPLO-ECO-2024-001</dct:identifier>
+    <adms:identifier>
+      <adms:Identifier>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ECO-EJEMPLO-001</skos:notation>
+        <dct:creator rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/organizacion/ejemplo-economia"/>
+        <adms:schemeAgency xml:lang="es">Organización de Ejemplo</adms:schemeAgency>
+      </adms:Identifier>
+    </adms:identifier>
+
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-15</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-01</dct:modified>
+    <dct:temporal>
+      <dct:PeriodOfTime>
+        <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-01-01</dcat:startDate>
+        <dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-12-31</dcat:endDate>
+      </dct:PeriodOfTime>
+    </dct:temporal>
+
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+    <dct:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL"/>
+    <dcat:contactPoint>
+      <vcard:Organization>
+        <vcard:fn xml:lang="es">Punto de Contacto - Datos Económicos de Ejemplo</vcard:fn>
+        <vcard:hasEmail rdf:resource="mailto:economia@ejemplo.org"/>
+        <vcard:hasTelephone rdf:resource="tel:+34-900111111"/>
+        <vcard:hasURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitudes/datos-economicos"/>
+        <vcard:hasUID rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <vcard:organization-name xml:lang="es">Organización Económica de Ejemplo</vcard:organization-name>
+      </vcard:Organization>
+    </dcat:contactPoint>
+
+    <dcat:landingPage rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo"/>
+    <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/datos-economicos-metodologia"/>
+    <dcat:temporalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">P1Y</dcat:temporalResolution>
+    <dct:provenance>
+      <dct:ProvenanceStatement>
+        <rdfs:label xml:lang="es">Datos ficticios generados para demostración del perfil DCAT-AP-ES NSIP/ERPD.</rdfs:label>
+      </dct:ProvenanceStatement>
+    </dct:provenance>
+
+    <dcat:accessService rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos"/>
+  </dcat:Dataset>
+
+  <dcat:Dataset rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo">
+    <dct:title xml:lang="es">Datos Estadísticos Detallados de Ejemplo</dct:title>
+    <dct:title xml:lang="en">Example Detailed Statistical Data</dct:title>
+    <dct:description xml:lang="es">Conjunto de datos de ejemplo con información estadística ficticia detallada y anonimizada. Los datos son completamente ficticios y sirven para demostrar el perfil DCAT-AP-ES para datos con acceso no público.</dct:description>
+    <dct:description xml:lang="en">Example dataset with fictitious detailed and anonymized statistical information. Data is completely fictitious and serves to demonstrate the DCAT-AP-ES profile for non-public access data.</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC"/>
+    <dcat:distribution>
+      <dcat:Distribution rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo/dist/api">
+        <dcat:accessURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-estadisticos-api"/>
+        <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">987654321</dcat:byteSize>
+        <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/JSON_LD"/>
+        <dct:rights rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-investigacion"/>
+        <dct:title xml:lang="es">Datos Estadísticos 2015-2024 - API REST de Ejemplo</dct:title>
+        <dct:title xml:lang="en">Statistical Data 2015-2024 - Example REST API</dct:title>
+        <dct:description xml:lang="es">Acceso mediante API REST de ejemplo con autenticación ficticia. Permite consultas filtradas simuladas.  Este endpoint es únicamente para demostración y no contiene datos reales.</dct:description>
+        <dct:description xml:lang="en">Access via example REST API with fictitious authentication.  Allows simulated filtered queries. This endpoint is for demonstration only and does not contain real data.</dct:description>
+        <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_NC_ND_4_0"/>
+        <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj"/>
+        <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"/>
+        <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-01</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-15</dct:modified>
+        <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/application/ld+json"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+        <dct:conformsTo rdf:resource="https://www.openapis.org/"/>
+        <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/api-estadistica-openapi"/>
+        <dcat:accessService rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos"/>
+      </dcat:Distribution>
+    </dcat:distribution>
+
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOC"/>
+    <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/sociedad-bienestar"/>
+    <dcat:keyword xml:lang="es">estadística</dcat:keyword>
+    <dcat:keyword xml:lang="es">ejemplo</dcat:keyword>
+    <dcat:keyword xml:lang="es">ficticio</dcat:keyword>
+    <dcat:keyword xml:lang="es">detallado</dcat:keyword>
+    <dcat:keyword xml:lang="en">statistics</dcat:keyword>
+    <dcat:keyword xml:lang="en">example</dcat:keyword>
+    <dcat:keyword xml:lang="en">fictitious</dcat:keyword>
+    <dcat:keyword xml:lang="en">detailed</dcat:keyword>
+    <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj"/>
+    <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2016/679/oj"/>
+    <dct:identifier>EJEMPLO-EST-2024-002</dct:identifier>
+    <adms:identifier>
+      <adms:Identifier>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EST-EJEMPLO-002</skos:notation>
+      </adms:Identifier>
+    </adms:identifier>
+
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-01</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-15</dct:modified>
+    <dct:temporal>
+      <dct:PeriodOfTime>
+        <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-01-01</dcat:startDate>
+        <dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-12-31</dcat:endDate>
+      </dct:PeriodOfTime>
+    </dct:temporal>
+
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+    <dct:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/MONTHLY"/>
+    <dcat:contactPoint>
+      <vcard:Organization>
+        <vcard:fn xml:lang="es">Punto de Contacto - Estadística de Ejemplo</vcard:fn>
+        <vcard:hasEmail rdf:resource="mailto:estadistica@ejemplo.org"/>
+        <vcard:hasTelephone rdf:resource="tel:+34-900222222"/>
+        <vcard:hasURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitudes/datos-estadisticos"/>
+        <vcard:hasUID rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <vcard:organization-name xml:lang="es">Organización Estadística de Ejemplo</vcard:organization-name>
+      </vcard:Organization>
+    </dcat:contactPoint>
+
+    <dcat:landingPage rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo"/>
+    <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/datos-estadisticos-metodologia"/>
+    <dcat:temporalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">P1M</dcat:temporalResolution>
+    <dct:provenance>
+      <dct:ProvenanceStatement>
+        <rdfs:label xml:lang="es">Datos ficticios generados mediante simulación estadística para demostración.</rdfs:label>
+      </dct:ProvenanceStatement>
+    </dct:provenance>
+
+    <prov:wasGeneratedBy>
+      <prov:Activity>
+        <rdfs:label xml:lang="es">Proceso de generación de datos de ejemplo</rdfs:label>
+        <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-15T00:00:00+01:00</prov:startedAtTime>
+        <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-28T23:59:59+01:00</prov:endedAtTime>
+      </prov:Activity>
+    </prov:wasGeneratedBy>
+
+    <dcat:accessService rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos"/>
+  </dcat:Dataset>
+
+  <dcat:Dataset rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo">
+    <dct:title xml:lang="es">Datos Agregados Sectoriales de Ejemplo</dct:title>
+    <dct:title xml:lang="en">Example Sector Aggregated Data</dct:title>
+    <dct:description xml:lang="es">Datos de ejemplo agregados por sector con información ficticia sobre indicadores económicos y sociales.  Todos los datos son ficticios y generados para propósitos de demostración del modelo DCAT-AP-ES para NSIP/ERPD.</dct:description>
+    <dct:description xml:lang="en">Example data aggregated by sector with fictitious information on economic and social indicators. All data is fictitious and generated for demonstration purposes of the DCAT-AP-ES model for NSIP/ERPD.</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/RESTRICTED"/>
+    <dcat:distribution>
+      <dcat:Distribution rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo/dist/xlsx">
+        <dcat:accessURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-agregados-xlsx"/>
+        <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34567890</dcat:byteSize>
+        <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/XLSX"/>
+        <dct:rights rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-analisis"/>
+        <dct:title xml:lang="es">Datos Agregados 2018-2024 - Formato Excel de Ejemplo</dct:title>
+        <dct:title xml:lang="en">Aggregated Data 2018-2024 - Example Excel Format</dct:title>
+        <dct:description xml:lang="es">Archivo Excel de ejemplo con múltiples hojas organizadas por año y sector. Incluye tablas dinámicas ficticias pre-configuradas.  Únicamente para demostración.</dct:description>
+        <dct:description xml:lang="en">Example Excel file with multiple sheets organized by year and sector. Includes fictitious pre-configured pivot tables. For demonstration purposes only.</dct:description>
+        <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_NC_4_0"/>
+        <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj"/>
+        <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
+        <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-06-01</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-10</dct:modified>
+        <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+        <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/datos-agregados-guia"/>
+      </dcat:Distribution>
+    </dcat:distribution>
+
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ECON"/>
+    <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/sector-publico"/>
+    <dcat:keyword xml:lang="es">agregado</dcat:keyword>
+    <dcat:keyword xml:lang="es">sectorial</dcat:keyword>
+    <dcat:keyword xml:lang="es">ejemplo</dcat:keyword>
+    <dcat:keyword xml:lang="es">indicadores</dcat:keyword>
+    <dcat:keyword xml:lang="en">aggregated</dcat:keyword>
+    <dcat:keyword xml:lang="en">sectoral</dcat:keyword>
+    <dcat:keyword xml:lang="en">example</dcat:keyword>
+    <dcat:keyword xml:lang="en">indicators</dcat:keyword>
+    <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj"/>
+    <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2016/679/oj"/>
+    <dct:identifier>EJEMPLO-AGR-2024-003</dct:identifier>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-06-01</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-10</dct:modified>
+    <dct:temporal>
+      <dct:PeriodOfTime>
+        <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-01-01</dcat:startDate>
+        <dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-12-31</dcat:endDate>
+      </dct:PeriodOfTime>
+    </dct:temporal>
+
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+    <dct:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/QUARTERLY"/>
+    <dcat:contactPoint>
+      <vcard:Organization>
+        <vcard:fn xml:lang="es">Punto de Contacto - Datos Sectoriales de Ejemplo</vcard:fn>
+        <vcard:hasEmail rdf:resource="mailto:sectorial@ejemplo.org"/>
+        <vcard:hasTelephone rdf:resource="tel:+34-900333333"/>
+        <vcard:hasURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitudes/datos-agregados"/>
+        <vcard:hasUID rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <vcard:organization-name xml:lang="es">Organización Sectorial de Ejemplo</vcard:organization-name>
+      </vcard:Organization>
+    </dcat:contactPoint>
+
+    <dcat:landingPage rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo"/>
+    <dcat:temporalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">P3M</dcat:temporalResolution>
+  </dcat:Dataset>
+
+  <dcat:DataService rdf:about="http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos">
+    <dct:title xml:lang="es">API de Ejemplo para Datos Protegidos</dct:title>
+    <dct:title xml:lang="en">Example API for Protected Data</dct:title>
+    <dct:description xml:lang="es">Servicio de API de ejemplo para acceso a conjuntos de datos protegidos ficticios. Demuestra cómo implementar un servicio conforme a DCAT-AP-ES para NSIP/ERPD.  Este servicio es únicamente para demostración y no proporciona acceso a datos reales.</dct:description>
+    <dct:description xml:lang="en">Example API service for access to fictitious protected datasets. Demonstrates how to implement a service compliant with DCAT-AP-ES for NSIP/ERPD. This service is for demonstration purposes only and does not provide access to real data.</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dcat:endpointURL rdf:resource="http://api.dcat-ap-es.ejemplo.org/v1"/>
+    <dcat:endpointDescription rdf:resource="http://api.dcat-ap-es.ejemplo.org/v1/openapi.json"/>
+    <dcat:servesDataset rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo"/>
+    <dcat:servesDataset rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo"/>
+    <dcat:servesDataset rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo"/>
+    <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj"/>
+    <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/RESTRICTED"/>
+    <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_NC_4_0"/>
+    <dct:conformsTo rdf:resource="https://www.openapis.org/"/>
+    <dct:conformsTo rdf:resource="https://oauth.net/2/"/>
+    <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"/>
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/JSON_LD"/>
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/XML"/>
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+    <dcat:keyword xml:lang="en">API</dcat:keyword>
+    <dcat:keyword xml:lang="es">ejemplo</dcat:keyword>
+    <dcat:keyword xml:lang="en">OAuth2</dcat:keyword>
+    <dcat:keyword xml:lang="en">NSIP</dcat:keyword>
+    <dcat:keyword xml:lang="es">datos protegidos</dcat:keyword>
+    <dcat:keyword xml:lang="en">protected data</dcat:keyword>
+    <dcat:keyword xml:lang="en">example</dcat:keyword>
+    <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/sector-publico"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-01</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-18</dct:modified>
+    <dcat:contactPoint>
+      <vcard:Organization>
+        <vcard:fn xml:lang="es">Soporte Técnico API de Ejemplo</vcard:fn>
+        <vcard:hasEmail rdf:resource="mailto:api-soporte@ejemplo.org"/>
+        <vcard:hasTelephone rdf:resource="tel:+34-900444444"/>
+        <vcard:hasURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/soporte"/>
+        <vcard:hasUID rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <vcard:organization-name xml:lang="es">Organización de Ejemplo</vcard:organization-name>
+      </vcard:Organization>
+    </dcat:contactPoint>
+
+    <dcat:landingPage rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/api"/>
+    <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/api-reference"/>
+  </dcat:DataService>
+
+</rdf:RDF>
