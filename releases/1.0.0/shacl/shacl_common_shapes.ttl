@@ -261,6 +261,12 @@ dcatapes:DateOrDateTimeDataTypetConvention
             sh:message "The value must be data typed xsd:dateTime and follow the format YYYY-MM-DDThh:mm:ssTZD."@en ;
         ]
         [
+            sh:datatype xsd:dateTime ;
+            sh:pattern "^[1-9][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]{1,6})?$" ;
+            sh:message "El valor debe ser de tipo xsd:dateTime y seguir el formato YYYY-MM-DDThh:mm:ss (opcionalmente con fracción de segundos)."@es ;
+            sh:message "The value must be data typed xsd:dateTime and follow the format YYYY-MM-DDThh:mm:ss (optionally with fractional seconds)."@en ;
+        ]
+        [
             sh:datatype xsd:date ;
             sh:pattern "^[1-9][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$" ;
             sh:message "El valor debe ser de tipo xsd:date y seguir el formato YYYY-MM-DD."@es ;
@@ -280,6 +286,20 @@ dcatapes:DateOrDateTimeDataTypetConvention
         ]
     ) ;
     sh:severity sh:Violation .
+
+dcatapes:WarnDateTimeWithoutTZDConstraint
+    a sh:SPARQLConstraint ;
+    sh:severity sh:Warning ;
+    sh:message "El valor es un xsd:dateTime sin zona horaria (TZD). Por interoperabilidad, se recomienda incluir 'Z' o un offset (por ejemplo, +01:00)."@es ;
+    sh:message "The value is an xsd:dateTime without a time zone (TZD). For interoperability, it is recommended to include 'Z' or an offset (e.g., +01:00)."@en ;
+    sh:select """
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        SELECT $this $value
+        WHERE {
+            FILTER(datatype($value) = xsd:dateTime)
+            FILTER(regex(str($value), "^[1-9][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([.][0-9]{1,6})?$") )
+        }
+    """ .
 
 dcatapes:DurationRestriction
     a sh:NodeShape ;
@@ -334,22 +354,22 @@ dcatapes:VcardKindMinimalConvention
         sh:path vcard:fn ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        sh:message "Se recomienda incluir al menos un vcard:fn."@es ;
-        sh:message "It is recommended to include at least one vcard:fn."@en ;
+        sh:message "Un vcard:Kind debería incluir al menos un vcard:fn."@es ;
+        sh:message "A vcard:Kind should include at least one vcard:fn."@en ;
     ],
     [
         sh:path vcard:hasTelephone ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        sh:message "Se recomienda incluir al menos un vcard:hasTelephone."@es ;
-        sh:message "It is recommended to include at least one vcard:hasTelephone."@en ;
+        sh:message "Un vcard:Kind debería incluir al menos un vcard:hasTelephone."@es ;
+        sh:message "A vcard:Kind should include at least one vcard:hasTelephone."@en ;
     ],
     [
         sh:path vcard:hasUID ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        sh:message "Se recomienda incluir al menos un vcard:hasUID."@es ;
-        sh:message "It is recommended to include at least one vcard:hasUID."@en ;
+        sh:message "Un vcard:Kind debería incluir al menos un vcard:hasUID."@es ;
+        sh:message "A vcard:Kind should include at least one vcard:hasUID."@en ;
     ] ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
     sh:message "Se recomienda que el punto de contacto utilice vcard:fn, vcard:hasTelephone y vcard:hasUID. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19"@es ;
@@ -393,8 +413,8 @@ dcatapes:VcardKindRestriction
         sh:path vcard:organization-name ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        sh:message "Debería contener al menos un vcard:organization-name."@es ;
-        sh:message "Should contain at least one vcard:organization-name."@en ;
+        sh:message "Un vcard:Kind debería contener al menos un vcard:organization-name."@es ;
+        sh:message "A vcard:Kind should contain at least one vcard:organization-name."@en ;
     ],
     [
         sh:path vcard:organization-name ;
@@ -491,8 +511,8 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasUID ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        sh:message "Debería contener al menos un vcard:hasUID."@es ;
-        sh:message "Should contain at least one vcard:hasUID."@en ;
+        sh:message "Un vcard:Kind debería contener al menos un vcard:hasUID."@es ;
+        sh:message "A vcard:Kind should contain at least one vcard:hasUID."@en ;
     ],
     [
         sh:path vcard:hasUID ;
@@ -513,8 +533,8 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasEmail ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        sh:message "Debería contener al menos un vcard:hasEmail."@es ;
-        sh:message "Should contain at least one vcard:hasEmail."@en ;
+        sh:message "Un vcard:Kind debería contener al menos un vcard:hasEmail."@es ;
+        sh:message "A vcard:Kind should contain at least one vcard:hasEmail."@en ;
     ],
     [
         sh:path vcard:hasEmail ;
@@ -542,8 +562,8 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasTelephone ;
         sh:minCount 1; 
         sh:severity sh:Warning ;
-        sh:message "Debería contener al menos un vcard:hasTelephone."@es ;
-        sh:message "Should contain at least one vcard:hasTelephone."@en ;
+        sh:message "Un vcard:Kind debería incluir al menos un vcard:hasTelephone."@es ;
+        sh:message "A vcard:Kind should include at least one vcard:hasTelephone."@en ;
     ],
     [
         sh:path vcard:hasTelephone ;
@@ -564,8 +584,8 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasURL ;
         sh:minCount 1; 
         sh:severity sh:Warning ;
-        sh:message "Debería contener al menos un vcard:hasURL."@es ;
-        sh:message "Should contain at least one vcard:hasURL."@en ;
+        sh:message "Un vcard:Kind debería incluir al menos un vcard:hasURL."@es ;
+        sh:message "A vcard:Kind should include at least one vcard:hasURL."@en ;
     ].
     #sh:targetClass vcard:Kind .
 
@@ -746,8 +766,23 @@ dcatapes:NonNegativeIntegerRestriction
         ]
     ) ;
     sh:pattern "^[0-9]+$" ; # Número positivo, incluyendo 0
-    sh:message "El valor debe ser un número entero no negativo."@es ;
-    sh:message "The value must be a non-negative integer."@en ;
+    sh:message "El valor debe ser un número entero no negativo con tipo de dato xsd:integer o xsd:nonNegativeInteger"@es ;
+    sh:message "The value must be a non-negative integer with datatype xsd:integer or xsd:nonNegativeInteger"@en ;
+    sh:severity sh:Violation .
+
+dcatapes:DecimalRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que un valor sea un número decimal no negativo, incluyendo cero."@es ;
+    rdfs:comment "Restriction to validate that a value is a non-negative decimal, including zero."@en ;
+    rdfs:label "Restricción de decimal no negativo"@es ;
+    rdfs:label "Non-negative Decimal Restriction"@en ;
+    sh:name "Non-negative Decimal"@en ;
+    sh:name "Número decimal no negativo"@es ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0 ;
+    sh:message "El valor debe ser xsd:decimal no negativo (mayor o igual a 0) según lo definido en la ontología OWL Time."@es ;
+    sh:message "The value must be a non-negative xsd:decimal (greater than or equal to 0) as defined in the OWL Time ontology."@en ;
     sh:severity sh:Violation .
 
 dcatapes:PublicSectorRestriction
