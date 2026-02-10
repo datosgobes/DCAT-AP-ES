@@ -35,7 +35,7 @@ class SHACLChangelogGenerator:
             until_commit: Hash del commit hasta el cual obtener el historial
             
         Returns:
-            Lista de diccionarios con información de commits
+            Lista de diccionarios con información de commits (ordenados por fecha)
         """
         cmd = [
             "git", "log",
@@ -75,6 +75,9 @@ class SHACLChangelogGenerator:
                         'email': parts[3],
                         'message': '|'.join(parts[4:])  # El mensaje puede contener '|'
                     })
+            
+            # Ordenar por fecha y hash para determinismo
+            commits.sort(key=lambda x: (x['date'], x['hash']), reverse=True)
             
             return commits
             
@@ -235,12 +238,15 @@ class SHACLChangelogGenerator:
                 
                 content.append(f"### {category}\n")
                 
+                # Ordenar commits dentro de cada categoría por fecha y hash
+                categorized[category].sort(key=lambda x: (x['date'], x['hash']), reverse=True)
+                
                 for commit in categorized[category]:
                     # Extraer convenciones
                     conventions = self.extract_conventions(commit['message'])
                     conv_text = ""
                     if conventions:
-                        conv_text = f" ({', '.join(conventions)})"
+                        conv_text = f" ({', '.join(sorted(conventions))})"
                     
                     # Obtener archivos modificados
                     files = self.get_changed_files(commit['hash'])

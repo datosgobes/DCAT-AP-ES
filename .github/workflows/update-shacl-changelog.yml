@@ -10,6 +10,12 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
+
+# Evita PRs duplicadas si hay múltiples pushes seguidos
+concurrency:
+  group: shacl-changelog-update
+  cancel-in-progress: false
 
 jobs:
   update-shacl-changelog:
@@ -23,12 +29,25 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Check if last commit was from bot
+        id: check_bot
+        run: |
+          LAST_AUTHOR=$(git log -1 --pretty=format:'%an')
+          if [[ "$LAST_AUTHOR" == "github-actions[bot]" ]]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "Último commit fue del bot. Saltando para evitar bucle."
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Setup Python
+        if: steps.check_bot.outputs.skip != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Get last changelog commit
+        if: steps.check_bot.outputs.skip != 'true'
         id: last_commit
         run: |
           # Buscar el último commit que actualizó el CHANGELOG
@@ -40,11 +59,12 @@ jobs:
           fi
           
           echo "last_commit=$LAST_COMMIT" >> $GITHUB_OUTPUT
-          echo "Last CHANGELOG update commit: $LAST_COMMIT"
+          echo "Último commit de CHANGELOG: $LAST_COMMIT"
 
       - name: Generate/Update SHACL CHANGELOG
+        if: steps.check_bot.outputs.skip != 'true'
         run: |
-          echo "Updating SHACL CHANGELOG since commit ${{ steps.last_commit.outputs.last_commit }}"
+          echo "Actualizando CHANGELOG desde commit ${{ steps.last_commit.outputs.last_commit }}"
           
           # Verificar si el CHANGELOG existe
           if [ -f "shacl/CHANGELOG.md" ]; then
@@ -58,20 +78,71 @@ jobs:
               --output shacl/CHANGELOG.md
           fi
 
-      - name: Commit and push CHANGELOG
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Check for changes
+        if: steps.check_bot.outputs.skip != 'true'
+        id: changes
+        run: |
+          if git diff --quiet shacl/CHANGELOG.md; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No hay cambios en el CHANGELOG"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Cambios detectados en CHANGELOG"
+          fi
+
+      - name: Create pull request
+        if: steps.check_bot.outputs.skip != 'true' && steps.changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
         with:
-          commit_message: "docs: Update SHACL CHANGELOG [automated]"
-          file_pattern: "shacl/CHANGELOG.md"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
-          commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          commit-message: "docs: Update SHACL CHANGELOG [automated]"
+          title: "docs: actualizar CHANGELOG de SHACL"
+          body: |
+            ## Actualización automática del CHANGELOG de SHACL
+            
+            Este PR actualiza automáticamente el archivo `shacl/CHANGELOG.md` con los últimos cambios en los archivos SHACL.
+            
+            ### Detalles
+            - **Último commit procesado**: `${{ steps.last_commit.outputs.last_commit }}`
+            - **Rama base**: `develop`
+            - **Generado por**: GitHub Actions
+            
+            ### Verificación
+            - [ ] Revisar que el formato del CHANGELOG es correcto
+            - [ ] Verificar que todos los commits relevantes están incluidos
+            - [ ] Comprobar enlaces y referencias
+            
+            ---
+            
+            **Nota**: Este PR se genera automáticamente cuando hay cambios en archivos `.ttl` dentro de `shacl/`.
+            
+            Para regenerar manualmente: Ejecuta el workflow [Update SHACL Changelog](../actions/workflows/update-shacl-changelog.yml) desde la pestaña Actions.
+          branch: "chore/update-shacl-changelog"
+          delete-branch: true
+          add-paths: |
+            shacl/CHANGELOG.md
+          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          labels: |
+            documentation
+            automated
+          assignees: ${{ github.actor }}
 
       - name: Summary
+        if: always()
         run: |
-          echo "## SHACL CHANGELOG Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "## Resumen: Actualización SHACL CHANGELOG" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- **Branch**: develop" >> $GITHUB_STEP_SUMMARY
-          echo "- **Last CHANGELOG commit**: \`${{ steps.last_commit.outputs.last_commit }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "[View CHANGELOG](../blob/develop/shacl/CHANGELOG.md)" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ "${{ steps.check_bot.outputs.skip }}" == "true" ]]; then
+            echo "**Ejecución saltada**: El último commit fue realizado por el bot" >> $GITHUB_STEP_SUMMARY
+          elif [[ "${{ steps.changes.outputs.has_changes }}" == "false" ]]; then
+            echo "**Sin cambios**: El CHANGELOG ya está actualizado" >> $GITHUB_STEP_SUMMARY
+          elif [[ "${{ steps.changes.outputs.has_changes }}" == "true" ]]; then
+            echo "**PR creada**: Se ha generado un Pull Request con los cambios" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Detalles" >> $GITHUB_STEP_SUMMARY
+            echo "- **Rama**: \`develop\`" >> $GITHUB_STEP_SUMMARY
+            echo "- **Último commit procesado**: \`${{ steps.last_commit.outputs.last_commit }}\`" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "[Ver CHANGELOG](../blob/chore/update-shacl-changelog/shacl/CHANGELOG.md)" >> $GITHUB_STEP_SUMMARY
+          fi
