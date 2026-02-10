@@ -26,7 +26,10 @@ Valida archivos SHACL y ejemplos RDF/TTL en PRs y pushes a `main`/`develop`.
 ### [`update-shacl-changelog.yml`](./update-shacl-changelog.yml)
 Mantiene actualizado [`shacl/CHANGELOG.md`](../../shacl/CHANGELOG.md) cuando cambian archivos SHACL.
 
-**Trigger**: Cambios en `shacl/**/*.ttl` en `develop`  
+**Trigger**: 
+- Automático: Cambios en `shacl/**/*.ttl` en `develop`
+- Manual: Actions → Update SHACL Changelog → Run workflow
+
 **Funcionamiento**: 
 1. Detecta commits nuevos desde la última actualización
 2. Categoriza según Conventional Commits
@@ -37,7 +40,9 @@ Mantiene actualizado [`shacl/CHANGELOG.md`](../../shacl/CHANGELOG.md) cuando cam
 - Solo crea PR si hay cambios reales
 - No ejecuta en paralelo (concurrency)
 
-**Manual**: Actions → Update SHACL Changelog → Run workflow
+**Opciones manuales**:
+- `regenerate_full`: Regenerar CHANGELOG completo desde el inicio (checkbox)
+- `since_commit`: Commit específico desde el cual actualizar (opcional)
 
 ---
 
@@ -51,11 +56,9 @@ Genera PDFs desde archivos AsciiDoc cuando se modifican en `docs/adoc/`.
 2. Compara hashes con versión en `main`
 3. Crea PR si hay cambios reales
 
-**Manual**: Actions → `Generate PDFs from AsciiDoc` files (checkbox "Convert Markdown to AsciiDoc" si aplica)
+**Manual**: Actions → Generate PDFs from AsciiDoc files (checkbox "Convert Markdown to AsciiDoc" si aplica)
 
 ---
-
-## En desarrollo
 
 ### [`changelog.yml`](./changelog.yml)
 Genera CHANGELOG.md y release notes cuando se publica un tag de versión.
@@ -71,10 +74,8 @@ Genera CHANGELOG.md y release notes cuando se publica un tag de versión.
 ---
 
 ### [`documentation.yml`](./documentation.yml)
-Build alternativo de documentación con Poetry (actualmente manual), para versionar.
+Build alternativo de documentación con Poetry (actualmente manual).
 
 **Trigger**: Solo manual  
 **Diferencia con mkdocs.yml**: Usa Poetry para gestión de dependencias, incluye Playwright para rendering  
 **TODO**: Añadir versionado con [mike](https://github.com/jimporter/mike)
-
----

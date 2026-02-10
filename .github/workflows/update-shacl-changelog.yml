@@ -1,4 +1,4 @@
-name: Update SHACL Changelog
+name: Actualizar CHANGELOG de formas SHACL
 
 on:
   push:
@@ -7,6 +7,16 @@ on:
     paths:
       - 'shacl/**/*.ttl'
   workflow_dispatch:  # Permite ejecución manual
+    inputs:
+      regenerate_full:
+        description: 'Regenerar CHANGELOG completo desde el inicio'
+        required: false
+        type: boolean
+        default: false
+      since_commit:
+        description: 'Commit específico desde el cual actualizar (opcional)'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -50,12 +60,22 @@ jobs:
         if: steps.check_bot.outputs.skip != 'true'
         id: last_commit
         run: |
-          # Buscar el último commit que actualizó el CHANGELOG
-          LAST_COMMIT=$(git log --all --grep="Update SHACL CHANGELOG" --format="%H" -n 1)
-          
-          # Si no hay commits previos, usar el primer commit de SHACL
-          if [ -z "$LAST_COMMIT" ]; then
-            LAST_COMMIT=$(git log --all --reverse --format="%H" -- shacl/ | head -1)
+          # Si se ejecuta manualmente con un commit específico, usar ese
+          if [[ -n "${{ inputs.since_commit }}" ]]; then
+            LAST_COMMIT="${{ inputs.since_commit }}"
+            echo "Usando commit especificado manualmente: $LAST_COMMIT"
+          # Si se pide regeneración completa, no usar commit previo
+          elif [[ "${{ inputs.regenerate_full }}" == "true" ]]; then
+            LAST_COMMIT=""
+            echo "Regeneración completa solicitada"
+          else
+            # Buscar el último commit que actualizó el CHANGELOG
+            LAST_COMMIT=$(git log --all --grep="Update SHACL CHANGELOG" --format="%H" -n 1)
+            
+            # Si no hay commits previos, usar el primer commit de SHACL
+            if [ -z "$LAST_COMMIT" ]; then
+              LAST_COMMIT=$(git log --all --reverse --format="%H" -- shacl/ | head -1)
+            fi
           fi
           
           echo "last_commit=$LAST_COMMIT" >> $GITHUB_OUTPUT
@@ -104,6 +124,9 @@ jobs:
             ### Detalles
             - **Último commit procesado**: `${{ steps.last_commit.outputs.last_commit }}`
             - **Rama base**: `develop`
+            - **Tipo**: ${{ github.event_name == 'workflow_dispatch' && '🔧 Manual' || '🤖 Automático' }}
+            ${{ inputs.regenerate_full == 'true' && '- **Modo**: Regeneración completa' || '' }}
+            ${{ inputs.since_commit && format('- **Commit base**: {0}', inputs.since_commit) || '' }}
             - **Generado por**: GitHub Actions
             
             ### Verificación
@@ -142,6 +165,10 @@ jobs:
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### Detalles" >> $GITHUB_STEP_SUMMARY
             echo "- **Rama**: \`develop\`" >> $GITHUB_STEP_SUMMARY
+            echo "- **Tipo**: ${{ github.event_name == 'workflow_dispatch' && 'Manual' || 'Automático' }}" >> $GITHUB_STEP_SUMMARY
+            if [[ "${{ inputs.regenerate_full }}" == "true" ]]; then
+              echo "- **Modo**: Regeneración completa" >> $GITHUB_STEP_SUMMARY
+            fi
             echo "- **Último commit procesado**: \`${{ steps.last_commit.outputs.last_commit }}\`" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "[Ver CHANGELOG](../blob/chore/update-shacl-changelog/shacl/CHANGELOG.md)" >> $GITHUB_STEP_SUMMARY
