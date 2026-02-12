@@ -1,12 +1,3 @@
----
-name: Pull Request para DCAT-AP-ES
-about: Plantilla para describir cambios, mejoras y nuevas funcionalidades en DCAT-AP-ES
-title: ''
-labels: DCAT-AP-ES
-assignees: Admindatosgobes
-
----
-
 ## Descripción
 
 <!-- Proporciona una descripción general de los cambios incluidos en esta PR. Resume el propósito y alcance de las modificaciones. -->
