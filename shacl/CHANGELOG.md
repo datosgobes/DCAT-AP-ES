@@ -3,6 +3,12 @@ Este archivo registra todos los cambios significativos en los archivos SHACL de 
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
 
 ## Febrero 2026
+### Fixes
+- flexibilizar la convención 12 en SHACL (Convención 12) - `shacl_dataset_hvd_shape.ttl` ([`fbe59eb`](https://github.com/datosgobes/DCAT-AP-ES/commit/fbe59eb2c273101f768fddb7575d1851f81c2ac2)) - [@mjanez](https://github.com/mjanez)
+
+---
+
+## Febrero 2026
 ### Features
 - añadir gestión automatizada de changelog de formas SHACL - `CHANGELOG.md`, `README.md` ([`7205ca7`](https://github.com/datosgobes/DCAT-AP-ES/commit/7205ca778acb6786cdee51b8eab77c1f2511ea2f)) - [@mjanez](https://github.com/mjanez)
 - incluir mensajes de validación y enlaces para convenciones de fecha en las formas SHACL - `shacl_catalog_shape.ttl`, `shacl_dataset_shape.ttl`, `shacl_distribution_shape.ttl` ([`de4faf8`](https://github.com/datosgobes/DCAT-AP-ES/commit/de4faf85610f388911c7e9c89ac1450d44390437)) - [@mjanez](https://github.com/mjanez)
