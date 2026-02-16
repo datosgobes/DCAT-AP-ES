@@ -3,6 +3,12 @@ Este archivo registra todos los cambios significativos en los archivos SHACL de 
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
 
 ## Febrero 2026
+### Features
+- implementar FlexibleDurationRestriction para validar xsd:duration en formato ISO 8601 y segundos. - `shacl_common_shapes.ttl`, `shacl_dataset_shape.ttl`, `shacl_distribution_shape.ttl` ([`a98f885`](https://github.com/datosgobes/DCAT-AP-ES/commit/a98f885928218fe95d9402b2385bd95f42183a70)) - [@mjanez](https://github.com/mjanez)
+
+---
+
+## Febrero 2026
 ### Fixes
 - flexibilizar la convención 12 en SHACL (Convención 12) - `shacl_dataset_hvd_shape.ttl` ([`fbe59eb`](https://github.com/datosgobes/DCAT-AP-ES/commit/fbe59eb2c273101f768fddb7575d1851f81c2ac2)) - [@mjanez](https://github.com/mjanez)
 

@@ -1,0 +1,20 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Formato recomendado (ISO 8601)
+<http://example.org/distribution/1> a dcat:Distribution ;
+    dcat:temporalResolution "PT24M"^^xsd:duration ;  # 24 minutos
+    .
+
+<http://example.org/distribution/2> a dcat:Distribution ;
+    dcat:temporalResolution "P7D"^^xsd:duration ;    # 7 días
+    .
+
+# Formato admitido (Deuda técnica Virtuoso https://github.com/openlink/virtuoso-opensource/issues/936)
+<http://example.org/distribution/1> a dcat:Distribution ;
+    dcat:temporalResolution "1440.0"^^xsd:duration ;   # 1440 segundos = PT24M
+    .
+
+<http://example.org/distribution/2> a dcat:Distribution ;
+    dcat:temporalResolution "604800.0"^^xsd:duration ; # 604800 segundos = P7D
+    .

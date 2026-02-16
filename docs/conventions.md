@@ -54,7 +54,8 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 27**](#convencion-27): Un conjunto de datos accesible vía NSIP/ERPD *DEBERÍA* relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
 - [**Convención 28**](#convencion-28): Para APIs con APIKey de *acceso universal* (registro automático sin aprobación manual), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `PUBLIC` e incluir `dcat:endpointDescription` con documento OpenAPI que especifique `securitySchemes` o documentar en `foaf:page` la documentación para obtener la clave.
 - [**Convención 29**](#convencion-29): Para APIs con APIKey de *acceso restringido* (requiere aprobación, contrato o pago), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso y `dcat:endpointDescription` con documento OpenAPI.
-- [**Convención 30**](#convencion-30): La propiedad `dcat:themeTaxonomy` en catálogos y la propiedad `dcat:theme` en datasets y servicios de datos **DEBEN** admitir cardinalidad flexible `1..*` para permitir la clasificación en tantos esquemas temáticos o taxonomías como sean necesarios, siempre que al menos uno corresponda a la [taxonomía de sectores primarios](https://datos.gob.es/kos/sector-publico/sector). 
+- [**Convención 30**](#convencion-30): La propiedad `dcat:themeTaxonomy` en catálogos y la propiedad `dcat:theme` en datasets y servicios de datos *DEBEN* admitir cardinalidad flexible `1..*` para permitir la clasificación en tantos esquemas temáticos o taxonomías como sean necesarios, siempre que al menos uno corresponda a la [taxonomía de sectores primarios](https://datos.gob.es/kos/sector-publico/sector).
+- [**Convención 31**](#convencion-31): Los valores de duración temporal (`dcat:temporalResolution`) *DEBEN* expresarse preferentemente en formato ISO 8601 (`xsd:duration`) como `PT24M`, pero se admiten representaciones numéricas en segundos (como `1440.0`) por limitaciones técnicas.
 
 # Convenciones generales {#general}
 
@@ -300,6 +301,32 @@ En el perfil DCAT-AP-ES, la cardinalidad de las propiedades `dcat:themeTaxonomy`
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_general-themes.ttl"
     ```
+
+## Representación de duraciones temporales {#general-temporal-resolution}
+
+La propiedad `dcat:temporalResolution` se utiliza para especificar la granularidad temporal mínima de los datos en un dataset o distribución. Según la especificación DCAT, estos valores deben expresarse como `xsd:duration` siguiendo el formato ISO 8601 (por ejemplo, `PT24M` para 24 minutos, `P7D` para 7 días).
+
+Sin embargo, se ha identificado una [limitación técnica en Virtuoso](https://github.com/openlink/virtuoso-opensource/issues/936) que puede convertir automáticamente las duraciones ISO 8601 válidas a representaciones numéricas en segundos al recuperar los datos del triple store. Esto afecta al proceso de federación y validación SHACL cuando los valores originales enviados por los publicadores en formato correcto ISO 8601 son transformados inadvertidamente.
+
+Cuando aparezcan valores numéricos en segundos en el federador de [datos.gob.es](https://datos.gob.es), se generará una advertencia informativa que **no requiere acción correctora** por parte del publicador si:
+    
+1. El valor original fue enviado correctamente en formato ISO 8601
+2. La conversión se produjo durante el almacenamiento en el triple store
+3. El valor numérico en segundos es matemáticamente equivalente al valor ISO 8601 original
+
+!!! should organisational "Convención 31"
+    Los valores de duración temporal (`dcat:temporalResolution`) **DEBERIÁN** expresarse preferentemente en formato ISO 8601 (`xsd:duration`) como `PT24M`, pero se admiten representaciones numéricas en segundos (como `1440.0`) por limitaciones técnicas.
+
+!!! info "Ejemplo de duraciones temporales"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_general_temporal-resolution.ttl"
+    ```
+
+!!! warning "Nota sobre la validación"
+    * Los publicadores tienen que enviar siempre los valores en formato ISO 8601 estándar
+    * La validación SHACL aceptará ambos formatos para evitar rechazos por conversiones inadvertidas
+    * Las advertencias (*warnings*) sobre formato numérico en el federador indican el problema técnico pero no requieren corrección si el origen era correcto
+    * Se recomienda verificar los valores originales en el catálogo fuente antes de cualquier modificación
 
 # Convenciones para `dcat:Catalog` {#catalog}
 
