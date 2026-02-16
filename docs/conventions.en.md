@@ -43,7 +43,7 @@ These conventions ensure consistency in the description of resources, guaranteei
 - [**Convention 16**](#convention-16): Geographic coverage **MUST** be declared using URIs from the [Annex V of NTI-RISP for geographic resources of Spanish territory](https://datos.gob.es/es/recurso/sector-publico/territorio), following these rules: 1. Use the most specific territorial level that corresponds to the dataset's actual scope. 2. Avoid using `Spain` by default when the scope is narrower. 3. Do not declare an Autonomous Community and its provinces simultaneously. 4. For single-province Autonomous Communities, preferably use the reference to the Autonomous Community.
 - [**Convention 17**](#convention-17): When specifying geometric coverage, `WKT` **SHOULD** be used (according to [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql)).
 - [**Convention 18**](#convention-18): HVD data services **MUST** include at least one contact point (`dcat:contactPoint`) with one of the following properties: Email address (`vcard:hasEmail`) or Contact form URL (`vcard:hasURL`)
-- [**Convention 19**](#convention-19): The contact point **SHOULD** include: 1. Name (`vcard:organization-name`) 2. Telephone number (`vcard:hasTelephone`) 3. Organization identifier (`vcard:hasUid`) 4. Email address (`vcard:hasEmail`) 5. Contact form URL (`vcard:hasURL`)
+- [**Convention 19**](#convention-19): The contact point **SHOULD** include: 1. Name (`vcard:organization-name`) 2. Telephone number (`vcard:hasTelephone`) URI: `tel:` 3. Organization identifier (`vcard:hasUid`) 4. Email address (`vcard:hasEmail`) URI `mailto:` 5. Contact form URL (`vcard:hasURL`)
 - [**Convention 20**](#convention-20): Contact points listed in the portal's taxonomy **MUST** be described as a `vcard:Kind` and not directly with the organization's URI.
 - [**Convention 21**](#convention-21): In OGC service distributions, access URLs **MUST** be modeled as follows: In `dcat:accessURL`: Complete URL of the service capabilities request `GetCapabilities` (e.g.: `http://example.org/wms?request=GetCapabilities&service=WMS`) and in `dct:conformsTo`: URL of the corresponding OGC standard, e.g.: `http://www.opengeospatial.org/standards/wms`
 - [**Convention 22**](#convention-22): Time periods **MUST** be described exclusively using the properties `dcat:startDate` and `dcat:endDate` within `dct:temporal`. The interval can also be open, that is, it can have only a start or only an end.
@@ -54,7 +54,8 @@ These conventions ensure consistency in the description of resources, guaranteei
 - [**Convention 27**](#convention-27): A dataset accessible via NSIP/ERPD **SHOULD** be related through `dcatap:applicableLegislation` with specific legislation (at least the DGA Regulation: `http://data.europa.eu/eli/reg/2022/868/oj`) and, if it includes directly accessible endpoints or APIs, use the class [`dcat:DataService`](index.md#DataService) to describe the service in addition to `dcat:Distribution`.
 - [**Convention 28**](#convention-28): For APIs with **universal access** APIKey (automatic registration without manual approval), a `dcat:DataService` **SHOULD** use `dct:accessRights` with value `PUBLIC` and include `dcat:endpointDescription` with OpenAPI document that specifies `securitySchemes` or document in `foaf:page` the documentation to obtain the key.
 - [**Convention 29**](#convention-29): For APIs with **restricted access** APIKey (requires approval, contract or payment), a `dcat:DataService` **SHOULD** use `dct:accessRights` with value `RESTRICTED` and indicate in `dct:rights` the terms of use and `dcat:endpointDescription` with OpenAPI document.
-- [**Convention 30**](#convention-30): The `dcat:themeTaxonomy` property in catalogs and the `dcat:theme` property in datasets and data services **MUST** support flexible cardinality `1..*` to allow classification in as many thematic schemes or taxonomies as necessary, as long as at least one corresponds to the [primary sector taxonomy](https://datos.gob.es/kos/sector-publico/sector). 
+- [**Convention 30**](#convention-30): The `dcat:themeTaxonomy` property in catalogs and the `dcat:theme` property in datasets and data services **MUST** support flexible cardinality `1..*` to allow classification in as many thematic schemes or taxonomies as necessary, as long as at least one corresponds to the [primary sector taxonomy](https://datos.gob.es/kos/sector-publico/sector).
+- [**Convention 31**](#convention-31): Temporal duration values (`dcat:temporalResolution`) *MUST* preferably be expressed in ISO 8601 format (`xsd:duration`) as `PT24M`, but numerical representations in seconds (such as `1440.0`) are allowed due to technical limitations.
 
 # General conventions {#general}
 
@@ -305,6 +306,32 @@ In the DCAT-AP-ES profile, the cardinality of the `dcat:themeTaxonomy` propertie
     ```turtle linenums="1"
     --8<-- "examples/ttl/Conventions_general-themes.ttl"
     ```
+
+## Representation of temporal durations {#general-temporal-resolution}
+
+The `dcat:temporalResolution` property is used to specify the minimum temporal granularity of the data in a dataset or distribution. According to the DCAT specification, these values must be expressed as `xsd:duration` following the [ISO 8601 duration format](https://tc39.es/proposal-temporal/docs/duration.html) (for example, `PT24M` for 24 minutes, `P7D` for 7 days).
+
+However, a [technical limitation in Virtuoso](https://github.com/openlink/virtuoso-opensource/issues/936) has been identified that can automatically convert valid ISO 8601 durations to numeric representations in seconds when retrieving data from the triple store. This affects the federation and SHACL validation process when the original values submitted by publishers in correct ISO 8601 format are inadvertently transformed.
+
+When numeric values in seconds appear in the [datos.gob.es](https://datos.gob.es) federator, an informative warning will be generated that **does not require corrective action** from the publisher if:
+
+1. The original value was correctly submitted in ISO 8601 format
+2. The conversion occurred during storage in the triple store
+3. The numeric value in seconds is mathematically equivalent to the original ISO 8601 value
+
+!!! should organisational "Convention 31"
+    Temporal duration values (`dcat:temporalResolution`) **SHOULD** preferably be expressed in ISO 8601 format (`xsd:duration`) such as `PT24M`, but numeric representations in seconds (such as `1440.0`) are accepted due to technical limitations.
+
+!!! info "Example of temporal durations"
+    ```turtle linenums="1"
+    --8<-- "examples/ttl/Conventions_general_temporal-resolution.ttl"
+    ```
+
+!!! warning "Note on validation"
+    * Publishers must always submit values in standard ISO 8601 format
+    * SHACL validation will accept both formats to avoid rejections due to inadvertent conversions
+    * Warnings about numeric format in the federator indicate the technical issue but do not require correction if the source was correct
+    * It is recommended to verify the original values in the source catalogue before making any modifications
 
 # Conventions for `dcat:Catalog` {#catalog}
 
@@ -573,15 +600,14 @@ To facilitate communication with those responsible for *datasets* or *data servi
     The contact point **SHOULD** include:
     
     1. Name (`vcard:organization-name`)
-    2. Telephone number (`vcard:hasTelephone`)
+    2. Telephone number (`vcard:hasTelephone`) URI `tel:`
     3. Organization identifier (`vcard:hasUid`)
-    4. Email address (`vcard:hasEmail`)
+    4. Email address (`vcard:hasEmail`) URI `mailto:`
     5. Contact form URL (`vcard:hasURL`)
 
 !!! must organisational "Convention 20"
     
     Contact points listed in the portal's taxonomy **MUST** be described as a `vcard:Kind` and not directly with the organization's URI.
-
 
 !!! success "Example of correct usage"
     ```turtle linenums="1"
@@ -597,6 +623,12 @@ To facilitate communication with those responsible for *datasets* or *data servi
     
     All values provided are recommended to be of a public and persistent nature, ^^avoiding references to personal data^^ or temporarily unstable, and preferably as close as possible to the origin of the datasets.
 
+    The properties `vcard:hasEmail` and `vcard:hasTelephone` use URIs, not literals:
+    
+    - `vcard:hasEmail`: use the `mailto:` scheme 
+      (e.g., `<mailto:contacto@example.org>`)
+    - `vcard:hasTelephone`: use the `tel:` scheme 
+      (e.g.: `<tel:+34912345678>`)
 
 # Annex 1. Mapping table of primary sectors to DCAT-AP Data Themes {#annex-1-mapping-nti-themes-dcatap-themes}
 

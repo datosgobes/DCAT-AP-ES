@@ -43,7 +43,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 16**](#convencion-16): La cobertura geográfica *DEBE* declararse utilizando las URIs del [Anexo V de la NTI-RISP para recursos geográficos del territorio español](https://datos.gob.es/es/recurso/sector-publico/territorio), siguiendo estas reglas: 1. Utilizar el nivel territorial más específico que corresponda al ámbito real del dataset. 2. Evitar el uso de `España` por defecto cuando el ámbito sea más reducido. 3. No declarar simultáneamente una Comunidad Autónoma y sus provincias. 4. Para Comunidades Autónomas uniprovinciales, utilizar preferentemente la referencia a la Comunidad Autónoma.
 - [**Convención 17**](#convencion-17): Cuando se especifique la cobertura geométrica, se *DEBERÍA* usar `WKT` (según [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql)).
 - [**Convención 18**](#convencion-18): Los *servicios de datos HVD* *DEBEN* incluir al menos un punto de contacto (`dcat:contactPoint`) con alguna de las siguientes propiedades: Correo electrónico (`vcard:hasEmail`) o URL del formulario de contacto (`vcard:hasURL`)
-- [**Convención 19**](#convencion-19): El punto de contacto *DEBERÍA* incluir también: 1. Nombre (`vcard:organization-name`) 2. Número de teléfono (`vcard:hasTelephone`) 3. Identificador del organismo (`vcard:hasUid`) 4. Correo electrónico (`vcard:hasEmail`) 5. URL del formulario de contacto (`vcard:hasURL`)
+- [**Convención 19**](#convencion-19): El punto de contacto *DEBERÍA* incluir también: 1. Nombre (`vcard:organization-name`) 2. Número de teléfono (`vcard:hasTelephone`) en formato URI `tel:` 3. Identificador del organismo (`vcard:hasUid`) 4. Correo electrónico (`vcard:hasEmail`) en formato URI `mailto:` 5. URL del formulario de contacto (`vcard:hasURL`)
 - [**Convención 20**](#convencion-20): Los puntos de contacto recogidos en la taxonomía del portal *DEBEN* describirse como un `vcard:Kind` y no directamente con la URI del organismo.
 - [**Convención 21**](#convencion-21): En las distribuciones de servicios OGC, las URLs de acceso *DEBEN* modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
@@ -304,7 +304,7 @@ En el perfil DCAT-AP-ES, la cardinalidad de las propiedades `dcat:themeTaxonomy`
 
 ## Representación de duraciones temporales {#general-temporal-resolution}
 
-La propiedad `dcat:temporalResolution` se utiliza para especificar la granularidad temporal mínima de los datos en un dataset o distribución. Según la especificación DCAT, estos valores deben expresarse como `xsd:duration` siguiendo el formato ISO 8601 (por ejemplo, `PT24M` para 24 minutos, `P7D` para 7 días).
+La propiedad `dcat:temporalResolution` se utiliza para especificar la granularidad temporal mínima de los datos en un dataset o distribución. Según la especificación DCAT, estos valores deben expresarse como `xsd:duration` siguiendo el [formato de duración ISO 8601](https://tc39.es/proposal-temporal/docs/duration.html) (por ejemplo, `PT24M` para 24 minutos, `P7D` para 7 días).
 
 Sin embargo, se ha identificado una [limitación técnica en Virtuoso](https://github.com/openlink/virtuoso-opensource/issues/936) que puede convertir automáticamente las duraciones ISO 8601 válidas a representaciones numéricas en segundos al recuperar los datos del triple store. Esto afecta al proceso de federación y validación SHACL cuando los valores originales enviados por los publicadores en formato correcto ISO 8601 son transformados inadvertidamente.
 
@@ -595,15 +595,14 @@ Para facilitar la comunicación con los responsables de los *datasets* o *servic
     El punto de contacto **DEBERÍA** incluir:
     
     1. Nombre (`vcard:organization-name`)
-    2. Número de teléfono (`vcard:hasTelephone`)
+    2. Número de teléfono (`vcard:hasTelephone`) en formato URI `tel:`
     3. Identificador del organismo (`vcard:hasUid`)
-    4. Correo electrónico (`vcard:hasEmail`)
+    4. Correo electrónico (`vcard:hasEmail`) en formato URI `mailto:`
     5. URL del formulario de contacto (`vcard:hasURL`)
 
 !!! must organisational "Convención 20"
     
     Los puntos de contacto recogidos en la taxonomía del portal **DEBEN** describirse como un `vcard:Kind` y no directamente con la URI del organismo.
-
 
 !!! success "Ejemplo de uso correcto"
     ```turtle linenums="1"
@@ -619,6 +618,12 @@ Para facilitar la comunicación con los responsables de los *datasets* o *servic
     
     Todos los valores proporcionados se recomienda que sean de carácter público y persistente, ^^evitando referencias a datos personales^^ o temporalmente inestables, y preferiblemente lo más cercanos al origen del conjuntos de datos.
 
+    Las propiedades `vcard:hasEmail` y `vcard:hasTelephone` usan URIs, no literales:
+    
+    - `vcard:hasEmail`: usar esquema `mailto:` 
+      (ej: `<mailto:contacto@example.org>`)
+    - `vcard:hasTelephone`: usar esquema `tel:` 
+      (ej: `<tel:+34912345678>`)
 
 # Anexo 1. Tabla de mapeo de sectores primarios a Temáticas de datos DCAT-AP {#annex-1-mapping-nti-themes-dcatap-themes}
 
