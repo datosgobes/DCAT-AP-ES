@@ -301,6 +301,7 @@ dcatapes:WarnDateTimeWithoutTZDConstraint
         }
     """ .
 
+# Deprecada por Convención 31 (FlexibleDurationRestriction)
 dcatapes:DurationRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un valor de duración siga el formato ISO 8601 para xsd:duration (por ejemplo, P3Y6M4DT12H30M5S)."@es ;
@@ -316,6 +317,69 @@ dcatapes:DurationRestriction
     sh:message "El valor de duración debe seguir el formato ISO 8601 para xsd:duration (por ejemplo, P3Y6M4DT12H30M5S)."@es ;
     sh:message "The duration value must follow the ISO 8601 format for xsd:duration (e.g., P3Y6M4DT12H30M5S)."@en ;
     sh:severity sh:Violation .
+
+# Convencion 31
+dcatapes:FlexibleDurationRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Restricción para validar que un valor de duración siga el formato ISO 8601 para xsd:duration (por ejemplo, P3Y6M4DT12H30M5S) o una representación numérica en segundos (por ejemplo, 1440.0) debido a limitaciones técnicas de almacenamiento en triple stores. Ver Convención 31."@es ;
+    rdfs:comment "Restriction to validate that a duration value follows the ISO 8601 format for xsd:duration (e.g., P3Y6M4DT12H30M5S) or a numeric representation in seconds (e.g., 1440.0) due to technical limitations in triple store storage. See Convention 31."@en ;
+    rdfs:label "Restricción de duración flexible"@es ;
+    rdfs:label "Flexible Duration Restriction"@en ;
+    sh:name "Restricción de duración flexible"@es ;
+    sh:name "Flexible Duration Restriction"@en ;
+    sh:nodeKind sh:Literal ;
+    sh:or (
+        [
+            # Formato ISO 8601 estándar (preferido) con xsd:duration
+            sh:datatype xsd:duration ;
+            sh:pattern "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$" ;
+            sh:message "El valor de duración debe seguir el formato ISO 8601 para xsd:duration (por ejemplo, P3Y6M4DT12H30M5S)."@es ;
+            sh:message "The duration value must follow the ISO 8601 format for xsd:duration (e.g., P3Y6M4DT12H30M5S)."@en ;
+        ]
+        [
+            # Formato numérico en segundos con xsd:duration (conversión Virtuoso)
+            sh:datatype xsd:duration ;
+            sh:pattern "^\\d+(\\.\\d+)?$" ;
+            sh:message "El valor de duración está en formato numérico de segundos con tipo xsd:duration. Esto es aceptado por limitaciones técnicas del triple store."@es ;
+            sh:message "The duration value is in numeric seconds format with xsd:duration type. This is accepted due to triple store technical limitations."@en ;
+        ]
+        [
+            # Formato numérico en segundos como string plano (sin tipo de dato explícito)
+            sh:pattern "^\\d+(\\.\\d+)?$" ;
+            sh:message "El valor de duración está en formato numérico de segundos. Esto es aceptado por limitaciones técnicas del triple store."@es ;
+            sh:message "The duration value is in numeric seconds format. This is accepted due to triple store technical limitations."@en ;
+        ]
+        [
+            # Formato numérico como tipos numéricos (xsd:decimal, xsd:double, xsd:float, xsd:integer)
+            sh:or (
+                [ sh:datatype xsd:decimal ]
+                [ sh:datatype xsd:double ]
+                [ sh:datatype xsd:float ]
+                [ sh:datatype xsd:integer ]
+            ) ;
+            sh:message "El valor de duración está en formato numérico. Esto es aceptado por limitaciones técnicas del triple store."@es ;
+            sh:message "The duration value is in numeric format. This is accepted due to triple store technical limitations."@en ;
+        ]
+    ) ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-31> ;
+    sh:message "El valor de duración debe seguir el formato ISO 8601 para xsd:duration (por ejemplo, P3Y6M4DT12H30M5S) o, excepcionalmente, una representación numérica en segundos."@es ;
+    sh:message "The duration value must follow the ISO 8601 format for xsd:duration (e.g., P3Y6M4DT12H30M5S) or, exceptionally, a numeric representation in seconds."@en ;
+    sh:severity sh:Violation .
+
+dcatapes:WarnNumericDurationConstraint
+    a sh:SPARQLConstraint ;
+    sh:severity sh:Warning ;
+    sh:message "El valor de duración temporal está en formato numérico de segundos en lugar de formato ISO 8601. Esto puede deberse a una conversión inadvertida del triple store. Si en el federador de datos.gob.es aparece esta advertencia y el valor original fue enviado correctamente en formato ISO 8601, no requiere acción correctora. Ver Convención 31: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-31"@es ;
+    sh:message "The temporal resolution value is in numeric seconds format instead of ISO 8601 format. This may be due to inadvertent conversion by the triple store. If this warning appears in the datos.gob.es federator and the original value was sent correctly in ISO 8601 format, no corrective action is required. See Convention 31: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-31"@en ;
+    sh:select """
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        SELECT $this $value
+        WHERE {
+            $this $PATH $value .
+            FILTER(isLiteral($value))
+            FILTER(!regex(str($value), "^P"))
+        }
+    """ .
 
 dcatapes:EuropeanDataThemeRestriction
     a sh:NodeShape ;
