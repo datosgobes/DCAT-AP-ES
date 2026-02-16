@@ -774,14 +774,14 @@ Utilizando esta clase, un dataset se puede distribuir en diferentes representaci
 
     La información de contacto para para el servicio de datos se puede expresar utilizando las propiedades de la [ontología vCard](https://www.w3.org/TR/vcard-rdf/). Se recomienda especialmente el siguiente subconjunto de propiedades:
 
-    | Propiedad     |                   Descripción       |
-    | :-------------------- | :----------------------------------------------------- |
-    | `vcard:organization-name`            | Nombre                                                 |
-    | `vcard:hasUid`        | Identificador del organismo                            |
-    | `vcard:fn`            | Denominación de área o persona                         |
-    | `vcard:hasEmail`      | Dirección de correo electrónico                         |
-    | `vcard:hasTelephone`  | Número de teléfono                                      |
-    | `vcard:hasURL`        | Enlace al formulario de contacto (recomendado) o al sitio web |
+    | Propiedad | Descripción | Formato |
+    |-----------|-------------|---------|
+    | `vcard:organization-name` | Nombre de la organización | Literal con idioma |
+    | `vcard:fn` | Denominación de área o persona | Literal con idioma |
+    | `vcard:hasUid` | Identificador del organismo | URI |
+    | `vcard:hasEmail` | Correo electrónico | URI con esquema `mailto:` |
+    | `vcard:hasTelephone` | Número de teléfono | URI con esquema `tel:` |
+    | `vcard:hasURL` | URL de contacto | URI |
 
 | [`dcat:DataService`](#DataService) | [`foaf:page`](http://xmlns.com/foaf/0.1/page) |
 | --- | --- |
