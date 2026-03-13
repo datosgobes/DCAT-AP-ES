@@ -130,6 +130,7 @@ dcatapes:Dataset_HVD_MustHaveServiceConvention
         # Solo aplica a datasets HVD (con dcatap:hvdCategory)
         sh:path dcatap:hvdCategory ;
         sh:minCount 1 ;
+        sh:severity sh:Warning ;
     ] ;
     sh:property [
         # Detectar al menos un dcat:DataService mediante el inverso de dcat:servesDataset
@@ -139,6 +140,7 @@ dcatapes:Dataset_HVD_MustHaveServiceConvention
         ] ;
         sh:minCount 1 ;
         sh:class dcat:DataService ;
+        sh:severity sh:Warning ;
         sh:message "Un dataset HVD debe ser servido por al menos un dcat:DataService mediante dcat:servesDataset. Ver Convención 12: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12"@es ;
         sh:message "An HVD dataset must be served by at least one dcat:DataService via dcat:servesDataset. See Convention 12: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12"@en ;
     ] .
