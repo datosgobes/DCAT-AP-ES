@@ -123,8 +123,8 @@
         <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
         <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-15</dct:issued>
         <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-01</dct:modified>
-        <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/text/csv"/>
-        <dcat:compressFormat rdf:resource="https://www.iana.org/assignments/media-types/application/gzip"/>
+        <dcat:mediaType rdf:resource="http://www.iana.org/assignments/media-types/text/csv"/>
+        <dcat:compressFormat rdf:resource="http://www.iana.org/assignments/media-types/application/gzip"/>
         <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
         <spdx:checksum>
           <spdx:Checksum>
@@ -154,7 +154,7 @@
         <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
         <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-15</dct:issued>
         <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-01</dct:modified>
-        <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/application/json"/>
+        <dcat:mediaType rdf:resource="http://www.iana.org/assignments/media-types/application/json"/>
         <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
         <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/datos-economicos-json-schema"/>
       </dcat:Distribution>
@@ -165,7 +165,7 @@
         <dcat:accessURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-economicos-api"/>
 		<dcat:downloadURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-economicos-api.jsonld"/>
         <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52345678</dcat:byteSize>
-		<dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/application/ld+json"/>
+		<dcat:mediaType rdf:resource="http://www.iana.org/assignments/media-types/application/ld+json"/>
         <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/JSON_LD"/>
         <dct:rights rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial"/>
         <dct:title xml:lang="es">Datos Económicos 2020-2024 - API</dct:title>
@@ -265,7 +265,7 @@
         <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
         <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-01</dct:issued>
         <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-15</dct:modified>
-        <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/application/ld+json"/>
+        <dcat:mediaType rdf:resource="http://www.iana.org/assignments/media-types/application/ld+json"/>
         <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
         <dct:conformsTo rdf:resource="https://www.openapis.org/"/>
         <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/api-estadistica-openapi"/>
@@ -335,7 +335,7 @@
         <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
         <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-06-01</dct:issued>
         <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-10</dct:modified>
-        <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+        <dcat:mediaType rdf:resource="http://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
         <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
         <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/datos-agregados-guia"/>
       </dcat:Distribution>
