@@ -1,4 +1,4 @@
-name: Generate PDFs from AsciiDoc files
+name: Generar PDFs desde AsciiDoc
 
 on:
   push:

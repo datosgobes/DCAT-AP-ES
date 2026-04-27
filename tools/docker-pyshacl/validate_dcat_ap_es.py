@@ -3,9 +3,9 @@
 Script Unificado de Validación DCAT-AP-ES
 
 Realiza 3 fases complementarias de validación:
-- Fase 0: Comparación Modelo-SHACL (modelo de documentación vs formas SHACL)
-- Fase 1: Validación Sintáctica (validar archivos de formas SHACL)
-- Fase 2: Validación Semántica (ejemplos RDF contra formas SHACL)
+- Fase 0: Validación sintáctica (validar archivos de formas SHACL)
+- Fase 1: Comparación modelo-SHACL (modelo de documentación vs formas SHACL)
+- Fase 2: Validación semántica (ejemplos RDF contra formas SHACL)
 
 Este script se ejecuta dentro del contenedor Docker y genera un SUMMARY.md unificado
 
@@ -84,49 +84,10 @@ class Validator:
             self.log_error(f"Failed to run command: {e}")
             return 1, "", str(e)
     
-    def phase_0_model_shacl(self):
-        """Fase 0: Comparación Modelo-SHACL - llama a compare_model_shacl.py directamente."""
+    def phase_0_syntax(self):
+        """Fase 0: Validar sintaxis de archivos de formas SHACL."""
         self.phase_0_executed = True
-        self.print_section("Fase 0: Comparación Modelo-SHACL")
-        
-        self.log_info("Comparando documentación del modelo (docs/index.md) contra formas SHACL...")
-        
-        # Call compare_model_shacl.py directly (we're inside the container)
-        cmd = ['python', '/usr/local/bin/compare_model_shacl.py']
-        
-        exit_code, stdout, stderr = self.run_command(cmd)
-        
-        # Print output
-        if stdout:
-            print(stdout)
-        if stderr and 'ERROR' in stderr:
-            print(stderr)
-        
-        # Check for CRITICAL issues and warnings
-        model_report = os.path.join(self.report_dir, 'model-vs-shacl-report.md')
-        if os.path.exists(model_report):
-            with open(model_report, 'r', encoding='utf-8') as f:
-                content = f.read()
-                self.model_critical = content.count('🚨 CRITICAL')
-                self.model_warnings = content.count('⚠️ WARN')
-                self.model_info = content.count('ℹ️ INFO')
-            
-            self.log_success("Informe de comparación Modelo-SHACL generado")
-            
-            if self.model_critical > 0:
-                self.log_error(f"CRÍTICO: {self.model_critical} propiedades obligatorias sin formas SHACL")
-                return False
-            else:
-                self.log_success("Todas las propiedades obligatorias tienen formas SHACL")
-                return True
-        else:
-            self.log_error("Error al generar informe Modelo-SHACL")
-            return False
-    
-    def phase_1_syntax(self):
-        """Fase 1: Validar sintaxis de archivos de formas SHACL."""
-        self.phase_1_executed = True
-        self.print_section("Fase 1: Validación Sintáctica (Formas SHACL)")
+        self.print_section("Fase 0: Validación sintáctica (Formas SHACL)")
         
         if not os.path.exists(self.test_config):
             self.log_error(f"Configuración de pruebas no encontrada: {self.test_config}")
@@ -194,10 +155,49 @@ class Validator:
             self.log_error(f"Encontrados {self.syntax_errors} error(es) de sintaxis en formas SHACL")
             return False
     
+    def phase_1_model_shacl(self):
+        """Fase 1: Comparación modelo-SHACL - llama a compare_model_shacl.py directamente."""
+        self.phase_1_executed = True
+        self.print_section("Fase 1: Comparación modelo-SHACL")
+        
+        self.log_info("Comparando documentación del modelo (docs/index.md) contra formas SHACL...")
+        
+        # Call compare_model_shacl.py directly (we're inside the container)
+        cmd = ['python', '/usr/local/bin/compare_model_shacl.py']
+        
+        exit_code, stdout, stderr = self.run_command(cmd)
+        
+        # Print output
+        if stdout:
+            print(stdout)
+        if stderr and 'ERROR' in stderr:
+            print(stderr)
+        
+        # Check for CRITICAL issues and warnings
+        model_report = os.path.join(self.report_dir, 'model-vs-shacl-report.md')
+        if os.path.exists(model_report):
+            with open(model_report, 'r', encoding='utf-8') as f:
+                content = f.read()
+                self.model_critical = content.count('🚨 CRITICAL')
+                self.model_warnings = content.count('⚠️ WARN')
+                self.model_info = content.count('ℹ️ INFO')
+            
+            self.log_success("Informe de comparación modelo-SHACL generado")
+            
+            if self.model_critical > 0:
+                self.log_error(f"CRÍTICO: {self.model_critical} propiedades obligatorias sin formas SHACL")
+                return False
+            else:
+                self.log_success("Todas las propiedades obligatorias tienen formas SHACL")
+                return True
+        else:
+            self.log_error("Error al generar informe modelo-SHACL")
+            return False
+    
     def phase_2_semantic(self):
         """Fase 2: Validación semántica (ejemplos RDF contra SHACL) - fusiona shapes en un grafo."""
         self.phase_2_executed = True
-        self.print_section("Fase 2: Validación Semántica (Ejemplos RDF contra SHACL)")
+        self.print_section("Fase 2: Validación semántica (Ejemplos RDF contra SHACL)")
         
         if not os.path.exists(self.test_config):
             self.log_error(f"Configuración de pruebas no encontrada: {self.test_config}")
@@ -401,7 +401,18 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
         
         # Only show executed phases
         if self.phase_0_executed:
-            summary_content += f"""### Fase 0: Comparación Modelo-SHACL
+            summary_content += f"""### Fase 0: Validación sintáctica (Formas SHACL)
+**Propósito:** Verificar que los archivos de formas SHACL son RDF/Turtle sintácticamente válidos
+
+- **Errores de sintaxis:** {self.syntax_errors}
+- **Estado:** {'❌ ERROR' if self.syntax_errors > 0 else '✅ CORRECTO'}
+
+---
+
+"""
+        
+        if self.phase_1_executed:
+            summary_content += f"""### Fase 1: Comparación modelo-SHACL
 **Propósito:** Verificar que el modelo de documentación tiene definiciones SHACL correspondientes
 
 - **Estado:** {'❌ BLOQUEANTE' if self.model_critical > 0 else '✅ CORRECTO'}
@@ -412,19 +423,8 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 
 """
         
-        if self.phase_1_executed:
-            summary_content += f"""### Fase 1: Validación Sintáctica (Formas SHACL)
-**Propósito:** Verificar que los archivos de formas SHACL son RDF/Turtle sintácticamente válidos
-
-- **Errores de sintaxis:** {self.syntax_errors}
-- **Estado:** {'❌ ERROR' if self.syntax_errors > 0 else '✅ CORRECTO'}
-
----
-
-"""
-        
         if self.phase_2_executed:
-            summary_content += """### Fase 2: Validación Semántica (Ejemplos RDF contra SHACL)
+            summary_content += """### Fase 2: Validación semántica (Ejemplos RDF contra SHACL)
 **Propósito:** Validar archivos de ejemplo RDF contra las restricciones de las formas SHACL
 
 | Caso de Prueba | Esperado | Estado |
@@ -469,9 +469,9 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 """
         
         if self.phase_0_executed:
-            summary_content += f"- **Fase 0 (Modelo-SHACL):** Problemas CRÍTICOS: {self.model_critical}\n"
+            summary_content += f"- **Fase 0 (Sintaxis):** Errores: {self.syntax_errors}\n"
         if self.phase_1_executed:
-            summary_content += f"- **Fase 1 (Sintaxis):** Errores: {self.syntax_errors}\n"
+            summary_content += f"- **Fase 1 (Modelo-SHACL):** Problemas CRÍTICOS: {self.model_critical}\n"
         if self.phase_2_executed:
             summary_content += f"- **Fase 2 (Semántica):** Fallos en pruebas: {self.shacl_errors}\n"
         
@@ -483,8 +483,8 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 
 """
         
-        if self.phase_0_executed:
-            summary_content += """**Fase 0 - Comparación Modelo-SHACL:**
+        if self.phase_1_executed:
+            summary_content += """**Fase 1 - Comparación modelo-SHACL:**
 - `model-vs-shacl-report.md` - Formato Markdown con análisis detallado de propiedades
 
 """
@@ -510,26 +510,26 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
         """Run validation according to mode."""
         validation_failed = False
         
-        if self.mode in ['all', 'model-only']:
-            if not self.phase_0_model_shacl():
+        if self.mode in ['all', 'syntax-only']:
+            if not self.phase_0_syntax():
                 validation_failed = True
                 # In 'all' mode, stop immediately if a phase fails
                 if self.mode == 'all':
                     # Generate summary before exiting so SUMMARY.md exists
                     self.generate_summary()
                     self.print_section("Validación Completa")
-                    self.log_error("❌ Fase 0 falló. Deteniendo validación.")
+                    self.log_error("❌ Fase 0 falló (sintaxis SHACL). Deteniendo validación.")
                     return 1
         
-        if self.mode in ['all', 'syntax-only']:
-            if not self.phase_1_syntax():
+        if self.mode in ['all', 'model-only']:
+            if not self.phase_1_model_shacl():
                 validation_failed = True
                 # In 'all' mode, stop immediately if a phase fails
                 if self.mode == 'all':
                     # Generate summary before exiting so SUMMARY.md exists
                     self.generate_summary()
                     self.print_section("Validación Completa")
-                    self.log_error("❌ Fase 1 falló. Deteniendo validación.")
+                    self.log_error("❌ Fase 1 falló (coherencia modelo-SHACL). Deteniendo validación.")
                     return 1
         
         if self.mode in ['all', 'shacl-only']:
@@ -560,7 +560,7 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 def main():
     parser = argparse.ArgumentParser(
         description='Script Unificado de Validación DCAT-AP-ES',
-        epilog='Fases: 0=Modelo-SHACL, 1=Sintaxis, 2=Semántica'
+        epilog='Fases: 0=Sintaxis, 1=Modelo-SHACL, 2=Semántica'
     )
     parser.add_argument(
         'mode',

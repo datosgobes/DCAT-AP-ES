@@ -6,7 +6,7 @@
 # - Update build step to use mike instead of mkdocs
 # - Ensure versioned docs are preserved between deployments
 # - Add version selection dropdown in theme
-name: Documentation
+name: "TODO: Versionar documentación"
 
 on:
   workflow_dispatch:

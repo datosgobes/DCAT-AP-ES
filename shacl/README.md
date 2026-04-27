@@ -1,6 +1,7 @@
 # Guía de Validación SHACL para DCAT-AP-ES
 - [Guía de Validación SHACL para DCAT-AP-ES](#guía-de-validación-shacl-para-dcat-ap-es)
   - [Contenido](#contenido)
+  - [CHANGELOG de SHACL](#changelog-de-shacl)
   - [Validación para principiantes (herramientas online)](#validación-para-principiantes-herramientas-online)
     - [ITB SHACL Validator - Validador UE](#itb-shacl-validator---validador-ue)
     - [SHACL Play! - Herramientas completas](#shacl-play---herramientas-completas)
@@ -45,6 +46,63 @@ El repositorio incluye los siguientes archivos SHACL:
 - `shacl_dataservice_hvd_shape.ttl`: Restricciones para servicios de datos
 - `shacl_dataset_hvd_shape.ttl`: Restricciones para conjuntos de datos
 - `shacl_distribution_hvd_shape.ttl`: Restricciones para distribuciones
+
+## CHANGELOG de SHACL
+
+Este directorio incluye un [CHANGELOG.md](./CHANGELOG.md) que registra todos los cambios significativos realizados en los archivos SHACL a lo largo del tiempo.
+
+### ¿Qué contiene el CHANGELOG?
+
+El CHANGELOG documenta:
+- *Features**: nuevas funcionalidades y restricciones añadidas
+- **Fixes**: correcciones de errores en las formas SHACL
+- *Refactoring**: mejoras y reestructuración del código
+- **Documentation**: actualizaciones de documentación
+- **Other Changes**: otros cambios relevantes
+
+Cada entrada incluye:
+- Fecha del cambio (agrupado por mes/año)
+- Descripción del cambio
+- Referencias a convenciones aplicadas (si corresponde)
+- Archivos modificados
+- Hash del commit con enlace a GitHub
+- Autor del cambio
+
+### Actualización automática
+
+El CHANGELOG se actualiza automáticamente cuando:
+- Se crea un Pull Request hacia la rama `main`
+- El PR incluye cambios en archivos `.ttl` dentro del directorio `shacl/`
+
+Un [GitHub Action](./.github/workflows/update-shacl-changelog.yml) se encarga de:
+1. Detectar cambios en archivos SHACL
+2. Analizar los commits nuevos
+3. Actualizar el CHANGELOG con las nuevas entradas
+4. Hacer commit automático del CHANGELOG actualizado
+5. Comentar en el PR confirmando la actualización
+
+### Consultar el historial
+
+Para ver la evolución completa de los archivos SHACL:
+```bash
+# Ver el CHANGELOG
+cat shacl/CHANGELOG.md
+
+# O visitar directamente en GitHub
+# https://github.com/datosgobes/DCAT-AP-ES/blob/main/shacl/CHANGELOG.md
+```
+
+### Generar manualmente el CHANGELOG
+
+Si necesitas regenerar el CHANGELOG completo o actualizarlo manualmente:
+
+```bash
+# Generar desde cero (todo el historial)
+python3 tools/shacl-changelog-generator/generate_shacl_changelog.py --output shacl/CHANGELOG.md
+
+# Actualizar desde un commit específico
+python3 tools/shacl-changelog-generator/generate_shacl_changelog.py --output shacl/CHANGELOG.md --since <commit-hash>
+```
 
 ## Validación para principiantes (herramientas online)
 
@@ -178,10 +236,10 @@ Donde
 
 La validación SHACL generará un informe con los siguientes posibles resultados:
 
-- **✅ Validación exitosa**: El archivo cumple con todas las restricciones
-- **❌ Violaciones**: Errores que deben corregirse para cumplir con DCAT-AP-ES
-- **⚠️ Advertencias**: Problemas no críticos pero que se recomienda solucionar
-- **ℹ️ Información**: Sugerencias para mejorar la calidad de los datos
+- **Validación exitosa**: El archivo cumple con todas las restricciones
+- **Violaciones**: Errores que deben corregirse para cumplir con DCAT-AP-ES
+- **Advertencias**: Problemas no críticos pero que se recomienda solucionar
+- **Información**: Sugerencias para mejorar la calidad de los datos
 
 Cada informe de error incluirá:
 1. La forma (*shape*) que ha fallado
