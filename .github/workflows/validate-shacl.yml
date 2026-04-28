@@ -2,10 +2,8 @@ name: Validación formas SHACL
 
 on:
   # Ejecutar en PRs cuando se modifican archivos relevantes
-  pull_request:
-    branches:
-      - main
-      - develop
+  pull_request_target:
+    branches: [main, develop]
     paths:
       - 'shacl/**/*.ttl'
       - 'examples/**/*.rdf'
@@ -14,12 +12,9 @@ on:
       - 'tools/docker-pyshacl/**'
       - 'tests/test.ini'
       - '.github/workflows/validate-shacl.yml'
-  
   # Ejecutar en push directo a main/develop (fuera de PR)
   push:
-    branches:
-      - main
-      - develop
+    branches: [main, develop]
     paths:
       - 'shacl/**/*.ttl'
       - 'examples/**/*.rdf'
@@ -29,16 +24,24 @@ on:
       - 'tests/test.ini'
       - '.github/workflows/validate-shacl.yml'
 
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
 jobs:
   validate-dcat-ap-es:
     name: Validación formas SHACL DCAT-AP-ES (Todas las Fases)
     runs-on: ubuntu-latest
     # Evitar duplicación: no ejecutar en push si hay una PR abierta para esta rama
-    if: github.event_name == 'pull_request' || github.event.pull_request == null
-    
+    if: github.event_name != 'push' || github.event.pull_request == null
+
     steps:
       - name: Comprobar repositorio
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
 
       - name: Ejecutar validación de formas SHACL DCAT-AP-ES
         id: validate
@@ -57,15 +60,19 @@ jobs:
           retention-days: 30
 
       - name: Commentar resumen de validación en el PR
-        if: github.event_name == 'pull_request' && always()
+        if: github.event_name == 'pull_request_target' && always()
         uses: actions/github-script@v9
         with:
           script: |
             const fs = require('fs');
-            const summary = fs.readFileSync('tests/validation-reports/SUMMARY.md', 'utf8');
-            
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
+            const path = 'tests/validation-reports/SUMMARY.md';
+            if (!fs.existsSync(path)) {
+              core.warning(`No se encontró ${path}; se omite el comentario.`);
+              return;
+            }
+            const summary = fs.readFileSync(path, 'utf8');
+            await github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: summary
