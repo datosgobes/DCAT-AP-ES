@@ -136,6 +136,7 @@ main() {
     # Mount workspace as /workspace and set it as working directory
     # The Python script inside Docker will handle all output and sections
     docker run --rm \
+        --user "$(id -u):$(id -g)" \
         -v "$PWD:/workspace" \
         -w /workspace \
         "$DOCKER_IMAGE" \
