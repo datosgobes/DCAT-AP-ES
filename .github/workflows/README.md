@@ -13,13 +13,13 @@ Despliega la documentación MkDocs a GitHub Pages cuando hay cambios en `main`.
 
 ---
 
-### [`validate-shacl.yml`](./validate-shacl.yml)
+### [`validate-shacl.yml`](./validate-shacl.yml) / [`comment-shacl-report.yml`](./comment-shacl-report.yml)
 Valida archivos SHACL y ejemplos RDF/TTL en PRs y pushes a `main`/`develop`.
 
 **Trigger**: Cambios en `shacl/**/*.ttl`, `examples/**/*.{rdf,ttl}` o archivos de configuración  
 **Ejecución**: Docker con pyshacl (ver `tests/validate-local.sh`)  
 **Artefactos**: Reportes de validación (30 días)  
-**Nota**: Comenta resumen en PRs automáticamente
+**Nota**: Comenta resumen en PRs automáticamente en único post, evitando ruido en la PR
 
 ---
 
