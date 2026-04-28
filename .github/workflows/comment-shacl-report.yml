@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Descargar artefacto de informes
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: dcat-ap-es-validation-reports
           run-id: ${{ github.event.workflow_run.id }}
