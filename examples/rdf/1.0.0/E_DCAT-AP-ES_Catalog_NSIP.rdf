@@ -381,8 +381,67 @@
         <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/datos-agregados-guia"/>
       </dcat:Distribution>
     </dcat:distribution>
+  </dcat:Dataset>
 
+  <dcat:Dataset rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-nonsip">
+    <dct:title xml:lang="es">Datos no NSIP</dct:title>
+    <dct:title xml:lang="eN">Datos no NSIP</dct:title>
+    <dct:description xml:lang="es">Datos de ejemplo no NSIP.</dct:description>
+    <dct:description xml:lang="en">Datos de ejemplo no NSIP.</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ECON"/>
+    <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/sector-publico"/>
+    <dcat:keyword xml:lang="es">sectorial</dcat:keyword>
+    <dcat:keyword xml:lang="en">sectoral</dcat:keyword>
+    <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2016/679/oj"/>
+    <dct:identifier>EJEMPLO-NONSIP</dct:identifier>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-06-01</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-10</dct:modified>
+    <dct:temporal>
+      <dct:PeriodOfTime>
+        <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-01-01</dcat:startDate>
+        <dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-12-31</dcat:endDate>
+      </dct:PeriodOfTime>
+    </dct:temporal>
 
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+    <dct:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/QUARTERLY"/>
+    <dcat:contactPoint>
+      <vcard:Organization>
+        <vcard:fn xml:lang="es">Punto de Contacto - Datos Sectoriales de Ejemplo</vcard:fn>
+        <vcard:hasEmail rdf:resource="mailto:sectorial@ejemplo.org"/>
+        <vcard:hasTelephone rdf:resource="tel:+34-900333333"/>
+        <vcard:hasURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitudes/datos-agregados"/>
+        <vcard:hasUID rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <vcard:organization-name xml:lang="es">Organización Sectorial de Ejemplo</vcard:organization-name>
+      </vcard:Organization>
+    </dcat:contactPoint>
+
+    <dcat:landingPage rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-nonsip"/>
+    <dcat:temporalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">P3M</dcat:temporalResolution>
+	
+    <dcat:distribution>
+      <dcat:Distribution rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-nonsip/dist/xlsx">
+        <dcat:accessURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-nonsip-xlsx"/>
+        <dcat:downloadURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/solicitud-acceso/datos-nonsip-xlsx.xlsx"/>
+        <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</dcat:byteSize>
+        <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/XLSX"/>
+        <dct:rights rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-analisis"/>
+        <dct:title xml:lang="es">Excel nonsip</dct:title>
+        <dct:title xml:lang="en">Excel nonsip</dct:title>
+        <dct:description xml:lang="es">Archivo Excel nonsip.</dct:description>
+        <dct:description xml:lang="en">Example Excel nonsip.</dct:description>
+        <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+        <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2016/679/oj"/>
+        <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
+        <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-06-01</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-10</dct:modified>
+        <dcat:mediaType rdf:resource="http://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+        <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/datos-nonsip"/>
+      </dcat:Distribution>
+    </dcat:distribution>
   </dcat:Dataset>
 
   <dcat:DataService rdf:about="http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos">
