@@ -2,6 +2,16 @@
 Este archivo registra todos los cambios significativos en los archivos SHACL de DCAT-AP-ES.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
 
+## Marzo 2026
+### Fixes
+- flexibilizar la convención 12 en SHACL (Convención 12) - `shacl_dataset_hvd_shape.ttl` ([`1a2c848`](https://github.com/datosgobes/DCAT-AP-ES/commit/1a2c848c370bf3d5eefb46a22a84fc9b375eefe6)) - [@eminguel](https://github.com/eminguel)
+
+### Other Changes
+- Ajuste convencion 12 a nivel info y comprobacion redundante (Convención 12) - `shacl_dataset_hvd_shape.ttl` ([`f2c8a88`](https://github.com/datosgobes/DCAT-AP-ES/commit/f2c8a88868b89239c9f54bffdf621cded2401b9f)) - [@eminguel](https://github.com/eminguel)
+- Correcciones y ajustes en mensajes - `shacl_dataset_hvd_shape.ttl` ([`b40d1b0`](https://github.com/datosgobes/DCAT-AP-ES/commit/b40d1b070414e14103594e0c24d4003eddc0c7b0)) - [@eminguel](https://github.com/eminguel)
+
+---
+
 ## Febrero 2026
 ### Features
 - implementar FlexibleDurationRestriction para validar xsd:duration en formato ISO 8601 y segundos. - `shacl_common_shapes.ttl`, `shacl_dataset_shape.ttl`, `shacl_distribution_shape.ttl` ([`a98f885`](https://github.com/datosgobes/DCAT-AP-ES/commit/a98f885928218fe95d9402b2385bd95f42183a70)) - [@mjanez](https://github.com/mjanez)
