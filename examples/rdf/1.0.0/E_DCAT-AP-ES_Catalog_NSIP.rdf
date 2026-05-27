@@ -183,47 +183,6 @@
 		
         <dcat:accessService rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos"/>
 
-        <dcat:accessService>
-          <dcat:DataService>
-            <dct:title xml:lang="es">API de Ejemplo para Datos Protegidos</dct:title>
-            <dct:title xml:lang="en">Example API for Protected Data</dct:title>
-            <dct:description xml:lang="es">Servicio de API de ejemplo para acceso a conjuntos de datos protegidos ficticios. Demuestra cómo implementar un servicio conforme a DCAT-AP-ES para NSIP/ERPD.  Este servicio es únicamente para demostración y no proporciona acceso a datos reales.</dct:description>
-            <dct:description xml:lang="en">Example API service for access to fictitious protected datasets. Demonstrates how to implement a service compliant with DCAT-AP-ES for NSIP/ERPD. This service is for demonstration purposes only and does not provide access to real data.</dct:description>
-            <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
-            <dcat:endpointURL rdf:resource="http://api.dcat-ap-es.ejemplo.org/v1"/>
-            <dcat:endpointDescription rdf:resource="http://api.dcat-ap-es.ejemplo.org/v1/openapi.json"/>
-            <dcat:servesDataset rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo"/>
-            <dcat:servesDataset rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-estadisticos-ejemplo"/>
-            <dcat:servesDataset rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo"/>
-            <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj"/>
-            <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/RESTRICTED"/>
-            <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
-            <dct:conformsTo rdf:resource="https://www.openapis.org/"/>
-            <dct:conformsTo rdf:resource="https://oauth.net/2/"/>
-            <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"/>
-            <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/JSON_LD"/>
-            <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/XML"/>
-            <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
-            <dcat:keyword xml:lang="en">API</dcat:keyword>
-            <dcat:keyword xml:lang="en">API</dcat:keyword>
-            <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/sector-publico"/>
-            <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-01</dct:issued>
-            <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-18</dct:modified>
-            <dcat:contactPoint>
-              <vcard:Organization>
-                <vcard:fn xml:lang="es">Soporte Técnico API de Ejemplo</vcard:fn>
-                <vcard:hasEmail rdf:resource="mailto:api-soporte@ejemplo.org"/>
-                <vcard:hasTelephone rdf:resource="tel:+34-900444444"/>
-                <vcard:hasURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/soporte"/>
-                <vcard:hasUID rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
-                <vcard:organization-name xml:lang="es">Organización de Ejemplo</vcard:organization-name>
-              </vcard:Organization>
-            </dcat:contactPoint>
-
-            <dcat:landingPage rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/api"/>
-            <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/api-reference"/>
-          </dcat:DataService>
-        </dcat:accessService>
       </dcat:Distribution>
     </dcat:distribution>
 	
@@ -311,13 +270,16 @@
         <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
         <dct:conformsTo rdf:resource="https://www.openapis.org/"/>
         <foaf:page rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/docs/api-estadistica-openapi"/>
+
         <dcat:accessService rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos"/>
+
       </dcat:Distribution>
     </dcat:distribution>
 
 
 
     <dcat:accessService rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos"/>
+    
   </dcat:Dataset>
 
   <dcat:Dataset rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-agregados-ejemplo">
