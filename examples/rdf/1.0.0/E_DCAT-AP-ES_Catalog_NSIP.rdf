@@ -411,7 +411,7 @@
 
 <dcat:Dataset rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-nonsip2">
     <dct:title xml:lang="es">Datos no NSIP2</dct:title>
-    <dct:title xml:lang="eN">Datos no NSIP2</dct:title>
+    <dct:title xml:lang="en">Datos no NSIP2</dct:title>
     <dct:description xml:lang="es">Datos de ejemplo no NSIP2.</dct:description>
     <dct:description xml:lang="en">Datos de ejemplo no NSIP2.</dct:description>
     <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
@@ -471,39 +471,37 @@
     </dcat:distribution>
   </dcat:Dataset>
 
-
-    <dcat:dataset>
-      <dcat:Dataset rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/poblacion">
-        <dct:title xml:lang="es">Encuesta de la Población</dct:title>
-        <dct:description xml:lang="en">Knowledge of the population</dct:description>
-        <dct:description xml:lang="es">Conocimiento de la población</dct:description>
-        <dcat:landingPage rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/poblacion" />
-        <dct:identifier>EJEMPLO-poblacion</dct:identifier>
-        <dct:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/QUINQUENNIAL" />
-        <dcat:keyword xml:lang="es">demografía</dcat:keyword>
-        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-10-11T00:00:00+00:00</dct:modified>
-        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-01-01</dct:issued>
-        <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/demografia" />
-        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ECON"/>
-        <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/RESTRICTED" />
+<dcat:Dataset rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/poblacion">
+    <dct:title xml:lang="es">Encuesta de la Población</dct:title>
+    <dct:description xml:lang="es">Conocimiento de la población</dct:description>
+    <dcat:landingPage rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/poblacion" />
+    <dct:identifier>EJEMPLO-poblacion</dct:identifier>
+    <dct:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/QUINQUENNIAL" />
+    <dcat:keyword xml:lang="es">demografía</dcat:keyword>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-10-11T00:00:00+00:00</dct:modified>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-01-01</dct:issued>
+    <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/demografia" />
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ECON"/>
+    <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/RESTRICTED" />
 		<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg/2022/868/oj" />
 		<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
 		
-      <dcat:distribution>
-        <dcat:Distribution rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/poblacion/dist">
-          <dct:title xml:lang="es">Poblacion</dct:title>
-          <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
-          <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/TXT" />
-          <dcat:accessURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/poblacion/dist" />
-          <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-10-11T00:00:00+00:00</dct:modified>
-          <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45678900</dcat:byteSize>
-          <dct:rights rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial"/>
-          <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED" />
-        </dcat:Distribution>
-	    </dcat:distribution>	
-
-      </dcat:Dataset>
-    </dcat:dataset>
+    <dcat:distribution>
+      <dcat:Distribution rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/poblacion/dist">
+        <dct:title xml:lang="es">Poblacion</dct:title>
+        <dct:title xml:lang="en">Poblacion</dct:title>
+        
+        <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/TXT" />
+        <dcat:accessURL rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/dataset/poblacion/dist" />
+        <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45678900</dcat:byteSize>
+        <dct:rights rdf:resource="http://nsip.dcat-ap-es.ejemplo.org/licencias/uso-ejemplo-confidencial"/>
+        
+        <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-10-11T00:00:00+00:00</dct:modified>
+        <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED" />
+      </dcat:Distribution>
+	  </dcat:distribution>	
+  </dcat:Dataset>
 
   <dcat:DataService rdf:about="http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos">
     <dct:title xml:lang="es">API de Ejemplo para Datos Protegidos</dct:title>
