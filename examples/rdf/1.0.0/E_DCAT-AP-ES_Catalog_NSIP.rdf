@@ -197,7 +197,7 @@
     <dct:description xml:lang="en">Example dataset with fictitious detailed and anonymized statistical information. Data is completely fictitious and serves to demonstrate the DCAT-AP-ES profile for non-public access data.</dct:description>
     <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC"/>
-    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOC"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOCI"/>
     <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/sociedad-bienestar"/>
     <dcat:keyword xml:lang="es">estadística</dcat:keyword>
     <dcat:keyword xml:lang="en">statistics</dcat:keyword>
