@@ -142,6 +142,20 @@
         <dcat:hadRole rdf:resource="http://purl.org/dc/terms/references"/>
       </dcat:Relationship>
     </dcat:qualifiedRelation>
+    <dcat:qualifiedRelation>
+      <dcat:Relationship>
+        <dc:relation rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-22"/>
+        <dc:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
+        <dcat:hadRole rdf:resource="http://purl.org/dc/terms/references"/>
+      </dcat:Relationship>
+    </dcat:qualifiedRelation>
+    <dcat:qualifiedRelation>
+      <dcat:Relationship>
+        <dc:relation rdf:resource="http://pre.datos.gob.es/es/catalogo/ea0041513-demandantes-de-empleo-por-municipio"/>
+        <dc:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
+        <dcat:hadRole rdf:resource="http://purl.org/dc/terms/references"/>
+      </dcat:Relationship>
+    </dcat:qualifiedRelation>
 
     <dcat:spatialResolutionInMeters rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</dcat:spatialResolutionInMeters>
     <dcat:temporalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT24M</dcat:temporalResolution>
