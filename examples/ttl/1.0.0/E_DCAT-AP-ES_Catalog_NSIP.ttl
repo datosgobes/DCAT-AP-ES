@@ -188,7 +188,7 @@
     dct:description "Archivo CSV de ejemplo con datos económicos ficticios agregados.  Contiene aproximadamente 150000 registros con 40 variables.  Este archivo es únicamente para demostración."@es,
                     "Example CSV file with fictitious aggregated economic data. Contains approximately 150000 records with 40 variables.  This file is for demonstration purposes only."@en ;
     
-    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_NC_ND_4_0> ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
     
     dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
     
@@ -236,7 +236,7 @@
     dct:description "Archivo JSON de ejemplo con la misma información que el CSV pero en formato JSON estructurado. Únicamente para demostración."@es,
                     "Example JSON file with the same information as CSV but in structured JSON format. For demonstration purposes only."@en ;
     
-    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_NC_ND_4_0> ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
     dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
     dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
     adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
@@ -357,7 +357,7 @@
     dct:description "Acceso mediante API REST de ejemplo con autenticación ficticia. Permite consultas filtradas simuladas.  Este endpoint es únicamente para demostración y no contiene datos reales."@es,
                     "Access via example REST API with fictitious authentication.  Allows simulated filtered queries. This endpoint is for demonstration only and does not contain real data."@en ;
     
-    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_NC_ND_4_0> ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
     dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
     dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE> ;
     adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
@@ -462,7 +462,7 @@
     dct:description "Archivo Excel de ejemplo con múltiples hojas organizadas por año y sector. Incluye tablas dinámicas ficticias pre-configuradas.  Únicamente para demostración."@es,
                     "Example Excel file with multiple sheets organized by year and sector. Includes fictitious pre-configured pivot tables. For demonstration purposes only."@en ;
     
-    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_NC_4_0> ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
     dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> ;
     dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
     adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
@@ -503,7 +503,7 @@
     
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
     
-    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_NC_4_0> ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
     
     dct:conformsTo <https://www.openapis.org/>,
                    <https://oauth.net/2/> ;
