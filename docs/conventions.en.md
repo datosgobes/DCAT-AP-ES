@@ -746,7 +746,6 @@ The listed prefixes are the most commonly used, although technically other prefi
 | Prefix | URI | Name | Description |
 |---------|-----|---------|-------------|
 | `adms` | `http://www.w3.org/ns/adms#` | Asset Description | Description of semantic assets |
-| `cnt`  | `http://www.w3.org/2011/content#` | Representing Content in RDF | Representation of content in RDF |
 | `dcat` | `http://www.w3.org/ns/dcat#` | Data Catalog Vocabulary | Vocabulary for describing data catalogs |
 | `dcatap` | `http://data.europa.eu/r5r/` | DCAT-AP | Specific extensions of the DCAT-AP profile |
 | `dct` | `http://purl.org/dc/terms/` | Dublin Core Terms | Basic metadata for describing resources |
