@@ -3,7 +3,6 @@
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
-@prefix cnt: <http://www.w3.org/2011/content#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/catalogo/dataset/43bc8990-f9f1-5527-8134-459b1a1cce92/resource/37cfdf38-91cd-4107-a63c-72c739dd41cd> a dcat:Distribution ;
@@ -14,7 +13,6 @@
     dct:license <https://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
     dct:modified "2024-12-17"^^xsd:date ;
     dct:title "Sample CSV" ;
-    cnt:characterEncoding "UTF-8" ;
     dcat:accessService [ a dcat:DataService ;
         dct:title "Example Server" ;
         dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;

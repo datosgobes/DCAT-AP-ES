@@ -81,6 +81,7 @@ node_modules
 **/node_modules/
 bower_components
 .vscode
+.vscode/
 .idea
 *.log
 

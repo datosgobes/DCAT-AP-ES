@@ -741,7 +741,6 @@ Los prefijos listados son los más comúnmente utilizados, aunque técnicamente 
 | Prefijo | URI | Nombre | Descripción |
 |---------|-----|---------|-------------|
 | `adms` | `http://www.w3.org/ns/adms#` | Asset Description | Descripción de activos semánticos |
-| `cnt`  | `http://www.w3.org/2011/content#` | Representing Content in RDF | Representación de contenidos en RDF |
 | `dcat` | `http://www.w3.org/ns/dcat#` | Data Catalog Vocabulary | Vocabulario para describir catálogos de datos |
 | `dcatap` | `http://data.europa.eu/r5r/` | DCAT-AP | Extensiones específicas del perfil DCAT-AP |
 | `dct` | `http://purl.org/dc/terms/` | Dublin Core Terms | Metadatos básicos para describir recursos |
