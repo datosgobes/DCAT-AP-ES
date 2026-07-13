@@ -48,7 +48,7 @@
 # Convencion 12
 dcatapes:DataService_HVD_Shape
     a sh:NodeShape ;
-    sh:name "Servicio de Datos HVD"@en ;
+    sh:name "Servicio de Datos HVD"@es ;
     sh:name "HVD Data Service"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:DataService de acuerdo con las especificaciones para datos de alto valor (HVD). Ver: https://datosgobes.github.io/DCAT-AP-ES/#convencion-12"@es ;
     rdfs:comment "Shape that defines the restrictions for the dcat:DataService class according to the specifications for High-Value Datasets (HVD). See: https://datosgobes.github.io/DCAT-AP-ES/#convencion-12"@en ;
@@ -76,8 +76,8 @@ dcatapes:DataService_HVD_Shape
     ], 
     [
         sh:path dcatap:applicableLegislation;
-        sh:name "applicable legislation"@en;
-        sh:description "The applicable legislation must be set to the HVD IR ELI."@en;
+        sh:name "Legislación aplicable"@es;
+        sh:description "La legislación aplicable debe ser el ELI del Reglamento de ejecución HVD"@es;
         sh:hasValue <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
         sh:severity sh:Violation;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.applicablelegislation> ;
