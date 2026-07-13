@@ -55,7 +55,7 @@
 #--------------------------
 dcatapes:Dataset_HVD_Shape
     a sh:NodeShape ;
-    sh:name "Conjunto de datos HVD"@en ;
+    sh:name "Conjunto de datos HVD"@es ;
     sh:name "HVD Dataset"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:Dataset HVD."@es ;
     rdfs:comment "Shape defining restrictions for the HVD dcat:Dataset class."@en ;
@@ -82,8 +82,8 @@ dcatapes:Dataset_HVD_Shape
     ], 
     [
         sh:path dcatap:applicableLegislation;
-        sh:name "applicable legislation"@en;
-        sh:description "The applicable legislation must be set to the HVD IR ELI."@en;
+        sh:name "Legislación aplicable"@es;
+        sh:description "La legislación aplicable debe ser el ELI del Reglamento de ejecución HVD."@es;
         sh:hasValue <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
         sh:severity sh:Violation;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.applicableLegislation> ;
