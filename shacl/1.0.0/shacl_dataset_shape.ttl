@@ -53,7 +53,7 @@
 #--------------------------
 dcatapes:Dataset_Shape
     a sh:NodeShape ;
-    sh:name "Conjunto de datos"@en ;
+    sh:name "Conjunto de datos"@es ;
     sh:name "Dataset"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:Dataset."@es ;
     rdfs:comment "Shape defining restrictions for the dcat:Dataset class."@en ;
@@ -592,7 +592,7 @@ dcatapes:Dataset_Shape
         sh:uniqueLang true ;
         sh:severity sh:Violation ;
         sh:sparql [
-            sh:message "The version notes value must be at least in Spanish."@en ;
+            sh:message "El valor de las notas de la versión debe estar, como mínimo, en español."@es ;
             sh:select """
                 PREFIX adms: <http://www.w3.org/ns/adms#>
                 SELECT $this
@@ -989,7 +989,7 @@ dcatapes:Activity_Shape
     sh:name "Restricción para actividades"@es ;
     sh:name "Activity Restriction"@en ;
     sh:property 
-    # prov:    sh:name "Activity Restriction"@en ;
+    # prov:    sh:name "Restricción de la actividad"@es ;
     [
         sh:path prov:startedAtTime ;
         sh:minCount 1 ;
