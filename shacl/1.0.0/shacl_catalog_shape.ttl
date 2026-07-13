@@ -46,7 +46,7 @@
 #--------------------------
 dcatapes:Catalog_Shape
     a sh:NodeShape ;
-    sh:name "Catálogo"@en ;
+    sh:name "Catálogo"@es ;
     sh:name "Catalog"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:Catalog."@es ;
     rdfs:comment "Shape defining restrictions for the dcat:Catalog class."@en ;
@@ -630,7 +630,7 @@ dcatapes:CatalogDatasetOrServiceRestriction
     rdfs:comment "Restriction to validate that a catalog has at least one dataset (dcat:dataset) or one data service (dcat:service)."@en ;
     rdfs:label "Restricción de catálogo: conjuntos de datos o servicios"@es ;
     rdfs:label "Catalog restriction: datasets or services"@en ;
-    sh:name "Catalog Dataset or Service Restriction"@en ;
+    sh:name "Restricción del conjunto de datos o del servicio del catálogo"@es;
     sh:or (
         [
             sh:path dcat:dataset ;
@@ -659,7 +659,7 @@ dcatapes:CatalogSPALanguageRestriction
     rdfs:label "Restricción de catálogo: idioma y contenido en español"@es ;
     rdfs:label "Catalog restriction: Spanish language and content"@en ;
     sh:name "Catalog Spanish Language and Content Restriction"@en ;
-    sh:name "Restricción de catálogo para idioma y contenido en español"@en ;
+    sh:name "Restricción de catálogo para idioma y contenido en español"@es ;
     sh:node dcatapes:SpanishLanguageRestriction ;
     sh:node dcatapes:SpanishTitleRestriction ;
     sh:node dcatapes:SpanishDescriptionRestriction ;
