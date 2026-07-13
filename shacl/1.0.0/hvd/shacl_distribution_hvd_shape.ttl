@@ -48,7 +48,7 @@
 #--------------------------
 dcatapes:Distribution_HVD_Shape
     a sh:NodeShape ;
-    sh:name "Distribución HVD"@en ;
+    sh:name "Distribución HVD"@es ;
     sh:name "HVD Distribution"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:Distribution e acuerdo con las especificaciones para datos de alto valor (HVD)."@es ;
     rdfs:comment "Shape that defines the restrictions for the dcat:Distribution class according to the specifications for High-Value Datasets (HVD)."@en ;
@@ -76,8 +76,8 @@ dcatapes:Distribution_HVD_Shape
     ], 
     [
         sh:path dcatap:applicableLegislation;
-        sh:name "applicable legislation"@en;
-        sh:description "The applicable legislation must be set to the HVD IR ELI."@en;
+        sh:name "aLegislación aplicable"@es;
+        sh:description "La legislación aplicable debe ser el ELI del Reglamento de ejecución HVD."@es;
         sh:hasValue <http://data.europa.eu/eli/reg_impl/2023/138/oj> ;
         sh:severity sh:Violation;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.applicableLegislation> ;
