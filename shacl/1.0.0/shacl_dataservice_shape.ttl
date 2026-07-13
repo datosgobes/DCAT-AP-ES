@@ -45,7 +45,7 @@
 #--------------------------
 dcatapes:DataService_Shape
     a sh:NodeShape ;
-    sh:name "Servicio de Datos"@en ;
+    sh:name "Servicio de Datos"@es ;
     sh:name "Data Service"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:DataService."@es ;
     rdfs:comment "Shape defining restrictions for the dcat:DataService class."@en ;
