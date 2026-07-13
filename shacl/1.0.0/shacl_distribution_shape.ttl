@@ -47,7 +47,7 @@
 #--------------------------
 dcatapes:Distribution_Shape
     a sh:NodeShape ;
-    sh:name "Distribución"@en ;
+    sh:name "Distribución"@es ;
     sh:name "Distribution"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:Distribution."@es ;
     rdfs:comment "Shape defining restrictions for the dcat:Distribution class."@en ;
@@ -709,7 +709,7 @@ dcatapes:Checksum_Shape
     rdfs:comment "Restriction to validate that a resource of type spdx:Checksum has a defined algorithm and a valid checksum value."@en ;
     rdfs:label "Restricción de Checksum"@es ;
     rdfs:label "Checksum Restriction"@en ;
-    sh:name "Checksum Validation"@en ;
+    sh:name "Restricción de Checksum"@es ;
     sh:property 
     # spdx:algorithm
     [
@@ -751,7 +751,7 @@ dcatapes:IMT_Shape
     rdfs:comment "Restriction inherited from NTI-RISP (2013) to validate that the values of rdf:value and rdfs:label in resources of type dct:IMT are non-empty, non-multilingual literals."@en ;
     rdfs:label "Restricción para recursos de tipo dct:IMT"@es ;
     rdfs:label "Restriction for dct:IMT resources"@en ;
-    sh:name "IMT Validation"@en ;
+    sh:name "Validación de IMT"@es ;
     sh:property 
     # rdf:value
     [
