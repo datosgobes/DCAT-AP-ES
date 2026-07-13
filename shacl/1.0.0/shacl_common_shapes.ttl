@@ -383,24 +383,24 @@ dcatapes:WarnNumericDurationConstraint
 
 dcatapes:EuropeanDataThemeRestriction
     a sh:NodeShape ;
-    rdfs:comment "European Data Theme Restriction"@en ;
-    rdfs:label "European Data Theme Restriction"@en ;
+    rdfs:comment "Restricción de los temas del portal de datos abiertos europeo"@es ;
+    rdfs:label "Restricción de los temas del portal de datos abiertos europeo"@es ;
 
-    # Pattern validation: it must be an IRI following the EU vocabulary format
+    # Validación del patrón: debe ser un IRI que respete el formato del vocabulario de la UE
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://publications\\.europa\\.eu/resource/authority/data-theme/.+$" ;
-    sh:message "The value must be an IRI from the European inspire vocabulary http://publications.europa.eu/resource/authority/data-theme."@en ;
+    sh:message "El valor debe ser un IRI del vocabulario europeo INSPIRE http://publications.europa.eu/resource/authority/data-theme."@es ;
     sh:severity sh:Violation.
 
 dcatapes:InspireDataThemeRestriction
     a sh:NodeShape ;
-    rdfs:comment "Inspire Data Theme Restriction"@en ;
-    rdfs:label "Inspire Data Theme Restriction"@en ;
+    rdfs:comment "Restricción de los temas de Inspire"@es ;
+    rdfs:label "Restricción de los temas de Inspire"@es;
 
-    # Pattern validation: it must be an IRI following the EU vocabulary format
+    # Validación del patrón: debe ser un IRI que respete el formato del vocabulario de la UE
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://inspire\\.ec\\.europa\\.eu/theme/.+$" ;
-    sh:message "The value must be an IRI from the European inspire vocabulary http://inspire.ec.europa.eu/theme."@en ;
+    sh:message "El valor debe ser un IRI del vocabulario europeo INSPIRE. http://inspire.ec.europa.eu/theme."@es ;
     sh:severity sh:Violation.
 
 # Convencion 19
@@ -696,7 +696,7 @@ dcatapes:LicenceDocumentRestriction
     rdfs:comment "Restriction to validate that a license document has a defined type and that it is a valid IRI from the license type vocabulary."@en ;
     rdfs:label "Restricción de documento de licencia"@es ;
     rdfs:label "License Document Restriction"@en ;
-    sh:name "Licence Document"@en ;
+    sh:name "Documento de licencia"@es ;
     sh:property 
     # dct:type
     [
@@ -734,8 +734,8 @@ dcatapes:LiteralMultilingualConvention
 
 dcatapes:Location_Shape
     a sh:NodeShape ;
-    sh:name "Location"@en ;
-    # At least one or properties have to be
+    sh:name "Location"@es ;
+    # Al menos una de las propiedades debe ser
     sh:or (
         [ sh:property [
             sh:path dcat:bbox ;
@@ -753,7 +753,7 @@ dcatapes:Location_Shape
             sh:severity sh:Violation ;  
         ] ]
     ) ;
-    sh:message "At least one of dcat:bbox, dcat:centroid, or locn:geometry must be present. However, it is recommended to include dcat:bbox or dcat:centroid."@en ;
+    sh:message "Debe estar presente al menos uno de los siguientes elementos: dcat:bbox, dcat:centroid o locn:geometry. No obstante, se recomienda incluir dcat:bbox o dcat:centroid."@es ;
     sh:property 
     # dcat:bbox
     [
@@ -857,7 +857,7 @@ dcatapes:PublicSectorRestriction
     rdfs:label "Restricción de vocabulario de sectores NTI"@es ;
     sh:name "NTI sector restriction"@en ;
     sh:name "Restricción de vocabulario de sectores NTI"@es ;
-    # Pattern validation: it must be an IRI of NTI-RISP sector vocabulary
+    # Validación del patrón: debe ser un IRI del vocabulario sectorial de NTI-RISP
     #sh:nodeKind sh:IRI ;
     sh:in (
         <http://datos.gob.es/kos/sector-publico/sector/ciencia-tecnologia>
@@ -883,18 +883,18 @@ dcatapes:PublicSectorRestriction
         <http://datos.gob.es/kos/sector-publico/sector/urbanismo-infraestructuras>
         <http://datos.gob.es/kos/sector-publico/sector/vivienda>
     );
-    sh:message "The value must be an IRI from the NTI-RISP sector vocabulary http://datos.gob.es/kos/sector-publico/sector."@en ;   
+    sh:message "El valor debe ser un IRI del vocabulario del sector NTI-RISP http://datos.gob.es/kos/sector-publico/sector."@es ;   
     sh:severity sh:Violation .
 
 
-#Generic shape to validate that Spanish description is required
+#Formato genérico para comprobar que la descripción en español es obligatoria
 dcatapes:SpanishDescriptionRestriction
     a sh:NodeShape ;
-    sh:name "SpanishDescriptionRestriction"@en ;
-    rdfs:comment "The description in spanish is required"@en ;
-    rdfs:label "Spanish Description Restriction"@en ;
+    sh:name "SpanishDescriptionRestriction"@es ;
+    rdfs:comment "Es obligatorio incluir la descripción en español"@es ;
+    rdfs:label "Restricción de la descripción en español"@es ;
     sh:sparql [
-            sh:message "The description value must be at least in Spanish."@en ;
+            sh:message "La descripción debe estar, como mínimo, en español."@es ;
             sh:select """
                 PREFIX dct: <http://purl.org/dc/terms/>
                 SELECT $this
@@ -909,14 +909,14 @@ dcatapes:SpanishDescriptionRestriction
         ] ;
     sh:severity sh:Violation .
 
-#Generic shape to validate that Spanish language is required
+#Plantilla genérica para comprobar que el español es un requisito obligatorio
 dcatapes:SpanishLanguageRestriction
     a sh:NodeShape ;
-    sh:name "SpanishlanguageRestriction"@en ;
-    rdfs:comment "The Spanish language is required"@en ;
-    rdfs:label "Spanish language Restriction"@en ;
+    sh:name "SpanishlanguageRestriction"@es ;
+    rdfs:comment "Se requiere el idioma español."@es ;
+    rdfs:label "Restricción del idioma español"@es ;
     sh:sparql [
-        sh:message "The Spanish language, http://publications.europa.eu/resource/authority/language/SPA), is mandatory."@en ;
+        sh:message "El idioma español http://publications.europa.eu/resource/authority/language/SPA), es obligatorio."@es ;
         sh:select """
             PREFIX dct: <http://purl.org/dc/terms/>
             SELECT $this
