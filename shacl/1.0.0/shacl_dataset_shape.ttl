@@ -563,20 +563,20 @@ dcatapes:Dataset_Shape
 
     # dcat:hasVersion
     [
-        sh:path dct:hasVersion ;
+        sh:path dcat:hasVersion ;
         sh:nodeKind sh:IRI; 
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.hasVersion> ;
-        sh:message "El valor de dct:hasVersion debe ser un IRI válido."@es ;
+        sh:message "El valor de dcat:hasVersion debe ser un IRI válido."@es ;
     ], 
 
     # dcat:isVersionOf
     [
-        sh:path dct:isVersionOf ;
+        sh:path dcat:isVersionOf ;
         sh:nodeKind sh:IRI; 
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.isVersionOf> ;
-        sh:message "El valor de dct:isVersionOf debe ser un IRI válido."@es ;
+        sh:message "El valor de dcat:isVersionOf debe ser un IRI válido."@es ;
     ], 
 
     # dcat:qualifiedRelation
@@ -713,27 +713,7 @@ dcatapes:Dataset_Shape
         sh:nodeKind sh:IRI ;
 		sh:node dcatapes:AccessRightRestriction ;
         sh:severity sh:Violation ;
-	],
-
-    # dcat:hasVersion
-    [
-        sh:path dcat:hasVersion ;
-        sh:nodeKind sh:IRI ;
-        sh:class dcat:Dataset ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.hasVersion> ;
-        sh:message "El valor de dcat:hasVersion debe ser un IRI válido que apunte a un dcat:Dataset."@es ;
-    ],
-
-    # dcat:isVersionOf
-    [
-        sh:path dcat:isVersionOf ;
-        sh:nodeKind sh:IRI ;
-        sh:class dcat:Dataset ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.isVersionOf> ;
-        sh:message "El valor de dcat:isVersionOf debe ser un IRI válido que apunte a un dcat:Dataset."@es ;
-    ];
+	];
     sh:targetClass dcat:Dataset .
 
 # Convencion 02
