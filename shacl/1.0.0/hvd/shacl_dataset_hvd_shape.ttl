@@ -19,12 +19,10 @@
 <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/hvd/shacl_dataset_hvd_shape.ttl>
     rdf:type owl:Ontology ;
     rdfs:label "Restricciones para los conjuntos de datos HVD DCAT-AP-ES"@es ;
-    rdfs:label "Dataset restrictions for HVD in DCAT-AP-ES"@en ;
     dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/hvd/shacl_dataset_hvd_shape.ttl> ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
     dct:conformsTo <https://www.w3.org/TR/shacl> ;
     dct:description "Este archivo incluye las restricciones SHACL para las propiedades y clases relacionadas con conjuntos de datos de alto valor (HVD) en el perfil de aplicación DCAT-AP-ES."@es ;
-    dct:description "This file includes SHACL restrictions for properties and classes related to High-Value Data datasets (HVD) in the DCAT-AP-ES application profile."@en ;
     owl:versionInfo "1.0.0" ;
     dct:modified "2025-10-20"^^xsd:date ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
@@ -39,15 +37,7 @@
         - shacl_mdr-vocabularies.shape.ttl
         - shacl_distribution_shape.ttl
         Asegúrese de que estén disponibles e importadas para una validación completa.
-    """@es ;
-    rdfs:comment """
-        This file requires importing the following additional dependencies to work properly:
-        - shacl_common_hvd_shape.ttl
-        - shacl_common_shapes.ttl
-        - shacl_mdr-vocabularies.shape.ttl
-        - shacl_distribution_shape.ttl
-        Make sure they are available and imported for full validation.
-    """@en .
+    """@es .
 
 
 #--------------------------
@@ -56,11 +46,8 @@
 dcatapes:Dataset_HVD_Shape
     a sh:NodeShape ;
     sh:name "Conjunto de datos HVD"@es ;
-    sh:name "HVD Dataset"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:Dataset HVD."@es ;
-    rdfs:comment "Shape defining restrictions for the HVD dcat:Dataset class."@en ;
     rdfs:label "Restricciones de conjunto de datos HVD"@es ;
-    rdfs:label "HVD dataset restrictions"@en ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset> ;
     sh:property 
     [
@@ -70,7 +57,6 @@ dcatapes:Dataset_HVD_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.applicableLegislation> ;
         sh:message "El valor de dcatap:applicableLegislation debe ser un IRI válido."@es ;
-        sh:message "The value of dcatap:applicableLegislation must be a valid IRI."@en ;
     ],
     [
         sh:path dcatap:applicableLegislation ;
@@ -78,7 +64,6 @@ dcatapes:Dataset_HVD_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.applicableLegislation> ;
         sh:message "El conjunto de datos HVD debe contener al menos un dcatap:applicableLegislation."@es ;
-        sh:message "The HVD dataset must contain at least one dcatap:applicableLegislation."@en ;
     ], 
     [
         sh:path dcatap:applicableLegislation;
@@ -88,7 +73,6 @@ dcatapes:Dataset_HVD_Shape
         sh:severity sh:Violation;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.applicableLegislation> ;
         sh:message "El conjunto de datos HVD debe contener un dcatap:applicableLegislation cuyo valor sea el ELI del Reglamento de ejecución HVD: <http://data.europa.eu/eli/reg_impl/2023/138/oj>."@es ;
-        sh:message "The HVD dataset must contain a dcatap:applicableLegislation whose value is the ELI of the HVD Implementing Regulation: <http://data.europa.eu/eli/reg_impl/2023/138/oj>."@en ;
     ], 
 
     # dcatap:hvdCategory
@@ -98,7 +82,6 @@ dcatapes:Dataset_HVD_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.hvdCategory> ;
         sh:message "El valor de dcatap:hvdCategory debe ser un IRI válido."@es ;
-        sh:message "The value of dcatap:hvdCategory must be a valid IRI."@en ;
     ],
     [
         sh:path dcatap:hvdCategory;
@@ -106,7 +89,6 @@ dcatapes:Dataset_HVD_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.hvdCategory> ;
         sh:message "El conjunto de datos HVD debe contener al menos un dcatap:hvdCategory."@es ;
-        sh:message "The HVD dataset must contain at least one dcatap:hvdCategory."@en ;
     ],
     [
         sh:path dcatap:hvdCategory ;
@@ -118,12 +100,9 @@ dcatapes:Dataset_HVD_Shape
 dcatapes:Dataset_HVD_MustHaveServiceConvention
     a sh:NodeShape ;
     sh:targetClass dcat:Dataset ;
-    sh:name "Es aconsejable que el conjunto de datos HVD sea servido por al menos un DataService"@es ,
-        "It is advisable that the HVD dataset be served by at least one DataService."@en ;
-    rdfs:comment "Es aconsejable que el conjunto de datos catalogado como HVD sea servido por al menos un dcat:DataService que lo referencie mediante dcat:servesDataset (Convención 12)"@es ,
-        "It is advisable that the dataset categorized as HVD be served by at least one dcat:DataService that references it via dcat:servesDataset (Convention 12)"@en ;
-    rdfs:label "Información del conjunto de datos: es aconsejable que tenga al menos un servicio de datos"@es ,
-        "Dataset information: it is advisable that it has at least one data service"@en ;
+    sh:name "HVD sin servicio informar"@es ;
+    rdfs:comment "HVD sin servicio informar"@es ;
+    rdfs:label "HVD sin servicio informar"@es ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12> ;
     sh:severity sh:Info ; # Modificada severidad para no impedir la federación de datasets HVD que aún no cumplen esta convención, pero informar sobre la necesidad de cumplirla. Y eliminada comprobacion Solo aplica a datasets HVD (con dcatap:hvdCategory) pues ya se comprueba antes
     sh:property [
@@ -136,5 +115,4 @@ dcatapes:Dataset_HVD_MustHaveServiceConvention
         sh:class dcat:DataService ;
         sh:severity sh:Info ;
         sh:message "Es aconsejable que un conjunto de datos HVD sea servido por al menos un dcat:DataService mediante dcat:servesDataset. Ver Convención 12: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12"@es ;
-        sh:message "It is advisable that an HVD dataset be served by at least one dcat:DataService via dcat:servesDataset. See Convention 12: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12"@en ;
     ] .
