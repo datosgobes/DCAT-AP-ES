@@ -749,12 +749,12 @@ dcatapes:DistributionMandatoryConvention
 # Convención 25
 dcatapes:NSIPDatasetConvention
     a sh:NodeShape ;
-    rdfs:comment "Restricción para validar que los datasets con acceso restringido a través de NSIP/ERPD cumplan con los requisitos obligatorios de la Convención 25."@es ;
-    rdfs:label "Restricción para datasets NSIP/ERPD"@es ;
-    sh:name "Dataset NSIP/ERPD"@es ;
+    rdfs:comment "Restricciones obligatorias para los conjuntos de datos protegidos según la Convención 25."@es ;
+    rdfs:label "Restricciones ogligatorias para conjuntos de datos protegidos"@es ;
+    sh:name "Restricciones obligatorias para conjuntos de datos protegidos"@es ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
     
-    # Target: Datasets con accessRights RESTRICTED o NON_PUBLIC
+    # Conjuntos de datos con accessRights RESTRICTED o NON_PUBLIC
     sh:target [
         a sh:SPARQLTarget ;
         sh:select """
@@ -779,7 +779,7 @@ dcatapes:NSIPDatasetConvention
         sh:minCount 1 ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
-        sh:message "Los datasets NSIP/ERPD DEBEN incluir dct:title.  Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "Los conjuntos de datos protegidos DEBEN incluir dct:title.  Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
     ],
     [
         # 2. dct:description - obligatorio (ya validado en Dataset_Shape, aquí reforzamos el mensaje)
@@ -787,7 +787,7 @@ dcatapes:NSIPDatasetConvention
         sh:minCount 1 ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
-        sh:message "Los datasets NSIP/ERPD DEBEN incluir dct:description. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "Los conjuntos de datos protegidos DEBEN incluir dct:description. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
     ],
     [
         # 3. dct:publisher - obligatorio (ya validado en Dataset_Shape, aquí reforzamos el mensaje)
@@ -795,7 +795,7 @@ dcatapes:NSIPDatasetConvention
         sh:minCount 1 ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
-        sh:message "Los datasets NSIP/ERPD DEBEN incluir dct:publisher. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "Los conjuntos de datos protegidos DEBEN incluir dct:publisher. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
     ],
     [
         # 4. dct:accessRights - validación de valores permitidos
@@ -806,7 +806,7 @@ dcatapes:NSIPDatasetConvention
         ) ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
-        sh:message "Los datasets NSIP/ERPD DEBEN tener dct:accessRights con valor RESTRICTED o NON_PUBLIC. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "Los conjuntos de datos protegidos DEBEN tener dct:accessRights con valor RESTRICTED o NON_PUBLIC. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
     ],
     [
         # 5. dcat:distribution - al menos una distribución conforme a Convención 26
@@ -814,15 +814,15 @@ dcatapes:NSIPDatasetConvention
         sh:minCount 1 ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
-        sh:message "Los datasets NSIP/ERPD DEBEN tener al menos una distribución (dcat:distribution). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
+        sh:message "Los conjuntos de datos protegidos DEBEN tener al menos una distribución (dcat:distribution). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
     ] . 
 
 # Convención 27
 dcatapes:NSIPDatasetRecommendation
     a sh:NodeShape ;
-    rdfs:comment "Recomendaciones para datasets accesibles vía NSIP/ERPD según la Convención 27."@es ;
-    rdfs:label "Recomendación para datasets NSIP/ERPD"@es ;
-    sh:name "Dataset NSIP/ERPD (recomendado)"@es ;
+    rdfs:comment "Restricciones recomendadas para conjuntos de datos protegidos según la Convención 27."@es ;
+    rdfs:label "Restricciones recomendadas para conjuntos de datos protegidos"@es ;
+    sh:name "Restricciones recomendadas para conjuntos de datos protegidos"@es ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
     
     # Mismo target que Convención 25
@@ -850,7 +850,7 @@ dcatapes:NSIPDatasetRecommendation
         sh:minCount 1 ;
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
-        sh:message "Los datasets NSIP/ERPD DEBERÍAN incluir dcatap: applicableLegislation con la legislación aplicable. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@es ;
+        sh:message "Los conjuntos de datos protegidos DEBERÍAN incluir dcatap: applicableLegislation con la legislación aplicable. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@es ;
     ],
     [
         # Recomendación: incluir al menos el Reglamento DGA
