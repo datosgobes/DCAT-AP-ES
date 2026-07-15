@@ -16,12 +16,10 @@
 <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_distribution_shape.ttl>
     rdf:type owl:Ontology ;
     rdfs:label "Restricciones de distribución para DCAT-AP-ES"@es ;
-    rdfs:label "Distribution restrictions for DCAT-AP-ES"@en ;
     dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_distribution_shape.ttl> ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
     dct:conformsTo <https://www.w3.org/TR/shacl> ;
     dct:description "Este archivo incluye las restricciones SHACL para las propiedades y clases relacionadas con distribuciones en el perfil de aplicación DCAT-AP-ES."@es ;
-    dct:description "This file includes SHACL restrictions for properties and classes related to distributions in the DCAT-AP-ES application profile."@en ;
     owl:versionInfo "1.0.0" ;
     dct:modified "2025-10-20"^^xsd:date ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
@@ -34,13 +32,7 @@
         - shacl_common_shapes.ttl
         - shacl_mdr-vocabularies.shape.ttl
         Asegúrese de que estén disponibles e importadas para una validación completa.
-    """@es ;
-    rdfs:comment """
-        This file requires importing the following additional dependencies to work properly:
-        - shacl_common_shapes.ttl
-        - shacl_mdr-vocabularies.shape.ttl
-        Make sure they are available and imported for full validation.
-    """@en .
+    """@es .
 
 #--------------------------
 # dcat:Distribution restrictions
@@ -48,11 +40,8 @@
 dcatapes:Distribution_Shape
     a sh:NodeShape ;
     sh:name "Distribución"@es ;
-    sh:name "Distribution"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:Distribution."@es ;
-    rdfs:comment "Shape defining restrictions for the dcat:Distribution class."@en ;
     rdfs:label "Restricciones de distribución"@es ;
-    rdfs:label "Distribution restrictions"@en ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution> ;
     sh:property 
     [
@@ -62,7 +51,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.accessURL> ;
         sh:message "El valor de dcat:accessURL debe ser un IRI válido para dcat:accessURL."@es ;
-        sh:message "The value of dcat:accessURL must be a valid IRI for dcat:accessURL."@en ;
     ],
     [
         sh:path dcat:accessURL ;
@@ -70,7 +58,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.accessURL> ;
         sh:message "La distribución debe contener al menos un dcat:accessURL."@es ;
-        sh:message "The distribution must contain at least one dcat:accessURL."@en ;
     ],
 
     [
@@ -80,7 +67,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.applicableLegislation> ;
         sh:message "El valor de dcatap:applicableLegislation debe ser un IRI válido."@es ;
-        sh:message "The value of dcatap:applicableLegislation must be a valid IRI."@en ;
     ],
     [
         sh:path dcatap:applicableLegislation ;
@@ -88,7 +74,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.applicableLegislation> ;
         sh:message "La distribución debería contener al menos un dcatap:applicableLegislation."@es ;
-        sh:message "The distribution should contain at least one dcatap:applicableLegislation."@en ;
     ], 
     [
         sh:path dcatap:applicableLegislation ;
@@ -103,7 +88,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.description> ;
         sh:message "El valor de dct:description debe ser un Literal."@es ;
-        sh:message "The value of dct:description must be a Literal."@en ;
     ], 
     [
         sh:path dct:description ;
@@ -111,7 +95,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.description> ;
         sh:message "La distribución debería contener al menos un dct:description."@es ;
-        sh:message "The distribution should contain at least one dct:description."@en ;
     ], 
     [
         sh:path dct:description ;
@@ -129,7 +112,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
-        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dcatap:availability
@@ -139,7 +121,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.availability> ;
         sh:message "El valor de dcatap:availability debe ser un IRI válido."@es ;
-        sh:message "The value of dcatap:availability must be a valid IRI."@en ;
     ],
     [
         sh:path dcatap:availability ;
@@ -147,7 +128,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.availability> ;
         sh:message "La propiedad dcatap:availability no puede tener más de un valor."@es ;
-        sh:message "The dcatap:availability property cannot have more than one value."@en ;
     ],
     [
         sh:path dcatap:availability ;
@@ -155,7 +135,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.availability> ;
         sh:message "La distribución debería contener al menos un dcatap:availability."@es ;
-        sh:message "The distribution should contain at least one dcatap:availability."@en ;
     ],  
     [
         sh:path dcatap:availability ;
@@ -170,7 +149,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.format> ;
         sh:message "La propiedad dct:format no puede tener más de un valor."@es ;
-        sh:message "The dct:format property cannot have more than one value."@en ;
     ], 
     [
         sh:path dct:format ;
@@ -178,7 +156,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.format> ;
         sh:message "La distribución debería contener al menos un dct:format."@es ;
-        sh:message "The distribution should contain at least one dct:format."@en ;
     ],  
     [
         sh:path dct:format ;
@@ -198,7 +175,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.format> ;
         sh:message "El valor de dct:format debe ser un IRI válido del vocabulario europeo de tipos de archivo o un literal de tipo dct:IMT."@es ;
-        sh:message "The value of dct:format must be a valid IRI from the European file type vocabulary or a literal of type dct:IMT."@en ;
     ],
 
     # dct:license
@@ -208,7 +184,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.license> ;
         sh:message "La propiedad dct:license no puede tener más de un valor."@es ;
-        sh:message "The dct:license property cannot have more than one value."@en ;
     ], 
     [
         sh:path dct:license ;
@@ -216,7 +191,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.license> ;
         sh:message "La distribución debería contener al menos un dct:license."@es ;
-        sh:message "The distribution should contain at least one dct:license."@en ;
     ],  
     [
         sh:path dct:license ;
@@ -235,7 +209,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.accessService> ;
         sh:message "El valor de dcat:accessService debe ser un IRI válido que apunte a un servicio de acceso."@es ;
-        sh:message "The value of dcat:accessService must be a valid IRI pointing to an access service."@en ;
     ],
 
     # dct:title
@@ -245,7 +218,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.title> ;
         sh:message "El valor de dct:title debe ser un Literal."@es ;
-        sh:message "The value of dct:title must be a Literal."@en ;
     ], 
     [
         sh:path dct:title ;
@@ -253,7 +225,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.title> ;
         sh:message "La distribución debería contener al menos un dct:title."@es ;
-        sh:message "The distribution should contain at least one dct:title."@en ;
     ], 
     [
         sh:path dct:title ;
@@ -271,7 +242,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
-        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # foaf:page
@@ -281,7 +251,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution._page> ;
         sh:message "El valor de foaf:page debe ser un IRI válido que apunte a un documento online."@es ;
-        sh:message "The value of foaf:page must be a valid IRI pointing to an online document."@en ;
     ],
 
     # dcat:mediaType
@@ -292,7 +261,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.mediaType> ;
         sh:message "El valor de dcat:mediaType debe ser un IRI válido del formato de tipos de medios de IANA."@es ;
-        sh:message "The value of dcat:mediaType must be a valid IRI from the IANA media types format."@en ;
     ], 
     [
         sh:path dcat:mediaType ;
@@ -300,7 +268,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.mediaType> ;
         sh:message "La propiedad dcat:mediaType no puede tener más de un valor."@es ;
-        sh:message "The dcat:mediaType property cannot have more than one value."@en ;
     ], 
 
     # dcat:downloadURL
@@ -310,7 +277,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.downloadURL> ;
         sh:message "El valor de dcat:downloadURL debe ser un IRI válido que apunte directamente al archivo de datos."@es ;
-        sh:message "The value of dcat:downloadURL must be a valid IRI that points directly to the data file."@en ;
     ], 
 
     # dct:conformsTo 
@@ -320,7 +286,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.conformsTo> ;
         sh:message "El valor de dct:conformsTo debe ser un IRI válido."@es ;
-        sh:message "The value of dct:conformsTo must be a valid IRI."@en ;
     ], 
 
     # dct:issued
@@ -332,7 +297,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
         sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
-        sh:message "The value must be data typed as either xsd:date, xsd:dateTime, xsd:gYear, or xsd:gYearMonth and follow the ISO-8601 format."@en ;
     ],
     [
         sh:path dct:issued ;
@@ -349,7 +313,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
         sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
-        sh:message "The value must be data typed as either xsd:date, xsd:dateTime, xsd:gYear, or xsd:gYearMonth and follow the ISO-8601 format."@en ;
     ], 
     [
         sh:path dct:modified ;
@@ -364,8 +327,7 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.status> ;
         sh:message "La propiedad adms:status no puede tener más de un valor."@es ;
-        sh:message "The adms:status property cannot have more than one value."@en ;
-    ], 
+     ], 
     [
         sh:path adms:status ;
         sh:node dcatapes:StatusRestriction ;
@@ -387,7 +349,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.compressFormat> ;
         sh:message "La propiedad dcat:compressFormat no puede tener más de un valor."@es ;
-        sh:message "The dcat:compressFormat property cannot have more than one value."@en ;
     ], 
     [
         sh:path dcat:compressFormat ;
@@ -395,7 +356,6 @@ dcatapes:Distribution_Shape
         sh:node dcatapes:IanaFormatRestriction;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.compressFormat> ;
         sh:message "El valor de dcat:compressFormat debe ser un IRI válido del formato de tipos de medios de IANA."@es ;
-        sh:message "The value of dcat:compressFormat must be a valid IRI from the IANA media types format."@en ;
     ], 
     
     # dcat:packageFormat 
@@ -405,7 +365,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.packageFormat> ;
         sh:message "La propiedad dcat:packageFormat no puede tener más de un valor."@es ;
-        sh:message "The dcat:packageFormat property cannot have more than one value."@en ;
     ], 
     [
         sh:path dcat:packageFormat ;
@@ -413,7 +372,6 @@ dcatapes:Distribution_Shape
         sh:node dcatapes:IanaFormatRestriction;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.packageFormat> ;
         sh:message "El valor de dcat:packageFormat debe ser un IRI válido del formato de tipos de medios de IANA."@es ;
-        sh:message "The value of dcat:packageFormat must be a valid IRI from the IANA media types format."@en ;
     ], 
 
     # dcat:byteSize
@@ -437,7 +395,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.byteSize> ;
         sh:message "El valor debe ser un número entero no negativo."@es ;
-        sh:message "The value must be a non-negative integer."@en ;
     ], 
 
     # dcat:spatialResolutionInMeters
@@ -453,7 +410,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.spatialResolutionInMeters> ;
         sh:message "La propiedad dcat:spatialResolutionInMeters debe ser un literal de tipo xsd:decimal o xsd:double."@es ;
-        sh:message "The property dcat:spatialResolutionInMeters must be a literal of type xsd:decimal or xsd:double."@en ;
     ], 
     [
         sh:path dcat:spatialResolutionInMeters ;
@@ -461,7 +417,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.spatialResolutionInMeters> ;
         sh:message "La propiedad dcat:spatialResolutionInMeters no puede tener más de un valor."@es ;
-        sh:message "The dcat:spatialResolutionInMeters property cannot have more than one value."@en ;
     ], 
 
     # dcat:temporalResolution
@@ -472,7 +427,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.temporalResolution> ;
         sh:message "El valor de dcat:temporalResolution para duración debe seguir el formato ISO 8601 para xsd:duration o, excepcionalmente, una representación numérica en segundos. Ver Convención 31."@es ;
-        sh:message "The value of dcat:temporalResolution for duration must follow the ISO 8601 format for xsd:duration or, exceptionally, a numeric representation in seconds. See Convention 31."@en ;
     ],
     [
         sh:path dcat:temporalResolution ;
@@ -486,7 +440,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.temporalResolution> ;
         sh:message "La propiedad dcat:temporalResolution no puede tener más de un valor."@es ;
-        sh:message "The dcat:temporalResolution property cannot have more than one value."@en ;
     ], 
     # spdx:checksum
     [
@@ -495,7 +448,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.checksum> ;
         sh:message "La propiedad spdx:checksum no puede tener más de un valor."@es ;
-        sh:message "The spdx:checksum property cannot have more than one value."@en ;
     ], 
     [
         sh:path spdx:checksum ;
@@ -503,7 +455,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.checksum> ;
         sh:message "La propiedad spdx:checksum debe ser una entidad spdx:Checksum."@es ;
-        sh:message "The spdx:checksum property must be an spdx:Checksum entity."@en ;
     ],
 
     # odrl:hasPolicy
@@ -513,7 +464,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.hasPolicy> ;
         sh:message "La propiedad odrl:hasPolicy no puede tener más de un valor."@es ;
-        sh:message "The odrl:hasPolicy property cannot have more than one value."@en ;
     ], 
     [
         sh:path odrl:hasPolicy ;
@@ -521,7 +471,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.hasPolicy> ;
         sh:message "El valor de odrl:hasPolicy debe ser un IRI válido para odrl:hasPolicy."@es ;
-        sh:message "The value of odrl:hasPolicy must be a valid IRI for odrl:hasPolicy."@en ;
     ],
 
     # dct:rights
@@ -531,7 +480,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.rights> ;
         sh:message "La propiedad dct:rights no puede tener más de un valor."@es ;
-        sh:message "The dct:rights property cannot have more than one value."@en ;
     ], 
     [
         sh:path dct:rights ;
@@ -539,7 +487,6 @@ dcatapes:Distribution_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.rights> ;
         sh:message "El valor de dct:rights debe ser un IRI válido para dct:rights."@es ;
-        sh:message "The value of dct:rights must be a valid IRI for dct:rights."@en ;
     ];
     sh:targetClass dcat:Distribution .
 
@@ -547,10 +494,7 @@ dcatapes:Distribution_Shape
 dcatapes:DistributionSPALanguageRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que una distribución cumpla con las convenciones de contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
-    rdfs:comment "Restriction to validate that a distribution complies with Spanish content conventions, including title, description, and other key elements."@en ;
     rdfs:label "Restricción de distribución: contenido en español"@es ;
-    rdfs:label "Distribution restriction: Spanish content"@en ;
-    sh:name "Distribution Content Restriction"@en ;
     sh:name "Restricción de distribución: contenido en español"@es ;
     sh:node dcatapes:SpanishTitleRestriction ;
     sh:node dcatapes:SpanishDescriptionRestriction ;
@@ -562,9 +506,7 @@ dcatapes:DistributionSPALanguageRestriction
 dcatapes:OGCServiceAccessURLRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que las URLs de acceso a servicios OGC incluyan la operación GetCapabilities."@es ;
-    rdfs:comment "Restriction to validate that OGC service access URLs include the GetCapabilities operation."@en ;
     rdfs:label "Restricción para URLs de acceso a servicios OGC"@es ;
-    rdfs:label "OGC Service Access URL Restriction"@en ;
     sh:targetClass dcat:Distribution ;
     sh:sparql [
         sh:select """
@@ -599,7 +541,6 @@ dcatapes:OGCServiceAccessURLRestriction
             }
         """ ;
         sh:message "La URL de acceso de un servicio OGC debe incluir la operación GetCapabilities. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-21 | Ejemplo: http://example.org/wms?request=GetCapabilities&service=WMS"@es ;
-        sh:message "The access URL of an OGC service must include the GetCapabilities operation. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-21 | Example: http://example.org/wms?request=GetCapabilities&service=WMS"@en ;
         sh:severity sh:Violation ;
     ] ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-21> .
@@ -608,11 +549,8 @@ dcatapes:OGCServiceAccessURLRestriction
 dcatapes:NSIPDistributionConvention
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que las distribuciones de datasets con acceso restringido cumplan con los requisitos obligatorios de la Convención 26."@es ;
-    rdfs:comment "Restriction to validate that distributions of datasets with restricted access comply with the mandatory requirements of Convention 26."@en ;
     rdfs:label "Restricción para distribuciones NSIP/ERPD"@es ;
-    rdfs:label "NSIP/ERPD Distribution Restriction"@en ;
     sh:name "Distribution NSIP/ERPD"@es ;
-    sh:name "NSIP/ERPD Distribution"@en ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
     
     # Target: Distribuciones de datasets con accessRights RESTRICTED o NON_PUBLIC
@@ -643,7 +581,6 @@ dcatapes:NSIPDistributionConvention
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
         sh:message "Las distribuciones NSIP/ERPD DEBEN incluir dcat:accessURL con la URL para solicitar acceso. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
-        sh:message "NSIP/ERPD distributions MUST include dcat: accessURL with the URL to request access. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@en ;
     ],
     [
         # 2. dcat:byteSize - obligatorio para NSIP/ERPD
@@ -652,7 +589,6 @@ dcatapes:NSIPDistributionConvention
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
         sh:message "Las distribuciones NSIP/ERPD DEBEN incluir dcat:byteSize (puede ser aproximado). La ausencia puede causar rechazo en la ingesta. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
-        sh:message "NSIP/ERPD distributions MUST include dcat:byteSize (can be approximate). Absence may cause ingestion rejection. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@en ;
     ],
     [
         # 3. dct:format - obligatorio para NSIP/ERPD
@@ -661,7 +597,6 @@ dcatapes:NSIPDistributionConvention
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
         sh:message "Las distribuciones NSIP/ERPD DEBEN incluir dct: format del vocabulario file-type. La ausencia puede causar rechazo en la ingesta. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
-        sh:message "NSIP/ERPD distributions MUST include dct:format from the file-type vocabulary. Absence may cause ingestion rejection. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@en ;
     ],
     [
         # dct:format debe ser del vocabulario file-type
@@ -678,7 +613,6 @@ dcatapes:NSIPDistributionConvention
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
         sh:message "Las distribuciones NSIP/ERPD DEBEN incluir dct: rights con las condiciones de reutilización. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
-        sh:message "NSIP/ERPD distributions MUST include dct:rights with reuse conditions. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@en ;
     ],
     [
         # Advertencia si existe downloadURL en contexto NSIP
@@ -696,7 +630,6 @@ dcatapes:NSIPDistributionConvention
                 }
             """ ;
             sh:message "Nota: En distribuciones NSIP/ERPD con ambas propiedades (dcat:accessURL y dcat:downloadURL), el harvester priorizará accessURL. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
-            sh:message "Note: In NSIP/ERPD distributions with both properties (dcat:accessURL and dcat:downloadURL), the harvester will prioritize accessURL. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@en ;
         ] ;
     ] .
 
@@ -706,9 +639,7 @@ dcatapes:NSIPDistributionConvention
 dcatapes:Checksum_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un recurso de tipo spdx:Checksum tenga un algoritmo definido y un valor de checksum válido."@es ;
-    rdfs:comment "Restriction to validate that a resource of type spdx:Checksum has a defined algorithm and a valid checksum value."@en ;
     rdfs:label "Restricción de Checksum"@es ;
-    rdfs:label "Checksum Restriction"@en ;
     sh:name "Restricción de Checksum"@es ;
     sh:property 
     # spdx:algorithm
@@ -719,7 +650,6 @@ dcatapes:Checksum_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.checksum> ;
         sh:message "El algoritmo de checksum debe estar definido y ser único."@es ;
-        sh:message "The checksum algorithm must be defined and unique."@en ;
     ], 
     [
         sh:path spdx:algorithm ;
@@ -728,7 +658,6 @@ dcatapes:Checksum_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.checksum> ;
         sh:message "El algoritmo de checksum debe ser SHA-1."@es ;
-        sh:message "The checksum algorithm must be SHA-1."@en ;
     ], 
     # spdx:checksumValue 
     [
@@ -740,7 +669,6 @@ dcatapes:Checksum_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.checksum> ;
         sh:message "El valor del checksum debe ser un literal no vacío de tipo xsd:hexBinary."@es ;
-        sh:message "The checksum value must be a non-empty literal of type xsd:hexBinary."@en ;
     ] ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Checksum> ;
     sh:targetClass spdx:Checksum .
@@ -748,9 +676,7 @@ dcatapes:Checksum_Shape
 dcatapes:IMT_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción heredada de NTI-RISP (2013) para validar que los valores de rdf:value y rdfs:label en recursos de tipo dct:IMT sean literales no vacíos y no multilingües."@es ;
-    rdfs:comment "Restriction inherited from NTI-RISP (2013) to validate that the values of rdf:value and rdfs:label in resources of type dct:IMT are non-empty, non-multilingual literals."@en ;
     rdfs:label "Restricción para recursos de tipo dct:IMT"@es ;
-    rdfs:label "Restriction for dct:IMT resources"@en ;
     sh:name "Validación de IMT"@es ;
     sh:property 
     # rdf:value
@@ -769,14 +695,12 @@ dcatapes:IMT_Shape
         sh:minCount 1 ;
         sh:severity sh:Violation ;
         sh:message "Debe haber al menos un valor para rdf:value."@es ;
-        sh:message "There must be at least one value for rdf:value."@en ;
     ],
     [
         sh:path rdf:value ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
         sh:message "Solo puede haber un valor para rdf:value."@es ;
-        sh:message "There can only be one value for rdf:value."@en ;
     ],
     # rdfs:label
     [
@@ -794,14 +718,12 @@ dcatapes:IMT_Shape
         sh:minCount 1 ;
         sh:severity sh:Violation ;
         sh:message "Debe haber al menos un valor para rdfs:label."@es ;
-        sh:message "There must be at least one value for rdfs:label."@en ;
     ],
     [
         sh:path rdfs:label ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
         sh:message "Solo puede haber un valor para rdfs:label."@es ;
-        sh:message "There can only be one value for rdfs:label."@en ;
     ] ;
     foaf:page <https://datosgobes.github.io/NTI-RISP/#Distribution> ;
     sh:targetClass dct:IMT .
@@ -812,53 +734,41 @@ dcatapes:IMT_Shape
 dcatapes:AvailabilityRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que el valor de dcatap:availability sea un IRI del vocabulario europeo de disponibilidad prevista."@es ;
-    rdfs:comment "Restriction to validate that the value of dcatap:availability is an IRI from the European planned availability vocabulary."@en ;
     rdfs:label "Restricción de disponibilidad prevista"@es ;
-    rdfs:label "Planned Availability Restriction"@en ;
 
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://publications\\.europa\\.eu/resource/authority/planned-availability/.+$" ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.availability> ;
     sh:message "El valor de dcatap:availability debe ser un IRI del vocabulario europeo de disponibilidad prevista: http://publications.europa.eu/resource/authority/planned-availability."@es ;
-    sh:message "The value of dcatap:availability must be an IRI from the European planned availability vocabulary: http://publications.europa.eu/resource/authority/planned-availability."@en ;
     sh:severity sh:Violation .
 
 dcatapes:FileTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que el valor sea un IRI del vocabulario europeo de tipos de archivo."@es ;
-    rdfs:comment "Restriction to validate that the value is an IRI from the European file type vocabulary."@en ;
     rdfs:label "Restricción de tipo de archivo"@es ;
-    rdfs:label "File Type Restriction"@en ;
 
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://publications\\.europa\\.eu/resource/authority/file-type/.+$" ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.format> ;
     sh:message "El valor de dct:format debe ser un IRI del vocabulario europeo de tipos de archivo: http://publications.europa.eu/resource/authority/file-type."@es ;
-    sh:message "The value of dct:format must be an IRI from the European file type vocabulary: http://publications.europa.eu/resource/authority/file-type."@en ;
     sh:severity sh:Violation .
 
 dcatapes:IanaFormatRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que el valor sea un IRI válido que siga el formato de los tipos de medios definidos por IANA."@es ;
-    rdfs:comment "Restriction to validate that the value is a valid IRI following the format of media types defined by IANA."@en ;
     rdfs:label "Restricción de formato IANA"@es ;
-    rdfs:label "IANA Format Restriction"@en ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^https?://www\\.iana\\.org/assignments/media-types/[a-z0-9!#$&^_.+-]+/[a-z0-9!#$&^_.+-]+$" ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.mediatype> ;
     sh:message "El valor de dcat:mediaType debe ser un IRI válido del formato de tipos de medios de IANA."@es ;
-    sh:message "The value of dcat:mediaType must be a valid IRI from the IANA media types format."@en ;
     sh:severity sh:Violation .
 
 dcatapes:StatusRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que el valor de adms:status sea un IRI del vocabulario europeo de estados de distribución."@es ;
-    rdfs:comment "Restriction to validate that the value of adms:status is an IRI from the European distribution status vocabulary."@en ;
     rdfs:label "Restricción de estado de distribución"@es ;
-    rdfs:label "Distribution Status Restriction"@en ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://publications\\.europa\\.eu/resource/authority/distribution-status/.+$" ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.status> ;
     sh:message "El valor de adms:status debe ser un IRI del vocabulario europeo de estados de distribución: http://publications.europa.eu/resource/authority/distribution-status."@es ;
-    sh:message "The value of adms:status must be an IRI from the European distribution status vocabulary: http://publications.europa.eu/resource/authority/distribution-status."@en ;
     sh:severity sh:Violation .
