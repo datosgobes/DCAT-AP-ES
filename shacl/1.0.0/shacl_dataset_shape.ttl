@@ -19,12 +19,10 @@
 <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_dataset_shape.ttl>
     rdf:type owl:Ontology ;
     rdfs:label "Restricciones para los conjuntos de datos DCAT-AP-ES"@es ;
-    rdfs:label "Dataset restrictions for DCAT-AP-ES"@en ;
     dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_dataset_shape.ttl> ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
     dct:conformsTo <https://www.w3.org/TR/shacl> ;
     dct:description "Este archivo incluye las restricciones SHACL para las propiedades y clases relacionadas con conjuntos de datos en el perfil de aplicación DCAT-AP-ES."@es ;
-    dct:description "This file includes SHACL restrictions for properties and classes related to dataset in the DCAT-AP-ES application profile."@en ;
     owl:versionInfo "1.0.0" ;
     dct:modified "2025-10-20"^^xsd:date ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
@@ -38,14 +36,7 @@
         - shacl_mdr-vocabularies.shape.ttl
         - shacl_distribution_shape.ttl
         Asegúrese de que estén disponibles e importadas para una validación completa.
-    """@es ;
-    rdfs:comment """
-        This file requires importing the following additional dependencies to work properly:
-        - shacl_common_shapes.ttl
-        - shacl_mdr-vocabularies.shape.ttl
-        - shacl_distribution_shape.ttl
-        Make sure they are available and imported for full validation.
-    """@en .
+    """@es .
 
 
 #--------------------------
@@ -54,11 +45,8 @@
 dcatapes:Dataset_Shape
     a sh:NodeShape ;
     sh:name "Conjunto de datos"@es ;
-    sh:name "Dataset"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:Dataset."@es ;
-    rdfs:comment "Shape defining restrictions for the dcat:Dataset class."@en ;
     rdfs:label "Restricciones de conjunto de datos"@es ;
-    rdfs:label "Dataset restrictions"@en ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset> ;
     sh:property 
     [
@@ -69,7 +57,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.title> ;
         sh:message "El conjunto de datos debe contener al menos un dct:title."@es ;
-        sh:message "The dataset must contain at least one dct:title."@en ;
     ], 
     [
         sh:path dct:title ;
@@ -87,7 +74,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
-        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dct:description
@@ -97,7 +83,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.description> ;
         sh:message "El valor de dct:description debe ser un Literal."@es ;
-        sh:message "The value of dct:description must be a Literal."@en ;
     ], 
     [
         sh:path dct:description ;
@@ -105,7 +90,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.description> ;
         sh:message "El conjunto de datos debe contener al menos un dct:description."@es ;
-        sh:message "The dataset must contain at least one dct:description."@en ;
     ], 
     [
         sh:path dct:description ;
@@ -123,7 +107,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Más de un valor comparten la misma etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
-        sh:message "More than one value shares the same language tag. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
 
     # dct:publisher
@@ -133,7 +116,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.publisher> ;
         sh:message "El conjunto de datos debe contener al menos un dct:publisher."@es ;
-        sh:message "The dataset must contain at least one dct:publisher."@en ;
     ], 
     [
         sh:path dct:publisher ;
@@ -141,7 +123,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.publisher> ;
         sh:message "La propiedad dct:publisher no puede tener más de un valor."@es ;
-        sh:message "The dct:publisher property cannot have more than one value."@en ;
     ],
     [
         sh:path dct:publisher ;
@@ -160,7 +141,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.publisher> ;
         sh:message "El valor de dct:publisher debe ser un IRI o un nodo en blanco que cumpla con las restricciones de la forma de agente."@es ;
-        sh:message "The value of dct:publisher must be an IRI or a blank node that meets the agent shape restrictions."@en ;
     ],
     [
         sh:path dct:publisher ;
@@ -177,7 +157,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.publisher> ;
         sh:message "El valor de dct:publisher debe ser un IRI o un nodo en blanco que cumpla con las restricciones de la forma de agente."@es ;
-        sh:message "The value of dct:publisher must be an IRI or a blank node that meets the agent shape restrictions."@en ;
     ],
 
     # dcat:theme
@@ -187,7 +166,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.theme> ;
         sh:message "El conjunto de datos debe contener al menos un dcat:theme."@es ;
-        sh:message "The dataset must contain at least one dcat:theme."@en ;
     ], 
     [
 		sh:path dcat:theme ;
@@ -215,7 +193,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30> ;
         sh:message "Se recomienda que los temas provengan de los vocabularios estándar: sectores NTI, temas europeos o temas INSPIRE. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30"@es ;
-        sh:message "It is recommended that themes come from standard vocabularies: NTI sectors, European themes or INSPIRE themes. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30"@en
     ],
 
     # dcat:Distribution
@@ -225,7 +202,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.distribution> ;
         sh:message "El valor de dcat:distribution debe ser un dcat:Distribution."@es ;
-        sh:message "The value of dcat:distribution must be a dcat:Distribution."@en ;
     ], 
     # Convención 23
     [
@@ -234,7 +210,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23> ;
         sh:message "Todo recurso de tipo dcat:Dataset debe contener al menos una instancia de dcat:Distribution. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23"@es ;
-        sh:message "All dcat:Dataset resources must contain at least one instance of dcat:Distribution. See: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-23"@en ;
     ], 
     # dcat:keyword
     [
@@ -243,7 +218,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.keyword> ;
         sh:message "El valor de dcat:keyword ser un Literal."@es ;
-        sh:message "The value of dcat:keyword must be a Literal."@en ;
     ],
     [
         sh:path dcat:keyword ;
@@ -251,7 +225,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.keyword> ;
         sh:message "Todo recurso de tipo dcat:Dataset debería contener al menos una instancia de dcat:keyword."@es ;
-        sh:message "All dcat:Dataset resources must contain at least one instance of dcat:keyword."@en ;
     ], 
     [
         sh:path dcat:keyword ;
@@ -276,7 +249,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "Se recomienda que el punto de contacto utilice vcard:fn, vcard:hasTelephone y vcard:hasUID. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19"@es ;
-        sh:message "It is recommended that the contact point uses vcard:fn, vcard:hasTelephone, and vcard:hasUID. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19"@en ;
     ],
     [
         sh:path dcat:contactPoint ;
@@ -284,7 +256,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.contactPoint> ;
         sh:message "Debe proporcionarse al menos un vcard:hasEmail o vcard:hasURL."@es ;
-        sh:message "At least one of vcard:hasEmail or vcard:hasURL must be provided."@en ;
     ],
     [
         sh:path dcat:contactPoint ;
@@ -292,7 +263,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.contactpoint> ;
         sh:message "El conjunto de datos debería contener al menos un dcat:contactPoint."@es ;
-        sh:message "The dataset should contain at least one dcat:contactPoint."@en ;
     ], 
 
     # dct:temporal
@@ -302,7 +272,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.temporal> ;
         sh:message "El conjunto de datos debería contener al menos un dct:temporal."@es ;
-        sh:message "The dataset should contain at least one dct:temporal."@en ;
     ], 
     [
         sh:path dct:temporal ;
@@ -317,7 +286,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.spatial> ;
         sh:message "El conjunto de datos debe contener al menos un valor para dct:spatial."@es ;
-        sh:message "The dataset must contain at least one value for dct:spatial."@en ;
     ],
 
     [
@@ -334,7 +302,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.spatial> ;
         sh:message "El valor de dct:spatial debe ser un IRI de los vocabularios permitidos o un nodo de tipo Location."@es ;
-        sh:message "The value of dct:spatial must be an IRI from the allowed vocabularies or a Location node."@en ;
     ],
 
     # dct:identifier
@@ -356,7 +323,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.identifier> ;
         sh:message "El valor de adms:identifier debe ser un adms:Identifier."@es ;
-        sh:message "The value of adms:identifier must be a adms:Identifier."@en ;
     ], 
 
     # dct:creator  
@@ -407,7 +373,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.page> ;
         sh:message "El valor de foaf:page debe ser un IRI válido."@es ;
-        sh:message "The value of foaf:page must be a valid IRI."@en ;
     ], 
 
     # dcat:landingPage 
@@ -417,7 +382,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.landingPage> ;
         sh:message "El valor de dcat:landingPage debe ser un IRI válido."@es ;
-        sh:message "The value of dcat:landingPage must be a valid IRI."@en ;
     ], 
 
     # adms:sample
@@ -427,7 +391,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.sample> ;
         sh:message "El valor de adms:sample debe ser un dcat:Distribution."@es ;
-        sh:message "The value of adms:sample must be a dcat:Distribution."@en ;
     ], 
 
     # dct:conformsTo 
@@ -437,7 +400,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.conformsTo> ;
         sh:message "El valor de dct:conformsTo debe ser un IRI válido."@es ;
-        sh:message "The value of dct:conformsTo must be a valid IRI."@en ;
     ], 
 
     # dct:issued
@@ -449,7 +411,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
         sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
-        sh:message "The value must be data typed as either xsd:date, xsd:dateTime, xsd:gYear, or xsd:gYearMonth and follow the ISO-8601 format."@en ;
     ],
     [
         sh:path dct:issued ;
@@ -466,7 +427,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
         sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
-        sh:message "The value must be data typed as either xsd:date, xsd:dateTime, xsd:gYear, or xsd:gYearMonth and follow the ISO-8601 format."@en ;
     ], 
     [
         sh:path dct:modified ;
@@ -481,7 +441,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.type> ;
         sh:message "Solo puede haber un tipo para el conjunto de datos."@es ;
-        sh:message "There can only be one type for the dataset."@en ;
     ],
     [
         sh:path dct:type ;
@@ -498,7 +457,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.type> ;
         sh:message "El valor de dct:type debería ser un IRI de los vocabularios <http://publications.europa.eu/resource/authority/dataset-type> o <http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset>"@es ;
-        sh:message "The value of dct:type should be an IRI from vocabularies <http://publications.europa.eu/resource/authority/dataset-type> or <http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset>."@en ;
     ], 
 
     # dct:language
@@ -530,7 +488,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualPeriodicity> ;
         sh:message "El valor de dct:accrualPeriodicity debe ser un IRI de los vocabularios permitidos o un Literal de tipo xsd:duration."@es ;
-        sh:message "The value of dct:accrualPeriodicity must be an IRI from the allowed vocabularies or a Literal of type xsd:duration."@en ;
     ],
     [
         sh:path dct:accrualPeriodicity ;
@@ -538,7 +495,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualPeriodicity> ;
         sh:message "La propiedad dct:accrualPeriodicity no puede tener más de un valor."@es ;
-        sh:message "The dct:accrualPeriodicity property cannot have more than one value."@en ;
     ],
     # dcat:version
     [
@@ -557,7 +513,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.version> ;
         sh:message "La propiedad dcat:version no puede tener más de un valor."@es ;
-        sh:message "The dcat:version property cannot have more than one value."@en ;
     ],
 
     # adms:versionNotes 
@@ -567,7 +522,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.versionNotes> ;
         sh:message "El valor de adms:versionNotes debe ser un Literal."@es ;
-        sh:message "The value of adms:versionNotes must be a Literal."@en ;
     ], 
     [
         sh:path adms:versionNotes ;
@@ -585,7 +539,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Las notas de la versión debe tener al menos un valor en español (etiqueta de idioma 'es'). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
-        sh:message "The version notes must have at least one value in Spanish (language tag 'es') See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@en ;
     ],
     [
         sh:path adms:versionNotes ;
@@ -615,7 +568,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.hasVersion> ;
         sh:message "El valor de dct:hasVersion debe ser un IRI válido."@es ;
-        sh:message "The value of dct:hasVersion must be a valid IRI."@en ;
     ], 
 
     # dcat:isVersionOf
@@ -625,7 +577,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.isVersionOf> ;
         sh:message "El valor de dct:isVersionOf debe ser un IRI válido."@es ;
-        sh:message "The value of dct:isVersionOf must be a valid IRI."@en ;
     ], 
 
     # dcat:qualifiedRelation
@@ -635,7 +586,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.qualifiedRelation> ;
         sh:message "El valor de dcat:qualifiedRelation debe ser un dcat:Relationship."@es ;
-        sh:message "The value of dcat:qualifiedRelation must be a dcat:Relationship."@en ;
     ], 
 
     # dcat:spatialResolutionInMeters
@@ -651,7 +601,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.spatialResolutionInMeters> ;
         sh:message "El valor de dcat:spatialResolutionInMeters debe ser un Literal de tipo xsd:decimal o xsd:double."@es ;
-        sh:message "The value of dcat:spatialResolutionInMeters must be a Literal of type xsd:decimal or xsd:double."@en ;
     ], 
     [
         sh:path dcat:spatialResolutionInMeters ;
@@ -659,7 +608,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.spatialResolutionInMeters> ;
         sh:message "La propiedad dcat:spatialResolutionInMeters no puede tener más de un valor."@es ;
-        sh:message "The dcat:spatialResolutionInMeters property cannot have more than one value."@en ;
     ],
 
     # dcat:temporalResolution
@@ -669,7 +617,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.temporalResolution> ;
         sh:message "La propiedad dcat:temporalResolution no puede tener más de un valor."@es ;
-        sh:message "The dcat:temporalResolution property cannot have more than one value."@en ;
     ],
     [
         sh:path dcat:temporalResolution ;
@@ -678,7 +625,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.temporalResolution> ;
         sh:message "El valor de dcat:temporalResolution para duración debe seguir el formato ISO 8601 para xsd:duration o, excepcionalmente, una representación numérica en segundos. Ver Convención 31."@es ;
-        sh:message "The value of dcat:temporalResolution for duration must follow the ISO 8601 format for xsd:duration or, exceptionally, a numeric representation in seconds. See Convention 31."@en ;
     ],
     [
         sh:path dcat:temporalResolution ;
@@ -694,7 +640,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.isReferencedBy> ;
         sh:message "El valor de dct:isReferencedBy debe ser un IRI válido."@es ;
-        sh:message "The value of dct:isReferencedBy must be a valid IRI."@en ;
     ], 
 
     # dct:provenance  
@@ -717,7 +662,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.provenance> ;
         sh:message "El valor de dct:provenance debe ser o bien un IRI sin nodo asociado, o bien un IRI que describa un nodo dct:ProvenanceStatement."@es ;
-        sh:message "The value of dct:provenance must either be an IRI without an associated node, or an IRI describing a dct:ProvenanceStatement node."@en ;
     ],
 
     # dct:relation
@@ -727,7 +671,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.relation> ;
         sh:message "El valor de dct:relation debe ser un IRI válido."@es ;
-        sh:message "The value of dct:relation must be a valid IRI."@en ;
     ], 
 
     # prov:qualifiedAttribution   
@@ -737,7 +680,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.qualifiedAttribution> ;
         sh:message "El valor de prov:qualifiedAttribution debe ser un nodo de tipo prov:Attribution."@es ;
-        sh:message "The value of prov:qualifiedAttribution must be a node of type prov:Attribution."@en ;
     ], 
 
     # prov:wasGeneratedBy
@@ -747,7 +689,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.wasGeneratedBy> ;
         sh:message "El valor de prov:wasGeneratedBy debe ser un nodo de tipo prov:Activity."@es ;
-        sh:message "The value of prov:wasGeneratedBy must be a node of type prov:Activity."@en ;
     ], 
 
     # dct:source
@@ -757,7 +698,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.source> ;
         sh:message "El valor de dct:source debe ser un IRI válido."@es ;
-        sh:message "The value of dct:source must be a valid IRI."@en ;
     ], 
 
     # dct:accessRights 
@@ -767,7 +707,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accessRights> ;
         sh:message "La propiedad dct:accessRights no puede tener más de un valor."@es ;
-        sh:message "The dct:accessRights property cannot have more than one value."@en ;
     ],
     [
         sh:path dct:accessRights ;
@@ -784,7 +723,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.hasVersion> ;
         sh:message "El valor de dcat:hasVersion debe ser un IRI válido que apunte a un dcat:Dataset."@es ;
-        sh:message "The value of dcat:hasVersion must be a valid IRI pointing to a dcat:Dataset."@en ;
     ],
 
     # dcat:isVersionOf
@@ -795,7 +733,6 @@ dcatapes:Dataset_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.isVersionOf> ;
         sh:message "El valor de dcat:isVersionOf debe ser un IRI válido que apunte a un dcat:Dataset."@es ;
-        sh:message "The value of dcat:isVersionOf must be a valid IRI pointing to a dcat:Dataset."@en ;
     ];
     sh:targetClass dcat:Dataset .
 
@@ -803,10 +740,7 @@ dcatapes:Dataset_Shape
 dcatapes:DatasetSPALanguageConvention
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que un conjunto de datos cumpla con las convenciones de idioma y contenido en español, incluyendo título, descripción y otros elementos clave."@es ;
-    rdfs:comment "Restriction to validate that a dataset complies with Spanish language and content conventions, including title, description, and other key elements."@en ;
     rdfs:label "Restricción de conjunto de datos: idioma y contenido en español"@es ;
-    rdfs:label "Dataset restriction: Spanish language and content"@en ;
-    sh:name "Dataset Spanish Language and Content Restriction"@en ;
     sh:name "Restricción de conjunto de datos: idioma y contenido en español"@es ;
     sh:node dcatapes:SpanishLanguageRestriction ;
     sh:node dcatapes:SpanishTitleRestriction ;
@@ -819,9 +753,7 @@ dcatapes:DatasetSPALanguageConvention
 dcatapes:DistributionMandatoryConvention
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los conjuntos de datos contengan al menos una distribución (dcat:distribution), cumpliendo con la Convención 23 de DCAT-AP-ES."@es ;
-    rdfs:comment "Restriction to validate that datasets include at least one distribution (dcat:distribution), complying with DCAT-AP-ES Convention 23."@en ;
     rdfs:label "Restricción para distribuciones obligatorias"@es ;
-    rdfs:label "Mandatory Distribution Restriction"@en ;
     sh:targetClass dcat:Dataset ;
     sh:property 
     [
@@ -829,22 +761,17 @@ dcatapes:DistributionMandatoryConvention
         sh:path dcat:distribution ;
         sh:minCount 1 ;
         sh:message "El conjunto de datos debe contener al menos una distribución (dcat:distribution). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-23"@es ;
-        sh:message "The dataset must contain at least one distribution (dcat:distribution). See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-23"@en ;
     ] ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-23> ;
-    sh:message "El conjunto de datos debe contener al menos una distribución (dcat:distribution). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-23"@es ;
-    sh:message "The dataset must contain at least one distribution (dcat:distribution). See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-23"@en .
+    sh:message "El conjunto de datos debe contener al menos una distribución (dcat:distribution). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-23"@es .
 
 # Convención 25
 dcatapes:NSIPDatasetConvention
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los datasets con acceso restringido a través de NSIP/ERPD cumplan con los requisitos obligatorios de la Convención 25."@es ;
-    rdfs:comment "Restriction to validate that datasets with restricted access through NSIP/ERPD comply with the mandatory requirements of Convention 25."@en ;
     rdfs:label "Restricción para datasets NSIP/ERPD"@es ;
-    rdfs:label "NSIP/ERPD Dataset Restriction"@en ;
     sh:name "Dataset NSIP/ERPD"@es ;
-    sh:name "NSIP/ERPD Dataset"@en ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
     
     # Target: Datasets con accessRights RESTRICTED o NON_PUBLIC
@@ -873,7 +800,6 @@ dcatapes:NSIPDatasetConvention
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
         sh:message "Los datasets NSIP/ERPD DEBEN incluir dct:title.  Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
-        sh:message "NSIP/ERPD datasets MUST include dct:title.  See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
     ],
     [
         # 2. dct:description - obligatorio (ya validado en Dataset_Shape, aquí reforzamos el mensaje)
@@ -882,7 +808,6 @@ dcatapes:NSIPDatasetConvention
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
         sh:message "Los datasets NSIP/ERPD DEBEN incluir dct:description. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
-        sh:message "NSIP/ERPD datasets MUST include dct:description. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
     ],
     [
         # 3. dct:publisher - obligatorio (ya validado en Dataset_Shape, aquí reforzamos el mensaje)
@@ -891,7 +816,6 @@ dcatapes:NSIPDatasetConvention
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
         sh:message "Los datasets NSIP/ERPD DEBEN incluir dct:publisher. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
-        sh:message "NSIP/ERPD datasets MUST include dct:publisher. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
     ],
     [
         # 4. dct:accessRights - validación de valores permitidos
@@ -903,7 +827,6 @@ dcatapes:NSIPDatasetConvention
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
         sh:message "Los datasets NSIP/ERPD DEBEN tener dct:accessRights con valor RESTRICTED o NON_PUBLIC. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
-        sh:message "NSIP/ERPD datasets MUST have dct:accessRights with value RESTRICTED or NON_PUBLIC. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
     ],
     [
         # 5. dcat:distribution - al menos una distribución conforme a Convención 26
@@ -912,18 +835,14 @@ dcatapes:NSIPDatasetConvention
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25> ;
         sh:message "Los datasets NSIP/ERPD DEBEN tener al menos una distribución (dcat:distribution). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@es ;
-        sh:message "NSIP/ERPD datasets MUST have at least one distribution (dcat:distribution). See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-25"@en ;
     ] . 
 
 # Convención 27
 dcatapes:NSIPDatasetRecommendation
     a sh:NodeShape ;
     rdfs:comment "Recomendaciones para datasets accesibles vía NSIP/ERPD según la Convención 27."@es ;
-    rdfs:comment "Recommendations for datasets accessible via NSIP/ERPD according to Convention 27."@en ;
     rdfs:label "Recomendación para datasets NSIP/ERPD"@es ;
-    rdfs:label "NSIP/ERPD Dataset Recommendation"@en ;
     sh:name "Dataset NSIP/ERPD (recomendado)"@es ;
-    sh:name "NSIP/ERPD Dataset (recommended)"@en ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
     
     # Mismo target que Convención 25
@@ -952,7 +871,6 @@ dcatapes:NSIPDatasetRecommendation
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
         sh:message "Los datasets NSIP/ERPD DEBERÍAN incluir dcatap: applicableLegislation con la legislación aplicable. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@es ;
-        sh:message "NSIP/ERPD datasets SHOULD include dcatap:applicableLegislation with applicable legislation. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@en ;
     ],
     [
         # Recomendación: incluir al menos el Reglamento DGA
@@ -972,7 +890,6 @@ dcatapes:NSIPDatasetRecommendation
                 }
             """ ;
             sh:message "Se recomienda referenciar el Reglamento DGA (http://data.europa.eu/eli/reg/2022/868/oj) en dcatap:applicableLegislation. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@es ;
-            sh:message "It is recommended to reference the DGA Regulation (http://data.europa.eu/eli/reg/2022/868/oj) in dcatap:applicableLegislation. See: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@en ;
         ] ;
     ] . 
 
@@ -983,11 +900,8 @@ dcatapes:NSIPDatasetRecommendation
 dcatapes:Activity_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los nodos de tipo prov:Activity tengan propiedades temporales correctamente definidas."@es ;
-    rdfs:comment "Restriction to validate that nodes of type prov:Activity have properly defined temporal properties."@en ;
     rdfs:label "Restricción para actividades"@es ;
-    rdfs:label "Activity Restriction"@en ;
     sh:name "Restricción para actividades"@es ;
-    sh:name "Activity Restriction"@en ;
     sh:property 
     # prov:    sh:name "Restricción de la actividad"@es ;
     [
@@ -995,7 +909,6 @@ dcatapes:Activity_Shape
         sh:minCount 1 ;
         sh:severity sh:Warning ;
         sh:message "La propiedad prov:startedAtTime debería estar presente al menos una vez."@es ;
-        sh:message "The property prov:startedAtTime should be present at least once."@en ;
     ], 
     [
         sh:path prov:startedAtTime ;
@@ -1003,7 +916,6 @@ dcatapes:Activity_Shape
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
         sh:message "El valor de prov:startedAtTime debe ser un literal de tipo fecha o fecha-hora."@es ;
-        sh:message "The value of prov:startedAtTime must be a literal of type date or date-time."@en ;
     ],
     [
         sh:path prov:startedAtTime ;
@@ -1016,7 +928,6 @@ dcatapes:Activity_Shape
         sh:minCount 1 ;
         sh:severity sh:Warning ;
         sh:message "La propiedad prov:endedAtTime debería estar presente al menos una vez."@es ;
-        sh:message "The property prov:endedAtTime should be present at least once."@en ;
     ], 
     [
         sh:path prov:endedAtTime ;
@@ -1024,7 +935,6 @@ dcatapes:Activity_Shape
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
         sh:message "El valor de prov:endedAtTime debe ser un literal de tipo fecha o fecha-hora."@es ;
-        sh:message "The value of prov:endedAtTime must be a literal of type date or date-time."@en ;
     ],
     [
         sh:path prov:endedAtTime ;
@@ -1036,11 +946,8 @@ dcatapes:Activity_Shape
 dcatapes:Attribution_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los nodos de tipo prov:Attribution tengan un agente y, opcionalmente, un rol definido."@es ;
-    rdfs:comment "Restriction to validate that nodes of type prov:Attribution have an agent and, optionally, a defined role."@en ;
     rdfs:label "Restricción para atribuciones"@es ;
-    rdfs:label "Attribution Restriction"@en ;
     sh:name "Restricción para atribuciones"@es ;
-    sh:name "Attribution Restriction"@en ;
     sh:property 
     # prov:agent
     [
@@ -1048,14 +955,12 @@ dcatapes:Attribution_Shape
         sh:minCount 1 ;
         sh:severity sh:Violation;
         sh:message "La propiedad prov:agent debe estar presente al menos una vez."@es ;
-        sh:message "The property prov:agent must be present at least once."@en ;
     ], 
     [
         sh:path prov:agent ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation;
         sh:message "El valor de prov:agent debe ser un IRI."@es ;
-        sh:message "The value of prov:agent must be an IRI."@en ;
     ], 
     # dcat:hadRole
     [
@@ -1063,25 +968,20 @@ dcatapes:Attribution_Shape
         sh:minCount 1 ;
         sh:severity sh:Warning;
         sh:message "La propiedad dcat:hadRole debería estar presente al menos una vez."@es ;
-        sh:message "The property dcat:hadRole should be present at least once."@en ;
     ], 
     [
         sh:path dcat:hadRole ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation;
         sh:message "El valor de dcat:hadRole debe ser un IRI."@es ;
-        sh:message "The value of dcat:hadRole must be an IRI."@en ;
     ];
     sh:targetClass prov:Attribution .
 
 dcatapes:DurationDescription_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los nodos de tipo time:DurationDescription contengan exactamente una propiedad de medida temporal."@es ;
-    rdfs:comment "Restriction to validate that time:DurationDescription nodes contain exactly one temporal measurement property."@en ;
     rdfs:label "Restricción para descripciones de duración"@es ;
-    rdfs:label "Duration Description Restriction"@en ;
     sh:name "Descripción de duración temporal"@es ;
-    sh:name "Time Duration Description"@en ;
     sh:targetClass time:DurationDescription ;
     sh:xone (
         dcatapes:TimeYearsRestriction
@@ -1094,17 +994,13 @@ dcatapes:DurationDescription_Shape
     );
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualPeriodicity> ;
-    sh:message "Un time:DurationDescription de un dct:Frequency debe tener exactamente una de las propiedades: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, o time:seconds. Los valores deben ser xsd:decimal no negativos según la ontología OWL Time."@es ;
-    sh:message "A time:DurationDescription of a dct:Frequency must have exactly one of the properties: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, or time:seconds. Values must be non-negative xsd:decimal according to the OWL Time ontology."@en .
+    sh:message "Un time:DurationDescription de un dct:Frequency debe tener exactamente una de las propiedades: time:years, time:months, time:weeks, time:days, time:hours, time:minutes, o time:seconds. Los valores deben ser xsd:decimal no negativos según la ontología OWL Time."@es .
 
 dcatapes:Frequency_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los nodos de tipo dct:Frequency definidos localmente contengan exactamente un valor de duración correctamente definido."@es ;
-    rdfs:comment "Restriction to validate that locally defined nodes of type dct:Frequency contain exactly one properly defined duration value."@en ;
     rdfs:label "Restricción para frecuencias"@es ;
-    rdfs:label "Frequency Restriction"@en ;
     sh:name "Frecuencia"@es ;
-    sh:name "Frequency"@en ;
     
     # En lugar de sh:targetClass dct:Frequency, usa un target más específico
     sh:target [
@@ -1136,21 +1032,17 @@ dcatapes:Frequency_Shape
         ) ;
         sh:severity sh:Violation ;
         sh:message "El valor de rdf:value debe ser un nodo de tipo time:DurationDescription o un literal de tipo xsd:duration."@es ;
-        sh:message "The value of rdf:value must be a node of type time:DurationDescription or a literal of type xsd:duration."@en ;
     ],
     [
         sh:path rdf:value ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
         sh:message "La propiedad rdf:value debe estar presente exactamente una vez."@es ;
-        sh:message "The rdf:value property must be present exactly once."@en ;
     ],
     [
         sh:path rdf:value ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "La propiedad rdf:value no puede tener más de un valor."@es ;
-        sh:message "The rdf:value property cannot have more than one value."@en ;
     ] ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.frequency> .
@@ -1159,11 +1051,8 @@ dcatapes:ADMSIdentifier_Shape
     # https://www.w3.org/TR/vocab-adms/#identifier
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los identificadores ADMS contengan exactamente un valor de notación no vacío."@es ;
-    rdfs:comment "Restriction to validate that ADMS identifiers contain exactly one non-empty notation value."@en ;
     rdfs:label "Restricción para identificadores ADMS"@es ;
-    rdfs:label "ADMS Identifier Restriction"@en ;
     sh:name "Identificador ADMS"@es ;
-    sh:name "Identifier"@en ;
     sh:targetClass adms:Identifier ;
     sh:property 
     # skos:notation
@@ -1172,43 +1061,35 @@ dcatapes:ADMSIdentifier_Shape
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
         sh:message "El valor de skos:notation debe ser un literal sin etiqueta de idioma."@es ;
-        sh:message "The value of skos:notation must be a literal without a language tag."@en ;
     ],
     [
         sh:path skos:notation ;
         sh:node dcatapes:NonEmptyLiteralConvention;
         sh:severity sh:Violation ;
         sh:message "El valor de skos:notation no puede estar vacío."@es ;
-        sh:message "The value of skos:notation cannot be empty."@en ;
     ],
     [
         sh:path skos:notation ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
         sh:message "La propiedad skos:notation debe estar presente al menos una vez."@es ;
-        sh:message "The skos:notation property must be present at least once."@en ;
     ],
     [
         sh:path skos:notation ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
         sh:message "La propiedad skos:notation no puede tener más de un valor."@es ;
-        sh:message "The skos:notation property cannot have more than one value."@en ;
     ] ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.identifier> ;
-    sh:message "El valor de adms:identifier debe ser un adms:Identifier."@es ;
-    sh:message "The value of adms:identifier must be a adms:Identifier."@en .
+    sh:message "El valor de adms:identifier debe ser un adms:Identifier."@es .
     
 
 dcatapes:Relationship_Shape
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los nodos de tipo dcat:Relationship contengan las propiedades obligatorias correctamente definidas."@es ;
-    rdfs:comment "Restriction to validate that nodes of type dcat:Relationship contain properly defined mandatory properties."@en ;
     rdfs:label "Restricción para relaciones"@es ;
-    rdfs:label "Relationship Restriction"@en ;
     sh:name "Relación"@es ;
-    sh:name "Relationship"@en ;
     sh:targetClass dcat:Relationship ;
     sh:property 
     # dct:relation 
@@ -1217,14 +1098,12 @@ dcatapes:Relationship_Shape
         sh:minCount 1 ;
         sh:severity sh:Violation;
         sh:message "La propiedad dct:relation debe estar presente al menos una vez."@es ;
-        sh:message "The dct:relation property must be present at least once."@en ;
     ], 
     [
         sh:path dct:relation ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation;
         sh:message "El valor de dct:relation debe ser un IRI."@es ;
-        sh:message "The value of dct:relation must be an IRI."@en ;
     ], 
     # dcat:hadRole
     [
@@ -1232,19 +1111,16 @@ dcatapes:Relationship_Shape
         sh:minCount 1 ;
         sh:severity sh:Violation;
         sh:message "La propiedad dcat:hadRole debe estar presente al menos una vez."@es ;
-        sh:message "The dcat:hadRole property must be present at least once."@en ;
     ], 
     [
         sh:path dcat:hadRole ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation;
         sh:message "El valor de dcat:hadRole debe ser un IRI."@es ;
-        sh:message "The value of dcat:hadRole must be an IRI."@en ;
     ];
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.qualifiedrelation> ;
-    sh:message "El valor de dcat:qualifiedRelation debe ser un dcat:Relationship."@es ;
-    sh:message "The value of dcat:qualifiedRelation must be a dcat:Relationship."@en .
+    sh:message "El valor de dcat:qualifiedRelation debe ser un dcat:Relationship."@es .
 
 dcatapes:TimeDaysRestriction
     a sh:NodeShape ;
@@ -1315,44 +1191,32 @@ dcatapes:TimeYearsRestriction
 dcatapes:DatasetTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los valores de dct:type sean IRIs válidos del vocabulario europeo de tipos de conjuntos de datos."@es ;
-    rdfs:comment "Restriction to validate that dct:type values are valid IRIs from the European dataset type vocabulary."@en ;
     rdfs:label "Restricción de tipo de conjunto de datos"@es ;
-    rdfs:label "Dataset Type Restriction"@en ;
-    sh:name "Dataset Type Restriction"@en ;
     sh:name "Restricción de tipo de conjunto de datos"@es ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://publications\\.europa\\.eu/resource/authority/dataset-type/.+$" ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.type> ;
-    sh:message "El valor debe ser un IRI del vocabulario europeo de tipos de conjunto de datos http://publications.europa.eu/resource/authority/dataset-type."@es ;
-    sh:message "The value must be an IRI from the European dataset type vocabulary http://publications.europa.eu/resource/authority/dataset-type."@en .
+    sh:message "El valor debe ser un IRI del vocabulario europeo de tipos de conjunto de datos http://publications.europa.eu/resource/authority/dataset-type."@es .
 
 dcatapes:FrequencyRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los valores de dct:accrualPeriodicity sean IRIs válidos del vocabulario europeo de frecuencias."@es ;
-    rdfs:comment "Restriction to validate that dct:accrualPeriodicity values are valid IRIs from the European frequency vocabulary."@en ;
     rdfs:label "Restricción de frecuencia"@es ;
-    rdfs:label "Frequency Restriction"@en ;
-    sh:name "Frequency Restriction"@en ;
     sh:name "Restricción de frecuencia"@es ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://publications\\.europa\\.eu/resource/authority/frequency/.+$" ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualperiodicity> ;
-    sh:message "El valor debe ser un IRI del vocabulario europeo de frecuencias http://publications.europa.eu/resource/authority/frequency."@es ;
-    sh:message "The value must be an IRI from the European frequency vocabulary http://publications.europa.eu/resource/authority/frequency."@en .
+    sh:message "El valor debe ser un IRI del vocabulario europeo de frecuencias http://publications.europa.eu/resource/authority/frequency."@es .
 
 dcatapes:INSPIREDatasetTypeRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción para validar que los valores de dct:type para conjuntos de datos INSPIRE utilicen el IRI oficial especificado."@es ;
-    rdfs:comment "Restriction to validate that dct:type values for INSPIRE datasets use the official specified IRI."@en ;
     rdfs:label "Restricción de tipo de conjunto de datos INSPIRE"@es ;
-    rdfs:label "INSPIRE Dataset Type Restriction"@en ;
-    sh:name "INSPIRE Dataset Type"@en ;
     sh:name "Tipo de conjunto de datos INSPIRE"@es ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://inspire\\.ec\\.europa\\.eu/metadata-codelist/ResourceType/dataset$" ;
     sh:severity sh:Violation ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.type> ;
-    sh:message "El valor debe ser exactamente el IRI http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset."@es ;
-    sh:message "The value must be exactly the IRI http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset."@en .
+    sh:message "El valor debe ser exactamente el IRI http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset."@es .
