@@ -13,12 +13,10 @@
 <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/hvd/shacl_common_hvd_shapes.ttl>
     rdf:type owl:Ontology ;
     rdfs:label "Restricciones comunes para HVD en DCAT-AP-ES"@es ;
-    rdfs:label "Common restrictions for HVD in DCAT-AP-ES"@en ;
     dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/hvd/shacl_common_hvd_shapes.ttl> ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
     dct:conformsTo <https://www.w3.org/TR/shacl> ;
     dct:description "Este archivo incluye restricciones SHACL comunes específicas para datos de alto valor (HVD) utilizadas en el perfil de aplicación DCAT-AP-ES."@es ;
-    dct:description "This file includes common SHACL restrictions specific to High-Value Datasets (HVD) used in the DCAT-AP-ES application profile."@en ;
     owl:versionInfo "1.0.0" ;
     dct:modified "2025-10-20"^^xsd:date ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
@@ -28,11 +26,7 @@
     rdfs:comment """
         Este archivo incluye restricciones SHACL comunes específicas para validar propiedades y clases relacionadas con datos de alto valor (Reglamento de ejecución (UE) 2023/138 de la Comisión Europea (High Value Datasets Implementing Regulation, HVD IR)) en el perfil DCAT-AP-ES. 
         Actualmente, este archivo sirve como base para futuras extensiones y puede ser importado junto con otros archivos dependientes.
-    """@es ;
-    rdfs:comment """
-        This file includes common SHACL restrictions specific to validating properties and classes related to High-Value Datasets (High Value Datasets Implementing Regulation, HVD IR 2023/138) in the DCAT-AP-ES profile. 
-        Currently, this file serves as a foundation for future extensions and can be imported along with other dependent files.
-    """@en .
+    """@es .
 
 
 #--------------------------
@@ -41,12 +35,9 @@
 dcatapes:HVDCategory_HVDRestriction
     a sh:NodeShape ;
     rdfs:comment "Restricción de categorías HVD."@es ;
-    rdfs:comment "HVD category restriction."@en ;
     rdfs:label "Restricción de categoría HVD"@es ;
-    rdfs:label "HVD category Restriction"@en ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://data.europa.eu/bna/.+$" ;
     foaf:page <https://op.europa.eu/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/bna/asd487ae75> ;
     sh:message "El valor de dcatap:hvdCategory debe ser un IRI del vocabulario europeo de categorías de conjuntos de datos de alto valor: http://data.europa.eu/bna/asd487ae75."@es ;
-    sh:message "The value of dcatap:hvdCategory must be an IRI from the European High-value dataset categories vocabulary: http://data.europa.eu/bna/asd487ae75."@en ;
     sh:severity sh:Violation .
