@@ -14,12 +14,10 @@
 <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/1.0.0/hvd/shacl_distribution_hvd_shape.ttl>
     rdf:type owl:Ontology ;
     rdfs:label "Restricciones para las distribuciones HVD en DCAT-AP-ES"@es ;
-    rdfs:label "Distribution restrictions for HVD in DCAT-AP-ES"@en ;
     dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/1.0.0/hvd/shacl_distribution_hvd_shape.ttl> ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
     dct:conformsTo <https://www.w3.org/TR/shacl> ;
     dct:description "Este archivo incluye las restricciones SHACL específicas para distribuciones de datos de alto valor (HVD) para las propiedades y clases relacionadas con distribuciones en el perfil de aplicación DCAT-AP-ES."@es ;
-    dct:description "This file includes SHACL restrictions specific to High-Value Data distributions (HVD) for properties and classes related to distributions in the DCAT-AP-ES application profile."@en ;
     owl:versionInfo "1.0.0" ;
     dct:modified "2025-10-20"^^xsd:date ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
@@ -33,14 +31,7 @@
         - shacl_common_shapes.ttl
         - shacl_mdr-vocabularies.shape.ttl
         Asegúrese de que estén disponibles e importadas para una validación completa.
-    """@es ;
-    rdfs:comment """
-        This file requires importing the following additional dependencies to work properly according to the Implementing Regulation (EU) 2023/138 of the European Commission (High Value Datasets Implementing Regulation, HVD IR 2023/138):
-        - shacl_common_hvd_shape.ttl
-        - shacl_common_shapes.ttl
-        - shacl_mdr-vocabularies.shape.ttl
-        Make sure they are available and imported for full validation.
-    """@en .
+    """@es .
 
 
 #--------------------------
@@ -49,11 +40,8 @@
 dcatapes:Distribution_HVD_Shape
     a sh:NodeShape ;
     sh:name "Distribución HVD"@es ;
-    sh:name "HVD Distribution"@en ;
     rdfs:comment "Forma que define las restricciones para la clase dcat:Distribution e acuerdo con las especificaciones para datos de alto valor (HVD)."@es ;
-    rdfs:comment "Shape that defines the restrictions for the dcat:Distribution class according to the specifications for High-Value Datasets (HVD)."@en ;
     rdfs:label "Restricciones de distribución HVD"@es ;
-    rdfs:label "HVD distribution restrictions"@en ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution> ;
     sh:closed false ;
     sh:property
@@ -64,7 +52,6 @@ dcatapes:Distribution_HVD_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.applicableLegislation> ;
         sh:message "El valor de dcatap:applicableLegislation debe ser un IRI válido."@es ;
-        sh:message "The value of dcatap:applicableLegislation must be a valid IRI."@en ;
     ],
     [
         sh:path dcatap:applicableLegislation ;
@@ -72,7 +59,6 @@ dcatapes:Distribution_HVD_Shape
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.applicableLegislation> ;
         sh:message "La distribución HVD debe contener al menos un dcatap:applicableLegislation."@es ;
-        sh:message "The HVD distribution must contain at least one dcatap:applicableLegislation."@en ;
     ], 
     [
         sh:path dcatap:applicableLegislation;
@@ -82,17 +68,13 @@ dcatapes:Distribution_HVD_Shape
         sh:severity sh:Violation;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.applicableLegislation> ;
         sh:message "La distribución HVD debe contener un dcatap:applicableLegislation cuyo valor sea el ELI del Reglamento de ejecución HVD: <http://data.europa.eu/eli/reg_impl/2023/138/oj>."@es ;
-        sh:message "The HVD distribution must contain a dcatap:applicableLegislation whose value is the ELI of the HVD Implementing Regulation: <http://data.europa.eu/eli/reg_impl/2023/138/oj>."@en ;
     ];
     sh:targetClass dcat:Distribution .
 
 dcatapes:Distribution_HVD_Shape_legalInformation
     a sh:NodeShape ;
     rdfs:comment "Restricción para la información legal de los datos HVD en DCAT-AP-ES"@es ;
-    rdfs:comment "Restriction for legal information of HVD data in DCAT-AP-ES"@en ;
     rdfs:label "Restricción para la información legal de los datos HVD en DCAT-AP-ES"@es ;
-    rdfs:label "Restriction for legal information of HVD data in DCAT-AP-ES"@en ;
-    sh:name "Legal information for HVD distributions"@en ;
     sh:name "Información legal para distribuciones HVD"@es ;
     sh:or (
 		[
@@ -110,6 +92,5 @@ dcatapes:Distribution_HVD_Shape_legalInformation
 	) ; 
     sh:severity sh:Violation ;
     foaf:page <https://semiceu.github.io/DCAT-AP/releases/2.2.0-hvd/#c3> ;
-    sh:message "It is mandatory to provide legal information (dct:license OR dct:rights)."@en ;
     sh:message "Es obligatorio aportar información legal (dct:license O dct:rights O odrl:hasPolicy)."@es ;
     sh:targetClass dcat:Distribution .
