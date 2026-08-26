@@ -336,7 +336,9 @@ dcatapes:DataService_Shape
     [
         sh:path dcat:keyword ;
         sh:minCount 1 ;
-        sh:severity sh:Warning
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.keyword> ;
+        sh:message "Todo recurso de tipo dcat:DataService debería contener al menos una instancia de dcat:keyword."@es ;
     ], 
     [
         sh:path dcat:keyword ;

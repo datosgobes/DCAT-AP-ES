@@ -363,6 +363,8 @@ dcatapes:Dataset_Shape
             ]
         );
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.creator> ;
+        sh:message "El valor de dct:creator debe ser un IRI o un nodo en blanco que cumpla con las restricciones de la forma de agente."@es ;
     ],
 
     # foaf:page
