@@ -347,35 +347,7 @@ dcatapes:InspireDataThemeRestriction
     sh:message "El valor debe ser un IRI del vocabulario europeo INSPIRE. http://inspire.ec.europa.eu/theme."@es ;
     sh:severity sh:Violation.
 
-# Convencion 19
-dcatapes:VcardKindMinimalConvention
-    a sh:NodeShape ;
-    rdfs:comment "Convención para recomendar que un nodo conectado mediante dcat:contactPoint utilice vcard:fn, vcard:hasTelephone y vcard:hasUID, cumpliendo con las reglas de DCAT-AP-ES."@es ;
-    rdfs:label "Restricción mínima para vcard:Kind"@es ;
-    sh:name "Restricción mínima para vcard:Kind"@es ;
-    sh:targetObjectsOf <http://www.w3.org/ns/dcat#contactPoint> ; # Aplica a nodos conectados con dcat:contactPoint
-    sh:property
-    [
-        sh:path vcard:fn ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning ;
-        sh:message "Un vcard:Kind debería incluir al menos un vcard:fn."@es ;
-    ],
-    [
-        sh:path vcard:hasTelephone ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning ;
-        sh:message "Un vcard:Kind debería incluir al menos un vcard:hasTelephone."@es ;
-    ],
-    [
-        sh:path vcard:hasUID ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning ;
-        sh:message "Un vcard:Kind debería incluir al menos un vcard:hasUID."@es ;
-    ] ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
-    sh:message "Se recomienda que el punto de contacto utilice vcard:fn, vcard:hasTelephone y vcard:hasUID. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19"@es ;
-    sh:severity sh:Warning .
+
 
 dcatapes:VcardKindRestriction
     rdfs:comment "Restricción para validar que un nodo conectado mediante dcat:contactPoint sea de tipo vcard:Kind o una de sus subclases, cumpliendo con las reglas de DCAT-AP-ES."@es ;
