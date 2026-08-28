@@ -349,8 +349,8 @@
   </dcat:Dataset>
 
   <dcat:Dataset rdf:about="http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-nonsip">
-    <dct:title xml:lang="es">Datos no NSIP</dct:title>
-    <dct:title xml:lang="eN">Datos no NSIP</dct:title>
+    <dct:title xml:lang="es">Datos no NSIP Datos no NSIP</dct:title>
+    <dct:title xml:lang="eN">Datos no NSIP Datos no NSIP</dct:title>
     <dct:description xml:lang="es">Datos de ejemplo no NSIP.</dct:description>
     <dct:description xml:lang="en">Datos de ejemplo no NSIP.</dct:description>
     <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
