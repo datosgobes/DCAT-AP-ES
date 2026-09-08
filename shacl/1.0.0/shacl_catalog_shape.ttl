@@ -210,48 +210,52 @@ dcatapes:Catalog_Shape
     #dct:issued
     [
         sh:path dct:issued ;
+        sh:minCount 1 ;
         sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Catalog.issued> ;
+        sh:message "El catálogo debe contener solamente un dct:issued."@es ;
+    ], 
+    [
+        sh:path dct:issued ;
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
-        sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
+        sh:message "El valor de dct:issued debe ser de un literal y de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
     ],
     [
         sh:path dct:issued ;
         sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
+        sh:message "El valor dct:issued es un xsd:dateTime sin zona horaria (TZD). Por interoperabilidad, se recomienda incluir 'Z' o un offset (por ejemplo, +01:00)."@es ;
     ],
-    [
-        sh:path dct:issued ;
-        sh:minCount 1 ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Catalog.issued> ;
-        sh:message "El catálogo debe contener al menos un dct:issued."@es ;
-    ], 
+
 
     #dct:modified
     [
         sh:path dct:modified ;
+        sh:minCount 1 ;
         sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Catalog.modified> ;
+        sh:message "El catálogo debe contener solamente un dct:modified."@es ;
+    ], 
+    [
+        sh:path dct:modified ;
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
-        sh:message "El valor debe ser de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
+        sh:message "El valor de dct:modified debe ser de un literal y de tipo xsd:date, xsd:dateTime, xsd:gYear o xsd:gYearMonth y seguir el formato ISO-8601."@es ;
     ],
     [
         sh:path dct:modified ;
         sh:sparql dcatapes:WarnDateTimeWithoutTZDConstraint ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
+        sh:message "El valor dct:modified es un xsd:dateTime sin zona horaria (TZD). Por interoperabilidad, se recomienda incluir 'Z' o un offset (por ejemplo, +01:00)."@es ;
     ],
-    [
-        sh:path dct:modified ;
-        sh:minCount 1 ;
-        sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Catalog.modified> ;
-        sh:message "El catálogo debe contener al menos un dct:modified."@es ;
-    ], 
+
 
     # dct:language
     [
@@ -331,7 +335,6 @@ dcatapes:Catalog_Shape
             [ 
                 sh:node dcatapes:Spatial_Shape ;
                 sh:nodeKind sh:IRI ;
-                sh:severity sh:Violation;
             ]
         );
         sh:severity sh:Violation ;
@@ -574,18 +577,17 @@ dcatapes:CatalogDatasetOrServiceRestriction
         [
             sh:path dcat:dataset ;
             sh:minCount 1 ;
-            sh:severity sh:Violation ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Catalog> ;
             sh:message "El catálogo debe contener al menos un conjunto de datos (dcat:dataset)."@es ;
         ]
         [
             sh:path dcat:service ;
             sh:minCount 1 ;
-            sh:severity sh:Violation ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Catalog> ;
             sh:message "El catálogo debe contener al menos un servicio de datos (dcat:service)."@es ;
           ]
     ) ;
-    sh:severity sh:Warning ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Catalog> ;
+    sh:severity sh:Violation ;
     sh:targetClass dcat:Catalog .
 
 # Convencion 02
@@ -608,7 +610,6 @@ dcatapes:CatalogThemeTaxonomyCoherence
     rdfs:label "Restricción de coherencia entre taxonomías y temas"@es ;
     sh:name "Coherencia de taxonomías de temas"@es ;
     sh:sparql [
-        sh:message "Los temas utilizados en datasets o servicios provienen de taxonomías que no están declaradas en dcat:themeTaxonomy del catálogo. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30"@es ;
         sh:select """
             PREFIX dcat: <http://www.w3.org/ns/dcat#>
             
@@ -631,4 +632,5 @@ dcatapes:CatalogThemeTaxonomyCoherence
     ] ;
     sh:severity sh:Info ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30> ;
+    sh:message "Los temas utilizados en datasets o servicios provienen de taxonomías que no están declaradas en dcat:themeTaxonomy del catálogo. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30"@es ;
     sh:targetClass dcat:Catalog .

@@ -206,6 +206,7 @@ dcatapes:SingleIRIRestriction
     rdfs:label "Restricción de IRI válido"@es ;
     sh:nodeKind sh:IRI ;
     sh:severity sh:Violation ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES> ;
     sh:message "La propiedad debe ser un IRI válido."@es .
 
 # Convencion 08
@@ -220,26 +221,31 @@ dcatapes:DateOrDateTimeDataTypetConvention
         [
             sh:datatype xsd:dateTime ;
             sh:pattern "^[1-9][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]{1,6})?(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$" ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
             sh:message "El valor debe ser de tipo xsd:dateTime y seguir el formato YYYY-MM-DDThh:mm:ssTZD."@es ;
         ]
         [
             sh:datatype xsd:dateTime ;
             sh:pattern "^[1-9][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]{1,6})?$" ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
             sh:message "El valor debe ser de tipo xsd:dateTime y seguir el formato YYYY-MM-DDThh:mm:ss (opcionalmente con fracción de segundos)."@es ;
         ]
         [
             sh:datatype xsd:date ;
             sh:pattern "^[1-9][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$" ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
             sh:message "El valor debe ser de tipo xsd:date y seguir el formato YYYY-MM-DD."@es ;
         ]
         [
             sh:datatype xsd:gYearMonth ;
             sh:pattern "^[1-9][0-9]{3}-(0[1-9]|1[0-2])$" ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
             sh:message "El valor debe ser de tipo xsd:gYearMonth y seguir el formato YYYY-MM."@es ;
         ]
         [
             sh:datatype xsd:gYear ;
             sh:pattern "^[1-9][0-9]{3}$" ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
             sh:message "El valor debe ser de tipo xsd:gYear y seguir el formato YYYY."@es ;
         ]
     ) ;
@@ -248,6 +254,7 @@ dcatapes:DateOrDateTimeDataTypetConvention
 dcatapes:WarnDateTimeWithoutTZDConstraint
     a sh:SPARQLConstraint ;
     sh:severity sh:Warning ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
     sh:message "El valor es un xsd:dateTime sin zona horaria (TZD). Por interoperabilidad, se recomienda incluir 'Z' o un offset (por ejemplo, +01:00)."@es ;
     sh:select """
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -283,17 +290,20 @@ dcatapes:FlexibleDurationRestriction
             # Formato ISO 8601 estándar (preferido) con xsd:duration
             sh:datatype xsd:duration ;
             sh:pattern "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$" ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-31> ;
             sh:message "El valor de duración debe seguir el formato ISO 8601 para xsd:duration (por ejemplo, P3Y6M4DT12H30M5S)."@es ;
         ]
         [
             # Formato numérico en segundos con xsd:duration (conversión Virtuoso)
             sh:datatype xsd:duration ;
             sh:pattern "^\\d+(\\.\\d+)?$" ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-31> ;
             sh:message "El valor de duración está en formato numérico de segundos con tipo xsd:duration. Esto es aceptado por limitaciones técnicas del triple store."@es ;
         ]
         [
             # Formato numérico en segundos como string plano (sin tipo de dato explícito)
             sh:pattern "^\\d+(\\.\\d+)?$" ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-31> ;
             sh:message "El valor de duración está en formato numérico de segundos. Esto es aceptado por limitaciones técnicas del triple store."@es ;
         ]
         [
@@ -304,6 +314,7 @@ dcatapes:FlexibleDurationRestriction
                 [ sh:datatype xsd:float ]
                 [ sh:datatype xsd:integer ]
             ) ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-31> ;
             sh:message "El valor de duración está en formato numérico. Esto es aceptado por limitaciones técnicas del triple store."@es ;
         ]
     ) ;
@@ -314,6 +325,7 @@ dcatapes:FlexibleDurationRestriction
 dcatapes:WarnNumericDurationConstraint
     a sh:SPARQLConstraint ;
     sh:severity sh:Warning ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-31> ;
     sh:message "El valor de duración temporal está en formato numérico de segundos en lugar de formato ISO 8601. Esto puede deberse a una conversión inadvertida del triple store. Si en el federador de datos.gob.es aparece esta advertencia y el valor original fue enviado correctamente en formato ISO 8601, no requiere acción correctora. Ver Convención 31: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-31"@es ;
     sh:select """
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -333,6 +345,7 @@ dcatapes:EuropeanDataThemeRestriction
     # Validación del patrón: debe ser un IRI que respete el formato del vocabulario de la UE
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://publications\\.europa\\.eu/resource/authority/data-theme/.+$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30> ;
     sh:message "El valor debe ser un IRI del vocabulario europeo INSPIRE http://publications.europa.eu/resource/authority/data-theme."@es ;
     sh:severity sh:Violation.
 
@@ -344,6 +357,7 @@ dcatapes:InspireDataThemeRestriction
     # Validación del patrón: debe ser un IRI que respete el formato del vocabulario de la UE
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://inspire\\.ec\\.europa\\.eu/theme/.+$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-11> ;
     sh:message "El valor debe ser un IRI del vocabulario europeo INSPIRE. http://inspire.ec.europa.eu/theme."@es ;
     sh:severity sh:Violation.
 
@@ -367,6 +381,7 @@ dcatapes:VcardKindRestriction
         sh:path vcard:organization-name ;
         sh:nodeKind sh:Literal;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El nombre de la organización debe ser un literal válido."@es ;
     ],
     [
@@ -383,6 +398,7 @@ dcatapes:VcardKindRestriction
         sh:path vcard:organization-name ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Un vcard:Kind debería contener al menos un vcard:organization-name."@es ;
     ],
     [
@@ -410,6 +426,7 @@ dcatapes:VcardKindRestriction
                 """;
             ] ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El nombre de la organización debe estar al menos en español."@es ;
     ],
     # vcard:fn
@@ -417,6 +434,7 @@ dcatapes:VcardKindRestriction
         sh:path vcard:fn ;
         sh:nodeKind sh:Literal;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El valor de vcard:fn debe ser un Literal."@es ;
     ], 
     [
@@ -454,12 +472,14 @@ dcatapes:VcardKindRestriction
                 """;
             ] ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El valor de vcard:fn debe estar al menos en español."@es ;
     ],
     [
         sh:path vcard:fn ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "vcard:fn Debería contener al menos un vcard:fn."@es ;
     ],
     # vcard:hasUID
@@ -467,18 +487,21 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasUID ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El valor de vcard:hasUID debe ser un IRI válido que apunte a un documento online."@es ;
     ],
     [
         sh:path vcard:hasUID ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Un vcard:Kind debería contener al menos un vcard:hasUID."@es ;
     ],
     [
         sh:path vcard:hasUID ;
         sh:maxCount 1;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "vcard:hasUID no debería contener más de un valor."@es ;
     ],
     # vcard:hasEmail (email)
@@ -486,16 +509,19 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasEmail ;
         sh:nodeKind sh:IRI;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El valor de vcard:hasEmail debe ser un IRI válido que apunte directamente al email."@es ;
     ], 
     [
         sh:path vcard:hasEmail ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Un vcard:Kind debería contener al menos un vcard:hasEmail."@es ;
     ],
     [
         sh:path vcard:hasEmail ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El valor vcard:hasEmail debe ser email válido, ej: <mailto:my.email@example.org>"@es ;
         sh:sparql [
             sh:select """
@@ -512,18 +538,21 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasTelephone ;
         sh:nodeKind sh:IRI;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El valor de vcard:hasTelephone debe ser un IRI válido que apunte directamente al teléfono."@es ;
     ], 
     [
         sh:path vcard:hasTelephone ;
         sh:minCount 1; 
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Un vcard:Kind debería incluir al menos un vcard:hasTelephone."@es ;
     ],
     [
         sh:path vcard:hasTelephone ;
         sh:pattern "^tel:.+" ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El valor vcard:hasTelephone debe ser un teléfono válido, ej: <tel:+34900112233>"@es ;
     ],
     # vcard:hasURL (contact page)
@@ -531,12 +560,14 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasURL ;
         sh:nodeKind sh:IRI;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El valor de vcard:hasURL debe ser un IRI válido."@es ;
     ], 
     [
         sh:path vcard:hasURL ;
         sh:minCount 1; 
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Un vcard:Kind debería incluir al menos un vcard:hasURL."@es ;
     ].
     #sh:targetClass vcard:Kind .
@@ -559,6 +590,7 @@ dcatapes:VcardKindRestriction2
             sh:property [
                 sh:path vcard:hasEmail ;
                 sh:minCount 1 ;
+                foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
                 sh:message "Debe contener al menos un vcard:hasEmail."@es ;
             ]
         ]
@@ -566,10 +598,12 @@ dcatapes:VcardKindRestriction2
             sh:property [
                 sh:path vcard:hasURL ;
                 sh:minCount 1 ;
+                foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
                 sh:message "Debe contener al menos un vcard:hasURL."@es ;
             ]
         ]
     ) ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
     sh:message "Debe proporcionarse al menos un vcard:hasEmail o vcard:hasURL."@es ;
     sh:severity sh:Violation .
 
@@ -611,7 +645,6 @@ dcatapes:LiteralMultilingualConvention
 dcatapes:Location_Shape
     a sh:NodeShape ;
     sh:name "Location"@es ;
-    # Al menos una de las propiedades debe ser
     sh:or (
         [ sh:property [
             sh:path dcat:bbox ;
@@ -629,7 +662,8 @@ dcatapes:Location_Shape
             sh:severity sh:Violation ;  
         ] ]
     ) ;
-    sh:message "Debe estar presente al menos uno de los siguientes elementos: dcat:bbox, dcat:centroid o locn:geometry. No obstante, se recomienda incluir dcat:bbox o dcat:centroid."@es ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-17> ;
+    sh:message "El valor de dct:Location debe estar presente al menos uno de los siguientes elementos: dcat:bbox, dcat:centroid o locn:geometry. No obstante, se recomienda incluir dcat:bbox o dcat:centroid."@es ;
     sh:property 
     # dcat:bbox
     [
@@ -676,7 +710,7 @@ dcatapes:NonLiteralMultilingualConvention
     sh:nodeKind sh:Literal ;
     sh:datatype xsd:string ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
-    sh:message "El literal no puede ser multilingüe. No debe tener una etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-04"@es ;
+    sh:message "El literal no puede ser multilingüe. No debe tener una etiqueta de idioma. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02"@es ;
     sh:severity sh:Violation .
 
 dcatapes:NonNegativeIntegerRestriction
@@ -695,6 +729,7 @@ dcatapes:NonNegativeIntegerRestriction
         ]
     ) ;
     sh:pattern "^[0-9]+$" ; # Número positivo, incluyendo 0
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES> ;
     sh:message "El valor debe ser un número entero no negativo con tipo de dato xsd:integer o xsd:nonNegativeInteger"@es ;
     sh:severity sh:Violation .
 
@@ -706,6 +741,7 @@ dcatapes:DecimalRestriction
     sh:nodeKind sh:Literal ;
     sh:datatype xsd:decimal ;
     sh:minInclusive 0 ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES> ;
     sh:message "El valor debe ser xsd:decimal no negativo (mayor o igual a 0) según lo definido en la ontología OWL Time."@es ;
     sh:severity sh:Violation .
 
@@ -714,7 +750,6 @@ dcatapes:PublicSectorRestriction
     rdfs:comment "Restricción del vocabulario de sectores de la NTI."@es ;
     rdfs:label "Restricción de vocabulario de sectores NTI"@es ;
     sh:name "Restricción de vocabulario de sectores NTI"@es ;
-    # Validación del patrón: debe ser un IRI del vocabulario sectorial de NTI-RISP
     #sh:nodeKind sh:IRI ;
     sh:in (
         <http://datos.gob.es/kos/sector-publico/sector/ciencia-tecnologia>
@@ -740,6 +775,7 @@ dcatapes:PublicSectorRestriction
         <http://datos.gob.es/kos/sector-publico/sector/urbanismo-infraestructuras>
         <http://datos.gob.es/kos/sector-publico/sector/vivienda>
     );
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-30> ;
     sh:message "El valor debe ser un IRI del vocabulario del sector NTI-RISP http://datos.gob.es/kos/sector-publico/sector."@es ;   
     sh:severity sh:Violation .
 
@@ -751,6 +787,7 @@ dcatapes:SpanishDescriptionRestriction
     rdfs:comment "Es obligatorio incluir la descripción en español"@es ;
     rdfs:label "Restricción de la descripción en español"@es ;
     sh:sparql [
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
             sh:message "La descripción debe estar, como mínimo, en español."@es ;
             sh:select """
                 PREFIX dct: <http://purl.org/dc/terms/>
@@ -773,7 +810,8 @@ dcatapes:SpanishLanguageRestriction
     rdfs:comment "Se requiere el idioma español."@es ;
     rdfs:label "Restricción del idioma español"@es ;
     sh:sparql [
-        sh:message "El idioma español http://publications.europa.eu/resource/authority/language/SPA), es obligatorio."@es ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        sh:message "El idioma español http://publications.europa.eu/resource/authority/language/SPA, es obligatorio."@es ;
         sh:select """
             PREFIX dct: <http://purl.org/dc/terms/>
             SELECT $this
@@ -792,6 +830,7 @@ dcatapes:SpanishTitleRestriction
     rdfs:comment "Restricción para validar que un recurso tenga el título al menos en español"@es ;
     rdfs:label "Restricción de título en español"@es ;
     sh:sparql [
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "El título debe tener al menos un valor en español (etiqueta de idioma 'es')."@es ;
             sh:select """
                 PREFIX dct: <http://purl.org/dc/terms/>
@@ -805,7 +844,6 @@ dcatapes:SpanishTitleRestriction
             }
             """ ;
     ] ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
     sh:severity sh:Violation .
 
 dcatapes:Spatial_Shape
@@ -832,6 +870,7 @@ dcatapes:HVDCategoryRestriction
     sh:name "Categoría HVD"@es ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://data.europa.eu/bna/.+$" ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.hvdCategory> ;
     sh:message "El valor debe ser un IRI del vocabulario de categorías de distribución de la Unión Europea (http://data.europa.eu/bna/asd487ae75)."@es ;
     sh:severity sh:Violation .
 
@@ -846,11 +885,13 @@ dcatapes:ELIIdentifierRestriction
         [
             sh:nodeKind sh:IRI ;
             sh:pattern "^http://data\\.europa\\.eu/eli/.+$|^https://www\\.boe\\.es/eli/.+$" ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-07> ;
             sh:message "El valor debe ser un IRI que siga el patrón ELI para legislación europea o nacional (http://data.europa.eu/eli/... o https://www.boe.es/eli/...). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-07"@es ;
         ]
         # Caso 2: Es de tipo eli:LegalResource
         [
             sh:class eli:LegalResource ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-07> ;
             sh:message "El valor debe ser de tipo eli:LegalResource. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-07"@es ;
         ]
     ) ;
@@ -884,11 +925,13 @@ dcatapes:TemporalPeriodConvention
     sh:property [
         sh:path schema:startDate ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-22> ;
         sh:message "Reemplace schema:startDate con dcat:startDate para cumplir con la Convención 22. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@es ;
     ] ;
     sh:property [
         sh:path schema:endDate ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-22> ;
         sh:message "Reemplace schema:endDate con dcat:endDate para cumplir con la Convención 22. Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22"@es ;
     ] ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-22> ;
@@ -907,18 +950,21 @@ dcatapes:SpatialGeometryConvention
         sh:path locn:geometry ;
         sh:datatype geo:wktLiteral ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17> ;
         sh:message "El valor de locn:geometry debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
     ] ;
     sh:property [
         sh:path dcat:bbox ;
         sh:datatype geo:wktLiteral ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17> ;
         sh:message "El valor de dcat:bbox debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
     ] ;
     sh:property [
         sh:path dcat:centroid ;
         sh:datatype geo:wktLiteral ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17> ;
         sh:message "El valor de dcat:centroid debería ser un literal en formato WKT (geo:wktLiteral). Ver: https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17"@es ;
     ] ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/conventions/#convencion-17> ;
@@ -963,11 +1009,13 @@ dcatapes:PeriodOfTimeRestriction
         sh:nodeKind sh:Literal ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#PeriodOfTime> ;
         sh:message "Solo puede haber un valor para dcat:startDate."@es ;
     ],
     [
         sh:path schema:startDate ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#PeriodOfTime> ;
         sh:message "Reemplace la propiedad schema:startDate por dcat:startDate."@es ;
     ],
     [
@@ -975,11 +1023,13 @@ dcatapes:PeriodOfTimeRestriction
         sh:nodeKind sh:Literal ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#PeriodOfTime> ;
         sh:message "Solo puede haber un valor para dcat:endDate."@es ;
     ],
     [
         sh:path schema:endDate ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#PeriodOfTime> ;
         sh:message "Reemplace la propiedad schema:endDate por dcat:endDate."@es ;
     ],
     # time:hasBeginning
@@ -987,12 +1037,14 @@ dcatapes:PeriodOfTimeRestriction
         sh:path time:hasBeginning ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#PeriodOfTime> ;
         sh:message "La propiedad time:hasBeginning no puede tener más de un valor."@es ;
     ], 
     [
         sh:path time:hasBeginning ;
         sh:class time:Instant ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#PeriodOfTime> ;
         sh:message "El valor de time:hasBeginning debe ser un nodo de tipo time:Instant."@es ;
     ], 
     # time:hasEnd
@@ -1000,12 +1052,14 @@ dcatapes:PeriodOfTimeRestriction
         sh:path time:hasEnd ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#PeriodOfTime> ;
         sh:message "La propiedad time:hasEnd no puede tener más de un valor."@es ;
     ], 
     [
         sh:path time:hasEnd ;
         sh:class time:Instant ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#PeriodOfTime> ;
         sh:message "El valor de time:hasEnd debe ser un nodo de tipo time:Instant."@es ;
     ] ;
     sh:targetClass dct:PeriodOfTime .

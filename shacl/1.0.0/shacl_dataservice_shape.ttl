@@ -264,6 +264,13 @@ dcatapes:DataService_Shape
     # dct:description
     [
         sh:path dct:description ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.accessRights> ;
+        sh:message "El servicio de datos debería contener al menos un dct:description."@es ;
+    ],
+    [
+        sh:path dct:description ;
         sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.description> ;
@@ -292,8 +299,8 @@ dcatapes:DataService_Shape
         sh:path dct:accessRights ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.accessrights> ;
-        sh:message "La propiedad dct:publisher no puede tener más de un valor."@es ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.accessRights> ;
+        sh:message "La propiedad dct:accessRights no puede tener más de un valor."@es ;
     ],
     [
         sh:path dct:accessRights ;
@@ -325,7 +332,7 @@ dcatapes:DataService_Shape
         sh:nodeKind sh:Literal ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.keyword> ;
-        sh:message "El valor de dcat:keyword ser un Literal."@es ;
+        sh:message "El valor de dcat:keyword debe ser un Literal."@es ;
     ],
     [
         sh:path dcat:keyword ;

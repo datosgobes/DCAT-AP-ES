@@ -247,14 +247,14 @@ dcatapes:Dataset_Shape
         sh:path dcat:contactPoint ;
         sh:node dcatapes:VcardKindRestriction2 ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#DataService.contactPoint> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.contactPoint> ;
         sh:message "Debe proporcionarse al menos un vcard:hasEmail o vcard:hasURL."@es ;
     ],
     [
         sh:path dcat:contactPoint ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.contactpoint> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.contactPoint> ;
         sh:message "El conjunto de datos debería contener al menos un dcat:contactPoint."@es ;
     ], 
 
@@ -540,6 +540,7 @@ dcatapes:Dataset_Shape
         sh:uniqueLang true ;
         sh:severity sh:Violation ;
         sh:sparql [
+            foaf:page <https://semiceu.github.io/ADMS/releases/2.00/#versionNotes> ;
             sh:message "El valor de las notas de la versión debe estar, como mínimo, en español."@es ;
             sh:select """
                 PREFIX adms: <http://www.w3.org/ns/adms#>
@@ -653,7 +654,6 @@ dcatapes:Dataset_Shape
                 ]
             ]
         );
-        sh:message "The property dct:provenance must either be an IRI without an associated node, or an IRI describing a dct:ProvenanceStatement node.";
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.provenance> ;
         sh:message "El valor de dct:provenance debe ser o bien un IRI sin nodo asociado, o bien un IRI que describa un nodo dct:ProvenanceStatement."@es ;
@@ -735,6 +735,7 @@ dcatapes:DistributionMandatoryConvention
         # dcat:distribution
         sh:path dcat:distribution ;
         sh:minCount 1 ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-23> ;
         sh:message "El conjunto de datos debe contener al menos una distribución (dcat:distribution). Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-23"@es ;
     ] ;
     sh:severity sh:Violation ;
@@ -845,13 +846,12 @@ dcatapes:NSIPDatasetRecommendation
         sh:minCount 1 ;
         sh:severity sh:Warning ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
-        sh:message "Los conjuntos de datos protegidos DEBERÍAN incluir dcatap: applicableLegislation con la legislación aplicable. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@es ;
+        sh:message "Los conjuntos de datos protegidos DEBERÍAN incluir dcatap:applicableLegislation con la legislación aplicable. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@es ;
     ],
     [
         # Recomendación: incluir al menos el Reglamento DGA
         sh:path dcatap:applicableLegislation ;
         sh:severity sh:Info ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
         sh:sparql [
             sh:select """
                 PREFIX dcat: <http://www.w3.org/ns/dcat#>
@@ -864,6 +864,7 @@ dcatapes:NSIPDatasetRecommendation
                     }
                 }
             """ ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27> ;
             sh:message "Se recomienda referenciar el Reglamento DGA (http://data.europa.eu/eli/reg/2022/868/oj) en dcatap:applicableLegislation. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-27"@es ;
         ] ;
     ] . 
@@ -878,11 +879,12 @@ dcatapes:Activity_Shape
     rdfs:label "Restricción para actividades"@es ;
     sh:name "Restricción para actividades"@es ;
     sh:property 
-    # prov:    sh:name "Restricción de la actividad"@es ;
+    # prov:startedAtTime
     [
         sh:path prov:startedAtTime ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
         sh:message "La propiedad prov:startedAtTime debería estar presente al menos una vez."@es ;
     ], 
     [
@@ -890,6 +892,7 @@ dcatapes:Activity_Shape
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
         sh:message "El valor de prov:startedAtTime debe ser un literal de tipo fecha o fecha-hora."@es ;
     ],
     [
@@ -902,6 +905,7 @@ dcatapes:Activity_Shape
         sh:path prov:endedAtTime ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
         sh:message "La propiedad prov:endedAtTime debería estar presente al menos una vez."@es ;
     ], 
     [
@@ -909,6 +913,7 @@ dcatapes:Activity_Shape
         sh:nodeKind sh:Literal ;
         sh:node dcatapes:DateOrDateTimeDataTypetConvention ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-08> ;
         sh:message "El valor de prov:endedAtTime debe ser un literal de tipo fecha o fecha-hora."@es ;
     ],
     [
@@ -929,12 +934,14 @@ dcatapes:Attribution_Shape
         sh:path prov:agent ;
         sh:minCount 1 ;
         sh:severity sh:Violation;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.qualifiedAttribution> ;
         sh:message "La propiedad prov:agent debe estar presente al menos una vez."@es ;
     ], 
     [
         sh:path prov:agent ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.qualifiedAttribution> ;
         sh:message "El valor de prov:agent debe ser un IRI."@es ;
     ], 
     # dcat:hadRole
@@ -942,12 +949,14 @@ dcatapes:Attribution_Shape
         sh:path dcat:hadRole ;
         sh:minCount 1 ;
         sh:severity sh:Warning;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Relationship.hadRole> ;
         sh:message "La propiedad dcat:hadRole debería estar presente al menos una vez."@es ;
     ], 
     [
         sh:path dcat:hadRole ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Relationship.hadRole> ;
         sh:message "El valor de dcat:hadRole debe ser un IRI."@es ;
     ];
     sh:targetClass prov:Attribution .
@@ -1006,12 +1015,14 @@ dcatapes:Frequency_Shape
             ]
         ) ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualPeriodicity> ;
         sh:message "El valor de rdf:value debe ser un nodo de tipo time:DurationDescription o un literal de tipo xsd:duration."@es ;
     ],
     [
         sh:path rdf:value ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualPeriodicity> ;
         sh:message "La propiedad rdf:value debe estar presente exactamente una vez."@es ;
     ],
     [
@@ -1019,8 +1030,7 @@ dcatapes:Frequency_Shape
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
     ] ;
-    sh:severity sh:Violation ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.frequency> .
+    sh:severity sh:Violation .
 
 dcatapes:ADMSIdentifier_Shape
     # https://www.w3.org/TR/vocab-adms/#identifier
@@ -1035,24 +1045,28 @@ dcatapes:ADMSIdentifier_Shape
         sh:path skos:notation ;
         sh:node dcatapes:NonLiteralMultilingualConvention ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.identifier> ;
         sh:message "El valor de skos:notation debe ser un literal sin etiqueta de idioma."@es ;
     ],
     [
         sh:path skos:notation ;
         sh:node dcatapes:NonEmptyLiteralConvention;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.identifier> ;
         sh:message "El valor de skos:notation no puede estar vacío."@es ;
     ],
     [
         sh:path skos:notation ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.identifier> ;
         sh:message "La propiedad skos:notation debe estar presente al menos una vez."@es ;
     ],
     [
         sh:path skos:notation ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.identifier> ;
         sh:message "La propiedad skos:notation no puede tener más de un valor."@es ;
     ] ;
     sh:severity sh:Violation ;
@@ -1072,12 +1086,14 @@ dcatapes:Relationship_Shape
         sh:path dct:relation ;
         sh:minCount 1 ;
         sh:severity sh:Violation;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Relationship.relation> ;
         sh:message "La propiedad dct:relation debe estar presente al menos una vez."@es ;
     ], 
     [
         sh:path dct:relation ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Relationship.relation> ;
         sh:message "El valor de dct:relation debe ser un IRI."@es ;
     ], 
     # dcat:hadRole
@@ -1085,16 +1101,18 @@ dcatapes:Relationship_Shape
         sh:path dcat:hadRole ;
         sh:minCount 1 ;
         sh:severity sh:Violation;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Relationship.relation> ;
         sh:message "La propiedad dcat:hadRole debe estar presente al menos una vez."@es ;
     ], 
     [
         sh:path dcat:hadRole ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Relationship.relation> ;
         sh:message "El valor de dcat:hadRole debe ser un IRI."@es ;
     ];
     sh:severity sh:Violation ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.qualifiedrelation> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Relationship.relation> ;
     sh:message "El valor de dcat:qualifiedRelation debe ser un dcat:Relationship."@es .
 
 dcatapes:TimeDaysRestriction
@@ -1182,7 +1200,7 @@ dcatapes:FrequencyRestriction
     sh:nodeKind sh:IRI ;
     sh:pattern "^http://publications\\.europa\\.eu/resource/authority/frequency/.+$" ;
     sh:severity sh:Violation ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualperiodicity> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.accrualPeriodicity> ;
     sh:message "El valor debe ser un IRI del vocabulario europeo de frecuencias http://publications.europa.eu/resource/authority/frequency."@es .
 
 dcatapes:INSPIREDatasetTypeRestriction

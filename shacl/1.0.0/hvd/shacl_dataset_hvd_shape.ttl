@@ -103,7 +103,6 @@ dcatapes:Dataset_HVD_MustHaveServiceConvention
     sh:name "HVD sin servicio informar"@es ;
     rdfs:comment "HVD sin servicio informar"@es ;
     rdfs:label "HVD sin servicio informar"@es ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12> ;
     sh:severity sh:Info ; # Modificada severidad para no impedir la federación de datasets HVD que aún no cumplen esta convención, pero informar sobre la necesidad de cumplirla. Y eliminada comprobacion Solo aplica a datasets HVD (con dcatap:hvdCategory) pues ya se comprueba antes
     sh:property [
         # Detectar al menos un dcat:DataService mediante el inverso de dcat:servesDataset
@@ -114,5 +113,6 @@ dcatapes:Dataset_HVD_MustHaveServiceConvention
         sh:minCount 1 ;
         sh:class dcat:DataService ;
         sh:severity sh:Info ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12> ;
         sh:message "Es aconsejable que un conjunto de datos HVD sea servido por al menos un dcat:DataService mediante dcat:servesDataset. Ver Convención 12: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-12"@es ;
     ] .

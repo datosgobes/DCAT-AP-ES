@@ -40,7 +40,7 @@
 dcatapes:Distribution_HVD_Shape
     a sh:NodeShape ;
     sh:name "Distribución HVD"@es ;
-    rdfs:comment "Forma que define las restricciones para la clase dcat:Distribution e acuerdo con las especificaciones para datos de alto valor (HVD)."@es ;
+    rdfs:comment "Forma que define las restricciones para la clase dcat:Distribution de acuerdo con las especificaciones para datos de alto valor (HVD)."@es ;
     rdfs:label "Restricciones de distribución HVD"@es ;
     foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution> ;
     sh:closed false ;

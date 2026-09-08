@@ -249,7 +249,7 @@ dcatapes:Distribution_Shape
         sh:path foaf:page ;     
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution._page> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.page> ;
         sh:message "El valor de foaf:page debe ser un IRI válido que apunte a un documento online."@es ;
     ],
 
@@ -380,7 +380,7 @@ dcatapes:Distribution_Shape
         sh:nodeKind sh:Literal;
         sh:or(
             [
-                sh:none dcatapes:NonNegativeIntegerRestriction ;
+                sh:node dcatapes:NonNegativeIntegerRestriction ;
             ]
             [
                 sh:node dcatapes:NonLiteralMultilingualConvention;
@@ -394,7 +394,7 @@ dcatapes:Distribution_Shape
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.byteSize> ;
-        sh:message "El valor debe ser un número entero no negativo."@es ;
+        sh:message "El valor de dcat:byteSize debe ser único."@es ;
     ], 
 
     # dcat:spatialResolutionInMeters
@@ -540,6 +540,7 @@ dcatapes:OGCServiceAccessURLRestriction
                 FILTER(!REGEX(STR(?accessURL), "[?&]request=GetCapabilities", "i"))
             }
         """ ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-21> ;
         sh:message "La URL de acceso de un servicio OGC debe incluir la operación GetCapabilities. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-21 | Ejemplo: http://example.org/wms?request=GetCapabilities&service=WMS"@es ;
         sh:severity sh:Violation ;
     ] ;
@@ -612,13 +613,12 @@ dcatapes:NSIPDistributionConvention
         sh:minCount 1 ;
         sh:severity sh:Violation ;
         foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
-        sh:message "Las distribuciones protegidas DEBEN incluir dct: rights con las condiciones de reutilización. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
+        sh:message "Las distribuciones protegidas DEBEN incluir dct:rights con las condiciones de reutilización. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
     ],
     [
         # Advertencia si existe downloadURL en contexto NSIP
         sh:path dcat:downloadURL ;
         sh:severity sh:Info ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
         sh:sparql [
             sh:select """
                 PREFIX dcat: <http://www.w3.org/ns/dcat#>
@@ -629,6 +629,7 @@ dcatapes:NSIPDistributionConvention
                           dcat:accessURL ?accessURL .
                 }
             """ ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26> ;
             sh:message "Nota: En distribuciones protegidas con ambas propiedades (dcat:accessURL y dcat:downloadURL), el harvester priorizará accessURL. Ver: https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-26"@es ;
         ] ;
     ] .
@@ -694,12 +695,14 @@ dcatapes:IMT_Shape
         sh:path rdf:value ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/NTI-RISP/#Distribution> ;
         sh:message "Debe haber al menos un valor para rdf:value."@es ;
     ],
     [
         sh:path rdf:value ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/NTI-RISP/#Distribution> ;
         sh:message "Solo puede haber un valor para rdf:value."@es ;
     ],
     # rdfs:label
@@ -717,12 +720,14 @@ dcatapes:IMT_Shape
         sh:path rdfs:label ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/NTI-RISP/#Distribution> ;
         sh:message "Debe haber al menos un valor para rdfs:label."@es ;
     ],
     [
         sh:path rdfs:label ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/NTI-RISP/#Distribution> ;
         sh:message "Solo puede haber un valor para rdfs:label."@es ;
     ] ;
     foaf:page <https://datosgobes.github.io/NTI-RISP/#Distribution> ;
@@ -759,7 +764,7 @@ dcatapes:IanaFormatRestriction
     rdfs:label "Restricción de formato IANA"@es ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^https?://www\\.iana\\.org/assignments/media-types/[a-z0-9!#$&^_.+-]+/[a-z0-9!#$&^_.+-]+$" ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.mediatype> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Distribution.mediaType> ;
     sh:message "El valor de dcat:mediaType debe ser un IRI válido del formato de tipos de medios de IANA."@es ;
     sh:severity sh:Violation .
 
