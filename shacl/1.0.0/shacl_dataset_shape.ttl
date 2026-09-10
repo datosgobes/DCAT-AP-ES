@@ -540,7 +540,7 @@ dcatapes:Dataset_Shape
         sh:uniqueLang true ;
         sh:severity sh:Violation ;
         sh:sparql [
-            foaf:page <https://semiceu.github.io/ADMS/releases/2.00/#versionNotes> ;
+            foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
             sh:message "El valor de las notas de la versión debe estar, como mínimo, en español."@es ;
             sh:select """
                 PREFIX adms: <http://www.w3.org/ns/adms#>

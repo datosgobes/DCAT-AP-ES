@@ -70,7 +70,7 @@ dcatapes:Agent_Shape
         sh:path foaf:name ;
         sh:uniqueLang true ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Agent.name> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
         sh:message "Más de un valor comparten la misma etiqueta de idioma."@es ;
     ],
     [
@@ -398,7 +398,7 @@ dcatapes:VcardKindRestriction
         sh:path vcard:organization-name ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "Un vcard:Kind debería contener al menos un vcard:organization-name."@es ;
     ],
     [
@@ -479,7 +479,7 @@ dcatapes:VcardKindRestriction
         sh:path vcard:fn ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "vcard:fn Debería contener al menos un vcard:fn."@es ;
     ],
     # vcard:hasUID
@@ -487,21 +487,21 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasUID ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "El valor de vcard:hasUID debe ser un IRI válido que apunte a un documento online."@es ;
     ],
     [
         sh:path vcard:hasUID ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "Un vcard:Kind debería contener al menos un vcard:hasUID."@es ;
     ],
     [
         sh:path vcard:hasUID ;
         sh:maxCount 1;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "vcard:hasUID no debería contener más de un valor."@es ;
     ],
     # vcard:hasEmail (email)
@@ -509,19 +509,19 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasEmail ;
         sh:nodeKind sh:IRI;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "El valor de vcard:hasEmail debe ser un IRI válido que apunte directamente al email."@es ;
     ], 
     [
         sh:path vcard:hasEmail ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "Un vcard:Kind debería contener al menos un vcard:hasEmail."@es ;
     ],
     [
         sh:path vcard:hasEmail ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "El valor vcard:hasEmail debe ser email válido, ej: <mailto:my.email@example.org>"@es ;
         sh:sparql [
             sh:select """
@@ -538,21 +538,21 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasTelephone ;
         sh:nodeKind sh:IRI;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "El valor de vcard:hasTelephone debe ser un IRI válido que apunte directamente al teléfono."@es ;
     ], 
     [
         sh:path vcard:hasTelephone ;
         sh:minCount 1; 
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "Un vcard:Kind debería incluir al menos un vcard:hasTelephone."@es ;
     ],
     [
         sh:path vcard:hasTelephone ;
         sh:pattern "^tel:.+" ;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "El valor vcard:hasTelephone debe ser un teléfono válido, ej: <tel:+34900112233>"@es ;
     ],
     # vcard:hasURL (contact page)
@@ -560,14 +560,14 @@ dcatapes:VcardKindRestriction
         sh:path vcard:hasURL ;
         sh:nodeKind sh:IRI;
         sh:severity sh:Violation ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "El valor de vcard:hasURL debe ser un IRI válido."@es ;
     ], 
     [
         sh:path vcard:hasURL ;
         sh:minCount 1; 
         sh:severity sh:Warning ;
-        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
         sh:message "Un vcard:Kind debería incluir al menos un vcard:hasURL."@es ;
     ].
     #sh:targetClass vcard:Kind .
@@ -590,7 +590,7 @@ dcatapes:VcardKindRestriction2
             sh:property [
                 sh:path vcard:hasEmail ;
                 sh:minCount 1 ;
-                foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+                foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
                 sh:message "Debe contener al menos un vcard:hasEmail."@es ;
             ]
         ]
@@ -598,12 +598,12 @@ dcatapes:VcardKindRestriction2
             sh:property [
                 sh:path vcard:hasURL ;
                 sh:minCount 1 ;
-                foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+                foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
                 sh:message "Debe contener al menos un vcard:hasURL."@es ;
             ]
         ]
     ) ;
-    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-02> ;
+    foaf:page <https://datosgobes.github.io/DCAT-AP-ES/convenciones/#convencion-19> ;
     sh:message "Debe proporcionarse al menos un vcard:hasEmail o vcard:hasURL."@es ;
     sh:severity sh:Violation .
 
