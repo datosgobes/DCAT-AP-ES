@@ -236,6 +236,13 @@ dcatapes:Dataset_Shape
         sh:node dcatapes:NonEmptyLiteralConvention ; 
         sh:severity sh:Violation ;
     ],
+    [
+        sh:path dcat:keyword ;
+        sh:pattern "^[\\w áàâçcoéèêëíîïóôúûùüÿñ&\\-æœ·\\u2019\\u0027]+$" ;
+        sh:severity sh:Violation ;
+        foaf:page <https://datosgobes.github.io/DCAT-AP-ES/#Dataset.keyword> ;
+        sh:message "El valor de dcat:keyword deebe ser alfanumérico pero contiene caracteres no permitidos."@es ;
+    ],
 
     # dcat:contactPoint
     [
