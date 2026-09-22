@@ -622,102 +622,107 @@
 </span><span id=__span-3-79><a id=__codelineno-3-79 name=__codelineno-3-79></a>  <span class=nn>dcatap</span><span class=p>:</span><span class=nt>availability</span> <span class=nv>&lt;http://publications.europa.eu/resource/authority/planned-availability/STABLE&gt;</span> <span class=p>;</span>
 </span><span id=__span-3-80><a id=__codelineno-3-80 name=__codelineno-3-80></a>  <span class=nn>dcatap</span><span class=p>:</span><span class=nt>applicableLegislation</span> <span class=nv>&lt;http://data.europa.eu/eli/dir/2007/2/2019-06-26&gt;</span> <span class=p>;</span>
 </span><span id=__span-3-81><a id=__codelineno-3-81 name=__codelineno-3-81></a>  <span class=nn>dcat</span><span class=p>:</span><span class=nt>byteSize</span> <span class=s>"1024"</span><span class=p>^^</span><span class=nn>xsd</span><span class=p>:</span><span class=nt>nonNegativeInteger</span> <span class=p>.</span>
-</span></code></pre></div></td></tr></table></div> </div> </div> </div> <h3 id=catalogo_-_nti_dcatapes_hvd>Migración desde <abbr title="Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público">NTI-RISP</abbr> a <abbr title="Perfil de Aplicación DCAT-AP para catálogos de datos en España">DCAT-AP-ES</abbr> <abbr title="High Value Datasets">HVD</abbr><a class=headerlink href=#catalogo_-_nti_dcatapes_hvd title="Permanent link">#</a></h3> <p>Este ejemplo ilustra cómo adaptar un catálogo <abbr title="Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público">NTI-RISP</abbr> para cumplir con los requisitos <abbr title="High Value Datasets">HVD</abbr>. La motivación es asegurar que los datos de alto valor estén disponibles mediante APIs y cumplan con la normativa europea, añadiendo propiedades específicas como la categoría <abbr title="High Value Datasets">HVD</abbr>, legislación aplicable y más detalles de los servicios de datos.</p> <p>El catálogo <code>http://dcat-ap-es.ejemplo.org/catalogo</code> se enriquece con información sobre servicios de datos (APIs), datasets <abbr title="High Value Datasets">HVD</abbr>, contacto, legislación y disponibilidad, siguiendo el reglamento <abbr title="High Value Datasets">HVD</abbr>. Así, se facilita la transición y el cumplimiento normativo para la publicación de datos de alto valor.</p> <div class="admonition tip"> <p class=admonition-title>Ejemplo original NTI 2013</p> <p>El ejemplo original de catálogo <abbr title="Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público">NTI-RISP</abbr> (2013) está disponible en: <a href="https://datosgobes.github.io/NTI-RISP/examples/#catalogo_-_nti_dcatapes">Catálogo <abbr title="Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público">NTI-RISP</abbr> a <abbr title="Perfil de Aplicación DCAT-AP para catálogos de datos en España">DCAT-AP-ES</abbr></a></p> </div> <div class="tabbed-set tabbed-alternate" data-tabs=4:2><input checked=checked id=__tabbed_4_1 name=__tabbed_4 type=radio><input id=__tabbed_4_2 name=__tabbed_4 type=radio><div class=tabbed-labels><label for=__tabbed_4_1><abbr title="Resource Description Framework">RDF</abbr>/XML</label><label for=__tabbed_4_2>TTL</label></div> <div class=tabbed-content> <div class=tabbed-block> <div class="language-xml highlight"><table class=highlighttable><tr><td class=linenos><div class=linenodiv><pre><span></span><span class=normal><a href=#__codelineno-4-1> 1</a></span>
-<span class=normal><a href=#__codelineno-4-2> 2</a></span>
-<span class=normal><a href=#__codelineno-4-3> 3</a></span>
-<span class=normal><a href=#__codelineno-4-4> 4</a></span>
-<span class=normal><a href=#__codelineno-4-5> 5</a></span>
-<span class=normal><a href=#__codelineno-4-6> 6</a></span>
-<span class=normal><a href=#__codelineno-4-7> 7</a></span>
-<span class=normal><a href=#__codelineno-4-8> 8</a></span>
-<span class=normal><a href=#__codelineno-4-9> 9</a></span>
-<span class=normal><a href=#__codelineno-4-10>10</a></span>
-<span class=normal><a href=#__codelineno-4-11>11</a></span>
-<span class=normal><a href=#__codelineno-4-12>12</a></span>
-<span class=normal><a href=#__codelineno-4-13>13</a></span>
-<span class=normal><a href=#__codelineno-4-14>14</a></span>
-<span class=normal><a href=#__codelineno-4-15>15</a></span>
-<span class=normal><a href=#__codelineno-4-16>16</a></span>
-<span class=normal><a href=#__codelineno-4-17>17</a></span>
-<span class=normal><a href=#__codelineno-4-18>18</a></span>
-<span class=normal><a href=#__codelineno-4-19>19</a></span>
-<span class=normal><a href=#__codelineno-4-20>20</a></span>
-<span class=normal><a href=#__codelineno-4-21>21</a></span>
-<span class=normal><a href=#__codelineno-4-22>22</a></span>
-<span class=normal><a href=#__codelineno-4-23>23</a></span>
-<span class=normal><a href=#__codelineno-4-24>24</a></span>
-<span class=normal><a href=#__codelineno-4-25>25</a></span>
-<span class=normal><a href=#__codelineno-4-26>26</a></span>
-<span class=normal><a href=#__codelineno-4-27>27</a></span>
-<span class=normal><a href=#__codelineno-4-28>28</a></span>
-<span class=normal><a href=#__codelineno-4-29>29</a></span>
-<span class=normal><a href=#__codelineno-4-30>30</a></span>
-<span class=normal><a href=#__codelineno-4-31>31</a></span>
-<span class=normal><a href=#__codelineno-4-32>32</a></span>
-<span class=normal><a href=#__codelineno-4-33>33</a></span>
-<span class=normal><a href=#__codelineno-4-34>34</a></span>
-<span class=normal><a href=#__codelineno-4-35>35</a></span>
-<span class=normal><a href=#__codelineno-4-36>36</a></span>
-<span class=normal><a href=#__codelineno-4-37>37</a></span>
-<span class=normal><a href=#__codelineno-4-38>38</a></span>
-<span class=normal><a href=#__codelineno-4-39>39</a></span>
-<span class=normal><a href=#__codelineno-4-40>40</a></span>
-<span class=normal><a href=#__codelineno-4-41>41</a></span>
-<span class=normal><a href=#__codelineno-4-42>42</a></span>
-<span class=normal><a href=#__codelineno-4-43>43</a></span>
-<span class=normal><a href=#__codelineno-4-44>44</a></span>
-<span class=normal><a href=#__codelineno-4-45>45</a></span>
-<span class=normal><a href=#__codelineno-4-46>46</a></span>
-<span class=normal><a href=#__codelineno-4-47>47</a></span>
-<span class=normal><a href=#__codelineno-4-48>48</a></span>
-<span class=normal><a href=#__codelineno-4-49>49</a></span>
-<span class=normal><a href=#__codelineno-4-50>50</a></span>
-<span class=normal><a href=#__codelineno-4-51>51</a></span>
-<span class=normal><a href=#__codelineno-4-52>52</a></span>
-<span class=normal><a href=#__codelineno-4-53>53</a></span>
-<span class=normal><a href=#__codelineno-4-54>54</a></span>
-<span class=normal><a href=#__codelineno-4-55>55</a></span>
-<span class=normal><a href=#__codelineno-4-56>56</a></span>
-<span class=normal><a href=#__codelineno-4-57>57</a></span>
-<span class=normal><a href=#__codelineno-4-58>58</a></span>
-<span class=normal><a href=#__codelineno-4-59>59</a></span>
-<span class=normal><a href=#__codelineno-4-60>60</a></span>
-<span class=normal><a href=#__codelineno-4-61>61</a></span>
-<span class=normal><a href=#__codelineno-4-62>62</a></span>
-<span class=normal><a href=#__codelineno-4-63>63</a></span>
-<span class=normal><a href=#__codelineno-4-64>64</a></span>
-<span class=normal><a href=#__codelineno-4-65>65</a></span>
-<span class=normal><a href=#__codelineno-4-66>66</a></span>
-<span class=normal><a href=#__codelineno-4-67>67</a></span>
-<span class=normal><a href=#__codelineno-4-68>68</a></span>
-<span class=normal><a href=#__codelineno-4-69>69</a></span>
-<span class=normal><a href=#__codelineno-4-70>70</a></span>
-<span class=normal><a href=#__codelineno-4-71>71</a></span>
-<span class=normal><a href=#__codelineno-4-72>72</a></span>
-<span class=normal><a href=#__codelineno-4-73>73</a></span>
-<span class=normal><a href=#__codelineno-4-74>74</a></span>
-<span class=normal><a href=#__codelineno-4-75>75</a></span>
-<span class=normal><a href=#__codelineno-4-76>76</a></span>
-<span class=normal><a href=#__codelineno-4-77>77</a></span>
-<span class=normal><a href=#__codelineno-4-78>78</a></span>
-<span class=normal><a href=#__codelineno-4-79>79</a></span>
-<span class=normal><a href=#__codelineno-4-80>80</a></span>
-<span class=normal><a href=#__codelineno-4-81>81</a></span>
-<span class=normal><a href=#__codelineno-4-82>82</a></span>
-<span class=normal><a href=#__codelineno-4-83>83</a></span>
-<span class=normal><a href=#__codelineno-4-84>84</a></span>
-<span class=normal><a href=#__codelineno-4-85>85</a></span>
-<span class=normal><a href=#__codelineno-4-86>86</a></span>
-<span class=normal><a href=#__codelineno-4-87>87</a></span>
-<span class=normal><a href=#__codelineno-4-88>88</a></span>
-<span class=normal><a href=#__codelineno-4-89>89</a></span>
-<span class=normal><a href=#__codelineno-4-90>90</a></span>
-<span class=normal><a href=#__codelineno-4-91>91</a></span>
-<span class=normal><a href=#__codelineno-4-92>92</a></span>
-<span class=normal><a href=#__codelineno-4-93>93</a></span>
-<span class=normal><a href=#__codelineno-4-94>94</a></span>
-<span class=normal><a href=#__codelineno-4-95>95</a></span>
-<span class=normal><a href=#__codelineno-4-96>96</a></span></pre></div></td><td class=code><div><pre><span></span><code><span id=__span-4-1><a id=__codelineno-4-1 name=__codelineno-4-1></a><span class=cp>&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
+</span></code></pre></div></td></tr></table></div> </div> </div> </div> <h3 id=catalogo_-_nti_dcatapes_hvd>Migración desde <abbr title="Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público">NTI-RISP</abbr> a <abbr title="Perfil de Aplicación DCAT-AP para catálogos de datos en España">DCAT-AP-ES</abbr> <abbr title="High Value Datasets">HVD</abbr><a class=headerlink href=#catalogo_-_nti_dcatapes_hvd title="Permanent link">#</a></h3> <p>Este ejemplo ilustra cómo adaptar un catálogo <abbr title="Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público">NTI-RISP</abbr> para cumplir con los requisitos <abbr title="High Value Datasets">HVD</abbr>. La motivación es asegurar que los datos de alto valor estén disponibles mediante APIs y cumplan con la normativa europea, añadiendo propiedades específicas como la categoría <abbr title="High Value Datasets">HVD</abbr>, legislación aplicable y más detalles de los servicios de datos.</p> <p>El catálogo <code>http://dcat-ap-es.ejemplo.org/catalogo</code> se enriquece con información sobre servicios de datos (APIs), datasets <abbr title="High Value Datasets">HVD</abbr>, contacto, legislación y disponibilidad, siguiendo el reglamento <abbr title="High Value Datasets">HVD</abbr>. Así, se facilita la transición y el cumplimiento normativo para la publicación de datos de alto valor.</p> <div class="admonition tip"> <p class=admonition-title>Ejemplo original NTI 2013</p> <p>El ejemplo original de catálogo <abbr title="Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público">NTI-RISP</abbr> (2013) está disponible en: <a href="https://datosgobes.github.io/NTI-RISP/examples/#catalogo_-_nti_dcatapes">Catálogo <abbr title="Norma Técnica de Interoperabilidad de Reutilización de Recursos de Información del Sector Público">NTI-RISP</abbr> a <abbr title="Perfil de Aplicación DCAT-AP para catálogos de datos en España">DCAT-AP-ES</abbr></a></p> </div> <div class="tabbed-set tabbed-alternate" data-tabs=4:2><input checked=checked id=__tabbed_4_1 name=__tabbed_4 type=radio><input id=__tabbed_4_2 name=__tabbed_4 type=radio><div class=tabbed-labels><label for=__tabbed_4_1><abbr title="Resource Description Framework">RDF</abbr>/XML</label><label for=__tabbed_4_2>TTL</label></div> <div class=tabbed-content> <div class=tabbed-block> <div class="language-xml highlight"><table class=highlighttable><tr><td class=linenos><div class=linenodiv><pre><span></span><span class=normal><a href=#__codelineno-4-1>  1</a></span>
+<span class=normal><a href=#__codelineno-4-2>  2</a></span>
+<span class=normal><a href=#__codelineno-4-3>  3</a></span>
+<span class=normal><a href=#__codelineno-4-4>  4</a></span>
+<span class=normal><a href=#__codelineno-4-5>  5</a></span>
+<span class=normal><a href=#__codelineno-4-6>  6</a></span>
+<span class=normal><a href=#__codelineno-4-7>  7</a></span>
+<span class=normal><a href=#__codelineno-4-8>  8</a></span>
+<span class=normal><a href=#__codelineno-4-9>  9</a></span>
+<span class=normal><a href=#__codelineno-4-10> 10</a></span>
+<span class=normal><a href=#__codelineno-4-11> 11</a></span>
+<span class=normal><a href=#__codelineno-4-12> 12</a></span>
+<span class=normal><a href=#__codelineno-4-13> 13</a></span>
+<span class=normal><a href=#__codelineno-4-14> 14</a></span>
+<span class=normal><a href=#__codelineno-4-15> 15</a></span>
+<span class=normal><a href=#__codelineno-4-16> 16</a></span>
+<span class=normal><a href=#__codelineno-4-17> 17</a></span>
+<span class=normal><a href=#__codelineno-4-18> 18</a></span>
+<span class=normal><a href=#__codelineno-4-19> 19</a></span>
+<span class=normal><a href=#__codelineno-4-20> 20</a></span>
+<span class=normal><a href=#__codelineno-4-21> 21</a></span>
+<span class=normal><a href=#__codelineno-4-22> 22</a></span>
+<span class=normal><a href=#__codelineno-4-23> 23</a></span>
+<span class=normal><a href=#__codelineno-4-24> 24</a></span>
+<span class=normal><a href=#__codelineno-4-25> 25</a></span>
+<span class=normal><a href=#__codelineno-4-26> 26</a></span>
+<span class=normal><a href=#__codelineno-4-27> 27</a></span>
+<span class=normal><a href=#__codelineno-4-28> 28</a></span>
+<span class=normal><a href=#__codelineno-4-29> 29</a></span>
+<span class=normal><a href=#__codelineno-4-30> 30</a></span>
+<span class=normal><a href=#__codelineno-4-31> 31</a></span>
+<span class=normal><a href=#__codelineno-4-32> 32</a></span>
+<span class=normal><a href=#__codelineno-4-33> 33</a></span>
+<span class=normal><a href=#__codelineno-4-34> 34</a></span>
+<span class=normal><a href=#__codelineno-4-35> 35</a></span>
+<span class=normal><a href=#__codelineno-4-36> 36</a></span>
+<span class=normal><a href=#__codelineno-4-37> 37</a></span>
+<span class=normal><a href=#__codelineno-4-38> 38</a></span>
+<span class=normal><a href=#__codelineno-4-39> 39</a></span>
+<span class=normal><a href=#__codelineno-4-40> 40</a></span>
+<span class=normal><a href=#__codelineno-4-41> 41</a></span>
+<span class=normal><a href=#__codelineno-4-42> 42</a></span>
+<span class=normal><a href=#__codelineno-4-43> 43</a></span>
+<span class=normal><a href=#__codelineno-4-44> 44</a></span>
+<span class=normal><a href=#__codelineno-4-45> 45</a></span>
+<span class=normal><a href=#__codelineno-4-46> 46</a></span>
+<span class=normal><a href=#__codelineno-4-47> 47</a></span>
+<span class=normal><a href=#__codelineno-4-48> 48</a></span>
+<span class=normal><a href=#__codelineno-4-49> 49</a></span>
+<span class=normal><a href=#__codelineno-4-50> 50</a></span>
+<span class=normal><a href=#__codelineno-4-51> 51</a></span>
+<span class=normal><a href=#__codelineno-4-52> 52</a></span>
+<span class=normal><a href=#__codelineno-4-53> 53</a></span>
+<span class=normal><a href=#__codelineno-4-54> 54</a></span>
+<span class=normal><a href=#__codelineno-4-55> 55</a></span>
+<span class=normal><a href=#__codelineno-4-56> 56</a></span>
+<span class=normal><a href=#__codelineno-4-57> 57</a></span>
+<span class=normal><a href=#__codelineno-4-58> 58</a></span>
+<span class=normal><a href=#__codelineno-4-59> 59</a></span>
+<span class=normal><a href=#__codelineno-4-60> 60</a></span>
+<span class=normal><a href=#__codelineno-4-61> 61</a></span>
+<span class=normal><a href=#__codelineno-4-62> 62</a></span>
+<span class=normal><a href=#__codelineno-4-63> 63</a></span>
+<span class=normal><a href=#__codelineno-4-64> 64</a></span>
+<span class=normal><a href=#__codelineno-4-65> 65</a></span>
+<span class=normal><a href=#__codelineno-4-66> 66</a></span>
+<span class=normal><a href=#__codelineno-4-67> 67</a></span>
+<span class=normal><a href=#__codelineno-4-68> 68</a></span>
+<span class=normal><a href=#__codelineno-4-69> 69</a></span>
+<span class=normal><a href=#__codelineno-4-70> 70</a></span>
+<span class=normal><a href=#__codelineno-4-71> 71</a></span>
+<span class=normal><a href=#__codelineno-4-72> 72</a></span>
+<span class=normal><a href=#__codelineno-4-73> 73</a></span>
+<span class=normal><a href=#__codelineno-4-74> 74</a></span>
+<span class=normal><a href=#__codelineno-4-75> 75</a></span>
+<span class=normal><a href=#__codelineno-4-76> 76</a></span>
+<span class=normal><a href=#__codelineno-4-77> 77</a></span>
+<span class=normal><a href=#__codelineno-4-78> 78</a></span>
+<span class=normal><a href=#__codelineno-4-79> 79</a></span>
+<span class=normal><a href=#__codelineno-4-80> 80</a></span>
+<span class=normal><a href=#__codelineno-4-81> 81</a></span>
+<span class=normal><a href=#__codelineno-4-82> 82</a></span>
+<span class=normal><a href=#__codelineno-4-83> 83</a></span>
+<span class=normal><a href=#__codelineno-4-84> 84</a></span>
+<span class=normal><a href=#__codelineno-4-85> 85</a></span>
+<span class=normal><a href=#__codelineno-4-86> 86</a></span>
+<span class=normal><a href=#__codelineno-4-87> 87</a></span>
+<span class=normal><a href=#__codelineno-4-88> 88</a></span>
+<span class=normal><a href=#__codelineno-4-89> 89</a></span>
+<span class=normal><a href=#__codelineno-4-90> 90</a></span>
+<span class=normal><a href=#__codelineno-4-91> 91</a></span>
+<span class=normal><a href=#__codelineno-4-92> 92</a></span>
+<span class=normal><a href=#__codelineno-4-93> 93</a></span>
+<span class=normal><a href=#__codelineno-4-94> 94</a></span>
+<span class=normal><a href=#__codelineno-4-95> 95</a></span>
+<span class=normal><a href=#__codelineno-4-96> 96</a></span>
+<span class=normal><a href=#__codelineno-4-97> 97</a></span>
+<span class=normal><a href=#__codelineno-4-98> 98</a></span>
+<span class=normal><a href=#__codelineno-4-99> 99</a></span>
+<span class=normal><a href=#__codelineno-4-100>100</a></span>
+<span class=normal><a href=#__codelineno-4-101>101</a></span></pre></div></td><td class=code><div><pre><span></span><code><span id=__span-4-1><a id=__codelineno-4-1 name=__codelineno-4-1></a><span class=cp>&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 </span><span id=__span-4-2><a id=__codelineno-4-2 name=__codelineno-4-2></a><span class=nt>&lt;rdf:RDF</span><span class=w> </span><span class=na>xmlns:rdf=</span><span class=s>"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span>
 </span><span id=__span-4-3><a id=__codelineno-4-3 name=__codelineno-4-3></a><span class=w>         </span><span class=na>xmlns:dcat=</span><span class=s>"http://www.w3.org/ns/dcat#"</span>
 </span><span id=__span-4-4><a id=__codelineno-4-4 name=__codelineno-4-4></a><span class=w>         </span><span class=na>xmlns:dct=</span><span class=s>"http://purl.org/dc/terms/"</span>
@@ -743,76 +748,81 @@
 </span><span id=__span-4-24><a id=__codelineno-4-24 name=__codelineno-4-24></a><span class=w>    </span><span class=nt>&lt;dcat:service&gt;</span>
 </span><span id=__span-4-25><a id=__codelineno-4-25 name=__codelineno-4-25></a><span class=w>        </span><span class=nt>&lt;dcat:DataService</span><span class=w> </span><span class=na>rdf:about=</span><span class=s>"http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD"</span><span class=nt>&gt;</span>
 </span><span id=__span-4-26><a id=__codelineno-4-26 name=__codelineno-4-26></a><span class=w>            </span><span class=nt>&lt;dct:title</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Servicio<span class=w> </span>de<span class=w> </span>datos<span class=w> </span>de<span class=w> </span>ejemplo<span class=w> </span>HVD<span class=nt>&lt;/dct:title&gt;</span>
-</span><span id=__span-4-27><a id=__codelineno-4-27 name=__codelineno-4-27></a><span class=w>            </span><span class=nt>&lt;dcat:endpointURL</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-28><a id=__codelineno-4-28 name=__codelineno-4-28></a><span class=w>            </span><span class=nt>&lt;dcat:theme</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-29><a id=__codelineno-4-29 name=__codelineno-4-29></a><span class=w>            </span><span class=nt>&lt;dct:publisher</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-30><a id=__codelineno-4-30 name=__codelineno-4-30></a><span class=w>            </span><span class=nt>&lt;dcat:endpointDescription</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD?service=CSW"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-31><a id=__codelineno-4-31 name=__codelineno-4-31></a><span class=w>            </span><span class=nt>&lt;dcat:keyword</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>estadísticas<span class=nt>&lt;/dcat:keyword&gt;</span>
-</span><span id=__span-4-32><a id=__codelineno-4-32 name=__codelineno-4-32></a><span class=w>            </span><span class=nt>&lt;dcat:contactPoint&gt;</span>
-</span><span id=__span-4-33><a id=__codelineno-4-33 name=__codelineno-4-33></a><span class=w>                    </span><span class=nt>&lt;vcard:Organization</span><span class=w> </span><span class=na>rdf:about=</span><span class=s>"http://dcat-ap-es.ejemplo.org/contactDataService"</span><span class=nt>&gt;</span>
-</span><span id=__span-4-34><a id=__codelineno-4-34 name=__codelineno-4-34></a><span class=w>                        </span><span class=nt>&lt;vcard:organization-name</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Organismo<span class=nt>&lt;/vcard:organization-name&gt;</span>
-</span><span id=__span-4-35><a id=__codelineno-4-35 name=__codelineno-4-35></a><span class=w>                        </span><span class=nt>&lt;vcard:fn</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Oficina<span class=w> </span>del<span class=w> </span>dato<span class=nt>&lt;/vcard:fn&gt;</span>
-</span><span id=__span-4-36><a id=__codelineno-4-36 name=__codelineno-4-36></a><span class=w>                        </span><span class=nt>&lt;vcard:hasURL</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-37><a id=__codelineno-4-37 name=__codelineno-4-37></a><span class=w>                        </span><span class=nt>&lt;vcard:hasUID</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-38><a id=__codelineno-4-38 name=__codelineno-4-38></a><span class=w>                        </span><span class=nt>&lt;vcard:hasEmail</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"mailto:info-contacto@dcat-ap-es.ejemplo.org"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-39><a id=__codelineno-4-39 name=__codelineno-4-39></a><span class=w>                        </span><span class=nt>&lt;vcard:hasTelephone</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"tel:.+3491222222"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-40><a id=__codelineno-4-40 name=__codelineno-4-40></a><span class=w>                    </span><span class=nt>&lt;/vcard:Organization&gt;</span>
-</span><span id=__span-4-41><a id=__codelineno-4-41 name=__codelineno-4-41></a><span class=w>            </span><span class=nt>&lt;/dcat:contactPoint&gt;</span>
-</span><span id=__span-4-42><a id=__codelineno-4-42 name=__codelineno-4-42></a><span class=w>            </span><span class=nt>&lt;dcat:servesDataset</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-43><a id=__codelineno-4-43 name=__codelineno-4-43></a><span class=w>            </span><span class=nt>&lt;dcatap:hvdCategory</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://data.europa.eu/bna/c_b7f6a4f3"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-44><a id=__codelineno-4-44 name=__codelineno-4-44></a><span class=w>            </span><span class=nt>&lt;foaf:page</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"https://dcat-ap-es.ejemplo_HVD.org/api/sla.html"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-45><a id=__codelineno-4-45 name=__codelineno-4-45></a><span class=w>            </span><span class=nt>&lt;dcatap:applicableLegislation</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://data.europa.eu/eli/reg_impl/2023/138/oj"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-46><a id=__codelineno-4-46 name=__codelineno-4-46></a><span class=w>        </span><span class=nt>&lt;/dcat:DataService&gt;</span><span class=w> </span>
-</span><span id=__span-4-47><a id=__codelineno-4-47 name=__codelineno-4-47></a><span class=w>    </span><span class=nt>&lt;/dcat:service&gt;</span>
-</span><span id=__span-4-48><a id=__codelineno-4-48 name=__codelineno-4-48></a>
-</span><span id=__span-4-49><a id=__codelineno-4-49 name=__codelineno-4-49></a><span class=w>    </span><span class=nt>&lt;dcat:dataset&gt;</span>
-</span><span id=__span-4-50><a id=__codelineno-4-50 name=__codelineno-4-50></a><span class=w>      </span><span class=nt>&lt;dcat:Dataset</span><span class=w> </span><span class=na>rdf:about=</span><span class=s>"http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD"</span><span class=nt>&gt;</span>
-</span><span id=__span-4-51><a id=__codelineno-4-51 name=__codelineno-4-51></a><span class=w>        </span><span class=nt>&lt;dct:identifier&gt;</span>http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD<span class=nt>&lt;/dct:identifier&gt;</span>
-</span><span id=__span-4-52><a id=__codelineno-4-52 name=__codelineno-4-52></a><span class=w>        </span><span class=nt>&lt;dct:title</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Dataset<span class=w> </span>de<span class=w> </span>ejemplo<span class=w> </span>HVD<span class=nt>&lt;/dct:title&gt;</span>
-</span><span id=__span-4-53><a id=__codelineno-4-53 name=__codelineno-4-53></a><span class=w>        </span><span class=nt>&lt;dct:title</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"en"</span><span class=nt>&gt;</span>Example<span class=w> </span>Dataset<span class=w> </span>HVD<span class=nt>&lt;/dct:title&gt;</span>
-</span><span id=__span-4-54><a id=__codelineno-4-54 name=__codelineno-4-54></a><span class=w>        </span><span class=nt>&lt;dct:description</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Descripción<span class=w> </span>de<span class=w> </span>un<span class=w> </span>dataset<span class=w> </span>de<span class=w> </span>ejemplo<span class=w> </span>HVD.<span class=nt>&lt;/dct:description&gt;</span>
-</span><span id=__span-4-55><a id=__codelineno-4-55 name=__codelineno-4-55></a><span class=w>        </span><span class=nt>&lt;dct:description</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"en"</span><span class=nt>&gt;</span>Example<span class=w> </span>dataset<span class=w> </span>description<span class=w> </span>HVD.<span class=nt>&lt;/dct:description&gt;</span>
-</span><span id=__span-4-56><a id=__codelineno-4-56 name=__codelineno-4-56></a><span class=w>        </span><span class=nt>&lt;dct:publisher</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-57><a id=__codelineno-4-57 name=__codelineno-4-57></a><span class=w>        </span><span class=nt>&lt;dcat:theme</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-58><a id=__codelineno-4-58 name=__codelineno-4-58></a><span class=w>        </span><span class=nt>&lt;dct:spatial</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-59><a id=__codelineno-4-59 name=__codelineno-4-59></a><span class=w>        </span><span class=nt>&lt;dcat:keyword</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>estadísticas<span class=nt>&lt;/dcat:keyword&gt;</span>
-</span><span id=__span-4-60><a id=__codelineno-4-60 name=__codelineno-4-60></a><span class=w>        </span><span class=nt>&lt;dcat:keyword</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"en"</span><span class=nt>&gt;</span>statistics<span class=nt>&lt;/dcat:keyword&gt;</span>
-</span><span id=__span-4-61><a id=__codelineno-4-61 name=__codelineno-4-61></a><span class=w>        </span><span class=nt>&lt;dcatap:applicableLegislation</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://data.europa.eu/eli/reg_impl/2023/138/oj"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-62><a id=__codelineno-4-62 name=__codelineno-4-62></a><span class=w>        </span><span class=nt>&lt;dcat:contactPoint&gt;</span>
-</span><span id=__span-4-63><a id=__codelineno-4-63 name=__codelineno-4-63></a><span class=w>                </span><span class=nt>&lt;vcard:Organization</span><span class=w> </span><span class=na>rdf:about=</span><span class=s>"http://dcat-ap-es.ejemplo.org/contactDataset"</span><span class=nt>&gt;</span>
-</span><span id=__span-4-64><a id=__codelineno-4-64 name=__codelineno-4-64></a><span class=w>                    </span><span class=nt>&lt;vcard:organization-name</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Organismo<span class=nt>&lt;/vcard:organization-name&gt;</span>
-</span><span id=__span-4-65><a id=__codelineno-4-65 name=__codelineno-4-65></a><span class=w>                    </span><span class=nt>&lt;vcard:fn</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Oficina<span class=w> </span>del<span class=w> </span>dato<span class=nt>&lt;/vcard:fn&gt;</span>
-</span><span id=__span-4-66><a id=__codelineno-4-66 name=__codelineno-4-66></a><span class=w>                    </span><span class=nt>&lt;vcard:hasURL</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-67><a id=__codelineno-4-67 name=__codelineno-4-67></a><span class=w>                    </span><span class=nt>&lt;vcard:hasUID</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-68><a id=__codelineno-4-68 name=__codelineno-4-68></a><span class=w>                    </span><span class=nt>&lt;vcard:hasEmail</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"mailto:info-contacto@dcat-ap-es.ejemplo.org"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-69><a id=__codelineno-4-69 name=__codelineno-4-69></a><span class=w>                    </span><span class=nt>&lt;vcard:hasTelephone</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"tel:.+3491222222"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-70><a id=__codelineno-4-70 name=__codelineno-4-70></a><span class=w>                </span><span class=nt>&lt;/vcard:Organization&gt;</span>
-</span><span id=__span-4-71><a id=__codelineno-4-71 name=__codelineno-4-71></a><span class=w>        </span><span class=nt>&lt;/dcat:contactPoint&gt;</span>
-</span><span id=__span-4-72><a id=__codelineno-4-72 name=__codelineno-4-72></a><span class=w>        </span><span class=nt>&lt;dct:temporal&gt;</span>
-</span><span id=__span-4-73><a id=__codelineno-4-73 name=__codelineno-4-73></a><span class=w>                </span><span class=nt>&lt;dct:PeriodOfTime&gt;</span>
-</span><span id=__span-4-74><a id=__codelineno-4-74 name=__codelineno-4-74></a><span class=w>                    </span><span class=nt>&lt;dcat:startDate</span><span class=w> </span><span class=na>rdf:datatype=</span><span class=s>"http://www.w3.org/2001/XMLSchema#dateTime"</span><span class=nt>&gt;</span>2021-01-01T00:00:00Z<span class=nt>&lt;/dcat:startDate&gt;</span>
-</span><span id=__span-4-75><a id=__codelineno-4-75 name=__codelineno-4-75></a><span class=w>                    </span><span class=nt>&lt;dcat:endDate</span><span class=w> </span><span class=na>rdf:datatype=</span><span class=s>"http://www.w3.org/2001/XMLSchema#dateTime"</span><span class=nt>&gt;</span>2025-01-01T00:00:00Z<span class=nt>&lt;/dcat:endDate&gt;</span>
-</span><span id=__span-4-76><a id=__codelineno-4-76 name=__codelineno-4-76></a><span class=w>                </span><span class=nt>&lt;/dct:PeriodOfTime&gt;</span>
-</span><span id=__span-4-77><a id=__codelineno-4-77 name=__codelineno-4-77></a><span class=w>        </span><span class=nt>&lt;/dct:temporal&gt;</span>
-</span><span id=__span-4-78><a id=__codelineno-4-78 name=__codelineno-4-78></a><span class=w>        </span><span class=nt>&lt;dcatap:hvdCategory</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://data.europa.eu/bna/c_b7f6a4f3"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-79><a id=__codelineno-4-79 name=__codelineno-4-79></a>
-</span><span id=__span-4-80><a id=__codelineno-4-80 name=__codelineno-4-80></a><span class=w>        </span><span class=nt>&lt;dcat:distribution&gt;</span>
-</span><span id=__span-4-81><a id=__codelineno-4-81 name=__codelineno-4-81></a><span class=w>          </span><span class=nt>&lt;dcat:Distribution</span><span class=w> </span><span class=na>rdf:about=</span><span class=s>"http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV-HVD"</span><span class=nt>&gt;</span>
-</span><span id=__span-4-82><a id=__codelineno-4-82 name=__codelineno-4-82></a><span class=w>              </span><span class=nt>&lt;dct:title</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Distribución<span class=w> </span>de<span class=w> </span>ejemplo<span class=w> </span>HVD<span class=nt>&lt;/dct:title&gt;</span>
-</span><span id=__span-4-83><a id=__codelineno-4-83 name=__codelineno-4-83></a><span class=w>              </span><span class=nt>&lt;dct:description</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Descripción<span class=w> </span>de<span class=w> </span>una<span class=w> </span>distribución<span class=w> </span>de<span class=w> </span>ejemplo<span class=w> </span>HVD.<span class=nt>&lt;/dct:description&gt;</span>
-</span><span id=__span-4-84><a id=__codelineno-4-84 name=__codelineno-4-84></a><span class=w>              </span><span class=nt>&lt;dcat:accessURL</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/files/dataset-HVD-ejemplo-1-HVD.CSV"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-85><a id=__codelineno-4-85 name=__codelineno-4-85></a><span class=w>              </span><span class=nt>&lt;dct:format</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://publications.europa.eu/resource/authority/file-type/CSV"</span><span class=nt>/&gt;</span><span class=w>  </span>
-</span><span id=__span-4-86><a id=__codelineno-4-86 name=__codelineno-4-86></a><span class=w>              </span><span class=nt>&lt;dct:license</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-87><a id=__codelineno-4-87 name=__codelineno-4-87></a><span class=w>              </span><span class=nt>&lt;dcatap:availability</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://publications.europa.eu/resource/authority/planned-availability/STABLE"</span><span class=nt>/&gt;</span>
-</span><span id=__span-4-88><a id=__codelineno-4-88 name=__codelineno-4-88></a><span class=w>              </span><span class=nt>&lt;dcat:byteSize</span><span class=w> </span><span class=na>rdf:datatype=</span><span class=s>"http://www.w3.org/2001/XMLSchema#nonNegativeInteger"</span><span class=nt>&gt;</span>1024<span class=nt>&lt;/dcat:byteSize&gt;</span>
-</span><span id=__span-4-89><a id=__codelineno-4-89 name=__codelineno-4-89></a><span class=w>          </span><span class=nt>&lt;/dcat:Distribution&gt;</span>
-</span><span id=__span-4-90><a id=__codelineno-4-90 name=__codelineno-4-90></a><span class=w>        </span><span class=nt>&lt;/dcat:distribution&gt;</span>
-</span><span id=__span-4-91><a id=__codelineno-4-91 name=__codelineno-4-91></a>
-</span><span id=__span-4-92><a id=__codelineno-4-92 name=__codelineno-4-92></a><span class=w>      </span><span class=nt>&lt;/dcat:Dataset&gt;</span>
-</span><span id=__span-4-93><a id=__codelineno-4-93 name=__codelineno-4-93></a><span class=w>    </span><span class=nt>&lt;/dcat:dataset&gt;</span>
-</span><span id=__span-4-94><a id=__codelineno-4-94 name=__codelineno-4-94></a>
-</span><span id=__span-4-95><a id=__codelineno-4-95 name=__codelineno-4-95></a><span class=w>  </span><span class=nt>&lt;/dcat:Catalog&gt;</span>
-</span><span id=__span-4-96><a id=__codelineno-4-96 name=__codelineno-4-96></a><span class=nt>&lt;/rdf:RDF&gt;</span>
+</span><span id=__span-4-27><a id=__codelineno-4-27 name=__codelineno-4-27></a><span class=w>            </span><span class=nt>&lt;dct:title</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"en"</span><span class=nt>&gt;</span>HVD<span class=w> </span>sample<span class=w> </span>data<span class=w> </span>service<span class=nt>&lt;/dct:title&gt;</span>
+</span><span id=__span-4-28><a id=__codelineno-4-28 name=__codelineno-4-28></a><span class=w>            </span><span class=nt>&lt;dct:description</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Descripción<span class=w> </span>del<span class=w> </span>servicio<span class=w> </span>de<span class=w> </span>datos<span class=w> </span>de<span class=w> </span>ejemplo<span class=w> </span>HVD<span class=nt>&lt;/dct:description&gt;</span>
+</span><span id=__span-4-29><a id=__codelineno-4-29 name=__codelineno-4-29></a><span class=w>            </span><span class=nt>&lt;dcatap:applicableLegislation</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://data.europa.eu/eli/reg_impl/2023/138/oj"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-30><a id=__codelineno-4-30 name=__codelineno-4-30></a><span class=w>            </span><span class=nt>&lt;dcatap:hvdCategory</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://data.europa.eu/bna/c_b7f6a4f3"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-31><a id=__codelineno-4-31 name=__codelineno-4-31></a><span class=w>            </span><span class=nt>&lt;dcat:endpointURL</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-32><a id=__codelineno-4-32 name=__codelineno-4-32></a><span class=w>            </span><span class=nt>&lt;dcat:endpointDescription</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD/apidoc"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-33><a id=__codelineno-4-33 name=__codelineno-4-33></a><span class=w>            </span><span class=nt>&lt;dct:license</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-34><a id=__codelineno-4-34 name=__codelineno-4-34></a><span class=w>            </span><span class=nt>&lt;foaf:page</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"https://dcat-ap-es.ejemplo_HVD.org/api/sla.html"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-35><a id=__codelineno-4-35 name=__codelineno-4-35></a>
+</span><span id=__span-4-36><a id=__codelineno-4-36 name=__codelineno-4-36></a><span class=w>            </span><span class=nt>&lt;dct:publisher</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-37><a id=__codelineno-4-37 name=__codelineno-4-37></a><span class=w>            </span><span class=nt>&lt;dcat:theme</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-38><a id=__codelineno-4-38 name=__codelineno-4-38></a><span class=w>            </span><span class=nt>&lt;dcat:keyword</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>estadísticas<span class=nt>&lt;/dcat:keyword&gt;</span>
+</span><span id=__span-4-39><a id=__codelineno-4-39 name=__codelineno-4-39></a><span class=w>            </span><span class=nt>&lt;dcat:contactPoint&gt;</span>
+</span><span id=__span-4-40><a id=__codelineno-4-40 name=__codelineno-4-40></a><span class=w>                    </span><span class=nt>&lt;vcard:Organization</span><span class=w> </span><span class=na>rdf:about=</span><span class=s>"http://dcat-ap-es.ejemplo.org/contactDataService"</span><span class=nt>&gt;</span>
+</span><span id=__span-4-41><a id=__codelineno-4-41 name=__codelineno-4-41></a><span class=w>                        </span><span class=nt>&lt;vcard:organization-name</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Organismo<span class=nt>&lt;/vcard:organization-name&gt;</span>
+</span><span id=__span-4-42><a id=__codelineno-4-42 name=__codelineno-4-42></a><span class=w>                        </span><span class=nt>&lt;vcard:fn</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Oficina<span class=w> </span>del<span class=w> </span>dato<span class=nt>&lt;/vcard:fn&gt;</span>
+</span><span id=__span-4-43><a id=__codelineno-4-43 name=__codelineno-4-43></a><span class=w>                        </span><span class=nt>&lt;vcard:hasURL</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-44><a id=__codelineno-4-44 name=__codelineno-4-44></a><span class=w>                        </span><span class=nt>&lt;vcard:hasUID</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-45><a id=__codelineno-4-45 name=__codelineno-4-45></a><span class=w>                        </span><span class=nt>&lt;vcard:hasEmail</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"mailto:info-contacto@dcat-ap-es.ejemplo.org"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-46><a id=__codelineno-4-46 name=__codelineno-4-46></a><span class=w>                        </span><span class=nt>&lt;vcard:hasTelephone</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"tel:.+3491222222"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-47><a id=__codelineno-4-47 name=__codelineno-4-47></a><span class=w>                    </span><span class=nt>&lt;/vcard:Organization&gt;</span>
+</span><span id=__span-4-48><a id=__codelineno-4-48 name=__codelineno-4-48></a><span class=w>            </span><span class=nt>&lt;/dcat:contactPoint&gt;</span>
+</span><span id=__span-4-49><a id=__codelineno-4-49 name=__codelineno-4-49></a>
+</span><span id=__span-4-50><a id=__codelineno-4-50 name=__codelineno-4-50></a><span class=w>            </span><span class=nt>&lt;dcat:servesDataset</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-51><a id=__codelineno-4-51 name=__codelineno-4-51></a>
+</span><span id=__span-4-52><a id=__codelineno-4-52 name=__codelineno-4-52></a><span class=w>        </span><span class=nt>&lt;/dcat:DataService&gt;</span><span class=w> </span>
+</span><span id=__span-4-53><a id=__codelineno-4-53 name=__codelineno-4-53></a><span class=w>    </span><span class=nt>&lt;/dcat:service&gt;</span>
+</span><span id=__span-4-54><a id=__codelineno-4-54 name=__codelineno-4-54></a>
+</span><span id=__span-4-55><a id=__codelineno-4-55 name=__codelineno-4-55></a><span class=w>    </span><span class=nt>&lt;dcat:dataset&gt;</span>
+</span><span id=__span-4-56><a id=__codelineno-4-56 name=__codelineno-4-56></a><span class=w>      </span><span class=nt>&lt;dcat:Dataset</span><span class=w> </span><span class=na>rdf:about=</span><span class=s>"http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD"</span><span class=nt>&gt;</span>
+</span><span id=__span-4-57><a id=__codelineno-4-57 name=__codelineno-4-57></a><span class=w>        </span><span class=nt>&lt;dct:title</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Dataset<span class=w> </span>de<span class=w> </span>ejemplo<span class=w> </span>HVD<span class=nt>&lt;/dct:title&gt;</span>
+</span><span id=__span-4-58><a id=__codelineno-4-58 name=__codelineno-4-58></a><span class=w>        </span><span class=nt>&lt;dcatap:applicableLegislation</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://data.europa.eu/eli/reg_impl/2023/138/oj"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-59><a id=__codelineno-4-59 name=__codelineno-4-59></a><span class=w>        </span><span class=nt>&lt;dcatap:hvdCategory</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://data.europa.eu/bna/c_b7f6a4f3"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-60><a id=__codelineno-4-60 name=__codelineno-4-60></a><span class=w>        </span><span class=nt>&lt;dct:description</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Descripción<span class=w> </span>de<span class=w> </span>un<span class=w> </span>dataset<span class=w> </span>de<span class=w> </span>ejemplo<span class=w> </span>HVD.<span class=nt>&lt;/dct:description&gt;</span>
+</span><span id=__span-4-61><a id=__codelineno-4-61 name=__codelineno-4-61></a><span class=w>        </span><span class=nt>&lt;dct:publisher</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-62><a id=__codelineno-4-62 name=__codelineno-4-62></a><span class=w>        </span><span class=nt>&lt;dcat:theme</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-63><a id=__codelineno-4-63 name=__codelineno-4-63></a><span class=w>        </span><span class=nt>&lt;dct:spatial</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-64><a id=__codelineno-4-64 name=__codelineno-4-64></a><span class=w>        </span><span class=nt>&lt;dcat:keyword</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>estadísticas<span class=nt>&lt;/dcat:keyword&gt;</span>
+</span><span id=__span-4-65><a id=__codelineno-4-65 name=__codelineno-4-65></a><span class=w>        </span><span class=nt>&lt;dcat:contactPoint&gt;</span>
+</span><span id=__span-4-66><a id=__codelineno-4-66 name=__codelineno-4-66></a><span class=w>                </span><span class=nt>&lt;vcard:Organization</span><span class=w> </span><span class=na>rdf:about=</span><span class=s>"http://dcat-ap-es.ejemplo.org/contactDataset"</span><span class=nt>&gt;</span>
+</span><span id=__span-4-67><a id=__codelineno-4-67 name=__codelineno-4-67></a><span class=w>                    </span><span class=nt>&lt;vcard:organization-name</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Organismo<span class=nt>&lt;/vcard:organization-name&gt;</span>
+</span><span id=__span-4-68><a id=__codelineno-4-68 name=__codelineno-4-68></a><span class=w>                    </span><span class=nt>&lt;vcard:fn</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Oficina<span class=w> </span>del<span class=w> </span>dato<span class=nt>&lt;/vcard:fn&gt;</span>
+</span><span id=__span-4-69><a id=__codelineno-4-69 name=__codelineno-4-69></a><span class=w>                    </span><span class=nt>&lt;vcard:hasURL</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-70><a id=__codelineno-4-70 name=__codelineno-4-70></a><span class=w>                    </span><span class=nt>&lt;vcard:hasUID</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-71><a id=__codelineno-4-71 name=__codelineno-4-71></a><span class=w>                    </span><span class=nt>&lt;vcard:hasEmail</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"mailto:info-contacto@dcat-ap-es.ejemplo.org"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-72><a id=__codelineno-4-72 name=__codelineno-4-72></a><span class=w>                    </span><span class=nt>&lt;vcard:hasTelephone</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"tel:.+3491222222"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-73><a id=__codelineno-4-73 name=__codelineno-4-73></a><span class=w>                </span><span class=nt>&lt;/vcard:Organization&gt;</span>
+</span><span id=__span-4-74><a id=__codelineno-4-74 name=__codelineno-4-74></a><span class=w>        </span><span class=nt>&lt;/dcat:contactPoint&gt;</span>
+</span><span id=__span-4-75><a id=__codelineno-4-75 name=__codelineno-4-75></a><span class=w>        </span><span class=nt>&lt;dct:temporal&gt;</span>
+</span><span id=__span-4-76><a id=__codelineno-4-76 name=__codelineno-4-76></a><span class=w>                </span><span class=nt>&lt;dct:PeriodOfTime&gt;</span>
+</span><span id=__span-4-77><a id=__codelineno-4-77 name=__codelineno-4-77></a><span class=w>                    </span><span class=nt>&lt;dcat:startDate</span><span class=w> </span><span class=na>rdf:datatype=</span><span class=s>"http://www.w3.org/2001/XMLSchema#dateTime"</span><span class=nt>&gt;</span>2021-01-01T00:00:00Z<span class=nt>&lt;/dcat:startDate&gt;</span>
+</span><span id=__span-4-78><a id=__codelineno-4-78 name=__codelineno-4-78></a><span class=w>                    </span><span class=nt>&lt;dcat:endDate</span><span class=w> </span><span class=na>rdf:datatype=</span><span class=s>"http://www.w3.org/2001/XMLSchema#dateTime"</span><span class=nt>&gt;</span>2025-01-01T00:00:00Z<span class=nt>&lt;/dcat:endDate&gt;</span>
+</span><span id=__span-4-79><a id=__codelineno-4-79 name=__codelineno-4-79></a><span class=w>                </span><span class=nt>&lt;/dct:PeriodOfTime&gt;</span>
+</span><span id=__span-4-80><a id=__codelineno-4-80 name=__codelineno-4-80></a><span class=w>        </span><span class=nt>&lt;/dct:temporal&gt;</span>
+</span><span id=__span-4-81><a id=__codelineno-4-81 name=__codelineno-4-81></a>
+</span><span id=__span-4-82><a id=__codelineno-4-82 name=__codelineno-4-82></a><span class=w>        </span><span class=nt>&lt;dcat:distribution&gt;</span>
+</span><span id=__span-4-83><a id=__codelineno-4-83 name=__codelineno-4-83></a><span class=w>          </span><span class=nt>&lt;dcat:Distribution</span><span class=w> </span><span class=na>rdf:about=</span><span class=s>"http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV-HVD"</span><span class=nt>&gt;</span>
+</span><span id=__span-4-84><a id=__codelineno-4-84 name=__codelineno-4-84></a><span class=w>              </span><span class=nt>&lt;dct:title</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Distribución<span class=w> </span>de<span class=w> </span>ejemplo<span class=w> </span>HVD<span class=nt>&lt;/dct:title&gt;</span>
+</span><span id=__span-4-85><a id=__codelineno-4-85 name=__codelineno-4-85></a><span class=w>              </span><span class=nt>&lt;dct:title</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"en"</span><span class=nt>&gt;</span>HVD<span class=w> </span>sample<span class=w> </span>distribution<span class=nt>&lt;/dct:title&gt;</span>
+</span><span id=__span-4-86><a id=__codelineno-4-86 name=__codelineno-4-86></a><span class=w>              </span><span class=nt>&lt;dcatap:applicableLegislation</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://data.europa.eu/eli/reg_impl/2023/138/oj"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-87><a id=__codelineno-4-87 name=__codelineno-4-87></a><span class=w>              </span><span class=nt>&lt;dct:description</span><span class=w> </span><span class=na>xml:lang=</span><span class=s>"es"</span><span class=nt>&gt;</span>Descripción<span class=w> </span>de<span class=w> </span>una<span class=w> </span>distribución<span class=w> </span>de<span class=w> </span>ejemplo<span class=w> </span>HVD.<span class=nt>&lt;/dct:description&gt;</span>
+</span><span id=__span-4-88><a id=__codelineno-4-88 name=__codelineno-4-88></a><span class=w>              </span><span class=nt>&lt;dcat:accessURL</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/files/dataset-HVD-ejemplo-1-HVD.CSV"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-89><a id=__codelineno-4-89 name=__codelineno-4-89></a><span class=w>              </span><span class=nt>&lt;dcat:downloadURL</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://dcat-ap-es.ejemplo.org/files/dataset-HVD-ejemplo-1-HVD.CSV"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-90><a id=__codelineno-4-90 name=__codelineno-4-90></a><span class=w>              </span><span class=nt>&lt;dct:format</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://publications.europa.eu/resource/authority/file-type/CSV"</span><span class=nt>/&gt;</span><span class=w>  </span>
+</span><span id=__span-4-91><a id=__codelineno-4-91 name=__codelineno-4-91></a><span class=w>              </span><span class=nt>&lt;dct:license</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-92><a id=__codelineno-4-92 name=__codelineno-4-92></a><span class=w>              </span><span class=nt>&lt;dcatap:availability</span><span class=w> </span><span class=na>rdf:resource=</span><span class=s>"http://publications.europa.eu/resource/authority/planned-availability/STABLE"</span><span class=nt>/&gt;</span>
+</span><span id=__span-4-93><a id=__codelineno-4-93 name=__codelineno-4-93></a><span class=w>              </span><span class=nt>&lt;dcat:byteSize</span><span class=w> </span><span class=na>rdf:datatype=</span><span class=s>"http://www.w3.org/2001/XMLSchema#nonNegativeInteger"</span><span class=nt>&gt;</span>1024<span class=nt>&lt;/dcat:byteSize&gt;</span>
+</span><span id=__span-4-94><a id=__codelineno-4-94 name=__codelineno-4-94></a><span class=w>          </span><span class=nt>&lt;/dcat:Distribution&gt;</span>
+</span><span id=__span-4-95><a id=__codelineno-4-95 name=__codelineno-4-95></a><span class=w>        </span><span class=nt>&lt;/dcat:distribution&gt;</span>
+</span><span id=__span-4-96><a id=__codelineno-4-96 name=__codelineno-4-96></a>
+</span><span id=__span-4-97><a id=__codelineno-4-97 name=__codelineno-4-97></a><span class=w>      </span><span class=nt>&lt;/dcat:Dataset&gt;</span>
+</span><span id=__span-4-98><a id=__codelineno-4-98 name=__codelineno-4-98></a><span class=w>    </span><span class=nt>&lt;/dcat:dataset&gt;</span>
+</span><span id=__span-4-99><a id=__codelineno-4-99 name=__codelineno-4-99></a>
+</span><span id=__span-4-100><a id=__codelineno-4-100 name=__codelineno-4-100></a><span class=w>  </span><span class=nt>&lt;/dcat:Catalog&gt;</span>
+</span><span id=__span-4-101><a id=__codelineno-4-101 name=__codelineno-4-101></a><span class=nt>&lt;/rdf:RDF&gt;</span>
 </span></code></pre></div></td></tr></table></div> </div> <div class=tabbed-block> <div class="language-turtle highlight"><table class=highlighttable><tr><td class=linenos><div class=linenodiv><pre><span></span><span class=normal><a href=#__codelineno-5-1> 1</a></span>
 <span class=normal><a href=#__codelineno-5-2> 2</a></span>
 <span class=normal><a href=#__codelineno-5-3> 3</a></span>
