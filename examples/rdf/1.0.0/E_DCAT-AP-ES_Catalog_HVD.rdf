@@ -24,10 +24,17 @@
 	<dcat:service>
 		<dcat:DataService rdf:about="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD">
 			<dct:title xml:lang="es">Servicio de datos de ejemplo HVD</dct:title>
+			<dct:title xml:lang="en">HVD sample data service</dct:title>
+			<dct:description xml:lang="es">Descripción del servicio de datos de ejemplo HVD</dct:description>
+			<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
+			<dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
 			<dcat:endpointURL rdf:resource="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD"/>
-			<dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
+			<dcat:endpointDescription rdf:resource="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD/apidoc"/>
+			<dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+			<foaf:page rdf:resource="https://dcat-ap-es.ejemplo_HVD.org/api/sla.html"/>
+
 			<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
-			<dcat:endpointDescription rdf:resource="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1-HVD?service=CSW"/>
+			<dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
 			<dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
 			<dcat:contactPoint>
 					<vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/contactDataService">
@@ -39,26 +46,22 @@
 						<vcard:hasTelephone rdf:resource="tel:.+3491222222"/>
 					</vcard:Organization>
 			</dcat:contactPoint>
+
 			<dcat:servesDataset rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD"/>
-			<dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
-			<foaf:page rdf:resource="https://dcat-ap-es.ejemplo_HVD.org/api/sla.html"/>
-			<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
+
 		</dcat:DataService> 
 	</dcat:service>
 	
     <dcat:dataset>
       <dcat:Dataset rdf:about="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD">
-        <dct:identifier>http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1-HVD</dct:identifier>
 		<dct:title xml:lang="es">Dataset de ejemplo HVD</dct:title>
-        <dct:title xml:lang="en">Example Dataset HVD</dct:title>
+		<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
+		<dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
         <dct:description xml:lang="es">Descripción de un dataset de ejemplo HVD.</dct:description>
-        <dct:description xml:lang="en">Example dataset description HVD.</dct:description>
         <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
         <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
         <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
 		<dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
-		<dcat:keyword xml:lang="en">statistics</dcat:keyword>
-		<dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
 		<dcat:contactPoint>
 				<vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/contactDataset">
 					<vcard:organization-name xml:lang="es">Organismo</vcard:organization-name>
@@ -75,13 +78,15 @@
 					<dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00Z</dcat:endDate>
 				</dct:PeriodOfTime>
 		</dct:temporal>
-		<dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
-		
+
         <dcat:distribution>
           <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV-HVD">
 			  <dct:title xml:lang="es">Distribución de ejemplo HVD</dct:title>
+			  <dct:title xml:lang="en">HVD sample distribution</dct:title>
+			  <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/reg_impl/2023/138/oj"/>
 			  <dct:description xml:lang="es">Descripción de una distribución de ejemplo HVD.</dct:description>
 			  <dcat:accessURL rdf:resource="http://dcat-ap-es.ejemplo.org/files/dataset-HVD-ejemplo-1-HVD.CSV"/>
+			  <dcat:downloadURL rdf:resource="http://dcat-ap-es.ejemplo.org/files/dataset-HVD-ejemplo-1-HVD.CSV"/>
 			  <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>  
 			  <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
 			  <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
