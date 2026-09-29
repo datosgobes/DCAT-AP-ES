@@ -147,7 +147,7 @@ Igualmente, se indica para cada entidad del modelo -catálogo, registro, servici
 | Fecha de creación | Fecha de publicación inicial del catálogo. | [issued](#Catalog.issued) | Ob | 1..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 | Fecha de actualización | Fecha en la que se modificó por última vez el catálogo | [modified](#Catalog.modified) | Ob | 1..1 | [**rdfs:Literal**](http://www.w3.org/2000/01/rdf-schema#Literal) |
 | Página web | Dirección web pública de acceso al catálogo de datos | [homepage](#Catalog.homepage) | Ob | 1..1 | [**foaf:Document**](http://xmlns.com/foaf/0.1/Document) |
-| Temáticas | Taxonomía de categorías de datasets incluidas en el catálogo. | [themeTaxonomy](#Catalog.themeTaxonomy) | Ob | 1..n | [**skos:ConceptScheme**](http://www.w3.org/2004/02/skos/core#ConceptScheme) |
+| Temáticas | Taxonomía de categorías de datasets incluidas en el catálogo. | [themeTaxonomy](#Catalog.themeTaxonomy) | Ob | 1..3 | [**skos:ConceptScheme**](http://www.w3.org/2004/02/skos/core#ConceptScheme) |
 | Idioma(s) | Idioma(s) en el(los) que se encuentran metadatos de los elementos incluidos en el catálogo | [language](#Catalog.language) | Ob | 1..n | [**dct:LinguisticSystem**](http://purl.org/dc/terms/LinguisticSystem) |
 | Términos de uso | Referencia a los términos de uso generales del catálogo | [license](#Catalog.license) | Ob | 1..1 | [**dct:LicenseDocument**](http://purl.org/dc/terms/LicenseDocument) |
 | Dataset | Cada uno de los datasets incluidos en el catálogo | [dataset](#Catalog.dataset) | R | 0..n | [**dcat:Dataset**](#Dataset) |
@@ -387,7 +387,7 @@ Se describe mediante las siguientes propiedades:
 | **Descripción** | Clasificación taxonómica de las categorías o temas que determinan el contexto de los recursos de datos incluidos en el catálogo que se describe Este metadato facilita a los usuarios la búsqueda y el acceso a información relevante por áreas de interés. |
 | **Propiedad** | [**dcat:themeTaxonomy**](http://www.w3.org/ns/dcat#themeTaxonomy) |
 | **Aplicabilidad** | **Obligatorio** |
-| **Cardinalidad** | **1..n** |
+| **Cardinalidad** | **1..3** |
 | **Rango** | [**skos:ConceptScheme**](http://www.w3.org/2004/02/skos/core#ConceptScheme) |
 
 !!! note "Nota de uso"
@@ -2337,7 +2337,7 @@ Las especificaciones adicionales se muestran en las siguientes tablas comparativ
 | Catalog | Nombre | dct:title | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Descripción | dct:description | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Órgano publicador | dct:publisher | Ob | Ob | 1..1 | 1..1 | - |
-| Catalog | Temática(s) | dcat:themeTaxonomy | Ob | R | 1..n | 0..n | DCAT-AP-ES requiere obligatoriamente la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) y restringe cardinalidad |
+| Catalog | Temática(s) | dcat:themeTaxonomy | Ob | R | 1..3 | 0..n | DCAT-AP-ES requiere obligatoriamente la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) y restringe cardinalidad |
 | Catalog | Idioma(s) | dct:language | Ob | R | 1..n | 0..n | DCAT-AP-ES exige que al menos uno de los idiomas sea español |
 | Catalog | Fecha de creación | dct:issued | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
 | Catalog | Fecha de actualización | dct:modified | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
@@ -2377,7 +2377,7 @@ Las especificaciones adicionales se muestran en las siguientes tablas comparativ
 | Catalog | Nombre | dct:title | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Descripción | dct:description | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Órgano publicador | dct:publisher | Ob | Ob | 1..1 | 1..1 | - |
-| Catalog | Temática(s) | dcat:themeTaxonomy | Ob | R | 1..n | 0..n | DCAT-AP-ES requiere obligatoriamente la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) y restringe cardinalidad |
+| Catalog | Temática(s) | dcat:themeTaxonomy | Ob | R | 1..3 | 0..n | DCAT-AP-ES requiere obligatoriamente la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) y restringe cardinalidad |
 | Catalog | Idioma(s) | dct:language | Ob | R | 1..n | 0..n | DCAT-AP-ES exige que al menos uno de los idiomas sea español |
 | Catalog | Fecha de creación | dct:issued | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
 | Catalog | Fecha de actualización | dct:modified | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
