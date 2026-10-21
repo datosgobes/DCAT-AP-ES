@@ -19,7 +19,7 @@
 | dct:title  | dcat:endpointDescription dcat:servesDataset  | dct:accessRights dct:description dct:license  |  |  |
 | Dataset  | dcat:Dataset  | dct:description dct:title  | dcat:contactPoint dcat:distribution dcat:keyword dct:publisher dct:spatial dct:temporal  |  |
 | dcat:theme  |  |  |  |  |
-|  | adms:identifier adms:sample adms:versionNotes dcat:landingPage dcat:spatialResolutionIn Meters dcat:temporalResolution dcat:qualifiedRelation dct:accessRights dct:accrualPeriodicity dct:conformsTo dct:creator dcat:hasVersion dct:isReferencedBy dct:isVersionOf dct:identifier dct:issued dct:language dct:modified dct:provenance dct:relation dct:source dct:type foaf:page owl:versionInfo prov:qualifiedAttribution prov:wasGeneratedBy    |  |  |  |
+|  | adms:identifier adms:sample adms:versionNotes dcat:landingPage dcat:spatialResolutionIn Meters dcat:temporalResolution dcat:qualifiedRelation dct:accessRights dct:accrualPeriodicity dct:conformsTo dct:creator dcat:hasVersion dct:isReferencedBy dcat:isVersionOf dct:identifier dct:issued dct:language dct:modified dct:provenance dct:relation dct:source dct:type foaf:page owl:versionInfo prov:qualifiedAttribution prov:wasGeneratedBy    |  |  |  |
 | Distribution  | dcat:Distribution  | dcat:accessURL  | dcatap:availability dct:description dct:format dct:license  | adms:status dcat:accessService dcat:byteSize dcat:compressFormat dcat:downloadURL dcat:mediaType dcat:packageFormat dcat:spatialResolutionIn Meters dcat:temporalResolution dct:conformsTo dct:issued dct:language dct:modified dct:rights dct:title foaf:page  |
 | odrl:hasPolicy spdx:checksum  |  |  |  |  |
 | Document  | foaf:Document  |  |  |  |

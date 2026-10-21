@@ -136,7 +136,7 @@
   ] ;
   prov:wasGeneratedBy <http://dcat-ap-es.ejemplo.org/actividad/generacion-dataset> ;
   dcat:hasVersion <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-2> ;
-  dct:isVersionOf <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3> ;
+  dcat:isVersionOf <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3> ;
   dct:source <http://dcat-ap-es.ejemplo.org/dataset/dataset-raiz-ejemplo-1> ;
   dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
   dcat:distribution <http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV> .
