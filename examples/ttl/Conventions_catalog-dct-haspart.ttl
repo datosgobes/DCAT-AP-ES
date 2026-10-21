@@ -16,7 +16,7 @@
     # Distribución del dataset
     dcat:distribution <http://datos.gob.es/catalogo/dataset/001/distribution/1> ;
     # Nueva versión del dataset
-    dct:hasVersion <http://datos.gob.es/catalogo/dataset/001/v2> ;
+    dcat:hasVersion <http://datos.gob.es/catalogo/dataset/001/v2> ;
     # Dataset relacionado (semántica específica)
     dct:isPartOf <http://datos.gob.es/catalogo/dataset/000> ;
     # Recurso relacionado (semántica general)

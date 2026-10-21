@@ -339,7 +339,7 @@ Para mantener la simplicidad y evitar problemas de ambigüedad en la federación
 
     1. Para distribuciones de *datasets*: `dcat:distribution`
     2. Para servicios de datos: `dcat:service`
-    3. Para versiones: `dct:hasVersion`
+    3. Para versiones: `dcat:hasVersion`
     4. Para recursos relacionados con semántica conocida: otras subpropiedades de `dct:relation`
     5. Para relaciones no específicas: `dct:relation`
 

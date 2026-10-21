@@ -344,7 +344,7 @@ To maintain simplicity and avoid ambiguity problems in catalog federation, it is
 
     1. For dataset distributions: `dcat:distribution`
     2. For data services: `dcat:service`
-    3. For versions: `dct:hasVersion`
+    3. For versions: `dcat:hasVersion`
     4. For related resources with known semantics: other subproperties of `dct:relation`
     5. For non-specific relationships: `dct:relation`
 
