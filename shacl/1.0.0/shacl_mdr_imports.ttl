@@ -12,12 +12,10 @@
 <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_mdr_imports.ttl>
   rdf:type owl:Ontology ;
   rdfs:label "Restricciones de vocabularios para DCAT-AP-ES"@es ;
-  rdfs:label "Vocabulary restrictions for DCAT-AP-ES"@en ;
   dcat:downloadURL <https://datosgobes.github.io/DCAT-AP-ES/releases/1.0.0/shacl/shacl_mdr_imports.ttl> ;
   dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
   dct:conformsTo <https://www.w3.org/TR/shacl> ;
   dct:description "Este archivo incluye las importaciones necesarias para las listas de códigos utilizadas en el perfil de aplicación DCAT-AP-ES."@es ;
-  dct:description "This file includes the necessary imports for the code lists used in the DCAT-AP-ES application profile."@en ;
   owl:versionInfo "1.0.0" ;
   dct:modified "2025-10-20"^^xsd:date ;
   dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
@@ -25,7 +23,6 @@
   dcatap:availability <http://data.europa.eu/r5r/stable> ;
   foaf:homepage <https://datosgobes.github.io/DCAT-AP-ES/> ;
   rdfs:comment "Este archivo proporciona las importaciones de las listas de códigos recomendadas por el perfil de aplicación DCAT-AP-ES."@es ;
-  rdfs:comment "This file provides imports for the code lists recommended by the DCAT-AP-ES application profile."@en ;
 
 #--------------------------
 # Vocabulary imports
