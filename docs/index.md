@@ -1362,7 +1362,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 | **Propiedad** | [**dcat:spatialResolutionInMeters**](http://www.w3.org/ns/dcat#spatialResolutionInMeters) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal de tipo xsd:decimal o xsd:double** |
+| **Rango** | **rdfs:Literal de tipo xsd:integer, xsd:decimal o xsd:double** |
 
 !!! note "Nota de uso"
 
@@ -1769,7 +1769,7 @@ Esta entidad se considera clave para entender cómo se puede obtener y utilizar 
 | **Propiedad** | [**dcat:spatialResolutionInMeters**](http://www.w3.org/ns/dcat#spatialResolutionInMeters) |
 | **Aplicabilidad** | **Opcional** |
 | **Cardinalidad** | **0..1** |
-| **Rango** | **rdfs:Literal de tipo xsd:decimal o xsd:double** |
+| **Rango** | **rdfs:Literal de tipo xsd:integer, xsd:decimal o xsd:double** |
 
 !!! note "Nota de uso"
 
