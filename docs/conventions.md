@@ -49,9 +49,9 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
 - [**Convención 23**](#convencion-23): Los *datasets* *DEBEN* incluir al menos una distribución (`dcat:Distribution`).
 - [**Convención 24**](#convencion-24): Cuando un recurso DCAT-AP-ES derive de un metadato fuente de otro estándar (por ejemplo: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), *DEBERÍA* incluirse una relación mediante la propiedad `adms:identifier` que apunte al identificador persistente del metadato fuente, utilizando un nodo de tipo `adms:Identifier`.
-- [**Convención 25**](#convencion-25): Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se *DEBE* indicar: 1. `dct:title`: nombre dado al conjunto de datos. 2. `dct:description`: resumen del contenido en texto libre. 3. `dct:publisher`: entidad (organización) responsable de poner a disposición el conjunto de datos. 4. `dct:accessRights`: las restricciones de acceso con uno de los dos únicos valores posibles [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) o [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC) 5. `dcat:distribution`: al menos una distribución disponible para acceder al conjunto de datos.
-- [**Convención 26**](#convencion-26): Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se *DEBE* indicar: 1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso. 2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado). 3. `dct:format`: tipo de archivo (vocabulario `file-type`) 4. `dct:rights`: condiciones de reutilización aplicables a esta distribución.
-- [**Convención 27**](#convencion-27): Un conjunto de datos accesible vía NSIP/ERPD *DEBERÍA* relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
+- [**Convención 25**](#convencion-25): Para describir un conjunto de datos Protegidos en cada `dcat:Dataset` se *DEBE* indicar: 1. `dct:title`: nombre dado al conjunto de datos. 2. `dct:description`: resumen del contenido en texto libre. 3. `dct:publisher`: entidad (organización) responsable de poner a disposición el conjunto de datos. 4. `dct:accessRights`: las restricciones de acceso con uno de los dos únicos valores posibles [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) o [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC) 5. `dcat:distribution`: al menos una distribución disponible para acceder al conjunto de datos.
+- [**Convención 26**](#convencion-26): Para describir una distribución Protegida en cada `dcat:Distribution` se *DEBE* indicar: 1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso. 2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado). 3. `dct:format`: tipo de archivo (vocabulario `file-type`) 4. `dct:rights`: condiciones de reutilización aplicables a esta distribución.
+- [**Convención 27**](#convencion-27): Un conjunto de datos Protegido *DEBERÍA* relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
 - [**Convención 28**](#convencion-28): Para APIs con APIKey de *acceso universal* (registro automático sin aprobación manual), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `PUBLIC` e incluir `dcat:endpointDescription` con documento OpenAPI que especifique `securitySchemes` o documentar en `foaf:page` la documentación para obtener la clave.
 - [**Convención 29**](#convencion-29): Para APIs con APIKey de *acceso restringido* (requiere aprobación, contrato o pago), un `dcat:DataService` *DEBERÍA* usar `dct:accessRights` con valor `RESTRICTED` e indicar en `dct:rights` los términos de uso y `dcat:endpointDescription` con documento OpenAPI.
 - [**Convención 30**](#convencion-30): La propiedad `dcat:themeTaxonomy` en catálogos y la propiedad `dcat:theme` en datasets y servicios de datos *DEBEN* admitir cardinalidad flexible `1..*` para permitir la clasificación en tantos esquemas temáticos o taxonomías como sean necesarios, siempre que al menos uno corresponda a la [taxonomía de sectores primarios](https://datos.gob.es/kos/sector-publico/sector).
@@ -257,12 +257,12 @@ Dado que tanto `dcat:startDate` como `dcat:endDate` pueden registrarse con [rang
 !!! info "Nota sobre implementación"
     Se recomienda revisar los metadatos, sí son heredados de la versión inicial de NTI-RISP, para actualizar `schema:startDate`, `schema:endDate` (propiedades anteriores a [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/#changes)) en los nuevos registros conforme al vocabulario DCAT.
 
-## Datos restringidos pero accesibles a través de NSIP/ERPD {#general-nsip-erpd-publication}
+## Datos Protegidos {#general-nsip-erpd-publication}
 
-Esta convención define cómo representar conjuntos de datos que no son abiertos pero que están accesibles bajo la implementación de la [DGA (*Data Governance Act*) a través de NSIP/ERPD](https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained). Para más información sobre la publicación de datos restringidos en el contexto de NSIP/ERPD se puede encontrar en la [Directrices para la recopilación de datos del Registro Europeo de Datos Protegidos (ERPD) en poder del sector público](https://dataeuropa.gitlab.io/data-provider-manual/how-to-publish/guidelines/#required-metadata).
+Esta convención define cómo representar conjuntos de datos que no son abiertos pero que están accesibles bajo la implementación de la [DGA (*Data Governance Act*) ](https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained). Más información se puede encontrar en la [Directrices para la recopilación de datos del Registro Europeo de Datos Protegidos (ERPD) en poder del sector público](https://dataeuropa.gitlab.io/data-provider-manual/how-to-publish/guidelines/#required-metadata).
 
 !!! must semantic "Convención 25"
-    Para describir un conjunto de datos accesible vía NSIP/ERPD en cada `dcat:Dataset` se **DEBE** indicar:
+    Para describir un conjunto de datos Protegido en cada `dcat:Dataset` se **DEBE** indicar:
 
     1. `dct:title`: nombre dado al conjunto de datos.
     2. `dct:description`: resumen del contenido en texto libre.
@@ -271,7 +271,7 @@ Esta convención define cómo representar conjuntos de datos que no son abiertos
     5. `dcat:distribution`: al menos una distribución disponible para acceder al conjunto de datos.
 
 !!! must semantic "Convención 26"
-    Para describir una distribución accesible vía NSIP/ERPD en cada `dcat:Distribution` se **DEBE** indicar:
+    Para describir una distribución Protegida en cada `dcat:Distribution` se **DEBE** indicar:
 
     1. `dcat:accessURL`: URL con información sobre cómo solicitar el acceso.
     2. `dcat:byteSize`: tamaño en bytes (puede ser aproximado).
@@ -279,7 +279,7 @@ Esta convención define cómo representar conjuntos de datos que no son abiertos
     4. `dct:rights`: condiciones de reutilización aplicables a esta distribución.
 
 !!! should semantic "Convención 27"
-    Un conjunto de datos accesible vía NSIP/ERPD **DEBERÍA** relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
+    Un conjunto de datos Protegido **DEBERÍA** relacionarse mediante `dcatap:applicableLegislation` con la legislación específica (al menos el Reglamento DGA: `http://data.europa.eu/eli/reg/2022/868/oj`) y, si incluye endpoints o APIs directamente accesibles, usar la clase [`dcat:DataService`](index.md#DataService) para describir el servicio además de `dcat:Distribution`.
 
 !!! success "Ejemplo de uso correcto"
     ```turtle linenums="1"

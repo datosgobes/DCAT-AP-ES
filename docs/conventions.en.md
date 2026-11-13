@@ -49,9 +49,9 @@ These conventions ensure consistency in the description of resources, guaranteei
 - [**Convention 22**](#convention-22): Time periods **MUST** be described exclusively using the properties `dcat:startDate` and `dcat:endDate` within `dct:temporal`. The interval can also be open, that is, it can have only a start or only an end.
 - [**Convention 23**](#convention-23): Datasets **MUST** include at least one distribution (`dcat:Distribution`).
 - [**Convention 24**](#convention-24): When a DCAT-AP-ES resource derives from a source metadata of another standard (for example: INSPIRE/ISO19139, MARC21, DataCite, EML, Dublin Core, etc.), a relationship **SHOULD** be included using the `adms:identifier` property pointing to the persistent identifier of the source metadata, using a node of type `adms:Identifier`.
-- [**Convention 25**](#convention-25): To describe a dataset accessible via NSIP/ERPD, each `dcat:Dataset` **MUST** include: 1. `dct:title`: name given to the dataset. 2. `dct:description`: summary of the content in free text. 3. `dct:publisher`: entity (organization) responsible for making the dataset available. 4. `dct:accessRights`: access restrictions with one of the two only possible values [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) or [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC) 5. `dcat:distribution`: at least one distribution available to access the dataset.
-- [**Convention 26**](#convention-26): To describe a distribution accessible via NSIP/ERPD, each `dcat:Distribution` **MUST** include: 1. `dcat:accessURL`: URL with information on how to request access. 2. `dcat:byteSize`: size in bytes (can be approximate). 3. `dct:format`: file type (vocabulary `file-type`) 4. `dct:rights`: reuse conditions applicable to this distribution.
-- [**Convention 27**](#convention-27): A dataset accessible via NSIP/ERPD **SHOULD** be related through `dcatap:applicableLegislation` with specific legislation (at least the DGA Regulation: `http://data.europa.eu/eli/reg/2022/868/oj`) and, if it includes directly accessible endpoints or APIs, use the class [`dcat:DataService`](index.md#DataService) to describe the service in addition to `dcat:Distribution`.
+- [**Convention 25**](#convention-25): To describe a Protected dataset, each `dcat:Dataset` **MUST** include: 1. `dct:title`: name given to the dataset. 2. `dct:description`: summary of the content in free text. 3. `dct:publisher`: entity (organization) responsible for making the dataset available. 4. `dct:accessRights`: access restrictions with one of the two only possible values [`RESTRICTED`](http://publications.europa.eu/resource/authority/access-right/RESTRICTED) or [`NON_PUBLIC`](http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC) 5. `dcat:distribution`: at least one distribution available to access the dataset.
+- [**Convention 26**](#convention-26): To describe a Protected distribution, each `dcat:Distribution` **MUST** include: 1. `dcat:accessURL`: URL with information on how to request access. 2. `dcat:byteSize`: size in bytes (can be approximate). 3. `dct:format`: file type (vocabulary `file-type`) 4. `dct:rights`: reuse conditions applicable to this distribution.
+- [**Convention 27**](#convention-27): A Protected dataset **SHOULD** be related through `dcatap:applicableLegislation` with specific legislation (at least the DGA Regulation: `http://data.europa.eu/eli/reg/2022/868/oj`) and, if it includes directly accessible endpoints or APIs, use the class [`dcat:DataService`](index.md#DataService) to describe the service in addition to `dcat:Distribution`.
 - [**Convention 28**](#convention-28): For APIs with **universal access** APIKey (automatic registration without manual approval), a `dcat:DataService` **SHOULD** use `dct:accessRights` with value `PUBLIC` and include `dcat:endpointDescription` with OpenAPI document that specifies `securitySchemes` or document in `foaf:page` the documentation to obtain the key.
 - [**Convention 29**](#convention-29): For APIs with **restricted access** APIKey (requires approval, contract or payment), a `dcat:DataService` **SHOULD** use `dct:accessRights` with value `RESTRICTED` and indicate in `dct:rights` the terms of use and `dcat:endpointDescription` with OpenAPI document.
 - [**Convention 30**](#convention-30): The `dcat:themeTaxonomy` property in catalogs and the `dcat:theme` property in datasets and data services **MUST** support flexible cardinality `1..*` to allow classification in as many thematic schemes or taxonomies as necessary, as long as at least one corresponds to the [primary sector taxonomy](https://datos.gob.es/kos/sector-publico/sector).
@@ -262,12 +262,12 @@ Since both `dcat:startDate` and `dcat:endDate` can be recorded with [sufficientl
 !!! info "Note on Implementation"
     It is recommended to review metadata, if inherited from the initial version of NTI-RISP, to update `schema:startDate`, `schema:endDate` (properties prior to [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/#changes)) in new records according to the DCAT vocabulary.
 
-## Restricted data but accessible through NSIP/ERPD {#general-nsip-erpd-publication}
+## Protected data {#general-nsip-erpd-publication}
 
-This convention defines how to represent datasets that are not open but are accessible under the implementation of the [DGA (*Data Governance Act*) through NSIP/ERPD](https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained). For more information on publishing restricted data in the context of NSIP/ERPD, you can find it in the [Guidelines for collecting data from the European Protected Data Registry (ERPD) in the possession of the public sector](https://dataeuropa.gitlab.io/data-provider-manual/how-to-publish/guidelines/#required-metadata).
+This convention defines how to represent datasets that are not open but are accessible under the implementation of the [DGA (*Data Governance Act*) ](https://digital-strategy.ec.europa.eu/en/policies/data-governance-act-explained). More information on the [Guidelines for collecting data from the European Protected Data Registry (ERPD) in the possession of the public sector](https://dataeuropa.gitlab.io/data-provider-manual/how-to-publish/guidelines/#required-metadata).
 
 !!! must semantic "Convention 25"
-    To describe a dataset accessible via NSIP/ERPD, each `dcat:Dataset` **MUST** include:
+    To describe a Protected dataset, each `dcat:Dataset` **MUST** include:
 
     1. `dct:title`: name given to the dataset.
     2. `dct:description`: summary of the content in free text.
@@ -276,7 +276,7 @@ This convention defines how to represent datasets that are not open but are acce
     5. `dcat:distribution`: at least one distribution available to access the dataset.
 
 !!! must semantic "Convention 26"
-    To describe a distribution accessible via NSIP/ERPD, each `dcat:Distribution` **MUST** include:
+    To describe a Protected distribution, each `dcat:Distribution` **MUST** include:
 
     1. `dcat:accessURL`: URL with information on how to request access.
     2. `dcat:byteSize`: size in bytes (can be approximate).
@@ -284,7 +284,7 @@ This convention defines how to represent datasets that are not open but are acce
     4. `dct:rights`: reuse conditions applicable to this distribution.
 
 !!! should semantic "Convention 27"
-    A dataset accessible via NSIP/ERPD **SHOULD** be related through `dcatap:applicableLegislation` with specific legislation (at least the DGA Regulation: `http://data.europa.eu/eli/reg/2022/868/oj`) and, if it includes directly accessible endpoints or APIs, use the [`dcat:DataService`](index.md#DataService) class to describe the service in addition to `dcat:Distribution`.
+    A Protected dataset **SHOULD** be related through `dcatap:applicableLegislation` with specific legislation (at least the DGA Regulation: `http://data.europa.eu/eli/reg/2022/868/oj`) and, if it includes directly accessible endpoints or APIs, use the [`dcat:DataService`](index.md#DataService) class to describe the service in addition to `dcat:Distribution`.
 
 !!! success "Example of correct usage"
     ```turtle linenums="1"

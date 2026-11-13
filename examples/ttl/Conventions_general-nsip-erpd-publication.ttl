@@ -13,18 +13,18 @@
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
 
-    # Metadatos obligatorios NSIP/ERPD (Dataset)
+    # Metadatos obligatorios Protegidos (Dataset)
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
     dcat:distribution <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1/dist/1> ;
 
-    # Metadatos recomendados NSIP/ERPD (Dataset)
+    # Metadatos recomendados Protegidos (Dataset)
     dcatap:applicableLegislation <http://data.europa.eu/eli/reg/2022/868/oj> .
 
 <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1/dist/1>
     a dcat:Distribution ;
     dct:title "Distribución JSON"@es ;
     
-    # Metadatos obligatorios NSIP/ERPD (Distribution)
+    # Metadatos obligatorios Protegidos (Distribution)
     dcat:accessURL <https://example.com/nsip/request-access> ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/JSON> ;
     dcat:byteSize "18006"^^xsd:decimal ;
@@ -37,7 +37,7 @@
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     dcat:theme <http://datos.gob.es/kos/sector-publico/sector/medio-ambiente> ;
 
-    # Metadatos obligatorios NSIP/ERPD (DataService)
+    # Metadatos obligatorios Protegidos (DataService)
     dct:title "Servicio API REST de ejemplo"@es ;
     dcat:endpointURL <http://dcat-ap-es.ejemplo.org/services/api/1> ;
     dcat:servesDataset <http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1> .

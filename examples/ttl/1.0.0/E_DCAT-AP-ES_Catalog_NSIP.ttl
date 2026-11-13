@@ -12,7 +12,7 @@
 @prefix spdx: <http://spdx.org/rdf/terms#> . 
 
 # ============================================================================
-# CATÁLOGO DE EJEMPLO:  DATOS PROTEGIDOS (NSIP/ERPD)
+# CATÁLOGO DE EJEMPLO:  DATOS PROTEGIDOS
 # ============================================================================
 
 <http://nsip.dcat-ap-es.ejemplo.org/catalogo-protegido>
@@ -22,8 +22,8 @@
     dct:title "Catálogo de Ejemplo - Datos Protegidos"@es,
               "Example Catalog - Protected Data"@en ;
     
-    dct:description "Catálogo de ejemplo que demuestra cómo representar conjuntos de datos con acceso restringido disponibles a través de NSIP/ERPD conforme al Reglamento de Gobernanza de Datos (DGA). Este catálogo contiene únicamente datos ficticios para propósitos de demostración."@es,
-                    "Example catalog demonstrating how to represent datasets with restricted access available through NSIP/ERPD in compliance with the Data Governance Act (DGA). This catalog contains only fictitious data for demonstration purposes."@en ;
+    dct:description "Catálogo de ejemplo que demuestra cómo representar conjuntos de datos Protegidos conforme al Reglamento de Gobernanza de Datos (DGA). Este catálogo contiene únicamente datos ficticios para propósitos de demostración."@es,
+                    "Example catalog demonstrating how to represent protected datasets in compliance with the Data Governance Act (DGA). This catalog contains only fictitious data for demonstration purposes."@en ;
     
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     
@@ -78,15 +78,15 @@
 <http://nsip.dcat-ap-es.ejemplo.org/dataset/datos-economicos-ejemplo>
     a dcat:Dataset ;
     
-    # === CONVENCIÓN 25: PROPIEDADES OBLIGATORIAS NSIP/ERPD ===
+    # === CONVENCIÓN 25: PROPIEDADES OBLIGATORIAS Protegidos ===
     
     # 1. dct:title
     dct:title "Datos Económicos Agregados de Ejemplo"@es,
               "Example Aggregated Economic Data"@en ;
     
     # 2. dct:description
-    dct:description "Conjunto de datos de ejemplo que contiene información económica ficticia agregada por sector y región. Los datos están anonimizados y son únicamente para propósitos de demostración del perfil DCAT-AP-ES para datos protegidos NSIP/ERPD."@es,
-                    "Example dataset containing fictitious economic information aggregated by sector and region. Data is anonymized and for demonstration purposes of the DCAT-AP-ES profile for NSIP/ERPD protected data only."@en ;
+    dct:description "Conjunto de datos de ejemplo que contiene información económica ficticia agregada por sector y región. Los datos están anonimizados y son únicamente para propósitos de demostración del perfil DCAT-AP-ES para datos Protegidos."@es,
+                    "Example dataset containing fictitious economic information aggregated by sector and region. Data is anonymized and for demonstration purposes of the DCAT-AP-ES profile for protected data only."@en ;
     
     # 3. dct:publisher
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
@@ -153,7 +153,7 @@
     
     dct:provenance [
         a dct:ProvenanceStatement ;
-        rdfs:label "Datos ficticios generados para demostración del perfil DCAT-AP-ES NSIP/ERPD."@es
+        rdfs:label "Datos ficticios generados para demostración del perfil DCAT-AP-ES."@es
     ] ;
     
     dcat:accessService <http://nsip.dcat-ap-es.ejemplo.org/service/api-datos-protegidos> . 
@@ -387,8 +387,8 @@
     dct:title "Datos Agregados Sectoriales de Ejemplo"@es,
               "Example Sector Aggregated Data"@en ;
     
-    dct:description "Datos de ejemplo agregados por sector con información ficticia sobre indicadores económicos y sociales.  Todos los datos son ficticios y generados para propósitos de demostración del modelo DCAT-AP-ES para NSIP/ERPD."@es,
-                    "Example data aggregated by sector with fictitious information on economic and social indicators. All data is fictitious and generated for demonstration purposes of the DCAT-AP-ES model for NSIP/ERPD."@en ;
+    dct:description "Datos de ejemplo agregados por sector con información ficticia sobre indicadores económicos y sociales.  Todos los datos son ficticios y generados para propósitos de demostración del modelo DCAT-AP-ES para Protegidos."@es,
+                    "Example data aggregated by sector with fictitious information on economic and social indicators. All data is fictitious and generated for demonstration purposes of the DCAT-AP-ES model."@en ;
     
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     
@@ -486,8 +486,8 @@
     dct:title "API de Ejemplo para Datos Protegidos"@es,
               "Example API for Protected Data"@en ;
     
-    dct:description "Servicio de API de ejemplo para acceso a conjuntos de datos protegidos ficticios. Demuestra cómo implementar un servicio conforme a DCAT-AP-ES para NSIP/ERPD.  Este servicio es únicamente para demostración y no proporciona acceso a datos reales."@es,
-                    "Example API service for access to fictitious protected datasets. Demonstrates how to implement a service compliant with DCAT-AP-ES for NSIP/ERPD. This service is for demonstration purposes only and does not provide access to real data."@en ;
+    dct:description "Servicio de API de ejemplo para acceso a conjuntos de datos protegidos ficticios. Demuestra cómo implementar un servicio conforme a DCAT-AP-ES para Protegidos.  Este servicio es únicamente para demostración y no proporciona acceso a datos reales."@es,
+                    "Example API service for access to fictitious protected datasets. Demonstrates how to implement a service compliant with DCAT-AP-ES for Protected. This service is for demonstration purposes only and does not provide access to real data."@en ;
     
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001> ;
     
