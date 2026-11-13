@@ -1408,7 +1408,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 
 !!! note "Nota de uso"
 
-    Se recomienda especificar cualquier cambio en la propiedad o custodia que sea significativo para verificar la autenticidad, integridad e interpretación del conjunto de datos. Es aconsejable utilizar la [ontología PROV-O](https://www.w3.org/TR/prov-o/), si bien una descripción en texto libre también es aceptada.
+    Se recomienda especificar cualquier cambio en la propiedad o custodia que sea significativo para verificar la autenticidad, integridad e interpretación del conjunto de datos. Es aconsejable utilizar la [ontología PROV-O](https://www.w3.org/TR/prov-o/).
 
 
 | [`dcat:Dataset`](#Dataset) | [`dct:relation`](http://purl.org/dc/terms/relation) |
