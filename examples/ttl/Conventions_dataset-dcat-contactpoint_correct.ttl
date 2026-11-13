@@ -6,7 +6,7 @@
         a vcard:Kind ;
         vcard:organization-name "Organismo"@es ;
         vcard:fn "Oficina de Datos Abiertos"@es ;
-        vcard:hasUid "EA0000000" ;
+        vcard:hasUID "EA0000000" ;
         vcard:hasEmail <mailto:datos@example.org> ;
         vcard:hasTelephone <tel:+34-900999999> ;
         vcard:hasURL <https://example.org/contacto> 

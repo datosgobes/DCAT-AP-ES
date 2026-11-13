@@ -90,7 +90,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 * <<convencion-16,*Convención 16*>>: La cobertura geográfica _DEBE_ declararse utilizando las URIs del https://datos.gob.es/es/recurso/sector-publico/territorio[Anexo V de la NTI-RISP para recursos geográficos del territorio español], siguiendo estas reglas: 1. Utilizar el nivel territorial más específico que corresponda al ámbito real del dataset. 2. Evitar el uso de `España` por defecto cuando el ámbito sea más reducido. 3. No declarar simultáneamente una Comunidad Autónoma y sus provincias. 4. Para Comunidades Autónomas uniprovinciales, utilizar preferentemente la referencia a la Comunidad Autónoma.
 * <<convencion-17,*Convención 17*>>: Cuando se especifique la cobertura geométrica, se _DEBERÍA_ usar `WKT` (según http://www.opengeospatial.org/standards/geosparql[GeoSPARQL]).
 * <<convencion-18,*Convención 18*>>: Los _datasets_ _DEBEN_ incluir al menos un punto de contacto (`dcat:contactPoint`) con las siguientes propiedades obligatorias: Correo electrónico (`vcard:hasEmail`) o URL del formulario de contacto (`vcard:hasURL`)
-* <<convencion-19,*Convención 19*>>: El punto de contacto _DEBERÍA_ incluir también: 1. Denominación del área o persona (`vcard:fn`) 2. Número de teléfono (`vcard:hasTelephone`) 3. Identificador del organismo (`vcard:hasUid`)
+* <<convencion-19,*Convención 19*>>: El punto de contacto _DEBERÍA_ incluir también: 1. Denominación del área o persona (`vcard:fn`) 2. Número de teléfono (`vcard:hasTelephone`) 3. Identificador del organismo (`vcard:hasUID`)
 * <<convencion-20,*Convención 20*>>: Los puntos de contacto recogidos en la taxonomía del portal _DEBEN_ describirse como un `vcard:Kind` y no directamente con la URI del organismo.
 * <<convencion-21,*Convención 21*>>: En las distribuciones de servicios OGC, las URLs de acceso _DEBEN_ modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `+http://example.org/wms?request=GetCapabilities&service=WMS+`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `+http://www.opengeospatial.org/standards/wms+`
 
@@ -577,7 +577,7 @@ El punto de contacto **DEBERÍA** incluir también:
 
 1. Denominación del área o persona (`vcard:fn`)
 2. Número de teléfono (`vcard:hasTelephone`)
-3. Identificador del organismo (`vcard:hasUid`)
+3. Identificador del organismo (`vcard:hasUID`)
 ====
 
 [CAUTION]

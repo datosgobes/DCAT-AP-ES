@@ -43,7 +43,7 @@ Estas convenciones aseguran la coherencia en la descripción de los recursos, ga
 - [**Convención 16**](#convencion-16): La cobertura geográfica *DEBE* declararse utilizando las URIs del [Anexo V de la NTI-RISP para recursos geográficos del territorio español](https://datos.gob.es/es/recurso/sector-publico/territorio), siguiendo estas reglas: 1. Utilizar el nivel territorial más específico que corresponda al ámbito real del dataset. 2. Evitar el uso de `España` por defecto cuando el ámbito sea más reducido. 3. No declarar simultáneamente una Comunidad Autónoma y sus provincias. 4. Para Comunidades Autónomas uniprovinciales, utilizar preferentemente la referencia a la Comunidad Autónoma.
 - [**Convención 17**](#convencion-17): Cuando se especifique la cobertura geométrica, se *DEBERÍA* usar `WKT` (según [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql)).
 - [**Convención 18**](#convencion-18): Los *servicios de datos HVD* *DEBEN* incluir al menos un punto de contacto (`dcat:contactPoint`) con alguna de las siguientes propiedades: Correo electrónico (`vcard:hasEmail`) o URL del formulario de contacto (`vcard:hasURL`)
-- [**Convención 19**](#convencion-19): El punto de contacto *DEBERÍA* incluir también: 1. Nombre (`vcard:organization-name`) 2. Número de teléfono (`vcard:hasTelephone`) en formato URI `tel:` 3. Identificador del organismo (`vcard:hasUid`) 4. Correo electrónico (`vcard:hasEmail`) en formato URI `mailto:` 5. URL del formulario de contacto (`vcard:hasURL`)
+- [**Convención 19**](#convencion-19): El punto de contacto *DEBERÍA* incluir también: 1. Nombre (`vcard:organization-name`) 2. Número de teléfono (`vcard:hasTelephone`) en formato URI `tel:` 3. Identificador del organismo (`vcard:hasUID`) 4. Correo electrónico (`vcard:hasEmail`) en formato URI `mailto:` 5. URL del formulario de contacto (`vcard:hasURL`)
 - [**Convención 20**](#convencion-20): Los puntos de contacto recogidos en la taxonomía del portal *DEBEN* describirse como un `vcard:Kind` y no directamente con la URI del organismo.
 - [**Convención 21**](#convencion-21): En las distribuciones de servicios OGC, las URLs de acceso *DEBEN* modelarse de la siguiente manera: En `dcat:accessURL`: URL completa de la petición de capacidades del servicio `GetCapabilities` (ej: `http://example.org/wms?request=GetCapabilities&service=WMS`) y en `dct:conformsTo`: URL del estándar OGC correspondiente, ej: `http://www.opengeospatial.org/standards/wms`
 - [**Convención 22**](#convencion-22): Los periodos temporales *DEBEN* ser descritos exclusivamente mediante las propiedades `dcat:startDate` y `dcat:endDate` dentro de `dct:temporal`. El intervalo también puede ser abierto, es decir, puede tener solo un comienzo o solo un final.
@@ -596,7 +596,7 @@ Para facilitar la comunicación con los responsables de los *datasets* o *servic
     
     1. Nombre (`vcard:organization-name`)
     2. Número de teléfono (`vcard:hasTelephone`) en formato URI `tel:`
-    3. Identificador del organismo (`vcard:hasUid`)
+    3. Identificador del organismo (`vcard:hasUID`)
     4. Correo electrónico (`vcard:hasEmail`) en formato URI `mailto:`
     5. URL del formulario de contacto (`vcard:hasURL`)
 

@@ -43,7 +43,7 @@ These conventions ensure consistency in the description of resources, guaranteei
 - [**Convention 16**](#convention-16): Geographic coverage **MUST** be declared using URIs from the [Annex V of NTI-RISP for geographic resources of Spanish territory](https://datos.gob.es/es/recurso/sector-publico/territorio), following these rules: 1. Use the most specific territorial level that corresponds to the dataset's actual scope. 2. Avoid using `Spain` by default when the scope is narrower. 3. Do not declare an Autonomous Community and its provinces simultaneously. 4. For single-province Autonomous Communities, preferably use the reference to the Autonomous Community.
 - [**Convention 17**](#convention-17): When specifying geometric coverage, `WKT` **SHOULD** be used (according to [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql)).
 - [**Convention 18**](#convention-18): HVD data services **MUST** include at least one contact point (`dcat:contactPoint`) with one of the following properties: Email address (`vcard:hasEmail`) or Contact form URL (`vcard:hasURL`)
-- [**Convention 19**](#convention-19): The contact point **SHOULD** include: 1. Name (`vcard:organization-name`) 2. Telephone number (`vcard:hasTelephone`) URI: `tel:` 3. Organization identifier (`vcard:hasUid`) 4. Email address (`vcard:hasEmail`) URI `mailto:` 5. Contact form URL (`vcard:hasURL`)
+- [**Convention 19**](#convention-19): The contact point **SHOULD** include: 1. Name (`vcard:organization-name`) 2. Telephone number (`vcard:hasTelephone`) URI: `tel:` 3. Organization identifier (`vcard:hasUID`) 4. Email address (`vcard:hasEmail`) URI `mailto:` 5. Contact form URL (`vcard:hasURL`)
 - [**Convention 20**](#convention-20): Contact points listed in the portal's taxonomy **MUST** be described as a `vcard:Kind` and not directly with the organization's URI.
 - [**Convention 21**](#convention-21): In OGC service distributions, access URLs **MUST** be modeled as follows: In `dcat:accessURL`: Complete URL of the service capabilities request `GetCapabilities` (e.g.: `http://example.org/wms?request=GetCapabilities&service=WMS`) and in `dct:conformsTo`: URL of the corresponding OGC standard, e.g.: `http://www.opengeospatial.org/standards/wms`
 - [**Convention 22**](#convention-22): Time periods **MUST** be described exclusively using the properties `dcat:startDate` and `dcat:endDate` within `dct:temporal`. The interval can also be open, that is, it can have only a start or only an end.
@@ -601,7 +601,7 @@ To facilitate communication with those responsible for *datasets* or *data servi
     
     1. Name (`vcard:organization-name`)
     2. Telephone number (`vcard:hasTelephone`) URI `tel:`
-    3. Organization identifier (`vcard:hasUid`)
+    3. Organization identifier (`vcard:hasUID`)
     4. Email address (`vcard:hasEmail`) URI `mailto:`
     5. Contact form URL (`vcard:hasURL`)
 
