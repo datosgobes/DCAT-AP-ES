@@ -387,7 +387,7 @@ Se describe mediante las siguientes propiedades:
 | **Descripción** | Clasificación taxonómica de las categorías o temas que determinan el contexto de los recursos de datos incluidos en el catálogo que se describe Este metadato facilita a los usuarios la búsqueda y el acceso a información relevante por áreas de interés. |
 | **Propiedad** | [**dcat:themeTaxonomy**](http://www.w3.org/ns/dcat#themeTaxonomy) |
 | **Aplicabilidad** | **Obligatorio** |
-| **Cardinalidad** | **1..3** |
+| **Cardinalidad** | **1..n** |
 | **Rango** | [**skos:ConceptScheme**](http://www.w3.org/2004/02/skos/core#ConceptScheme) |
 
 !!! note "Nota de uso"
@@ -2321,7 +2321,7 @@ Las especificaciones adicionales se muestran en las siguientes tablas comparativ
     |---|---|---|
     |**1. Declaración obligatoria de las siguientes propiedades opcionales**| (*Catalog*)<br>dcat:themeTaxonomy<br> dct:language<br> dct:issued<br> dct:modified<br> dct:license<br> foaf:homepage<br><br>(*Dataset*)<br>dcat:theme<br> dct:publisher<br> | Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013) que ya venían siendo aplicadas de esta forma por las AAPP |
     |**2. Mantenimiento de estructura de URIs para la cobertura geográfica**| (*Catalog*/*Dataset*)<br>dct:spatial | Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013) que ya venían siendo aplicadas de esta forma por las AAPP |
-    |**3. Ajuste a 3 la cardinalidad máxima de taxonomías de temas**| (*Catalog*)<br>dcat:themeTaxonomy | Facilitar la interoperabilidad al utilizar taxonomías de uso común (NTI-RISP (2013), INSPIRE y EDP) |
+    |**3. Ajuste a n la cardinalidad de taxonomías de temas**| (*Catalog*)<br>dcat:themeTaxonomy | Facilitar la interoperabilidad al utilizar taxonomías de uso común (NTI-RISP (2013), INSPIRE y EDP) |
     |**4. Uso obligatorio de, al menos, la taxonomía de sectores primarios fijada por la NTI-RISP (2013)**| (*Catalog*)<br>dcat:themeTaxonomy | Aprovechar buenas prácticas que venían fijadas por la NTI-RISP (2013) y reforzar el uso que se realiza para otros fines de las AAPP |
     |**5. Obligación de incorporación de, al menos, el idioma castellano en propiedades multilingües**| (*Catalog*/*Dataset*/*Distribution*)<br>dct:language | Garantizar la interoperabilidad |
     |**6. Uso del DIR3 para la identificación de publicadores**|  (*Agent*)<br>dct:publisher<br> dct:identifier| Aplicar la forma estándar de identificación única de organismos públicos y reforzar el uso que se realiza para otros fines de las AAPP |
@@ -2337,7 +2337,7 @@ Las especificaciones adicionales se muestran en las siguientes tablas comparativ
 | Catalog | Nombre | dct:title | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Descripción | dct:description | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Órgano publicador | dct:publisher | Ob | Ob | 1..1 | 1..1 | - |
-| Catalog | Temática(s) | dcat:themeTaxonomy | Ob | R | 1..3 | 0..n | DCAT-AP-ES requiere obligatoriamente la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) y restringe cardinalidad |
+| Catalog | Temática(s) | dcat:themeTaxonomy | Ob | R | 1..n | 0..n | DCAT-AP-ES requiere obligatoriamente la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) |
 | Catalog | Idioma(s) | dct:language | Ob | R | 1..n | 0..n | DCAT-AP-ES exige que al menos uno de los idiomas sea español |
 | Catalog | Fecha de creación | dct:issued | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
 | Catalog | Fecha de actualización | dct:modified | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
@@ -2377,7 +2377,7 @@ Las especificaciones adicionales se muestran en las siguientes tablas comparativ
 | Catalog | Nombre | dct:title | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Descripción | dct:description | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Órgano publicador | dct:publisher | Ob | Ob | 1..1 | 1..1 | - |
-| Catalog | Temática(s) | dcat:themeTaxonomy | Ob | R | 1..3 | 0..n | DCAT-AP-ES requiere obligatoriamente la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) y restringe cardinalidad |
+| Catalog | Temática(s) | dcat:themeTaxonomy | Ob | R | 1..n | 0..n | DCAT-AP-ES requiere obligatoriamente la [taxonomía de sectores primarios](http://datos.gob.es/kos/sector-publico/sector) |
 | Catalog | Idioma(s) | dct:language | Ob | R | 1..n | 0..n | DCAT-AP-ES exige que al menos uno de los idiomas sea español |
 | Catalog | Fecha de creación | dct:issued | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
 | Catalog | Fecha de actualización | dct:modified | Ob | R | 1..1 | 0..1 | DCAT-AP-ES eleva la propiedad a Obligatoria |
@@ -2456,7 +2456,6 @@ Este anexo presenta una visión consolidada de las espeficifidades adicionales e
 ### 5. Cardinalidades adaptadas
 - Define cardinalidades más restrictivas para mayor precisión (ej., `dct:publisher` exige cardinalidad `1..1`)
 - Limita resoluciones espaciales y temporales a una única instancia (`0..1`)
-- Restringe `dcat:themeTaxonomy` a máximo 3 taxonomías, incluyendo obligatoriamente la española
 
 ### 6. Alineado con el marco legal de datos
 - DCAT-AP-ES es una evolución del [modelo de metadatos NTI-RISP](https://datosgobes.github.io/NTI-RISP/) y la [Guía de aplicación](https://datosgobes.github.io/NTI-RISP/download/pdf/guia_nti_pdf_reutilizacion_recursos_informacion_2aed.pdf) que lo contiene. Por lo que implementa los requisitos de acuerdo con la normativa española de datos abiertos ([Ley 37/2007, de 16 de noviembre, sobre reutilización de la información del sector público](https://www.boe.es/eli/es/l/2007/11/16/37/con) y [Resolución de 19 de febrero de 2013, de la Secretaría de Estado de Administraciones Públicas, por la que se aprueba la Norma Técnica de Interoperabilidad de Reutilización de recursos de la información](https://www.boe.es/eli/es/res/2013/02/19/(4))). 

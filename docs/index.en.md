@@ -490,7 +490,7 @@ The additional specifications are shown in the following comparative tables, whe
 | Catalog | Name | dct:title | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Description | dct:description | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Publishing body | dct:publisher | Ob | Ob | 1..1 | 1..1 | - |
-| Catalog | Theme(s) | dcat:themeTaxonomy | Ob | R | 1..3 | 0..n | DCAT-AP-ES mandatorily requires the [primary sectors taxonomy](http://datos.gob.es/kos/sector-publico/sector) and restricts cardinality |
+| Catalog | Theme(s) | dcat:themeTaxonomy | Ob | R | 1..n | 0..n | DCAT-AP-ES mandatorily requires the [primary sectors taxonomy](http://datos.gob.es/kos/sector-publico/sector) and restricts cardinality |
 | Catalog | Language(s) | dct:language | Ob | R | 1..n | 0..n | DCAT-AP-ES requires that at least one of the languages is Spanish |
 | Catalog | Creation date | dct:issued | Ob | R | 1..1 | 0..1 | DCAT-AP-ES raises the property to Mandatory |
 | Catalog | Update date | dct:modified | Ob | R | 1..1 | 0..1 | DCAT-AP-ES raises the property to Mandatory |
@@ -530,7 +530,7 @@ The additional specifications are shown in the following comparative tables, whe
 | Catalog | Name | dct:title | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Description | dct:description | Ob | Ob | 1..n | 1..n | - |
 | Catalog | Publishing body | dct:publisher | Ob | Ob | 1..1 | 1..1 | - |
-| Catalog | Theme(s) | dcat:themeTaxonomy | Ob | R | 1..3 | 0..n | DCAT-AP-ES mandatorily requires the [primary sectors taxonomy](http://datos.gob.es/kos/sector-publico/sector) and restricts cardinality |
+| Catalog | Theme(s) | dcat:themeTaxonomy | Ob | R | 1..n | 0..n | DCAT-AP-ES mandatorily requires the [primary sectors taxonomy](http://datos.gob.es/kos/sector-publico/sector) and restricts cardinality |
 | Catalog | Language(s) | dct:language | Ob | R | 1..n | 0..n | DCAT-AP-ES requires that at least one of the languages is Spanish |
 | Catalog | Creation date | dct:issued | Ob | R | 1..1 | 0..1 | DCAT-AP-ES raises the property to Mandatory |
 | Catalog | Update date | dct:modified | Ob | R | 1..1 | 0..1 | DCAT-AP-ES raises the property to Mandatory |
@@ -610,7 +610,6 @@ This annex presents a consolidated view of the additional specificities between 
 ### 5. Adapted Cardinalities
 - Defines more restrictive cardinalities for greater precision (e.g., `dct:publisher` requires cardinality `1..1`)
 - Limits spatial and temporal resolutions to a single instance (`0..1`)
-- Restricts `dcat:themeTaxonomy` to maximum 3 taxonomies, mandatorily including the Spanish one
 
 ### 6. Aligned with the Legal Data Framework
 - DCAT-AP-ES is an evolution of the [NTI-RISP metadata model](https://datosgobes.github.io/NTI-RISP/) and the [Application Guide](https://datosgobes.github.io/NTI-RISP/download/pdf/guia_nti_pdf_reutilizacion_recursos_informacion_2aed.pdf) that contains it. Therefore, it implements requirements according to Spanish open data regulations ([Law 37/2007, of November 16, on the reuse of public sector information](https://www.boe.es/eli/es/l/2007/11/16/37/con) and [Resolution of February 19, 2013, of the Secretary of State for Public Administrations, approving the Technical Interoperability Standard for Information Resources Reuse](https://www.boe.es/eli/es/res/2013/02/19/(4))). 

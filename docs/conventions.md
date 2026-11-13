@@ -292,7 +292,7 @@ Esta convención define cómo representar conjuntos de datos que no son abiertos
     - Si se proporciona tanto `dct:accessURL` como `dcat:downloadURL`, el harvester priorizará `accessURL` para NSIP.
 
 ## Ampliación de taxonomías de temas {#general-themes}
-En el perfil DCAT-AP-ES, la cardinalidad de las propiedades `dcat:themeTaxonomy` (en catálogo) y `dcat:theme` (en dataset y servicios) [está actualmente limitada a un máximo de 3 valores (`1..3`)](index.md#Catalog.themeTaxonomy). Sin embargo, existen escenarios donde es necesario asociar más de tres taxonomías temáticas o temas, especialmente para interoperabilidad con perfiles sectoriales (INSPIRE, Eurovoc), integración con catálogos internacionales, o para datasets multitemáticos.
+En el perfil DCAT-AP-ES, la cardinalidad de las propiedades `dcat:themeTaxonomy` (en catálogo) y `dcat:theme` (en dataset y servicios) [estaba limitada a un máximo de 3 valores (`1..3`)](index.md#Catalog.themeTaxonomy). Sin embargo, existen escenarios donde es necesario asociar más de tres taxonomías temáticas o temas, especialmente para interoperabilidad con perfiles sectoriales (INSPIRE, Eurovoc), integración con catálogos internacionales, o para datasets multitemáticos.
 
 !!! must organisational "Convención 30"
     La propiedad `dcat:themeTaxonomy` en catálogos y la propiedad `dcat:theme` en datasets y servicios de datos **DEBEN** admitir cardinalidad flexible `1..*` para permitir la clasificación en tantos esquemas temáticos o taxonomías como sean necesarios, siempre que al menos uno corresponda a la [taxonomía de sectores primarios](https://datos.gob.es/kos/sector-publico/sector). 
