@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:dcat="http://www.w3.org/ns/dcat#"
-         xmlns:dc="http://purl.org/dc/terms/"
+         xmlns:dct="http://purl.org/dc/terms/"
          xmlns:foaf="http://xmlns.com/foaf/0.1/"
          xmlns:adms="http://www.w3.org/ns/adms#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -13,24 +13,24 @@
          xmlns:odrl="http://www.w3.org/ns/odrl/2/">
 
   <dcat:Catalog rdf:about="http://dcat-ap-es.ejemplo.org/catalogo">
-    <dc:title xml:lang="es">Catálogo de Datos Abiertos</dc:title>
-    <dc:description xml:lang="es">Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES.</dc:description>
-    <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-01-01T12:00:00+01:00</dc:issued>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dc:modified>
+    <dct:title xml:lang="es">Catálogo de Datos Abiertos</dct:title>
+    <dct:description xml:lang="es">Catálogo de Datos Abiertos que sirve de ejemplo en DCAT-AP-ES.</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-01-01T12:00:00+01:00</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dct:modified>
     <foaf:homepage rdf:resource="http://dcat-ap-es.ejemplo.org"/>
     <dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector"/>
-    <dc:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
-    <dc:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
-    <dc:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
     <dcat:catalog rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo_relacionado"/>
     <dcat:record rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo/record/dataset-ejemplo-1"/>
 
-    <dc:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
 
-    <dc:hasPart rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo-vinculado"/>
-    <dc:isPartOf rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo-delqueformaparte"/>
-    <dc:rights>
+    <dct:hasPart rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo-vinculado"/>
+    <dct:isPartOf rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo-delqueformaparte"/>
+    <dct:rights>
       <rdf:Description rdf:about="http://dcat-ap-es.ejemplo.org/catalogo/derechos-de-acceso">
         <rdf:type rdf:resource="http://schema.theodi.org/odrs#RightsStatement"/>
         <rdfs:label>Derechos relativos a la reutilización del Catálogo de Datos Abiertos</rdfs:label>
@@ -38,14 +38,14 @@
         <odrs:attributionText>Atribución de autoría al Organismo</odrs:attributionText>
         <odrs:attributionURL rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
       </rdf:Description>
-    </dc:rights>
+    </dct:rights>
 
-    <dc:temporal>
-      <dc:PeriodOfTime>
+    <dct:temporal>
+      <dct:PeriodOfTime>
         <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-03T12:00:00+01:00</dcat:startDate>
         <dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-03T12:00:00+01:00</dcat:endDate>
-      </dc:PeriodOfTime>
-    </dc:temporal>
+      </dct:PeriodOfTime>
+    </dct:temporal>
 
     <dcat:dataset rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
     <dcat:dataset rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-2"/>
@@ -54,24 +54,24 @@
   </dcat:Catalog>
 
   <dcat:Catalog rdf:about="http://dcat-ap-es.ejemplo.org/catalogo-vinculado">
-    <dc:title xml:lang="es">Catálogo vinculado</dc:title>
-    <dc:description xml:lang="es">Catálogo asociado que sirve de ejemplo en DCAT-AP-ES.</dc:description>
-    <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T09:00:00+01:00</dc:issued>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dc:modified>
+    <dct:title xml:lang="es">Catálogo vinculado</dct:title>
+    <dct:description xml:lang="es">Catálogo asociado que sirve de ejemplo en DCAT-AP-ES.</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T09:00:00+01:00</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dct:modified>
     <foaf:homepage rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo-vinculado"/>
     <dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector"/>
-    <dc:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
-    <dc:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
-    <dc:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
     <dcat:dataset>
       <dcat:Dataset rdf:about="http://dcat-ap-es.ejemplo.org/catalogo-vinculado/dataset/ejemplo">
-        <dc:title xml:lang="es">Dataset ejemplo en catálogo vinculado</dc:title>
-        <dc:description xml:lang="es">Dataset de ejemplo en el catálogo vinculado</dc:description>
-        <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+        <dct:title xml:lang="es">Dataset ejemplo en catálogo vinculado</dct:title>
+        <dct:description xml:lang="es">Dataset de ejemplo en el catálogo vinculado</dct:description>
+        <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
         <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
         <dcat:keyword xml:lang="es">ejemplo</dcat:keyword>
-        <dc:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
+        <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"/>
         <dcat:contactPoint>
           <vcard:Organization>
             <vcard:organization-name xml:lang="es">Organismo</vcard:organization-name>
@@ -83,22 +83,22 @@
           </vcard:Organization>
         </dcat:contactPoint>
 
-        <dc:temporal>
-          <dc:PeriodOfTime>
+        <dct:temporal>
+          <dct:PeriodOfTime>
             <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T00:00:00Z</dcat:startDate>
             <dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T23:59:59Z</dcat:endDate>
-          </dc:PeriodOfTime>
-        </dc:temporal>
+          </dct:PeriodOfTime>
+        </dct:temporal>
 
         <dcat:distribution>
           <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/catalogo-vinculado/distribucion/ejemplo">
-            <dc:title xml:lang="es">Distribución de ejemplo en formato CSV</dc:title>
+            <dct:title xml:lang="es">Distribución de ejemplo en formato CSV</dct:title>
             <dcat:accessURL rdf:resource="http://dcat-ap-es.ejemplo.org/catalogo-vinculado/files/ejemplo.csv"/>
             <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/dir/2007/2/2019-06-26"/>
-            <dc:description xml:lang="es">Descripción de una distribución distribuida de ejemplo</dc:description>
+            <dct:description xml:lang="es">Descripción de una distribución distribuida de ejemplo</dct:description>
             <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
-            <dc:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
-            <dc:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+            <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+            <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
           </dcat:Distribution>
         </dcat:distribution>
 
@@ -108,59 +108,59 @@
   </dcat:Catalog>
 
   <dcat:Dataset rdf:about="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1">
-    <dc:title xml:lang="es">Dataset de ejemplo 1</dc:title>
-    <dc:description xml:lang="es">Descripción de un dataset de ejemplo 1</dc:description>
-    <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:title xml:lang="es">Dataset de ejemplo 1</dct:title>
+    <dct:description xml:lang="es">Descripción de un dataset de ejemplo 1</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
     <dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
     <dcat:contactPoint rdf:resource="http://dcat-ap-es.ejemplo.org/contactDataset"/>
-    <dc:temporal>
-      <dc:PeriodOfTime>
+    <dct:temporal>
+      <dct:PeriodOfTime>
         <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-02-01T12:00:00+01:00</dcat:startDate>
         <dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-01T12:00:00+01:00</dcat:endDate>
-      </dc:PeriodOfTime>
-    </dc:temporal>
+      </dct:PeriodOfTime>
+    </dct:temporal>
 
-    <dc:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Madrid"/>
-    <dc:identifier>IDD1</dc:identifier>
-    <dc:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Madrid"/>
+    <dct:identifier>IDD1</dct:identifier>
+    <dct:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <foaf:page rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1/page"/>
     <dcat:landingPage rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1/landing"/>
     <adms:sample rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV"/>
-    <dc:conformsTo rdf:resource="http://normativaespecifica-dataset.com"/>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T12:00:00+01:00</dc:issued>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T12:00:00+01:00</dc:modified>
-    <dc:type rdf:resource="http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL"/>
-    <dc:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
-    <dc:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/MONTHLY"/>
+    <dct:conformsTo rdf:resource="http://normativaespecifica-dataset.com"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T12:00:00+01:00</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T12:00:00+01:00</dct:modified>
+    <dct:type rdf:resource="http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL"/>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dct:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/MONTHLY"/>
     <dcat:version>1</dcat:version>
     <adms:versionNotes xml:lang="es">Version 1</adms:versionNotes>
     <dcat:qualifiedRelation>
       <dcat:Relationship>
-        <dc:relation rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-2"/>
-        <dc:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
+        <dct:relation rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-2"/>
+        <dct:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
         <dcat:hadRole rdf:resource="http://purl.org/dc/terms/references"/>
       </dcat:Relationship>
     </dcat:qualifiedRelation>
     <dcat:qualifiedRelation>
       <dcat:Relationship>
-        <dc:relation rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-22"/>
-        <dc:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
+        <dct:relation rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-22"/>
+        <dct:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
         <dcat:hadRole rdf:resource="http://purl.org/dc/terms/references"/>
       </dcat:Relationship>
     </dcat:qualifiedRelation>
     <dcat:qualifiedRelation>
       <dcat:Relationship>
-        <dc:relation rdf:resource="http://pre.datos.gob.es/es/catalogo/ea0041513-demandantes-de-empleo-por-municipio"/>
-        <dc:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
+        <dct:relation rdf:resource="http://pre.datos.gob.es/es/catalogo/ea0041513-demandantes-de-empleo-por-municipio"/>
+        <dct:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
         <dcat:hadRole rdf:resource="http://purl.org/dc/terms/references"/>
       </dcat:Relationship>
     </dcat:qualifiedRelation>
 
     <dcat:spatialResolutionInMeters rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</dcat:spatialResolutionInMeters>
     <dcat:temporalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT24M</dcat:temporalResolution>
-    <dc:isReferencedBy rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-2"/>
-    <dc:provenance rdf:resource="http://dcat-ap-es.ejemplo.org/provenance/statement1"/>
+    <dct:isReferencedBy rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-2"/>
+    <dct:provenance rdf:resource="http://dcat-ap-es.ejemplo.org/provenance/statement1"/>
     <prov:qualifiedAttribution>
       <prov:Attribution>
         <dcat:hadRole rdf:resource="http://purl.org/dc/terms/publisher"/>
@@ -170,9 +170,9 @@
 
     <prov:wasGeneratedBy rdf:resource="http://dcat-ap-es.ejemplo.org/actividad/generacion-dataset"/>
     <dcat:hasVersion rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-2"/>
-    <dc:isVersionOf rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3"/>
-    <dc:source rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-raiz-ejemplo-1"/>
-    <dc:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC"/>
+    <dct:isVersionOf rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3"/>
+    <dct:source rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-raiz-ejemplo-1"/>
+    <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC"/>
     <dcat:distribution rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV"/>
   </dcat:Dataset>
 
@@ -194,21 +194,21 @@
   <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV">
     <dcat:accessURL rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV/files/1T2p3o4B.CSV"/>
     <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/dir/2007/2/2019-06-26"/>
-    <dc:description xml:lang="es">Descripción de un distribución de ejemplo 1</dc:description>
+    <dct:description xml:lang="es">Descripción de un distribución de ejemplo 1</dct:description>
     <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
-    <dc:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
-    <dc:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+    <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
     <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/text/calendar"/>
     <dcat:accessService rdf:resource="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1"/>
-    <dc:title xml:lang="es">Distribución de ejemplo 1</dc:title>
-    <dc:title xml:lang="en">Example distribution 1</dc:title>
+    <dct:title xml:lang="es">Distribución de ejemplo 1</dct:title>
+    <dct:title xml:lang="en">Example distribution 1</dct:title>
     <foaf:page rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV/page"/>
     <dcat:downloadURL rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV/download"/>
-    <dc:conformsTo rdf:resource="http://normativaespecifica-distribucion.com"/>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-05T12:00:00+01:00</dc:issued>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-06T12:00:00+01:00</dc:modified>
+    <dct:conformsTo rdf:resource="http://normativaespecifica-distribucion.com"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-05T12:00:00+01:00</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-06T12:00:00+01:00</dct:modified>
     <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
-    <dc:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
     <dcat:compressFormat rdf:resource="http://www.iana.org/assignments/media-types/application/gzip"/>
     <dcat:packageFormat rdf:resource="http://www.iana.org/assignments/media-types/application/json"/>
     <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1000</dcat:byteSize>
@@ -222,49 +222,49 @@
     </spdx:checksum>
 
     <odrl:hasPolicy rdf:resource="http://publications.europa.eu/resource/authority/access-right/SENSITIVE"/>
-    <dc:rights rdf:resource="http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL"/>
+    <dct:rights rdf:resource="http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL"/>
   </dcat:Distribution>
 
   <dcat:Dataset rdf:about="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-2">
-    <dc:title xml:lang="es">Dataset de ejemplo 2</dc:title>
-    <dc:description xml:lang="es">Descripción de un dataset de ejemplo 2</dc:description>
-    <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:title xml:lang="es">Dataset de ejemplo 2</dct:title>
+    <dct:description xml:lang="es">Descripción de un dataset de ejemplo 2</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
     <dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
     <dcat:contactPoint rdf:resource="http://dcat-ap-es.ejemplo.org/contactDataset"/>
-    <dc:temporal>
-      <dc:PeriodOfTime>
+    <dct:temporal>
+      <dct:PeriodOfTime>
         <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-02-01T12:00:00+01:00</dcat:startDate>
         <dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-01T12:00:00+01:00</dcat:endDate>
-      </dc:PeriodOfTime>
-    </dc:temporal>
+      </dct:PeriodOfTime>
+    </dct:temporal>
 
-    <dc:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Madrid"/>
-    <dc:identifier>IDD2</dc:identifier>
-    <dc:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Madrid"/>
+    <dct:identifier>IDD2</dct:identifier>
+    <dct:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <foaf:page rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-2/page"/>
     <dcat:landingPage rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-2/landing"/>
     <adms:sample rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV"/>
-    <dc:conformsTo rdf:resource="http://normativaespecifica-dataset.com"/>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T12:00:00+01:00</dc:issued>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T12:00:00+01:00</dc:modified>
-    <dc:type rdf:resource="http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL"/>
-    <dc:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
-    <dc:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/MONTHLY"/>
+    <dct:conformsTo rdf:resource="http://normativaespecifica-dataset.com"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T12:00:00+01:00</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T12:00:00+01:00</dct:modified>
+    <dct:type rdf:resource="http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL"/>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dct:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/MONTHLY"/>
     <dcat:version>2</dcat:version>
     <adms:versionNotes xml:lang="es">Version 2</adms:versionNotes>
     <dcat:qualifiedRelation>
       <dcat:Relationship>
-        <dc:relation rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3"/>
-        <dc:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
+        <dct:relation rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3"/>
+        <dct:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
         <dcat:hadRole rdf:resource="http://purl.org/dc/terms/references"/>
       </dcat:Relationship>
     </dcat:qualifiedRelation>
 
     <dcat:spatialResolutionInMeters rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</dcat:spatialResolutionInMeters>
     <dcat:temporalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT24M</dcat:temporalResolution>
-    <dc:isReferencedBy rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3"/>
-    <dc:provenance rdf:resource="http://dcat-ap-es.ejemplo.org/provenance/statement1"/>
+    <dct:isReferencedBy rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3"/>
+    <dct:provenance rdf:resource="http://dcat-ap-es.ejemplo.org/provenance/statement1"/>
     <prov:qualifiedAttribution>
       <prov:Attribution>
         <dcat:hadRole rdf:resource="http://purl.org/dc/terms/publisher"/>
@@ -273,25 +273,25 @@
     </prov:qualifiedAttribution>
 
     <prov:wasGeneratedBy rdf:resource="http://dcat-ap-es.ejemplo.org/actividad/generacion-dataset"/>
-    <dc:source rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-raiz-ejemplo-1"/>
-    <dc:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC"/>
+    <dct:source rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-raiz-ejemplo-1"/>
+    <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC"/>
     <dcat:distribution>
       <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-2-CSV">
         <dcat:accessURL rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-2-CSV/files/1T2p3o4B.CSV"/>
         <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/dir/2007/2/2019-06-26"/>
-        <dc:description xml:lang="es">Descripción de un distribución de ejemplo 2</dc:description>
+        <dct:description xml:lang="es">Descripción de un distribución de ejemplo 2</dct:description>
         <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
-        <dc:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
-        <dc:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+        <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+        <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
         <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/text/calendar"/>
-        <dc:title xml:lang="es">Distribución de ejemplo 2</dc:title>
+        <dct:title xml:lang="es">Distribución de ejemplo 2</dct:title>
         <foaf:page rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-2-CSV/page"/>
         <dcat:downloadURL rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-2-CSV/download"/>
-        <dc:conformsTo rdf:resource="http://normativaespecifica-distribucion.com"/>
-        <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-05T12:00:00+01:00</dc:issued>
-        <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-06T12:00:00+01:00</dc:modified>
+        <dct:conformsTo rdf:resource="http://normativaespecifica-distribucion.com"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-05T12:00:00+01:00</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-06T12:00:00+01:00</dct:modified>
         <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
-        <dc:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
         <dcat:compressFormat rdf:resource="http://www.iana.org/assignments/media-types/application/gzip"/>
         <dcat:packageFormat rdf:resource="http://www.iana.org/assignments/media-types/application/json"/>
         <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2000</dcat:byteSize>
@@ -305,52 +305,52 @@
         </spdx:checksum>
 
         <odrl:hasPolicy rdf:resource="http://publications.europa.eu/resource/authority/access-right/SENSITIVE"/>
-        <dc:rights rdf:resource="http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL"/>
+        <dct:rights rdf:resource="http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL"/>
       </dcat:Distribution>
     </dcat:distribution>
 
   </dcat:Dataset>
 
   <dcat:Dataset rdf:about="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3">
-    <dc:title xml:lang="es">Dataset de ejemplo 3</dc:title>
-    <dc:description xml:lang="es">Descripción de un dataset de ejemplo 3</dc:description>
-    <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:title xml:lang="es">Dataset de ejemplo 3</dct:title>
+    <dct:description xml:lang="es">Descripción de un dataset de ejemplo 3</dct:description>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
     <dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
     <dcat:contactPoint rdf:resource="http://dcat-ap-es.ejemplo.org/contactDataset"/>
-    <dc:temporal>
-      <dc:PeriodOfTime>
+    <dct:temporal>
+      <dct:PeriodOfTime>
         <dcat:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-02-01T12:00:00+01:00</dcat:startDate>
         <dcat:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-01T12:00:00+01:00</dcat:endDate>
-      </dc:PeriodOfTime>
-    </dc:temporal>
+      </dct:PeriodOfTime>
+    </dct:temporal>
 
-    <dc:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Madrid"/>
-    <dc:identifier>IDD3</dc:identifier>
-    <dc:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Madrid"/>
+    <dct:identifier>IDD3</dct:identifier>
+    <dct:creator rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <foaf:page rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3/page"/>
     <dcat:landingPage rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-3/landing"/>
     <adms:sample rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-1-CSV"/>
-    <dc:conformsTo rdf:resource="http://normativaespecifica-dataset.com"/>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T12:00:00+01:00</dc:issued>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T12:00:00+01:00</dc:modified>
-    <dc:type rdf:resource="http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL"/>
-    <dc:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
-    <dc:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/MONTHLY"/>
+    <dct:conformsTo rdf:resource="http://normativaespecifica-dataset.com"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T12:00:00+01:00</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T12:00:00+01:00</dct:modified>
+    <dct:type rdf:resource="http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL"/>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dct:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/MONTHLY"/>
     <dcat:version>3</dcat:version>
     <adms:versionNotes xml:lang="es">Version 3</adms:versionNotes>
     <dcat:qualifiedRelation>
       <dcat:Relationship>
-        <dc:relation rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
-        <dc:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
+        <dct:relation rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
+        <dct:type rdf:resource="http://www.w3.org/ns/dcat#isReferencedBy"/>
         <dcat:hadRole rdf:resource="http://purl.org/dc/terms/references"/>
       </dcat:Relationship>
     </dcat:qualifiedRelation>
 
     <dcat:spatialResolutionInMeters rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</dcat:spatialResolutionInMeters>
     <dcat:temporalResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT24M</dcat:temporalResolution>
-    <dc:isReferencedBy rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
-    <dc:provenance rdf:resource="http://dcat-ap-es.ejemplo.org/provenance/statement1"/>
+    <dct:isReferencedBy rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
+    <dct:provenance rdf:resource="http://dcat-ap-es.ejemplo.org/provenance/statement1"/>
     <prov:qualifiedAttribution>
       <prov:Attribution>
         <dcat:hadRole rdf:resource="http://purl.org/dc/terms/publisher"/>
@@ -359,25 +359,25 @@
     </prov:qualifiedAttribution>
 
     <prov:wasGeneratedBy rdf:resource="http://dcat-ap-es.ejemplo.org/actividad/generacion-dataset"/>
-    <dc:source rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-raiz-ejemplo-1"/>
-    <dc:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC"/>
+    <dct:source rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-raiz-ejemplo-1"/>
+    <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC"/>
     <dcat:distribution>
       <dcat:Distribution rdf:about="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-3-CSV">
         <dcat:accessURL rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-3-CSV/files/1T2p3o4B.CSV"/>
         <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/dir/2007/2/2019-06-26"/>
-        <dc:description xml:lang="es">Descripción de un distribución de ejemplo 3</dc:description>
+        <dct:description xml:lang="es">Descripción de un distribución de ejemplo 3</dct:description>
         <dcatap:availability rdf:resource="http://publications.europa.eu/resource/authority/planned-availability/STABLE"/>
-        <dc:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
-        <dc:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+        <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+        <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
         <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/text/calendar"/>
-        <dc:title xml:lang="es">Distribución de ejemplo 3</dc:title>
+        <dct:title xml:lang="es">Distribución de ejemplo 3</dct:title>
         <foaf:page rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-3-CSV/page"/>
         <dcat:downloadURL rdf:resource="http://dcat-ap-es.ejemplo.org/distribucion/dataset-ejemplo-3-CSV/download"/>
-        <dc:conformsTo rdf:resource="http://normativaespecifica-distribucion.com"/>
-        <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-05T12:00:00+01:00</dc:issued>
-        <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-06T12:00:00+01:00</dc:modified>
+        <dct:conformsTo rdf:resource="http://normativaespecifica-distribucion.com"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-05T12:00:00+01:00</dct:issued>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-06T12:00:00+01:00</dct:modified>
         <adms:status rdf:resource="http://publications.europa.eu/resource/authority/distribution-status/COMPLETED"/>
-        <dc:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
         <dcat:compressFormat rdf:resource="http://www.iana.org/assignments/media-types/application/gzip"/>
         <dcat:packageFormat rdf:resource="http://www.iana.org/assignments/media-types/application/json"/>
         <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3000</dcat:byteSize>
@@ -391,17 +391,17 @@
         </spdx:checksum>
 
         <odrl:hasPolicy rdf:resource="http://publications.europa.eu/resource/authority/access-right/SENSITIVE"/>
-        <dc:rights rdf:resource="http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL"/>
+        <dct:rights rdf:resource="http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL"/>
       </dcat:Distribution>
     </dcat:distribution>
 
   </dcat:Dataset>
 
   <dcat:DataService rdf:about="http://dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1">
-    <dc:title xml:lang="es">Data Service de ejemplo</dc:title>
+    <dct:title xml:lang="es">Data Service de ejemplo</dct:title>
     <dcat:endpointURL rdf:resource="http://api.dcat-ap-es.ejemplo.org/dataservice/dataservice-ejemplo-1"/>
     <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"/>
-    <dc:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
+    <dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/E0DAT0001"/>
     <dcat:contactPoint>
       <vcard:Organization rdf:about="http://dcat-ap-es.ejemplo.org/contactDataservice">
         <vcard:organization-name xml:lang="es">Organismo</vcard:organization-name>
@@ -418,20 +418,20 @@
     <dcat:servesDataset rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
     <dcatap:applicableLegislation rdf:resource="http://data.europa.eu/eli/dir/2007/2/2019-06-26"/>
     <dcatap:hvdCategory rdf:resource="http://data.europa.eu/bna/c_b7f6a4f3"/>
-    <dc:description xml:lang="es">Descripción de un dataservice de ejemplo.</dc:description>
-    <dc:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/OP_DATPRO"/>
-    <dc:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
+    <dct:description xml:lang="es">Descripción de un dataservice de ejemplo.</dct:description>
+    <dct:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/OP_DATPRO"/>
+    <dct:license rdf:resource="http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"/>
     <dcat:keyword xml:lang="es">estadísticas</dcat:keyword>
   </dcat:DataService>
 
   <dcat:CatalogRecord rdf:about="http://dcat-ap-es.ejemplo.org/catalogo/record/dataset-ejemplo-1">
     <foaf:primaryTopic rdf:resource="http://dcat-ap-es.ejemplo.org/dataset/dataset-ejemplo-1"/>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dc:modified>
-    <dc:conformsTo rdf:resource="http://datos.gob.es/es/documentacion/DCAT-AP-ES"/>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T12:00:00+01:00</dc:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-02T12:00:00+01:00</dct:modified>
+    <dct:conformsTo rdf:resource="http://datos.gob.es/es/documentacion/DCAT-AP-ES"/>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T12:00:00+01:00</dct:issued>
     <adms:status rdf:resource="http://purl.org/adms/status/Completed"/>
-    <dc:title xml:lang="es">Registro del Dataset de ejemplo 1</dc:title>
-    <dc:description xml:lang="es">Registro de metadatos del Dataset de ejemplo 1 del Catálogo de Datos Abiertos</dc:description>
+    <dct:title xml:lang="es">Registro del Dataset de ejemplo 1</dct:title>
+    <dct:description xml:lang="es">Registro de metadatos del Dataset de ejemplo 1 del Catálogo de Datos Abiertos</dct:description>
   </dcat:CatalogRecord>
 
 </rdf:RDF>
