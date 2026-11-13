@@ -336,7 +336,7 @@ Se describe mediante las siguientes propiedades:
 
 !!! note "Nota de uso"
 
-    Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (`dct:spatial`) y temporal (`dct:temporal`). Esta propiedad puede ser repetida para expresar el nombre en diferentes idiomas.
+    Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (`dct:spatial`) y temporal (`dct:temporal`). Esta propiedad puede ser repetida para expresarse en diferentes idiomas.
 
 
 | [`dcat:Catalog`](#Catalog) | [`dct:description`](http://purl.org/dc/terms/description) |
@@ -692,7 +692,7 @@ Si esta función no es necesaria, la clase `dcat:CatalogRecord` se puede ignor
 
 !!! note "Nota de uso"
 
-    Se debe especificar un literal conciso. Esta propiedad puede ser repetida para expresar el nombre en diferentes idiomas.
+    Se debe especificar un literal conciso. Esta propiedad puede ser repetida para expresarse en diferentes idiomas.
 
 
 | [`dcat:CatalogRecord`](#CatalogRecord) | [`dct:description`](http://purl.org/dc/terms/description) |
@@ -730,7 +730,7 @@ Utilizando esta clase, un conjunto de datos se puede distribuir en diferentes re
 
 !!! note "Nota de uso"
 
-    Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (`dct:spatial`) y temporal (`dct:temporal`). Esta propiedad puede ser repetida para expresar el nombre en diferentes idiomas.
+    Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (`dct:spatial`) y temporal (`dct:temporal`). Esta propiedad puede ser repetida para expresarse en diferentes idiomas.
 
 
 | [`dcat:DataService`](#DataService) | [`dcatap:applicableLegislation`](http://data.europa.eu/r5r/applicableLegislation) |
@@ -929,7 +929,7 @@ Utilizando esta clase, un conjunto de datos se puede distribuir en diferentes re
 
 !!! note "Nota de uso"
 
-    Se recomienda elegir cuidadosamente las etiquetas para reflejar de manera precisa el contenido, ámbito y propósito del servicio de datos para ayudar a los usuarios a identificar y localizar servicios de datos de interés y establecer relaciones con otros elementos similares.  Es conveniente etiquetar de forma homogénea, aplicando reglas y criterios normalizados y válidos ortográficamente.  Se permite que los términos sean texto libre, aunque se recomienda utilizar únicamente los incluidos en un servicio de términos cerrado (vocabulario, taxonomía, tesauro, etc.) como puede ser [Eurovoc](https://eur-lex.europa.eu/browse/eurovoc.html).
+    Se recomienda elegir cuidadosamente las etiquetas para reflejar de manera precisa el contenido, ámbito y propósito del servicio de datos para ayudar a los usuarios a identificar y localizar servicios de datos de interés y establecer relaciones con otros elementos similares.  Es conveniente etiquetar de forma homogénea, aplicando reglas y criterios normalizados y válidos ortográficamente.  Se permite que los términos sean texto libre, aunque se recomienda utilizar únicamente los incluidos en un servicio de términos cerrado (vocabulario, taxonomía, tesauro, etc.) como puede ser [Eurovoc](https://eur-lex.europa.eu/browse/eurovoc.html). Esta propiedad puede ser repetida para expresarse en diferentes idiomas. Solo se permiten letras, números, espacios, guiones, apóstrofos y el símbolo &.
 
 
 ## Metadatos de la clase Conjunto de datos {#dcat-Dataset}
@@ -952,7 +952,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 
 !!! note "Nota de uso"
 
-    Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (`dct:spatial`) y temporal (`dct:temporal`). Esta propiedad puede ser repetida para expresar el nombre en diferentes idiomas.
+    Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (`dct:spatial`) y temporal (`dct:temporal`). Esta propiedad puede ser repetida para expresarse en diferentes idiomas.
 
 
 | [`dcat:Dataset`](#Dataset) | [`dct:description`](http://purl.org/dc/terms/description) |
@@ -1050,7 +1050,7 @@ Esta clase es una de las clases fundamentales en repositorios y catálogos, ya q
 
 !!! note "Nota de uso"
 
-    Se recomienda elegir cuidadosamente las etiquetas para reflejar de manera precisa el contenido, ámbito y propósito del conjunto de datos para ayudar a los usuarios a identificar y localizar conjuntos de datos de interés y establecer relaciones con otros elementos similares.  Es conveniente etiquetar de forma homogénea, aplicando reglas y criterios normalizados y válidos ortográficamente.  Se permite que los términos sean texto libre, aunque se recomienda utilizar únicamente los incluidos en un conjunto de términos cerrado (vocabulario, taxonomía, tesauro, etc.) como puede ser [Eurovoc](https://eur-lex.europa.eu/browse/eurovoc.html).
+    Se recomienda elegir cuidadosamente las etiquetas para reflejar de manera precisa el contenido, ámbito y propósito del conjunto de datos para ayudar a los usuarios a identificar y localizar conjuntos de datos de interés y establecer relaciones con otros elementos similares.  Es conveniente etiquetar de forma homogénea, aplicando reglas y criterios normalizados y válidos ortográficamente.  Se permite que los términos sean texto libre, aunque se recomienda utilizar únicamente los incluidos en un conjunto de términos cerrado (vocabulario, taxonomía, tesauro, etc.) como puede ser [Eurovoc](https://eur-lex.europa.eu/browse/eurovoc.html). Esta propiedad puede ser repetida para expresarse en diferentes idiomas. Solo se permiten letras, números, espacios, guiones, apóstrofos y el símbolo &.
 
 
 | [`dcat:Dataset`](#Dataset) | [`dcat:contactPoint`](http://www.w3.org/ns/dcat#contactPoint) |
@@ -1605,7 +1605,7 @@ Esta entidad se considera clave para entender cómo se puede obtener y utilizar 
 
 !!! note "Nota de uso"
 
-    Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (dct:spatial) y temporal (dct:temporal). Esta propiedad puede ser repetida para expresar el nombre en diferentes idiomas.
+    Se debe especificar un literal conciso. Se recomienda no incluir en el nombre ninguna referencia temporal o geográfica dado que este tipo de información debe expresarse mediante las propiedades específicas cobertura espacial (dct:spatial) y temporal (dct:temporal). Esta propiedad puede ser repetida para expresarse en diferentes idiomas.
 
 
 | [`dcat:Distribution`](#Distribution) | [`foaf:page`](http://xmlns.com/foaf/0.1/page) |
